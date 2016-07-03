@@ -1,2 +1,2 @@
-# estruturas.github.io
+# estruturas
 Material para site de estruturas.
