@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        
+        <title>Aprendendo D3js</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style type="text/css">
+            #desenho {
+                display: inline-block;
+                width: 600px;
+                height: 300px;   /* We'll override this later */
+                background-color: gray;
+                margin-right: 2px;
+            }
+        </style>
+        
+        <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/d3.js"></script>
+        
+    </head>
+    <body>       
+        
+        <div id="desenho"></div>
+        
+        <script type="text/javascript">
+            
+            //var largura = $(window).innerWidth(),
+            //    altura = $(window).innerHeight();
+            
+            var svg = d3.select("#desenho")
+                        .append("svg");
+                        //.attr("width", largura)
+                        //.attr("height", altura);
+            
+            var dataset = [ 5, 10, 15, 20, 25 ];
+            
+            var circles = svg.selectAll("circle")
+                 .data(dataset)
+                 .enter()
+                 .append("circle");
+         
+            circles.attr("cx", function(d, i) {
+                        return (i * 50) + 25;
+                    })
+                    .attr("cy", 10)
+                    .attr("r", function(d) {
+                        return d;
+                    })
+                    .attr("fill", "yellow");
+        
+        </script>
+        
+    </body>
+</html>
