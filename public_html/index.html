@@ -57,7 +57,7 @@ and open the template in the editor.
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section id="titulo">
+                <section id="titulo" data-background-image="imagens/background2.jpg">
                     <h1>Método dos Elementos Finitos</h1>
                     <h3>Abordagens para simulaçoes não-lineares</h3>
                     <p>
@@ -74,6 +74,9 @@ and open the template in the editor.
                 </section> 
                 
                 <section id="introducao">
+                    <section id="objetivos_intro" data-background-image="imagens/Objetivos.jpg">
+                        <h1 style="position: absolute; top: 40%; left: 15%;">Objetivos da disciplina</h1>                        
+                    </section>
                     <section id="objetivos">
                         <h2>Objetivos da disciplina</h2>
                         <ul>
@@ -167,6 +170,9 @@ and open the template in the editor.
                 </section>
                 
                 <section id="def-basicas">
+                    <section id="tiposNL_intro" data-background-image="imagens/EstruturaNaoLinear.jpg">
+                        <h1 style="position: absolute; top: 30%; left: 3%;">Não linearidade em estruturas</h1>                        
+                    </section>
                     <section id="tiposNL">
                         <h2>Tipos de não linearidade em estruturas</h2>
                         <ul>
@@ -343,6 +349,9 @@ and open the template in the editor.
                 </section>
                 
                 <section id="solucaoNaoLinear">
+                    <section id="solucaoNaoLinear_intro" data-background-image="imagens/ProcessoSolucao.jpg">
+                        <h1 style="position: absolute; top: 40%; left: 8%;">Procedimento de Solução</h1>                        
+                    </section>
                     <section id="molasNL">
                         <h2>Procedimento de Solução</h2>
                         <h4>Somente se resolvem problemas lineares...</h4>
@@ -1656,8 +1665,7 @@ and open the template in the editor.
                     </section>
                     <section id="exercicioFinalPassos">
                         <h2>Exercício Final</h2>                        
-                        <p>A relação tensão-deformação e a
-                        relação deslocamento-deformação são lineares. No entanto, o módulo
+                        <p>Seja a barra da figura abaixo e sabendo que o módulo
                         de elasticidade varia com a deformação:</p>
                         $$ \sigma = E(u) \varepsilon (u) \quad \varepsilon (u) = \dfrac{du}{dx}
                         \quad E(u) = E_0 \left( 1 - \dfrac{du}{dx} \right)$$          
