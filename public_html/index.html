@@ -1446,7 +1446,7 @@ and open the template in the editor.
                             <li>Newton Raphson é melhor quando:
                                 <ul>
                                     <li>A não linearidade é simples (leve);</li>
-                                    <li>O critério de convergência </li>
+                                    <li>O critério de convergência mais rigoroso.</li>
                                 </ul>
                             </li>
                             <li>Newton Raphson modificado é melhor quando:
@@ -1456,8 +1456,209 @@ and open the template in the editor.
                                     <li>Newton Raphson não converge bem.</li>
                                 </ul>
                             </li>
+                        </ul>   
+                    </section>
+                    <section id="PrecisaoXconvergencia">
+                        <h2>Precisão X Convergência</h2>
+                        <ul>
+                            <li>O procedimento de solução não linear precisa de:
+                                <ul>
+                                    <li>Força interna $ P(d) $;</li>
+                                    <li>Jacobiano ou matriz de rigidez tangente: 
+                                        $ K_T(d) = \dfrac{\partial P}{\partial d} $;</li>
+                                    <li>Normalmente implementados na mesma rotina.</li>
+                                </ul>
+                            </li>
+                            <li>A força interna necessita de precisão:
+                                <ul>
+                                    <li>Resolve-se o equilíbrio de $ P(d) = F $</li>
+                                </ul>
+                            </li>
+                            <li>A matriz de rigidez tangente contribui para a convergência:
+                                <ul>
+                                    <li>$ K_T $ precisa fornece convergência quadratica;</li>
+                                    <li>$ K_T $ aproximada necessita dae mais iterações;</li>
+                                    <li>$ K_T $ errônea causa falta de convergência.</li>
+                                </ul>
+                            </li>
+                        </ul>   
+                    </section>
+                    <section id="CriterioDeConvergencia">
+                        <h2>Critério de Convergência</h2>
+                        <ul>
+                            <li>Normalmente são três:
+                                <ul>
+                                    <li>Trabalho, deslocamento e carregamento (residual);</li>
+                                    <li>Trabalho  = deslocamento * carregamento;</li>
+                                    <li>Pelo menos dois critérios devem convergir.</li>
+                                </ul>
+                            </li>
                         </ul>
-                        
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 700px; float: left; text-align: left;">
+                                <ul>                                    
+                                    <li>O critério de convergência tradicional é o de carregamento (residual):
+                                        <ul>
+                                            <li>Equilíbrio entre forças internas e externas $ P(d) = F(d) $</li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 30px">O critério de deslocamentos é 
+                                        utilizado para sistemas insensíveis ao tipo do carregamento.</li>
+                                </ul>                                 
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <img style="border: 0px;" width="600" src="imagens/cargaInsensivel.png">                            
+                            </div>
+                        </div>                        
+                    </section>
+                    <section id="estrategiasSolucao1">
+                        <h2>Estratégias de Solução</h2>
+                        <ul>
+                            <li>Casos de carregamento (ou passos de carga)*:
+                                <ul>
+                                    <li>Um caso de carregamento é um conjunto de cargas e
+                                    condições de contorno que definem um problema de análise;</li>
+                                    <li>Múltiplos casos de carregamento pode ser utilizados para definir
+                                    uma sequência de condições de carregamento:</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <img style="border: 0px;" width="900" src="imagens/MultiplosCasosCarga.png">
+                        <aside class="notes">
+                            * Load Step, subcase ou step.
+                        </aside>
+                    </section>
+                    <section id="estrategiasSolucao2">
+                        <h4>Estratégias de Solução (cont. 1)</h4>
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 700px; float: left; text-align: left; margin-top: 50px;">
+                                <ul>
+                                    <li>Incrementos de carga*:
+                                        <ul>
+                                            <li>Análise linear diz respeito à carga total;</li>
+                                            <li>Análise não linear depende do caminho de carregamento
+                                            (história);</li>
+                                            <li>A carga aplicada é aumentada gradualmente em um
+                                            passo de carga;</li>
+                                            <li>Seguem o caminho da carga, melhoram a precisão e
+                                            convergem facilmente.</li>
+                                        </ul>
+                                    </li>
+                                </ul>                                 
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <img style="border: 0px;" width="700" src="imagens/IncrementosCarga.png">                            
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            * Substeps. Também pode ser um incremento de deslocamentos.
+                        </aside>
+                    </section>
+                    <section id="estrategiasSolucao3">
+                        <h4>Estratégias de Solução (cont. 2)</h4>
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 700px; float: left; text-align: left; margin-top: 50px;">
+                                <ul>
+                                    <li>Iteração de convergência:
+                                        <ul>
+                                            <li>Dentro de um incremento de carga, um método 
+                                            iterativo* é utilizado para encontrar a 
+                                            solução não linear;</li>
+                                            <li>Além disso, para tentar novamente a convergência
+                                                antes da parada por máximas tentativas,
+                                                métodos como da Bisecção, busca linear, estabilização, etc.
+                                            podem ser utilizados.</li>
+                                        </ul>
+                                    </li>
+                                </ul>                                 
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <img style="border: 0px;" width="400" src="imagens/IteracaoConvergencia.png">                            
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            * Por exemplo, o método de Newton Raphson.
+                        </aside>
+                    </section>
+                    <section id="estrategiasSolucao4">
+                        <h4>Estratégias de Solução (cont. 3)</h4>
+                        <ul>
+                            <li>Incremento de carga automático (variável)*:
+                                <ul>
+                                    <li>O incremento de carga pode não ser uniforme;</li>
+                                    <li>Quando a iteração de convergência diverge, o 
+                                    incremento de carga é reduzido a metade;</li>
+                                    <li>Se a solução convergir em menos de 4 iterações,
+                                    aumenta-se o incremento em 25%;</li>
+                                    <li>Se a solução converge em mais de 8 iterações,
+                                    diminui-se o incremento em 25%.</li>
+                                </ul>
+                            </li>
+                            <li>Subincremento**:
+                                <ul>
+                                    <li>Quando não há convergência em dado incremento, 
+                                    retorna-se ao anterior qua convergiu e reduz-se
+                                    o incremento a metade;</li>
+                                    <li>Processo repetido até o número máximo de 
+                                    subincrementos.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Ou passo de tempo (time stepping) automático.<br>
+                            ** Ou bisecção.
+                        </aside>
+                    </section>
+                    <section id="analiseNaoLinearNaoConverge">
+                        <h2>Quando a análise não linear não converge</h2>                        
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 600px; float: left; text-align: left;">
+                                <ul>
+                                    <li>O método de Newton Raphson adota uma curvatura
+                                    constante localmente;</li>
+                                    <li>Quando o sinal da curvatura muda em torno da solução,
+                                    o método de Newton Raphson oscila ou diverge;</li>
+                                    <li>Geralmente a força residual muda de sinal entre iterações;</li>
+                                    <li>Uma busca linear pode ajudar a convergir.</li>
+                                </ul>
+                            </div>
+                            <div style="margin-left: 600px;">
+                                <img style="border: 0px;" width="800" src="imagens/newtonRaphson-Divergencia.png">
+                                $$ P(d) = d + tan^{-1}(5d) $$
+                                $$ \dfrac{d P}{d d} = 1 + 5cos^2(tan^{-1}(5d)) $$
+                            </div>
+                        </div>
+                    </section>
+                    <section id="analiseNaoLinearNaoConverge2">
+                        <h4>Quando a análise não linear não converge (cont. 1)</h4>                        
+                        <p>Procedimentos de Controle de deslocamento x Controle de força:</p>
+                        <ul>                            
+                            <li>Quase todos os problemas lineares são controlados por força;</li>
+                            <li>Procedimento de controle de deslocamento é mais estável
+                                para análises não lineares;</li>
+                            <li>Usa-se as reações para calcular as forças aplicadas.</li>
+                        </ul>
+                        <img style="border: 0px;" width="800" src="imagens/newtonRaphsonBifSnapT.png">
+                    </section>
+                    <section id="analiseNaoLinearNaoConverge3">
+                        <h4>Quando a análise não linear não converge (cont. 2)</h4>                        
+                        <p>Distorções na malha:</p>
+                        <ul>                            
+                            <li>A análise deve ser parada quando a malha está muito distorcida;</li>
+                            <li>Uma malha boa inicialmente pode ser distorcida durante
+                                um grande deslocamento;</li>
+                            <li>Exite a possibilidade de se utilizar procedimentos de remalhagem,
+                                mas ainda são inprecisos e inconvenientes;</li>
+                            <li>O melhor é fazer a malha de certo modo que a qualidade da mesma
+                            se preserve após os deslocamentos (tentativa e erro).</li>
+                        </ul>
+                        <img style="border: 0px;" width="700" src="imagens/malhaDistorcida.png">
+                    </section>
+                </section>
+                
+                <section>
+                    <h2>Elementos Finitos para análises não lineares elásticas</h2>
+                    ...
                 </section>
                 
                 
