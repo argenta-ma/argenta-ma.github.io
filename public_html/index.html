@@ -1421,8 +1421,43 @@ and open the template in the editor.
                     </section>
                     <section id="SolucaoNaoLinear-qual">
                         <h2>Newton-Raphson ou Newton-Raphson Modificado?</h2>                        
-                        ...
+                        <ul>
+                            <li>É sempre recomendado utilizar métodos incrementais*:
+                                <ul>
+                                    <li>Não linearidade simples: $ \sim $ incrementos;</li>
+                                    <li>Não linearidade complicada: $ 20 \sim 100 $ incrementos;</li>
+                                </ul>
+                            </li>
+                            <li>Em cada incremento, Newton Raphson ou Newton Raphson modificado
+                            pode ser utilizado:
+                                <ul>
+                                    <li>Newton Raphson calcula $ K_T $ a cada iteração;</li>
+                                    <li>Newton Raphson modificado somente calcula $ K_T $ uma vez;</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * De forças ou deslocamentos.
+                        </aside>
                     </section>
+                    <section id="SolucaoNaoLinear-qual2">
+                        <h4>Newton-Raphson ou Newton-Raphson Modificado?</h4>
+                        <ul style="margin-top: 100px;">
+                            <li>Newton Raphson é melhor quando:
+                                <ul>
+                                    <li>A não linearidade é simples (leve);</li>
+                                    <li>O critério de convergência </li>
+                                </ul>
+                            </li>
+                            <li>Newton Raphson modificado é melhor quando:
+                                <ul>
+                                    <li>Cálculo computacional é custoso;</li>
+                                    <li>Incremento pequeno;</li>
+                                    <li>Newton Raphson não converge bem.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
                 </section>
                 
                 
