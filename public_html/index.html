@@ -1755,6 +1755,122 @@ and open the template in the editor.
                             atingir seu valor mínimo.
                         </aside>
                     </section>
+                    <section id="mef_elastico_constitutiva">
+                        <h2>Relação Constitutiva</h2>
+                        <p>Em materiais elásticos, a densidade de energia de deformação $ W $
+                            existe, tal que, diferenciando-se a densidade de energia de deformação
+                            em relação às deformações adequadas, obtém-se as relacionadas tensões,
+                            por exemplo*:</p>
+                        $$ \textbf{S} = \dfrac{\partial W}{\partial \textbf{E}} $$
+                        <p style="margin-top: 40px;">Ou seja, é necessário, com essa formulação, expressar $ W $ em função
+                            de $ E $ e, no caso, manter a relação elástica linear**.</p>
+                        <p>Para tal, pode-se utilizar o modelo de St. Venant-Kirchhoff***:</p>
+                        $$ W = \dfrac{1}{2} \textbf{E} : \textbf{D} : \textbf{E} $$
+                        <aside class="notes">
+                            * S é o segundo tensor de tensões de Piola-Kirchhoff (simétrico) e E é a 
+                            deformação Lagrangiana.<br>
+                            ** A grande maioria dos materiais apresentam uma relação não linear para grandes
+                            deformações, o que torna o modelo com sentido apenas para pequenas deformações.<br>
+                            *** Operador de contração $ a : b = a_{ij}b_{ij} = a_{11}b_{11} + a_{12}b_{12} ...$, 
+                            considerado como um duplo produto interno (reduz a um escalar).
+                        </aside>
+                    </section>
+                    <section id="mef_elastico_constitutiva_c1">
+                        <h2>Relação Constitutiva (cont. 1)</h2>
+                        <p>O tensor constitutivo de 4 ordem para materiais isotrópicos é:</p>
+                        $$ D_{ijkl} = \lambda \delta_{ij} \delta_{kl} + 
+                            \mu (\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk}  $$
+                        <p style="margin-bottom: 40px;">ou</p>
+                        $$ \textbf{D} = \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I} $$
+                        <p style="margin-top: 40px;">E as constantes de Lamé:</p>
+                        $$ \lambda = \dfrac{\nu E}{(1 + \nu)(1 - 2\nu)} \quad \mu \equiv G = \dfrac{E}{2(1 + \nu)} $$
+                        <aside class="notes">
+                            * Sendo $\textbf{i}$ o tensor identidade de segunda ordem e $\textbf{I}$
+                            o tensor identidade de quarta ordem.
+                        </aside>
+                    </section>
+                    <section id="mef_elastico_constitutiva_c2">
+                        <h2>Relação Constitutiva (cont. 2)</h2>
+                        <p>Portanto, para o modelo de St. Venant-Kirchhoff:</p>
+                        <ul>
+                            <li>Cálculo das tensões (diferenciando a densidade de energia de deformação):
+                                $$ \textbf{S} = \dfrac{\partial W}{\partial \textbf{E}} = 
+                                    \textbf{D} : \textbf{E} = \lambda \text{tr}(\textbf{E}) \textbf{i} + 
+                                    2 \mu \textbf{E}$$
+                            </li>
+                            <li>Cálculo das deformações:
+                                $$ \textbf{E} = \dfrac{1}{2} \left( \textbf{C} - \textbf{i} \right) $$
+                                Aplicando-se a decomposição polar:
+                                $$ \textbf{E} = \dfrac{1}{2} \left( \textbf{F}^T \textbf{F} - \textbf{i} \right) =
+                                    \dfrac{1}{2} \left( \textbf{U}^2 - \textbf{i} \right)$$
+                                Mostra que a rotação de corpo rígido não influência na deformação.
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            Sendo $\textbf{i}$ o tensor identidade de segunda ordem e $\textbf{I}$
+                            o tensor identidade de quarta ordem.<br>
+                            Sendo $\textbf{U}$ o tensor direito de extensão (decomposição polar).
+                        </aside>
+                    </section>
+                    <section id="mef_elastico_CC">
+                        <h2>Condições de Contorno</h2>
+                        <p>As condições de contorno podem ser definidas como:</p>
+                        <ul>
+                            <li>Essencial (deslocamento no contorno):
+                                $$ \textbf{u} = \textbf{g} \quad \quad \text{em} \ \Gamma^h $$
+                            </li>
+                            <li>Natural (tração no contorno)*:
+                                $$ \textbf{t} = \textbf{P}^T \textbf{N} \quad \quad \text{em} \ \Gamma^s $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Não é possível utilizar $ \textbf{S} $
+                        </aside>
+                    </section>
+                    <section id="formulacao_variacional">
+                        <h2>Formulação Variacional</h2>
+                        <p>O objetivo é minimizar o potencial de energia para atingir o equilíbrio*.</p>
+                        $$ \Pi = \Pi^{int} + \Pi^{ext} $$
+                        $$ \Pi = \iint_{\Omega_0} W d\Omega - \iint_{\Omega_0} \textbf{u}^T \textbf{f}^b d\Omega
+                            - \int_{\Gamma^S_0} \textbf{u}^T \textbf{t} $$
+                        <p>Para tal, deve-se encontrar um $ \textbf{u} $ que minimize esse potencial de energia**:</p>
+                        <ul>
+                            <li>Perturba-se $ \textbf{u} $ em direção a $ \bar{\textbf{u}} $ proporcionalmente a 
+                            $ \tau $;</li>
+                            <li>Se $ \textbf{u} $ minimiza o potencial de energia,$ \Pi $ deve ser menor que 
+                                $ \Pi(\textbf{u}_{\tau}) $ para todo $ \bar{\textbf{u}} $ admissível.</li>
+                        </ul>
+                        <aside class="notes">
+                            * $ \Pi^{int} $ a energia interna armazenada e $ \Pi^{ext} $ a energia potencial
+                            das cargas aplicadas.<br>
+                            ** $ \bar{\textbf{u}} $ é um valor arbitrário e $ \tau $ é o parametro que controla
+                            o tamanho da perturbação: $ \textbf{u}_{\tau} = \textbf{u} + \tau \bar{\textbf{u}} $.
+                        </aside>
+                    </section>
+                    <section id="formulacao_variacional_c1">
+                        <h2>Formulação Variacional (cont. 1)</h2>
+                        <p>Variação da energia potencial (derivada direcional):</p>
+                        $$ \bar{\Pi}(\textbf{u},\bar{\textbf{u}}) = \dfrac{d}{d\tau} \Pi(\textbf{u} + 
+                            \tau \bar{\textbf{u}}) \Biggr\rvert_{\tau=0} $$
+                        <ul>
+                            <li>$ \Pi $ depende somente de $ \textbf{u} $, mas $ \bar{\Pi} $
+                            depende de $ \textbf{u} $ e $ \bar{\textbf{u}} $;</li>
+                            <li>A energia potencial mínima acontece quando sua variação se torna zero
+                            para qualquer $ \bar{\textbf{u}} $ possível;</li>                            
+                        </ul>
+                        <p>Exemplo unidimensional:</p>
+                        <img style="border: 0px;" width="600" src="imagens/minimoPotencial.png">
+                        <aside class="notes">
+                            No mínimo, todas as derivadas direcionais são zero.
+                        </aside>
+                    </section>
+                    <section id="formulacao_variacional_ex">
+                        <h2>Formulação Variacional - Exemplo com mola linear</h2>
+                        <img style="border: 0px;" width="400" src="imagens/molaLinear.png"><br>
+                        <ul>
+                            <li>Energia potencial: ...</li>
+                        </ul>
+                    </section>
                     <section id="lagrangiana_total">
                         <h2>Formulação Lagrangiana Total</h2>
                         <p>Usando o método de Newton-Raphson com força incremental:</p>
@@ -1766,15 +1882,17 @@ and open the template in the editor.
                         <img style="border: 0px;" width="800" src="imagens/totalLagrange.png">
                     </section>
                     <section id="lagrangiana_total_c1">
-                        <h2>Formulação Lagrangiana Total (cont.)</h2>
+                        <h2>Formulação Lagrangiana Total (cont. 1)</h2>
                         <p>Na formulação Total Lagrangiana:</p>
                         <ul>
                             <li>A configuração indeformada é a referência;</li>
-                            <li>Portanto, o segundo tensor de tensões de Piola-Kirchhoff
-                            e a deformação Lagrangiana são as escolhas naturais;</li>
-                            
+                            <li>Portanto, o segundo tensor de tensões de Piola-Kirchhoff $ S $
+                            e a deformação Lagrangiana $ E $ são as escolhas naturais;</li>
+                            <li>Equação variacional:
+                            ...
+                            </li>
                         </ul>
-                        
+                        ...
                     </section>
                 </section>
                 
