@@ -1868,8 +1868,17 @@ and open the template in the editor.
                         <h2>Formulação Variacional - Exemplo com mola linear</h2>
                         <img style="border: 0px;" width="400" src="imagens/molaLinear.png"><br>
                         <ul>
-                            <li>Energia potencial: ...</li>
+                            <li>Energia potencial: $ \Pi =\dfrac{1}{2} k \cdot u^2 - f \cdot u $</li>
+                            <li>Perturbação: $ \Pi(u + \tau \bar{u}) = \dfrac{1}{2} k \cdot (u + \tau \bar{u}) -
+                                f \cdot (u + \tau \bar{u}) $</li>
+                            <li>Diferenciação*: $ \dfrac{d}{d \tau} \left[ \Pi(u + \tau \bar{u}) \right] = 
+                                k \cdot (u + \tau \bar{u}) \cdot \bar{u} - f \cdot \bar{u} $</li>
+                            <li>Avaliação no estado original: $ \dfrac{d}{d \tau} \left[ \Pi(u + \tau \bar{u}) \right] 
+                                \biggr\rvert_{\tau=0} = k \cdot u \cdot \bar{u} - f \cdot \bar{u} = 0 $</li>
                         </ul>
+                        <aside class="notes">
+                            * Variação é similar a diferenciação!
+                        </aside>
                     </section>
                     <section id="lagrangiana_total">
                         <h2>Formulação Lagrangiana Total</h2>
@@ -1889,9 +1898,175 @@ and open the template in the editor.
                             <li>Portanto, o segundo tensor de tensões de Piola-Kirchhoff $ S $
                             e a deformação Lagrangiana $ E $ são as escolhas naturais;</li>
                             <li>Equação variacional:
-                            ...
+                            $$ \bar{\Pi} = \iint_{\Omega_0} \dfrac{\partial W}{\partial \textbf{E}} : \bar{\textbf{E}} d\Omega
+                                - \iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega 
+                                - \int_{\Gamma_o^S} \bar{\textbf{u}}^T \textbf{t} d\Gamma = 0$$
+                            <p>Substituindo a variação da energia na deformação:</p>
+                            $$ \iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega
+                                = \iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega 
+                                + \int_{\Gamma_o^S} \bar{\textbf{u}}^T \textbf{t} d\Gamma $$
                             </li>
                         </ul>
+                        <aside class="notes">
+                            - O termo de carga é similar ao termo da formulação linear!<br>
+                            - O termo de energia de deformação apresenta não linearidade!<br>
+                            - Há a necessidade de se escrever o lado esquerdo da equação em função de $ \textbf{u} $ e 
+                            $ \bar{\textbf{u}} $.
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_c2">
+                        <h2>Formulação Lagrangiana Total (cont. 2)</h2>
+                        <p>Expressando a variação de deformações:</p>
+                        $$ \textbf{E}(\textbf{u}) = \dfrac{1}{2} \left( \textbf{C} - \textbf{I} \right) 
+                            = \dfrac{1}{2} \left( \nabla_0 \textbf{u} + \nabla_0 \textbf{u}^T 
+                            + \nabla_0 \textbf{u}^T \nabla_0 \textbf{u} \right)$$
+                        $$ \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \dfrac{d}{d \tau} \textbf{E} ( \textbf{u} + \tau \bar{\textbf{u}} ) \biggr\rvert_{\tau=0}
+                            = \dfrac{1}{2} \left( \nabla_0 \bar{\textbf{u}} + \nabla_0 \bar{\textbf{u}}^T
+                            + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \textbf{u} 
+                            + \nabla_0 \textbf{u}^T \nabla_0 \bar{\textbf{u}} \right)$$
+                        $$ \therefore \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right)$$
+                        <aside class="notes">
+                            $ \textbf{E}(\textbf{u}) $ é não linear, mas 
+                            $ \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) $ é linear.
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_c3">
+                        <h2>Formulação Lagrangiana Total (cont. 3)</h2>
+                        <p>Retornando à equação variacional e chamando de:</p>
+                        $$ \underbrace{\iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega}_{a(\textbf{u},\bar{\textbf{u}})}
+                                = \underbrace{\iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega 
+                                + \int_{\Gamma_o^S} \bar{\textbf{u}}^T \textbf{t} d\Gamma}_{\ell(\bar{\textbf{u}})} $$
+                        <p>Sendo $ a(\textbf{u},\bar{\textbf{u}}) $ a forma de energia e 
+                            $ \ell(\bar{\textbf{u}}) $ a forma de carga.</p>
+                        $$ a(\textbf{u},\bar{\textbf{u}}) = \ell(\bar{\textbf{u}}) $$
+                        <ul>
+                            <li>Linearidade nos termos de deformação no caso do uso do material de St. Venant-Kirchhoff;</li>
+                            <li>Linearidade também nos termos de $ \bar{\textbf{u}} $;</li>
+                            <li>Não linearidade nos termos de $ \textbf{u} $ por causa da relação não linear entre
+                            deslocamentos e deformações;</li>
+                        </ul>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao">
+                        <h2>Formulação Lagrangiana Total - Linearização</h2>
+                        <p>Resíduo:</p>
+                        $$ R = a(\textbf{u}, \bar{\textbf{u}}) - \ell(\bar{\textbf{u}}) $$
+                        <p>O objetivo é linearizar $ R $ na direção de $ \Delta \textbf{u} $:</p>
+                        <ul>
+                            <li>Assume-se que $ \textbf{u} $ é perturbado na direção de 
+                            $ \Delta \textbf{u} $ usando a variável $ \tau $;</li>
+                            <li>Então, a linearização se torna:
+                            $$ L[R] = \dfrac{\partial R(\textbf{u} + \tau \Delta \textbf{u})}{\partial \tau}\biggr\rvert_{\tau=0}
+                            = \left[ \dfrac{\partial R}{\partial \textbf{u}} \right]^T \Delta \textbf{u}$$
+                            </li>
+                            <li>$ R $ é não linear em relação a $ \textbf{u} $, mas $ L[R] $
+                            é linear em relação a $ \Delta \textbf{u} $;</li>
+                            <li>Supondo uma iteração $ k $ que não convergiu, o incremento de deslocamentos
+                            $ \Delta \textbf{u} $ é obtido fazendo-se o resíduo em $ k + 1 $ ser
+                            igual a zero:
+                            $$ R^{k+1} \approx \left[ \dfrac{\partial R^k}{\partial \textbf{u}} \right]^T \Delta \textbf{u}
+                            + R^k = 0$$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c1">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 1)</h2>
+                        <p>Que, basicamente, é o método de Newton-Raphson:</p>
+                        $$ \left[ \dfrac{\partial R^k}{\partial \textbf{u}} \right]^T \Delta \textbf{u}
+                            = - R^k$$
+                        <p>E o estado atualizado:</p>
+                        $$ \textbf{u}^{k+1} = \textbf{u}^k + \Delta \textbf{u}^k $$
+                        $$ \textbf{x}^{k+1} = \textbf{X} + \textbf{u}^{k+1} $$
+                        <p>Sabe-se como calcular $ R $, e como variar $ R $ em $ \textbf{u} $?</p>
+                        $$ \dfrac{\partial}{\partial \textbf{u}}[R] 
+                        = \dfrac{\partial}{\partial \textbf{u}}[a(\textbf{u}, \bar{\textbf{u}}) - \ell(\bar{\textbf{u}})] $$
+                        <p>Note que o termo $ \ell(\bar{\textbf{u}}) $ desaparece caso não se 
+                            considere a carga dependente do deslocamento*, ou seja:</p>
+                        <ul>
+                            <li>Somente a linearização da energia é necessária;</li>
+                        </ul>
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!<br>
+                            * Consideração aplicada na derivação das equações!
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c2">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 2)</h2>
+                        <p>Linearização da energia:</p>
+                        $$ L[a(\textbf{u}, \bar{\textbf{u}})] = L \left[ 
+                        \iint_{\Omega^0} \textbf{S} : \bar{\textbf{E}} d\Omega \right]
+                        = \iint_{\Omega_0} \left[ \Delta \textbf{S}:\bar{\textbf{E}} + 
+                        \textbf{S} : \Delta \bar{\textbf{E}} \right] d\Omega $$
+                        <ul>
+                            <li>Observe que o domínio está fixado na indeformada!</li>
+                            <li>Precisa-se escrever em termos do incremento de deslocamento $ \Delta \textbf{u} $.</li>
+                        </ul>
+                        <p>Incremento de Tensões (material de St. Venant-Kirchhoff):</p>
+                        $$ \Delta \textbf{S} = \dfrac{\partial S}{\partial E} : \Delta \textbf{E} 
+                        = \textbf{D} : \Delta \textbf{E} $$
+                        <p>Incremento de deformações (deformação de Green-Lagrange):</p>
+                        $$ \Delta \textbf{E} = \dfrac{1}{2}(\Delta \textbf{F}^T \textbf{F} 
+                        + \textbf{F}^T \Delta \textbf{F}) $$
+                        $$ \Delta \textbf{F} = \Delta \left( \dfrac{\partial \textbf{x}}{\partial \textbf{X}} \right)
+                        = \Delta \left( \dfrac{\partial (\textbf{X} + \textbf{u})}{\partial \textbf{X}} \right)
+                        = \dfrac{\partial \textbf{u}}{\partial \textbf{X}} = \nabla_0 \Delta \textbf{u} $$
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c3">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 3)</h2>
+                        <p>Continuação, incremento de deformações*:</p>
+                        $$ \Delta \textbf{E} = \dfrac{1}{2}(\Delta \textbf{F}^T \textbf{F} 
+                        + \textbf{F}^T \Delta \textbf{F})
+                        = \dfrac{1}{2}(\nabla_0 \Delta \textbf{u}^T \textbf{F} 
+                        + \textbf{F}^T \nabla_0 \Delta \textbf{u})$$
+                        <p>Variação do incremento de deformação**:</p>
+                        $$ \Delta \bar{\textbf{E}} = \Delta \left[ \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right) \right]
+                            = \dfrac{1}{2} \left( \Delta\textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \Delta\textbf{F} \right) $$ 
+                        $$ \therefore \Delta \bar{\textbf{E}} = \dfrac{1}{2} 
+                        \left( \nabla_0 \Delta \textbf{u}^T \nabla_0 \bar{\textbf{u}} 
+                        + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \Delta \textbf{u} \right)$$
+                        <p>Energia linearizada***:</p>
+                        $$ L[a(\textbf{u}, \bar{\textbf{u}})] = 
+                        \iint_{\Omega^0} \left[ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} 
+                        + \textbf{S} : \Delta \bar{\textbf{E}} \right] d\Omega 
+                        \equiv a^{*}(\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) $$
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!<br>
+                            * Linear em relação a $ \Delta \textbf{u} $. <br>
+                            ** Obtida anteriormente. Também linear em relação a $ \Delta \textbf{u} $. <br>
+                            *** Primeiro termo: rigidez tangente. Segundo termo: tangente inicial.
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c4">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 4)</h2>
+                        <p>Iteração de Newtow-Raphson com força incremental:</p>
+                        <ul>
+                            <li>Seja $ t_n $ o passo de carga atual e $ k + 1 $ a iteração atual;</li>
+                            <li>Então, o iteração de Newton-Raphson pode ser feira com:
+                            $$ a^{*}(^{n}\textbf{u}^k ; \Delta \textbf{u}^k, \bar{\textbf{u}}) 
+                            = \ell(\bar{\textbf{u}}) - a(^{n}\textbf{u}^k, \bar{\textbf{u}}) $$
+                            </li>
+                            <li>O deslocamento total atualizado:
+                            $$ ^{n}\textbf{u}^{k+1} = ^{n}\textbf{u}^k + \Delta\textbf{u}^k $$
+                            </li>
+                            <li>Ou ainda, a iteração na forma discreta:
+                            $$ {\bar{\textbf{d}}}^T \left[ ^n\textbf{K}^k_T \right] {\Delta \textbf{d}^k}
+                            = {\bar{\textbf{d}}}^T { ^n\textbf{R}^k }$$
+                            </li>
+                        </ul>
+                        <p style="margin-top: 40px;">Quem são $ \left[ ^n\textbf{K}^k_T \right] $ e ${ ^n\textbf{R}^k }  $?</p>
+                    </section>
+                    <section id="lagrangiana_total_exemplo">
+                        <h2>Formulação Lagrangiana Total - Exemplo</h2>
                         ...
                     </section>
                 </section>
