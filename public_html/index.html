@@ -1779,7 +1779,7 @@ and open the template in the editor.
                         <h2>Relação Constitutiva (cont. 1)</h2>
                         <p>O tensor constitutivo de 4 ordem para materiais isotrópicos é:</p>
                         $$ D_{ijkl} = \lambda \delta_{ij} \delta_{kl} + 
-                            \mu (\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk}  $$
+                            \mu (\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk})  $$
                         <p style="margin-bottom: 40px;">ou</p>
                         $$ \textbf{D} = \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I} $$
                         <p style="margin-top: 40px;">E as constantes de Lamé:</p>
@@ -2078,10 +2078,168 @@ and open the template in the editor.
                             </div>
                         </div>
                         <p>Resolver na mão até a linearização.</p>
+                        <img style="border: 0px;" width="600" src="imagens/lagraTotalResEx.png">
                     </section>
                     <section id="lagrangiana_atualizada">
                         <h2>Formulação Lagrangiana Atualizada</h2>
-                        <p>...</p>
+                        <p>A configuração atual (deformada) é a referência.</p>
+                        <ul>
+                            <li>Lembre-se: é desconhecida até o problema ser resolvido.</li>
+                            <li>Como integrar se não é conhecido o domínio de integração?</li>
+                        </ul>
+                        <p style="margin-top: 40px;">Quais medidas de tensão e deformação devem ser utilizadas?</p>
+                        <ul>
+                            <li>Tensão: tensor de tensão de Cauchy ($ \sigma $);</li>
+                            <li>Deformação: tensor de deformação de engenharia ($ \varepsilon $)*. 
+                                Mas, deve ser definido na configuração atual (deformada):
+                                $$ \boldsymbol{\varepsilon} = \dfrac{1}{2} \left( \dfrac{\partial \textbf{u}}{\partial \textbf{x}}^T
+                                + \dfrac{\partial \textbf{u}}{\partial \textbf{x}} \right) $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Pois é quem forma par com tensões de Cauchy!<br>
+                            Em sistemas sob grande deformação, o trabalho interno é definido como: 
+                            $ \iiint_{\Omega_x} = \sigma : \bar{\varepsilon} d\Omega$ 
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_atualizada_c1">
+                        <h2>Formulação Lagrangiana Atualizada (cont. 1)</h2>
+                        <p>A equação variacional da formulação Lagrangiana Atualizada será
+                        derivada da formulação Lagrangiana Total.</p>
+                        <p>A tensão de Cauchy se relaciona com o segundo tensor de Piola-Kirchhoff na forma:</p>
+                        $$ \boldsymbol{\sigma} = \dfrac{1}{J} \textbf{F} \textbf{S} \textbf{F}^T $$
+                        $$ \textbf{S} = J \textbf{F}^{-1} \boldsymbol{\sigma} (\textbf{F}^{-1})^T $$
+                        <p>A variação da deformação Lagrangiana é (definido anteriormente), 
+                            e multiplicando corretamente por $ \textbf{F}^T $ e $ \textbf{F} $:</p>
+                        $$ \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right) 
+                            = \dfrac{1}{2} \textbf{F}^T \left( (\textbf{F}^{-1})^T \nabla_0 \bar{\textbf{u}}^T
+                            + \nabla_0 \bar{\textbf{u}} \textbf{F}^{-1} \right) \textbf{F} $$
+                        $$ \therefore \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \textbf{F}^T \bar{\boldsymbol{\varepsilon}} \textbf{F} $$
+                        <p>De forma similar:</p>
+                        $$ \Delta \textbf{E}(\textbf{u},\bar{\textbf{u}}) 
+                            = \textbf{F}^T \Delta \boldsymbol{\varepsilon} \textbf{F} 
+                            \quad \text{com:} \quad \Delta \boldsymbol{\varepsilon} =
+                            \dfrac{1}{2} \left( \dfrac{\partial \Delta \textbf{u}}{\partial \textbf{x}}^T
+                                + \dfrac{\partial \Delta \textbf{u}}{\partial \textbf{x}} \right) $$
+                        <aside class="notes">
+                            * Sendo: $ \textbf{F} = \dfrac{\partial \textbf{x}}{\partial \textbf{X}} $ 
+                            e $ \nabla_0 \bar{\textbf{u}} = \dfrac{\partial \bar{\textbf{u}}}{\partial \textbf{X}} $
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_atualizada_c2">
+                        <h2>Formulação Lagrangiana Atualizada (cont. 2)</h2>
+                        <p>A forma de energia é transformada, então:</p>
+                        $$ \iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega
+                            = \iint_{\Omega_0} J \textbf{F}^{-1} \boldsymbol{\sigma} (\textbf{F}^{-1})^T :
+                            \textbf{F}^T \bar{\boldsymbol{\varepsilon}} \textbf{F} d\Omega 
+                            = \iint_{\Omega_0} \textbf{S} : \bar{\boldsymbol{\varepsilon}} J d\Omega 
+                            = \iint_{\Omega_X} \textbf{S} : \bar{\boldsymbol{\varepsilon}} d\Omega $$
+                        <p>O que demonstra que as formas material e espacial são matematicamente equivalentes.</p>
+                        $$ \therefore a_X(\textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega_X} \textbf{S} : \bar{\boldsymbol{\varepsilon}} d\Omega $$
+                        <p style="margin-top: 40px;">O que acontece com o termo de carga $ \ell(\bar{\textbf{u}}) $?</p>
+                        <aside class="notes">
+                            * Em notação indicial: $ F_{ik}^{-1} \sigma_{kl} F_{jl}^{-1} F_{mi} 
+                            \bar{\varepsilon}_{mn} F_{nj} = \delta_{mk} \delta_{nl} \sigma_{kl} \bar{\varepsilon}_{mn}
+                            = \sigma_{mn} \bar{\varepsilon}_{mn}$ 
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_atualizada_linearizacao">
+                        <h2>Formulação Lagrangiana Atualizada - Linearização</h2>
+                        <p>A linearização de $ a_X(\textbf{u}, \bar{\textbf{u}}) $ é complexa pois não
+                        se conhece a configuração atual (deformada é função de $ \textbf{u} $).</p>
+                        <p>De maneira similar a forma de energia, pode-se converter a forma de energia
+                        lineariza da formulação Lagrangiana total, sendo essa:</p>
+                        $$ a^{*}(\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega^0} \left[ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} 
+                        + \textbf{S} : \Delta \bar{\textbf{E}} \right] d\Omega $$
+                        <p>O termo de rigidez inicial convertido:</p>
+                        $$ \textbf{S} : \Delta \bar{\textbf{E}} 
+                        = J \textbf{F}^{-1} \boldsymbol{\sigma} (\textbf{F}^{-1})^T :
+                        \dfrac{1}{2} \left( \nabla_0 \Delta \textbf{u}^T \nabla_0 \bar{\textbf{u}} 
+                        + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \Delta \textbf{u} \right) $$
+                        $$ = J F^{-1}_{ik} \sigma_{kl} F^{-1}_{jl} \dfrac{1}{2}
+                        \left( \dfrac{\partial \bar{u}_m}{\partial X_i} \dfrac{\partial \Delta u_m}{\partial X_j} 
+                        + \dfrac{\partial \Delta u_m}{\partial X_i} \dfrac{\partial \bar{u}_m}{\partial X_j} \right)
+                        \equiv J \sigma_{kl} \underbrace{\dfrac{1}{2} 
+                        \left( \dfrac{\partial \bar{u}_m}{\partial x_k} \dfrac{\partial \Delta u_m}{\partial x_l} 
+                        + \dfrac{\partial \Delta u_m}{\partial x_k} \dfrac{\partial \bar{u}_m}{\partial x_l} 
+                        \right)}_{\boldsymbol{\eta} (\Delta \textbf{u}, \bar{\textbf{u}})}$$
+                    </section>
+                    <section id="lagrangiana_atualizada_linearizacao_c1">
+                        <h2>Formulação Lagrangiana Atualizada - Linearização (cont. 1)</h2>
+                        <p>Ou seja, o termo de rigidez inicial:</p>
+                        $$ \textbf{S} : \Delta \bar{\textbf{E}} = 
+                        J \boldsymbol{\sigma} : \boldsymbol{\eta}(\Delta \textbf{u}, \bar{\textbf{u}}) $$
+                        <p>O termo de rigidez tangente convertido:</p>
+                        $$ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} = 
+                        (\textbf{F}^T \bar{\boldsymbol{\varepsilon}} \textbf{F}) : \textbf{D} : 
+                        (\textbf{F}^T \Delta \boldsymbol{\varepsilon} \textbf{F})
+                        = F_{ki} \bar{\varepsilon}_{kl} F_{lj} D_{ijmn} F_{pm} \Delta \varepsilon_{pq} F_{qn}$$
+                        $$ = J \bar{\varepsilon}_{kl} 
+                        \underbrace{\left[ \dfrac{1}{J} F_{ki} F_{lj} D_{ijmn} F_{pm} F_{qn} 
+                        \right]}_{\text{Tensor constitutivo espacial de $4^a$ ordem}}
+                        \Delta \varepsilon_{pq}  $$
+                        <p>Ou seja, o termo de rigidez tangente:</p>
+                        $$ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} = 
+                        J \bar{\boldsymbol{\varepsilon}} : \textbf{c} : \Delta \boldsymbol{\varepsilon}$$
+                        <p>Sendo: $ c_{ijkl} = \dfrac{1}{J} F_{ir} F_{js} F_{km} F_{ln} D_{rsmn} $</p>
+                    </section>
+                    <section id="lagrangiana_atualizada_linearizacao_c2">
+                        <h2>Formulação Lagrangiana Atualizada - Linearização (cont. 2)</h2>
+                        <p>Portanto a forma linearizada da formulação Lagrangiana atualizada:</p>
+                        $$ a^{*} (\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega^0} \left[ \bar{\boldsymbol{\varepsilon}} : \textbf{c} : \Delta \boldsymbol{\varepsilon}
+                        + \boldsymbol{\sigma} : \boldsymbol{\eta} (\Delta \textbf{u}, \bar{\textbf{u}})
+                        \right] J d\Omega $$
+                        $$ a^{*}_X (\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega^X} \left[ bar{\boldsymbol{\varepsilon}} : \textbf{c} : \Delta \boldsymbol{\varepsilon}
+                        + \boldsymbol{\sigma} : \boldsymbol{\eta} (\Delta \textbf{u}, \bar{\textbf{u}}) \right]  d\Omega$$
+                        <p>Iteração de Newton-Raphson:</p>
+                        $$ a^{*} (^n\textbf{u}^k ; \Delta \textbf{u}^k, \bar{\textbf{u}}) 
+                        = \ell(\bar{\textbf{u}}) - a(^n\textbf{u}^k, \bar{\textbf{u}}) $$
+                        <p style="text-align: left;">Observações:</p>
+                        <ul>
+                            <li>Ambas formulações são idênticas teoricamente, porém com diferentes expressões;</li>
+                            <li>A implementação numérica será diferente;</li>
+                            <li>A relação constitutiva também é diferente.</li>
+                        </ul>
+                    </section>
+                    <section id="constitutivo_espacial">
+                        <h2>Tensor constitutivo espacial</h2>
+                        <p>Sendo o material de St. Venanr-Kirchhoff:</p>
+                        $$ \textbf{D} = \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I}  $$
+                        <p style="margin-bottom: 40px;">ou</p>
+                        $$ D_{ijkl} = \lambda \delta_{ij} \delta_{kl} + 
+                            \mu (\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk}) $$
+                        <p>Utilizando a relação com o tensor de deformação esquerdo de Cauchy-Green 
+                            $ \text{G} = \textbf{F}\textbf{F}^T $, chega-se a:</p>
+                        $$ c_{ijkl} = \dfrac{1}{J} \left[ \lambda G_{ij} G_{kl} + 
+                            \mu (G_{ik} G_{jl} + G_{il} G_{jk}) \right]$$
+                        <p>Observações:</p>
+                        <ul>
+                            <li>$ \textbf{D} $ é constante, mas $ \textbf{c} $ não;</li>
+                            <li>$ \textbf{S} = \textbf{D} : \textbf{E} $ mas 
+                                $ \boldsymbol{\sigma} \neq \textbf{c} : \boldsymbol{\varepsilon} $ </li>
+                        </ul>
+                    </section>
+                    <section id="lagrangiana_atualizada_exemplo">
+                        <h2>Formulação Lagrangiana Atualizada - Exemplo</h2>
+                        <p>Seja a barra da figura abaixo, use um elemento para a barra e resolva o 
+                            deslocamento da ponta da barra usando a formulação total lagrangiana.</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 600px; float: left; text-align: left; margin-top: 20px;">                                
+                                <p>Use $ E_0 = 200 Pa $, $ A = 1,0 m^2 $ e $ F = 100 kN $.</p>
+                            </div>
+                            <div style="margin-left: 600px;">
+                                <img style="border: 0px;" width="450" src="imagens/barraExFinal.png">
+                            </div>
+                        </div>
+                        <p>Resolver na mão até a linearização.</p>
+                        <img style="border: 0px;" width="600" src="imagens/lagraAtuaResEx.png">
                     </section>
                 </section>
                 
