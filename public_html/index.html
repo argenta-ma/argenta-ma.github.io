@@ -2244,7 +2244,259 @@ and open the template in the editor.
                     </section>
                     <section id="MEF_elasticidade_naolinear">
                         <h2>Formulação de Elementos Finitos para Elasticidade não linear</h2>
-                        <p>...</p>
+                        <p>Conceitos Iniciais:</p>
+                        <ul>
+                            <li>Será utilizada a notação de Voigt:
+                                <ul>
+                                    <li>Tensor de segunda ordem $ \rightarrow $ vetor;</li>
+                                    <li>Tensor de quarta ordem $ \rightarrow $ matriz</li>
+                                </ul>                                
+                            </li>
+                            <li>Vetores de tensão e deformação, exemplo*:
+                                $$ \textbf{S} = \{S_{11} \ S_{22} \ S_{12} \}^T  $$
+                                $$ \textbf{E} = \{E_{11} \ E_{22} \ 2E_{12} \}^T $$
+                            </li>
+                            <li>O tensor constitutivo utilizando-se o material isotrópico linear
+                            de St. Venant-Kirchhoff para o exemplo bidimensional:
+                            $$ \textbf{D} = \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I} = 
+                            \left[ \begin{array}{ccc}
+                                D_{1111} & D_{1122} & D_{1112} \\ 
+                                D_{2211} & D_{2222} & D_{2212} \\ 
+                                D_{1211} & D_{1222} & D_{1212} 
+                            \end{array}  \right] $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Como os tensores de tensão e deformação são simétricos, não
+                            é necessário utilizar 21 componentes! <br>
+                            ** No estado plano de deformações: $S_{33} = D_{3311}E_{11}+D_{3322}E_{22} 
+                            = \lambda E_{11} + \lambda E_{22} $
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_elemento">
+                        <h2>Elemento e formulação geométrica não linear</h2>
+                        <p>Inicialmente será discutido o elemento do estado plano de deformação, 
+                            quadrilateral de 4 nós, utilizando a formulação lagrangiana total.</p>
+                        <img style="border: 0px;" width="600" src="imagens/elementoEPD4nos.png">
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_interp">
+                        <h2>Interpolação e Mapeamento Isoparamétrico</h2>
+                        <ul>
+                            <li>Interpolação dos deslocamentos* ($n$ = o nó, $n_n$ = número total de nós):
+                                $$ \textbf{u} = \sum^{n_{n}}_{n=1} N_{n}(\boldsymbol{\xi}) \textbf{u}_{n} $$
+                            </li>
+                            <li>Mapeamento Isoparamétrico**:
+                                $$ \textbf{X} = \sum^{n_{n}}_{n=1} N_{n}(\boldsymbol{\xi}) \textbf{X}_{n} $$
+                                <ul>
+                                    <li>A mesma função de interpolação é utilizada para o mapeamento
+                                    da geometria.</li>
+                                </ul>
+                            </li>
+                            <li>Funções de interpolação para o elemento quadrilateral de 4 nós do slide anterior:</li>
+                        </ul>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 50%; float: left; text-align: left; margin-top: 5px;">                                
+                                $$ N_1 = \dfrac{1}{4}(1 - \xi)(1 - \eta) $$
+                                $$ N_2 = \dfrac{1}{4}(1 + \xi)(1 - \eta) $$
+                            </div>
+                            <div style="margin-left: 50%;">
+                                $$ N_3 = \dfrac{1}{4}(1 + \xi)(1 + \eta) $$
+                                $$ N_4 = \dfrac{1}{4}(1 - \xi)(1 + \eta) $$
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            * $N_{n}(\boldsymbol{\xi})$ funções de interpolação e $\textbf{u}_{n}$ 
+                            vetor de deslocamentos nodais $(u_1, u_2)_n$ <br>
+                            ** $\textbf{X}_{n}$ coordenadas nodais na indeformada $(X_1, X_2)_n$
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_gradientes">
+                        <h2>Gradientes de deslocamento e deformação</h2>
+                        <ul>
+                            <li>Gradiente de deslocamento:
+                                $$ \dfrac{\partial \textbf{u}}{\partial \textbf{X}} = \sum^{n_n}_{n=1}
+                                \dfrac{\partial N_n(\boldsymbol{\xi})}{\partial \textbf{X}} \textbf{u}_n \quad
+                                \text{com} \quad u_{i,j} = \sum^{n_n}_{n=1} N_{n,j}(\boldsymbol{\xi}) u_{n,i}$$
+                                $$ \nabla_0 \textbf{u} = \{u_{1,1} \ u_{1,2} \ u_{2,1} \ u_{2,2}\}^T $$
+                                <ul>
+                                    <li>Como calcular $ \dfrac{\partial N_n(\boldsymbol{\xi})}{\partial \textbf{X}} $?</li>
+                                </ul>
+                            </li>
+                            <li>Gradiente de deformação:
+                                $$ \textbf{F} = \textbf{I} + \nabla_0 \textbf{u} = \{ F_{11} \ F_{12} \ F_{21} \ F_{22} \}^T = 
+                                \{ 1 + u_{1,1} \ u_{1,2} \ u_{2,1} \ 1 + u_{2,2} \}^T$$
+                            </li>
+                            <p style="margin-top: 40px;">AMBOS gradientes de deslocamento e de deformação são assimétricos!</p>
+                        </ul>
+                        <aside class="notes">
+                            * $u_{n,i}$ derivada de $u_n$ em relação à $i$, $1$ representa a direção horizontal e $2$ 
+                            representa a direção vertical.
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_deformacao">
+                        <h2>Deformação Lagrangiana</h2>
+                        $$ \textbf{E} = \dfrac{1}{2}(\textbf{C} - \textbf{I}) = 
+                        \dfrac{1}{2}\left( \nabla_0 \textbf{u} + \nabla_0 \textbf{u}^T
+                        + \nabla_0 \textbf{u}^T \nabla_0 \textbf{u} \right) $$
+                        $$ \therefore \textbf{E} = \left\lbrace \begin{array}{c}
+                            E_{11} \\ 
+                            E_{22} \\ 
+                            2E_{12}
+                        \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+                            u_{1,1} + \dfrac{1}{2}(u_{1,1}u_{1,1} + u_{2,1}u_{2,1}) \\ 
+                            u_{2,2} + \dfrac{1}{2}(u_{1,2}u_{2,1} + u_{2,2}u_{2,2}) \\ 
+                            u_{1,2} + u_{2,1} + u_{1,2}u_{1,1} + u_{2,1}u_{2,2}
+                        \end{array} \right\rbrace$$
+                        <ul>
+                            <li>Devido a não linearidade: $ \textbf{E} \neq \textbf{B} \textbf{u} $</li>
+                        </ul>
+                        <p>Para o material de St. Venant-Kirchhoff:</p>
+                        $$ \textbf{D} =  \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I} = 
+                        \left[ \begin{array}{ccc}
+                            \lambda + 2 \mu & \lambda & 0 \\ 
+                            \lambda & \lambda + 2 \mu & 0 \\ 
+                            0 & 0 & \mu 
+                        \end{array}  \right]$$
+                        <aside class="notes">
+                            * Suprimindo a relação com $S_{33} = \lambda E_{11} + \lambda E_{22}$!
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_var_deformacao">
+                        <h2>Variação da Deformação Lagrangiana</h2>
+                        <p>Embora $\textbf(E)$ seja não linear, $\bar{\textbf{E}}$ é linear</p>
+                        $$ \bar{\textbf{E}} =  \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right) \quad \longrightarrow \quad
+                        \bar{\textbf{E}} = \textbf{B}_{NL} \bar{\textbf{u}}$$
+                        <p style="font-size: 70%; margin-top: 40px; margin-bottom: 40px;">
+                            $$ \textbf{B}_{NL} = \left[ \begin{array}{cccccccc}
+                            F_{11}N_{1,1} & F_{21}N_{1,1} & F_{11}N_{2,1} & F_{21}N_{2,1} &
+                            F_{11}N_{3,1} & F_{21}N_{3,1} & F_{11}N_{4,1} & F_{21}N_{4,1} \\ 
+                            
+                            F_{12}N_{1,2} & F_{22}N_{1,2} & F_{12}N_{2,2} & F_{22}N_{2,2} &
+                            F_{12}N_{3,2} & F_{22}N_{3,2} & F_{12}N_{4,2} & F_{22}N_{4,2} \\
+                            
+                            {F_{12}N_{1,1} + \\ + F_{11}N_{1,2}} & {F_{21}N_{1,2} + \\ + F_{22}N_{1,1}} &
+                            {F_{12}N_{2,1} + \\ + F_{11}N_{2,2}} & {F_{21}N_{2,2} + \\ + F_{22}N_{2,1}} &
+                            {F_{12}N_{3,1} + \\ + F_{11}N_{3,2}} & {F_{21}N_{3,2} + \\ + F_{22}N_{3,1}} & 
+                            {F_{12}N_{4,1} + \\ + F_{11}N_{4,2}} & {F_{21}N_{4,2} + \\ + F_{22}N_{4,1}} 
+                        \end{array} \right] $$</p>
+                        $$ \bar{\textbf{u}} = \{\bar{u}_{11} \ \bar{u}_{12} \ \bar{u}_{21} \ \bar{u}_{22} \ 
+                        \bar{u}_{31} \ \bar{u}_{32} \ \bar{u}_{41} \ \bar{u}_{42}\}^T $$
+                        <aside class="notes">
+                            * Sendo $\textbf{B}_{NL}$ a matriz não linear da relação deslocamento deformação,
+                            função de $\textbf{u}$.
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_var_eq">
+                        <h2>Equação Variacional</h2>
+                        <ul>
+                            <li>Forma de Energia:
+                            $$ a(\textbf{u}, \bar{\textbf{u}}) = 
+                            \iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega $$
+                            $$ a(\textbf{u}, \bar{\textbf{u}}) \approx
+                            \bar{\textbf{u}}^T \iint_{\Omega_0} \textbf{B}_{NL}^T \textbf{S} d\Omega$$
+                            $$ a(\textbf{u}, \bar{\textbf{u}}) \equiv \bar{\textbf{u}}^T F^{int}$$
+                            </li>
+                            <li>Forma de Força:
+                            $$\ell(\bar{\textbf{u}}) = \iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega +
+                            \iint_{\Gamma^s_0} \bar{\textbf{u}}^T \textbf{t} d\Gamma $$
+                            $$ \ell(\bar{\textbf{u}}) \approx 
+                            \sum_{n=1}^{n_e} \bar{\textbf{u}}_n^T \left[ 
+                            \iint_{\Omega_0} N_n(\boldsymbol{\xi}) \textbf{f}^b d\Omega + 
+                            \iint_{\Gamma^s_0} N_n(\boldsymbol{\xi}) \textbf{t} d\Gamma \right] $$
+                            $$ \ell(\bar{\textbf{u}}) \equiv \bar{\textbf{u}}^T F^{ext} $$
+                            </li>
+                            <li>Resíduo:
+                            $$ \bar{\textbf{u}}^T F^{int} = \bar{\textbf{u}}^T F^{ext} $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Para quaisquer $ \bar{\textbf{u}} $
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_lin1">
+                        <h2>Linearização</h2>
+                        <ul>
+                            <li>Incremento de deformação*: $ \Delta \textbf{E} = \textbf{B}_{NL} \Delta \textbf{u} $ </li>
+                            <li>Variação do incremento de deformação:
+                            $$ \Delta \bar{\textbf{E}} = \dfrac{1}{2} 
+                            \left( \nabla_0 \Delta \textbf{u}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \Delta \textbf{u} \right)$$
+                            </li>
+                            <li>Linearização:
+                            $$ \iint_{\Omega_0} = \bar{\textbf{E}} : \textbf{D} : \Delta \bar{\textbf{E}} d\Omega
+                            = \bar{\textbf{u}}^T \left[ 
+                            \iint_{\Omega_0} \textbf{B}_{NL}^T \textbf{D} \textbf{B}_{NL} d\Omega  \right] \Delta \textbf{u} $$
+                            $$ \iint_{\Omega_0} \textbf{S} : \Delta \bar{\textbf{E}} = 
+                            \bar{\textbf{u}}^T \left[ 
+                            \iint_{\Omega_0} \textbf{B}_{L}^T \textbf{S}_{\oslash} \textbf{B}_{L} d\Omega \right] \Delta \textbf{u}$$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * O incremento das deformações possui uma forma análoga a variação das deformações, 
+                            conforme mostrado anteriormente <a href="#lagrangiana_total_c2"> aqui </a> para o $\bar{\textbf{E}}$ e
+                            <a href="#lagrangiana_total_linearizacao_c3"> aqui </a> para o $ \Delta \textbf{E} $ e,
+                            portanto, resultam na mesma forma discretizada em elementos finitos, com suas corretas
+                            substituições ($\bar{\textbf{u}}$ por $\Delta \textbf{u}$).
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_lin2">
+                        <h2>Linearização (cont. 1)</h2>
+                        <p>Sendo:</p>
+                        $$ \textbf{S}_{\oslash} = \left[ \begin{array}{cccc}
+                            S_{11} & S_{12} & 0 & 0 \\ 
+                            S_{21} & S_{22} & 0 & 0 \\ 
+                            0 & 0 & S_{11} & S_{12} \\ 
+                            0 & 0 & S_{21} & S_{22}
+                        \end{array} \right] $$
+                        $$ \textbf{B}_{L} = \left[ \begin{array}{cccccccc}
+                            N_{1,1} & 0 & N_{2,1} & 0 & N_{3,1} & 0 & N_{4,1} & 0 \\ 
+                            N_{1,2} & 0 & N_{2,2} & 0 & N_{3,2} & 0 & N_{4,2} & 0 \\ 
+                            0 & N_{1,1} & 0 & N_{2,1} & 0 & N_{3,1} & 0 & N_{4,1} \\ 
+                            0 & N_{1,2} & 0 & N_{2,2} & 0 & N_{3,2} & 0 & N_{4,2}
+                        \end{array} \right] $$
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_lin3">
+                        <h2>Linearização (cont. 3)</h2>
+                        <ul>
+                            <li>Rigidez:
+                            $$ \textbf{K} = \iint_{\Omega_0} \textbf{B}_{NL}^T \textbf{D} \textbf{B}_{NL} +
+                            \textbf{B}_{L}^T \textbf{S}_{\oslash} \textbf{B}_{L} d\Omega $$
+                            </li>
+                            <li>Equação incremental discreta (Newton-Raphson):
+                            $$ \bar{\textbf{u}}^T \textbf{K} \Delta \textbf{u} = 
+                            \bar{\textbf{u}}^T (\textbf{F}^{ext} - \textbf{F}^{int})$$
+                            </li>
+                            <ul>
+                                <li>$ \textbf{K} $ muda de acordo com tensões e deformações;</li>
+                                <li>Resolução iterativa até o resíduo satisfazer a tolerência.</li>
+                            </ul>
+                        </ul>                            
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_exemplo">
+                        <h2>Exemplo não linearidade geométrica com elementos finitos</h2>
+                        <p>Grande deformação de uma viga em balanço.</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 50%; float: left; text-align: left; margin-top: 5px;">                                
+                                <img style="border: 0px;" width="500" src="imagens/vigaGrandeDeform.png">
+                            </div>
+                            <div style="margin-left: 50%;">
+                                <p>Dados:</p>
+                                <ul>
+                                    <li>$ l_0 $ = 10 m;</li>
+                                    <li>$ A $ = 100 x 147,8 mm (b x h);</li>
+                                    <li>$ E_e $ = 100 MPa;</li>
+                                    <li>$ M $ = 3384,78 N.m (na extremidade livre).</li>
+                                </ul>
+                                <p>Resolver usando a formulação Lagrangiana Total e
+                                o método de Newton-Raphson.</p>
+                                <p>Usar elemento do estado plano de tensões e
+                                    elemento de viga de Euler-Bernoulli.</p>
+                                <p>Graficar a deformada da viga a cada incremento
+                                de carga, a variação dos deslocamentos horizontal e
+                                vertical  e a rotaçãona extremidade da viga.</p>
+                            </div>
+                        </div>                        
                     </section>
                 </section>
                 
