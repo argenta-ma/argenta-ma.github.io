@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"> 
+        <meta content="width=device-width,initial-scale=1" name="viewport"> 
+        <meta content="Aulas de introcução à computação científica." name="description"> 
+        <meta content="Markinho" name="author"> 
+        
+        <title> Funções e ramificações </title> 
+        
+        <link href="./css/bootstrap.min.css" rel="stylesheet">        
+        <link href="./css/docs.min.css" rel="stylesheet">
+        <link href="./css/carbonads.css" rel="stylesheet">
+        <link href="./css/prism.css" rel="stylesheet">
+        
+        <link href="../imagens/favicon.ico" rel="icon"> 
+        
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+        </script>
+        
+    </head>
+    <body>
+        
+        <!-- Cabeçalho -->
+        <div class="v4-tease">
+            <a href="http://www.estruturas.ufpr.br">
+                <img style="position: absolute; top: 0; left: 0; border: 0;" 
+                     src="../imagens/estruturasUFPR.png" alt="Voltar para Estruturas.UFPR">
+            </a>
+            <a class="navbar-brand" style="position: absolute; left: 360px;" href="../index.html">
+                Aulas de Introdução a Computação Científica
+            </a>
+        </div>
+         <!-- FINAL Cabeçalho -->
+        
+        <!-- Menu superior -->
+        <header class="bs-docs-nav navbar navbar-static-top" id="top"> 
+            <div class="container"> 
+                <div class="navbar-header"> 
+                    <button aria-controls="bs-navbar"  
+                            class="collapsed navbar-toggle" data-target="#bs-navbar" 
+                            data-toggle="collapse" type="button"> 
+                        <span class="sr-only">Alternar Navegação</span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                    </button>
+                </div> 
+                <nav class="collapse navbar-collapse" id="bs-navbar"> 
+                    <ul class="nav navbar-nav"> 
+                        <li class="active"> <a href="lacoslistas.html">Funções e ramificações</a> </li>
+                        <li><a href="#final">Tarefa</a></li>
+                    </ul> 
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li class="dropdown" id="accountmenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Demais tópicos abordados<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../index.html#___sec0">Programando equações</a></li>
+                                <li><a href="../index.html#___sec1">Laços e listas</a></li>
+                                <li><a href="../index.html#___sec2">Funções e ramificações</a></li>
+                                <li><a href="../index.html#___sec3">Entrada do usuário e manipulação de erros</a></li>
+                                <li><a href="../index.html#___sec4">Arranjos e gráficos de curvas</a></li>            
+                                <li><a href="../index.html#___sec6">Dicionários e cadeias de caracteres</a></li>
+                                <li><a href="../index.html#___sec7">Introdução a Classes</a></li>            
+                                <li><a href="../index.html#___sec9">Programação orientada a objeto</a></li>
+                                <li><a href="../index.html#___sec10">Números aleatórios e jogos simples</a></li>
+                                <li><a href="../index.html#___secA">Sequências e relações de recorrência</a></li>
+                                <li><a href="../index.html#___secB">Programação de equações diferenciais</a></li>
+                                <li><a href="../index.html#___secC">Gráficos tridimensionais</a></li>
+                                <li><a href="../index.html#___secD">Programação em paralelo</a></li>
+                                <li><a href="../index.html#___secE">Interfaces gráficas de usuário (GUI)</a></li>
+                                <li><a href="../index.html#___secF">Migrando Python para código compilado</a></li> 
+                            </ul>
+                        </li> 
+                    </ul> 
+                </nav> 
+            </div> 
+        </header>
+        <!-- FINAL MENU SUPERIOR -->
+        
+        <!-- Painel Superior -->
+        <div class="bs-docs-header" id="content" tabindex="-1"> 
+            <div class="container"> 
+                <h1>Funções e ramificações</h1> 
+                <p>Se sim, faça isso, se não, faça aquilo.<br>
+                <font size="2px">Prof. Marco André Argenta / PPGECC / UFPR</font></p>
+                <div id="carbonads-container">
+                    <div class="carbonad">
+                        <div id="azcarbon">
+                            <a href="./imagens/programando_equacoes.png" target="_blank">
+                                <!-- Imagens em 120 px altura e 300 px largura -->
+                                <img src="./imagens/funcoesramificacoes.png" class="carbonad-image carbonad-img">
+                            </a>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+        <!-- FINAL PAINEL SUPERIOR -->
+        
+        <!-- Parte principal -->
+        <div class="container bs-docs-container">
+            <div class="row">
+                
+                <!-- Conteúdo Principal -->
+                <div class="col-md-9" role="main">
+                    <div class="bs-docs-section"> 
+                        <h1 class="page-header" id="inicio">Funções e Ramificações</h1> 
+                        <div class="well">
+                            Introduzindo dois conceitos fundamentais e extremamente úteis
+                            na programação: funções definidas pelo programador e 
+                            ramificação do fluxo do programa, o último também conhecido
+                            como testes <code>if</code>.
+                        </div>               
+                    </div>
+                    <div class="bs-docs-section" id="estrategia">
+                        <h1 class="page-header">titulo...</h1>
+
+                        <p>conteudo...</p>
+                        
+                    </div>
+                    
+                    <div class="bs-docs-section" id="final">
+                        <h1 class="page-header">Tarefa</h1>
+                        <p>
+                            descrição...
+                        </p>                        
+
+                        <!--SOLUÇÃO DA TAREFA-->
+                        <button type="button" class="btn btn-info disabled">Solução</button>                        
+                        <!--<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tarefa">Solução</button>-->
+                        <!--Final solução da tarefa-->                        
+
+                        <div id="tarefa" class="collapse">
+                            <h3> Exemplo de solução: </h3>
+
+                            <pre><code class="language-python">g = 9.81    # m/s**2</code></pre>
+                        </div>
+
+                    </div>
+                    
+                </div>
+                <!-- FINAL Conteúdo Principal -->
+                
+                <!-- Menu lateral -->
+                <div class="col-md-3" role="complementary"> 
+                    <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top" id="menuLateral"> 
+                        <ul class="nav bs-docs-sidenav"> 
+                            <li><a href="#inicio">Funções e Ramificações</a></li>
+                        </ul> 
+                        <a href="#top" class="back-to-top"> Voltar ao topo </a>                 
+                    </nav> 
+                </div>
+                <!-- FINAL Menu lateral -->
+                
+            </div>
+        </div>
+        <!-- FINALParte principal -->
+        
+        <!-- Rodapé -->
+        <footer class="bs-docs-footer"> 
+            <div class="container"> 
+                <ul class="bs-docs-footer-links"> 
+                    <li><a href="http://www.estruturas.ufpr.br" target="_blank">estruturas.UFPR</a></li> 
+                    <li><a href="http://www.estruturas.ufpr.br/disciplinas/pos-graduacao/introducao-a-computacao-cientifica-com-python/" target="_blank">Introdução à computação científica</a></li> 
+                    <li><a href="https://www.python.org/" target="_blank">Python.org</a></li> 
+                    <li><a href="https://www.python.org/dev/peps/pep-0257/" target="_blank">Docstring Conventions</a></li> 
+                </ul> 
+                <p>
+                    Prof. Marco André Argenta
+                </p> 
+            </div> 
+        </footer>
+        <!-- FINAL Rodapé -->        
+        
+        <script src="../adicionais/jquery.min.js"></script>
+        <script src="../adicionais/bootstrap.min.js"></script>
+        <script src="./js/docs.min.js"></script>
+        <script src="./js/prism.js"></script>
+    </body>
+</html>

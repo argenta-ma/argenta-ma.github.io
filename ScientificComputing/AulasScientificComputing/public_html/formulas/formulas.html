@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"> 
+        <meta content="width=device-width,initial-scale=1" name="viewport"> 
+        <meta content="Aulas de introcução à computação científica." name="description"> 
+        <meta content="Markinho" name="author"> 
+        
+        <title> Programando Equações </title> 
+        
+        <link href="./css/bootstrap.min.css" rel="stylesheet">        
+        <link href="./css/docs.min.css" rel="stylesheet">
+        <link href="./css/carbonads.css" rel="stylesheet">
+        <link href="./css/prism.css" rel="stylesheet">
+        
+        <link href="../imagens/favicon.ico" rel="icon"> 
+        
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+        </script>
+        
+    </head>
+    <body>
+        
+        <!-- Cabeçalho -->
+        <div class="v4-tease">
+            <a href="http://www.estruturas.ufpr.br">
+                <img style="position: absolute; top: 0; left: 0; border: 0;" 
+                     src="../imagens/estruturasUFPR.png" alt="Voltar para Estruturas.UFPR">
+            </a>
+            <a class="navbar-brand" style="position: absolute; left: 360px;" href="../index.html">
+                Aulas de Introdução a Computação Científica
+            </a>
+        </div>
+         <!-- FINAL Cabeçalho -->
+        
+        <!-- Menu superior -->
+        <header class="bs-docs-nav navbar navbar-static-top" id="top"> 
+            <div class="container"> 
+                <div class="navbar-header"> 
+                    <button aria-controls="bs-navbar"  
+                            class="collapsed navbar-toggle" data-target="#bs-navbar" 
+                            data-toggle="collapse" type="button"> 
+                        <span class="sr-only">Alternar Navegação</span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                    </button>
+                </div> 
+                <nav class="collapse navbar-collapse" id="bs-navbar"> 
+                    <ul class="nav navbar-nav"> 
+                        <li class="active"> <a href="formulas.html">Programando Equações</a> </li>
+                        <li><a href="#final">Tarefa</a></li>
+                    </ul> 
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li class="dropdown" id="accountmenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Demais tópicos abordados<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../index.html#___sec0">Programando equações</a></li>
+                                <li><a href="../index.html#___sec1">Laços e listas</a></li>
+                                <li><a href="../index.html#___sec2">Funções e ramificações</a></li>
+                                <li><a href="../index.html#___sec3">Entrada do usuário e manipulação de erros</a></li>
+                                <li><a href="../index.html#___sec4">Arranjos e gráficos de curvas</a></li>            
+                                <li><a href="../index.html#___sec6">Dicionários e cadeias de caracteres</a></li>
+                                <li><a href="../index.html#___sec7">Introdução a Classes</a></li>            
+                                <li><a href="../index.html#___sec9">Programação orientada a objeto</a></li>
+                                <li><a href="../index.html#___sec10">Números aleatórios e jogos simples</a></li>
+                                <li><a href="../index.html#___secA">Sequências e relações de recorrência</a></li>
+                                <li><a href="../index.html#___secB">Programação de equações diferenciais</a></li>
+                                <li><a href="../index.html#___secC">Gráficos tridimensionais</a></li>
+                                <li><a href="../index.html#___secD">Programação em paralelo</a></li>
+                                <li><a href="../index.html#___secE">Interfaces gráficas de usuário (GUI)</a></li>
+                                <li><a href="../index.html#___secF">Migrando Python para código compilado</a></li> 
+                            </ul>
+                        </li> 
+                    </ul> 
+                </nav> 
+            </div> 
+        </header>
+        <!-- FINAL MENU SUPERIOR -->
+        
+        <!-- Painel Superior -->
+        <div class="bs-docs-header" id="content" tabindex="-1"> 
+            <div class="container"> 
+                <h1>Programando equações</h1> 
+                <p>Você usa equações? Então, como programá-las?<br>
+                <font size="2px">Prof. Marco André Argenta / PPGECC / UFPR</font></p>
+                <div id="carbonads-container">
+                    <div class="carbonad">
+                        <div id="azcarbon">
+                            <a href="./imagens/programando_equacoes.png" target="_blank">
+                                <!-- Imagens em 120 px altura e 300 px largura -->
+                                <img src="./imagens/programando_equacoes.png" class="carbonad-image carbonad-img">
+                            </a>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+        <!-- FINAL PAINEL SUPERIOR -->
+        
+        <!-- Parte principal -->
+        <div class="container bs-docs-container">
+            <div class="row">
+                
+                <!-- Conteúdo Principal -->
+                <div class="col-md-9" role="main">
+                    <div class="bs-docs-section"> 
+                        <h1 class="page-header" id="inicio">Programando equações</h1> 
+                        <div class="well">
+                            Os primeiros exemplos envolvem programas para resolver equações matemáticas.
+                            Vamos aprender como escrever e rodar um programa em Python, como trabalhar com as variáveis,
+                            como computar funções matemáticas como $e^x$ e $sen(x)$, e como usar o Python
+                            para cálculos interativos.
+                        </div>               
+                    </div>
+                    <div class="bs-docs-section" id="estrategia">
+                        <h1 class="page-header">Estratégia de aprendizado</h1>
+
+                        <p>A melhor estratégia para aprender a programar é se baseando e entendendo exemplos.</p>
+                        <p style="margin-top: 50px">Por isso, no curso, nós vamos:</p>
+
+                        <ul style="margin-top: 50px">
+                            <li>Apresentar um problema;</li>
+                            <li>Apresentar o programa completo;</li>
+                            <li>Dissecar e discutir cada linha do programa;</li>
+                            <li>Simular programas na mão (ser o computador!).</li>
+                        </ul>
+                    </div>
+                    <div class="bs-docs-section" id="avaliando_equacao">
+                        <h1 class="page-header">Avaliando uma equação matemática</h1>
+
+                        <b>Atura de uma bola em movimento vertical.</b>
+
+                        $$ y(t) = v_0t- \frac{1}{2}gt^2 $$
+
+                        <p style="margin-top: 50px">sendo:</p>
+
+                        <ul style="margin-top: 50px">
+                            <li> \( y \) a altura (posição) em função do tempo \( t \)</li>
+                            <li> \( v_0 \) é a velocidade inicial em \( t=0 \)</li>
+                            <li> \( g \) é a aceleração da gravidade</li>
+                        </ul>
+
+                        <p style="margin-top: 50px">Tarefa: dado \( v_0 \), \( g \) e \( t \), calcular \( y \).</p>
+
+                    </div>
+                    <div class="bs-docs-section" id="calculadora">
+                        <h1 class="page-header">Usar uma calculadora? Um programa é muito mais poderoso...</h1>
+
+                        <b>Mas afinal, o que é um programa?</b>
+                        <p>
+                            Uma sequência de instruções para o computador, escritas em uma linguagem de
+                            programação, parecida com uma gramática, mas mais simples e mais rigorosa.
+                        <p>
+                            Este curso trabalha com computação científica usando a linguagem de 
+                            programação Python (www.python.org).
+                        <p>
+                            <b>Nosso primeiro programa exemplo:</b><br>
+                            Avaliar \( y(t) = v_0t- \frac{1}{2}gt^2 \) para \( v_0=5 \), \( g=9.81 \) e \( t=0.6 \):<br>
+
+                            $$ y = 5\cdot 0.6 - \frac{1}{2}\cdot 9.81 \cdot 0.6^2$$
+
+                            O programa completo em python:
+                        <pre><code class="language-python">
+                            print 5*0.6 - 0.5*9.81*0.6**2
+                        </code></pre>
+                    </div>
+                    <div class="bs-docs-section" id="escreverRodar">
+                        <h1 class="page-header">Como escrever e rodar um programa?</h1>
+
+                        <ul>
+                            <li> Um programa é texto simples, escrito em um <em>editor de texto</em>;</li>
+                            <li> Use Gedit, Notepad++, Emacs, Vim, Spyder, or IDLE (<em>não</em> MS Word!).</li>
+                        </ul>
+
+                        <p style="margin-top: 20px; text-align: left; margin-left: 50px;">
+                            <b>Passo 1.</b> Escreva o programa em um editor de texto, essa linha:
+                        </p>
+                        <pre><code class="language-python">
+                        print 5*0.6 - 0.5*9.81*0.6**2
+                    </code></pre>
+                        <p style="margin-top: 20px; text-align: left; margin-left: 50px;">
+                            <b>Passo 2.</b> Salve o programa para um arquivo, digamos, <code>movimento.py</code><br>
+                            (<code>.py</code> significa arquivo do Python);<br>
+                            <b>Passo 3.</b> Abra um terminal (linux, mac) ou prompt do comando (windows CMD)
+                            e vá até a pasta onde você salvou o arquivo;<br>
+                            <b>Passo 4.</b> Execute o programa:
+                        <pre><code class="language-bash">
+                            Terminal> python ball1.py
+                        </code></pre>
+                        <p>O programa imprime <code>1.2342</code> no terminal.</p>
+                    </div>
+                    <div class="bs-docs-section" id="semPython">
+                        <h1 class="page-header">O programa não rodou?</h1>
+
+                        <p style="margin-top: 20px;">Você precisa instalar o interpretador Python!</p>
+                        <p style="margin-top: 20px;">Sugestão: Anaconda!<br>
+
+                            <img style="border: 0px;float:center;width:400px;" src="imagens/logo-horizontal-large.svg">   
+
+                        <p style="margin-top: 20px;">Anaconda é uma interessante plataforma
+                            para o desenvolvimento em Python. </p>
+                        <p style="margin-top: 50px;">Você pode baixar aqui: <a href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a></p>
+                        <p style="margin-top: 20px;"><b>Use a versão para Python 2.7!</b></p>
+                    </div>
+                    <div class="bs-docs-section" id="computadoresDiferentes">
+                        <h1 class="page-header">Provavelmente o seu computador é diferente do meu</h1>
+
+                        <ul>
+                            <li> Quando você está usando um computador você está sempre
+                                rodando algum programa;</li>
+                            <li> O computador não faz absolutamente nada sem ser comandado,
+                                e nós, humanos, escrevemos e usamos programas que dizem ao computador
+                                o que fazer;</li>
+                            <li> A maioria das pessoas está acostumada a dar um duplo clique em 
+                                um símbolo (ícone) para rodar um programa, mas neste curso
+                                nós vamos comandar o computador através dos terminais (ou prompt de comando)
+                                ou de IDEs (integrated development environment) porque é mais eficiente para trabalhar com programação!</li>
+                            <li> Programas matemáticos complexos de repente se tornam diretos quando escrevemos programas.</li>
+                        </ul>                    
+                    </div>
+                    <div class="bs-docs-section" id="programaIntegralCurso">
+                        <h1 class="page-header">Um programa pode calcular uma integral</h1>
+
+                        <p>Você pode calcular essa integral na mão?</p>
+
+                        $$ \int_{-\infty}^1 e^{-x^2}dx$$
+
+                        <p>Um pequeno programa pode calculá-la assim
+                            como outras integrais:</p>
+
+                        <pre><code class="language-python">                        import numpy as np
+
+                        def integracao(f, a, b, n=100):
+                            """
+                            Integra f de a a b,
+                            usando a regra dos trapézios com n intervalos.
+                            """
+                            x = np.linspace(a, b, n+1)    # Coordenadas dos intervalos
+                            h = x[1] - x[0]            # Espaçamento entre intervalos
+                            I = h*(sum(f(x)) - 0.5*(f(a) + f(b)))
+                            return I
+
+                        # Definindo nosso integrando
+                        def minha_funcao(x):
+                            return np.exp(-x**2)
+
+                        menos_infinito = -20  # Aproximação de menos infinito
+                        I = integracao(minha_funcao, menos_infinito, 1, n=1000)
+                        print 'Valor da integral:', I
+                    </code></pre>                    
+                        <p><b>O programa calcula uma aproximação com erro \( 10^{-12} \) em 0.1 s</b> (\( n=10^6 \))!</p>
+                    </div>
+                    <div class="bs-docs-section" id="regrasDigitacao">
+                        <h1 class="page-header">Os computadores são muito exigentes quanto às regras gramaticais e erros de digitação</h1>
+
+                        <p>Olhe para:</p>
+                        <pre><code class="language-python">
+                        print 5*0.6 - 0.5*9.81*0.6**2
+                        write 5*0,6 - 0,5*9,81*0,6^2
+                    </code></pre>
+
+                        Você consideraria essas duas linhas iguais?
+
+                        <ul>
+                            <li> Humanos dirão <em>sim</em>, computadores <em>não</em>;</li>
+                            <li> A segunda linha não tem sentido dentro de um programa Python;</li>
+                            <li> <code>write</code> não é uma palavra reservada em Python, a vírgula tem outro
+                                sentido diferente do matemático e o acento circunflexo não é exponenciação;</li>
+                            <li> Precisamos ser extremamente precisos quando vamos escrever
+                                programas computacionais!</li>
+                            <li> Toma tempo e experiência aprender isso.</li>
+                        </ul>                    
+                    </div>
+                    <div class="bs-docs-section" id="novaVida">
+                        <h1 class="page-header">Programação abre novas perspectivas</h1>
+
+                        <blockquote>
+                            <em>People only become computer programmers if they're
+                                obsessive about details, crave power over machines, and can bear
+                                to be told day after day exactly how
+                                stupid they are.</em> <br> <br> G. J. E. Rawlins associate professor of 
+                            computer science at Indiana University, Bloomington.
+                        </blockquote>
+
+                        <div class="well">
+                            As pessoas só se tornam programadores de computador se eles 
+                            são obsessivos com detalhes, anseiam poder sobre máquinas e 
+                            podem suportar ser informados dia após dia exatamente como 
+                            eles são estúpidos. Gregory J. E. Rawlins 
+                        </div>                           
+                    </div>
+                    <div class="bs-docs-section" id="numerosVariaveis">
+                        <h1 class="page-header">Guarde números em variáveis para fazer um programa mais legível</h1>
+                        <p>Na matemática nós estamos acostumados às variáveis, ou seja:</p>
+
+                        $$ v_0=5,\quad g=9.81,\quad t=0.6,\quad y = v_0t -\frac{1}{2}gt^2$$
+
+                        <p>Nós podemos usar variáveis em um programa também, e isso torna o programa
+                            mais fácil de ser lido e entendido:</p>
+
+                        <pre><code class="language-python">
+                        v0 = 5
+                        g = 9.81
+                        t = 0.6
+                        y = v0*t - 0.5*g*t**2
+                        print y
+                    </code></pre>
+
+                        <p>Esse programa abrange várias linhas de texto e usa variáveis,
+                            mesmo assim o programa executa os mesmos cálculos e dá a mesma saída que o programa anterior.</p>
+                    </div>
+                    <div class="bs-docs-section" id="nomesVariaveis">
+                        <h1 class="page-header">Existe grande flexibilidade para a escolha dos nomes das variáveis</h1>
+
+                        <ul>
+                            <li> Na matemática nós normalmente usamos uma letra para a variável;</li>
+                            <li> O nome da variável em um programa pode conter letras de a-z ou A-Z, símbolo de 
+                                sublinhado "<code>_</code>" e dígitos de 0-9, mas não pode iniciar com um dígito;</li>
+                            <li>Não se utilizam caracteres especiais em nomes de variáveis, como ã, é, $, &, etc;</li>
+                            <li> Os nomes das variáveis são "case-sensitive" (ou seja, <code>a</code> é diferente de <code>A</code>).</li>
+                        </ul>
+                        <pre><code class="language-python">
+                        velocidade_inicial = 5
+                        acel_gravidade = 9.81
+                        TEMPO = 0.6
+                        PosicaoVerticalDaBola = velocidade_inicial*TEMPO - \ 
+                                                 0.5*acel_gravidade*TEMPO**2
+                        print PosicaoVerticalDaBola
+                    </code></pre>
+                        <p>Bons nomes para variáveis tornam um programa fácil de entender!</p>
+                    </div>
+                    <div class="bs-docs-section" id="palavrasReservados">
+                        <h1 class="page-header">Algumas palavras em inglês são reservadas para o uso do Python</h1>
+
+                        <p>Certas palavras possuem um significado especial em Python 
+                            e não podem ser usadas como nome de variáveis.</p>
+                        <p>São elas:</p>
+
+                        <code>and, as, assert, break, class, continue, def, del, elif,
+                            else, except, exec, finally, for, from, global, if, import,
+                            in, is, lambda, not, or, pass, print, raise, return, try, 
+                            with, while, and yield.</code>
+                    </div>
+                    <div class="bs-docs-section" id="comentarios">
+                        <h1 class="page-header">Comentários são uma forma útil de se explicar um programa</h1>
+
+                        <p><b>Programa com comentários:</b></p>
+
+                        <pre><code class="language-python">
+                        # programa para calcular a altura de uma bola
+                        # em movimento vertical
+                        v0 = 5    # velocidade inicial
+                        g = 9.81  # aceleração da gravidade
+                        t = 0.6   # tempo
+                        y = v0*t - 0.5*g*t**2  # posição vertical
+                        print y
+                    </code></pre>
+
+                        <p style="text-align: left;"><b>Notas:</b></p>
+
+                        <ul>
+                            <li> Tudo após o símbolo <code>#</code> em uma linha é um comentário e 
+                                é ignorado pelo Python;</li>
+                            <li> Comentários são utilizados para explicar o que as instruções
+                                do código significam, o que as variáveis significam,
+                                como o programador raciocinou quando escrever o programa, etc.</li>
+                            <li> Comentários ruins não dizem nada a mais que o código: <br><code>a = 5  # definir a como 5</code></li>
+                        </ul>
+                    </div>
+                    <div class="bs-docs-section" id="comentariosNaoIgnorados">
+                        <h1 class="page-header">Comentários não são sempre ignorados</h1>
+
+                        <p>Regra padrão: Programas Python, exceto os comentários e textos (strings), podem somente
+                            possuir caracteres do alfabeto inglês.</p>
+                        <p>Por questões de boas práticas e por generalizar a leitura do código, 
+                            normalmente todo o programa, inclusive os comentários são escritos em inglês!</p>
+
+                        <p>Algumas vezes mesmo caracteres especiais colocados em textos ou comentários
+                            podem gerar um erro no programa:</p>
+
+                        <pre><code class="language-python">                    verdade = 'Não é não!'  # ã e é são permitidos em uma string?
+                    print verdade</code></pre>
+
+                        <p>Pode gerar o erro:</p>
+
+                        <pre><code class="language-bash">                    SyntaxError: Non-ASCII character ...</code></pre>
+
+                        <p>A solução para esse tipo de erro e acrescentar
+                            na primeira linha do seu programa a codificação na qual
+                            você está escrevendo o código, para Linux e Mac:</p>
+
+                        <pre><code class="language-python">                    # -*- coding: utf-8 -*-</code></pre>
+
+                        <p>E para windows:</p>
+
+                        <pre><code class="language-python">                    # -*- coding: cp-1252 -*-</code></pre>
+                    </div>
+                    <div class="bs-docs-section" id="comandoPrintf">
+                        <h1 class="page-header">printf</h1>
+
+                        <p>O comando <code>printf</code> nós dá grande flexibilidade formantando texto com números</p>
+
+                        <p>O resultado de cálculos normalmente contém números com algum significado,<br> por exemplo:</p>
+
+                        <blockquote>Em t = 0.6s, y é 1.23m</blockquote>
+
+                        <p>É interessante controlar a formatação dos números como:<br> quantidade 
+                            de decimais, estilo (0,6 ou 6e-01), entre outros.</p>
+
+                        <p>O comando interno do Python (ou palavra reservada) <code>printf</code> é útil para
+                            esse propósito:</p>
+
+                        <pre><code class="language-python">                    t = 0.6
+                    y = 1.2342
+                    print 'Em t=%g s, y é %.2f m.' % (t, y)</code></pre>    
+
+                        <p>O comando <code>printf</code> possui &quot;espaços&quot; onde as variáveis
+                            listadas ao final são acrescentadas ao texto formatado:<br>
+                            <code>%g</code> \( \leftarrow \) <code>t</code>, <code>%.2f</code> \( \leftarrow \) <code>y</code></p>
+                    </div>
+                    <div class="bs-docs-section" id="exemplosPrintf">
+                        <h1 class="page-header">Exemplos de diferentes formatações com o printf</h1>
+
+                        <pre>                    %g         formato mais compacto de um número real
+                    %f         notação decimal (-34.674)
+                    %10.3f     notação decimal com 3 decimais e 10 dígitos inteiros
+                    %.3f       notação decimal com 3 decimais e mínimo tamanho
+                    %e or %E   notação científica (1.42e-02 ou 1.42E-02)
+                    %9.2e      notação científica com 2 decimais e 9 dígitos inteiros
+                    %d         inteiro
+                    %5d        inteiro com 5 dígitos
+                    %s         string (texto)
+                    %-20s      string, com 20 caracteres, alinhado à esquerda
+                    %%         símbolo de porcentagem %
+                        </pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="usandoPrintf">
+                        <h1 class="page-header">Usando formatações com o printf em seu programa</h1>
+                        Textos (strings) com triplas aspas (""" ou ''') podem ser utilizados para 
+                        saídas em múltiplas linhas que, ainda, podem ser combinadas com uma formatação
+                        do comando <code>printf</code>:
+
+                        <pre><code class="language-python">                    v0 = 5
+                    g = 9.81
+                    t = 0.6
+                    y = v0*t - 0.5*g*t**2
+
+                    print """
+                    Em t=%f s, uma bola com
+                    velocidade inicial v0=%.3E m/s
+                    está posicionada na altura de %.2f m.
+                    """ % (t, v0, y)</code></pre> 
+
+                        <p>Salve como um arquivo do python (ex. saida_formatada.py) e rode o programa:</p>
+
+                        <pre><code class="language-bash">                    Terminal> python saida_formatada.py</code></pre> 
+
+                    </div>
+                    <div class="bs-docs-section" id="termosComputacaoCientifica">
+                        <h1 class="page-header">Alguns termos comumente usados em computação científica</h1>
+
+                        <ul>
+                            <li> Programa, código ou aplicação (Program or code or application);</li>
+                            <li> Código fonte (Source code, é o "texto" do programa)</li>
+                            <li> Fragmento ou parte de Código/programa (Code/program snippet);</li>
+                            <li> Executar ou rodar um programa (Execute or run a program);</li>
+                            <li> Algoritmo (Algorithm, é a "receita" para um programa);</li>
+                            <li> Implementação (Implementation, o ato de escrever o programa);</li>
+                            <li> Verificação (Verification, o programa funciona como esperado?);</li>
+                            <li> Erros e depuração (Bugs and debugging);</li>
+                        </ul>
+
+                        <p style="margin-top: 30px;">O significado de alguns termos em computação científica 
+                            é geralmente diferente do significado do "dicionário".</p>
+
+                    </div>
+                    <div class="bs-docs-section" id="declaracoesPrograma">
+                        <h1 class="page-header">Um programa consiste em declarações</h1>
+
+                        <pre><code class="language-python">                    a = 1      # 1a declaração (declaração de atribuição)
+                    b = 2      # 2a declaração (declaração de atribuição)
+                    c = a + b  # 3a declaração (declaração de atribuição)
+                    print c    # 4a declaração (declaração de impressão)</code></pre>
+
+                        <p>Regra padrão: <br>
+                            uma declaração por linha, mas múltiplas declarações por linha
+                            são permitidas através do uso do ponto-vírgula entre as declarações:
+                        </p>
+
+                        <pre><code class="language-python">                    a = 1;  b = 2;  c = a + b;  print c</code></pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="declaracoesAtribuicao">
+                        <h1 class="page-header">Declarações de Atribuição</h1>
+
+                        <p>Declarações de atribuição avaliam o lado direito do símbolo de 
+                            atribuição "=" e atribuem o resultado à variável do lado esquerdo:</p>
+
+                        <pre><code class="language-python">                    mvar = 10
+                    mvar = 3*mvar   # = 30    </code></pre>
+                    </div>
+                    <div class="bs-docs-section" id="sintaxe">
+                        <h1 class="page-header">Sintaxe do código</h1>
+
+                        <p>Programas devem conter uma sintaxe correta, isto é, um correto
+                            uso das regras "gramaticais" da linguagem de programação em uso,
+                            e sem erros de impressão!</p>
+
+                        <p><b>Esse é um programa com dois erros de sintaxe:</b></p>
+
+                        <pre><code class="language-python">                    mvar = 5.2
+                        print mvar
+                    prinnt Mvar
+                                   ^
+                    SyntaxError: invalid syntax</code></pre>
+
+                        <p>Somente o primeiro erro encontrado é relatado e o programa
+                            para (corrija o erro e continue para o pŕoximo...).</p>
+
+                        <blockquote>
+                            <em>Programming demands significantly higher standard of accuracy. 
+                                Things don't simply have to make sense to another human being, 
+                                they must make sense to a computer.</em> 
+                            Donald Knuth, computer scientist, 1938-
+                        </blockquote>
+
+                        <div class="well">
+                            A programação exige um nível de precisão significativamente maior. 
+                            As coisas simplesmente não têm que fazer sentido para outro ser humano, 
+                            elas devem fazer sentido para um computador.
+                            Donald Knuth, computer scientist, 1938
+                        </div>  
+
+                    </div>
+                    <div class="bs-docs-section" id="espacosBranco">
+                        <h1 class="page-header">Espaços em branco</h1>
+
+                        <p>Espaços em branco (blank, whitespaces) podem ser utilizados
+                            para uma melhor formatação do texto do código.</p>
+
+                        <p>Espaços em branco podem ou não ser importantes em programas Python.</p>
+
+                        <p>Essas declarações são equivalentes (espaços em branco aqui não importam): </p>
+
+                        <pre><code class="language-python">                    v0=3
+                    v0  =  3
+                    v0=   3
+                    v0 = 3</code></pre>
+
+                        <p>Aqui os espaço em branco são importantes:</p>
+
+                        <pre><code class="language-python">            contador = 1
+            while contador <= 4:
+                contador = contador + 1   # correto (4 espaços em branco no inicio ou um "tab", indentação)
+
+            while contador <= 4:
+            contador = contador + 1       # sintaxe inválida</code></pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="entradaSaida">
+                        <h1 class="page-header">Entrada e Saída</h1>
+
+                        <p>O programa recebe dados de entrada e calcula os 
+                            dados de saída de acordo com o código escrito.</p>
+
+                        <pre><code class="language-python">                    v0 = 3;  g = 9.81;  t = 0.6
+                    posicao = v0*t - 0.5*g*t*t
+                    velocidade = v0 - g*t
+                    print 'posição:', posicao, 'velocidade:', velocidade</code></pre>
+
+                        <ul>
+                            <li> Entrada: <code>v0</code>, <code>g</code>, e <code>t</code></li>
+                            <li> Saída: <code>posicao</code> e <code>velocidade</code></li>
+                        </ul>
+
+                    </div>
+                    <div class="bs-docs-section" id="sistemaOperacional">
+                        <h1 class="page-header">Sistema Operacional</h1>
+
+                        <p>Um sistema operacional (OS) é um conjunto de programas que
+                            gerenciam os recursos de hardware e software em um computador.</p>
+
+                        <ul>
+                            <li> Linux, Unix (Ubuntu, RedHat, Suse, Solaris)</li>
+                            <li> Windows (95, 98, NT, ME, 2000, XP, Vista, 7, 8)</li>
+                            <li> Macintosh (old Mac OS, Mac OS X)</li>
+                            <li> Mac OS X \( \approx \) Unix \( \approx \) Linux \( \neq \) Windows</li>
+                            <li> Os comandos tipicos do OS são bem similares:
+                                <ul>
+                                    <li> Linux/Unix: <code>mkdir nome-da-pasta; cd nome-da-pasta; ls</code></li>
+                                    <li> Windows: <code>mkdir nome-da-pasta; cd nome-da-pasta; dir</code></li>
+                                </ul>
+                            </li>
+                            <li> Python suporta programação cross-plataforma, ou seja, 
+                                um programa é independente de qual OS utilizamos para
+                                programar ou rodar o programa.</li>
+                        </ul>
+                    </div>
+                    <div class="bs-docs-section" id="equacaoTemperatura">
+                        <h1 class="page-header">Avaliando uma equação para conversão de temperatura</h1>
+
+                        <p>Dado \( C \) como uma temperatura em graus Celsius,
+                            calcule a temperatura correspondente em graus Fahrenheit \( F \):</p>
+
+                        $$ F = \frac{9}{5}C + 32 $$
+
+                        <p>Programa, em um editor de texto e salve como <code>c2f.py</code>: </p>
+
+                        <pre><code class="language-python">                    C = 21
+                    F = (9/5)*C + 32
+                    print F</code></pre>
+
+                        <p>Execução e resultado:</p>
+
+                        <pre><code class="language-bash">                    Terminal> python c2f.py
+                    53</code></pre>
+                    </div>
+                    <div class="bs-docs-section" id="respostaCerta">
+                        <h1 class="page-header">Resposta certa</h1>
+
+                        <p style="margin-top: 30px;">Sempre deve-se checar se um novo programa 
+                            calculou a resposta certa.</p>
+
+                        <p style="margin-top: 30px;">Por exemplo, usando uma calculadora:</p>
+
+                        <code>9/5 vezes 21 mais 32 é 69.8, e não 53!!</code>                    
+                    </div>
+                    <div class="bs-docs-section" id="erroNaRespostaCerta">
+                        <h1 class="page-header">Erro na resposta</h1>
+
+                        <p style="margin-top: 30px;">O erro na resposta foi causado
+                            (não intencionalmente) por divisão de inteiros.</p>
+
+                        <ul>
+                            <li> 9/5 não é 1.8 mas 1 na maioria das linguagens de programação!</li>
+                            <li> Se \( a \) e \( b \) são inteiros, \( a/b \) implica em uma divisão 
+                                de inteiros: o maior inteiro \( c \) tal que \( cb\leq a \);</li>
+                            <li> Exemplos: \( 1/5=0 \), \( 2/5=0 \), \( 7/5=1 \), \( 12/5=2 \);</li>
+                            <li> Na matemática, 9/5 é um número real (1.8) - isso 
+                                é chamado divisão de ponto flutuante em Python e é a divisão que queremos;</li>
+                            <li> Um dos operandos (\( a \) ou \( b \)) em \( a/b \) deve ser um número real 
+                                (ponto flutuante ou "float") para resultar na divisão com ponto flutuante;</li>
+                            <li> Um float em Python possui um ponto (ou decimais): <code>9.0</code> 
+                                ou <code>9.</code> é float;</li>
+                            <li> Nenhum ponto implica em inteiro: <code>9</code> é um inteiro;</li>
+                            <li> <code>9.0/5</code> resulta <code>1.8</code>, <code>9/5.</code> 
+                                resulta <code>1.8</code>, <code>9/5</code> resulta <code>1</code>;</li>
+                        </ul>
+
+                        <p>Corrija o programa de temperatura.</p>
+                    </div>
+                    <div class="bs-docs-section" id="objetosPython">
+                        <h1 class="page-header">Tudo no Python é um objeto</h1>
+
+                        <p>Variáveis se referem à objetos:</p>
+
+                        <pre><code class="language-python">                    a = 5       # a refere-se a um objeto inteiro (int)
+                    b = 9       # b refere-se a um objeto inteiro (int)
+                    c = 9.0     # c refere-se a um objeto número real (float)
+                    d = b/a     # d refere-se a uma int/int => objeto int
+                    e = c/a     # e refere-se a uma float/int => objeto float
+                    s = 'b/a=%g' % (b/a)  # s é um objeto string/texto (str)</code></pre>
+
+                        <p>Podemos fazer conversões entre objetos:</p>
+
+                        <pre><code class="language-python">                    a = 3              # a é int
+                    b = float(a)       # b é float 3.0
+                    c = 3.9            # c é float
+                    d = int(c)         # d é int 3
+                    d = round(c)       # d é float 4.0
+                    d = int(round(c))  # d é int 4
+                    d = str(c)         # d é str '3.9'
+                    e = '-4.2'         # e é str
+                    f = float(e)       # f é float -4.2</code></pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="expressoesAritmeticas">
+                        <h1 class="page-header">Expressões Aritméticas</h1>
+
+                        <p>Expressões aritméticas são avaliadas como você aprendeu 
+                            na matemática:</p>
+
+                        <ul>
+                            <li> Exemplo: \( \dfrac{5}{9} + 2\dfrac{a^4}{2} \), no Python é escrita como <code>5/9 + 2*a**4/2</code></li>
+                            <li> As mesmas regras da matemática: procedimento termo à termo* a partir da esquerda, no mesmo termo 
+                                potências são calculadas primeiro, depois multiplicação e divisão, por fim adições/subtrações:</li>
+                            <li> <code>r1 = 5/9</code> (=0)</li>
+                            <li> <code>r2 = a**4</code></li>
+                            <li> <code>r3 = 2*r2</code></li>
+                            <li> <code>r4 = r3/2</code></li>
+                            <li> <code>r5 = r1 + r4</code></li>
+                            <li> Use parenteses para sobrescrever essas regras padrões, 
+                                ou use parenteses para explicitamente dizer como as regras funcionam: <br />
+                                <code>(5/9) + (2*(a**4))/2</code></li>
+                        </ul>
+
+                        <div class="well">
+                            * Um termo é definido ou separado por adição ou subtrações.
+                        </div>
+                    </div>
+                    <div class="bs-docs-section" id="funcoesPadroes">
+                        <h1 class="page-header">Funções Matemáticas Padrões</h1>
+
+                        <p>Algumas funções matemáticas podem ser encontradas
+                            no módulo <code>math</code> do python</p>
+
+                        <ul>
+                            <li> E se precisarmos calcular  $\sin x$, $\cos x$, 
+                                $\ln x$, etc. em um programa?</li>
+                            <li> Tais funções estão disponíveis no módulo 
+                                <code>math</code> do python;</li>
+                            <li> Um monte de funcionalidades úteis estão disponíveis
+                                em módulos do próprio Python e em módulos de terceiros;</li>
+                            <li>Para funcionar, devemos importar esses módulos para nosso
+                                programa.</li>
+                        </ul>
+
+                        <pre><code class="language-python">                    import math
+                    r = math.sqrt(2)
+                    # ou
+                    from math import sqrt
+                    r = sqrt(2)
+                    # ou
+                    from math import *   # import tudo de math
+                    r = sqrt(2)</code></pre>                    
+                    </div>
+                    <div class="bs-docs-section" id="funcoesPadroes2">
+                        <h1 class="page-header">Funções Matemáticas Padrões</h1>
+
+                        <p>Mais um exemplo do uso de funções matemáticas com
+                            o <code>math</code>:</p>
+
+                        <p>Calcule</p>
+
+                        $$ Q = \sin x\cos x + 4\ln x $$
+
+                        <p>para $x=1,2$</p>
+
+                        <pre><code class="language-python">                    import math
+                    x = 1.2
+                    Q = math.sin(x)*math.cos(x) + 4*math.log(x)
+                    print Q</code></pre>                                       
+                    </div>
+                    <div class="bs-docs-section" id="errosArredondamento">
+                        <h1 class="page-header">Erros de arredondamento</h1>
+
+                        <p>Computadores possuem uma aritmética inexata por causa
+                            dos erros de arredondamento e ponto flutuante.</p>
+
+                        <p>Vamos calcular $1/49 \cdot 49$ e $1/51 \cdot 51$:</p>
+
+                        <pre><code class="language-python">                    v1 = 1/49.0*49
+                    v2 = 1/51.0*51
+                    print '%.16f %.16f' % (v1, v2)</code></pre>
+
+                        <p>A saída com os 16 decimais é retornada como:</p>
+
+                        <code>0.9999999999999999 1.0000000000000000</code>
+
+                        <ul>
+                            <li> A maioria dos números reais possui uma representação
+                                inexata em um computador (ex. 16 dígitos);</li>
+                            <li> Nem 1/49 ou 1/51 está representado exatamente, sendo 
+                                o erro normalmente na ordem de $ 10^{-16} $;</li>
+                            <li> As vezes esses pequenos erros se propagam até a resposta 
+                                final, as vezes não, e as vezes os pequenos erros são
+                                acumulados através de várias operações matemáticas;</li>
+                            <li> Lição aprendida: Os números reais em computadores e
+                                os resultados da cálculos matemáticos são apenas
+                                aproximações!</li>
+                        </ul>                    
+                    </div>
+                    <div class="bs-docs-section" id="errosArredondamento2">
+                        <h1 class="page-header">Funções Matemáticas Padrões e possíveis erros</h1>
+
+                        <p>Mais um exemplo do uso de funções matemáticas com
+                            o <code>math</code>:</p>
+
+                        <p>A função $\sinh x$ é definida como:</p>
+
+                        $$\sinh (x) = \frac{1}{2}\left(e^{x} - e^{-x}\right) $$
+
+                        <p>Podemos avaliar essa função de três formas:</p>
+
+                        <ul>
+                            <li><code>math.sinh</code></li>
+                            <li>combinação de duas <code>math.exp</code></li>
+                            <li>combinação de duas potências de <code>math.e</code></li>
+                        </ul>
+
+                        <pre><code class="language-python">                    from math import sinh, exp, e, pi
+                    x = 2*pi
+                    r1 = sinh(x)
+                    r2 = 0.5*(exp(x) - exp(-x))
+                    r3 = 0.5*(e**x - e**(-x))
+                    print '%.16f %.16f %.16f' % (r1,r2,r3)</code></pre>
+
+                        <p>Saída: <code>267.744894041016<u>4369</u> 267.744894041016<u>4369</u> 267.744894041016<u>3232</u></code>??</p>
+                    </div>
+                    <div class="bs-docs-section" id="interativo">
+                        <h1 class="page-header">Python interativo</h1>
+
+                        <p>Python pode ser utilizado interativamente como uma calculadora
+                            e para testar declarações.</p>
+
+                        <ul>
+                            <li>Até agora nós executamos cálculos em <code>programas</code> Python;</li>
+                            <li>Python também pode ser utilizado interativamente, utilizando 
+                                o chamado <code>shell</code>;</li>
+                            <li>Digite <code>python</code>, ou <code>ipython</code>, ou
+                                <code>idle</code> no terminal (CMD no windows);</li>
+                            <li>Um <code>shell</code> Python é aberto onde você pode
+                                escrever declarações e realizar operações em Python.</li>
+                        </ul>
+
+                        <pre><code class="language-bash">Terminal> python
+Python 2.7.12 |Anaconda custom (64-bit)| (default, Jul  2 2016, 17:42:40)
+...
+>>> C = 41
+>>> F = (9.0/5)*C + 32
+>>> F
+105.8
+>>> print F
+105.8
+>>> </code></pre>
+
+                        <p>Comandos anteriores podem ser chamados novamente e editados 
+                            com a seta para cima ou para baixo do teclado.</p>
+
+                    </div>
+                    <div class="bs-docs-section" id="numerosComplexos">
+                        <h1 class="page-header">Números Complexos</h1>
+
+                        <p>Python possui suporte total para cálculos com números
+                            complexos.</p>
+
+                        <p>$2 + 3i$ na matemática é escrito como <code>2 + 3j</code>
+                            em Python.</p>
+
+                        <pre><code class="language-bash">>>> a = -2
+>>> b = 0.5
+>>> s = complex(a, b)  # monte um complexo das variáveis
+>>> s
+(-2+0.5j)
+>>> s*w                # complexo*complexo
+(-10.5-3.75j)
+>>> s/w                # complexo/complexo
+(-0.25641025641025639+0.28205128205128205j)
+>>> s.real
+-2.0
+>>> s.imag
+0.5</code></pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="calculoSimbolico">
+                        <h1 class="page-header">Cálculo algébrico</h1>
+
+                        <p>Python também pode realizar operações algébricas,
+                            através do módulo <code>sympy</code>.</p>
+
+                        <ul>
+                            <li>Computação numérica: computação com números;</li>
+                            <li>Computação simbólica: operações algébricas com variáveis.</li>
+                        </ul>
+
+                        <pre><code class="language-bash">>>> from sympy import *
+>>> t, v0, g = symbols('t v0 g')
+>>> y = v0*t - Rational(1,2)*g*t**2
+>>> dydt = diff(y, t)                     # 1a derivada
+>>> dydt
+-g*t + v0
+>>> print 'aceleração:', diff(y, t, t)  # 2a derivada
+aceleração: -g
+>>> y2 = integrate(dydt, t)
+>>> y2
+-g*t**2/2 + t*v0
+</code></pre>
+                        <p>Foi gerado um erro de importação? Você não tem o
+                            módulo <code>sympy</code> instalado!</p>                    
+                    </div>
+                    <div class="bs-docs-section" id="calculoSimbolico2">
+                        <h1 class="page-header">Cálculo algébrico (cont.)</h1>
+
+                        <p>O SymPy pode realizar uma série de operações
+                            tradicionais da matemática.</p>
+
+                        <pre><code class="language-bash">>>> y = v0*t - Rational(1,2)*g*t**2
+>>> roots = solve(y, t)    # resolve y=0 para t
+>>> roots
+[0, 2*v0/g]
+>>> x, y = symbols('x y')
+>>> f = -sin(x)*sin(y) + cos(x)*cos(y)
+>>> simplify(f)
+cos(x + y)
+>>> expand(sin(x+y), trig=True)  # na forma trigonométrica
+sin(x)*cos(y) + sin(y)*cos(x)
+</code></pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="sumarioEquacoes">
+                        <h1 class="page-header">Sumário de Programando Equações</h1>
+
+                        <ul>
+                            <li>Programas deve ser precisos!</li>
+                            <li>Variáveis são nomes de objetos;</li>
+                            <li>Conhecemos diferentes tipos de objetos:
+                                <code>int</code>, <code>float</code>, <code>str</code>;</li>
+                            <li>Escolha nomes de variáveis próximos aos 
+                                símbolos matemáticos do problema sendo resolvido;</li>
+                            <li>Operações aritméticas em Python: termo a termo
+                                (+/-) da esquerda para a direita, potências antes *
+                                e / - como na matemática! Use parênteses se ficar na dúvida;</li>
+                            <li>Cuidado com divisões por inteiros!</li>
+                            <li>Use o <code>printf</code> para controlar melhor as saídas;</li>
+                            <li>Termos importantes: objeto, variáveis, algoritmos, 
+                                declarações, atribuições, implementação, verificação, 
+                                depuração.</li>
+                        </ul>
+
+                    </div>
+                    <div class="bs-docs-section" id="programacaoDesafio">
+                        <h1 class="page-header">Programar é desafiador!</h1>
+
+                        <p><em>You think you know when you can learn,
+                            are more sure when you can write,
+                            even more when you can teach,
+                            but certain when you can program
+                            Within a computer, natural language is unnatural
+                            To understand a program you must become both the machine and the program
+                            <i>Alan Perlis, computer scientist, 1922-1990</i></em></p>
+
+                        <div class="well">
+                            * Você pensa que sabe quando você pode aprender,
+                                tem mais certeza quando pode escrever,
+                                mais ainda quando pode ensinar,
+                                mas seguro quando você pode programar! 
+                                <i>Alan Perlis, computer scientist, 1922-1990</i>.
+                        </div>
+                    </div>
+                    <div class="bs-docs-section" id="final">
+                        <h1 class="page-header">Tarefa</h1>
+                        <p>Jogamos uma bola com velocidade inicial $v_0$, com um
+                            ângulo $\theta$ com a horizontal, a partir do ponto
+                            $(x = 0, y = y_0)$.
+                        </p>
+                        <p>A trajetória da bola é uma parábola (negligenciando
+                            a resistência do ar):
+                        </p>
+                        $$ y = x\tan\theta - \frac{1}{2v_0}\frac{gx^2}{\cos^2\theta} + y_0 $$
+                        
+                        <p>Tarefas para o programa:</p>
+                        <ul>
+                            <li> inicie os dados de entrada (\( v_0 \), \( g \), \( \theta \), \( y_0 \))</li>
+                            <li> importe o módulo <code>math</code></li>
+                            <li> calcule \( y \)</li>
+                        </ul>
+                        
+                        <p>Dados \( x \), \( y \) e \( y_0 \) em m, 
+                            \( g = 9,81\hbox {m/s}^2 \), \( v_0 \) em km/h e
+                            \( \theta \) em graus - o que requer a conversão de
+                            \( v_0 \) para m/s e \( \theta \) para radianos
+                        </p> 
+                        
+                        <!--SOLUÇÃO DA TAREFA-->
+                            <button type="button" class="btn btn-info disabled">Solução</button>                        
+                            <!--<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tarefa">Solução</button>-->
+                        <!--Final solução da tarefa-->                        
+                        
+                        <div id="tarefa" class="collapse">
+                            <h3> Exemplo de solução: </h3>
+
+                            <pre><code class="language-python">g = 9.81    # m/s**2
+v0 = 15     # km/h
+theta = 60  # graus
+x = 0.5     # m
+y0 = 1      # m
+
+print """v0    = %.1f km/h
+theta = %d graus
+y0    = %.1f m
+x     = %.1f m""" % (v0, theta, y0, x)
+
+# converter v0 para m/s e theta para radianos:
+v0 = v0/3.6
+from math import pi, tan, cos
+theta = theta*pi/180
+
+y = x*tan(theta) - 1/(2*v0)*g*x**2/((cos(theta))**2) + y0
+
+print 'y     = %.1f m' % y</code></pre>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- FINAL Conteúdo Principal -->
+                
+                <!-- Menu lateral -->
+                <div class="col-md-3" role="complementary"> 
+                    <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top" id="menuLateral"> 
+                        <ul class="nav bs-docs-sidenav"> 
+                            <li><a href="#inicio">Programando Equações</a></li>
+                        </ul> 
+                        <a href="#top" class="back-to-top"> Voltar ao topo </a>                 
+                    </nav> 
+                </div>
+                <!-- FINAL Menu lateral -->
+                
+            </div>
+        </div>
+        <!-- FINALParte principal -->
+        
+        <!-- Rodapé -->
+        <footer class="bs-docs-footer"> 
+            <div class="container"> 
+                <ul class="bs-docs-footer-links"> 
+                    <li><a href="http://www.estruturas.ufpr.br" target="_blank">estruturas.UFPR</a></li> 
+                    <li><a href="http://www.estruturas.ufpr.br/disciplinas/pos-graduacao/introducao-a-computacao-cientifica-com-python/" target="_blank">Introdução à computação científica</a></li> 
+                    <li><a href="https://www.python.org/" target="_blank">Python.org</a></li> 
+                    <li><a href="https://www.python.org/dev/peps/pep-0257/" target="_blank">Docstring Conventions</a></li> 
+                </ul> 
+                <p>
+                    Prof. Marco André Argenta
+                </p> 
+            </div> 
+        </footer>
+        <!-- FINAL Rodapé -->        
+        
+        <script src="../adicionais/jquery.min.js"></script>
+        <script src="../adicionais/bootstrap.min.js"></script>
+        <script src="./js/docs.min.js"></script>
+        <script src="./js/prism.js"></script>
+    </body>
+</html>

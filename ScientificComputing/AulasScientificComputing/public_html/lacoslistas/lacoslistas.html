@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"> 
+        <meta content="width=device-width,initial-scale=1" name="viewport"> 
+        <meta content="Aulas de introcução à computação científica." name="description"> 
+        <meta content="Markinho" name="author"> 
+        
+        <title> Laços e Listas </title> 
+        
+        <link href="./css/bootstrap.min.css" rel="stylesheet">        
+        <link href="./css/docs.min.css" rel="stylesheet">
+        <link href="./css/carbonads.css" rel="stylesheet">
+        <link href="./css/prism.css" rel="stylesheet">
+        
+        <link href="../imagens/favicon.ico" rel="icon"> 
+        
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript" async
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+        </script>
+        
+    </head>
+    <body>
+        
+        <!-- Cabeçalho -->
+        <div class="v4-tease">
+            <a href="http://www.estruturas.ufpr.br">
+                <img style="position: absolute; top: 0; left: 0; border: 0;" 
+                     src="../imagens/estruturasUFPR.png" alt="Voltar para Estruturas.UFPR">
+            </a>
+            <a class="navbar-brand" style="position: absolute; left: 360px;" href="../index.html">
+                Aulas de Introdução a Computação Científica
+            </a>
+        </div>
+         <!-- FINAL Cabeçalho -->
+        
+        <!-- Menu superior -->
+        <header class="bs-docs-nav navbar navbar-static-top" id="top"> 
+            <div class="container"> 
+                <div class="navbar-header"> 
+                    <button aria-controls="bs-navbar"  
+                            class="collapsed navbar-toggle" data-target="#bs-navbar" 
+                            data-toggle="collapse" type="button"> 
+                        <span class="sr-only">Alternar Navegação</span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                    </button>
+                </div> 
+                <nav class="collapse navbar-collapse" id="bs-navbar"> 
+                    <ul class="nav navbar-nav"> 
+                        <li class="active"> <a href="lacoslistas.html">Laços e Listas</a> </li>
+                        <li><a href="#final">Tarefa</a></li>
+                    </ul> 
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li class="dropdown" id="accountmenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Demais tópicos abordados<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../index.html#___sec0">Programando equações</a></li>
+                                <li><a href="../index.html#___sec1">Laços e listas</a></li>
+                                <li><a href="../index.html#___sec2">Funções e ramificações</a></li>
+                                <li><a href="../index.html#___sec3">Entrada do usuário e manipulação de erros</a></li>
+                                <li><a href="../index.html#___sec4">Arranjos e gráficos de curvas</a></li>            
+                                <li><a href="../index.html#___sec6">Dicionários e cadeias de caracteres</a></li>
+                                <li><a href="../index.html#___sec7">Introdução a Classes</a></li>            
+                                <li><a href="../index.html#___sec9">Programação orientada a objeto</a></li>
+                                <li><a href="../index.html#___sec10">Números aleatórios e jogos simples</a></li>
+                                <li><a href="../index.html#___secA">Sequências e relações de recorrência</a></li>
+                                <li><a href="../index.html#___secB">Programação de equações diferenciais</a></li>
+                                <li><a href="../index.html#___secC">Gráficos tridimensionais</a></li>
+                                <li><a href="../index.html#___secD">Programação em paralelo</a></li>
+                                <li><a href="../index.html#___secE">Interfaces gráficas de usuário (GUI)</a></li>
+                                <li><a href="../index.html#___secF">Migrando Python para código compilado</a></li> 
+                            </ul>
+                        </li> 
+                    </ul> 
+                </nav> 
+            </div> 
+        </header>
+        <!-- FINAL MENU SUPERIOR -->
+        
+        <!-- Painel Superior -->
+        <div class="bs-docs-header" id="content" tabindex="-1"> 
+            <div class="container"> 
+                <h1>Laços e Listas</h1> 
+                <p>Precisa repetir uma declaração? Armazenar dados?<br>
+                <font size="2px">Prof. Marco André Argenta / PPGECC / UFPR</font></p>
+                <div id="carbonads-container">
+                    <div class="carbonad">
+                        <div id="azcarbon">
+                            <a href="./imagens/programando_equacoes.png" target="_blank">
+                                <!-- Imagens em 120 px altura e 300 px largura -->
+                                <img src="./imagens/lacoslistas.png" class="carbonad-image carbonad-img">
+                            </a>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+        <!-- FINAL PAINEL SUPERIOR -->
+        
+        <!-- Parte principal -->
+        <div class="container bs-docs-container">
+            <div class="row">
+                
+                <!-- Conteúdo Principal -->
+                <div class="col-md-9" role="main">
+                    <div class="bs-docs-section"> 
+                        <h1 class="page-header" id="inicio">Laços e Listas</h1> 
+                        <div class="well">
+                            Como tarefas repetitivas em um programa podem ser 
+                            automatizadas com o uso de laços. Também serão introduzidos 
+                            os objetos listas para o armazenamento e processamento 
+                            de coleções de dados com ordem específica. Laços e listas 
+                            junto com o tópico anterior, consistem na base fundamental 
+                            para o resto do curso.
+                        </div>               
+                    </div>
+                    <div class="bs-docs-section" id="tabelaCF">
+                        <h1 class="page-header">Tabelas</h1>
+
+                        <p>Faça uma tabela com graus Celsius e seus correspondentes
+                        graus Fahrenheit</p>
+                        <pre style="line-height: 125%">                        -20  -4.0
+                        -15   5.0
+                        -10  14.0
+                         -5  23.0
+                          0  32.0
+                          5  41.0
+                         10  50.0
+                         15  59.0
+                         20  68.0
+                         25  77.0
+                         30  86.0
+                         35  95.0
+                         40 104.0</pre>
+                        
+                        <p>Como um programa escreveria na saída tal tabela?</p>
+                        
+                    </div>
+                    <div class="bs-docs-section" id="tabelas">
+                        <h1 class="page-header">Fazendo uma tabela</h1>
+
+                        <h2>A solução simples</h2>
+                        
+                        <p>Sabemos como fazer uma linha na tabela:</p>
+                        <pre><code class="language-python">
+C = -20
+F = 9.0/5*C + 32
+print C, F
+                        </code></pre>
+                        
+                        <p>Podemos, simplesmente, repetir a declaração:</p>
+                        <pre><code class="language-python">
+C = -20; F = 9.0/5*C + 32; print C, F
+C = -10; F = 9.0/5*C + 32; print C, F
+...
+C = 35; F = 9.0/5*C + 32; print C, F
+C = 40; F = 9.0/5*C + 32; print C, F
+                        </code></pre>
+                        <ul>
+                            <li> Muito tedioso de escrever, e fácil de errar.</li>
+                            <li> Quando programar se torna tedioso, existe, normalmente
+                                uma construção que automatiza a escrita!</li>
+                            <li> O computador é muito bom em fazer tarefas
+                                repetitivas.</li>
+                            <li> Para isso, usamos os <em>laços</em>.</li>
+                        </ul>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="lacoWilhe">
+                        <h1 class="page-header">Laço <code>while</code></h1>
+
+                        <p>O laço <code>while</code> torna possível repetir
+                        tarefas quase semelhantes.</p>
+                        <p>Um laço <code>while</code> repete um conjunto de
+                        declarações enquanto uma condicional for verdadeira.</p>
+                        <pre><code class="language-python">
+while condição:
+    - declaração 1 -
+    - declaração 2 -
+    ...
+- primeira declaração após o laço - 
+                        </code></pre>
+                        <ul>
+                            <li> Todas as declarações em um laço devem ser indentadas!</li>                            
+                        </ul>                        
+                    </div>
+                    <div class="bs-docs-section" id="tabelaWhile">
+                        <h1 class="page-header">Tabela com o laço <code>while</code></h1>
+
+                        <pre><code class="language-python">
+print '------------------' # cabeçalho da tabela
+C = -20                    # valor inicial para C
+dC = 5                     # incremento de C no laço
+while C <= 40:             # cabeçalho do laço com a condicional
+    F = (9.0/5)*C + 32     # 1a declaração do laço
+    print C, F             # 2a declaração do laço
+    C = C + dC             # Última declaração do laço
+print '------------------' # linha final da tabela
+                        </code></pre>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="tabelaWhileFluxo">
+                        <h1 class="page-header">Fluxo do programa em um laço <code>while</code></h1>
+                        
+                        <iframe width="950" height="330" frameborder="0"
+                                src="http://pythontutor.com/iframe-embed.html#code=C+%3D+-20%0AdC+%3D+5%0Awhile+C+%3C%3D+40%3A%0A++++F+%3D+%289.0%2F5%29%2AC+%2B+32%0A++++print+C%2C+F%0A++++C+%3D+C+%2B+dC&curInstr=0&py=2&cumulative=false">
+                        </iframe>
+                        
+                        <p>Vamos simular o laço <code>while</code> na mão:</p>
+                        <ul>
+                            <li> Primeiro <code>C</code> é -20, \( -20 \leq 40 \) é verdade,
+                                então executamos as declarações do laço.</li>
+                            <li> Calculamos <code>F</code>, visualizamos o <code>print</code>, e atualizamos 
+                                <code>C</code> para -15.</li>
+                            <li> Voltamos para a linha do <code>while</code>, avaliamos \( C\leq 40 \), que 
+                                é verdade, então vamos a uma nova rodada do laço.</li>
+                            <li> Continuamos assim até que o <code>C</code> seja atualizado para 45.</li>
+                            <li> Agora a condição do laço \( 45\leq 40 \) é falsa, e o
+                                programa pula para a primeira linha após o laço, e o laço termina.</li>
+                        </ul>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="expressoesCondicionais">
+                        <h1 class="page-header">Expressões condicionais são verdadeiras
+                        ou falsas</h1>
+
+                        <p>Uma expressão com valor verdadeiro (<code>true</code>)
+                            ou falso (<code>false</code>) é chamada de expressão
+                        condicional. Exemplos: \( C=40 \), \( C\neq 40 \), \( C\geq 40 \), \( C>40 \), \( C < 40 \).</p>
+                        
+                        <pre><code class="language-python">
+C == 40  # note o duplo ==, C = 40 é uma atribuição!
+C != 40
+C >= 40
+C >  40
+C <  40
+                        </code></pre>
+                        
+                        <p>Podemos testar expressões condicionais no shell do
+                        Python:</p>
+                        
+                        <pre><code class="language-python">
+>>> C = 41
+>>> C != 40
+True
+>>> C < 40
+False
+>>> C == 41
+True
+                        </code></pre>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="combinandoCondicionais">
+                        <h1 class="page-header">Combinando expressões condicionais</h1>
+
+                        <p>Varias condições podem ser combinadas com e/ou 
+                            <code>and</code>/<code>ou</code>:</p>
+                        <pre><code class="language-python">
+while condição1 and condição2:
+    ...
+
+while condição1 or condição2:
+    ...
+                        </code></pre>
+                        
+                        <p>Regra 1: condição1 <code>and</code> condição2 é verdadeira se ambas,
+                        condição1 e condição2 forem verdadeiras.</p>
+                        <p>Regra 2: condição1 <code>or</code> condição2 é verdadeira se uma
+                        for verdadeira, condição1 ou condição2.</p>
+                        
+                        <pre><code class="language-python">
+>>> x = 0;  y = 1.2
+>>> x >= 0 and y < 1
+False
+>>> x >= 0 or y < 1
+True
+>>> x > 0 or y > 1
+True
+>>> x > 0 or not y > 1
+False
+>>> -1 < x <= 0   #  -1 < x e x <= 0
+True
+>>> not (x > 0 or y > 0)
+False
+                        </code></pre>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="listas">
+                        <h1 class="page-header">Listas</h1>
+
+                        <p>Listas são objetos para armazenar uma sequência de
+                        coisas (objetos).</p>
+                        
+                        <p>Até então, uma variável era relacionada a um número
+                        (ou cadeia de caracteres), mas algumas vezes temos 
+                        coleções de números, por exemplo, graus 
+                        \( -20, -15, -10, -5, 0, \ldots, 40 \).</p>
+                        
+                        <p>Solução simples: uma variável para cada valor:</p>
+                        
+                        <pre><code class="language-python">
+C1 = -20
+C2 = -15
+C3 = -10
+...
+C13 = 40
+                        </code></pre>
+                        
+                        <p>Solução muito tediosa para muitos valores!</p>
+                        
+                        <p>Melhor: um conjunto de valores podem ser colecionados
+                        em uma lista:</p>
+                        
+                        <pre><code class="language-python">
+C = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40]
+                        </code></pre>
+                        
+                        <p>Agora temos apenas uma variável, C, armazenando todos os valores.</p>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="operacoesListas">
+                        <h1 class="page-header">Operações em listas: inicialização e indexação</h1>
+
+                        <p>Inicialize com os colchetes e vírgulas entre os objetos Python:</p>
+                        
+                        <pre><code class="language-python">
+                            L1 = [-91, 'a string', 7.2, 0]
+                        </code></pre>
+                        
+                        <p>Os elementos são acessados via um índice:</p> 
+                        <pre><code class="language-python">
+                            L1[3]
+                        </code></pre>
+                        <p>(índice = 3).</p>
+                        
+                        <p>Os índices de listas iniciam em 0: 0, 1, 2, ... <code>len(L1) - 1</code>.</p>
+                        
+                        <pre><code class="language-python">
+>>> lista = [4, 6, -3.5]
+>>> print lista[0]
+4
+>>> print lista[1]
+6
+>>> print lista[2]
+-3.5
+>>> len(lista)  # comprimento da lista
+3
+                        </code></pre>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="operacoesListas2">
+                        <h1 class="page-header">Operações em listas:
+                        anexar, estender, inserir, excluir</h1>
+
+                        <p>Através dos comandos <code>append</code>, 
+                        <code>extend</code>, <code>insert</code>, 
+                        <code>delete</code>, podemos anexar um elemento
+                        a mais ao final da lista, extender a lista com
+                        outra lista, inserir um novo elemento em determinada
+                        posição e apagar um elemento, respectivamente.</p>
+                        
+                        <pre><code class="language-python">
+>>> C = [-10, -5, 0, 5, 10, 15, 20, 25, 30]
+>>> C.append(35)   # adiciona um novo elemento 35 ao final
+>>> C
+[-10, -5, 0, 5, 10, 15, 20, 25, 30, 35]
+>>> C = C + [40, 45]     # extende C no final
+>>> C
+[-10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45]
+>>> C.insert(0, -15)     # insere -15 como índice 0
+>>> C
+[-15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45]
+>>> del C[2]             # apaga o 3o elemento
+>>> C
+[-15, -10, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45]
+>>> del C[2]             # apaga o que é agora o 3o elemento
+>>> C
+[-15, -10, 5, 10, 15, 20, 25, 30, 35, 40, 45]
+>>> len(C)               # comprimento da lista
+11
+                        </code></pre>
+                                                
+                    </div>
+                    <div class="bs-docs-section" id="operacoesListas3">
+                        <h1 class="page-header">Operações em listas:
+                        busca por elementos, índices negativos</h1>
+
+                        <p>Podemos buscar um elemento em uma lista utilizando
+                            a classe <code>.index()</code> da lista, descobrir
+                            se um elemento está na lista com condicionais e buscar
+                            o último elemento com índices negativos.</p>
+                        
+                        <pre><code class="language-python">
+>>> C.index(10)   # índice do primeiro elemento com valor 10
+3
+>>> 10 in C       # 10 é um elemento de C?
+True
+>>> C[-1]         # o último elemento da lista
+45
+>>> C[-2]         # o penúltimo elemento da lista
+40
+>>> umalista = ['book.tex', 'book.log', 'book.pdf']
+>>> texfile, logfile, pdf = algumalist  # atribuição dos valores direto à variáveis
+>>> texfile
+'book.tex'
+>>> logfile
+'book.log'
+>>> pdf
+'book.pdf'
+                        </code></pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="lacoLista">
+                        <h1 class="page-header">Laço <code>for</code> sobre elementos em uma lista</h1>
+
+                        <p>Podemos usar o laço <code>for</code> para correr sobre
+                        os elementos de uma lista:</p>
+                        
+                        <iframe width="800" height="330" frameborder="0" 
+                                src="http://pythontutor.com/iframe-embed.html#code=graus%20%3D%20%5B0,%2010,%2020,%2040,%20100%5D%0Afor%20C%20in%20graus%3A%0A%09print%20'Graus%20Celsius%3A',%20C%0A%09F%20%3D%209/5.*C%20%2B%2032%0A%09print%20'Fahrenheit%3A',%20F%0Aprint%20'A%20lista%20de%20graus%20tem',%20len%28degrees%29,%20'elementos'&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=2&rawInputLstJSON=%5B%5D&textReferences=false"> 
+                        </iframe>
+                        
+                        <p>Assim como os laços <code>while</code>, as declarações no laço devem
+                        ser indentadas!</p>
+
+                    </div>
+                    <div class="bs-docs-section" id="lacoFor">
+                        <h1 class="page-header">Simulando um laço <code>for</code>
+                        na mão</h1>
+                        
+                        <pre><code class="language-python">
+graus = [0, 10, 20, 40, 100]
+for C in graus:
+    print C
+print 'A lista de graus tem', len(degrees), 'elementos'
+                        </code></pre>
+
+                        <p>Simulando na mão:</p>
+                        <ul>
+                            <li> Primeiro passo: <code>C</code> é 0</li>
+                            <li> Segundo passo: <code>C</code> é 10 ...e assim
+                                por diante...</li>
+                            <li> Terceiro passo: <code>C</code> é 20 ...e assim
+                                por diante...</li>
+                            <li> Quinto passo: <code>C</code> é 100, 
+                                agora o laço terminou e o fluxo do programa
+                                pula para a primeira declaração com a mesma
+                                indentação da linha <code>for C in graus</code>.</li>
+                        </ul>
+
+                    </div>
+                    <div class="bs-docs-section" id="tabelaFor">
+                        <h1 class="page-header">Fazendo uma tabela com um laço <code>for</code></h1>
+
+                        <p>Tabela de graus Celsius e Fahrenheit:</p>
+                        
+                        <pre><code class="language-python">
+grausC = [-20, -15, -10, -5, 0, 5, 10, 15,
+             20, 25, 30, 35, 40]
+for C in grausC:
+    F = (9.0/5)*C + 32
+    print C, F
+                        </code></pre>
+                        
+                        <p>Nota: <code>print C, F</code> retorna uma saída feia.
+                        Use a sintaxe do printf para deixar a formatação em 
+                        duas colunas:</p>
+                        
+                        <pre><code class="language-python">
+print '%5d %5.1f' % (C, F)
+                        </code></pre>
+                        
+                        <p>Saída:</p>
+                        <pre><code class="language-python">
+-20  -4.0
+-15   5.0
+-10  14.0
+ -5  23.0
+  0  32.0
+  ......
+ 35  95.0
+ 40 104.0
+                        </code></pre>
+
+                    </div>
+                    <div class="bs-docs-section" id="forWhile">
+                        <h1 class="page-header">Um <code>for</code> pode
+                            ser transformado em um <code>while</code></h1>
+
+                        <p>O laço <code>for</code>:</p>
+                        
+                        <pre><code class="language-python">
+for elemento in lista:
+    # processa elemento
+                        </code></pre>
+                        
+                        <p>pode sempre ser transformado em um correspondente
+                            laço <code>while</code>:</p>
+                        
+                        <pre><code class="language-python">
+indice = 0
+while indice < len(lista):
+    elemento = lista[indice]
+    # processa elemento
+    indice += 1
+                        </code></pre>
+
+                        <p><em>Mas nem todo laço <code>while</code> pode ser
+                                expressado como um laço <code>for</code>!</em></p>
+                        
+                    </div>
+                    <div class="bs-docs-section" id="tabelaCF">
+                        <h1 class="page-header">tit...</h1>
+
+                        <p>...</p>
+
+                    </div>
+                    
+                    <div class="bs-docs-section" id="final">
+                        <h1 class="page-header">Tarefa</h1>
+                        <p>
+                            descrição...
+                        </p>                        
+
+                        <!--SOLUÇÃO DA TAREFA-->
+                        <button type="button" class="btn btn-info disabled">Solução</button>                        
+                        <!--<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tarefa">Solução</button>-->
+                        <!--Final solução da tarefa-->                        
+
+                        <div id="tarefa" class="collapse">
+                            <h3> Exemplo de solução: </h3>
+
+                            <pre><code class="language-python">g = 9.81    # m/s**2</code></pre>
+                        </div>
+
+                    </div>
+                    
+                </div>
+                <!-- FINAL Conteúdo Principal -->
+                
+                <!-- Menu lateral -->
+                <div class="col-md-3" role="complementary"> 
+                    <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top" id="menuLateral"> 
+                        <ul class="nav bs-docs-sidenav"> 
+                            <li><a href="#inicio">Laços e Listas</a></li>
+                        </ul> 
+                        <a href="#top" class="back-to-top"> Voltar ao topo </a>                 
+                    </nav> 
+                </div>
+                <!-- FINAL Menu lateral -->
+                
+            </div>
+        </div>
+        <!-- FINALParte principal -->
+        
+        <!-- Rodapé -->
+        <footer class="bs-docs-footer"> 
+            <div class="container"> 
+                <ul class="bs-docs-footer-links"> 
+                    <li><a href="http://www.estruturas.ufpr.br" target="_blank">estruturas.UFPR</a></li> 
+                    <li><a href="http://www.estruturas.ufpr.br/disciplinas/pos-graduacao/introducao-a-computacao-cientifica-com-python/" target="_blank">Introdução à computação científica</a></li> 
+                    <li><a href="https://www.python.org/" target="_blank">Python.org</a></li> 
+                    <li><a href="https://www.python.org/dev/peps/pep-0257/" target="_blank">Docstring Conventions</a></li> 
+                </ul> 
+                <p>
+                    Prof. Marco André Argenta
+                </p> 
+            </div> 
+        </footer>
+        <!-- FINAL Rodapé -->        
+        
+        <script src="../adicionais/jquery.min.js"></script>
+        <script src="../adicionais/bootstrap.min.js"></script>
+        <script src="./js/docs.min.js"></script>
+        <script src="./js/prism.js"></script>
+    </body>
+</html>
