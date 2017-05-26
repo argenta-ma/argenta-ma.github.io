@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="utf-8">
 
-        <title>Elementos Fintos Não Lineares</title>
+        <title>Elementos Finitos Não Lineares</title>
 
         <meta name="description" content="Apresentações para a disciplina
                                     de elementos finitos não lineares">
@@ -2663,23 +2663,12 @@ and open the template in the editor.
                 dependencies: [
                     // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
                     { src: 'js/classList.js', condition: function() { return !document.body.classList; } },                                        
-                    // Syntax highlight for <code> elements
-                    { src: 'js/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    // Zoom in and out with Alt+click
-                    { src: 'js/zoom.js', async: true },
-                    // Speaker notes
-                    { src: 'js/notes.js', async: true },
-                    //menu de navegação
                     { src: 'plugin/menu/menu.js', async: true },
                     // MathJax
                     { src: 'plugin/math/math.js', async: true },                    
                 ]
             });
         </script>
-
-        <a href="http://www.estruturas.ufpr.br">
-            <img style="position: absolute; top: 0; right: 0; border: 0;" src="imagens/estruturasUFPR.png" alt="Voltar para Estruturas.UFPR">
-        </a>
 
     </body>
 </html>
