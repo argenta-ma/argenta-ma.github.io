@@ -1,0 +1,3 @@
+php -S localhost:8000 system/router.php
+
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent http://localhost:8000
