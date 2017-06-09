@@ -2,7 +2,7 @@
 php -S localhost:8000 system/router.php
 
 #baixar o site em localhost:8000
-wget --mirror --convert-links --no-clobber --adjust-extension --page-requisites --no-parent http://localhost:8000
+wget --recursive --convert-links --no-clobber --adjust-extension --page-requisites -e robots=off http://localhost:8000
 
 #renomear os links com localhost:8000 para relativos em todos os arquivos
 find . -type f -exec sed -i 's;http://localhost:8000/;/;g' {} +

@@ -11,3 +11,6 @@ Add, commit, and push your changes:
 ~$git add --all
 ~$git commit -m "Initial commit"
 ~$git push -u origin master
+
+Se der problema no envio ou para atualizar o local
+~$git pull --rebase origin master
