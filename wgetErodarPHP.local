@@ -1,3 +1,8 @@
+#habilitar o servidor PHP
 php -S localhost:8000 system/router.php
 
-wget --mirror --convert-links --adjust-extension --page-requisites --no-parent http://localhost:8000
+#baixar o site em localhost:8000
+wget --mirror --convert-links --no-clobber --adjust-extension --page-requisites --no-parent http://localhost:8000
+
+#renomear os links com localhost:8000 para relativos em todos os arquivos
+find . -type f -exec sed -i 's;http://localhost:8000/;/;g' {} +
