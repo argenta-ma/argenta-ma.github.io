@@ -7491,7 +7491,10 @@ Ca_3 = \begin{array}{cc}
     −0,02019 \\
     0 \\
     −0,01022 \\
-    0 \\ \end{array} \right\rbrace$$</p>
+    0 \\ \end{array} \right\rbrace \equiv \left\lbrace \begin{array}{c}
+    −0,02019 \\
+    −0,01022 \\
+\end{array} \right\rbrace$$</p>
 <p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>)</p>
 <p class="mathjax mathjax--block">$$
 \textbf{u}_2 = \left[ 
@@ -7508,7 +7511,10 @@ Ca_3 = \begin{array}{cc}
     0 \\
     0 \\
     −0,01445 \\
-    0 \\ \end{array} \right\rbrace$$</p>
+    0 \\ \end{array} \right\rbrace \equiv \left\lbrace \begin{array}{c}
+    0 \\
+    −0,01445 \\
+    \end{array} \right\rbrace$$</p>
 <p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span>)</p>
 <p class="mathjax mathjax--block">$$
 \textbf{u}_3 = \left[ 
@@ -7525,8 +7531,72 @@ Ca_3 = \begin{array}{cc}
     0 \\
     0 \\
     −0,01445 \\
-    0 \\ \end{array} \right\rbrace$$</p>
-<p>Definidos os deslocamentos dos elementos, precisamos determinar as suas deformações.</p>
+    0 \\ \end{array} \right\rbrace \equiv \left\lbrace \begin{array}{c}
+    0 \\
+    −0,01445 \\
+    \end{array} \right\rbrace$$</p>
+<p>Definidos os deslocamentos dos elementos, com os resultados já com os graus de liberdade transversais eliminados do vetor de deslocamentos, precisamos determinar as suas deformações. Para tal vamos utilizar a equação que determina as deformações com as premissas do MEF.</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon = \textbf{B} \textbf{u} = \left[ 
+\begin{array}{cc}
+    - \dfrac{1}{L} & \dfrac{1}{L} \\ 
+\end{array} \right] = \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2
+\end{array} \right\rbrace$$</p>
+<p>Portanto, as deformações para cada elemento no sistema local ficam:</p>
+<p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$L_1 = 1414,21mm$</span>)</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon_1 = \textbf{B} \textbf{u} = \left[ 
+\begin{array}{cc}
+    - \dfrac{1}{1414,21} & \dfrac{1}{1414,21} \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    −0,02019 \\
+    −0,01022 \\
+\end{array} \right\rbrace = 0,00000705$$</p>
+<p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$L_2 = 1000mm$</span>)</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon_2 = \textbf{B} \textbf{u} = \left[ 
+\begin{array}{cc}
+    - \dfrac{1}{1000} & \dfrac{1}{1000} \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    0 \\
+    −0,01445 \\
+    \end{array} \right\rbrace = -0,00001445$$</p>
+<p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$L_3 = 1000mm$</span>)</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon_3 = \textbf{B} \textbf{u} = \left[ 
+\begin{array}{cc}
+    - \dfrac{1}{1000} & \dfrac{1}{1000} \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    0 \\
+    −0,01445 \\
+    \end{array} \right\rbrace = -0,00001445$$</p>
+<p>E, por fim, para calcular as tensões basta utilizar a equação constitutiva do material das barras da treliça definidos para cada elemento.</p>
+<p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$E_1 = 200000 N/mm^2$</span>)</p>
+<p class="mathjax mathjax--block">$$
+\sigma_1 = E_1 \varepsilon_1 = 200000 \times 0,00000705 = 1,41 N/mm^2$$</p>
+<p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$E_2 = 69000 N/mm^2$</span>)</p>
+<p class="mathjax mathjax--block">$$
+\sigma_2 = E_2 \varepsilon_2 = 69000 \times -0,00001445 = 0,99705 N/mm^2$$</p>
+<p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$E_3 = 69000 N/mm^2$</span>)</p>
+<p class="mathjax mathjax--block">$$
+\sigma_3 = E_3 \varepsilon_3 = 69000 \times -0,00001445 = 0,99705 N/mm^2$$</p>
+<h3>Esforços nas Barras</h3>
+<p>E os esforços nas barras? Afinal, como é o caso de uma estrutura metálica as equações apresentadas pela norma se referem à esforços para o dimensionamento. É simples, não é uma barra de uma treliça, com tensões normais uniformes e constantes ao longo da barra? Pois bem, é só multiplicar a tensão pela área para obter o diagrama de esforços normais em cada barra da estrutura.</p>
+<p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$A_1 = 10030,05 mm^2$</span>)</p>
+<p class="mathjax mathjax--block">$$
+N_1 = \sigma_1 A_1 = 1,41 \times 10030,05 = 14142,3705 N \quad \text{ou} \quad 14,14 kN$$</p>
+<p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$A_2 = 10030,05 mm^2$</span>)</p>
+<p class="mathjax mathjax--block">$$
+N_2 = \sigma_2 A_2 = 0,99705 \times 10030,05 = 10000,461 N \quad \text{ou} \quad 10,0 kN$$</p>
+<p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$A_3 = 10030,05 mm^2$</span>)</p>
+<p class="mathjax mathjax--block">$$
+N_3 = \sigma_3 A_3 = 0,99705 \times 10030,05 = 10000,461 N \quad \text{ou} \quad 10,0 kN$$</p>
+<blockquote>
+<p>E agora? Você arrisca tentar dimensionar essas barras circulares maciças da treliça? Ou está com medinho...</p>
+</blockquote>
+<p>Na mão é muito bom para entender os conceitos e procedimentos do método, mas um pouco demorado, não acha? Lembra da idéia de implementar um programinha para resolver treliças planas quaisquer? Vamos ver algumas formas de implementar a metodologia acima de maneira genérica usando python <a href="../../planeTruss/implementacao.html">aqui</a>!</p>
 </p>
 </div>
 
