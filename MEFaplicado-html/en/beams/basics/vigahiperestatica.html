@@ -6406,9 +6406,9 @@ $(document).ready(function() {
             </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/spacialTruss/basics/coberturatrelicada">
-            <a href="http://localhost:8000/en/spacialTruss/basics/coberturatrelicada" >
+            <a href="../../spacialTruss/basics/coberturatrelicada.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Coberturatrelicada</span>
+                <span><b></b>Cobertura Treliçada</span>
             </a>
                         <ul>
                                     
@@ -6467,12 +6467,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Análise Elasto-plástica de vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/beams/basics/vigadinamica">
             <a href="vigadinamica.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Análise Dinâmica de vigas</span>
+                <span><b></b>Análise Modal de Vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
     
             </ul>
@@ -6509,6 +6515,9 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Pórtico Simples</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/frames/basics/flambagempilar">
             <a href="../../frames/basics/flambagempilar.html" >
@@ -6861,37 +6870,35 @@ $(document).ready(function() {
 <h3 id="1-pr-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-pr-processamento" title="Permanent link: 1. PRÉ-PROCESSAMENTO" data-icon="#">1. PRÉ-PROCESSAMENTO</a></h3>
 <h4 id="1-1-incio-da-anlise" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-1-incio-da-anlise" title="Permanent link: 1.1. INÍCIO DA ANÁLISE" data-icon="#">1.1. INÍCIO DA ANÁLISE</a></h4>
 <ul>
-<li>Digite <strong>cmd</strong> no Menu Iniciar para abrir o Prompt de Comando;</li>
-<li>Digite <strong>abq6122se cae</strong> para executar o Abaqus;</li>
-<li>Na caixa <strong>Start Session</strong> selecione <strong>With Standard/Explicit Model</strong>;</li>
-<li>No menu Model a esquerda clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>;</li>
+<li>Na caixa <strong>Start Session</strong>, selecione <strong>With Standard/Explicit Model</strong>.</li>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>.</li>
 <li>Digite <strong>Viga</strong> e clique em <strong>OK</strong>.</li>
 </ul>
 <h4 id="1-2-criao-da-geometria-base-e..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-2-criao-da-geometria-base-e..." title="Permanent link: 1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO" data-icon="#">1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO</a></h4>
 <ul>
-<li>De duplo clique em <strong>Parts</strong>;</li>
-<li>No campo <strong>Name</strong> digite <strong>ParteViga</strong>;</li>
-<li>Em <strong>Modeling Space</strong> selecione <strong>2D planar</strong>;</li>
-<li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Parts</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>ParteViga</strong>.</li>
+<li>Em <strong>Modeling Space</strong> selecione <strong>2D planar</strong>.</li>
+<li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>.</li>
 <li>Em <strong>Approximante Size</strong> digite <strong>20</strong> e clique em <strong>Continue...</strong></li>
 </ul>
 <p><img alt="Figura 3." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_03.svg" /></p>
 <ul>
-<li>Na caixa de ferramentas selecione <strong>Create Lines: Connected</strong>;</li>
-<li>Na <strong>área de comando</strong> insira as coordenadas <strong>0,0</strong> e <strong>2.54,0</strong>;</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
+<li>Na <strong>área de comando</strong> insira as coordenadas <strong>0,0</strong> e <strong>2.54,0</strong>.</li>
 <li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> do teclado e clique em <strong>Done</strong>.</li>
 </ul>
 <p><img alt="Figura 4." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_04.svg" /></p>
 <h4 id="1-3-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-3-atribuio-das-propriedades..." title="Permanent link: 1.3. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA" data-icon="#">1.3. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA</a></h4>
 <ul>
-<li>No menu Model a esquerda, de duplo clique em <strong>Sections</strong>;</li>
-<li>Em <strong>Name</strong> digite <strong>SeçãoViga</strong>;</li>
-<li>Em <strong>Category</strong> selecione <strong>Beam</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Sections</strong>.</li>
+<li>Em <strong>Name</strong> digite <strong>SeçãoViga</strong>.</li>
+<li>Em <strong>Category</strong> selecione <strong>Beam</strong>.</li>
 <li>Em <strong>Type</strong> selecione <strong>Beam</strong> e clique em <strong>Continue...</strong></li>
 </ul>
 <p><img alt="Figura 5." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_05.svg" /></p>
 <ul>
-<li>Clique no icone <img alt="" src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/icone_01.svg" />;</li>
+<li>Clique no icone <img alt="" src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/icone_01.svg" />.</li>
 <li>Em <strong>Name</strong> digite <strong>Beam</strong>, selecione <strong>Rectangular</strong> e clique em <strong>Continue...</strong></li>
 </ul>
 <p><img alt="Figura 6." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_06.svg" /></p>
@@ -6901,26 +6908,26 @@ $(document).ready(function() {
 <p><img alt="Figura 7." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_07.svg" /></p>
 <h4 id="1-4-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-4-atribuio-das-propriedades..." title="Permanent link: 1.4. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS" data-icon="#">1.4. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS</a></h4>
 <ul>
-<li>Ainda na janela <strong>Edit Beam Section</strong>, clique no icone <img alt="" src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/icone_02.svg" />;</li>
+<li>Ainda na janela <strong>Edit Beam Section</strong>, clique no icone <img alt="" src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/icone_02.svg" />.</li>
 <li>Na caixa <strong>Edit Material</strong> clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
-<li>Em <strong>Young’s Modulus</strong> digite <strong>206E9</strong>;</li>
+<li>Em <strong>Young’s Modulus</strong> digite <strong>206E9</strong>.</li>
 </ul>
 <p><img alt="Figura 8." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_08.svg" /></p>
 <ul>
-<li>Clique agora em <strong>General</strong> e em seguida em <strong>Density</strong>;</li>
+<li>Clique agora em <strong>General</strong> e em seguida em <strong>Density</strong>.</li>
 <li>Em <strong>Mass Density</strong> digite <strong>7830</strong> e clique em <strong>OK</strong> nas duas janelas abertas.</li>
 </ul>
 <p><img alt="Figura 9." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_09.svg" /></p>
 <h4 id="1-5-associao-das-sees" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-5-associao-das-sees" title="Permanent link: 1.5. ASSOCIAÇÃO DAS SEÇÕES" data-icon="#">1.5. ASSOCIAÇÃO DAS SEÇÕES</a></h4>
 <ul>
-<li>No menu Model a esquerda, abra <strong>Parts (1) &gt; ParteViga</strong>;</li>
-<li>Clique duas vezes em <strong>Section Assigments</strong>;</li>
-<li>Selecione a <strong>viga</strong> e clique em <strong>Done</strong>;</li>
+<li>No <strong>Menu Model</strong>, abra <strong>Parts (1)</strong> e em seguida <strong>ParteViga</strong>.</li>
+<li>Clique duas vezes em <strong>Section Assigments</strong>.</li>
+<li>Selecione a <strong>viga</strong> e clique em <strong>Done</strong>.</li>
 <li>Selecione <strong>Beam</strong> e clique em <strong>OK</strong>.</li>
 </ul>
 <p><img alt="Figura 10." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_10.svg" /></p>
 <ul>
-<li>Na caixa de ferramentas,clique no icone <img alt="" src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/icone_03.svg" />;</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique no icone <img alt="" src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/icone_03.svg" />.</li>
 <li>Clique em <strong>Sets...</strong>, selecione <strong>Set-1</strong> e clique em <strong>Continue...</strong></li>
 </ul>
 <p><img alt="Figura 11." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_11.svg" /></p>
@@ -6929,21 +6936,21 @@ $(document).ready(function() {
 </ul>
 <p><img alt="Figura 12." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_12.svg" /></p>
 <ul>
-<li>No menu Model a esquerda, abra <strong>Assembly</strong> e dê duplo clique em <strong>Instances</strong>;</li>
+<li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê um duplo clique em <strong>Instances</strong>.</li>
 <li>Certifique-se que está selecionado <strong>Dependent (mesh on part)</strong> em <strong>Instance Type</strong> e clique em <strong>OK</strong>.</li>
 </ul>
 <p><img alt="Figura 13." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_13.svg" /></p>
 <h4 id="1-6-aplicao-das-condies-de..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-6-aplicao-das-condies-de..." title="Permanent link: 1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO" data-icon="#">1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO</a></h4>
 <h5 id="1-6-1-cargas" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-6-1-cargas" title="Permanent link: 1.6.1 CARGAS" data-icon="#">1.6.1 CARGAS</a></h5>
 <ul>
-<li>No menu Model a esquerda, de duplo clique em <strong>Steps (1)</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Steps (1)</strong>.</li>
 <li>Renomeie para <strong>Carregamento</strong> e clique <strong>Continue...</strong></li>
 <li>Em <strong>Edit Step</strong> clique em <strong>OK</strong>.</li>
 </ul>
 <p><img alt="Figura 14." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_14.svg" /></p>
 <ul>
-<li>No menu Model à esquerda, de duplo clique em <strong>Loads</strong>;</li>
-<li>No campo Name  digite <strong>Gravidade</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Loads</strong>.</li>
+<li>No campo Name  digite <strong>Gravidade</strong>.</li>
 <li>Em <strong>Types for Selected Step</strong> selecione <strong>Gravity</strong> e clique em <strong>Continue...</strong></li>
 </ul>
 <p><img alt="Figura 15." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_15.svg" /></p>
@@ -6953,10 +6960,10 @@ $(document).ready(function() {
 <p><img alt="Figura 16." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_16.svg" /></p>
 <h5 id="1-6-2-apoios" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-6-2-apoios" title="Permanent link: 1.6.2 APOIOS" data-icon="#">1.6.2 APOIOS</a></h5>
 <ul>
-<li>No menu Model à esquerda, de duplo clique em <strong>BCs</strong>;</li>
-<li>No campo <strong>Name</strong> digite <strong>Apoio Móvel</strong>;</li>
-<li>Em <strong>Step</strong> selecione <strong>Initial</strong>;</li>
-<li>Em <strong>Types for Selected Step</strong> selecione <strong>Displacement/Rotation</strong>, clique em <strong>Continue…</strong> e em seguida em <strong>Dismiss</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>BCs</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Apoio Móvel</strong>.</li>
+<li>Em <strong>Step</strong> selecione <strong>Initial</strong>.</li>
+<li>Em <strong>Types for Selected Step</strong> selecione <strong>Displacement/Rotation</strong>, clique em <strong>Continue…</strong> e em seguida em <strong>Dismiss</strong>.</li>
 <li>Selecione a <strong>extremidade esquerda</strong> da viga e clique em <strong>Done</strong>.</li>
 <li>Na janela <strong>Edit Boundary Condition</strong> selecione <strong>U2</strong> e clique em <strong>OK</strong>.</li>
 </ul>
@@ -6967,71 +6974,71 @@ $(document).ready(function() {
 <p><img alt="Figura 18." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_18.svg" /></p>
 <h4 id="1-7-criao-da-malha" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-7-criao-da-malha" title="Permanent link: 1.7. CRIAÇÃO DA MALHA" data-icon="#">1.7. CRIAÇÃO DA MALHA</a></h4>
 <ul>
-<li>No menu Model à esquerda, em <strong>Parts (1) &gt; ParteViga</strong>, dê duplo clique em <strong>Mesh (Empty)</strong>;</li>
-<li>Na barra de contexto, em <strong>Object</strong>, selecione <strong>Part</strong>;</li>
-<li>Na barra do menu principal clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>;</li>
-<li>Selecione com o mouse <strong>toda a viga</strong> e clique em <strong>Done</strong>.</li>
-<li>Na janela <strong>Element Type</strong> selecione <strong>Beam</strong> em <strong>Family</strong>;</li>
-<li>Em <strong>Geometric Order</strong> selecione <strong>Quadratic</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Mesh (Empty)</strong>.</li>
+<li>Na <strong>Barra de Contexto</strong>, em <strong>Object</strong>, selecione <strong>Part</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>.</li>
+<li><strong>Selecione a viga</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Element Type</strong> selecione <strong>Beam</strong> em <strong>Family</strong>.</li>
+<li>Em <strong>Geometric Order</strong> selecione <strong>Quadratic</strong>.</li>
 <li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
 </ul>
 <p><img alt="Figura 19." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_19.svg" /></p>
 <ul>
-<li>Na barra do menu principal, clique em <strong>Seed</strong> e posteriormente em <strong>Part</strong>;</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Part</strong>.</li>
 <li>Em <strong>Approximate Global Size</strong> digite <strong>0.05</strong>, clique em <strong>OK</strong> e em seguida <strong>Done</strong>.</li>
 </ul>
 <p><img alt="Figura 20." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_20.svg" /></p>
 <ul>
-<li>Na barra do menu principal clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>;</li>
-<li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>;</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>.</li>
+<li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>.</li>
 <li>Perceba que a viga fica na cor <strong>azul</strong>.</li>
 </ul>
 <p><img alt="Figura 21." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_21.svg" /></p>
 <h4 id="1-8-definio-das-variveis-de-sada" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#1-8-definio-das-variveis-de-sada" title="Permanent link: 1.8. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA" data-icon="#">1.8. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA</a></h4>
 <ul>
-<li>No menu Model à esquerda, abra <strong>Field Output Requests (1)</strong> e dê duplo clique em <strong>F-Output-1</strong>;</li>
+<li>No <strong>Menu Model</strong>, abra <strong>Field Output Requests (1)</strong> e dê um duplo clique em <strong>F-Output-1</strong>.</li>
 <li>Desmarque todas as variáveis com excessão de:
 <ul>
-<li><strong>SE, Section strains and curvatures</strong>;</li>
-<li><strong>U, Translations and rotations</strong>;</li>
-<li><strong>RF, Reaction forces and moments</strong>;</li>
-<li><strong>SF, Section forces and moments</strong>;</li>
+<li><strong>SE, Section strains and curvatures</strong>.</li>
+<li><strong>U, Translations and rotations</strong>.</li>
+<li><strong>RF, Reaction forces and moments</strong>.</li>
+<li><strong>SF, Section forces and moments</strong>.</li>
 <li><strong>BF, Body forces</strong>.</li>
 </ul></li>
 <li>Em seguida, clique em <strong>OK</strong>.</li>
 </ul>
 <h3 id="2-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#2-processamento" title="Permanent link: 2. PROCESSAMENTO" data-icon="#">2. PROCESSAMENTO</a></h3>
 <ul>
-<li>No menu Model à esquerda de duplo clique em <strong>Jobs</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Jobs</strong>.</li>
 <li>Na janela <strong>Create Job</strong> clique em <strong>Continue...</strong></li>
 <li>Na janela <strong>Edit Job</strong> clique em <strong>OK</strong>.</li>
 <li>Abra <strong>Jobs</strong> e clique com o botão direito em <strong>Job-1</strong> e clique em <strong>Submit</strong>.</li>
 <li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique <strong>OK</strong>.</li>
-<li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no menu model à esquerda.</li>
+<li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no <strong>Menu Model</strong>.</li>
 </ul>
 <h3 id="3-ps-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#3-ps-processamento" title="Permanent link: 3. PÓS-PROCESSAMENTO" data-icon="#">3. PÓS-PROCESSAMENTO</a></h3>
 <h4 id="3-1-anlise-grfica" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#3-1-anlise-grfica" title="Permanent link: 3.1. ANÁLISE GRÁFICA" data-icon="#">3.1. ANÁLISE GRÁFICA</a></h4>
 <ul>
-<li>No menu Model à esquerda, clique com o botão direito em <strong>Job-1(Completed) &gt; Results</strong>;</li>
-<li>Na caixa de ferramentas clique em <strong>Plot Contours on Deformed Shape</strong>.</li>
-<li>Na barra de ferramentas no canto superior à direita selecione <strong>SM &gt; SM1</strong>.</li>
-<li>Na barra de menu principal, clique em <strong>Viewport &gt; Viewport Annotation Options...</strong></li>
-<li>Na janela aberta selecione a aba <strong>Legend</strong>;</li>
-<li>Clique em <strong>Set Font</strong>;</li>
-<li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>;</li>
-<li>Clique em <strong>OK</strong> nas duas janelas abertas;</li>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Job-1(Completed)</strong> e clique em <strong>Results</strong>.</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Plot Contours on Deformed Shape</strong>.</li>
+<li>Na <strong>Área de Ferramentas</strong> no canto superior à direita selecione <strong>SM</strong> e <strong>SM1</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Viewport</strong> e em seguida em <strong>Viewport Annotation Options...</strong></li>
+<li>Na janela aberta selecione a aba <strong>Legend</strong>.</li>
+<li>Clique em <strong>Set Font</strong>.</li>
+<li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>.</li>
+<li>Clique em <strong>OK</strong> nas duas janelas abertas.</li>
 </ul>
 <p><img alt="Figura 22." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_22.svg" /></p>
 <h4 id="3-2-variveis-de-sada" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="vigahiperestatica.html#3-2-variveis-de-sada" title="Permanent link: 3.2. VARIÁVEIS DE SAÍDA" data-icon="#">3.2. VARIÁVEIS DE SAÍDA</a></h4>
 <ul>
-<li>Na barra de menu principal, clique em <strong>Report &gt; Field Output...</strong>;</li>
-<li>Na janela <strong>Report Field Output</strong>, clique em <strong>SM: Section Moments &gt; SM1</strong> e em seuida <strong>OK</strong>;</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Report</strong> e em seguida em <strong>Field Output...</strong>.</li>
+<li>Na janela <strong>Report Field Output</strong>, abra <strong>SM: Section Moments</strong>, selecione <strong>SM1</strong> e clique <strong>OK</strong>.</li>
 <li>A mensagem aparecerá: <strong>"The field output report was appended to file “abaqus.rpt"</strong>. O arquivo <strong>abaqus.rpt</strong> pode ser encontrado em <strong>C:\Users\”Nome do Usuário”\abaqus.rpt</strong>.</li>
 <li>O arquivo listará os <strong>momentos fletores</strong> na viga.</li>
 </ul>
 <p><img alt="Figura 23." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_23.svg" /></p>
 <ul>
-<li>Marcando-se <strong>U:Spacial Displacement</strong> obtêm-se os <strong>deslocamentos</strong> na viga.</li>
+<li>Marcando-se <strong>U: Spacial Displacement</strong> obtêm-se os <strong>deslocamentos</strong> na viga.</li>
 </ul>
 <p><img alt="Figura 24." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_24.svg" /></p>
 <ul>
@@ -7039,12 +7046,12 @@ $(document).ready(function() {
 </ul>
 <p><img alt="Figura 25." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_25.svg" /></p>
 <ul>
-<li>Por fim, marcando-se <strong>SF: Section Forces &gt; SF2</strong> obtêm-se os <strong>esforços cortantes</strong> na viga.</li>
+<li>Por fim, marcando-se <strong>SF2</strong> em <strong>SF: Section Forces</strong>, obtêm-se os <strong>esforços cortantes</strong> na viga.</li>
 </ul>
 <p><img alt="Figura 26." src="../../../user/pages/03.vigas/03.aplicacoes/01.vigaHiperestatica/imagens/imagem_26.svg" /></p>
 <ul>
-<li>Na barra do menu principal, clique em <strong>File &gt; Save As...</strong></li>
-<li>Dê um nome ao arquivo e clique em <strong>OK</strong>;</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>File</strong> e em seguida em <strong>Save As...</strong></li>
+<li>Dê um nome ao arquivo e clique em <strong>OK</strong>.</li>
 <li>É possível também salvar o arquivo com os resultados já calculados - <strong>job-1.odb</strong>.</li>
 </ul>
 </p>

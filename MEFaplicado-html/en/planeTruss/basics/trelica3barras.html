@@ -6406,9 +6406,9 @@ $(document).ready(function() {
             </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/spacialTruss/basics/coberturatrelicada">
-            <a href="http://localhost:8000/en/spacialTruss/basics/coberturatrelicada" >
+            <a href="../../spacialTruss/basics/coberturatrelicada.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Coberturatrelicada</span>
+                <span><b></b>Cobertura Treliçada</span>
             </a>
                         <ul>
                                     
@@ -6467,12 +6467,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Análise Elasto-plástica de vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/beams/basics/vigadinamica">
             <a href="../../beams/basics/vigadinamica.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Análise Dinâmica de vigas</span>
+                <span><b></b>Análise Modal de Vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
     
             </ul>
@@ -6509,6 +6515,9 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Pórtico Simples</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/frames/basics/flambagempilar">
             <a href="../../frames/basics/flambagempilar.html" >
@@ -6705,7 +6714,7 @@ $(document).ready(function() {
 
 
                         
-    <li><a href="http://localhost:8000/pt-BR/trelicaPlana/aplicacoes/trelica3barras" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
+    <li><a href="../../../pt-BR/trelicaplana/aplicacoes/trelica3barras.html" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
 
 </ul>
 	</div>
@@ -6820,281 +6829,278 @@ $(document).ready(function() {
 
 
 <h2 id="objetivo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#objetivo" title="Permanent link: OBJETIVO" data-icon="#">OBJETIVO</a></h2>
-<p>Determinar os esforços axiais nas barras que compõe a treliça esquematizada abaixo sabendo-se que a carga P possui intensidade de <strong>10kN</strong>.</p>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_01.svg" alt="Figura 1. Treliça de 3 barras" /></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Propriedades das barras</th>
-<th style="text-align: center;">Barra 1</th>
-<th style="text-align: center;">Barra 2</th>
-<th style="text-align: center;">Barra 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">Comprimento (m)</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">1.41</td>
-<td style="text-align: center;">1.00</td>
-</tr>
-<tr>
-<td style="text-align: center;">Módulo de Elasticidade (GPa)</td>
-<td style="text-align: center;">100.00</td>
-<td style="text-align: center;">141.00</td>
-<td style="text-align: center;">100.00</td>
-</tr>
-<tr>
-<td style="text-align: center;">Área da seção transversal (cm²)</td>
-<td style="text-align: center;">100.00</td>
-<td style="text-align: center;">100.00</td>
-<td style="text-align: center;">100.00</td>
-</tr>
-</tbody>
-</table>
+<p>Determinar oas tensões na treliça representada abaixo sabendo-se que todas as barras são tubulares maciças e com <strong>diâmetro</strong> de <strong>113 mm</strong>, sendo a vertical e horizontal de alumínio (<span class="mathjax mathjax--inline">$E = 69 GPa$</span>) e a inclinada de aço (<span class="mathjax mathjax--inline">$E = 200 GPa$</span>).
+A carga <strong>F</strong> é de <strong>10.000 N</strong> e o comprimento <strong>L</strong> de <strong>1,0 m</strong>.</p>
+<p><a href="trelica3barras/imagens/imagem_01.svg" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 1." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_01.svg" /></a></p>
+<p><sup></sup></p>
 <h2 id="resoluo-utilizando-o-abaqus-6..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#resoluo-utilizando-o-abaqus-6..." title="Permanent link: RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION" data-icon="#">RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION</a></h2>
 <p>O procedimento usual de resolução é demonstrado no seguinte fluxograma, cuja ordem pode eventualmente ser alterada por conveniência:</p>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_02.svg" alt="Figura 2. Procedimentos" /></p>
+<p><a href="trelica3barras/imagens/imagem_02.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 2." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_02.png" /></a></p>
+<p><sup></sup></p>
 <h3 id="1-pr-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-pr-processamento" title="Permanent link: 1. PRÉ-PROCESSAMENTO" data-icon="#">1. PRÉ-PROCESSAMENTO</a></h3>
-<p>É de exterma importancia utilizar unidades compativeis no Abaqus para que se possa realizar uma análise coerente. Optou-se, neste exercicio, por trabalhar com as unidades em <strong>N</strong> e <strong>m</strong>. Desta forma, a carga P equivale a <strong>10000 N</strong> e as propriedades das barras são as seguintes:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Propriedades das barras</th>
-<th style="text-align: center;">Barra 1</th>
-<th style="text-align: center;">Barra 2</th>
-<th style="text-align: center;">Barra 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">Comprimento (m)</td>
-<td style="text-align: center;">1.00</td>
-<td style="text-align: center;">1.41</td>
-<td style="text-align: center;">1.00</td>
-</tr>
-<tr>
-<td style="text-align: center;">Módulo de Elasticidade (N/m²)</td>
-<td style="text-align: center;">1.00E11</td>
-<td style="text-align: center;">1.41E11</td>
-<td style="text-align: center;">1.00E11</td>
-</tr>
-<tr>
-<td style="text-align: center;">Área da seção transversal (m²)</td>
-<td style="text-align: center;">0.01</td>
-<td style="text-align: center;">0.01</td>
-<td style="text-align: center;">0.01</td>
-</tr>
-</tbody>
-</table>
 <h4 id="1-1-incio-da-anlise" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-1-incio-da-anlise" title="Permanent link: 1.1. INÍCIO DA ANÁLISE" data-icon="#">1.1. INÍCIO DA ANÁLISE</a></h4>
 <ul>
-<li>Digite <strong>cmd</strong> no Menu Iniciar para abrir o Prompt de Comando;</li>
-<li>Digite <strong>abq6122se cae</strong> para executar o Abaqus;</li>
-<li>Na caixa <strong>Start Session</strong> selecione <strong>With Standard/Explicit Model</strong>;</li>
-<li>No Menu Model a esquerda clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>;</li>
+<li>Na caixa <strong>Start Session</strong>, selecione <strong>With Standard/Explicit Model</strong>.</li>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>.</li>
 <li>Digite <strong>Treliça3barras</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_03.svg" alt="Figura 3." /></p>
+<p><a href="trelica3barras/imagens/imagem_03.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 3." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_03.png" /></a></p>
+<p><sup></sup></p>
 <h4 id="1-2-criao-da-geometria-base-e..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-2-criao-da-geometria-base-e..." title="Permanent link: 1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO" data-icon="#">1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO</a></h4>
 <ul>
-<li>De duplo clique em <strong>Parts</strong>;</li>
-<li>No campo <strong>Name</strong> digite <strong>treliça</strong>;</li>
-<li>Em <strong>Modeling Space</strong> selecione <strong>2D planar</strong>;</li>
-<li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Parts</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>treliça</strong>.</li>
+<li>Em <strong>Modeling Space</strong> selecione <strong>2D planar</strong>.</li>
+<li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>.</li>
 <li>Em <strong>Approximante Size</strong> digite <strong>10</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_04.svg" alt="Figura 4." /></p>
+<p><a href="trelica3barras/imagens/imagem_04.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 4." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_04.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Na Caixa de Ferramentas selecione <strong>Create Lines: Connected</strong>;</li>
-<li>Na <strong>Área de Comando</strong> insira as coordenadas <strong>0,0</strong>; <strong>1,0</strong>; <strong>0,1</strong> e <strong>0,0</strong>, teclando <strong>Enter</strong> entre uma e outra;</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
+<li>Na <strong>Área de Comando</strong>, insira <strong>em ordem</strong> as coordenadas, teclando <strong>Enter</strong> entre uma e outra: <strong>0,0</strong> - <strong>1,0</strong> - <strong>0,1</strong> - <strong>0,0</strong>.</li>
 <li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> e clique em <strong>Done</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_05.svg" alt="Figura 5." /></p>
+<p><a href="trelica3barras/imagens/imagem_05.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 5." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_05.png" /></a></p>
+<p><sup></sup></p>
 <h4 id="1-3-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-3-atribuio-das-propriedades..." title="Permanent link: 1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS" data-icon="#">1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS</a></h4>
 <ul>
-<li>No Menu Model a esquerda, de duplo clique em <strong>Materials</strong>;</li>
+<li>No <strong>Menu Model</strong>, de duplo clique em <strong>Materials</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Alumínio</strong>.</li>
 <li>Na caixa <strong>Edit Material</strong> clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_06.svg" alt="Figura 6." /></p>
+<p><a href="trelica3barras/imagens/imagem_06.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 6." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_06.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Em <strong>Young’s Modulus</strong> digite <strong>1.0E11</strong> e clique em <strong>OK</strong>.</li>
+<li>Em <strong>Young’s Modulus</strong> digite <strong>69E9</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_07.svg" alt="Figura 7." /></p>
+<p><a href="trelica3barras/imagens/imagem_07.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 7." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_07.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li><strong>Repita</strong> o procedimento para criar o <strong>Material-2</strong> com <strong>Young’s Modulus</strong> de <strong>1.41E11</strong>.</li>
+<li><strong>Repita</strong> o procedimento para criar o material <strong>Aço</strong> com <strong>Young’s Modulus</strong> de <strong>200E9</strong>.</li>
 </ul>
+<p><a href="trelica3barras/imagens/imagem_08.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 8." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_08.png" /></a></p>
+<p><sup></sup></p>
 <h4 id="1-4-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-4-atribuio-das-propriedades..." title="Permanent link: 1.4. ATRIBUIÇÃO DAS PROPRIEDADES DAS SEÇÕES DAS BARRAS" data-icon="#">1.4. ATRIBUIÇÃO DAS PROPRIEDADES DAS SEÇÕES DAS BARRAS</a></h4>
 <ul>
-<li>No Menu Model a esquerda, de duplo clique em <strong>Sections</strong>;</li>
-<li>Em <strong>Category</strong> selecione <strong>Beam</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Sections</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Seção 1</strong>.</li>
+<li>Em <strong>Category</strong> selecione <strong>Beam</strong>.</li>
 <li>Em <strong>Type</strong> selecione <strong>Truss</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_08.svg" alt="Figura 8." /></p>
+<p><a href="trelica3barras/imagens/imagem_09.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 9." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_09.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Selecione <strong>Material-1</strong> em <strong>Material</strong> e em <strong>Cross-sectional area</strong> digite <strong>0.01</strong> e clique em <strong>Ok</strong>.</li>
+<li>Selecione <strong>Alumínio</strong> em <strong>Material</strong> e em <strong>Cross-sectional area</strong> digite <strong>0.010028749</strong> e clique em <strong>Ok</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_09.svg" alt="Figura 9." /></p>
+<p><a href="trelica3barras/imagens/imagem_10.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 10." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_10.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Repita o procedimento para criar uma <strong>segunda seção</strong>, associando o material <strong>Material-2</strong> e usando a mesma área de <strong>0.01</strong>.</li>
+<li><strong>Repita</strong> o procedimento para criar a <strong>Seção 2</strong>, de <strong>mesma área</strong> e selecionando <strong>Aço</strong> em <strong>Material</strong>.</li>
 </ul>
+<p><a href="trelica3barras/imagens/imagem_11.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 11." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_11.png" /></a></p>
+<p><sup></sup></p>
 <h4 id="1-5-associao-das-sees" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-5-associao-das-sees" title="Permanent link: 1.5. ASSOCIAÇÃO DAS SEÇÕES" data-icon="#">1.5. ASSOCIAÇÃO DAS SEÇÕES</a></h4>
 <ul>
-<li>No Menu Model a esquerda, abra <strong>Parts (1) &gt; treliça</strong>;</li>
-<li>Clique duas vezes em <strong>Section Assigments</strong>;</li>
-<li><strong>Pressione Shift</strong> e selecione a <strong>barra inferior</strong> e <strong>à esquerda</strong> e clique em <strong>Done</strong>;</li>
-<li>Selecione <strong>Section-1</strong> e clique em <strong>OK</strong>.</li>
-<li>Selecione agora a <strong>barra restante</strong> e a atribuia <strong>Section-2</strong>. Ao final clique em <strong>Done</strong>.</li>
+<li>No <strong>Menu Model</strong>, abra <strong>Parts (1)</strong> e em seguida <strong>treliça</strong>.</li>
+<li>Clique duas vezes em <strong>Section Assigments</strong>.</li>
+<li><strong>Pressione Shift</strong>, selecione as barras <strong>vertical</strong> e <strong>horizontal</strong> e clique em <strong>Done</strong>.</li>
+<li>Selecione <strong>Seção 1</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_10.svg" alt="Figura 10." /></p>
+<p><a href="trelica3barras/imagens/imagem_12.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 12." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_12.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>No Menu Model a esquerda, abra <strong>Assembly</strong> e dê duplo clique em <strong>Instances</strong>;</li>
+<li>Selecione agora a barra <strong>diagonal</strong> atribuindo-a a <strong>Seção 2</strong>. Ao final clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_13.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 13." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_13.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê um duplo clique em <strong>Instances</strong>.</li>
 <li>Certifique-se que está selecionado <strong>Dependent (mesh on part)</strong> em <strong>Instance Type</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_11.svg" alt="Figura 11." /></p>
+<p><a href="trelica3barras/imagens/imagem_14.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 14." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_14.png" /></a></p>
+<p><sup></sup></p>
 <h4 id="1-6-aplicao-das-condies-de..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-6-aplicao-das-condies-de..." title="Permanent link: 1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO" data-icon="#">1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO</a></h4>
 <h5 id="1-6-1-cargas" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-6-1-cargas" title="Permanent link: 1.6.1 CARGAS" data-icon="#">1.6.1 CARGAS</a></h5>
 <ul>
-<li>No Menu Model a esquerda, de duplo clique em <strong>Steps (1)</strong>;</li>
-<li>Renomeie para <strong>Carregamento</strong>;</li>
-<li>Em <strong>Procedure type</strong> selecione <strong>Linear Perturbation</strong>, selecione <strong>Static, Linear Perturbation</strong> e clique <strong>Continue...</strong></li>
-<li>Em <strong>Edit Step</strong> clique em <strong>OK</strong>.</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Steps (1)</strong>.</li>
+<li>Renomeie para <strong>Carregamento</strong>.</li>
+<li>Em <strong>Procedure type</strong> selecione <strong>Linear Perturbation</strong>, clique em <strong>Static, Linear Perturbation</strong> e em seguida em <strong>Continue...</strong></li>
+<li>Na janela <strong>Edit Step</strong>, clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_12.svg" alt="Figura 12." /></p>
+<p><a href="trelica3barras/imagens/imagem_15.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 15." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_15.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>No Menu Model à esquerda, de duplo clique em <strong>Loads</strong>;</li>
-<li>No campo name  digite <strong>Carga P</strong> e clique em <strong>Continue...</strong></li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Loads</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Carga F</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_13.svg" alt="Figura 13." /></p>
+<p><a href="trelica3barras/imagens/imagem_16.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 16." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_16.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li><strong>Selecione</strong> o ponto de <strong>aplicação da força</strong> e clique em <strong>Done</strong>;</li>
-<li>Em <strong>Edit Load</strong> digite <strong>-10000</strong> no campo <strong>CF2</strong> e clique em <strong>OK</strong>.</li>
+<li><strong>Selecione</strong> o ponto de <strong>aplicação da força</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Load</strong> digite <strong>-10000</strong> no campo <strong>CF2</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_14.svg" alt="Figura 14." /></p>
+<p><a href="trelica3barras/imagens/imagem_17.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 17." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_17.png" /></a></p>
+<p><sup></sup></p>
 <h5 id="1-6-2-apoios" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-6-2-apoios" title="Permanent link: 1.6.2 APOIOS" data-icon="#">1.6.2 APOIOS</a></h5>
 <ul>
-<li>No Menu Model à esquerda, de duplo clique em <strong>BCs</strong>;</li>
-<li>No campo <strong>Name</strong> digite <strong>Apoio Fixo</strong>;</li>
-<li>Em <strong>Step</strong> selecione <strong>Initial</strong>;</li>
+<li>No <strong>Menu Model</strong>, dê um duplo em <strong>BCs</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Apoio Fixo</strong>.</li>
+<li>Em <strong>Step</strong> selecione <strong>Initial</strong>.</li>
 <li>Em <strong>Types for Selected Step</strong> selecione <strong>Displacement/Rotation</strong> e clique em <strong>Continue…</strong></li>
-<li>Selecione o <strong>ponto extremo superior</strong> da treliça e clique em <strong>Done</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_15.svg" alt="Figura 15." /></p>
+<p><a href="trelica3barras/imagens/imagem_18.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 18." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_18.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Na janela <strong>Edit Boundary Condition</strong> selecione as opções <strong>U1</strong> e <strong>U2</strong>e clique em <strong>OK</strong>.</li>
+<li>Selecione o ponto <strong>inferior esquerdo</strong> da treliça e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Boundary Condition</strong> marque as opções <strong>U1</strong> e <strong>U2</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_16.svg" alt="Figura 16." /></p>
+<p><a href="trelica3barras/imagens/imagem_19.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 19." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_19.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Novamente, dê duplo clique em <strong>BCs</strong>;</li>
-<li>No campo <strong>Name</strong> digite <strong>Apoio Móvel</strong> e clique em <strong>Continue...</strong></li>
-<li><strong>Selecione o ponto inferior esquerdo</strong> da treliça e clique em <strong>Done</strong>.</li>
+<li><strong>Repita</strong> o procedimento para criar o <strong>Apoio Móvel</strong>, aplicado no ponto <strong>superior esquerdo</strong> e marcando apenas <strong>U1</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_17.svg" alt="Figura 17." /></p>
-<ul>
-<li>Na janela <strong>Edit Boundary Condition</strong> selecione apenas <strong>U1</strong> e clique em <strong>OK</strong>.</li>
-</ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_18.svg" alt="Figura 18." /></p>
+<p><a href="trelica3barras/imagens/imagem_20.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 20." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_20.png" /></a></p>
+<p><sup></sup></p>
 <h4 id="1-7-criao-da-malha" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#1-7-criao-da-malha" title="Permanent link: 1.7. CRIAÇÃO DA MALHA" data-icon="#">1.7. CRIAÇÃO DA MALHA</a></h4>
 <ul>
-<li>No Menu Model à esquerda, em <strong>Parts (1) &gt; treliça</strong>, dê duplo clique em <strong>Mesh (Empty)</strong>;</li>
-<li>Na barra de contexto, em <strong>Object</strong>, selecione <strong>Part</strong>;</li>
-<li>Na barra do menu principal clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>;</li>
-<li>Selecione com o mouse <strong>toda a treliça</strong> e clique em <strong>Done</strong>.</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Mesh (Empty)</strong>.</li>
+<li>Na <strong>Barra de Contexto</strong>, em <strong>Object</strong>, selecione <strong>Part</strong>.</li>
+<li>No <strong>Menu Principal</strong> clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_19.svg" alt="Figura 19." /></p>
+<p><a href="trelica3barras/imagens/imagem_21.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 21." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_21.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Na janela <strong>Element Type</strong> selecione <strong>Truss</strong> em <strong>Family</strong>;</li>
+<li>Selecione com o mouse <strong>toda a treliça</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Element Type</strong> selecione <strong>Truss</strong> em <strong>Family</strong>.</li>
 <li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_20.svg" alt="Figura 20." /></p>
+<p><a href="trelica3barras/imagens/imagem_22.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 22." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_22.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>No Menu Principal, clique em <strong>Seed</strong> e posteriormente em <strong>Edges</strong>;</li>
-<li><strong>Selecione toda a região da treliça</strong>e clique em <strong>Done</strong>;</li>
-<li>Na janela <strong>Local Seeds</strong>, altere <strong>Method</strong> para <strong>By number</strong>;</li>
-<li>Altere <strong>Number of elements</strong> para <strong>1</strong>;</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Edges</strong>.</li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_23.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 23." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_23.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Selecione a treliça</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Local Seeds</strong>, altere <strong>Method</strong> para <strong>By number</strong>.</li>
+<li>Altere <strong>Number of elements</strong> para <strong>1</strong>.</li>
 <li>Clique em <strong>OK</strong> e após a janela <strong>Local Seeds</strong> fechar clique em <strong>Done</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_21.svg" alt="Figura 21." /></p>
+<p><a href="trelica3barras/imagens/imagem_24.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 24." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_24.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>No Menu Principal clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>;</li>
-<li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>;</li>
-<li>Perceba que a treliça fica na cor <strong>azul</strong>.</li>
+<li>No <strong>Menu Principal</strong> clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_22.svg" alt="Figura 22." /></p>
+<p><a href="trelica3barras/imagens/imagem_25.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 25." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_25.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>.</li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_26.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 26." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_26.png" /></a></p>
+<p><sup></sup></p>
 <h3 id="2-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#2-processamento" title="Permanent link: 2. PROCESSAMENTO" data-icon="#">2. PROCESSAMENTO</a></h3>
 <ul>
-<li>No Menu Model à esquerda de duplo clique em <strong>Jobs</strong>;</li>
-<li>Na janela <strong>Create Job</strong> clique em <strong>Continue...</strong></li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Jobs</strong>.</li>
+<li>Na janela <strong>Create Job</strong> clique em <strong>Continue...</strong> e em <strong>Edit Job</strong> clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_23.svg" alt="Figura 23." /></p>
+<p><a href="trelica3barras/imagens/imagem_27.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 27." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_27.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Na janela <strong>Edit Job</strong> clique em <strong>OK</strong>.</li>
+<li>Abra <strong>Jobs (1)</strong>, clique com o botão direito em <strong>Job-1</strong> e clique em <strong>Submit</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_24.svg" alt="Figura 24." /></p>
+<p><a href="trelica3barras/imagens/imagem_28.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 28." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_28.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Abra <strong>Jobs</strong> e clique com o botão direito em <strong>Job-1</strong> e clique em <strong>Submit</strong>.</li>
+<li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_25.svg" alt="Figura 25." /></p>
+<p><a href="trelica3barras/imagens/imagem_29.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 29." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_29.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique <strong>OK</strong>.</li>
+<li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no <strong>Menu Model</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_26.svg" alt="Figura 26." /></p>
-<ul>
-<li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no menu model à esquerda.</li>
-</ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_27.svg" alt="Figura 27." /></p>
+<p><a href="trelica3barras/imagens/imagem_30.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 30." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_30.png" /></a></p>
+<p><sup></sup></p>
 <h3 id="3-ps-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#3-ps-processamento" title="Permanent link: 3. PÓS-PROCESSAMENTO" data-icon="#">3. PÓS-PROCESSAMENTO</a></h3>
 <h4 id="3-1-anlise-grfica" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#3-1-anlise-grfica" title="Permanent link: 3.1. ANÁLISE GRÁFICA" data-icon="#">3.1. ANÁLISE GRÁFICA</a></h4>
 <ul>
-<li>No Menu Model à esquerda, clique com o botão direito em <strong>Job-1(Completed) &gt; Results</strong>;</li>
-<li>A tela de análise de dados se abrirá.</li>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Job-1(Completed)</strong> e clique em <strong>Results</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_28.svg" alt="Figura 28." /></p>
+<p><a href="trelica3barras/imagens/imagem_31.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 31." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_31.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Na Caixa de Ferramentas clique em <strong>Plot Contours on Deformed Shape</strong>.</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Plot Contours on Deformed Shape</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_29.svg" alt="Figura 29." /></p>
+<p><a href="trelica3barras/imagens/imagem_32.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 32." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_32.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Na Área de Ferramentas no canto superior à direita selecione <strong>S11</strong> onde, por padrão, deve estar selecionado <strong>Mises</strong>.</li>
+<li>Na <strong>Área de Ferramentas</strong>, selecione <strong>S11</strong> onde, por padrão, deve estar selecionado <strong>Mises</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_30.svg" alt="Figura 30." /></p>
+<p><a href="trelica3barras/imagens/imagem_33.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 33." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_33.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Na Caixa de Ferramentas, clique em <strong>Common Options</strong>;</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Common Options</strong>.</li>
 <li>Na janela <strong>Common Plot Options</strong> selecione a aba <strong>Labels</strong> e marque <strong>Show element labels</strong> e <strong>Show node labels</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_31.svg" alt="Figura 31." /></p>
+<p><a href="trelica3barras/imagens/imagem_34.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 34." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_34.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>No Menu Principal, clique em <strong>Viewport &gt; Viewport Annotation Options...</strong></li>
-<li>Na janela aberta selecione a aba <strong>Legend</strong>;</li>
-<li>Clique em <strong>Set Font</strong>;</li>
-<li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>;</li>
-<li>Clique em <strong>OK</strong> nas duas janelas abertas;</li>
-<li>Os <strong>esforços</strong> nas barras já estão exibidos em <strong>escala de cores</strong>, mas é possível ainda salvar os valores dos esforços em um <strong>documento de texto</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Viewport</strong> e em seguida em <strong>Viewport Annotation Options...</strong></li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_32.svg" alt="Figura 32." /></p>
+<p><a href="trelica3barras/imagens/imagem_35.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 35." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_35.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>Clique em <strong>View &gt; ODB Display Options</strong>;</li>
-<li>Na aba <strong>General</strong>, em <strong>Idealizations</strong>, marque <strong>Render beam profiles</strong> e digite <strong>0.3</strong>  em <strong>Scale factor</strong>;</li>
-<li>Clique em <strong>Apply</strong> e veja a mudança;</li>
+<li>Na janela aberta selecione a aba <strong>Legend</strong>.</li>
+<li>Clique em <strong>Set Font</strong>.</li>
+<li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>.</li>
+<li>Clique em <strong>OK</strong> nas duas janelas abertas.</li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_36.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 36." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_36.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique em <strong>View</strong> e em seguida em <strong>ODB Display Options</strong>.</li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_37.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 37." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_37.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na aba <strong>General</strong>, em <strong>Idealizations</strong>, marque <strong>Render beam profiles</strong> e digite <strong>0.3</strong> em <strong>Scale factor</strong>.</li>
+<li>Clique em <strong>Apply</strong> e veja a mudança.</li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_38.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 38." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_38.png" /></a></p>
+<p><sup></sup></p>
+<ul>
 <li>Desmarque <strong>Render beam profiles</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_33.svg" alt="Figura 33." /></p>
+<p><a href="trelica3barras/imagens/imagem_39.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 39." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_39.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>As <strong>tensões</strong> nas barras já estão exibidos em <strong>escala de cores</strong>, mas é possível ainda salvar as tensões em um <strong>documento de texto</strong>.</li>
+</ul>
 <h4 id="3-2-variveis-de-sada" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="trelica3barras.html#3-2-variveis-de-sada" title="Permanent link: 3.2. VARIÁVEIS DE SAÍDA" data-icon="#">3.2. VARIÁVEIS DE SAÍDA</a></h4>
 <ul>
-<li>No Menu Principal, clique em <strong>Report &gt; Field Output</strong>;</li>
-<li>Na janela <strong>Report Field Output</strong>, clique em <strong>S: Stress components &gt; S11</strong>;</li>
-<li>Clique em <strong>OK</strong>;</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Report</strong> e em seguida em <strong>Field Output...</strong></li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_40.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 40." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_40.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Report Field Output</strong>, abra <strong>S: Stress components</strong>, marque <strong>S11</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="trelica3barras/imagens/imagem_41.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 41." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_41.png" /></a></p>
+<p><sup></sup></p>
+<ul>
 <li>A mensagem aparecerá: <strong>"The field output report was appended to file “abaqus.rpt"</strong>. O arquivo <strong>abaqus.rpt</strong> pode ser encontrado em <strong>C:\Users\”Nome do Usuário”\abaqus.rpt</strong>.</li>
+<li>O arquivo listará as <strong>tensões</strong> das barras.</li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_34.svg" alt="Figura 34." /></p>
+<p><a href="trelica3barras/imagens/imagem_42.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 42." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_42.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>O arquivo listará os <strong>esforços</strong> das barras.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>File</strong> e em seguida em <strong>Save As...</strong></li>
 </ul>
-<p><img src="../../../planeTruss/basics/trelica3barras/imagens/imagem_35.svg" alt="Figura 35." /></p>
+<p><a href="trelica3barras/imagens/imagem_43.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 43." src="../../../user/pages/01.trelicaplana/03.aplicacoes/01.trelica3barras/imagens/imagem_43.png" /></a></p>
+<p><sup></sup></p>
 <ul>
-<li>No Menu Principal, clique em <strong>File &gt; Save As...</strong></li>
-<li>Dê um nome ao arquivo e clique em <strong>OK</strong>;</li>
-<li>É possível também salvar o arquivo com os resultados já calculados - <strong>job-1.odb</strong>.</li>
+<li>Dê um nome ao arquivo e clique em <strong>OK</strong>.</li>
 </ul>
 </p>
 </div>

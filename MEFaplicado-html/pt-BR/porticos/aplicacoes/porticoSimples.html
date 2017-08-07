@@ -5,6 +5,7 @@
     <title>Pórtico Simples | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../../feed:rss.html" title="RSS Feed" />
@@ -6405,9 +6406,9 @@ $(document).ready(function() {
             </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/trelicaespacial/aplicacoes/coberturatrelicada">
-            <a href="http://localhost:8000/pt-BR/trelicaespacial/aplicacoes/coberturatrelicada" >
+            <a href="../../trelicaespacial/aplicacoes/coberturatrelicada.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Coberturatrelicada</span>
+                <span><b></b>Cobertura Treliçada</span>
             </a>
                         <ul>
                                     
@@ -6466,12 +6467,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Análise Elasto-plástica de vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/vigas/aplicacoes/vigadinamica">
             <a href="../../vigas/aplicacoes/vigadinamica.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Análise Dinâmica de vigas</span>
+                <span><b></b>Análise Modal de Vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
     
             </ul>
@@ -6508,6 +6515,9 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Pórtico Simples</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/porticos/aplicacoes/flambagempilar">
             <a href="flambagempilar.html" >
@@ -6729,8 +6739,307 @@ $(document).ready(function() {
                 <div id="body-inner">
 <h1>Pórtico Simples</h1>
 <p>
-	<h1>Elemento de viga</h1>
-<h2>Basico...</h2>
+	<h1 id="modelagem-de-um-prtico" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#modelagem-de-um-prtico" title="Permanent link: MODELAGEM DE UM PÓRTICO" data-icon="#">MODELAGEM DE UM PÓRTICO</a></h1>
+<nav class="table-of-contents toc" role="navigation">
+  
+                                                                                                                            
+  <ul>
+      
+        
+        
+              <li><a href="porticoSimples.html#modelagem-de-um-prtico" class="toclink" title="MODELAGEM DE UM PÓRTICO">MODELAGEM DE UM PÓRTICO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="porticoSimples.html#objetivo" class="toclink" title="OBJETIVO">OBJETIVO</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#resoluo-utilizando-o-abaqus-6..." class="toclink" title="RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION">RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="porticoSimples.html#1-pr-processamento" class="toclink" title="1. PRÉ-PROCESSAMENTO">1. PRÉ-PROCESSAMENTO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="porticoSimples.html#1-1-incio-da-anlise" class="toclink" title="1.1. INÍCIO DA ANÁLISE">1.1. INÍCIO DA ANÁLISE</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#1-2-criao-da-geometria-base-e..." class="toclink" title="1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO">1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#1-3-atribuio-das-propriedades..." class="toclink" title="1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS">1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#1-4-atribuio-das-propriedades..." class="toclink" title="1.4. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA">1.4. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#1-5-associao-das-sees" class="toclink" title="1.5. ASSOCIAÇÃO DAS SEÇÕES">1.5. ASSOCIAÇÃO DAS SEÇÕES</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#1-6-aplicao-das-condies-de..." class="toclink" title="1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO">1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="porticoSimples.html#1-6-1-cargas" class="toclink" title="1.6.1 CARGAS">1.6.1 CARGAS</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#1-6-2-apoios" class="toclink" title="1.6.2 APOIOS">1.6.2 APOIOS</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="porticoSimples.html#1-7-criao-da-malha" class="toclink" title="1.7. CRIAÇÃO DA MALHA">1.7. CRIAÇÃO DA MALHA</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#1-8-definio-das-variveis-de-sada" class="toclink" title="1.8. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA">1.8. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="porticoSimples.html#2-processamento" class="toclink" title="2. PROCESSAMENTO">2. PROCESSAMENTO</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#3-ps-processamento" class="toclink" title="3. PÓS-PROCESSAMENTO">3. PÓS-PROCESSAMENTO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="porticoSimples.html#3-1-anlise-grfica" class="toclink" title="3.1. ANÁLISE GRÁFICA">3.1. ANÁLISE GRÁFICA</a></li>
+      
+        
+        
+              <li><a href="porticoSimples.html#3-2-variveis-de-sada" class="toclink" title="3.2. VARIÁVEIS DE SAÍDA">3.2. VARIÁVEIS DE SAÍDA</a></li>
+      
+              </ul></li>
+          </ul></li>
+          </ul></li>
+      
+  </ul>
+</nav>
+
+
+<h2 id="objetivo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#objetivo" title="Permanent link: OBJETIVO" data-icon="#">OBJETIVO</a></h2>
+<p>Avaliar o pórtico confecionado em concreto <strong>C25</strong> esquematizado abaixo sabendo-se que os elementos <strong>horizontais</strong> e <strong>diagonal</strong> possuem seção retangular de <strong>20x30 cm²</strong> e os <strong>verticais 20x20 cm²</strong>.</p>
+<p><a href="porticosimples/imagens/imagem_01.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 1." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_01.png" /></a></p>
+<p><sup></sup></p>
+<h2 id="resoluo-utilizando-o-abaqus-6..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#resoluo-utilizando-o-abaqus-6..." title="Permanent link: RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION" data-icon="#">RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION</a></h2>
+<p>O procedimento usual de resolução é demonstrado no seguinte fluxograma, cuja ordem pode eventualmente ser alterada por conveniência:</p>
+<p><a href="porticosimples/imagens/imagem_02.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 2." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_02.png" /></a></p>
+<p><sup></sup></p>
+<h3 id="1-pr-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-pr-processamento" title="Permanent link: 1. PRÉ-PROCESSAMENTO" data-icon="#">1. PRÉ-PROCESSAMENTO</a></h3>
+<h4 id="1-1-incio-da-anlise" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-1-incio-da-anlise" title="Permanent link: 1.1. INÍCIO DA ANÁLISE" data-icon="#">1.1. INÍCIO DA ANÁLISE</a></h4>
+<ul>
+<li>Na caixa <strong>Start Session</strong>, selecione <strong>With Standard/Explicit Model</strong>.</li>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>.</li>
+<li>Digite <strong>Pórtico Simples</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<h4 id="1-2-criao-da-geometria-base-e..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-2-criao-da-geometria-base-e..." title="Permanent link: 1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO" data-icon="#">1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Parts</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>pórtico</strong>.</li>
+<li>Em <strong>Modeling Space</strong> selecione <strong>2D planar</strong>.</li>
+<li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>.</li>
+<li>Em <strong>Approximante Size</strong> digite <strong>20</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_03.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 3." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_03.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
+<li>Na <strong>área de comando</strong>, <strong>desenhe</strong> a estrutura.</li>
+<li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> do teclado e clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_04.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 4." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_04.png" /></a></p>
+<p><sup></sup></p>
+<h4 id="1-3-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-3-atribuio-das-propriedades..." title="Permanent link: 1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS" data-icon="#">1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Materials</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Concreto C25</strong>.</li>
+<li>Na caixa <strong>Edit Material</strong> clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
+<li>Em <strong>Young’s Modulus</strong> digite <strong>24E9</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_05.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 5." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_05.png" /></a></p>
+<p><sup></sup></p>
+<h4 id="1-4-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-4-atribuio-das-propriedades..." title="Permanent link: 1.4. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA" data-icon="#">1.4. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Sections</strong>.</li>
+<li>Em <strong>Name</strong> digite <strong>Seção Viga</strong>.</li>
+<li>Em <strong>Category</strong> selecione <strong>Beam</strong>.</li>
+<li>Em <strong>Type</strong> selecione <strong>Beam</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_06.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 6." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_06.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/icone_01.svg" />.</li>
+<li>Em <strong>Name</strong> digite <strong>Viga</strong>, selecione <strong>Rectangular</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_07.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 7." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_07.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Insira o valor <strong>0.20</strong> para <strong>a</strong>, <strong>0.30</strong> para <strong>b</strong> e clique em <strong>OK</strong> nas duas janelas.</li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_08.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 8." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_08.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimento para criar a <strong>Seção Pilar</strong>, digitando <strong>0.20</strong> para <strong>a</strong> e <strong>b</strong>.</li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_09.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 9." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_09.png" /></a></p>
+<p><sup></sup></p>
+<h4 id="1-5-associao-das-sees" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-5-associao-das-sees" title="Permanent link: 1.5. ASSOCIAÇÃO DAS SEÇÕES" data-icon="#">1.5. ASSOCIAÇÃO DAS SEÇÕES</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Parts (1)</strong> e em seguida <strong>pórtico</strong>.</li>
+<li>Clique duas vezes em <strong>Section Assigments</strong>.</li>
+<li>Selecione os elementos <strong>horizontais</strong> e <strong>diagonal</strong> e clique em <strong>Done</strong>.</li>
+<li>Selecione <strong>Seção Viga</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_10.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 10." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_10.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Selecione agora os elementos <strong>verticais</strong> atribuindo a <strong>Seção Pilar</strong>. Ao final clique em <strong>Done</strong></li>
+</ul>
+<p><a href="porticosimples/imagens/imagem_11.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 11." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_11.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/icone_03.svg" />.</li>
+<li>Clique em <strong>Sets...</strong>, selecione <strong>Set-1</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_11.svg" alt="Figura 11." /></p>
+<ul>
+<li>Tecle <strong>Enter</strong>, clique em <strong>OK</strong>, em <strong>Dismiss</strong> e em seguida em <strong>Done</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_12.svg" alt="Figura 12." /></p>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê um duplo clique em <strong>Instances</strong>.</li>
+<li>Certifique-se que está selecionado <strong>Dependent (mesh on part)</strong> em <strong>Instance Type</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_13.svg" alt="Figura 13." /></p>
+<h4 id="1-6-aplicao-das-condies-de..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-6-aplicao-das-condies-de..." title="Permanent link: 1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO" data-icon="#">1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO</a></h4>
+<h5 id="1-6-1-cargas" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-6-1-cargas" title="Permanent link: 1.6.1 CARGAS" data-icon="#">1.6.1 CARGAS</a></h5>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Steps (1)</strong>.</li>
+<li>Renomeie para <strong>Carregamento</strong> e clique <strong>Continue...</strong></li>
+<li>Em <strong>Edit Step</strong> clique em <strong>OK</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_14.svg" alt="Figura 14." /></p>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Loads</strong>.</li>
+<li>No campo Name  digite <strong>Gravidade</strong>.</li>
+<li>Em <strong>Types for Selected Step</strong> selecione <strong>Gravity</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_15.svg" alt="Figura 15." /></p>
+<ul>
+<li>Em <strong>Edit Load</strong> digite <strong>-9.81</strong> no campo <strong>Component 2</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_16.svg" alt="Figura 16." /></p>
+<h5 id="1-6-2-apoios" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-6-2-apoios" title="Permanent link: 1.6.2 APOIOS" data-icon="#">1.6.2 APOIOS</a></h5>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>BCs</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Apoio Móvel</strong>.</li>
+<li>Em <strong>Step</strong> selecione <strong>Initial</strong>.</li>
+<li>Em <strong>Types for Selected Step</strong> selecione <strong>Displacement/Rotation</strong>, clique em <strong>Continue…</strong> e em seguida em <strong>Dismiss</strong>.</li>
+<li>Selecione a <strong>extremidade esquerda</strong> da viga e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Boundary Condition</strong> selecione <strong>U2</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_17.svg" alt="Figura 17." /></p>
+<ul>
+<li>Repita este procedimento para criar o <strong>Engaste</strong>, marcando <strong>Symetry/ antisymmetry/Encastre</strong>, selecionando a <strong>extremidade direita</strong> da viga e selecionando <strong>ENCASTRE(U1=U2=U3=UR1=UR2=UR3=0)</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_18.svg" alt="Figura 18." /></p>
+<h4 id="1-7-criao-da-malha" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-7-criao-da-malha" title="Permanent link: 1.7. CRIAÇÃO DA MALHA" data-icon="#">1.7. CRIAÇÃO DA MALHA</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Mesh (Empty)</strong>.</li>
+<li>Na <strong>Barra de Contexto</strong>, em <strong>Object</strong>, selecione <strong>Part</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>.</li>
+<li><strong>Selecione a viga</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Element Type</strong> selecione <strong>Beam</strong> em <strong>Family</strong>.</li>
+<li>Em <strong>Geometric Order</strong> selecione <strong>Quadratic</strong>.</li>
+<li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_19.svg" alt="Figura 19." /></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Part</strong>.</li>
+<li>Em <strong>Approximate Global Size</strong> digite <strong>0.05</strong>, clique em <strong>OK</strong> e em seguida <strong>Done</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_20.svg" alt="Figura 20." /></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>.</li>
+<li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>.</li>
+<li>Perceba que a viga fica na cor <strong>azul</strong>.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_21.svg" alt="Figura 21." /></p>
+<h4 id="1-8-definio-das-variveis-de-sada" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#1-8-definio-das-variveis-de-sada" title="Permanent link: 1.8. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA" data-icon="#">1.8. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Field Output Requests (1)</strong> e dê um duplo clique em <strong>F-Output-1</strong>.</li>
+<li>Desmarque todas as variáveis com excessão de:
+<ul>
+<li><strong>SE, Section strains and curvatures</strong>.</li>
+<li><strong>U, Translations and rotations</strong>.</li>
+<li><strong>RF, Reaction forces and moments</strong>.</li>
+<li><strong>SF, Section forces and moments</strong>.</li>
+<li><strong>BF, Body forces</strong>.</li>
+</ul></li>
+<li>Em seguida, clique em <strong>OK</strong>.</li>
+</ul>
+<h3 id="2-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#2-processamento" title="Permanent link: 2. PROCESSAMENTO" data-icon="#">2. PROCESSAMENTO</a></h3>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Jobs</strong>.</li>
+<li>Na janela <strong>Create Job</strong> clique em <strong>Continue...</strong></li>
+<li>Na janela <strong>Edit Job</strong> clique em <strong>OK</strong>.</li>
+<li>Abra <strong>Jobs</strong> e clique com o botão direito em <strong>Job-1</strong> e clique em <strong>Submit</strong>.</li>
+<li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique <strong>OK</strong>.</li>
+<li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no <strong>Menu Model</strong>.</li>
+</ul>
+<h3 id="3-ps-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#3-ps-processamento" title="Permanent link: 3. PÓS-PROCESSAMENTO" data-icon="#">3. PÓS-PROCESSAMENTO</a></h3>
+<h4 id="3-1-anlise-grfica" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#3-1-anlise-grfica" title="Permanent link: 3.1. ANÁLISE GRÁFICA" data-icon="#">3.1. ANÁLISE GRÁFICA</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Job-1(Completed)</strong> e clique em <strong>Results</strong>.</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Plot Contours on Deformed Shape</strong>.</li>
+<li>Na <strong>Área de Ferramentas</strong> no canto superior à direita selecione <strong>SM</strong> e <strong>SM1</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Viewport</strong> e em seguida em <strong>Viewport Annotation Options...</strong></li>
+<li>Na janela aberta selecione a aba <strong>Legend</strong>.</li>
+<li>Clique em <strong>Set Font</strong>.</li>
+<li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>.</li>
+<li>Clique em <strong>OK</strong> nas duas janelas abertas.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_22.svg" alt="Figura 22." /></p>
+<h4 id="3-2-variveis-de-sada" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticoSimples.html#3-2-variveis-de-sada" title="Permanent link: 3.2. VARIÁVEIS DE SAÍDA" data-icon="#">3.2. VARIÁVEIS DE SAÍDA</a></h4>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Report</strong> e em seguida em <strong>Field Output...</strong>.</li>
+<li>Na janela <strong>Report Field Output</strong>, abra <strong>SM: Section Moments</strong>, selecione <strong>SM1</strong> e clique <strong>OK</strong>.</li>
+<li>A mensagem aparecerá: <strong>"The field output report was appended to file “abaqus.rpt"</strong>. O arquivo <strong>abaqus.rpt</strong> pode ser encontrado em <strong>C:\Users\”Nome do Usuário”\abaqus.rpt</strong>.</li>
+<li>O arquivo listará os <strong>momentos fletores</strong> na viga.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_23.svg" alt="Figura 23." /></p>
+<ul>
+<li>Marcando-se <strong>U: Spacial Displacement</strong> obtêm-se os <strong>deslocamentos</strong> na viga.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_24.svg" alt="Figura 24." /></p>
+<ul>
+<li>Marcando-se <strong>RF: Reaction forces</strong> obtêm-se as <strong>reações de apoio</strong> na viga.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_25.svg" alt="Figura 25." /></p>
+<ul>
+<li>Por fim, marcando-se <strong>SF2</strong> em <strong>SF: Section Forces</strong>, obtêm-se os <strong>esforços cortantes</strong> na viga.</li>
+</ul>
+<p><img src="http://localhost:8000/porticos/aplicacoes/porticosimples/imagens/imagem_26.svg" alt="Figura 26." /></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>File</strong> e em seguida em <strong>Save As...</strong></li>
+<li>Dê um nome ao arquivo e clique em <strong>OK</strong>.</li>
+<li>É possível também salvar o arquivo com os resultados já calculados - <strong>job-1.odb</strong>.</li>
+</ul>
 </p>
 </div>
 

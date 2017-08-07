@@ -5,6 +5,7 @@
     <title>Teoria treliça plana | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../feed:rss.html" title="RSS Feed" />
@@ -6405,9 +6406,9 @@ $(document).ready(function() {
             </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/spacialTruss/basics/coberturatrelicada">
-            <a href="http://localhost:8000/en/spacialTruss/basics/coberturatrelicada" >
+            <a href="../spacialTruss/basics/coberturatrelicada.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Coberturatrelicada</span>
+                <span><b></b>Cobertura Treliçada</span>
             </a>
                         <ul>
                                     
@@ -6466,12 +6467,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Análise Elasto-plástica de vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/beams/basics/vigadinamica">
             <a href="../beams/basics/vigadinamica.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Análise Dinâmica de vigas</span>
+                <span><b></b>Análise Modal de Vigas</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
     
             </ul>
@@ -6508,6 +6515,9 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Pórtico Simples</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/frames/basics/flambagempilar">
             <a href="../frames/basics/flambagempilar.html" >
@@ -6704,7 +6714,7 @@ $(document).ready(function() {
 
 
                         
-    <li><a href="http://localhost:8000/pt-BR/trelicaPlana/teoria" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
+    <li><a href="../../pt-BR/trelicaplana/teoria.html" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
 
 </ul>
 	</div>
@@ -6793,21 +6803,21 @@ $(document).ready(function() {
 
 <h2 id="fundamentao" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#fundamentao" title="Permanent link: Fundamentação" data-icon="#">Fundamentação</a></h2>
 <p>A ideia da idealização de uma estrutura em uma treliça é simples, supõe-se que em todas as barras apenas existam esforços axiais normais a sua direção longitudinal, que derivam de tensões uniformes nessa seção. Isso é verdade, não! Mas para determinadas estruturas essa idealização é representativa dos efeitos mecânicos reais em seus elementos e, portanto, válida para uma idealização. Essas estruturas chamamos de treliças.</p>
-<p><img title="Barra de uma treliça" alt="Barra de uma treliça" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelica.svg" />
+<p><img title="Barra de uma treliça" alt="Barra de uma treliça" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelica.svg" />
 <small>Esquema de uma barra de treliça idealizada.</small></p>
 <p>Essa barra real com um certo volume em uma geometria qualquer tridimensional, pode ser representada em uma idealização unidimensional para calculo de seus efeitos, visto que as tensões são consideradas uniformes na barra e algumas simplificações são adotadas, como a desconsideração dos efeitos de <a href="https://pt.wikipedia.org/wiki/Princípio_de_Saint-Venant">Saint-Venant</a> (por ocorrerem em uma pequena região e não interferirem de forma relevante no resposta mecânica total da barra da estrutura) e as deformações transversais são desprezadas (por serem muito pequenas). Então, a barra da treliça se torna:</p>
-<p><img title="Barra de uma treliça unidimensional" alt="Barra de uma treliça unidimensional" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelicaUni.svg" />
+<p><img title="Barra de uma treliça unidimensional" alt="Barra de uma treliça unidimensional" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelicaUni.svg" />
 <small>Esquema de uma barra de treliça unidimensional idealizada.</small></p>
 <h3 id="deslocamentos" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#deslocamentos" title="Permanent link: Deslocamentos" data-icon="#">Deslocamentos</a></h3>
 <p>Daqui para frente, esquece a barra real da treliça, esquece a treliça real e nos focamos apenas na idealização unidimensional. Vimos na introdução (veja <a href="../../index.html">aqui</a>) que analiticamente a deformação, ou a variação do deslocamento na direção longitudinal de uma barra unidimensional com material no regime elástico linear é constante igual a força aplicada dividida pela sua rigidez (AE) e que o deslocamento varia de forma linear na direção longitudinal, ou seja:</p>
 <p class="mathjax mathjax--block">$$
 u(x) = \dfrac{f}{AE}x \tag{1} \label{deslTrel}$$</p>
 <p>Se fixarmos um referencial cartesiano <span class="mathjax mathjax--inline">$(x, u)$</span> no meio dessa barra, com <span class="mathjax mathjax--inline">$u$</span> sendo os deslocamentos na direção axial, podemos fazer um gráfico da variação desse deslocamento axial:</p>
-<p><img title="Variação do deslocamento da barra de uma treliça unidimensional" alt="Variação do deslocamento da barra de uma treliça unidimensional" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelicaVarDesl.svg" />
+<p><img title="Variação do deslocamento da barra de uma treliça unidimensional" alt="Variação do deslocamento da barra de uma treliça unidimensional" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelicaVarDesl.svg" />
 <small>Variação do deslocamento da barra de treliça unidimensional idealizada, sendo máximo nos extremos.</small></p>
 <p>De uma forma bem simples, a ideia básica do método dos elementos finitos aplicados à estruturas é transformar essa barra com seus deslocamentos contínuos em <span class="mathjax mathjax--inline">$x$</span> em um elemento discreto com deslocamentos definidos apenas nos seus extremos ou nós, sendo os deslocamentos dentro desse elemento calculados através de uma interpolação, utilizando as chamadas funções de forma, dos deslocamentos nos nós ou nodais.</p>
 <p>De outra forma, digamos que se conheçam os deslocamentos nos nós desse elemento, sendo eles de valor qualquer <span class="mathjax mathjax--inline">$u_1$</span> e <span class="mathjax mathjax--inline">$u_2$</span> nos nós 1 e 2 respectivamente, e que, através deles, queremos calcular os deslocamentos em qualquer ponto desse elemento, entre os nós 1 e 2. Digamos ainda que esse elemento tem comprimento L. Voltando ao referencial <span class="mathjax mathjax--inline">$(x, y)$</span>, temos:</p>
-<p><img title="Deslocamentos nodais da barra de uma treliça unidimensional" alt="Deslocamentos nodais" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelicaGrausLib.svg" />
+<p><img title="Deslocamentos nodais da barra de uma treliça unidimensional" alt="Deslocamentos nodais" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelicaGrausLib.svg" />
 <small>Deslocamentos nodais da barra de treliça unidimensional idealizada.</small></p>
 <h3 id="funes-de-forma" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#funes-de-forma" title="Permanent link: Funções de forma" data-icon="#">Funções de forma</a></h3>
 <p>Sabendo que na idealização em barra de treliça unidimensional a variação dos deslocamentos é linear na barra, pode-se escrever a equação dessa variação linear em função de <span class="mathjax mathjax--inline">$u_1$</span> e <span class="mathjax mathjax--inline">$u_2$</span>. Vamos pegar uma equação de uma reta genérica <span class="mathjax mathjax--inline">$y = Ax + b$</span> e aplicar as seguintes condições:</p>
@@ -6913,7 +6923,7 @@ N_1 = \dfrac{1}{2} - \dfrac{x}{L} \quad \text{e} \quad N_2 = \dfrac{1}{2} + \dfr
 <p class="mathjax mathjax--block">$$
 W_i = W_e \tag{7} \label{eqEner}$$</p>
 <p>O trabalho das forças internas, <span class="mathjax mathjax--inline">$W_i$</span>, ou seja, o trabalho das tensões é calculando multiplicando essas tensões pelas suas respectivas deformações. O detalhe é que a cada pedacinho da barra existem tensões e deformações.</p>
-<p><img title="Barra de uma treliça esforços internos" alt="Barra de uma treliça Internos" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelicaInt.svg" />
+<p><img title="Barra de uma treliça esforços internos" alt="Barra de uma treliça Internos" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelicaInt.svg" />
 <small>Esquema dos esforços internos de uma barra de treliça idealizada.</small></p>
 <p>O trabalho interno total é a soma das tensões multiplicadas pelas deformações em toda a barra da treliça, portanto:</p>
 <p class="mathjax mathjax--block">$$
@@ -6953,7 +6963,7 @@ W_e = f u(x) \tag{9} \label{engExtF}$$</p>
     {\displaystyle\int_V \sigma \textbf{B} \delta \textbf{u} dV } &= f \textbf{N} \delta \textbf{u} \tag{10} \label{eqParc}
 \end{align}$$</p>
 <p>Como estamos trabalhando com nosso material utilizando apenas o seu limite elástico, ou seja, o valor das tensões e deformações não podem ser maiores que as limites para esse regime, <span class="mathjax mathjax--inline">$\sigma \leq \sigma_{lim}$</span> e <span class="mathjax mathjax--inline">$\varepsilon \leq \varepsilon_{lim}$</span>.</p>
-<p><img title="Relação Constitutiva Linear Proporcional" alt="Relação Constitutiva Linear Proporcional" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/RelConstitutiva.svg" />
+<p><img title="Relação Constitutiva Linear Proporcional" alt="Relação Constitutiva Linear Proporcional" src="../../user/pages/01.trelicaplana/01.teoria/imagens/RelConstitutiva.svg" />
 <small>Relação constitutiva linear proporcional do material, com rigidez elástica E.</small></p>
 <p>Além disso, como as tensões são proporcionais às deformações, podemos escrever que:</p>
 <p class="mathjax mathjax--block">$$
@@ -6988,7 +6998,7 @@ W_e = f u(x) \tag{9} \label{engExtF}$$</p>
         f_2
     \end{array} \right\rbrace$$</p>
 <p>Sendo <span class="mathjax mathjax--inline">$f_1$</span> a força no nó 1 e <span class="mathjax mathjax--inline">$f_2$</span> a força no nó 2. </p>
-<p><img title="Barra de uma treliça unidimensional forças nodais" alt="Barra de uma treliça unidimensional forças" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelicaUniFs.svg" />
+<p><img title="Barra de uma treliça unidimensional forças nodais" alt="Barra de uma treliça unidimensional forças" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelicaUniFs.svg" />
 <small>Esquema das forças nodais de uma barra de treliça unidimensional idealizada.</small></p>
 <p>Podemos abrir a integral em uma integral na área e outra no comprimento. Como nada varia em <span class="mathjax mathjax--inline">$y$</span> ou <span class="mathjax mathjax--inline">$z$</span>, a integral na área é a própria área da seção transversal.</p>
 <p class="mathjax mathjax--block">$$
@@ -7043,7 +7053,7 @@ EA \left[
         f_2
     \end{array} \right\rbrace$$</p>
 <p>O problema dessa matriz de rigidez é que ela está escrita para um elemento disposto na horizontal na direção do eixo x. E se o nosso elemento for inclinado? Como ficam os graus de liberdade? Existe uma componente em y?</p>
-<p><img title="Graus de liberdade no sistema local" alt="Graus de liberdade no local" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelicaGrausLibGlob.svg" />
+<p><img title="Graus de liberdade no sistema local" alt="Graus de liberdade no local" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelicaGrausLibGlob.svg" />
 <small>Graus de liberdade no sistema local.</small></p>
 <blockquote>
 <p>A seta na imagem não significa força, é a direção do grau de liberdade 1 ou 2!!!</p>
@@ -7051,7 +7061,7 @@ EA \left[
 <p>A matriz de rigidez que calculamos foi determinada utilizando um sistema de coordenadas disposto no elemento, com origem em seu centro e orientação do eixo x no sentido longitudinal da barra. A esse sistema damos o nome de sistema <strong>local</strong> de coordenadas <span class="mathjax mathjax--inline">$(x,y)$</span>. Quando vamos resolver uma estrutura precisamos de outro sistema de coordenadas que englobe todos os elementos dessa estrutura para que todos tenham o mesmo referencial, a esse sistema chamamos de <strong>global</strong> <span class="mathjax mathjax--inline">$(X, Y)$</span>. Portanto, para obter a matriz de rigidez do elemento no sistema global de coordenadas para podemos resolver a estrutura da treliça completa, precisamos aplicar uma transformação de coordenadas e uma rotação, caso o elemento não seja horizontal.</p>
 <h3 id="matriz-de-rigidez-no-sistema..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#matriz-de-rigidez-no-sistema..." title="Permanent link: Matriz de rigidez no sistema global" data-icon="#">Matriz de rigidez no sistema global</a></h3>
 <p>Primeiro, precisamos escrever os graus de liberdade no sistema global e reposicionar as suas rigidezes na matriz de rigidez, pois no sistema local, o elemento possui apenas 1 graus de liberdade por nó, já no global, terá até 2 caso seja inclinado em relação aos eixos. Esses 2 graus de liberdade nada mais são que a decomposição do grau de liberdade único nas coordenadas globais.</p>
-<p><img title="Graus de liberdade no sistema local" alt="Graus de liberdade no local" src="http://localhost:8000/user/pages/01.trelicaPlana/01.teoria/imagens/barraTrelicaGrausLibGlobPos.svg" />
+<p><img title="Graus de liberdade no sistema local" alt="Graus de liberdade no local" src="../../user/pages/01.trelicaplana/01.teoria/imagens/barraTrelicaGrausLibGlobPos.svg" />
 <small>Graus de liberdade no sistema global.</small></p>
 <p>Agora, precisamos corrigir a matriz de rigidez do elemento já que, com 2 graus de liberdade por nó, deverá ser de 4x4 e não somente de 2x2 como a determinada. Sabendo que os rigidezes dentro da matriz de rigidez local significam a rigidez de uma direção na outra, por exemplo, <span class="mathjax mathjax--inline">$k_{11}$</span> rigidez do efeito de um deslocamento do nó 1 nele mesmo, <span class="mathjax mathjax--inline">$k_{12}$</span> rigidez do efeito de um deslocamento do nó 1 no nó 2, podemos expandir esse conceito para uma matriz 4x4 mantendo as mesmas considerações de rigidez locais, por exemplo, para quando <span class="mathjax mathjax--inline">$\theta = 0^o$</span>:</p>
 <p class="mathjax mathjax--block">$$
