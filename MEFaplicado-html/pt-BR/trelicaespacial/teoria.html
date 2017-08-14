@@ -2,9 +2,10 @@
 <html lang="pt-BR">
 <head>
         <meta charset="utf-8" />
-    <title>Teoria | Applied FEM</title>
+    <title>Teoria Treliça Espacial | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../feed:rss.html" title="RSS Feed" />
@@ -6304,6 +6305,9 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Implementação</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/trelicaplana/aplicacoes">
             <a href="../trelicaplana/aplicacoes.html" >
@@ -6371,8 +6375,11 @@ $(document).ready(function() {
                                                             <li class="dd-item active" data-nav-id="/trelicaespacial/teoria">
             <a href="teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Teoria</span>
+                <span><b></b>Teoria Treliça Espacial</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/trelicaespacial/implementacao">
             <a href="implementacao.html" >
@@ -6383,7 +6390,7 @@ $(document).ready(function() {
                             <li class="dd-item" data-nav-id="/trelicaespacial/aplicacoes">
             <a href="aplicacoes.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Aplicações</span>
+                <span><b></b>Treliça Espacial</span>
             </a>
                         <ul>
                                                             <li class="dd-item" data-nav-id="/trelicaespacial/aplicacoes/modulotorre">
@@ -6729,15 +6736,99 @@ $(document).ready(function() {
                         <i class="fa fa-angle-right"></i>
                                                 <a href="../trelicaespacial.html" itemprop="url"><span itemprop="title">Treliça Espacial</span></a>
                         <i class="fa fa-angle-right"></i>
-                                                <span itemprop="title">Teoria</span>
+                                                <span itemprop="title">Teoria Treliça Espacial</span>
                         </div>
                             </div>
             
                 <div id="body-inner">
-<h1>Teoria</h1>
+<h1>Teoria Treliça Espacial</h1>
 <p>
-	<h1>Teoria do elemento de treliça</h1>
-<h2>Basico...</h2>
+	<h1 id="teoria-do-elemento-de-trelia" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#teoria-do-elemento-de-trelia" title="Permanent link: Teoria do elemento de treliça" data-icon="#">Teoria do elemento de treliça</a></h1>
+<h1 id="elemento-finito-de-trelia" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#elemento-finito-de-trelia" title="Permanent link: Elemento finito de treliça" data-icon="#">Elemento finito de treliça</a></h1>
+<h4 id="contedo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#contedo" title="Permanent link: Conteúdo" data-icon="#">Conteúdo</a></h4>
+<nav class="table-of-contents toc" role="navigation">
+  
+                                              
+  <ul>
+      
+        
+        
+              <li><a href="teoria.html#teoria-do-elemento-de-trelia" class="toclink" title="Teoria do elemento de treliça">Teoria do elemento de treliça</a></li>
+      
+        
+        
+              <li><a href="teoria.html#elemento-finito-de-trelia" class="toclink" title="Elemento finito de treliça">Elemento finito de treliça</a></li>
+      
+                      <li><ul>
+              <li><ul>
+          
+        
+              <li><a href="teoria.html#contedo" class="toclink" title="Conteúdo">Conteúdo</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="teoria.html#fundamentao" class="toclink" title="Fundamentação">Fundamentação</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="teoria.html#matriz-de-rigidez-no-sistema..." class="toclink" title="Matriz de rigidez no sistema global">Matriz de rigidez no sistema global</a></li>
+      
+              </ul></li>
+          </ul></li>
+      
+  </ul>
+</nav>
+
+
+<h2 id="fundamentao" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#fundamentao" title="Permanent link: Fundamentação" data-icon="#">Fundamentação</a></h2>
+<p>Da mesma forma que para a treliça no plano, a idealização de uma estrutura em uma treliça é simples, supõe-se que em todas as barras apenas existam esforços axiais normais a sua direção longitudinal, que derivam de tensões uniformes nessa seção, aplicando-se as mesmas simplificações definidas para a treliça plana. </p>
+<p>Observe a barra da treliça espacial isolada, ela é exatamente a mesma barra da treliça plana, com as mesmas considerações e idealizações, não muda absolutamente nada. Então, o elemento de treliça que derivamos para a treliça plana é o mesmo que usaremos para a treliça espacial, com a mesma consideração para os deslocamentos, as mesmas funções de forma, a mesma definição dos graus de liberdade, as mesmas considerações para as deformações e tensões, o mesmo equilíbrio, a mesma matriz de rigidez, claro que tudo isso para o elemento no sistema local.</p>
+<p><img title="Deslocamentos nodais da barra de uma treliça unidimensional" alt="Deslocamentos nodais" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/barraTrelicaGrausLib.svg" />
+<small>Deslocamentos nodais da barra de treliça unidimensional idealizada.</small></p>
+<p>Portanto, a matriz de rigidez, o vetor de deslocamentos e de forças nodais equivalentes no elemento no sistema local, são:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k} = \dfrac{EA}{L} \left[ 
+\begin{array}{cc}
+    1 & - 1\\
+    - 1 & 1 
+\end{array} \right] \quad \quad \textbf{u} = \left\lbrace \begin{array}{c}
+        u_1 \\
+        u_2
+    \end{array} \right\rbrace \quad \quad \textbf{f} = \left\lbrace \begin{array}{c}
+        f_1 \\
+        f_2
+    \end{array} \right\rbrace$$</p>
+<p>O detalhe agora é que vamos precisar dispor essa barra ou esse elemento em um espaço, não mais em um plano, e os 2 graus de liberdade no sistema local deverão ser decompostos nas 3 direções definidas pelo sistema de coordenadas global no qual está escrita a estrutura, resultando em um elemento com 6 graus de liberdade no sistema global.</p>
+<p><img title="Graus de liberdade no sistema local" alt="Graus de liberdade no local" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/barraTrelicaGrausLibGlob3D.svg" />
+<small>Graus de liberdade no sistema local.</small></p>
+<h3 id="matriz-de-rigidez-no-sistema..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#matriz-de-rigidez-no-sistema..." title="Permanent link: Matriz de rigidez no sistema global" data-icon="#">Matriz de rigidez no sistema global</a></h3>
+<p>Precisamos, então, corrigir a matriz de rigidez do elemento já que, com 6 graus de liberdade por nó no global, deverá ser de 6x6 e não somente de 2x2 como a determinada no local. Sabendo que as rigidezes dentro da matriz de rigidez local significam a rigidez de uma direção na outra, por exemplo, <span class="mathjax mathjax--inline">$k_{11}$</span> rigidez do efeito de um deslocamento do nó 1 nele mesmo, <span class="mathjax mathjax--inline">$k_{12}$</span> rigidez do efeito de um deslocamento do nó 1 no nó 2, podemos expandir esse conceito para uma matriz 6x6 mantendo as mesmas considerações de rigidez locais, por exemplo, para quando elemento está na horizontal, ou seja, contido no plano XY e paralelo com o eixo X:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k} = \dfrac{EA}{L} \left[ 
+\begin{array}{cc}
+    1 & - 1\\
+    - 1 & 1 
+\end{array} \right] \equiv \dfrac{EA}{L} \left[ 
+\begin{array}{cccc}
+    1 & 0 & 0 & -1 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    -1 & 0 & 0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+\end{array} \right]_{6x6}$$</p>
+<blockquote>
+<p>Lembra como mediamos <span class="mathjax mathjax--inline">$\theta$</span>? A partir da direção positiva do eixo X global no sentido anti-horário. Mas agora é tridimensional, são três os ângulos que definem um vetor no espaço... e agora?</p>
+</blockquote>
+<p>Observe que se o elemento está contido no plano XY e paralelo com o eixo X ainda possui efeitos em apenas 2 graus de liberdade por nó no sistema global, por isso as linhas e colunas representativas dos efeitos dos graus de liberdade 2, 3, 5 e 6 globais são zero, pois eles não representam efeito nenhum da barra. Agora, caso essa barra ou elemento não estejam contidos em nenhum plano dos sitema de coordenadas global precisamos decompor corretamente as componentes locais nas globais. Para isso, vamos utilizar a matriz de rigidez 6x6 para o caso do elemento está contido no plano XY e paralelo com o eixo X e utilizar um conceito um pouco mais abrangente que o da matriz de rotação utilizado anteriormente, utilizando uma transformação linear de coordenadas mais completa.</p>
+<p>Rotação no espaço....</p>
+<p><img title="Rotações nos eixos cartesianos" alt="Rotações nos eixos cartesianos" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/Rotacoes.svg" />
+<small>Rotações nos eixos cartesianos.</small></p>
+<p>http://www.euclideanspace.com/maths/geometry/rotations/euler/index.htm
+http://www.euclideanspace.com/maths/algebra/matrix/orthogonal/rotation/
+http://www.cs.cornell.edu/courses/cs4620/2011fa/lectures/10transformsWeb.pdf</p>
 </p>
 </div>
 

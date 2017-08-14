@@ -5,6 +5,7 @@
     <title>Implementação | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../feed:rss.html" title="RSS Feed" />
@@ -6304,6 +6305,9 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Implementação</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/planeTruss/basics">
             <a href="basics.html" >
@@ -6371,8 +6375,11 @@ $(document).ready(function() {
                                                             <li class="dd-item" data-nav-id="/spacialTruss/teoria">
             <a href="../spacialTruss/teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Teoria</span>
+                <span><b></b>Teoria Treliça Espacial</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/spacialTruss/implementacao">
             <a href="../spacialTruss/implementacao.html" >
@@ -6380,14 +6387,14 @@ $(document).ready(function() {
                 <span><b></b>Implementação</span>
             </a>
                     </li>
-                            <li class="dd-item" data-nav-id="/spacialTruss/basics">
-            <a href="../spacialTruss/basics.html" >
+                            <li class="dd-item" data-nav-id="/spacialTruss/spacialTruss">
+            <a href="../spacialTruss/spacialTruss.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Basics</span>
+                <span><b></b>Spacial Truss</span>
             </a>
                         <ul>
-                                                            <li class="dd-item" data-nav-id="/spacialTruss/basics/modulotorre">
-            <a href="../spacialTruss/basics/modulotorre.html" >
+                                                            <li class="dd-item" data-nav-id="/spacialTruss/spacialTruss/modulotorre">
+            <a href="../spacialTruss/spacialTruss/modulotorre.html" >
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Módulo de Torre</span>
             </a>
@@ -6395,8 +6402,8 @@ $(document).ready(function() {
                                     
             </ul>
                     </li>
-                            <li class="dd-item" data-nav-id="/spacialTruss/basics/ponterolante">
-            <a href="../spacialTruss/basics/ponterolante.html" >
+                            <li class="dd-item" data-nav-id="/spacialTruss/spacialTruss/ponterolante">
+            <a href="../spacialTruss/spacialTruss/ponterolante.html" >
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Ponte Rolante</span>
             </a>
@@ -6404,8 +6411,8 @@ $(document).ready(function() {
                                     
             </ul>
                     </li>
-                            <li class="dd-item" data-nav-id="/spacialTruss/basics/coberturatrelicada">
-            <a href="../spacialTruss/basics/coberturatrelicada.html" >
+                            <li class="dd-item" data-nav-id="/spacialTruss/spacialTruss/coberturatrelicada">
+            <a href="../spacialTruss/spacialTruss/coberturatrelicada.html" >
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Cobertura Treliçada</span>
             </a>
@@ -6736,17 +6743,136 @@ $(document).ready(function() {
                 <div id="body-inner">
 <h1>Implementação</h1>
 <p>
-	<h1>Implementação do elemento de treliça</h1>
-<h2>Basico...</h2>
+	<h2>Introdução</h2>
+<p>Antes de se programar, necessariamente, deve-se primeiro pensar no algoritmo que será implementado. Um algoritmo pode ser definido como uma sequência bem definida de ações não ambíguas que deve ser executada em um intervalo de tempo finito e com um quantidade de esforço finita. Fica claro, então, que um algoritmo independente de seu ambiente implementação, uma vez que a sequência a ser executada é a mesma. Dessa forma, definir-se-á o algoritmo pela forma de um fluxograma, com <em>snippets</em> de código para cada parte do algoritmo. A linguagem utilizada aqui será a <strong>Python</strong>, pela sua facilidade de utilização e disponibilidade de bibliotecas.</p>
+<h2>O Algoritmo</h2>
+<p>A imagem a seguir demonstra por meio de um fluxograma o algoritmo a ser implantado. Observa-se que as caixas azul-marinho representarão as funções componentes do código; Faz-se importante programá-las dessa maneira uma vez que a utilização de funções permite a sua reutilização em códigos posteriores, evitando o retrabalho, já as setas pretas representam o sentido pelo qual o programa deverá ser corrido pelo interpretador <em>Python.</em> As setas em azul claro representam dados de <em>input</em>, quando a seta aponta em direção da caixa de função; e <em>output</em> quando a seta aponta na direção oposta. Cada item em azul claro representa o item que o programador deverá fornecer ao código, no <em>input</em> e cada item que o código retorna, no <em>output</em>.</p>
+<p><img alt="" src="../../user/pages/01.trelicaplana/02.implementacao/imagens/flowchart.svg" /></p>
+<h2>Funções</h2>
+<p>A seguir, serão apresentadas algumas sugestões de como se programar cada função no <em>Python</em>. As bibliotecas <strong><em>Numpy</em></strong> e <strong><em>Math</em></strong> serão utilizadas.</p>
+<h3>Matriz de Rotação</h3>
+<p>A matriz de rotação rotaciona um segmento de reta à um ângulo <strong><em>theta</em></strong> medido a partir do eixo x positivo e o retorna em coordenadas <em>x</em> e <em>y</em>.</p>
+<pre><code>def rotation_matrix(theta):
+
+    """Rotation Matrix.
+       Outputs, in matricial form, the coordinates for a line
+       segment defined by X and Y coordinates. The input is 
+       made in degrees, measured counter-clockwise from the
+       positive X axis.""" 
+
+    theta = mt.radians(theta)
+    c = mt.cos(theta)
+    s = mt.sin(theta)
+
+    rotmat = np.matrix([[c, -s, 0., 0.], 
+                        [s, c, 0., 0.], 
+                        [ 0., 0., c, -s],
+                        [0., 0., s, c]])
+    return rotmat</code></pre>
+<h3>Matriz de Rigidez Local</h3>
+<p>A matriz de rigidez local cria a matriz de rigidez local do elemento, em coordenadas globais.</p>
+<pre><code>def local_stiffness_matrix(Young_Modulus=1., Length=1.,
+                       Area=1., Rot_Ang=0.0):
+
+    """Local Stiffness Matrix Constructor (in Global Coordinates).
+       Outputs, in matricial form, the local stiffness matrix for 
+       a given truss element. The """
+
+    rotmat = rotation_matrix(Rot_Ang)
+    rotmat_trans = rotmat.transpose()
+
+    k_matrix = np.matrix([[1., 0., -1., 0.],
+                         [0., 0., 0., 0.],
+                         [-1., 0., 1., 0.],
+                         [0., 0., 0., 0.]])
+
+    local_stiff = rotmat*(Young_Modulus*Area/Length)*k_matrix*rotmat_trans
+
+    return local_stiff</code></pre>
+<h3>Matriz de Ridigez Global</h3>
+<p>A Matriz de rigidez global faz o endereçamento das matrizes de rigidez locais de cada elemento, criando assim a matriz de rigidez global.</p>
+<pre><code>def global_stiffness_matrix():
+
+    """Global Stiffness Matrix.
+       Outputs, in matricial form, the global stiffness for the truss 
+       being analysed. The global nodes assingment to the local nodes 
+       contained in each element has to be made manually."""
+
+    #Elements from the problem:
+    element1 = local_stiffness_matrix(Young_Modulus=200000., 
+                                      Length=1000*mt.sqrt(2.),
+                                      Area=10030.05, 
+                                      Rot_Ang=135.0)
+
+    element2 = local_stiffness_matrix(Young_Modulus=69000., 
+                                      Length=1000.,
+                                      Area=10030.05, 
+                                      Rot_Ang=90.0)
+
+    element3 = local_stiffness_matrix(Young_Modulus=69000., 
+                                      Length=1000.,
+                                      Area=10030.05, 
+                                      Rot_Ang=0.)
+
+    #Creating a blank Global Stiffness Matrix                               
+    global_stiff = np.matrix(np.zeros([6,6], dtype = float))
+
+    #Broadcasting element 1 into Global Stiffness Matrix:
+    broadcast1 = [0, 1, 3, 2]
+    for i in range(0,4):
+       for j in range(0,4):
+            global_stiff[broadcast1[i],broadcast1[j]] += element1[i,j]
+
+    #Broadcasting element 2 into Global Stiffness Matrix:
+    broadcast2 = [4, 5, 3, 2]
+    for i in range(0,4):
+       for j in range(0,4):
+            global_stiff[broadcast2[i],broadcast2[j]] += element2[i,j]
+
+    #Broadcasting element 3 into Global Stiffness Matrix:
+    broadcast3 = [4, 5, 0, 1]
+    for i in range(0,4):
+       for j in range(0,4):
+            global_stiff[broadcast3[i],broadcast3[j]] += element3[i,j]
+
+    return global_stiff</code></pre>
+<h3>"Solucionador" de Deslocamentos</h3>
+<p>Resolve a matriz de rigidez global, achando os deslocamentos desconhecidos.</p>
+<pre><code>def displacements_solver(g_matrix, f):
+
+    """Displacements Solver.
+      Outputs an array with the unknown displacements for the
+      problem. The input is made with the prescribed forces and
+      the Global Stiffness Matrix."""
+
+    displacements = np.linalg.solve(g_matrix[0:3, 0:3], f)
+    return displacements)</code></pre>
+<h3>"Solucionador" de Forças</h3>
+<p>Encontra as forças desconhecidas do problema, utilizando-se os deslocamentos procurados no <em>solver</em> de deslocamentos.</p>
+<pre><code>def forces_solver(g_matrix, u):
+    """Displacements Solver.
+      Outputs an array with the unknown reaction forces for the
+      problem. The input is made with the displacements found in the 
+      Displacements Solver function and the Global Stiffness Matrix."""
+
+    forces = [0, 0, 0]
+    cut_matrix = global_matrix[3:,:3]
+
+    for i in range(0,3):
+        for j in range(0,3):
+            forces[i] += cut_matrix[i,j]*u[j]
+
+    return forces</code></pre>
+<p>Agora, com as funções apresentadas acima tente resolver o problema da treliça via código.</p>
 </p>
 </div>
 
                                         
         </div>
         	<div id="navigation">
-		    <a class="nav nav-prev" href="teoria/aplicacao.html"> <i class="fa fa-chevron-left"></i></a>
+		    <a class="nav nav-prev" href="implementacao.html"> <i class="fa fa-chevron-left"></i></a>
 	
-		    <a class="nav nav-next" href="basics.html"><i class="fa fa-chevron-right"></i></a>
+		    <a class="nav nav-next" href="implementacao.html"><i class="fa fa-chevron-right"></i></a>
 		</div>
     </section>
                      </body>
