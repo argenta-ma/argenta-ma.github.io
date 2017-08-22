@@ -734,8 +734,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.9899495"
-     inkscape:cx="-67.587483"
-     inkscape:cy="320.56383"
+     inkscape:cx="-44.859051"
+     inkscape:cy="282.17803"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -869,8 +869,8 @@
          style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.66952705;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
     </g>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5131)"
-       d="M 44.276996,182.8597 V 40.602401"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.49999997;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5131)"
+       d="m 44.276996,178.31612 v 20.18649"
        id="path4691"
        inkscape:connector-curvature="0" />
     <path
@@ -878,21 +878,16 @@
        d="m 42.662193,180.70899 34.395828,-7.46503"
        id="path4693"
        inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 44.276996,146.76111 v 4.05916"
-       id="path5192"
-       inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="38.596085"
-       y="41.245071"
+       y="199.20135"
        id="text5203"><tspan
          sodipodi:role="line"
          id="tspan5201"
          x="38.596085"
-         y="41.245071"
+         y="199.20135"
          style="stroke-width:0.26458332px">z</tspan></text>
     <text
        xml:space="preserve"
@@ -974,11 +969,6 @@
            y="159.40485" />
       </g>
     </g>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 44.276996,117.21441 v 4.05916"
-       id="path5192-7"
-       inkscape:connector-curvature="0" />
     <g
        transform="translate(-0.752617,-61.338454)"
        id="g4674-6">
@@ -1033,11 +1023,6 @@
          id="rect4663-7"
          style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.66952705;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
     </g>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 44.276996,86.977303 v 4.05916"
-       id="path5192-4"
-       inkscape:connector-curvature="0" />
     <g
        transform="translate(-1.130592,-92.143514)"
        id="g4674-4">
@@ -1092,11 +1077,6 @@
          id="rect4663-1"
          style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.66952705;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
     </g>
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 44.276996,56.740194 v 4.05916"
-       id="path5192-49"
-       inkscape:connector-curvature="0" />
     <g
        id="g26064"
        transform="rotate(-90,110.77799,221.82474)">

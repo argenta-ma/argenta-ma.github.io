@@ -6377,7 +6377,16 @@ $(document).ready(function() {
                 <span><b></b>Teoria Treliça Espacial</span>
             </a>
                         <ul>
+                                                            <li class="dd-item" data-nav-id="/trelicaespacial/teoria/aplicacao">
+            <a href="teoria/aplicacao.html" >
+                <i class="fa fa-check read-icon"></i>
+                <span><b></b>Aplicação na mão</span>
+            </a>
+                        <ul>
                                     
+            </ul>
+                    </li>
+    
             </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/trelicaespacial/implementacao">
@@ -6529,6 +6538,9 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Flambagem Pilar</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/porticos/aplicacoes/vinculacoesvigapilar">
             <a href="../porticos/aplicacoes/vinculacoesvigapilar.html" >
@@ -6747,7 +6759,7 @@ $(document).ready(function() {
 <h4 id="contedo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#contedo" title="Permanent link: Conteúdo" data-icon="#">Conteúdo</a></h4>
 <nav class="table-of-contents toc" role="navigation">
   
-                                              
+                                                                
   <ul>
       
         
@@ -6774,7 +6786,21 @@ $(document).ready(function() {
         
               <li><a href="teoria.html#matriz-de-rigidez-no-sistema..." class="toclink" title="Matriz de rigidez no sistema global">Matriz de rigidez no sistema global</a></li>
       
+                      <li><ul>
+          
+        
+              <li><a href="teoria.html#orientao-da-seo-transversal" class="toclink" title="Orientação da seção transversal">Orientação da seção transversal</a></li>
+      
+        
+        
+              <li><a href="teoria.html#rotao-tridimensional" class="toclink" title="Rotação tridimensional">Rotação tridimensional</a></li>
+      
+        
+        
+              <li><a href="teoria.html#equilbrio-do-local-para-o-global" class="toclink" title="Equilíbrio do local para o global">Equilíbrio do local para o global</a></li>
+      
               </ul></li>
+          </ul></li>
           </ul></li>
       
   </ul>
@@ -6819,15 +6845,136 @@ $(document).ready(function() {
     0 & 0 & 0 & 0 & 0 & 0 \\
 \end{array} \right]_{6x6}$$</p>
 <blockquote>
-<p>Lembra como mediamos <span class="mathjax mathjax--inline">$\theta$</span>? A partir da direção positiva do eixo X global no sentido anti-horário. Mas agora é tridimensional, são três os ângulos que definem um vetor no espaço... e agora?</p>
+<p>Lembra como mediamos <span class="mathjax mathjax--inline">$\theta$</span>? A partir da direção positiva do eixo X global no sentido anti-horário. Mas agora é tridimensional, são três os ângulos que definem um vetor no espaço... e agora? <a href="http://www.euclideanspace.com/maths/geometry/rotations/euler/index.htm">Ângulos de Euler</a></p>
 </blockquote>
-<p>Observe que se o elemento está contido no plano XY e paralelo com o eixo X ainda possui efeitos em apenas 2 graus de liberdade por nó no sistema global, por isso as linhas e colunas representativas dos efeitos dos graus de liberdade 2, 3, 5 e 6 globais são zero, pois eles não representam efeito nenhum da barra. Agora, caso essa barra ou elemento não estejam contidos em nenhum plano dos sitema de coordenadas global precisamos decompor corretamente as componentes locais nas globais. Para isso, vamos utilizar a matriz de rigidez 6x6 para o caso do elemento está contido no plano XY e paralelo com o eixo X e utilizar um conceito um pouco mais abrangente que o da matriz de rotação utilizado anteriormente, utilizando uma transformação linear de coordenadas mais completa.</p>
-<p>Rotação no espaço....</p>
-<p><img title="Rotações nos eixos cartesianos" alt="Rotações nos eixos cartesianos" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/Rotacoes.svg" />
-<small>Rotações nos eixos cartesianos.</small></p>
-<p>http://www.euclideanspace.com/maths/geometry/rotations/euler/index.htm
-http://www.euclideanspace.com/maths/algebra/matrix/orthogonal/rotation/
-http://www.cs.cornell.edu/courses/cs4620/2011fa/lectures/10transformsWeb.pdf</p>
+<p>Observe que se o elemento está contido no plano XY e paralelo com o eixo X ainda possui efeitos em apenas 2 graus de liberdade por nó no sistema global, por isso as linhas e colunas representativas dos efeitos dos graus de liberdade 2, 3, 5 e 6 globais são zero, pois eles não representam efeito nenhum da barra. Agora, caso essa barra ou elemento não estejam contidos em nenhum plano dos sitema de coordenadas global precisamos decompor corretamente as componentes locais nas globais. Para isso, precisamos conhecer os 9 ângulos entre os eixos do sistema local do elemento e do sistema global, ângulo de x com X, de y com X, e assim por diante.</p>
+<p>O problema é que isso não é simples. Primeiro nos precisamos conhecer como os eixos locais estão orientados em relação aos globais. No caso do eixo x local isso é simples, visto que ele está orientado de acordo com o elemento, portanto, conhecendo-se as coordenadas globais dos nós do elemento é possível definir a direção do eixo x local no sistema global. Já no caso dos eixos locais y e z nem tanto. A questão é como eles estão orientados? Em outras palavras, como os eixos que definem a seção transversal do elemento se orientam no sistema global? Em outras palavras, a seção transversal do elemento está na vertical? Horizontal? Inclinada? Em que ângulo? Com quem?</p>
+<h4 id="orientao-da-seo-transversal" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#orientao-da-seo-transversal" title="Permanent link: Orientação da seção transversal" data-icon="#">Orientação da seção transversal</a></h4>
+<p>Uma forma interessante de determinar esse posicionamento da seção transversal, e consequentemente dos eixos locais y e z, é estipular um ponto de referência, <span class="mathjax mathjax--inline">$r$</span>, que, junto com os nós do elemento, definem o plano xz ou xy local no sistema global, resultando no posicionamento da seção e definição das direções locais y e z no sistema global.</p>
+<blockquote>
+<p>Estruturas reticuladas tridimensionais normalmente possuem planos locais onde suas barras estão posicionadas. Pense em uma torre de transmissão de energia elétrica constituída de cantoneiras. Na região inclinada, todas as cantoneiras estão com uma de suas abas orientada de acordo com a inclinação dessa região, sendo assim, pode-se utilizar um nó de outro elemento nesse plano inclinado para definir o posicionamento da seção transversal do elemento analisado e assim por diante.</p>
+</blockquote>
+<p><img title="Posicionamento da seção transversal" alt="Posicionamento da seção transversal" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/posicaoSecao.svg" />
+<small>Posicionamento da seção transversal.</small></p>
+<p>Na verdade, esse posicionamento é apenas uma questão prática ou uma forma de definir y e z locais (de fato necessários) no caso de uma treliça, já que, como somente utilizamos a área da seção transversal na formulação, y e z locais podem ter direção quaisquer sem modificar o resultado. Entretanto, em formulações que utilizam propriedades da seção transversal que variam com a direção, como por exemplo a inércia no caso de vigas, essa correta orientação de y e z é fundamental para a correta obtenção dos resultados.</p>
+<p>Nós vamos posicionar o plano xy local utilizando um ponto de referência <span class="mathjax mathjax--inline">$r$</span>. Primeiro precisamos definir um vetor unitário, <span class="mathjax mathjax--inline">$\textbf{i}_l$</span>, orientado de acordo com o eixo x local do elemento escrito no sistema global. Isso pode ser feito utilizando-se as coordenadas dos nós 1 e 2 do elemento no sistema global.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{i}_l = \dfrac{X_2 - X_1}{L} \textbf{i} + \dfrac{Y_2 - Y_1}{L} \textbf{j} + \dfrac{Z_2 - Z_1}{L} \textbf{k} = l_x \textbf{i} + m_x \textbf{j} + n_x \textbf{k}$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$\textbf{i}$</span>, <span class="mathjax mathjax--inline">$\textbf{j}$</span>, <span class="mathjax mathjax--inline">$\textbf{k}$</span> os vetores unirários dos eixos globais X, Y e Z, que valem respectivamente <span class="mathjax mathjax--inline">$(1,0,0)$</span>, <span class="mathjax mathjax--inline">$(0,1,0)$</span> e <span class="mathjax mathjax--inline">$(0,0,1)$</span>, <span class="mathjax mathjax--inline">$X_1$</span>, <span class="mathjax mathjax--inline">$Y_1$</span>, <span class="mathjax mathjax--inline">$Z_1$</span> as coordenadas do nó 1 do elemento no sistema global, <span class="mathjax mathjax--inline">$X_1$</span>, <span class="mathjax mathjax--inline">$Y_2$</span>, <span class="mathjax mathjax--inline">$Z_2$</span> as coordenadas do nó 2 do elemento no sistema global e <span class="mathjax mathjax--inline">$L$</span> o comprimento do elemento, calculado por:</p>
+<p class="mathjax mathjax--block">$$
+L = \sqrt{(X_2 - X_1)^2 + (Y_2 - Y_1)^2 + (Z_2 - Z_1)^2}$$</p>
+<blockquote>
+<p>Observe que a relação <span class="mathjax mathjax--inline">$\frac{X_2 - X_1}{L}$</span> é chamada de cosseno diretor da direção x local com a direção X global, assim como <span class="mathjax mathjax--inline">$\frac{Y_2 - Y_1}{L}$</span> é o cosseno diretor da x local com a Y global e <span class="mathjax mathjax--inline">$\frac{Z_2 - Z_1}{L}$</span> da x local com a Z global.</p>
+</blockquote>
+<p>Agora, precisamos calcular um vetor, <span class="mathjax mathjax--inline">$\textbf{r}$</span>, que define a direção do nó 1 do elemento ao nó <span class="mathjax mathjax--inline">$r$</span> de referência escrito no sistema global. Para tal, supomos que o que o nó de referência, <span class="mathjax mathjax--inline">$r$</span>, esteja em uma posição qualquer global porém dentro do plano xy local do elemento.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{r} = X_r - X_1 \textbf{i} + Y_r - Y_1 \textbf{j} + Z_r - Z_1 \textbf{k} = l_r \textbf{i} + m_r \textbf{j} + n_r \textbf{k}$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$X_r$</span>, <span class="mathjax mathjax--inline">$Y_r$</span>, <span class="mathjax mathjax--inline">$Z_r$</span> as coordenadas do ponto de referência <span class="mathjax mathjax--inline">$r$</span> no sistema global.</p>
+<p>Um vetor <span class="mathjax mathjax--inline">$\textbf{z}$</span> (não unitário) que define a direção do eixo local z em relação ao sistema global nada mais é que o produto vetorial (cross product) entre o vetor <span class="mathjax mathjax--inline">$\textbf{i}_l$</span> e o vetor <span class="mathjax mathjax--inline">$\textbf{r}$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{z} = \left| \begin{array}{ccc}
+    \textbf{i} & \textbf{j} & \textbf{k}\\
+    l_x & m_x & n_x \\
+    l_r & m_r & n_r\\
+\end{array} \right| = (m_x n_r - n_x m_r) \textbf{i} + (n_x l_r - l_x n_r) \textbf{j} + (l_x m_r - m_x l_r) \textbf{k}$$</p>
+<p>Transformando <span class="mathjax mathjax--inline">$\textbf{z}$</span> em um vetor unirário obtém-se a direção do eixo local z, <span class="mathjax mathjax--inline">$\textbf{k}_l$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k}_l = \dfrac{(m_x n_r - n_x m_r)}{L_z} \textbf{i} + \dfrac{(n_x l_r - l_x n_r)}{L_z} \textbf{j} + \dfrac{(l_x m_r - m_x l_r)}{L_z} \textbf{k} = l_z \textbf{i} + m_z \textbf{j} + n_z \textbf{k}$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$L_z$</span> calculado por:</p>
+<p class="mathjax mathjax--block">$$
+L_z = \sqrt{(m_x n_r - n_x m_r)^2 + (n_x l_r - l_x n_r)^2 + (l_x m_r - m_x l_r)^2}$$</p>
+<p>Com o mesmo raciocínio, um vetor que define a direção do eixo y local descrita no sistema global, <span class="mathjax mathjax--inline">$\textbf{y}$</span>, é obtido com o produto vetorial entre <span class="mathjax mathjax--inline">$\textbf{i}_l$</span> e <span class="mathjax mathjax--inline">$\textbf{k}_l$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{y} = \left| \begin{array}{ccc}
+    \textbf{i} & \textbf{j} & \textbf{k}\\
+    l_x & m_x & n_x \\
+    l_z & m_z & n_z\\
+\end{array} \right| = (m_x n_z - n_x m_z) \textbf{i} + (n_x l_z - l_x n_z) \textbf{j} + (l_x m_z - m_x l_z) \textbf{k}$$</p>
+<p>Por fim, a direção do eixo y local é definida pelo vetor unitário <span class="mathjax mathjax--inline">$\textbf{j}_l$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{j}_l = \dfrac{(m_x n_z - n_x m_z)}{L_y} \textbf{i} + \dfrac{(n_x l_z - l_x n_z)}{L_y} \textbf{j} + \dfrac{(l_x m_z - m_x l_z)}{L_y} \textbf{k} = l_y \textbf{i} + m_y \textbf{j} + n_y \textbf{k}$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$L_y$</span> o comprimento do vetor <span class="mathjax mathjax--inline">$\textbf{y}$</span> calculado por:</p>
+<p class="mathjax mathjax--block">$$
+L_y = \sqrt{(m_x n_z - n_x m_z)^2 + (n_x l_z - l_x n_z)^2 + (l_x m_z - m_x l_z)^2}$$</p>
+<p>Resumindo, conseguimos escrever três vetores unitários representativos das direções do eixo local do elemento no sistema global, sendo eles:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \textbf{i}_l &= l_x \textbf{i} + m_x \textbf{j} + n_x \textbf{k}\\
+    \textbf{j}_l &= l_y \textbf{i} + m_y \textbf{j} + n_y \textbf{k}\\
+    \textbf{k}_l &= l_z \textbf{i} + m_z \textbf{j} + n_z \textbf{k}
+\end{align}$$</p>
+<p>Nas quais, as constantes <span class="mathjax mathjax--inline">$l$</span>, <span class="mathjax mathjax--inline">$m$</span> e <span class="mathjax mathjax--inline">$n$</span> são os cossenos diretores, referentes àqueles 9 ângulos que precisávamos calcular, das direções locais com as direções globais.</p>
+<p>Ou seja, é possível escrever um vetor qualquer <span class="mathjax mathjax--inline">$\textbf{v}$</span> definido por coordenadas <span class="mathjax mathjax--inline">$(x, y, z)$</span> em um sistema local a partir de um sistema global com coordenadas <span class="mathjax mathjax--inline">$(X, Y, Z)$</span>, decompondo as suas respectivas componentes globas nos eixos locais em função dos cossenos formados entre os eixos dos dois sistemas e vice-versa.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{v} = \left\lbrace \begin{array}{c}
+    x \\
+    y \\
+    z \\
+\end{array} \right\rbrace = \left[ \begin{array}{ccc}
+    l_x & m_x & n_x \\
+    l_y & m_y & n_y \\
+    l_z & m_z & n_z \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    X\\
+    Y\\
+    Z\\
+\end{array} \right\rbrace$$</p>
+<h4 id="rotao-tridimensional" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#rotao-tridimensional" title="Permanent link: Rotação tridimensional" data-icon="#">Rotação tridimensional</a></h4>
+<p>Como nosso elemento dispõe de dois "vetores" ou melhor, de dois graus de liberdade no sistema local, podemos compor uma matriz de rotação tridimensional do elemento utilizando a matriz dos cossenos diretores.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{R}_3 = \left[ \begin{array}{cccccc}
+    l_x & m_x & n_x & 0 & 0 & 0\\
+    l_y & m_y & n_y & 0 & 0 & 0 \\
+    l_z & m_z & n_z & 0 & 0 & 0 \\
+    0 & 0 & 0 & l_x & m_x & n_x \\
+    0 & 0 & 0 & l_y & m_y & n_y \\
+    0 & 0 & 0 & l_z & m_z & n_z \\
+\end{array} \right]$$</p>
+<p>Uma importante propriedade da matriz de rotação tridimensional é que pelo fato de ser composta por vetores que são ortnormais entre sí, sua inversa é igual a sua transposta, <span class="mathjax mathjax--inline">$\textbf{R}_3^{-1} = \textbf{R}_3^{T}$</span></p>
+<h4 id="equilbrio-do-local-para-o-global" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#equilbrio-do-local-para-o-global" title="Permanent link: Equilíbrio do local para o global" data-icon="#">Equilíbrio do local para o global</a></h4>
+<p>O equilíbio do elemento foi definido no sistema local como sendo:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k} \textbf{u} = \textbf{f} \tag{1} \label{equiLocal}$$</p>
+<p>Portanto, podemos aplicar a rotação tridimensional, <span class="mathjax mathjax--inline">$R_3$</span>, aos vetores globais de deslocamentos e forças nodais do elemento <span class="mathjax mathjax--inline">$\textbf{U}$</span> e <span class="mathjax mathjax--inline">$\textbf{F}$</span>, que representam em um único vetor os graus de liberdade de ambos os nós do elemento, obtendo assim seus respectivos representantes no sistema local <span class="mathjax mathjax--inline">$\textbf{u}$</span> e <span class="mathjax mathjax--inline">$\textbf{f}$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{u} = \textbf{R}_3 \textbf{U} \qquad \text{e} \qquad \textbf{f} = \textbf{R}_3 \textbf{F}$$</p>
+<p>Sustituindo as definições acim na equação \eqref{equiLocal}, é possível definir a rotação da matriz de rigidez local do elemento para a obtenção da matriz de rigidez do elemento no sistema global.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\textbf{k} \textbf{R}_3 \textbf{U} &= \textbf{R}_3 \textbf{F}\\
+\therefore \textbf{R}_3^T \textbf{k} \textbf{R}_3 \textbf{U} &= \textbf{F}
+\end{align}$$</p>
+<p>E portanto, a matriz de rigidez do elemento de treliça tridimensional no sistema global é calculada com:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k}_g = \textbf{R}_3^T \textbf{k} \textbf{R}_3$$</p>
+<p>Realizando as multiplicações com os cossenos diretores genéricos, chega-se a:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k}_g = \dfrac{EA}{L} \left[ \begin{array}{cccccc}
+      l_x^2 &  l_x m_x &  l_x n_x &  -l_x^2 & -l_x m_x & -l_x n_x \\
+     l_x m_x &   m_x^2 &  m_x n_x & -l_x m_x &  -m_x^2 & -m_x n_x \\
+     l_x n_x &  m_x n_x &   n_x^2 & -l_x n_x & -m_x n_x &  -n_x^2 \\
+     -l_x^2 & -l_x m_x & -l_x n_x &   l_x^2 &  l_x m_x &  l_x n_x \\
+    -l_x m_x &  -m_x^2 & -m_x n_x &  l_x m_x &   m_x^2 &  m_x n_x \\
+    -l_x n_x & -m_x n_x &  -n_x^2 &  l_x n_x &  m_x n_x &   n_x^2 \\
+\end{array} \right]$$</p>
+<p>Observem que interessante essa matriz de rigidez. Ela é identica se dividirmos em 4 partes iguais de 3x3 apenas com sinal trocado nas regiões das linhas 1,2 e 3 com colunas 4, 5 e 6 e linhas 4, 5 e 6 com colunas 1, 2 e 3, ou seja, é possível escrever essa matriz na forma de uma multiplicação vetorial de certo vetor com seu transposto (somente a matriz dos cossenos diretores, mantendo isolado o termo de rigidez). Esse vetor deve ser definido contendo os três cossenos diretores positivos e os três negativos e será chamado de <span class="mathjax mathjax--inline">$\textbf{C}$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{C} = \left\lbrace \begin{array}{c}  l_x \\ m_x \\ n_x \\ -l_x \\ -m_x \\ -n_x \end{array} \right\rbrace$$</p>
+<p>Portanto, a matriz de rigidez do elemento no sistema global pode ser escrita como uma multiplicação do vetor <span class="mathjax mathjax--inline">$\textbf{C}$</span> com seu transposto.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k}_g = \dfrac{EA}{L} \textbf{C} \textbf{C}^T$$</p>
+<blockquote>
+<p>Faça a multiplicação para conferir se volta realmente na matriz de rigidez original.</p>
+</blockquote>
+<p>Esse truque vai economizar recursos computacionais, afinal vamos precisar calcular apenas os três cossenos diretores da direção x local e escrever um vetor 6x1 e não uma matriz de 6x6.</p>
+<blockquote>
+<p>Mas depois eu não vou precisar fazer essa multiplicação e não vai dar na mesma?! Eu acho que não, vamos modificar a regra da correspondência para não precisar fazer essa multiplicação e chegar a matriz de rigidez da estrutura utilizando o vetor <span class="mathjax mathjax--inline">$\textbf{C}$</span> de cada um dos elementos, evitando assim ter que montar a matriz de rigidez do elemento no sistema global.</p>
+</blockquote>
+<p>Deixando bem claro, para o elemento de treliça espacial não é necessária a definição do ponto de referência, pois não há a necessidade de calcular os cossenos diretores dos outros eixos locais, y e z, e nem de posicionar a seção transversal do elemento. Mas é interessante o conceito e de certa forma necessário para chegar a nossa conclusão, além disso, vamos usar mais para frente quando falarmos de pórticos espaciais.</p>
+<blockquote>
+<p>Meio óbvio não acha? Como só tenho graus de liberdade funcionais no sentido axial é de se esperar que sua decomposição no sistema global seja função apenas dos cossenos diretores de sua direção.</p>
+</blockquote>
+<p>Ufa! E agora?! Agora é hora de voltar à parte do módulo da torre de comunicação e resolvê-la na mão na <a href="teoria/aplicacao.html">aplicação na mão</a>.</p>
 </p>
 </div>
 
@@ -6836,7 +6983,7 @@ http://www.cs.cornell.edu/courses/cs4620/2011fa/lectures/10transformsWeb.pdf</p>
         	<div id="navigation">
 		    <a class="nav nav-prev" href="../trelicaespacial.html"> <i class="fa fa-chevron-left"></i></a>
 	
-		    <a class="nav nav-next" href="implementacao.html"><i class="fa fa-chevron-right"></i></a>
+		    <a class="nav nav-next" href="teoria/aplicacao.html"><i class="fa fa-chevron-right"></i></a>
 		</div>
     </section>
                      </body>
