@@ -6764,7 +6764,7 @@ $(document).ready(function() {
 <small>Parte do módulo da torre.</small></p>
 <nav class="table-of-contents toc" role="navigation">
   
-                                                                                                    
+                                                                                                          
   <ul>
       
         
@@ -6793,6 +6793,10 @@ $(document).ready(function() {
           
         
               <li><a href="aplicacao.html#determinao-da-matriz-para..." class="toclink" title="Determinação da matriz para cálculo dos deslocamentos">Determinação da matriz para cálculo dos deslocamentos</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#determinao-da-matriz-para...-1" class="toclink" title="Determinação da matriz para cálculo das reações de apoio">Determinação da matriz para cálculo das reações de apoio</a></li>
       
                       </ul></li>
           
@@ -6907,18 +6911,21 @@ $(document).ready(function() {
 <p>Podemos criar uma matriz de coordenadas dos nós da estrutura, <span class="mathjax mathjax--inline">$\textbf{COO}$</span>, para agilizar o processo de cálculo, sendo as colunas representativas das coordenadas globais X, Y e Z e as linhas representativas dos números dos nós.</p>
 <p class="mathjax mathjax--block">$$
 \textbf{COO} = \left[ \begin{array}{ccc}
-    0,25 & 0,1443 & -0,5 \\
-    0 & -0,2887 & -0,5 \\
-    -0,25 & 0,1443 & -0,5 \\
-    0,25 & 0,1443 & 0 \\
-    0 & -0,2887 & 0 \\
-    -0,25 & 0,1443 & 0 \\
+    25 & 14,43 & -50 \\
+    0 & -28,87 & -50 \\
+    -25 & 14,43 & -50 \\
+    25 & 14,43 & 0 \\
+    0 & -28,87 & 0 \\
+    -25 & 14,43 & 0 \\
 \end{array} \right]$$</p>
+<blockquote>
+<p>Obseve bem os valores utilizados nas coordenadas acima, que unidades são?</p>
+</blockquote>
 <p>De uma forma genérica para uma barra <span class="mathjax mathjax--inline">$b$</span>, o vetor dos cossenos diretores do seu eixo x local no sistema global, <span class="mathjax mathjax--inline">$\textbf{C}$</span> pode ser calculado em função das coordenadas dos seus nós como, utilizando a matriz de incidência <span class="mathjax mathjax--inline">$\textbf{IE}$</span> e a de coordenada dos nós da estrutura <span class="mathjax mathjax--inline">$\textbf{COO}$</span>.</p>
 <p class="mathjax mathjax--block">$$
-\textbf{C}_b = \left\lbrace \begin{array}{c}
-    \dfrac{COO_{IE_{b,2},1} - COO_{IE_{b,1},1}}{L_b} \\ \dfrac{COO_{IE_{b,2},2} - COO_{IE_{b,1},2}}{L_b} \\ \dfrac{COO_{IE_{b,2},3} - COO_{IE_{b,1},3}}{L_b} \\
-    \dfrac{COO_{IE_{b,1},1} - COO_{IE_{b,2},1}}{L_b} \\ \dfrac{COO_{IE_{b,1},2} - COO_{IE_{b,2},2}}{L_b} \\ \dfrac{COO_{IE_{b,1},3} - COO_{IE_{b,2},3}}{L_b}
+\textbf{C}_b = \dfrac{1}{L_b} \left\lbrace \begin{array}{c}
+    COO_{IE_{b,2},1} - COO_{IE_{b,1},1} \\ COO_{IE_{b,2},2} - COO_{IE_{b,1},2} \\ COO_{IE_{b,2},3} - COO_{IE_{b,1},3} \\
+    COO_{IE_{b,1},1} - COO_{IE_{b,2},1} \\ COO_{IE_{b,1},2} - COO_{IE_{b,2},2} \\ COO_{IE_{b,1},3} - COO_{IE_{b,2},3}
 \end{array} \right\rbrace$$</p>
 <p>Sendo, por exemplo, <span class="mathjax mathjax--inline">$IE_{b,2}$</span> o número do nó 2 do elemento <span class="mathjax mathjax--inline">$b$</span> obtido da matriz de incidência e <span class="mathjax mathjax--inline">$COO_{IE_{b,2},1}$</span> a coordenada X do nó 2 do elemento <span class="mathjax mathjax--inline">$b$</span> e <span class="mathjax mathjax--inline">$L_b$</span> o comprimento do elemento <span class="mathjax mathjax--inline">$b$</span>, calculado por:</p>
 <p class="mathjax mathjax--block">$$
@@ -6930,123 +6937,133 @@ L_b = \sqrt{(COO_{IE_{b,2},1} - COO_{IE_{b,1},1})^2 + (COO_{IE_{b,2},2} - COO_{I
 <p class="mathjax mathjax--block">$$
 \begin{align}
     L_1 &= \sqrt{(COO_{IE_{1,2},1} - COO_{IE_{1,1},1})^2 + (COO_{IE_{1,2},2} - COO_{IE_{1,1},2})^2 + (COO_{IE_{1,2},3} - COO_{IE_{1,1},3})^2} = \\
+        &= \sqrt{(0 - 25)^2 + (-28,87 - 14,47)^2 + [-50 - (-50)]^2} = 50\\
     L_2 &= \sqrt{(COO_{IE_{2,2},1} - COO_{IE_{2,1},1})^2 + (COO_{IE_{2,2},2} - COO_{IE_{2,1},2})^2 + (COO_{IE_{2,2},3} - COO_{IE_{2,1},3})^2} = \\
-    L_3 &= \\
-    L_4 &= \\
-    L_5 &= \\
-    L_6 &= \\
-    L_7 &= \\
-    L_8 &= \\
-    L_9 &= \\
-    L_{10} &= \\
-    L_{11} &= \\
-    L_{12} &= \\
+        &= \sqrt{(-25 - 0)^2 + [14,43 - (-28,87)]^2 + [-50 - (-50)]^2} = 50\\
+    L_3 &= 50\\
+    L_4 &= 50\\
+    L_5 &= 50\\
+    L_6 &= 50\\
+    L_7 &= 70,71\\
+    L_8 &= 70,71\\
+    L_9 &= 70,71\\
+    L_{10} &= 50\\
+    L_{11} &= 50\\
+    L_{12} &= 50\\
 \end{align}$$</p>
+<blockquote>
+<p>E quais são as unidades dos comprimentos? Centímetros? Porque? Porque as coordenadas foram definidas em centímetros? Muito bem... tá mas, por que centímetros??</p>
+</blockquote>
 <p>Então, os vetores com os cossenos diretores de cada barra <span class="mathjax mathjax--inline">$\textbf{C}_b$</span> resultam em:</p>
 <p class="mathjax mathjax--block">$$
-\textbf{C}_1 = \left\lbrace \begin{array}{c}
-    \dfrac{COO_{IE_{1,2},1} - COO_{IE_{1,1},1}}{L_1} \\ \dfrac{COO_{IE_{1,2},2} - COO_{IE_{1,1},2}}{L_1} \\ \dfrac{COO_{IE_{1,2},3} - COO_{IE_{1,1},3}}{L_1} \\
-    \dfrac{COO_{IE_{1,1},1} - COO_{IE_{1,2},1}}{L_1} \\ \dfrac{COO_{IE_{1,1},2} - COO_{IE_{1,2},2}}{L_1} \\ \dfrac{COO_{IE_{1,1},3} - COO_{IE_{1,2},3}}{L_1}
+\textbf{C}_1 = \dfrac{1}{L_1} \left\lbrace \begin{array}{c}
+    COO_{IE_{1,2},1} - COO_{IE_{1,1},1} \\ COO_{IE_{1,2},2} - COO_{IE_{1,1},2} \\ COO_{IE_{1,2},3} - COO_{IE_{1,1},3} \\
+    COO_{IE_{1,1},1} - COO_{IE_{1,2},1} \\ COO_{IE_{1,1},2} - COO_{IE_{1,2},2} \\ COO_{IE_{1,1},3} - COO_{IE_{1,2},3}
+\end{array} \right\rbrace = \dfrac{1}{L_1} \left\lbrace \begin{array}{c}
+    COO_{2,1} - COO_{1,1} \\ COO_{2,2} - COO_{1,2} \\ COO_{2,3} - COO_{1,3} \\
+    COO_{1,1} - COO_{2,1} \\ COO_{1,2} - COO_{2,2} \\ COO_{1,3} - COO_{2,3}
+\end{array} \right\rbrace = \dfrac{1}{0,5} \left\lbrace \begin{array}{c}
+    0 - 25 \\ -28,87 - 14,47 \\ -50 - (-50) \\
+    25 - 0 \\ 14,47 -(-28,87) \\ -50 - (-50)
 \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    \dfrac{COO_{IE_{1,2},1} - COO_{IE_{1,1},1}}{L_1} \\ \dfrac{COO_{IE_{1,2},2} - COO_{IE_{1,1},2}}{L_1} \\ \dfrac{COO_{IE_{1,2},3} - COO_{IE_{1,1},3}}{L_1} \\
-    \dfrac{COO_{IE_{1,1},1} - COO_{IE_{1,2},1}}{L_1} \\ \dfrac{COO_{IE_{1,1},2} - COO_{IE_{1,2},2}}{L_1} \\ \dfrac{COO_{IE_{1,1},3} - COO_{IE_{1,2},3}}{L_1}
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    -0,5 \\ −0,8668 \\ 0 \\
+    0,5 \\ 0,8668 \\ 0
 \end{array} \right\rbrace$$</p>
 <p class="mathjax mathjax--block">$$
-\textbf{C}_2 = \left\lbrace \begin{array}{c}
-    \dfrac{COO_{IE_{2,2},1} - COO_{IE_{2,1},1}}{L_2} \\ \dfrac{COO_{IE_{2,2},2} - COO_{IE_{2,1},2}}{L_2} \\ \dfrac{COO_{IE_{2,2},3} - COO_{IE_{2,1},3}}{L_2} \\
-    \dfrac{COO_{IE_{2,1},1} - COO_{IE_{2,2},1}}{L_2} \\ \dfrac{COO_{IE_{2,1},2} - COO_{IE_{2,2},2}}{L_2} \\ \dfrac{COO_{IE_{2,1},3} - COO_{IE_{2,2},3}}{L_2}
+\textbf{C}_2 = \dfrac{1}{L_2} \left\lbrace \begin{array}{c}
+    COO_{IE_{2,2},1} - COO_{IE_{2,1},1} \\ COO_{IE_{2,2},2} - COO_{IE_{2,1},2} \\ COO_{IE_{2,2},3} - COO_{IE_{2,1},3} \\
+    COO_{IE_{2,1},1} - COO_{IE_{2,2},1} \\ COO_{IE_{2,1},2} - COO_{IE_{2,2},2} \\ COO_{IE_{2,1},3} - COO_{IE_{2,2},3}
+\end{array} \right\rbrace = \dfrac{1}{L_2} \left\lbrace \begin{array}{c}
+    COO_{3,1} - COO_{2,1} \\ COO_{3,2} - COO_{2,2} \\ COO_{3,3} - COO_{2,3} \\
+    COO_{2,1} - COO_{3,1} \\ COO_{2,2} - COO_{3,2} \\ COO_{2,3} - COO_{3,3}
+\end{array} \right\rbrace = \dfrac{1}{0,5} \left\lbrace \begin{array}{c}
+    -25 - 0 \\ 14,43 - (-28,87) \\ -50 - (-50) \\
+    0 - (-25) \\ -28,87 - 14,43 \\ -50 - (-50)
 \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    \dfrac{COO_{IE_{2,2},1} - COO_{IE_{2,1},1}}{L_2} \\ \dfrac{COO_{IE_{2,2},2} - COO_{IE_{2,1},2}}{L_2} \\ \dfrac{COO_{IE_{2,2},3} - COO_{IE_{2,1},3}}{L_2} \\
-    \dfrac{COO_{IE_{2,1},1} - COO_{IE_{2,2},1}}{L_2} \\ \dfrac{COO_{IE_{2,1},2} - COO_{IE_{2,2},2}}{L_2} \\ \dfrac{COO_{IE_{2,1},3} - COO_{IE_{2,2},3}}{L_2}
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    -0,5    \\
+    0,866   \\
+    0   \\
+    0,5 \\
+    -0,866  \\
+    0   \\
 \end{array} \right\rbrace$$</p>
 <p class="mathjax mathjax--block">$$
 \textbf{C}_3 = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    1   \\
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
 \end{array} \right\rbrace \qquad \textbf{C}_4 = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+    1   \\
 \end{array} \right\rbrace \qquad \textbf{C}_5 = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+    1   \\
 \end{array} \right\rbrace \qquad \textbf{C}_6 = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+    1   \\
 \end{array} \right\rbrace \qquad \textbf{C}_7 = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    -0,3536 \\
+    -0,6124 \\
+    -0,7071 \\
+    0,3536  \\
+    0,6124  \\
+    0,7071  \\
 \end{array} \right\rbrace$$</p>
 <p class="mathjax mathjax--block">$$
 \textbf{C}_8 = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    -0,3536 \\
+    0,6124  \\
+    -0,7071 \\
+    0,3536  \\
+    -0,6124 \\
+    0,7071  \\
 \end{array} \right\rbrace \qquad \textbf{C}_9 = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    0,7071  \\
+    0   \\
+    -0,70718    \\
+    -0,7071 \\
+    0   \\
+    0,7071  \\
 \end{array} \right\rbrace \qquad \textbf{C}_{10} = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    -0,5    \\
+    -0,866  \\
+    0   \\
+    0,5 \\
+    0,866   \\
+    0   \\
 \end{array} \right\rbrace \qquad \textbf{C}_{11} = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    -0,5    \\
+    0,866   \\
+    0   \\
+    0,5 \\
+    -0,866  \\
+    0   \\
 \end{array} \right\rbrace \qquad \textbf{C}_{12} = \left\lbrace \begin{array}{c}
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
-    1 \\
+    1   \\
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
 \end{array} \right\rbrace$$</p>
+<blockquote>
+<p>Beleza, mas, por exemplo, no vetor <span class="mathjax mathjax--inline">$\textbf{C}_{11}$</span>, primeiro termo vale <span class="mathjax mathjax--inline">$-0,5$</span> o que?? Ou melhor, o que significa o <span class="mathjax mathjax--inline">$-0,5$</span>? Cosseno do ângulo da direção x da barra 11 com o eixo x global? É isso? Lembra <a href="../teoria.html#orientao-da-seo-transversal">disso</a>?</p>
+</blockquote>
 <p>E dessa forma, já conseguimos escrever as matrizes de rigidez dos elementos no sistema global, visto que na sua forma condensada ela é calculada para um elemento <span class="mathjax mathjax--inline">$b$</span>:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{k}_{g,b} = \dfrac{E_b A_b}{L_b} \textbf{C}_b \textbf{C}_b^T$$</p>
@@ -7205,17 +7222,17 @@ L_b = \sqrt{(COO_{IE_{b,2},1} - COO_{IE_{b,1},1})^2 + (COO_{IE_{b,2},2} - COO_{I
 1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{5.3pt} 13 \hspace{5.3pt} 14 \hspace{5.3pt} 15 \hspace{5.3pt} 16 \hspace{5.3pt} 17 \hspace{5.3pt} 18  \hspace{3pt} & \\
 \left[ \begin{array}{cccccccccccccccccc}
     1 & 2 & 3 & 4 & 5 & 6 &   &   &   &   &   &   &   &   &   &   &   & \\ 
-      &   &   & 1 & 2 & 3 & 4 & 5 & 6 &   &   &   &   &   &   &   &   & \\
-    4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   &   &   &   &   &   &   & \\
-    4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3 &   &   &   &   &   & \\
-      &   &   & 4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3 &   &   & \\
+      &   &   & 1 & 2 & 3 & 4 & 5 & 6 &   &   &   &   &   &   &   &   & \\ 
+    4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   &   &   &   &   &   &   & \\ 
+    4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3 &   &   &   &   &   & \\ 
+      &   &   & 4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3 &   &   & \\ 
       &   &   &   &   &   & 4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3\\ 
-      &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   &   &   &   & \\
+      &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   &   &   &   & \\ 
       &   &   &   &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   & \\ 
-      &   &   &   &   &   & 4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3\\ 
+    4 & 5 & 6 &   &   &   &   &   &   &   &   &   &   &   &   & 1 & 2 & 3\\ 
       &   &   &   &   &   &   &   &   & 1 & 2 & 3 & 4 & 5 & 6 &   &   & \\ 
-      &   &   &   &   &   &   &   &   &   &   &   & 1 & 2 & 3 & 4 & 5 & 6\\
-      &   &   &   &   &   &   &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3\\
+      &   &   &   &   &   &   &   &   &   &   &   & 1 & 2 & 3 & 4 & 5 & 6\\ 
+      &   &   &   &   &   &   &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3\\ 
 \end{array} \right] & \begin{array}{c} 
                             1\\ 
                             2\\  
@@ -7243,44 +7260,117 @@ L_b = \sqrt{(COO_{IE_{b,2},1} - COO_{IE_{b,1},1})^2 + (COO_{IE_{b,2},2} - COO_{I
 <p>A montagem da matriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> segue a seguinte equação:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{K}_{U(i,j)} = \sum_{b=1}^n \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,i})} \textbf{C}_{b,(\textbf{Re}_{b,j})}^T \psi_b \begin{cases}
-\psi_b = 1 \ \text{se} \ \textbf{Re}_{b,i} \neq 0 \ \text{ou} \ \textbf{Re}_{b,j} \neq 0 \\
+\psi_b = 1 \ \text{se} \ \textbf{Re}_{b,i} \neq 0 \ \text{e} \ \textbf{Re}_{b,j} \neq 0 \\
 \psi_b = 0 \ \text{se} \ \textbf{Re}_{b,i} = 0 \ \text{ou} \ \textbf{Re}_{b,j} = 0
 \end{cases}$$</p>
 <p>Para todos os elementos <span class="mathjax mathjax--inline">$b$</span> da estrutura, no caso <span class="mathjax mathjax--inline">$n=12$</span>, sendo <span class="mathjax mathjax--inline">$i$</span> e <span class="mathjax mathjax--inline">$j$</span> variando de 1 a 9, os nove graus de liberdade livres da estrutura. O <span class="mathjax mathjax--inline">$\psi$</span> é um parâmetro utilizado para eliminar os termos iguais a zero do somatório, ou seja, os termos referentes aos nós que não possuem nenhum grau de liberdade do elemento que influência o grau de liberdade <span class="mathjax mathjax--inline">$i$</span> ou <span class="mathjax mathjax--inline">$j$</span> da estrutura.</p>
 <blockquote>
-<p>Lembrando que isso só funciona porque numeramos primeiro os graus de liberdade livres da estrutura!</p>
+<p>Lembrando que isso só funciona porque numeramos primeiro os graus de liberdade livres da estrutura! Observe que somente vamos utilizar as colunas de 1 a 9 do remetente. E as demais?</p>
 </blockquote>
+<p>Precisamos agora das propriedades de cada elemento. Lembrando o disposto no <a href="aplicacao.html">início</a> temos que:</p>
+<p>Módulo de elasticidade: <span class="mathjax mathjax--inline">$E_1 = E_2 = E_3 = E_4 = E_5 = E_6 = E_7 = E_8 = E_9 = E_{10} = E_{11} = E_{12} = 200 GPa \equiv 20000 kN/cm^2 $</span>,</p>
+<p>Áreas:  <span class="mathjax mathjax--inline">$A_1 = A_2 = A_3 = A_{10} = A_{11} = A_{12} = 2,317 cm^2$</span>, <span class="mathjax mathjax--inline">$A_4 = A_5 = A_6 = 2,946 cm^2$</span> e <span class="mathjax mathjax--inline">$A_7 = A_8 = A_9 = 2,011 cm^2$</span>,</p>
+<p>Comprimentos:  <span class="mathjax mathjax--inline">$L_1 = L_2 = L_3 = L_4 = L_5 = L_6 = L_{10} = L_{11} = L_{12} = 50 cm$</span> e <span class="mathjax mathjax--inline">$L_7 = L_8 = L_9 = 70,71 cm$</span>,</p>
+<p>Além dos respectivos cossenos diretores definidos no vetor <span class="mathjax mathjax--inline">$\textbf{C}$</span>.</p>
 <p>Vamos fazer para alguns elementos da matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>, para ilustrar a aplicação da equação que a determina, começando com o elemento <span class="mathjax mathjax--inline">$\textbf{K}_{U(1,1)}$</span>, ou seja, <span class="mathjax mathjax--inline">$i=1$</span> e <span class="mathjax mathjax--inline">$j=1$</span> e <span class="mathjax mathjax--inline">$n$</span> o número total de elementos da estrutra, no caso 12.</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
 \textbf{K}_{U(1,1)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,1})} \textbf{C}_{b,(\textbf{Re}_{b,1})}^T \psi_b \\
-    &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,(\textbf{Re}_{1,1})} \textbf{C}_{1,(\textbf{Re}_{1,1})}^T \times 1\\
+    &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,(\textbf{Re}_{1,1})} \textbf{C}_{1,(\textbf{Re}_{1,1})}^T\\
     &\quad + 0\\
-    &\quad + \dfrac{E_3 A_3}{L_3} \textbf{C}_{3,(\textbf{Re}_{3,1})} \textbf{C}_{3,(\textbf{Re}_{3,1})}^T \times 1\\
-    &\quad + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,(\textbf{Re}_{4,1})} \textbf{C}_{4,(\textbf{Re}_{4,1})}^T \times 1\\
-    &\quad + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 \\
+    &\quad + \dfrac{E_3 A_3}{L_3} \textbf{C}_{3,(\textbf{Re}_{3,1})} \textbf{C}_{3,(\textbf{Re}_{3,1})}^T\\
+    &\quad + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,(\textbf{Re}_{4,1})} \textbf{C}_{4,(\textbf{Re}_{4,1})}^T\\
+    &\quad + 0 + 0 + 0 + 0 \\
+    &\quad + \dfrac{E_9 A_9}{L_9} \textbf{C}_{9,(\textbf{Re}_{9,1})} \textbf{C}_{9,(\textbf{Re}_{9,1})}^T \\
+    &\quad + 0 + 0 + 0 \\
 \end{align}$$</p>
+<p>Já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1 e apenas utilizando os valores referentes a <span class="mathjax mathjax--inline">$\psi_b = 1$</span>.</p>
 <p class="mathjax mathjax--block">$$
-\therefore \textbf{K}_{U(1,1)} = \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,1} \textbf{C}_{1,1}^T + \dfrac{E_3 A_3}{L_3} \textbf{C}_{3,4} \textbf{C}_{3,4}^T + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,4} \textbf{C}_{4,4}^T$$</p>
-<p>Como mais um exemplo vamos fazer <span class="mathjax mathjax--inline">$i=3$</span> e <span class="mathjax mathjax--inline">$j=5$</span>, ou seja, determinar <span class="mathjax mathjax--inline">$\textbf{K}_{U(3,5)}$</span>.</p>
+\begin{align}
+\therefore \textbf{K}_{U(1,1)} &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,1} \textbf{C}_{1,1}^T + \dfrac{E_3 A_3}{L_3} \textbf{C}_{3,4} \textbf{C}_{3,4}^T + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,4} \textbf{C}_{4,4}^T + \dfrac{E_9 A_9}{L_9} \textbf{C}_{9,4} \textbf{C}_{9,4}^T \\
+    &= \dfrac{20000 \times 2,317}{50} \times (-0,5) \times (-0,5) \\
+    &\quad + \dfrac{20000 \times 2,317}{50} \times (-1) \times (-1) \\
+    &\quad + \dfrac{20000 \times 2,946}{50} \times 0 \times 0 \\
+    &\quad + \dfrac{20000 \times 2,011}{70,71} \times (-0,7071) \times (-0,7071) \\
+    &= 1442,8956
+\end{align}$$</p>
+<p>Como mais um exemplo, vamos fazer <span class="mathjax mathjax--inline">$i=3$</span> e <span class="mathjax mathjax--inline">$j=5$</span>, ou seja, determinar <span class="mathjax mathjax--inline">$\textbf{K}_{U(3,5)}$</span>, já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1 e apenas utilizando os valores referentes a <span class="mathjax mathjax--inline">$\psi_b = 1$</span>.</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
 \textbf{K}_{U(3,5)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,3})} \textbf{C}_{b,(\textbf{Re}_{b,5})}^T \psi_b \\
-    &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,(\textbf{Re}_{1,3})} \textbf{C}_{1,(\textbf{Re}_{1,5})}^T \times 1\\
+    &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,(\textbf{Re}_{1,3})} \textbf{C}_{1,(\textbf{Re}_{1,5})}^T\\
     &\quad + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0
 \end{align}$$</p>
 <p class="mathjax mathjax--block">$$
-\therefore \textbf{K}_{U(3,5)} = \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,3} \textbf{C}_{1,5}^T$$</p>
-<p>está certo isso?!?!?!</p>
-<hr />
+\therefore \textbf{K}_{U(3,5)} = \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,3} \textbf{C}_{1,5}^T = \dfrac{20000 \times 2,317}{50} \times 0 \times 0,8668 = 0$$</p>
+<p>Portanto, fazendo a mesma aplicação para todos os 81 termos (matriz 9x9) chegamos a matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{K}_U = \left[ \begin{array}{ccccccccc}
+     1442,91364043 &   401,33088755 &  -284,39834739 &  -231,71529304 & -401,33088755 &     0  &  -926,8 &     0  &    0 \\
+      401,33088755 &   695,10509723 &     0  &  -401,33088755 & -695,10509723 &     0  &     0  &     0  &    0 \\
+     -284,39834739 &     0  &  1462,79834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+     -231,71529304 &  -401,33088755 &     0  &   534,53251928 &  123,1485483  &   142,2038664  &  -231,71529304 &   401,33088755 &    0 \\
+     -401,33088755 &  -695,10509723 &     0  &   123,1485483  & 1603,50348012 &   246,2970966  &   401,33088755 &  -695,10509723 &    0 \\
+        0  &     0  &     0  &   142,2038664  &  246,2970966  &  1462,8077328  &     0  &     0  &    0 \\
+     -926,8 &     0  &     0  &  -231,71529304 &  401,33088755 &     0  &  1229,61722624 &  -524,47943585 &  142,2038664 \\
+        0  &     0  &     0  &   401,33088755 & -695,10509723 &     0  &  -524,47943585 &   908,39838289 & -246,2970966 \\
+        0  &     0  &     0  &     0  &    0  &     0  &   142,2038664  &  -246,2970966  & 1462,8077328 
+\end{array} \right]$$</p>
+<h4 id="determinao-da-matriz-para...-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-da-matriz-para...-1" title="Permanent link: Determinação da matriz para cálculo das reações de apoio" data-icon="#">Determinação da matriz para cálculo das reações de apoio</a></h4>
+<p>A metodologia é a mesma, ou seja a equação para a determinação da porção da matriz de rigidez da estrutura associada ao cálculo das reações de apoio também é função dos vetores de cossenos diretores dos elementos, <span class="mathjax mathjax--inline">$\textbf{C}_b$</span> e da rigidez axial do elemento <span class="mathjax mathjax--inline">$E_bA_b/L_b$</span>. No entanto, agora devemos percorrer o rementente para todas as barras (linhas) e todos os graus de liberdade (colunas), inclusive os restringidos. Precisamos dos graus de liberdade livres para identificar onde possuimos deslocamentos e precisamos dos graus de liberdade restringidos para relacionar as reações de apoio. Por isso, precisamos modificar um pouco a relação dos índices para que <span class="mathjax mathjax--inline">$i$</span> e <span class="mathjax mathjax--inline">$j$</span> signifiquem 1, 2, ..., 9 na matriz de rigidez para cálculo das reações de apoio e 10, 11, ...,18 no índice da coluna do remetente, <span class="mathjax mathjax--inline">$\textbf{Re}$</span>, apenas quando se referir à linhas que serão caluladas e posicionadas na matriz de rigidez para cálculo dos deslocamentos.</p>
+<blockquote>
+<p>Heim?! Pense na matriz de rigidez da estrutura como um todo (dúvidas, veja <a href="../../trelicaplana/teoria/aplicacao.html#separação-das-variáveis">treliça plana</a>) de, no nosso caso, 18x18, precisamos da porção relativa às linhas de 10 a 18 e as colunas de 1 a 9. Como montar apenas essa porção?</p>
+</blockquote>
+<p>Isso é bem simples, basta adicionarmos o número de graus de liberdade livres da estrutura, no nosso caso 9, ao índice <span class="mathjax mathjax--inline">$i$</span> quando for relativo a matriz remetente <span class="mathjax mathjax--inline">$\textbf{Re}$</span>. Assim, fazendo <span class="mathjax mathjax--inline">$i$</span> e <span class="mathjax mathjax--inline">$j$</span> variarem de 1 a 9, quando se tratar do remetente as linhas de 10 a 18 serão utilizadas e quando se tratar da matriz de rigidez para o cálculo das reações de apoio as linhas de 1 a 9 serão utilizadas.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{K}_{R(i,j)} = \sum_{b=1}^n \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,i+9})} \textbf{C}_{b,(\textbf{Re}_{b,j})}^T \psi_b \begin{cases}
+\psi_b = 1 \ \text{se} \ \textbf{Re}_{b,i+9} \neq 0 \ \text{e} \ \textbf{Re}_{b,j} \neq 0 \\
+\psi_b = 0 \ \text{se} \ \textbf{Re}_{b,i+9} = 0 \ \text{ou} \ \textbf{Re}_{b,j} = 0
+\end{cases}$$</p>
+<p>Vamos fazer para alguns elementos da matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>, para ilustrar a aplicação da equação que a determina, começando com o elemento <span class="mathjax mathjax--inline">$\textbf{K}_{R(1,1)}$</span>, ou seja, <span class="mathjax mathjax--inline">$i=1$</span> e <span class="mathjax mathjax--inline">$j=1$</span> e <span class="mathjax mathjax--inline">$n$</span> o número total de elementos da estrutra, no caso 12.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\textbf{K}_{R(1,1)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,1+9})} \textbf{C}_{b,(\textbf{Re}_{b,1})}^T \psi_b \\
+    &= 0 + 0 + 0 \\
+    &\quad + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,(\textbf{Re}_{4,10})} \textbf{C}_{4,(\textbf{Re}_{4,1})}^T\\
+    &\quad + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 \\
+\end{align}$$</p>
+<p>Já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1 e apenas utilizando os valores referentes a <span class="mathjax mathjax--inline">$\psi_b = 1$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\therefore \textbf{K}_{R(1,1)} &= \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,1} \textbf{C}_{4,4}^T \\
+    &= \dfrac{20000 \times 2,946}{L_4} 0 \times 0 \\
+    &= 0
+\end{align}$$</p>
+<p>Como mais um exemplo, vamos fazer <span class="mathjax mathjax--inline">$i=3$</span> e <span class="mathjax mathjax--inline">$j=5$</span>, ou seja, determinar <span class="mathjax mathjax--inline">$\textbf{K}_{U(3,5)}$</span>, já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1 e apenas utilizando os valores referentes a <span class="mathjax mathjax--inline">$\psi_b = 1$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\textbf{K}_{R(3,5)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,3+9})} \textbf{C}_{b,(\textbf{Re}_{b,5})}^T \psi_b \\
+    &= 0 + 0 + 0 + 0 + 0 + 0\\
+    &\quad \dfrac{E_7 A_7}{L_7} \textbf{C}_{7,(\textbf{Re}_{7,12})} \textbf{C}_{7,(\textbf{Re}_{7,5})}^T\\
+    &\quad + 0 + 0 + 0 + 0 + 0
+\end{align}$$</p>
+<p class="mathjax mathjax--block">$$
+\therefore \textbf{K}_{R(3,5)} = \dfrac{E_7 A_7}{L_7} \textbf{C}_{7,3} \textbf{C}_{7,5}^T = \dfrac{20000 \times 2,011}{70,71} \times (-0,7071) \times 0,6124 = −246,307$$</p>
+<p>Portanto, fazendo a mesma aplicação para todos os 81 termos (matriz 9x9) chegamos a matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{K}_R = \left[ \begin{array}{ccccccccc}
+    0  &     0  &     0  &   -71,1019332  & -123,1485483  &  -142,2038664  &     0  &     0  &    0 \\
+    0  &     0  &     0  &  -123,1485483  & -213,29328566 &  -246,2970966  &     0  &     0  &    0 \\
+    0  &     0  & -1178,4 &  -142,2038664  & -246,2970966  &  -284,4077328  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   -71,1019332  &   123,1485483  & -142,2038664 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   123,1485483  &  -213,29328566 &  246,2970966 \\
+    0  &     0  &     0  &     0  &    0  & -1178,4 &  -142,2038664  &   246,2970966  & -284,4077328 \\
+ -284,39834739 &     0  &   284,39834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &     0  &     0  &    0 \\
+  284,39834739 &     0  &  -284,39834739 &     0  &    0  &     0  &     0  &     0  &-1178,4\\
+\end{array} \right]$$</p>
+<p>Determinada as porções da matriz de rigidez da estrutura para o cálculo dos deslocamentos e reações de apoio, precisamos definir os vetores de deslocamentos e forças nodais a essas matrizes associados para montar o sistema de equações lineares de equilíbrio</p>
 <h3 id="deslocamentos-e-foras-nodais" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#deslocamentos-e-foras-nodais" title="Permanent link: Deslocamentos e forças nodais" data-icon="#">Deslocamentos e forças nodais</a></h3>
 <p>O equilíbro estático da estrutura em MEF é regido pela mesma expressão que utilizamos para o equilíbrio do elemento englobando todos os graus de liberdade da estrutura, ou seja, o equilíbrio estático da estrutura pelo MEF é dado pela equação:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{K}\textbf{U} = \textbf{F}$$</p>
 <p>Sendo <span class="mathjax mathjax--inline">$\textbf{U}$</span> o vetor de deslocamentos da estrutura e <span class="mathjax mathjax--inline">$\textbf{F}$</span> o vetor de forças nodais da estrutura.</p>
-<blockquote>
-<p>Por que é válida a mesma consideração local do elemento (lembra, princípio dos trabalhos virtuais, deslocamentos virtuais, etc...) para toda a estrutura globalmente?</p>
-</blockquote>
 <p>Os vetores <span class="mathjax mathjax--inline">$\textbf{U}$</span> e <span class="mathjax mathjax--inline">$\textbf{F}$</span> representam os deslocamentos da estrutura, definidos pelos graus de liberdade, e as forças nodais relativas aos graus de liberdade. Portanto, podemos escrevê-los de forma genérica como:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{U} = \left\lbrace \begin{array}{c}
@@ -7290,6 +7380,18 @@ L_b = \sqrt{(COO_{IE_{b,2},1} - COO_{IE_{b,1},1})^2 + (COO_{IE_{b,2},2} - COO_{I
     U_4 \\
     U_5 \\
     U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+    U_{10} \\
+    U_{11} \\
+    U_{12} \\
+    U_{13} \\
+    U_{14} \\
+    U_{15} \\
+    U_{16} \\
+    U_{17} \\
+    U_{18} \\
 \end{array} \right\rbrace \qquad \textbf{F} = \left\lbrace \begin{array}{c}
     F_1 \\
     F_2 \\
@@ -7297,128 +7399,145 @@ L_b = \sqrt{(COO_{IE_{b,2},1} - COO_{IE_{b,1},1})^2 + (COO_{IE_{b,2},2} - COO_{I
     F_4 \\
     F_5 \\
     F_6 \\
+    F_7 \\
+    F_8 \\
+    F_9 \\
+    F_{10} \\
+    F_{11} \\
+    F_{12} \\
+    F_{13} \\
+    F_{14} \\
+    F_{15} \\
+    F_{16} \\
+    F_{17} \\
+    F_{18} \\
 \end{array} \right\rbrace$$</p>
 <p>Não sabemos, por enquanto, os valores dos deslocamentos em cada grau de liberdade do vetor <span class="mathjax mathjax--inline">$\textbf{U}$</span>, afinal essas são as nossa incógnitas do problema (quer dizer, alguns valores nos conhecemos como veremos a seguir). Já o vetor de forças nodais <span class="mathjax mathjax--inline">$\textbf{F}$</span> nós conhecemos completamente, basta entender como as forças nodais se relacionam com os graus de liberdade e aplicar as condições de contorno.</p>
 <h3 id="aplicando-as-condies-de-contorno" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#aplicando-as-condies-de-contorno" title="Permanent link: Aplicando as condições de contorno" data-icon="#">Aplicando as condições de contorno</a></h3>
-<p>Como você pode perceber a matriz <span class="mathjax mathjax--inline">$\textbf{K}$</span> tem algumas importantes propriedades, ela deve ser simétrica e singular, ou seja, com o determinante igual a zero e não inversível. Então, como vou resolver o equilíbrio estático do MEF?? <span class="mathjax mathjax--inline">$\textbf{K}\textbf{U}=\textbf{F}$</span> Resposta: aplicando às condições de contorno.</p>
-<p>Observe que na matriz de rigidez da estrutura, <span class="mathjax mathjax--inline">$\textbf{K}$</span>, as linhas e colunas representam os graus de liberdade da estruturas contendo a rigidez referente ao efeito de certo grau em outro. Sendo assim, para aplicar as condições de contorno do problema, que são os apoios simples e rotulado, basta observarmos quais graus de liberdade esses apoios influenciam e aplicar essa influência na matriz de rigidez da estrutura, no vetor de deslocamentos da estrutura e no vetor de forças nodais da estrutura. </p>
-<p><img src="http://localhost:8000/spacialtruss/teoria/aplicacao/imagens/Trelica3barrasGrausLib.svg" alt="Condições de Contorno" title="Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade" />
-<small>Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade.</small></p>
-<p>Da imagem notamos que o apoio simples no nó 2 influencia o grau de liberdade 4 apenas e que o apoio rotulado no nó 3 influencia os graus de liberdade 5 e 6. Ainda, a força F de 10.000 N está orientada no sentido negativo do grau de liberdade 2. Sabendo disso, podemos montar nossos vetores de deslocamentos nodais <span class="mathjax mathjax--inline">$\textbf{U}$</span> e de foças nodais <span class="mathjax mathjax--inline">$\textbf{F}$</span> da estrutura como:</p>
+<p>Diferentemente de como resolvemos para a treliça plana, no caso da treliça espacial não montamos a matriz de rigidez completa da estrutura. Portanto, precisamos definir quais partes do vetor de deslocamentos da estrutura e do vetor de forças nodais devem ser utilizadas para o cálculo dos deslocamentos e quais partes para o cálculo das reações de apoio. Para tal, precisamos observar e aplicar as condições de contorno do problemas, em outras palavras, os efeitos dos apoios da estrutura nos vetores de deslocamentos e forças nodais da estrutura.</p>
+<p><img title="Parte do módulo da torre" alt="Parte do módulo da torre" src="../../../user/pages/02.trelicaespacial/01.teoria/01.aplicacao/imagens/ModuloTrelicaEspacialSeparação.svg" />
+<small>Parte do módulo da torre.</small></p>
+<p><img title="Graus de liberdade da treliça" alt="Graus de liberdade da treliça" src="../../../user/pages/02.trelicaespacial/01.teoria/01.aplicacao/imagens/ModuloTrelicaEspacialGLs.svg" />
+<small>Graus de liberdade da treliça.</small></p>
+<p>Observando as duas figuras acima fica fácil montar os vetores de deslocamentos e forças nodais da estrutura. Sendo as cargas F relativas ao vento, com valor 111,16 N e as cargas R, relativas as reações de apoio do resto do módulo sobre essa parte, com valor <span class="mathjax mathjax--inline">$R_1 = 194,809 N$</span>, <span class="mathjax mathjax--inline">$R_2 = 780,704 N$</span>, <span class="mathjax mathjax--inline">$R_3 = 337,41 N$</span>, <span class="mathjax mathjax--inline">$R_4 = 194,809 N$</span>, <span class="mathjax mathjax--inline">$R_5 = 1561,41 N$</span>, <span class="mathjax mathjax--inline">$R_6 = 337,41 N$</span> e <span class="mathjax mathjax--inline">$R_7 = 780,704 N$</span> e sentido mostrado na figura, e ainda os apoios dos nós 4, 5 e 6 do tipo rotulado, ou seja, restringindo a translação dos referidos nós nas três direções, X, Y e Z, tais vetores resultam em:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{U} = \left\lbrace \begin{array}{c}
     U_1 \\
     U_2 \\
     U_3 \\
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
     0 \\
     0 \\
     0 \\
 \end{array} \right\rbrace \qquad \textbf{F} = \left\lbrace \begin{array}{c}
+    -0,194809 \\
+    -0,11116 + (-0,33741)  \\
+    0,780704 \\
+    0,194809 \\
+    -0,33741 \\
+    -1,56141 \\
     0 \\
-    -10000 \\
-    0 \\
-    R_4 \\
-    R_5 \\
-    R_6 \\
-\end{array} \right\rbrace$$</p>
-<p>Os deslocamentos <span class="mathjax mathjax--inline">$U_4$</span>, <span class="mathjax mathjax--inline">$U_5$</span> e <span class="mathjax mathjax--inline">$U_6$</span> são iguais à zero pelas restrições dos apoios nas respectivas direções dos graus de liberdade relacionados à esses deslocamentos. As forças <span class="mathjax mathjax--inline">$F_1$</span> e <span class="mathjax mathjax--inline">$F_3$</span> são zero pois nenhuma força atua nas respectivas direções dos respectivos graus de liberdade. As forças <span class="mathjax mathjax--inline">$F_4$</span>, <span class="mathjax mathjax--inline">$F_5$</span> e <span class="mathjax mathjax--inline">$F_6$</span> são relacionadas com as restrições impostas pelos apoios nas respectivas direções dos graus de liberdade e, portanto, são exatamente as reações de apoio provocadas por essas restrições. Portanto, nosso equilíbrio se escreve:</p>
-<p class="mathjax mathjax--block">$$
-\left[ \begin{array}{cccccc}
-         1401306,87 & -709233,42 & 709233,42 & -709233,42 & -692073,45 & 0 \\
-         -709233,42 & 709233,42 & -709233,42 & 709233,42 & 0 & 0 \\
-         709233,42 & -709233,42 & 1401306,87 & -709233,42 & 0 & -692073,45 \\
-         -709233,42 & 709233,42 & -709233,42 & 709233,42 & 0 & 0 \\
-         -692073,45 & 0 & 0 & 0 & 692073,45 & 0 \\
-         0 & 0 & -692073,45 & 0 & 0 & 692073,45 \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    U_1 \\
-    U_2 \\
-    U_3 \\
-    0 \\
-    0 \\
-    0 \\
+    -0,11116 \\
+    0,780704 \\
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
 \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    -0,194809 \\
+    -0,44857  \\
+    0,780704 \\
+    0,194809 \\
+    -0,33741 \\
+    -1,56141 \\
     0 \\
-    -10000 \\
-    0 \\
-    R_4 \\
-    R_5 \\
-    R_6 \\
+    -0,11116 \\
+    0,780704 \\
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
 \end{array} \right\rbrace$$</p>
-<p>Somente foi possível separar os deslocamentos colocando os 3 primeiros como as incógnitas do problema e os 3 últimos restringidos pelas condições de contorno dadas pelos apoios (o mesmo com as forças nodais, mas ao contrário) por que numeramos primeiro os graus de liberdade livres da estrutura e construimos a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, em função disso. De outra forma, precisaríamos aplicar uma mudança de linhas e colunas na matriz de rigidez e de linhas aos vetores de deslocamentos e forças para chegar a esse resultado, sem o qual, não poderíamos resolver o sistema aplicando a separação das variáveis, e, por falar nisso...</p>
+<p>Os deslocamentos de <span class="mathjax mathjax--inline">$U_10$</span> a <span class="mathjax mathjax--inline">$U_18$</span> são iguais à zero pelas restrições dos apoios nas respectivas direções dos graus de liberdade relacionados à esses deslocamentos. A força <span class="mathjax mathjax--inline">$F_7$</span> é zero pois nenhuma força atua na respectiva direção do respectivo grau de liberdade. As forças de <span class="mathjax mathjax--inline">$F_1$</span> a <span class="mathjax mathjax--inline">$F_6$</span> e <span class="mathjax mathjax--inline">$F_8$</span> e <span class="mathjax mathjax--inline">$F_9$</span> representam as forças externas aplicadas à treliça. Observe que na direção 2 temos duas forças aplicadas, <span class="mathjax mathjax--inline">$F$</span> e <span class="mathjax mathjax--inline">$R_3$</span> e, portanto, seus valores devem ser somados. </p>
+<blockquote>
+<p>Claro que no caso de uma análise do E.L.U. (Estado Limite Último), na qual as reações do resto do módulo e a carga do vento estejam sendo combinadas em diversas situações distintas, deve ser levado em conta o que cada uma das combinações aplica de efeitos na estrutura. Ih, viajou? Em outras palavras, se na combinação atuarem <span class="mathjax mathjax--inline">$R_3$</span> e <span class="mathjax mathjax--inline">$F$</span> você soma, se não... adivinha? Não soma. Ainda viajando? Melhor conhecer um pouco mais de <a href="http://www.estruturas.ufpr.br/wp-content/uploads/2016/03/Capitulo3.pdf">combinação de cargas em ELU</a>.</p>
+</blockquote>
+<p>As forças de <span class="mathjax mathjax--inline">$F_{10}$</span> a <span class="mathjax mathjax--inline">$F_{18}$</span> são relacionadas com as restrições impostas pelos apoios nas respectivas direções dos graus de liberdade e, portanto, são exatamente as reações de apoio provocadas por essas restrições. </p>
 <h3 id="separao-das-variveis" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#separao-das-variveis" title="Permanent link: Separação das variáveis" data-icon="#">Separação das variáveis</a></h3>
-<p>Observe bem a equação matricial de equilíbrio que escrevemos acima e tente visualizar na forma de um sistema de equações. Note que as três últimas colunas da matriz de rigidez sempre estão multiplicadas por zero, ou seja, não influenciam em nada na resolução do nosso sistema. Então, como primeira simplificação, podemos reescrever o equilíbrio estático dado pelo MEF da nossa treliça de três barras como:</p>
+<p>Precisamos agora determinar porções dos vetores de deslocamentos da estrutura e de forças nodais relativos ao cálculo dos deslocamentos e das reações de apoio. Isso é bem simples e fica até explícito se observarmos o vetor de deslocamentos da estrutura.</p>
+<blockquote>
+<p>Fica explícito porque numeramos primeiro os graus de liberdade livres!</p>
+</blockquote>
+<p>Os primeiros 9 graus de liberdade são responsáveis pelo cálculo dos deslocamentos, conforme vimos na definição de <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>, os graus de liberdade de 10 a 18, associados a efeitos dos primeiros graus de liberdade, são responsáveis pela determinação das reações de apoio, conforme vimos na determinação de <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>. Portanto, podemos escrever o vetor de deslocamentos da estrutura e o vetor de forças nodais em duas parcelas, uma relativa ao cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{U}_U$</span> e <span class="mathjax mathjax--inline">$\textbf{F}_U$</span>, e outra relativa ao cálculo das reações de apoio, <span class="mathjax mathjax--inline">$\textbf{U}_U$</span> e <span class="mathjax mathjax--inline">$\textbf{F}_R$</span>.</p>
 <p class="mathjax mathjax--block">$$
-\left[ \begin{array}{cccccc}
-         1401306,87 & -709233,42 & 709233,42  \\
-         -709233,42 & 709233,42 & -709233,42 \\
-         709233,42 & -709233,42 & 1401306,87  \\
-         -709233,42 & 709233,42 & -709233,42  \\
-         -692073,45 & 0 & 0  \\
-         0 & 0 & -692073,45  \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
+\textbf{U}_U = \left\lbrace \begin{array}{c}
     U_1 \\
     U_2 \\
     U_3 \\
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+\end{array} \right\rbrace \qquad \textbf{F}_U = \left\lbrace \begin{array}{c}
+    -0,194809 \\
+    -0,44857  \\
+    0,780704 \\
+    0,194809 \\
+    -0,33741 \\
+    -1,56141 \\
     0 \\
-    -10000 \\
-    0 \\
-    R_4 \\
-    R_5 \\
-    R_6 \\
+    -0,11116 \\
+    0,780704 \\
 \end{array} \right\rbrace$$</p>
-<p>Agora, olhe bem para a matriz de rigidez simplificada acima e sua relação com os deslocamentos incógnitas e as forças nodais. Perceba que as três primeiras linhas da matriz de rigidez simplificada são responsáveis pela determinação dos deslocamentos incógnita, visto que se iguala a forças nodais conhecidas e que, as três últimas linhas da matriz de rigidez simplificada são responsáveis pela determinação das reações de apoio em função dos deslocamentos já determinados. Ou seja, podemos separar a matriz de rigidez simplificada e consequetemente nosso equilíbrio estático em:</p>
 <p class="mathjax mathjax--block">$$
-\left[ \begin{array}{ccc}
-         1401306,87 & -709233,42 & 709233,42  \\
-         -709233,42 & 709233,42 & -709233,42 \\
-         709233,42 & -709233,42 & 1401306,87 
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    U_1 \\
-    U_2 \\
-    U_3 \\
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    0 \\
-    -10000 \\
-    0 \\
+\textbf{F}_R = \left\lbrace \begin{array}{c}
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
 \end{array} \right\rbrace$$</p>
-<p>Para cálculo dos deslocamentos e:</p>
+<blockquote>
+<p>Por que <span class="mathjax mathjax--inline">$\textbf{U}_U$</span> é utilizado para calcular os deslocamentos e as reações de apoio? Precisamos dos efeitos dos graus de liberdade livres nos restringidos para calcular as reações de apoio, ou seja, as reações de apoio são proporcionais aos deslocamentos da estrutura em função da rigidez relativa entre os graus de liberdade livres e restringidos.</p>
+</blockquote>
+<p>Ou seja, podemos escrever nosso equilíbrio estático para cálculo dos deslocamentos utilizando a matriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> como:</p>
 <p class="mathjax mathjax--block">$$
-\left\lbrace \begin{array}{c}
-    R_4 \\
-    R_5 \\
-    R_6 \\
-\end{array} \right\rbrace = \left[ \begin{array}{ccc}
-         -709233,42 & 709233,42 & -709233,42  \\
-         -692073,45 & 0 & 0  \\
-         0 & 0 & -692073,45   \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    U_1 \\
-    U_2 \\
-    U_3 \\
-\end{array} \right\rbrace$$</p>
-<p>Para cálculo das reações de apoio. Escreví ao contrário de propósito já.</p>
+\textbf{K}_U \textbf{U}_U = \textbf{F}_U $$</p>
+<p>E, para calcular as reações de apoio utilizamos a matriz <span class="mathjax mathjax--inline">$\textbf{K}_R$</span> na forma:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{F}_R = \textbf{K}_R \textbf{U}_R $$</p>
 <h3 id="clculo-dos-deslocamentos" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#clculo-dos-deslocamentos" title="Permanent link: Cálculo dos deslocamentos" data-icon="#">Cálculo dos deslocamentos</a></h3>
-<p>O cálculo dos deslocamentos é feito resolvendo-se o seguinte sistema de equações, escrito na forma matricial:</p>
-<p class="mathjax mathjax--block">$$
-\left[ \begin{array}{ccc}
-         1401306,87 & -709233,42 & 709233,42  \\
-         -709233,42 & 709233,42 & -709233,42 \\
-         709233,42 & -709233,42 & 1401306,87  
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    U_1 \\
-    U_2 \\
-    U_3 \\
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    0 \\
-    -10000 \\
-    0 \\
-\end{array} \right\rbrace$$</p>
-<p>Existem diversas formas de resolvê-lo, já que trata-se de um sistema de equações lineares com múltiplas incógnitas, possível e determinado e linearmente independente. Em termos matriciais, a matriz de rigidez simplificada separada relativa aos deslocamentos deve ser sempre simétrica, não singular e positivo definida. Portanto, podemos resolver pela regra de Krammer, eliminação Gaussiana, fatoração de Cholesky, decomposição QR ou ainda inversão da matriz para posterior multiplicação pelas forças nodais. Nós vamos utilizar a <a href="https://pt.wikipedia.org/wiki/Fatoração_de_Cholesky">fatoração de Cholesky</a>, por ser mais rápida para sistemas com vários graus de liberdade.</p>
+<p>Existem diversas formas de cálcular dos deslocamentos. Como já comentado, nós vamos utilizar a <a href="https://pt.wikipedia.org/wiki/Fatoração_de_Cholesky">fatoração de Cholesky</a>, por ser mais rápida para sistemas com vários graus de liberdade.</p>
 <h4 id="fatorao-de-cholesky" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#fatorao-de-cholesky" title="Permanent link: Fatoração de Cholesky" data-icon="#">Fatoração de Cholesky</a></h4>
-<p>A fatoração (ou decomposição) de Cholesky procura decompor uma matriz <span class="mathjax mathjax--inline">$\textbf{A}$</span> na forma <span class="mathjax mathjax--inline">$\textbf{A} = \textbf{L}\textbf{L}^T$</span>, na qual <span class="mathjax mathjax--inline">$\textbf{L}$</span> é uma matriz triangular inferior com elementos da diagonal principal estritamente positivos. No entanto, a matriz <span class="mathjax mathjax--inline">$\textbf{A}$</span> deve simétrica, não singular e positivo definida, como no nosso caso, portanto, a fatoração de Cholesky se aplica. Além disso, a fatoração de Cholesky é conhecida pela velocidade na solução quando temos sistemas com muitos graus de liberdade, porém também pela fragilidade e instabilidade numérica quando a matriz é próxima da singularidade e ou possui baixo número de linhas ou colunas independentes.</p>
-<p>De uma forma prática para uma matriz <span class="mathjax mathjax--inline">$n \times n$</span> vamos fazer o seguinte (lembrando que a matriz é simétrica, então <span class="mathjax mathjax--inline">$a_{k,n} = a_{n,k}$</span>):</p>
+<p>A fatoração (ou decomposição) de Cholesky procura decompor uma matriz <span class="mathjax mathjax--inline">$\textbf{A}$</span> na forma <span class="mathjax mathjax--inline">$\textbf{A} = \textbf{L}\textbf{L}^T$</span>, na qual <span class="mathjax mathjax--inline">$\textbf{L}$</span> é uma matriz triangular inferior com elementos da diagonal principal estritamente positivos. No entanto, a matriz <span class="mathjax mathjax--inline">$\textbf{A}$</span> deve simétrica, não singular e positivo definida, como no nosso caso, portanto, a fatoração de Cholesky se aplica. Além disso, a fatoração de Cholesky é conhecida pela velocidade na solução quando temos sistemas com muitos graus de liberdade, porém também pela fragilidade e instabilidade numérica quando a matriz é próxima da singularidade e ou possui baixo número de linhas ou colunas independentes, fatores raros no sistema de equações lineares de um equilíbrio que considera o material no regime linear proporcional e pequenas deformações.</p>
+<p>Como já vimos, de uma forma prática para uma matriz <span class="mathjax mathjax--inline">$n \times n$</span> vamos fazer o seguinte (lembrando que a matriz é simétrica, então <span class="mathjax mathjax--inline">$a_{k,n} = a_{n,k}$</span>):</p>
 <p class="mathjax mathjax--block">$$
 \left[ \begin{array}{cccc}
     a_{1,1} & a_{2,1} & ... & a_{n,1} \\
@@ -7448,34 +7567,48 @@ L_b = \sqrt{(COO_{IE_{b,2},1} - COO_{IE_{b,1},1})^2 + (COO_{IE_{b,2},2} - COO_{I
     l_{k,k} &= \sqrt{a_{k,k} - \sum_{i=1}^{k-1} l_{k,i}^2} \\
     l_{j,k} &= \dfrac{a_{j,k} - \displaystyle{\sum_{i=1}^{k-1}} l_{j,i}l_{k,i}}{l_{k,k}} \quad \text{para} \quad j=k+1,k+2,...,n \\
 \end{align}$$</p>
-<p>Portanto, para o nosso caso com a matriz <span class="mathjax mathjax--inline">$\textbf{K}$</span> com <span class="mathjax mathjax--inline">$n=3$</span>, ou seja, <span class="mathjax mathjax--inline">$3 \times 3$</span>:</p>
+<p>Portanto, para o nosso caso com a matriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> com <span class="mathjax mathjax--inline">$n=9$</span>, ou seja, <span class="mathjax mathjax--inline">$9 \times 9$</span>:</p>
 <p class="mathjax mathjax--block">$$
-\textbf{K} = \left[ \begin{array}{ccc}
-         1401306,87 & -709233,42 & 709233,42  \\
-         -709233,42 & 709233,42 & -709233,42 \\
-         709233,42 & -709233,42 & 1401306,87  
-        \end{array} \right]$$</p>
+\textbf{K}_U = \left[ \begin{array}{ccccccccc}
+     1442,91364043 &   401,33088755 &  -284,39834739 &  -231,71529304 & -401,33088755 &     0  &  -926,8 &     0  &    0 \\
+      401,33088755 &   695,10509723 &     0  &  -401,33088755 & -695,10509723 &     0  &     0  &     0  &    0 \\
+     -284,39834739 &     0  &  1462,79834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+     -231,71529304 &  -401,33088755 &     0  &   534,53251928 &  123,1485483  &   142,2038664  &  -231,71529304 &   401,33088755 &    0 \\
+     -401,33088755 &  -695,10509723 &     0  &   123,1485483  & 1603,50348012 &   246,2970966  &   401,33088755 &  -695,10509723 &    0 \\
+        0  &     0  &     0  &   142,2038664  &  246,2970966  &  1462,8077328  &     0  &     0  &    0 \\
+     -926,8 &     0  &     0  &  -231,71529304 &  401,33088755 &     0  &  1229,61722624 &  -524,47943585 &  142,2038664 \\
+        0  &     0  &     0  &   401,33088755 & -695,10509723 &     0  &  -524,47943585 &   908,39838289 & -246,2970966 \\
+        0  &     0  &     0  &     0  &    0  &     0  &   142,2038664  &  -246,2970966  & 1462,8077328 
+\end{array} \right]$$</p>
 <p>Calcula-se (lembrando que <span class="mathjax mathjax--inline">$a_{k,n} = a_{n,k}$</span>):</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
-    l_{1,1} &= \sqrt{a_{1,1}} = \sqrt{1401306,87} = 1183,768\\
-    l_{2,1} &= \dfrac{a_{2,1}}{l_{1,1}} =  \dfrac{-709233,42}{1183,768} = -599,132\\
-    l_{3,1} &= \dfrac{a_{3,1}}{l_{1,1}} = \dfrac{709233,42}{1183,768} = 599,132\\
-    l_{2,2} &= \sqrt{a_{2,2} - l_{2,1}^2} = \sqrt{-709233,42 - (-599,132)^2} = 591,8397 \quad (k=2) \\
-    l_{3,2} &= \dfrac{a_{3,2} - l_{3,1}l_{2,1}}{l_{2,2}} = \dfrac{709233,42 - (599,132 \times (-599,132)}{591,8397} = −591,8398 \quad (k=2 \quad j=3) \\
-    l_{3,3} &= \sqrt{a_{3,3} - (l_{3,1}^2 + l_{3,2}^2)} = \sqrt{1401306,87 - \left(599,132^2 + (−591,8398)^2\right)} = 831,9095 \quad (k=3)
+    l_{1,1} &= \sqrt{a_{1,1}} = \sqrt{1442,91364043} = 37,986\\
+    l_{2,1} &= \dfrac{a_{2,1}}{l_{1,1}} = \dfrac{401,33088755}{37,986} = 10,565\\
+    l_{3,1} &= \dfrac{a_{3,1}}{l_{1,1}} = \dfrac{-284,39834739}{37,986} = -7,4898\\
+    & \vdots \\
+    l_{2,2} &= \sqrt{a_{2,2} - l_{2,1}^2} = \sqrt{695,10509723 - 10,565^2} = 24,155 \quad (k=2) \\
+    & \vdots \\
+    l_{3,2} &= \dfrac{a_{3,2} - l_{3,1}l_{2,1}}{l_{2,2}} = \dfrac{0 - (-7,4898) \times 10,565}{24,155} = 3,2747 \quad (k=2 \quad j=3) \\
+    & \vdots\\
+    l_{5,4} &= \dfrac{a_{5,4} - (l_{5,1}l_{4,1} + l_{5,2}l_{4,2} + l_{5,3}l_{4,3})}{l_{4,4}} = \dfrac{123,1485483 - [(-10,565) \times (-6,1) + (-24,155) \times (-13,9465) + 0 \times 0]}{17,4016} = -15,986 \\
+    & \vdots \\
+    l_{9,9} &= \sqrt{a_{9,9} - (l_{9,1}^2 + l_{9,2}^2 + l_{9,3}^2 + l_{9,4}^2 + l_{9,5}^2 + l_{9,6}^2 + l_{9,7}^2 + l_{9,8}^2)} \\
+    \quad &= \sqrt{1462,8077328 - [0 + 0 + 0 + 0 + 0 + 0 + 8,9087^2 + (-14,319)^2]} = 34,3278
 \end{align}$$</p>
-<p>E, portanto:</p>
+<p>E, portanto, resolvendo os demais itens da matriz triangular <span class="mathjax mathjax--inline">$\textbf{L}$</span>:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{L} = \left[ \begin{array}{ccc}
-         1183,768 & 0 & 0  \\
-         -599,132 & 591,8397 & 0  \\
-         599,132 & −591,8398 & 831,9095 
-        \end{array} \right] \quad \text{e} \quad \textbf{L}^T = \left[ \begin{array}{ccc}
-         1183,768 & -599,132 & 599,132  \\
-          0 & 591,8397 & −591,8398  \\
-          0 & 0 & 831,9095
-        \end{array} \right]$$</p>
+ 37,986 &    0    &    0    &    0    &    0    &    0    &    0    &   0    &    0   \\ 
+ 10,565 &   24,155 &    0    &    0    &    0    &    0    &    0    &   0    &    0   \\ 
+ -7,487 &    3,275 &   37,363 &    0    &    0    &    0    &    0    &   0    &    0   \\ 
+ -6,1   &  -13,946 &    0    &   17,402 &    0    &    0    &    0    &   0    &    0   \\ 
+-10,565 &  -24,155 &    0    &  -15,986 &   25,551 &    0    &    0    &   0    &    0   \\ 
+  0    &    0    &    0    &    8,172 &   14,752 &   34,328 &    0    &   0    &    0   \\ 
+-24,399 &   10,672 &   -5,824 &  -13,316 &    7,376 &   0    &   15,962 &   0    &    0   \\ 
+  0    &    0    &    0    &   23,063 &  -12,775 &   0    &   -7,715 &  12,401 &    0   \\ 
+  0    &    0    &    0    &    0    &    0    &    0    &    8,909 & -14,319 &   34,328\\ 
+\end{array} \right]$$</p>
 <p>Agora, para resolver precisamos aplicar uma substituição direta e uma retrosubstituição em <span class="mathjax mathjax--inline">$\textbf{L}$</span> e <span class="mathjax mathjax--inline">$\textbf{L}^T$</span> respectivamente. Precisamos calcular um vetor <span class="mathjax mathjax--inline">$\textbf{c}$</span>, tal que:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{L} \textbf{c} = \textbf{F}$$</p>
@@ -7488,33 +7621,62 @@ c_1 = \dfrac{F_1}{l_{1,1}}$$</p>
 <p>Para os demais elementos com <span class="mathjax mathjax--inline">$i=1,2,...,n$</span>:</p>
 <p class="mathjax mathjax--block">$$
 c_i = \dfrac{F_i - \displaystyle{\sum_{j=1}^{i-1}} \left( l_{i,j} c_j \right)}{l_{i,i}}$$</p>
-<p>E, portanto, para o nosso caso, com <span class="mathjax mathjax--inline">$i=1,..,n$</span> e <span class="mathjax mathjax--inline">$n=3$</span>:</p>
+<p>E, portanto, para o nosso caso, com <span class="mathjax mathjax--inline">$i=1,..,n$</span> e <span class="mathjax mathjax--inline">$n=9$</span>:</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
-c_1 &= \dfrac{F_1}{l_{1,1}} = \dfrac{0}{1183,768} = 0\\
-c_2 &= \dfrac{F_2 - l_{2,1} c_1}{l_{2,2}} = \dfrac{-10000 - (-599,132) \times 0}{591,8397} = −16,8965\\
-c_3 &= \dfrac{F_3 - \left( l_{3,1} c_1 + l_{3,2} c_2\right)}{l_{3,3}} = \dfrac{0 - \left( 599,132 \times 0 + (-591,8398) \times −16,8965\right)}{831,9095} = −12,0206
+c_1 &= \dfrac{F_1}{l_{1,1}} = \dfrac{−0,194809}{37,986} = −0,00512848\\
+c_2 &= \dfrac{F_2 - l_{2,1} c_1}{l_{2,2}} = \dfrac{-10000 - (-599,132) \times 0}{591,8397} = -0,01632709\\
+&\quad \vdots \\
+c_8 &= \dfrac{F_8 - \left( l_{8,1} c_1 + l_{8,2} c_2 + l_{8,3} c_3 + l_{8,4} c_4 + l_{8,5} c_5 + l_{8,6} c_6 + l_{8,7} c_7 \right)}{l_{8,8}} \\
+&\quad = \dfrac{−0,11116 - \left( 0 + 0 + 0 + 23,063 \times (−0,00368819) + (-12,775) \times (−0,03306891) + 0 + (-7,715) \times 0,0230523 \right)}{12,319} = -0,02183155 \\
+c_9 &= \dfrac{F_9 - \left( l_{9,1} c_1 + l_{9,2} c_2 + l_{9,3} c_3 + l_{9,4} c_4 + l_{9,5} c_5 + l_{9,6} c_6 + l_{9,7} c_7 + l_{9,8} c_8 \right)}{l_{9,9}}\\
+&\quad = \dfrac{0,780704 - \left( 0 + 0 + 0 + 0 + 0 + 0 + 8,909 \times 0,0230523 + (-14,319) \times (−0,02183155) \right)}{34,328} = 0,00765342
 \end{align}$$</p>
+<p>Calculando os demais valores:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{c} = \left\lbrace \begin{array}{c}
+ -0,00512848 \\ 
+ -0,01632709 \\ 
+  0,02129826 \\ 
+ -0,00368819 \\ 
+ -0,03306891 \\ 
+ -0,03039605 \\ 
+  0,0230523  \\ 
+ -0,02183155 \\ 
+  0,00765342
+\end{array} \right\rbrace$$</p>
 <p>A solução, então, dos deslocamentos <span class="mathjax mathjax--inline">$\textbf{U}$</span> pode ser calculada pela retrosubstituição em <span class="mathjax mathjax--inline">$\textbf{L}^T$</span>, sendo o útimo elemento de <span class="mathjax mathjax--inline">$\textbf{U}$</span> calculado como:</p>
 <p class="mathjax mathjax--block">$$
-U_n = \dfrac{c_n}{l_{n,n}}$$</p>
+U_n = \dfrac{c_n}{l^T_{n,n}}$$</p>
 <p>E os demais deslocamentos com <span class="mathjax mathjax--inline">$i=1,2,...,n-1$</span>:</p>
 <p class="mathjax mathjax--block">$$
-U_{n-i} = \dfrac{c_{n-i} - \displaystyle{\sum_{j=n-i+1}^n} \left( l_{n-i,j} U_j \right)}{l_{n-i,n-i}}$$</p>
-<p>E finalmente... chegamos aos valores dos deslocamentos (sendo <span class="mathjax mathjax--inline">$n=3$</span>), resolve-se do <span class="mathjax mathjax--inline">$U_3$</span> ao <span class="mathjax mathjax--inline">$U_1$</span>:</p>
+U_{n-i} = \dfrac{c_{n-i} - \displaystyle{\sum_{j=n-i+1}^n} \left( l^T_{n-i,j} U_j \right)}{l^T_{n-i,n-i}}$$</p>
+<p>E finalmente... chegamos aos valores dos deslocamentos (sendo <span class="mathjax mathjax--inline">$n=9$</span>), resolve-se do <span class="mathjax mathjax--inline">$U_9$</span> ao <span class="mathjax mathjax--inline">$U_1$</span>:</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
-U_1 &= \dfrac{c_{1} - \left( l_{1,2} U_2 + l_{1,3} U_3 \right)}{l_{1,1}} = \dfrac{0 - \left( -599,132 \times −0,042999 + 599,132 \times (−0,01445) \right)}{1183,768} = −0,01445\\
-U_2 &= \dfrac{c_{2} - \left( l_{2,3} U_3 \right)}{l_{2,2}} = \dfrac{-16,8965 - \left( (-591,8398) \times (−0,01445) \right)}{591,8397} = −0,042999\\
-U_3 &= \dfrac{c_3}{l_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
+U_9 &= \dfrac{c_9}{l^T_{9,9}} = \dfrac{0,00765342}{34,328} = 0,00022295\\
+U_8 &= \dfrac{c_8 - \left( l^T_{8,9} U_9 \right)}{l^T_{8,8}} = \dfrac{(−0,02183155) - \left[ (−14,319)  \times 0,00022295 \right]}{12,401} = −0,00150308\\
+&\quad \vdots \\
+U_2 &= \dfrac{c_2 - \left( l^T_{2,3} U_3 + l^T_{2,4} U_4 + l^T_{2,5} U_5 + l^T_{2,6} U_6 + l^T_{2,7} U_7 + l^T_{2,8} U_8 + l^T_{2,9} U_9 \right)}{l^T_{2,2}} \\
+&\quad = \dfrac{(−0,01632709) - \left( 3,275 \times 0,00066251 + (-13,946) \times 0,00108287 + (-24,155) \times (−0,00170581) + 0 + 10,672 \times 0,00059326 + 0 + 0 \right)}{24,155} = −0,00210843\\
+U_1 &= \dfrac{c_1 - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 + l^T_{1,4} U_4 + l^T_{1,5} U_5 + l^T_{1,6} U_6 + l^T_{1,7} U_7 + l^T_{1,8} U_8 + l^T_{12,9} U_9 \right)}{l^T_{1,1}}\\
+&\quad = \dfrac{(−0,00512848) - \left( 10,565 \times (−0,00210843) + (-7,487) \times 0,00066251 + (-6,1) \times 0,00108287 + (-10,565) \times (−0,00170581) + 0 + (-24,399) \times 0,00059326 + 0 + 0 \right)}{37,986}  = 0,00066251\\
 \end{align}$$</p>
-<p>Portanto:</p>
+<p>Portanto, resolvendo para todos os deslocamentos:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{U} = \left\lbrace \begin{array}{c}
-    −0,01445 \\
-    −0,042999 \\
-    −0,01445 
+  0,00066251 \\ 
+ -0,00210843 \\ 
+  0,00066251 \\ 
+  0,00108287 \\ 
+ -0,00170581 \\ 
+ -0,00088546 \\ 
+  0,00059326 \\ 
+ -0,00150308 \\ 
+  0,00022295
 \end{array} \right\rbrace$$</p>
+<hr />
+<p>veio daqui para frente!!!</p>
 <p>Agora, a treliça deslocou no nó 1, nos graus de liberdade 1 e 2 respectivamente <span class="mathjax mathjax--inline">$U_1 = -0,01445$</span> e <span class="mathjax mathjax--inline">$U_2 = -0,042999$</span>, e no nó 2, no grau de liberdade 3 <span class="mathjax mathjax--inline">$U_3 = -0,01445$</span>. Certo, mas deslocou o que? Metros? Centímetros? Quilômetros? O MEF <strong>não trabalha com unidades</strong>, portanto, todos os valores de entrada devem possuir unidades compatíveis para uso na formulação. Nossos dados de entrada foram: aço com módulo de elasticidade de <span class="mathjax mathjax--inline">$E = 200000 N/mm^2$</span>, o alumínio com módulo de elasticidade <span class="mathjax mathjax--inline">$E = 69000 N/mm^2$</span>, a área da seção transversal das barras de diâmetro de 113 mm de <span class="mathjax mathjax--inline">$A = 10030,05 mm^2$</span>, a carga F de 10.000 <span class="mathjax mathjax--inline">$N$</span> e os comprimentos de <span class="mathjax mathjax--inline">$L = 1000 mm$</span> e <span class="mathjax mathjax--inline">$L = 1414,21 mm$</span>. Esses dados foram definidos quando calculamos as matrizes de rigidez locais. A pergunta é: essas unidades são compatíveis? Vejamos, a carga está com a mesma unidade de força da elasticidade? Sim, <span class="mathjax mathjax--inline">$N$</span> (newtons). A área e as elasticidades possuem a mesma unidade de área? Sim, <span class="mathjax mathjax--inline">$mm^2$</span> (milímetros quadrados). Os comprimentos possuem unidade compatível com as áreas? Sim, estão definidos em <span class="mathjax mathjax--inline">$mm$</span>, a mesma unidade das áreas. Ou seja, sim, nossa análise possui unidades compatíveis, e portanto, o nosso deslocamento é dado em <span class="mathjax mathjax--inline">$mm$</span>, ou seja:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{U} = \left\lbrace \begin{array}{c}

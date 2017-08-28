@@ -7284,16 +7284,16 @@ c_3 &= \dfrac{F_3 - \left( l_{3,1} c_1 + l_{3,2} c_2\right)}{l_{3,3}} = \dfrac{0
 \end{align}$$</p>
 <p>A solução, então, dos deslocamentos <span class="mathjax mathjax--inline">$\textbf{U}$</span> pode ser calculada pela retrosubstituição em <span class="mathjax mathjax--inline">$\textbf{L}^T$</span>, sendo o útimo elemento de <span class="mathjax mathjax--inline">$\textbf{U}$</span> calculado como:</p>
 <p class="mathjax mathjax--block">$$
-U_n = \dfrac{c_n}{l_{n,n}}$$</p>
+U_n = \dfrac{c_n}{l^T_{n,n}}$$</p>
 <p>E os demais deslocamentos com <span class="mathjax mathjax--inline">$i=1,2,...,n-1$</span>:</p>
 <p class="mathjax mathjax--block">$$
-U_{n-i} = \dfrac{c_{n-i} - \displaystyle{\sum_{j=n-i+1}^n} \left( l_{n-i,j} U_j \right)}{l_{n-i,n-i}}$$</p>
+U_{n-i} = \dfrac{c_{n-i} - \displaystyle{\sum_{j=n-i+1}^n} \left( l^T_{n-i,j} U_j \right)}{l^T_{n-i,n-i}}$$</p>
 <p>E finalmente... chegamos aos valores dos deslocamentos (sendo <span class="mathjax mathjax--inline">$n=3$</span>), resolve-se do <span class="mathjax mathjax--inline">$U_3$</span> ao <span class="mathjax mathjax--inline">$U_1$</span>:</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
-U_1 &= \dfrac{c_{1} - \left( l_{1,2} U_2 + l_{1,3} U_3 \right)}{l_{1,1}} = \dfrac{0 - \left( -599,132 \times −0,042999 + 599,132 \times (−0,01445) \right)}{1183,768} = −0,01445\\
-U_2 &= \dfrac{c_{2} - \left( l_{2,3} U_3 \right)}{l_{2,2}} = \dfrac{-16,8965 - \left( (-591,8398) \times (−0,01445) \right)}{591,8397} = −0,042999\\
-U_3 &= \dfrac{c_3}{l_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
+U_1 &= \dfrac{c_{1} - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 \right)}{l^T_{1,1}} = \dfrac{0 - \left( -599,132 \times −0,042999 + 599,132 \times (−0,01445) \right)}{1183,768} = −0,01445\\
+U_2 &= \dfrac{c_{2} - \left( l^T_{2,3} U_3 \right)}{l^T_{2,2}} = \dfrac{-16,8965 - \left( (-591,8398) \times (−0,01445) \right)}{591,8397} = −0,042999\\
+U_3 &= \dfrac{c_3}{l^T_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
 \end{align}$$</p>
 <p>Portanto:</p>
 <p class="mathjax mathjax--block">$$
@@ -7596,10 +7596,10 @@ Ca_3 = \begin{array}{cc}
 \sigma_1 = E_1 \varepsilon_1 = 200000 \times 0,00000705 = 1,41 N/mm^2$$</p>
 <p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$E_2 = 69000 N/mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
-\sigma_2 = E_2 \varepsilon_2 = 69000 \times -0,00001445 = 0,99705 N/mm^2$$</p>
+\sigma_2 = E_2 \varepsilon_2 = 69000 \times -0,00001445 = -0,99705 N/mm^2$$</p>
 <p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$E_3 = 69000 N/mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
-\sigma_3 = E_3 \varepsilon_3 = 69000 \times -0,00001445 = 0,99705 N/mm^2$$</p>
+\sigma_3 = E_3 \varepsilon_3 = 69000 \times -0,00001445 = -0,99705 N/mm^2$$</p>
 <h3>Esforços nas Barras</h3>
 <p>E os esforços nas barras? Afinal, como é o caso de uma estrutura metálica as equações apresentadas pela norma se referem à esforços para o dimensionamento. É simples, não é uma barra de uma treliça, com tensões normais uniformes e constantes ao longo da barra? Pois bem, é só multiplicar a tensão pela área para obter o diagrama de esforços normais em cada barra da estrutura.</p>
 <p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$A_1 = 10030,05 mm^2$</span>)</p>
@@ -7607,12 +7607,12 @@ Ca_3 = \begin{array}{cc}
 N_1 = \sigma_1 A_1 = 1,41 \times 10030,05 = 14142,3705 N \quad \text{ou} \quad 14,14 kN$$</p>
 <p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$A_2 = 10030,05 mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
-N_2 = \sigma_2 A_2 = 0,99705 \times 10030,05 = 10000,461 N \quad \text{ou} \quad 10,0 kN$$</p>
+N_2 = \sigma_2 A_2 = -0,99705 \times 10030,05 = -10000,461 N \quad \text{ou} \quad -10,0 kN$$</p>
 <p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$A_3 = 10030,05 mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
-N_3 = \sigma_3 A_3 = 0,99705 \times 10030,05 = 10000,461 N \quad \text{ou} \quad 10,0 kN$$</p>
+N_3 = \sigma_3 A_3 = -0,99705 \times 10030,05 = -10000,461 N \quad \text{ou} \quad -10,0 kN$$</p>
 <blockquote>
-<p>E agora? Você arrisca tentar dimensionar essas barras circulares maciças da treliça? Ou está com medinho...</p>
+<p>O que significa a tensão com valor positivo? E as com valores negativos? E agora? Você arrisca tentar dimensionar essas barras circulares maciças da treliça? Ou está com medinho...</p>
 </blockquote>
 <p>Na mão é muito bom para entender os conceitos e procedimentos do método, mas um pouco demorado, não acha? Lembra da idéia de implementar um programinha para resolver treliças planas quaisquer? Vamos ver algumas formas de implementar a metodologia acima de maneira genérica usando python <a href="../../planetruss/implementacao.html">aqui</a>!</p>
 </p>

@@ -6,3 +6,6 @@ wget --recursive --convert-links --no-clobber --adjust-extension --page-requisit
 
 #renomear os links com localhost:8000 para relativos em todos os arquivos
 find . -type f -exec sed -i 's;http://localhost:8000/;/;g' {} +
+
+#limpar o cache do grav
+./bin/grav clear-cache --all
