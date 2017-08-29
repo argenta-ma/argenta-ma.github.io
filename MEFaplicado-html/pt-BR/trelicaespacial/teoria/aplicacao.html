@@ -5,6 +5,7 @@
     <title>Aplicação na mão | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../../feed:rss.html" title="RSS Feed" />
@@ -7674,68 +7675,105 @@ U_1 &= \dfrac{c_1 - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 + l^T_{1,4} U_4 + l^T_{
  -0,00150308 \\ 
   0,00022295
 \end{array} \right\rbrace$$</p>
-<hr />
-<p>veio daqui para frente!!!</p>
-<p>Agora, a treliça deslocou no nó 1, nos graus de liberdade 1 e 2 respectivamente <span class="mathjax mathjax--inline">$U_1 = -0,01445$</span> e <span class="mathjax mathjax--inline">$U_2 = -0,042999$</span>, e no nó 2, no grau de liberdade 3 <span class="mathjax mathjax--inline">$U_3 = -0,01445$</span>. Certo, mas deslocou o que? Metros? Centímetros? Quilômetros? O MEF <strong>não trabalha com unidades</strong>, portanto, todos os valores de entrada devem possuir unidades compatíveis para uso na formulação. Nossos dados de entrada foram: aço com módulo de elasticidade de <span class="mathjax mathjax--inline">$E = 200000 N/mm^2$</span>, o alumínio com módulo de elasticidade <span class="mathjax mathjax--inline">$E = 69000 N/mm^2$</span>, a área da seção transversal das barras de diâmetro de 113 mm de <span class="mathjax mathjax--inline">$A = 10030,05 mm^2$</span>, a carga F de 10.000 <span class="mathjax mathjax--inline">$N$</span> e os comprimentos de <span class="mathjax mathjax--inline">$L = 1000 mm$</span> e <span class="mathjax mathjax--inline">$L = 1414,21 mm$</span>. Esses dados foram definidos quando calculamos as matrizes de rigidez locais. A pergunta é: essas unidades são compatíveis? Vejamos, a carga está com a mesma unidade de força da elasticidade? Sim, <span class="mathjax mathjax--inline">$N$</span> (newtons). A área e as elasticidades possuem a mesma unidade de área? Sim, <span class="mathjax mathjax--inline">$mm^2$</span> (milímetros quadrados). Os comprimentos possuem unidade compatível com as áreas? Sim, estão definidos em <span class="mathjax mathjax--inline">$mm$</span>, a mesma unidade das áreas. Ou seja, sim, nossa análise possui unidades compatíveis, e portanto, o nosso deslocamento é dado em <span class="mathjax mathjax--inline">$mm$</span>, ou seja:</p>
-<p class="mathjax mathjax--block">$$
-\textbf{U} = \left\lbrace \begin{array}{c}
-    −0,01445 mm \\
-    −0,042999 mm \\
-    −0,01445 mm
-\end{array} \right\rbrace$$</p>
+<p>Lembra em que unidade de comprimento estamos trabalhando? A treliça deslocou no nó 1, nos graus de liberdade 1, 2 e 3 respectivamente <span class="mathjax mathjax--inline">$U_1 = 0,00066251$</span>, <span class="mathjax mathjax--inline">$U_2 = -0,00210843$</span> e <span class="mathjax mathjax--inline">$U_3 = 0,00066251$</span>. Certo, mas deslocou o que? Metros? Centímetros? Quilômetros? De novo, o MEF <strong>não trabalha com unidades</strong>, portanto, todos os valores de entrada devem possuir unidades compatíveis para uso na formulação. Nossos dados de entrada foram: aço com módulo de elasticidade de <span class="mathjax mathjax--inline">$E = 200000 kN/cm^2$</span>, a área da seção transversal das barras em <span class="mathjax mathjax--inline">$cm^2$</span>, as cargas em <span class="mathjax mathjax--inline">$kN$</span> e os comprimentos em <span class="mathjax mathjax--inline">$cm$</span>, portanto os deslocamentos no vetor <span class="mathjax mathjax--inline">$\textbf{U}$</span> estão em <span class="mathjax mathjax--inline">$cm$</span>.</p>
 <blockquote>
-<p>Por que esses valores deram negativos? Lembra das direções que impomos aos graus de liberdade globais, definidas nos sentidos positivos dos eixos <span class="mathjax mathjax--inline">$X$</span> e <span class="mathjax mathjax--inline">$Y$</span>, então, se o deslocamento desse positivo, significa que sua direção seria a mesma do grau de liberdade, no caso como deu negativo, significa que a direção do deslocamento é oposta à do grau de liberdade. Em outras palavras, o nó 2 da estrutura vem para baixo e o nó 1 da estrutura vem para baixo e para a esquerda.</p>
+<p>Você consegue visualizar a configuração deformada da estrutura? Para que posição os nós se moveram? Seria mais ou menos como na figura a seguir, que está fora de escala para melhor visualização.</p>
 </blockquote>
-<p><img src="http://localhost:8000/trelicaespacial/teoria/aplicacao/imagens/Trelica3barrasDesl.svg" alt="Deslocamentos" title="Deslocamentos" />
+<p><img title="Deslocamentos" alt="Deslocamentos" src="../../../user/pages/02.trelicaespacial/01.teoria/01.aplicacao/imagens/ModuloTrelicaEspacialDesl.svg" />
 <small>Deslocamentos.</small></p>
 <h3 id="clculo-das-reaes-de-apoio" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#clculo-das-reaes-de-apoio" title="Permanent link: Cálculo das reações de apoio" data-icon="#">Cálculo das reações de apoio</a></h3>
-<p>Com os deslocamentos calculados, podemos utilizar a separação de variáveis que foi feita com a matriz de rigidez e os vetores de deslocamentos e forças nodais para calcular as reações de apoio.</p>
+<p>Com os deslocamentos calculados, podemos utilizar a separação de variáveis que foi feita nos vetores de deslocamentos e forças nodais para calcular as reações de apoio usando ma matriz <span class="mathjax mathjax--inline">$\textbf{K}_R$</span></p>
 <p class="mathjax mathjax--block">$$
 \left\lbrace \begin{array}{c}
-    R_4 \\
-    R_5 \\
-    R_6 \\
-\end{array} \right\rbrace = \left[ \begin{array}{ccc}
-         -709233,42 & 709233,42 & -709233,42  \\
-         -692073,45 & 0 & 0  \\
-         0 & 0 & -692073,45   \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace = \left[ \begin{array}{ccccccccc}
+    0  &     0  &     0  &   -71,1019332  & -123,1485483  &  -142,2038664  &     0  &     0  &    0 \\
+    0  &     0  &     0  &  -123,1485483  & -213,29328566 &  -246,2970966  &     0  &     0  &    0 \\
+    0  &     0  & -1178,4 &  -142,2038664  & -246,2970966  &  -284,4077328  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   -71,1019332  &   123,1485483  & -142,2038664 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   123,1485483  &  -213,29328566 &  246,2970966 \\
+    0  &     0  &     0  &     0  &    0  & -1178,4 &  -142,2038664  &   246,2970966  & -284,4077328 \\
+ -284,39834739 &     0  &   284,39834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &     0  &     0  &    0 \\
+  284,39834739 &     0  &  -284,39834739 &     0  &    0  &     0  &     0  &     0  &-1178,4\\ \right]  \left\lbrace \begin{array}{c}
     U_1 \\
     U_2 \\
     U_3 \\
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
 \end{array} \right\rbrace$$</p>
 <p>Substituindo os valores dos deslocamentos.</p>
 <p class="mathjax mathjax--block">$$
 \left\lbrace \begin{array}{c}
-    R_4 \\
-    R_5 \\
-    R_6 \\
-\end{array} \right\rbrace = \left[ \begin{array}{ccc}
-         -709233,42 & 709233,42 & -709233,42  \\
-         -692073,45 & 0 & 0  \\
-         0 & 0 & -692073,45   \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    −0,01445 \\
-    −0,042999 \\
-    −0,01445 
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace = \left[ \begin{array}{ccccccccc}
+    0  &     0  &     0  &   -71,1019332  & -123,1485483  &  -142,2038664  &     0  &     0  &    0 \\
+    0  &     0  &     0  &  -123,1485483  & -213,29328566 &  -246,2970966  &     0  &     0  &    0 \\
+    0  &     0  & -1178,4 &  -142,2038664  & -246,2970966  &  -284,4077328  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   -71,1019332  &   123,1485483  & -142,2038664 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   123,1485483  &  -213,29328566 &  246,2970966 \\
+    0  &     0  &     0  &     0  &    0  & -1178,4 &  -142,2038664  &   246,2970966  & -284,4077328 \\
+ -284,39834739 &     0  &   284,39834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &     0  &     0  &    0 \\
+  284,39834739 &     0  &  -284,39834739 &     0  &    0  &     0  &     0  &     0  &-1178,4\\ \right]  \left\lbrace \begin{array}{c}
+  0,00066251 \\ 
+ -0,00210843 \\ 
+  0,00066251 \\ 
+  0,00108287 \\ 
+ -0,00170581 \\ 
+ -0,00088546 \\ 
+  0,00059326 \\ 
+ -0,00150308 \\ 
+  0,00022295
 \end{array} \right\rbrace$$</p>
 <p>E, portanto, após a multiplicação da porção da matriz de rigidez pelo vetor de deslocamentos nodais, chegamos à:</p>
 <p class="mathjax mathjax--block">$$
 \left\lbrace \begin{array}{c}
-    R_4 \\
-    R_5 \\
-    R_6 \\
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
 \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    −9999,482 \\
-    10000,461\\
-    10000,461 
+   0,25899 \\
+   0,44857 \\
+  -0,26273 \\
+  -0,25899 \\
+   0,44857 \\
+   0,52545 \\
+  -0,00000047 \\
+   0 \\
+  -0,26272 \\
 \end{array} \right\rbrace$$</p>
-<p>Ou seja, as reações de apoio nos graus de liberdade 4 do nó 2, 5 e 6 do nó 3 valem respectivamente <span class="mathjax mathjax--inline">$R_4 = −9999,482 N$</span>, <span class="mathjax mathjax--inline">$R_5 = 10000,461 N$</span> e <span class="mathjax mathjax--inline">$R_6 = 10000,461 N$</span>, que significam tração no nó 4 (sentido oposto ao do grau de liberdade) e compressão nos sós 5 e 6.</p>
-<blockquote>
-<p>A unidade você já sabe o porque. Mas, não deveriam ser 10000, -10000 e 10000 respectivamente? Por que ficou aproximado? Por que o MEF é um método de solução <strong>aproximado</strong>, e a aproximação depende muito de como foi formulado o problema em relação aos refinos, tanto de malha, quanto das funções de forma. Em outras palavras e de forma muito superficial, se você utilizar mais elementos ou aumentar o grau do polinômio das funções de forma, você terá melhores aproximações. É, não é bem assim existem outros fatores que influênciam na aproximação do resultado, mas por enquanto está valendo.</p>
-</blockquote>
+<p>Ou seja, 0,25899 kN na direção x do nó 4, grau de liberdade 10, 0,44857 kN na direção y do nó 4, grau de liberdade 11, -0,26273 kN na direção z do nó 4, ou seja, sentido oposto ao grau de liberdade 12, e assim por diante.</p>
 <h3 id="tenses-nas-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#tenses-nas-barras" title="Permanent link: Tensões nas barras" data-icon="#">Tensões nas barras</a></h3>
-<p>A determinação das tensões nas barras é feita no elemento original, no sistema local, sem nenhuma rotação para compatibilização dos sistemas dos graus de liberdade, ou seja, primeiro precisamos escrever os deslocamentos da estrutura como deslocamentos em cada elemento. Para isso, vamos desacoplar o vetor de deslocamentos nodais e escrever um vetor de deslocamentos gloais (total, inclusive com os deslocamentos restringidos pelos apoios) para cada elemento chamados de <span class="mathjax mathjax--inline">$\textbf{u}_{1g}$</span>, <span class="mathjax mathjax--inline">$\textbf{u}_{2g}$</span> e <span class="mathjax mathjax--inline">$\textbf{u}_{3g}$</span> para os elementos 1, 2 e 3 respectivamente.</p>
+<p>A determinação das tensões nas barras é feita no elemento original, no sistema local, sem nenhuma rotação para compatibilização dos sistemas dos graus de liberdade, ou seja, primeiro precisamos escrever os deslocamentos da estrutura como deslocamentos em cada elemento. Para isso, vamos desacoplar o vetor de deslocamentos nodais e escrever um vetor de deslocamentos globais (total, inclusive com os deslocamentos restringidos pelos apoios) para cada elemento chamados de <span class="mathjax mathjax--inline">$\textbf{u}_{1g}$</span>, <span class="mathjax mathjax--inline">$\textbf{u}_{2g}$</span> e <span class="mathjax mathjax--inline">$\textbf{u}_{3g}$</span> para os elementos 1, 2 e 3 respectivamente.</p>
+<hr />
+<p>Continuar aqui!!!</p>
 <p>Essa montagem é feita utilizando a regra da correspondência aplicando-se o carteiro ao contrário, agora os valores do carteiro irão corresponder às linhas e colunas do vetor de deslocamentos da estrutura e as linhas e colunas do carteiro às linhas e colunas dos vetores de deslocamentos globais dos elementos. Lembra dos carteiros para cada elemento?</p>
 <p class="mathjax mathjax--block">$$
 Ca_1 = \begin{array}{cc}
