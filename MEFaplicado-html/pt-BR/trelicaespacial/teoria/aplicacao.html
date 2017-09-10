@@ -5,7 +5,6 @@
     <title>Aplicação na mão | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../../feed:rss.html" title="RSS Feed" />
@@ -6764,7 +6763,7 @@ $(document).ready(function() {
 <small>Parte do módulo da torre.</small></p>
 <nav class="table-of-contents toc" role="navigation">
   
-                                                                                                          
+                                                                                                    
   <ul>
       
         
@@ -6828,10 +6827,6 @@ $(document).ready(function() {
         
         
               <li><a href="aplicacao.html#tenses-nas-barras" class="toclink" title="Tensões nas barras">Tensões nas barras</a></li>
-      
-        
-        
-              <li><a href="aplicacao.html#esforos-nas-barras" class="toclink" title="Esforços nas Barras">Esforços nas Barras</a></li>
       
     
   </ul>
@@ -7628,22 +7623,22 @@ c_1 &= \dfrac{F_1}{l_{1,1}} = \dfrac{−0,194809}{37,986} = −0,00512848\\
 c_2 &= \dfrac{F_2 - l_{2,1} c_1}{l_{2,2}} = \dfrac{-10000 - (-599,132) \times 0}{591,8397} = -0,01632709\\
 &\quad \vdots \\
 c_8 &= \dfrac{F_8 - \left( l_{8,1} c_1 + l_{8,2} c_2 + l_{8,3} c_3 + l_{8,4} c_4 + l_{8,5} c_5 + l_{8,6} c_6 + l_{8,7} c_7 \right)}{l_{8,8}} \\
-&\quad = \dfrac{−0,11116 - \left( 0 + 0 + 0 + 23,063 \times (−0,00368819) + (-12,775) \times (−0,03306891) + 0 + (-7,715) \times 0,0230523 \right)}{12,319} = -0,02183155 \\
+&\quad = \dfrac{−0,11116 - \left( 0 + 0 + 0 + 23,063 \times (−0,00368819) + (-12,775) \times (−0,03306891) + 0 + (-7,715) \times 0,06057446 \right)}{12,319} = -0,03131827 \\
 c_9 &= \dfrac{F_9 - \left( l_{9,1} c_1 + l_{9,2} c_2 + l_{9,3} c_3 + l_{9,4} c_4 + l_{9,5} c_5 + l_{9,6} c_6 + l_{9,7} c_7 + l_{9,8} c_8 \right)}{l_{9,9}}\\
-&\quad = \dfrac{0,780704 - \left( 0 + 0 + 0 + 0 + 0 + 0 + 8,909 \times 0,0230523 + (-14,319) \times (−0,02183155) \right)}{34,328} = 0,00765342
+&\quad = \dfrac{-0,780704 - \left( 0 + 0 + 0 + 0 + 0 + 0 + 8,909 \times 0,00780387 + (-14,319) \times (-0,03131827) \right)}{34,328} = -0,03783177
 \end{align}$$</p>
 <p>Calculando os demais valores:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{c} = \left\lbrace \begin{array}{c}
- -0,00512848 \\ 
- -0,01632709 \\ 
-  0,02129826 \\ 
- -0,00368819 \\ 
- -0,03306891 \\ 
- -0,03039605 \\ 
-  0,0230523  \\ 
- -0,02183155 \\ 
-  0,00765342
+    -0,00512848\\ 
+    -0,01632709\\ 
+    -0,02049158\\ 
+    -0,00368819\\ 
+    -0,03306891\\
+     0,06057446\\ 
+     0,00780387\\ 
+    -0,03131827\\ 
+    -0,03783177
 \end{array} \right\rbrace$$</p>
 <p>A solução, então, dos deslocamentos <span class="mathjax mathjax--inline">$\textbf{U}$</span> pode ser calculada pela retrosubstituição em <span class="mathjax mathjax--inline">$\textbf{L}^T$</span>, sendo o útimo elemento de <span class="mathjax mathjax--inline">$\textbf{U}$</span> calculado como:</p>
 <p class="mathjax mathjax--block">$$
@@ -7654,28 +7649,28 @@ U_{n-i} = \dfrac{c_{n-i} - \displaystyle{\sum_{j=n-i+1}^n} \left( l^T_{n-i,j} U_
 <p>E finalmente... chegamos aos valores dos deslocamentos (sendo <span class="mathjax mathjax--inline">$n=9$</span>), resolve-se do <span class="mathjax mathjax--inline">$U_9$</span> ao <span class="mathjax mathjax--inline">$U_1$</span>:</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
-U_9 &= \dfrac{c_9}{l^T_{9,9}} = \dfrac{0,00765342}{34,328} = 0,00022295\\
-U_8 &= \dfrac{c_8 - \left( l^T_{8,9} U_9 \right)}{l^T_{8,8}} = \dfrac{(−0,02183155) - \left[ (−14,319)  \times 0,00022295 \right]}{12,401} = −0,00150308\\
+U_9 &= \dfrac{c_9}{l^T_{9,9}} = \dfrac{-0,03783177}{34,328} = -0,00110207\\
+U_8 &= \dfrac{c_8 - \left( l^T_{8,9} U_9 \right)}{l^T_{8,8}} = \dfrac{(-0,03131827) - \left[ (−14,319)  \times (-0,00110207) \right]}{12,401} = -0,00379816\\
 &\quad \vdots \\
 U_2 &= \dfrac{c_2 - \left( l^T_{2,3} U_3 + l^T_{2,4} U_4 + l^T_{2,5} U_5 + l^T_{2,6} U_6 + l^T_{2,7} U_7 + l^T_{2,8} U_8 + l^T_{2,9} U_9 \right)}{l^T_{2,2}} \\
-&\quad = \dfrac{(−0,01632709) - \left( 3,275 \times 0,00066251 + (-13,946) \times 0,00108287 + (-24,155) \times (−0,00170581) + 0 + 10,672 \times 0,00059326 + 0 + 0 \right)}{24,155} = −0,00210843\\
+&\quad = \dfrac{(−0,01632709) - \left( 3,275 \times (-0,00066251) + (-13,946) \times (-0,00024215) + (-24,155) \times (-0,00400089) + 0 + 10,672 \times -0,00073176 + 0 + 0 \right)}{24,155} = -0,00440351\\
 U_1 &= \dfrac{c_1 - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 + l^T_{1,4} U_4 + l^T_{1,5} U_5 + l^T_{1,6} U_6 + l^T_{1,7} U_7 + l^T_{1,8} U_8 + l^T_{12,9} U_9 \right)}{l^T_{1,1}}\\
-&\quad = \dfrac{(−0,00512848) - \left( 10,565 \times (−0,00210843) + (-7,487) \times 0,00066251 + (-6,1) \times 0,00108287 + (-10,565) \times (−0,00170581) + 0 + (-24,399) \times 0,00059326 + 0 + 0 \right)}{37,986}  = 0,00066251\\
+&\quad = \dfrac{(−0,00512848) - \left( 10,565 \times (-0,00440351) + (-7,487) \times (-0,00066251) + (-6,1) \times (-0,00024215) + (-10,565) \times 0,00400089 + 0 + (-24,399) \times (-0,00073176) + 0 + 0 \right)}{37,986}  = -0,00066251\\
 \end{align}$$</p>
 <p>Portanto, resolvendo para todos os deslocamentos:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{U} = \left\lbrace \begin{array}{c}
-  0,00066251 \\ 
- -0,00210843 \\ 
-  0,00066251 \\ 
-  0,00108287 \\ 
- -0,00170581 \\ 
- -0,00088546 \\ 
-  0,00059326 \\ 
- -0,00150308 \\ 
-  0,00022295
+ -0,00066251\\ 
+ -0,00440351\\ 
+ -0,00066251\\ 
+ -0,00024215\\ 
+ -0,00400089\\ 
+  0,00176459\\ 
+ -0,00073176\\ 
+ -0,00379816\\ 
+ -0,00110207
 \end{array} \right\rbrace$$</p>
-<p>Lembra em que unidade de comprimento estamos trabalhando? A treliça deslocou no nó 1, nos graus de liberdade 1, 2 e 3 respectivamente <span class="mathjax mathjax--inline">$U_1 = 0,00066251$</span>, <span class="mathjax mathjax--inline">$U_2 = -0,00210843$</span> e <span class="mathjax mathjax--inline">$U_3 = 0,00066251$</span>. Certo, mas deslocou o que? Metros? Centímetros? Quilômetros? De novo, o MEF <strong>não trabalha com unidades</strong>, portanto, todos os valores de entrada devem possuir unidades compatíveis para uso na formulação. Nossos dados de entrada foram: aço com módulo de elasticidade de <span class="mathjax mathjax--inline">$E = 200000 kN/cm^2$</span>, a área da seção transversal das barras em <span class="mathjax mathjax--inline">$cm^2$</span>, as cargas em <span class="mathjax mathjax--inline">$kN$</span> e os comprimentos em <span class="mathjax mathjax--inline">$cm$</span>, portanto os deslocamentos no vetor <span class="mathjax mathjax--inline">$\textbf{U}$</span> estão em <span class="mathjax mathjax--inline">$cm$</span>.</p>
+<p>Lembra em que unidade de comprimento estamos trabalhando? A treliça deslocou no nó 1, nos graus de liberdade 1, 2 e 3 respectivamente <span class="mathjax mathjax--inline">$U_1 = -0,00066251$</span>, <span class="mathjax mathjax--inline">$U_2 = -0,00440351$</span> e <span class="mathjax mathjax--inline">$U_3 = -0,00066251$</span>. Certo, mas deslocou o que? Metros? Centímetros? Quilômetros? De novo, o MEF <strong>não trabalha com unidades</strong>, portanto, todos os valores de entrada devem possuir unidades compatíveis para uso na formulação. Nossos dados de entrada foram: aço com módulo de elasticidade de <span class="mathjax mathjax--inline">$E = 200000 kN/cm^2$</span>, a área da seção transversal das barras em <span class="mathjax mathjax--inline">$cm^2$</span>, as cargas em <span class="mathjax mathjax--inline">$kN$</span> e os comprimentos em <span class="mathjax mathjax--inline">$cm$</span>, portanto os deslocamentos no vetor <span class="mathjax mathjax--inline">$\textbf{U}$</span> estão em <span class="mathjax mathjax--inline">$cm$</span>.</p>
 <blockquote>
 <p>Você consegue visualizar a configuração deformada da estrutura? Para que posição os nós se moveram? Seria mais ou menos como na figura a seguir, que está fora de escala para melhor visualização.</p>
 </blockquote>
@@ -7738,15 +7733,15 @@ U_1 &= \dfrac{c_1 - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 + l^T_{1,4} U_4 + l^T_{
     0  &     0  &     0  &     0  &    0  &     0  &     0  &     0  &    0 \\
   284,39834739 &     0  &  -284,39834739 &     0  &    0  &     0  &     0  &     0  &-1178,4\\
 \end{array} \right]  \left\lbrace \begin{array}{c}
-  0,00066251 \\ 
- -0,00210843 \\ 
-  0,00066251 \\ 
-  0,00108287 \\ 
- -0,00170581 \\ 
- -0,00088546 \\ 
-  0,00059326 \\ 
- -0,00150308 \\ 
-  0,00022295
+ -0,00066251\\ 
+ -0,00440351\\ 
+ -0,00066251\\ 
+ -0,00024215\\ 
+ -0,00400089\\ 
+  0,00176459\\ 
+ -0,00073176\\ 
+ -0,00379816\\ 
+ -0,00110207
 \end{array} \right\rbrace$$</p>
 <p>E, portanto, após a multiplicação da porção da matriz de rigidez pelo vetor de deslocamentos nodais, chegamos à:</p>
 <p class="mathjax mathjax--block">$$
@@ -7761,274 +7756,22 @@ U_1 &= \dfrac{c_1 - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 + l^T_{1,4} U_4 + l^T_{
     R_{17} \\
     R_{18} \\
 \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-   0,25899 \\
-   0,44857 \\
-  -0,26273 \\
-  -0,25899 \\
-   0,44857 \\
-   0,52545 \\
-  -0,00000047 \\
-   0 \\
-  -0,26272 \\
+     0,259 \\ 
+     0,4486\\ 
+     1,2987\\ 
+    -0,259 \\ 
+     0,4486\\ 
+    -2,5974\\ 
+    -0    \\
+     0    \\ 
+     1,2987
 \end{array} \right\rbrace$$</p>
-<p>Ou seja, 0,25899 kN na direção x do nó 4, grau de liberdade 10, 0,44857 kN na direção y do nó 4, grau de liberdade 11, -0,26273 kN na direção z do nó 4, ou seja, sentido oposto ao grau de liberdade 12, e assim por diante.</p>
+<p>Ou seja, 0,259 kN na direção x do nó 4, grau de liberdade 10, 0,44857 kN na direção y do nó 4, grau de liberdade 11, 1,2987 kN na direção z do nó 4, ou seja, sentido oposto ao grau de liberdade 12, e assim por diante.</p>
 <h3 id="tenses-nas-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#tenses-nas-barras" title="Permanent link: Tensões nas barras" data-icon="#">Tensões nas barras</a></h3>
 <p>A determinação das tensões nas barras é feita no elemento original, no sistema local, sem nenhuma rotação para compatibilização dos sistemas dos graus de liberdade, ou seja, primeiro precisamos escrever os deslocamentos da estrutura como deslocamentos em cada elemento. Para isso, vamos desacoplar o vetor de deslocamentos nodais e escrever um vetor de deslocamentos globais (total, inclusive com os deslocamentos restringidos pelos apoios) para cada elemento chamados de <span class="mathjax mathjax--inline">$\textbf{u}_{1g}$</span>, <span class="mathjax mathjax--inline">$\textbf{u}_{2g}$</span> e <span class="mathjax mathjax--inline">$\textbf{u}_{3g}$</span> para os elementos 1, 2 e 3 respectivamente.</p>
-<hr />
-<p>Continuar aqui!!!</p>
-<p>Essa montagem é feita utilizando a regra da correspondência aplicando-se o carteiro ao contrário, agora os valores do carteiro irão corresponder às linhas e colunas do vetor de deslocamentos da estrutura e as linhas e colunas do carteiro às linhas e colunas dos vetores de deslocamentos globais dos elementos. Lembra dos carteiros para cada elemento?</p>
-<p class="mathjax mathjax--block">$$
-Ca_1 = \begin{array}{cc}
-    \left\lbrace \begin{array}{c}
-    1\\
-    2 \\
-    4\\
-    3 \end{array} \right\rbrace &
-\begin{array}{c}
-    1 \\
-    2 \\
-    3 \\
-    4 \\
-\end{array}
-\end{array}
-\quad 
-Ca_2 = \begin{array}{cc}
-    \left\lbrace \begin{array}{c}
-    5\\
-    6 \\
-    4\\
-    3 \end{array} \right\rbrace &
-\begin{array}{c}
-    1 \\
-    2 \\
-    3 \\
-    4 \\
-\end{array}
-\end{array}
-\quad
-Ca_3 = \begin{array}{cc}
-    \left\lbrace \begin{array}{c}
-    5\\
-    6 \\
-    1\\
-    2 \end{array} \right\rbrace &
-\begin{array}{c}
-    1 \\
-    2 \\
-    3 \\
-    4 \\
-\end{array}
-\end{array}$$</p>
 <blockquote>
-<p>Aplicar o carteiro ao contrário significar que o grau de liberdade definido no carteiro vira o grau de liberdade do elemento no sistema global do número da linha do carteiro relativa. Por exemplo, no carteiro 2, do elemento 2, os graus de liberdade globais 5, 6, 4 e 3 definidos no carteiro, que são os globais da estrutura, viram os graus de liberdade 1, 2, 3 e 4 respectivamente no elemento 2 no sistema global.</p>
+<p>Saberia fazer isso??</p>
 </blockquote>
-<p>Portanto, sendo o vetor de deslocamentos da estrutura igual a:</p>
-<p class="mathjax mathjax--block">$$
-\textbf{U} = \begin{array}{cc}
-\left\lbrace \begin{array}{c}
-    −0,01445 mm \\
-    −0,042999 mm \\
-    −0,01445 mm \\
-    0 \\
-    0 \\
-    0
-\end{array} \right\rbrace & \begin{array}{c}
-    1 \\
-    2 \\
-    3 \\
-    4 \\
-    5 \\
-    6 \\
-\end{array}
-\end{array}$$</p>
-<p>Os vetores de deslocamentos dos elementos no sistema global resultam em:</p>
-<p class="mathjax mathjax--block">$$
-\textbf{u}_{1g} = \begin{array}{cc}
-    \left\lbrace \begin{array}{c}
-    −0,01445 \\
-    −0,042999 \\
-    0 \\
-    −0,01445 \\ \end{array} \right\rbrace &
-\begin{array}{c}
-    1 \\
-    2 \\
-    4 \\
-    3 \\
-\end{array}
-\end{array}
-\quad 
-\textbf{u}_{2g} = \begin{array}{cc}
-    \left\lbrace \begin{array}{c}
-    0\\
-    0 \\
-    0\\
-    −0,01445 \end{array} \right\rbrace &
-\begin{array}{c}
-    5 \\
-    6 \\
-    4 \\
-    3 \\
-\end{array}
-\end{array}
-\quad
-\textbf{u}_{3g} = \begin{array}{cc}
-    \left\lbrace \begin{array}{c}
-    0\\
-    0 \\
-    −0,01445 \\
-    −0,042999 \end{array} \right\rbrace &
-\begin{array}{c}
-    5 \\
-    6 \\
-    1 \\
-    2 \\
-\end{array}
-\end{array}$$</p>
-<p>Esses são os deslocamentos dos elementos no sistema global. Precisamos transformá-los para o sistema local dos elementos. Essa transformação nada mais é que uma simples rotação dos vetores dos deslocamentos globais dos elementos para uma nova orientação respectiva aos eixos locais dos elementos, ou, mais simples ainda, uma decomposição dos vetores dos deslocamentos globais dos elementos nas direções dos eixos locais dos elementos.</p>
-<p>Vamos utilizar o mesmo procedimento que utilizamos para a definição das matrizes de rigidez globais dos elementos, mas ao contrário. Vamos aplicar a inversa da matriz de rotação (definida na teoria <a href="../teoria.html#matriz-de-rigidez-no-sistema...">aqui</a>) que para nossa alegria é igual a sua transposta.</p>
-<p class="mathjax mathjax--block">$$
-\textbf{R}^{-1} = \textbf{R}^T = \left[ 
-\begin{array}{cccc}
-    cos \theta & sen \theta & 0 & 0\\
-    -sen \theta & cos \theta & 0 & 0 \\
-    0 & 0 & cos \theta & sen \theta\\
-    0 & 0 & -sen \theta & cos \theta \\
-\end{array} \right]$$</p>
-<p>Porém, nos vamos adaptar essa matriz de rotação para o caso do elemento de treliça, já que, no sistema local, apenas nos interessam os graus de liberdade axiais, final é uma treliça, não desloca transversalmente, zerando os elementos das linhas correspondentes aos graus de liberdade transversais, ou seja:</p>
-<p class="mathjax mathjax--block">$$
-\textbf{R}^{-1} = \textbf{R}^T = \left[ 
-\begin{array}{cccc}
-    cos \theta & sen \theta & 0 & 0\\
-    0 & 0 & 0 & 0 \\
-    0 & 0 & cos \theta & sen \theta\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right]$$</p>
-<blockquote>
-<p>Malandragem? Sim, mas funciona... Não deveria sair automático? Pois é, a algebra linear não sabe que é um elemento de treliça e que deve somente ter resultados nos graus de liberdade axiais, ela vai rotacionar o vetor ou decompor as componentes na nova direção, sejam elas quem forem. Por consequência, se não utilizassemos esse artifício, teríamos valores nos graus de liberdade locais transversais ao elemento que existem matematicamente de fato, mas fisicamente não significam nada.</p>
-</blockquote>
-<p>Então, calculamos a rotação reversa dos vetores dos deslocamentos globais para a determinação dos vetores dos deslocamentos dos elementos no sistema local (<span class="mathjax mathjax--inline">$\textbf{u}_1$</span>, <span class="mathjax mathjax--inline">$\textbf{u}_2$</span> e <span class="mathjax mathjax--inline">$\textbf{u}_3$</span>) como:</p>
-<p><strong>Elemento 1</strong>: <span class="mathjax mathjax--inline">$\theta = 135^o$</span> (<span class="mathjax mathjax--inline">$cos 135^o = -\frac{\sqrt{2}}{2}$</span>, <span class="mathjax mathjax--inline">$sen 135^o = \frac{\sqrt{2}}{2}$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\textbf{u}_1 = \left[ 
-\begin{array}{cccc}
-    -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} & 0 & 0\\
-    0 & 0 & 0 & 0 \\
-    0 & 0 & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2}\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right] \left\lbrace \begin{array}{c}
-    −0,01445 \\
-    −0,042999 \\
-    0 \\
-    −0,01445 \\ \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    −0,02019 \\
-    0 \\
-    −0,01022 \\
-    0 \\ \end{array} \right\rbrace \equiv \left\lbrace \begin{array}{c}
-    −0,02019 \\
-    −0,01022 \\
-\end{array} \right\rbrace$$</p>
-<p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\textbf{u}_2 = \left[ 
-\begin{array}{cccc}
-    0 & 1 & 0 & 0\\
-    0 & 0 & 0 & 0 \\
-    0 & 0 & 0 & 1\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right] \left\lbrace \begin{array}{c}
-    0\\
-    0 \\
-    0\\
-    −0,01445 \\ \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    0 \\
-    0 \\
-    −0,01445 \\
-    0 \\ \end{array} \right\rbrace \equiv \left\lbrace \begin{array}{c}
-    0 \\
-    −0,01445 \\
-    \end{array} \right\rbrace$$</p>
-<p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\textbf{u}_3 = \left[ 
-\begin{array}{cccc}
-    1 & 0 & 0 & 0\\
-    0 & 0 & 0 & 0 \\
-    0 & 0 & 1 & 0\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right] \left\lbrace \begin{array}{c}
-    0\\
-    0 \\
-    −0,01445 \\
-    −0,042999 \\ \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    0 \\
-    0 \\
-    −0,01445 \\
-    0 \\ \end{array} \right\rbrace \equiv \left\lbrace \begin{array}{c}
-    0 \\
-    −0,01445 \\
-    \end{array} \right\rbrace$$</p>
-<p>Definidos os deslocamentos dos elementos, com os resultados já com os graus de liberdade transversais eliminados do vetor de deslocamentos, precisamos determinar as suas deformações. Para tal vamos utilizar a equação que determina as deformações com as premissas do MEF.</p>
-<p class="mathjax mathjax--block">$$
-\varepsilon = \textbf{B} \textbf{u} = \left[ 
-\begin{array}{cc}
-    - \dfrac{1}{L} & \dfrac{1}{L} \\ 
-\end{array} \right] = \left\lbrace \begin{array}{c}
-    u_1 \\
-    u_2
-\end{array} \right\rbrace$$</p>
-<p>Portanto, as deformações para cada elemento no sistema local ficam:</p>
-<p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$L_1 = 1414,21mm$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\varepsilon_1 = \textbf{B} \textbf{u} = \left[ 
-\begin{array}{cc}
-    - \dfrac{1}{1414,21} & \dfrac{1}{1414,21} \\ 
-\end{array} \right] \left\lbrace \begin{array}{c}
-    −0,02019 \\
-    −0,01022 \\
-\end{array} \right\rbrace = 0,00000705$$</p>
-<p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$L_2 = 1000mm$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\varepsilon_2 = \textbf{B} \textbf{u} = \left[ 
-\begin{array}{cc}
-    - \dfrac{1}{1000} & \dfrac{1}{1000} \\ 
-\end{array} \right] \left\lbrace \begin{array}{c}
-    0 \\
-    −0,01445 \\
-    \end{array} \right\rbrace = -0,00001445$$</p>
-<p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$L_3 = 1000mm$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\varepsilon_3 = \textbf{B} \textbf{u} = \left[ 
-\begin{array}{cc}
-    - \dfrac{1}{1000} & \dfrac{1}{1000} \\ 
-\end{array} \right] \left\lbrace \begin{array}{c}
-    0 \\
-    −0,01445 \\
-    \end{array} \right\rbrace = -0,00001445$$</p>
-<p>E, por fim, para calcular as tensões basta utilizar a equação constitutiva do material das barras da treliça definidos para cada elemento.</p>
-<p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$E_1 = 200000 N/mm^2$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\sigma_1 = E_1 \varepsilon_1 = 200000 \times 0,00000705 = 1,41 N/mm^2$$</p>
-<p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$E_2 = 69000 N/mm^2$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\sigma_2 = E_2 \varepsilon_2 = 69000 \times -0,00001445 = 0,99705 N/mm^2$$</p>
-<p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$E_3 = 69000 N/mm^2$</span>)</p>
-<p class="mathjax mathjax--block">$$
-\sigma_3 = E_3 \varepsilon_3 = 69000 \times -0,00001445 = 0,99705 N/mm^2$$</p>
-<h3 id="esforos-nas-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#esforos-nas-barras" title="Permanent link: Esforços nas Barras" data-icon="#">Esforços nas Barras</a></h3>
-<p>E os esforços nas barras? Afinal, como é o caso de uma estrutura metálica as equações apresentadas pela norma se referem à esforços para o dimensionamento. É simples, não é uma barra de uma treliça, com tensões normais uniformes e constantes ao longo da barra? Pois bem, é só multiplicar a tensão pela área para obter o diagrama de esforços normais em cada barra da estrutura.</p>
-<p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$A_1 = 10030,05 mm^2$</span>)</p>
-<p class="mathjax mathjax--block">$$
-N_1 = \sigma_1 A_1 = 1,41 \times 10030,05 = 14142,3705 N \quad \text{ou} \quad 14,14 kN$$</p>
-<p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$A_2 = 10030,05 mm^2$</span>)</p>
-<p class="mathjax mathjax--block">$$
-N_2 = \sigma_2 A_2 = 0,99705 \times 10030,05 = 10000,461 N \quad \text{ou} \quad 10,0 kN$$</p>
-<p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$A_3 = 10030,05 mm^2$</span>)</p>
-<p class="mathjax mathjax--block">$$
-N_3 = \sigma_3 A_3 = 0,99705 \times 10030,05 = 10000,461 N \quad \text{ou} \quad 10,0 kN$$</p>
-<blockquote>
-<p>E agora? Você arrisca tentar dimensionar essas barras circulares maciças da treliça? Ou está com medinho...</p>
-</blockquote>
-<p>Na mão é muito bom para entender os conceitos e procedimentos do método, mas um pouco demorado, não acha? Lembra da idéia de implementar um programinha para resolver treliças planas quaisquer? Vamos ver algumas formas de implementar a metodologia acima de maneira genérica usando python <a href="../implementacao.html">aqui</a>!</p>
 </p>
 </div>
 

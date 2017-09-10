@@ -6757,7 +6757,71 @@ $(document).ready(function() {
 <h1>Aplicação na mão</h1>
 <p>
 	<p>Bom, agora que conhecemos o equilíbrio estático dado pelo MEF e a matriz de rigidez do elemento de treliça no sistema global, é hora de voltar a nossa treliça com três barras e resolvê-la na mão, lembrando que essa treliça possui barras de aço (<span class="mathjax mathjax--inline">$E = 200 GPa$</span>) e alumínio (<span class="mathjax mathjax--inline">$E = 69 GPa$</span>), as barras vertical e horizontal são de alumínio a inclinada de aço. Todas as barras são tubulares maciças com diâmetro de 113 mm. A carga F é de 10.000 N e o comprimento L de 1,0 m.</p>
-<h3>Graus de liberdade da estrutura</h3>
+<nav class="table-of-contents toc" role="navigation">
+  
+                                                                                              
+  <ul>
+      
+        
+        
+              <li><a href="aplicacao.html#graus-de-liberdade-da-estrutura" class="toclink" title="Graus de liberdade da estrutura">Graus de liberdade da estrutura</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#graus-de-liberdade-dos-elementos" class="toclink" title="Graus de liberdade dos elementos">Graus de liberdade dos elementos</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#ngulo-de-rotao-das-barras" class="toclink" title="Ângulo de rotação das barras">Ângulo de rotação das barras</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#determinao-das-matrizes-de..." class="toclink" title="Determinação das matrizes de rigidez globais dos elementos">Determinação das matrizes de rigidez globais dos elementos</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#determinao-da-matriz-de-rigidez..." class="toclink" title="Determinação da matriz de rigidez da estrutura">Determinação da matriz de rigidez da estrutura</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#deslocamentos-e-foras-nodais" class="toclink" title="Deslocamentos e forças nodais">Deslocamentos e forças nodais</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#aplicando-as-condies-de-contorno" class="toclink" title="Aplicando as condições de contorno">Aplicando as condições de contorno</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#separao-das-variveis" class="toclink" title="Separação das variáveis">Separação das variáveis</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#clculo-dos-deslocamentos" class="toclink" title="Cálculo dos deslocamentos">Cálculo dos deslocamentos</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="aplicacao.html#fatorao-de-cholesky" class="toclink" title="Fatoração de Cholesky">Fatoração de Cholesky</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="aplicacao.html#clculo-das-reaes-de-apoio" class="toclink" title="Cálculo das reações de apoio">Cálculo das reações de apoio</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#tenses-nas-barras" class="toclink" title="Tensões nas barras">Tensões nas barras</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#esforos-nas-barras" class="toclink" title="Esforços nas Barras">Esforços nas Barras</a></li>
+      
+    
+  </ul>
+</nav>
+
+
+<h3 id="graus-de-liberdade-da-estrutura" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#graus-de-liberdade-da-estrutura" title="Permanent link: Graus de liberdade da estrutura" data-icon="#">Graus de liberdade da estrutura</a></h3>
 <p>Primeiro, vamos descrever todos os graus de liberdade globais da estrutura em nossa treliça idealizada em um diagrama de corpo livre, assim como numerar seus nós e suas barras.</p>
 <p><img title="Graus de liberdade da treliça" alt="Graus de liberdade da treliça" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLib.svg" />
 <small>Graus de liberdade da treliça.</small></p>
@@ -6780,7 +6844,7 @@ $(document).ready(function() {
 <p>É possivel colocar quantos nós quiser não somente nas extremidades das barras, lembrando que os resultados são calculados em uma primeira etapa nos nós, ou seja, se eu quiser um resultado no meio da barra 2, eu colocaria um nó lá, dividindo então a barra 2 em outros dois elementos, 2a e 2b, então minha treliça teria um total de 4 elementos.</p>
 </blockquote>
 <p>No caso de outros tipos elementos com mais graus de liberdade por nó, por exemplo, na treliça espacial, a matriz <span class="mathjax mathjax--inline">$\textbf{GL}$</span> teria mais uma coluna.</p>
-<h3>Graus de liberdade dos elementos</h3>
+<h3 id="graus-de-liberdade-dos-elementos" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#graus-de-liberdade-dos-elementos" title="Permanent link: Graus de liberdade dos elementos" data-icon="#">Graus de liberdade dos elementos</a></h3>
 <p>Na sequência precisamos explodir a estrutura divindindo-a em elementos de treliça e a cada elemento descrever os graus de liberdade locais do elemento. A numeração dos nós do elemento é fundamentada no utilizado para sua formulação, como foram dois, sempre teremos nós 1 e 2.</p>
 <p><img title="Graus de liberdade dos elementos" alt="Graus de liberdade dos elementos" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLibExp.svg" />
 <small>Graus de liberdade dos elementos.</small></p>
@@ -6803,7 +6867,7 @@ $(document).ready(function() {
 \end{array}
 \end{array}$$</p>
 <p>No caso de elementos com mais nós, a matriz de incidência deve seguir uma ordem pré-definida de posicionamentos, com o número de colunas igual ao número de nós do elemento.</p>
-<h3>Ângulo de rotação das barras</h3>
+<h3 id="ngulo-de-rotao-das-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#ngulo-de-rotao-das-barras" title="Permanent link: Ângulo de rotação das barras" data-icon="#">Ângulo de rotação das barras</a></h3>
 <p>O ângulo <span class="mathjax mathjax--inline">$\theta$</span> é sempre medido utilizando-se um referencial virtual cartesiano com uma origem no nó 1, percorrendo no sentido anti-horário partindo-se da direção positiva do eixo <span class="mathjax mathjax--inline">$X$</span> global à direção longitudinal da barra. Portanto, os ângulos para as barras 1, 2 e 3 são respectivamente:</p>
 <p class="mathjax mathjax--block">$$
 \theta_1 = 135^o \quad \quad \theta_2 = 90^o \quad \quad \theta_3 = 0^o$$</p>
@@ -6830,7 +6894,7 @@ cos \theta &= \dfrac{x_2 - x_1}{\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}}
 <blockquote>
 <p>E o que vai acontecer com os graus de liberdade das barras que não estão na horizontal quando eu calcular <span class="mathjax mathjax--inline">$\textbf{k}_g$</span>? Eles serão decompostos nas direções (X, Y) globais e então você terá matrizes de rigidez de todos os elementos escritas em um mesmo sistema de coordenadas.</p>
 </blockquote>
-<h3>Determinação das matrizes de rigidez globais dos elementos</h3>
+<h3 id="determinao-das-matrizes-de..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-das-matrizes-de..." title="Permanent link: Determinação das matrizes de rigidez globais dos elementos" data-icon="#">Determinação das matrizes de rigidez globais dos elementos</a></h3>
 <p>Das determinações anteriores, sabemos que a matriz de rigidez de um elemento de treliça no sistema global é:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{k}_g = \dfrac{EA}{L} \left[ 
@@ -6914,7 +6978,7 @@ cos \theta &= \dfrac{x_2 - x_1}{\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}}
 <p>Observe que a matriz de rigidez do elemento 1 ficou cheia, isso acontece por que os graus de liberdade locais em <span class="mathjax mathjax--inline">$(x, y)$</span> se decompõe em <span class="mathjax mathjax--inline">$(X, Y)$</span> com ambos os graus de liberdade contribuindo para ambas as direções, ou seja, por exemplo, o grau de liberdade 1 que no sistema local está na direção de <span class="mathjax mathjax--inline">$x$</span>, no sistema global terá efeitos nas direções <span class="mathjax mathjax--inline">$X$</span> e <span class="mathjax mathjax--inline">$Y$</span>. Observe a matriz de rigidez do elemento 2 também, o que acontece com os graus de liberdade 1 e 3 locais?</p>
 </blockquote>
 <p>Agora precisamos criar a matriz de rigidez da estrutura como um todo, acoplando as matrizes de rigidez globais dos elementos da mesma forma que as barras estão conectadas, para garantir a correta distribuição das rigidezes nos graus de liberdade da estrutura.</p>
-<h3>Determinação da matriz de rigidez da estrutura</h3>
+<h3 id="determinao-da-matriz-de-rigidez..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-da-matriz-de-rigidez..." title="Permanent link: Determinação da matriz de rigidez da estrutura" data-icon="#">Determinação da matriz de rigidez da estrutura</a></h3>
 <p>O que é a matriz de rigidez da estruturas? É a matriz de rigidez que rege o comportamento estrutural (no nosso caso) da estrutura como um todo composta pelos seus elementos formulados como matrizes de rigidez globais. </p>
 <p>Essa matriz de rigidez da estrutura pode ser criada (existem outras formas) utilizando uma regrinha simples de endereçamento, chamada <strong>regra da correspondência</strong>. A ideia dessa regra é relacionar os graus de liberdade do elemento no sistema global com os graus de liberdade da estrutura também no sistem global, utilizando a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, e a matriz de incidência dos elementos, <span class="mathjax mathjax--inline">$\textbf{IE}$</span>. O endereçamento é feito por um vetor chamado carteiro (essa eu inventei agora!). </p>
 <p>O carteiro, ou <span class="mathjax mathjax--inline">$Ca$</span>, possui uma quantidade de elementos igual ao número total de graus de liberdade do elemento, então, no nosso caso, como temos dois graus de liberdade por nó e dois nós no elemento, o vetor carteiro terá 4 elementos. Os dois primeiros elementos do carteiro se relacionam com o nó da estrutura correspondente ao nó 1 do elemento, e os dois últimos ao nó da estrutura correspondente ao nó 2 do elemento (no nosso caso, para o elemento de treliça, claro que isso muda com o tipo de elemento). Por exemplo, o nó 1 do elemento 3 é o nó 3 na estrutura. </p>
@@ -7060,7 +7124,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
 <blockquote>
 <p>Por exemplo, quem é o <span class="mathjax mathjax--inline">$\textbf{K}_{5,1}$</span>? É o <span class="mathjax mathjax--inline">$\textbf{k3}_{g 1,3} = -692073,45$</span>. E o <span class="mathjax mathjax--inline">$\textbf{K}_{3,3}$</span>? É o <span class="mathjax mathjax--inline">$\textbf{k1}_{g 3,3} = 709233,42$</span> + <span class="mathjax mathjax--inline">$\textbf{k2}_{g 4,4} = 692073,45$</span>, e o <span class="mathjax mathjax--inline">$\textbf{K}_{1,1}$</span> é o <span class="mathjax mathjax--inline">$\textbf{k1}_{g 1,1} = 709233,42$</span> + <span class="mathjax mathjax--inline">$\textbf{k3}_{g 1,1} = 692073,45$</span>, resultando em <span class="mathjax mathjax--inline">$1401306,87$</span>, e assim por diante. As matrizes dos elementos globais não estão numeradas com suas linhas e colunas por motivos óbvios, não acha? a linha 1 é 1, a 2 é 2, etc. Somente estão numeradas com o carteiro para indicar qual é o número da linha na matriz da estrutura dos elementos da linha tal na matriz do elemento global.</p>
 </blockquote>
-<h3>Deslocamentos e forças nodais</h3>
+<h3 id="deslocamentos-e-foras-nodais" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#deslocamentos-e-foras-nodais" title="Permanent link: Deslocamentos e forças nodais" data-icon="#">Deslocamentos e forças nodais</a></h3>
 <p>O equilíbro estático da estrutura em MEF é regido pela mesma expressão que utilizamos para o equilíbrio do elemento englobando todos os graus de liberdade da estrutura, ou seja, o equilíbrio estático da estrutura pelo MEF é dado pela equação:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{K}\textbf{U} = \textbf{F}$$</p>
@@ -7086,7 +7150,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
     F_6 \\
 \end{array} \right\rbrace$$</p>
 <p>Não sabemos, por enquanto, os valores dos deslocamentos em cada grau de liberdade do vetor <span class="mathjax mathjax--inline">$\textbf{U}$</span>, afinal essas são as nossa incógnitas do problema (quer dizer, alguns valores nos conhecemos como veremos a seguir). Já o vetor de forças nodais <span class="mathjax mathjax--inline">$\textbf{F}$</span> nós conhecemos completamente, basta entender como as forças nodais se relacionam com os graus de liberdade e aplicar as condições de contorno.</p>
-<h3>Aplicando as condições de contorno</h3>
+<h3 id="aplicando-as-condies-de-contorno" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#aplicando-as-condies-de-contorno" title="Permanent link: Aplicando as condições de contorno" data-icon="#">Aplicando as condições de contorno</a></h3>
 <p>Como você pode perceber a matriz <span class="mathjax mathjax--inline">$\textbf{K}$</span> tem algumas importantes propriedades, ela deve ser simétrica e singular, ou seja, com o determinante igual a zero e não inversível. Então, como vou resolver o equilíbrio estático do MEF?? <span class="mathjax mathjax--inline">$\textbf{K}\textbf{U}=\textbf{F}$</span> Resposta: aplicando às condições de contorno.</p>
 <p>Observe que na matriz de rigidez da estrutura, <span class="mathjax mathjax--inline">$\textbf{K}$</span>, as linhas e colunas representam os graus de liberdade da estruturas contendo a rigidez referente ao efeito de certo grau em outro. Sendo assim, para aplicar as condições de contorno do problema, que são os apoios simples e rotulado, basta observarmos quais graus de liberdade esses apoios influenciam e aplicar essa influência na matriz de rigidez da estrutura, no vetor de deslocamentos da estrutura e no vetor de forças nodais da estrutura. </p>
 <p><img title="Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade" alt="Condições de Contorno" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLib.svg" />
@@ -7133,7 +7197,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
     R_6 \\
 \end{array} \right\rbrace$$</p>
 <p>Somente foi possível separar os deslocamentos colocando os 3 primeiros como as incógnitas do problema e os 3 últimos restringidos pelas condições de contorno dadas pelos apoios (o mesmo com as forças nodais, mas ao contrário) por que numeramos primeiro os graus de liberdade livres da estrutura e construimos a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, em função disso. De outra forma, precisaríamos aplicar uma mudança de linhas e colunas na matriz de rigidez e de linhas aos vetores de deslocamentos e forças para chegar a esse resultado, sem o qual, não poderíamos resolver o sistema aplicando a separação das variáveis, e, por falar nisso...</p>
-<h3>Separação das variáveis</h3>
+<h3 id="separao-das-variveis" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#separao-das-variveis" title="Permanent link: Separação das variáveis" data-icon="#">Separação das variáveis</a></h3>
 <p>Observe bem a equação matricial de equilíbrio que escrevemos acima e tente visualizar na forma de um sistema de equações. Note que as três últimas colunas da matriz de rigidez sempre estão multiplicadas por zero, ou seja, não influenciam em nada na resolução do nosso sistema. Então, como primeira simplificação, podemos reescrever o equilíbrio estático dado pelo MEF da nossa treliça de três barras como:</p>
 <p class="mathjax mathjax--block">$$
 \left[ \begin{array}{cccccc}
@@ -7186,7 +7250,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
     U_3 \\
 \end{array} \right\rbrace$$</p>
 <p>Para cálculo das reações de apoio. Escreví ao contrário de propósito já.</p>
-<h3>Cálculo dos deslocamentos</h3>
+<h3 id="clculo-dos-deslocamentos" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#clculo-dos-deslocamentos" title="Permanent link: Cálculo dos deslocamentos" data-icon="#">Cálculo dos deslocamentos</a></h3>
 <p>O cálculo dos deslocamentos é feito resolvendo-se o seguinte sistema de equações, escrito na forma matricial:</p>
 <p class="mathjax mathjax--block">$$
 \left[ \begin{array}{ccc}
@@ -7203,7 +7267,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
     0 \\
 \end{array} \right\rbrace$$</p>
 <p>Existem diversas formas de resolvê-lo, já que trata-se de um sistema de equações lineares com múltiplas incógnitas, possível e determinado e linearmente independente. Em termos matriciais, a matriz de rigidez simplificada separada relativa aos deslocamentos deve ser sempre simétrica, não singular e positivo definida. Portanto, podemos resolver pela regra de Krammer, eliminação Gaussiana, fatoração de Cholesky, decomposição QR ou ainda inversão da matriz para posterior multiplicação pelas forças nodais. Nós vamos utilizar a <a href="https://pt.wikipedia.org/wiki/Fatoração_de_Cholesky">fatoração de Cholesky</a>, por ser mais rápida para sistemas com vários graus de liberdade.</p>
-<h4>Fatoração de Cholesky</h4>
+<h4 id="fatorao-de-cholesky" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#fatorao-de-cholesky" title="Permanent link: Fatoração de Cholesky" data-icon="#">Fatoração de Cholesky</a></h4>
 <p>A fatoração (ou decomposição) de Cholesky procura decompor uma matriz <span class="mathjax mathjax--inline">$\textbf{A}$</span> na forma <span class="mathjax mathjax--inline">$\textbf{A} = \textbf{L}\textbf{L}^T$</span>, na qual <span class="mathjax mathjax--inline">$\textbf{L}$</span> é uma matriz triangular inferior com elementos da diagonal principal estritamente positivos. No entanto, a matriz <span class="mathjax mathjax--inline">$\textbf{A}$</span> deve simétrica, não singular e positivo definida, como no nosso caso, portanto, a fatoração de Cholesky se aplica. Além disso, a fatoração de Cholesky é conhecida pela velocidade na solução quando temos sistemas com muitos graus de liberdade, porém também pela fragilidade e instabilidade numérica quando a matriz é próxima da singularidade e ou possui baixo número de linhas ou colunas independentes.</p>
 <p>De uma forma prática para uma matriz <span class="mathjax mathjax--inline">$n \times n$</span> vamos fazer o seguinte (lembrando que a matriz é simétrica, então <span class="mathjax mathjax--inline">$a_{k,n} = a_{n,k}$</span>):</p>
 <p class="mathjax mathjax--block">$$
@@ -7314,7 +7378,7 @@ U_3 &= \dfrac{c_3}{l^T_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
 </blockquote>
 <p><img title="Deslocamentos" alt="Deslocamentos" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasDesl.svg" />
 <small>Deslocamentos.</small></p>
-<h3>Cálculo das reações de apoio</h3>
+<h3 id="clculo-das-reaes-de-apoio" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#clculo-das-reaes-de-apoio" title="Permanent link: Cálculo das reações de apoio" data-icon="#">Cálculo das reações de apoio</a></h3>
 <p>Com os deslocamentos calculados, podemos utilizar a separação de variáveis que foi feita com a matriz de rigidez e os vetores de deslocamentos e forças nodais para calcular as reações de apoio.</p>
 <p class="mathjax mathjax--block">$$
 \left\lbrace \begin{array}{c}
@@ -7360,7 +7424,7 @@ U_3 &= \dfrac{c_3}{l^T_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
 <blockquote>
 <p>A unidade você já sabe o porque. Mas, não deveriam ser 10000, -10000 e 10000 respectivamente? Por que ficou aproximado? Por que o MEF é um método de solução <strong>aproximado</strong>, e a aproximação depende muito de como foi formulado o problema em relação aos refinos, tanto de malha, quanto das funções de forma. Em outras palavras e de forma muito superficial, se você utilizar mais elementos ou aumentar o grau do polinômio das funções de forma, você terá melhores aproximações. É, não é bem assim existem outros fatores que influênciam na aproximação do resultado, mas por enquanto está valendo.</p>
 </blockquote>
-<h3>Tensões nas barras</h3>
+<h3 id="tenses-nas-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#tenses-nas-barras" title="Permanent link: Tensões nas barras" data-icon="#">Tensões nas barras</a></h3>
 <p>A determinação das tensões nas barras é feita no elemento original, no sistema local, sem nenhuma rotação para compatibilização dos sistemas dos graus de liberdade, ou seja, primeiro precisamos escrever os deslocamentos da estrutura como deslocamentos em cada elemento. Para isso, vamos desacoplar o vetor de deslocamentos nodais e escrever um vetor de deslocamentos globais (total, inclusive com os deslocamentos restringidos pelos apoios) para cada elemento chamados de <span class="mathjax mathjax--inline">$\textbf{u}_{1g}$</span>, <span class="mathjax mathjax--inline">$\textbf{u}_{2g}$</span> e <span class="mathjax mathjax--inline">$\textbf{u}_{3g}$</span> para os elementos 1, 2 e 3 respectivamente.</p>
 <p>Essa montagem é feita utilizando a regra da correspondência aplicando-se o carteiro ao contrário, agora os valores do carteiro irão corresponder às linhas e colunas do vetor de deslocamentos da estrutura e as linhas e colunas do carteiro às linhas e colunas dos vetores de deslocamentos globais dos elementos. Lembra dos carteiros para cada elemento?</p>
 <p class="mathjax mathjax--block">$$
@@ -7600,7 +7664,7 @@ Ca_3 = \begin{array}{cc}
 <p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$E_3 = 69000 N/mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
 \sigma_3 = E_3 \varepsilon_3 = 69000 \times -0,00001445 = -0,99705 N/mm^2$$</p>
-<h3>Esforços nas Barras</h3>
+<h3 id="esforos-nas-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#esforos-nas-barras" title="Permanent link: Esforços nas Barras" data-icon="#">Esforços nas Barras</a></h3>
 <p>E os esforços nas barras? Afinal, como é o caso de uma estrutura metálica as equações apresentadas pela norma se referem à esforços para o dimensionamento. É simples, não é uma barra de uma treliça, com tensões normais uniformes e constantes ao longo da barra? Pois bem, é só multiplicar a tensão pela área para obter o diagrama de esforços normais em cada barra da estrutura.</p>
 <p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$A_1 = 10030,05 mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
