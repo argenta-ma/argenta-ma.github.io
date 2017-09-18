@@ -2,10 +2,9 @@
 <html lang="pt-BR">
 <head>
         <meta charset="utf-8" />
-    <title>Viga | Applied FEM</title>
+    <title>Vigas | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="./feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="./feed:rss.html" title="RSS Feed" />
@@ -6438,14 +6437,26 @@ $(document).ready(function() {
                             <li class="dd-item active" data-nav-id="/vigas">
             <a href="vigas.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b>3. </b>Viga</span>
+                <span><b>3. </b>Vigas</span>
             </a>
                         <ul>
                                                             <li class="dd-item" data-nav-id="/vigas/teoria">
             <a href="vigas/teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Teoria</span>
+                <span><b></b>Vigas</span>
             </a>
+                        <ul>
+                                                            <li class="dd-item" data-nav-id="/vigas/teoria/aplicacao">
+            <a href="vigas/teoria/aplicacao.html" >
+                <i class="fa fa-check read-icon"></i>
+                <span><b></b>Aplicação na mão</span>
+            </a>
+                        <ul>
+                                    
+            </ul>
+                    </li>
+    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/vigas/implementacao">
             <a href="vigas/implementacao.html" >
@@ -6746,7 +6757,7 @@ $(document).ready(function() {
 <div id="breadcrumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                                             <a href="../pt-BR.html" itemprop="url"><span itemprop="title">MEF Aplicado</span></a>
                         <i class="fa fa-angle-right"></i>
-                                                <span itemprop="title">Viga</span>
+                                                <span itemprop="title">Vigas</span>
                         </div>
                             </div>
             
@@ -6755,11 +6766,24 @@ $(document).ready(function() {
 			<p>
 				<h1>Vigas</h1>
 <h2>Idealização</h2>
-<p>Discover the <strong>basic</strong> principals</p>
-<h2>Solução Isostática</h2>
-<p>texto...</p>
-<h2>Elementos Finitos</h2>
-<p>...</p>
+<p>O objeto estrutural da imagem a seguir é o seu objetivo:</p>
+<p><img title="Retirado de: http://www.redescubracuritiba.com.br/2014/12/voce-conhece-ponte-preta.html" alt="Viga Simplesmente Apoiada" src="../user/pages/03.vigas/imagens/VigaSimplesmenteApoiada.jpg" />
+<small>Viga Simplesmente Apoiada, a Ponte Preta da Rua João Negrão em Curitiba/PR, modelo original.</small></p>
+<p>Em 1944, a Ponte Preta foi inaugurada pelo governador e coronel, Durival de Brito. A obra foi um avanço para a época e considerada um projeto de risco. Toda a sua estrutura metálica foi importada da United States Steel Co., Nova Iorque (naquela época não havia produção de aço no Brasil), e as pedras foram talhadas em formas geométricas. Os americanos exigiram um documento que garantisse a estabilidade da obra, pois nunca construíram algo semelhante e estavam temerosos. O engenheiro e projetista Oscar Machado da Costa arcou com todos os riscos e junto com sua equipe colocou a ponte em pé.</p>
+<p><img alt="Construção da ponte Preta" src="../user/pages/03.vigas/imagens/PontePretaConstrucao.jpg" />
+<small>Construção da ponte Preta.</small></p>
+<p>A ponte tinha um comprimento total de 16 m, uma viga metálica tipo I soldada de 145 cm de altura, 50 cm de largura nas mesas e 3 cm de espessura nas mesas e alma (medidas muito aproximadas), com enrigecedores de alma para o cisalhamento espaçados de 1,7 m aproximadamente. Os apoios nas extremidades são compostos por cunhas metálicas piramidais com uma rótula ligando ao perfil do lado esquerdo (referência a foto) e cunhas metálicas piramidais com roletes na base e rótulas ligando ao perfil do lado direito (referência foto).</p>
+<p>O primeiro passo é a idealização estrutural, ou seja, transformar uma estrutura física real em um modelo idealizado representativo dos efeitos que ocorrem, ou irão ocorrer, na estrutura real. Como se trata de uma treliça, podemos idealizar da seguinte forma:</p>
+<p><img title="Idealização da ponte" alt="Idealização" src="../user/pages/03.vigas/imagens/PontePretaIdeal.svg" />
+<small>Idealização da Ponte Preta Antiga.</small></p>
+<p>Então, basta aplicar as cargas permanentes de peso próprio, do pavimento, as acidentais de uso. Como exemplo, vamos imaginar que temos 52,8 kN/m de carga permanente, <span class="mathjax mathjax--inline">$g$</span> (peso próprio + distribuição de cargas fixas do pavimento) e 211 kN/m como peso idealizado de uma locomotiva antiga de 7 m de comprimento, <span class="mathjax mathjax--inline">$q$</span>, parada à uma distância <span class="mathjax mathjax--inline">$d$</span> de 7 m da borda esquerda da ponte (referência foto). Portanto, nossa idealização com as cargas ficaria:</p>
+<p><img title="Locomotiva na ponte" alt="Locomotiva na ponte" src="../user/pages/03.vigas/imagens/VigaSimplesmenteApoiadaLoco.jpg" />
+<small>Locomotiva na ponte.</small></p>
+<p><img title="Idealização da ponte com cargas" alt="Idealização com cargas" src="../user/pages/03.vigas/imagens/PontePretaIdealCargas.svg" />
+<small>Idealização da Ponte Preta Antiga com Cargas ilustrativas.</small></p>
+<p>Bem, precisamos agora resolver esse modelo simples, calculando os esforços e os deslocamentos. No entanto, agora temos um modelo estrutural diferente da barra de treliça. Temos um elemento estrutural com uma carga transversal e não mais axial. </p>
+<p>Que tipos de efeitos esse carregamento provoca nesse elemento? Como o meu deslocamento varia no comprimento da viga? E a deformação? E a tensão?!</p>
+<p><strong>Vamos começar pela <a href="vigas/teoria.html">teoria</a>!</strong></p>
 			</p>
 		</div>
     </div>

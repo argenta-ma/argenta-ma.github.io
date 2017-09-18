@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-    <title>Teoria | Applied FEM</title>
+    <title>Vigas | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -6443,8 +6443,20 @@ $(document).ready(function() {
                                                             <li class="dd-item active" data-nav-id="/beams/teoria">
             <a href="../beams/teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Teoria</span>
+                <span><b></b>Vigas</span>
             </a>
+                        <ul>
+                                                            <li class="dd-item" data-nav-id="/beams/teoria/aplicacao">
+            <a href="../beams/teoria/aplicacao.html" >
+                <i class="fa fa-check read-icon"></i>
+                <span><b></b>Aplicação na mão</span>
+            </a>
+                        <ul>
+                                    
+            </ul>
+                    </li>
+    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/beams/implementacao">
             <a href="../beams/implementacao.html" >
@@ -6747,15 +6759,348 @@ $(document).ready(function() {
                         <i class="fa fa-angle-right"></i>
                                                 <a href="../beams.html" itemprop="url"><span itemprop="title">Beams</span></a>
                         <i class="fa fa-angle-right"></i>
-                                                <span itemprop="title">Teoria</span>
+                                                <span itemprop="title">Vigas</span>
                         </div>
                             </div>
             
                 <div id="body-inner">
-<h1>Teoria</h1>
+<h1>Vigas</h1>
 <p>
-	<h1>Teoria do elemento de viga</h1>
-<h2>Basico...</h2>
+	<h1 id="elementos-finitos-de-viga" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#elementos-finitos-de-viga" title="Permanent link: Elementos finitos de viga" data-icon="#">Elementos finitos de viga</a></h1>
+<h4 id="contedo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#contedo" title="Permanent link: Conteúdo" data-icon="#">Conteúdo</a></h4>
+<nav class="table-of-contents toc" role="navigation">
+  
+                                                                                  
+  <ul>
+      
+        
+        
+              <li><a href="teoria.html#elementos-finitos-de-viga" class="toclink" title="Elementos finitos de viga">Elementos finitos de viga</a></li>
+      
+                      <li><ul>
+              <li><ul>
+          
+        
+              <li><a href="teoria.html#contedo" class="toclink" title="Conteúdo">Conteúdo</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="teoria.html#fundamentao" class="toclink" title="Fundamentação">Fundamentação</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="teoria.html#viga-de-euler-bernoulli" class="toclink" title="Viga de Euler-Bernoulli">Viga de Euler-Bernoulli</a></li>
+      
+                      <li><ul>
+              <li><ul>
+          
+        
+              <li><a href="teoria.html#deslocamentos" class="toclink" title="Deslocamentos">Deslocamentos</a></li>
+      
+        
+        
+              <li><a href="teoria.html#funes-de-forma" class="toclink" title="Funções de forma">Funções de forma</a></li>
+      
+        
+        
+              <li><a href="teoria.html#graus-de-liberdade" class="toclink" title="Graus de liberdade">Graus de liberdade</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="teoria.html#resoluo" class="toclink" title="Resolução">Resolução</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="teoria.html#deformaes" class="toclink" title="Deformações">Deformações</a></li>
+      
+        
+        
+              <li><a href="teoria.html#equilbrio" class="toclink" title="Equilíbrio">Equilíbrio</a></li>
+      
+        
+        
+              <li><a href="teoria.html#matriz-de-rigidez-do-elemento..." class="toclink" title="Matriz de rigidez do elemento de viga de Euler-Bernoulli">Matriz de rigidez do elemento de viga de Euler-Bernoulli</a></li>
+      
+              </ul></li>
+          </ul></li>
+      
+  </ul>
+</nav>
+
+
+<h2 id="fundamentao" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#fundamentao" title="Permanent link: Fundamentação" data-icon="#">Fundamentação</a></h2>
+<p>A ideia da idealização de uma estrutura em uma viga é baseada na observação da distribuição das tensões na seção transversal causadas pelo carregamento transversal a peça. Esse carregamento transversal provoga uma flexão em toda a viga e gera uma distribuição de tensões na seção transversal que variam linearmente de uma tração à uma compressão, passando por um ponto de zero tensões conhecida como linha neutra. Além disso, o carregamento transversal gera tensões de cisalhamento paralelas à seção transversal, de variação parabólica com seu ponto de máximo exatamente na linha neutra. E mais, lembre-se que estamos considerando pequenas deformações, o material trabalhando em seu regime elástico linear e consideramos uma carga estática completamente aplicada.</p>
+<p><img title="Viga idealizada" alt="Viga idealizada" src="../../user/pages/03.vigas/01.teoria/imagens/VigaIdealizada.svg" />
+<small>Esquema de uma viga idealizada.</small></p>
+<p>Mas bem, isso você já sabe da teoria da elasticidade. E a mesma teoria define que a quarta variação dos deslocamentos, <span class="mathjax mathjax--inline">$w(x)$</span>, da viga em relação a sua direção axial é igual ao negativo da carga distribuída, <span class="mathjax mathjax--inline">$g$</span>. sobre a rigidez à flexão da peça, <span class="mathjax mathjax--inline">$EI$</span>. Portanto, a equação diferencial de uma viga, ou equação diferencial da linha neutra é escrita como:</p>
+<p class="mathjax mathjax--block">$$
+\dfrac{d^4w}{dx^4} = -\dfrac{g}{EI}$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$E$</span> o módulo de elasticidade do material (que não varia ao longo da peça) e <span class="mathjax mathjax--inline">$I$</span> o momento de inércia (ou segundo momento de área, que também não varia ao longo da peça) da seção transversal em relação a um eixo que passa pelo centro geométrico dessa seção e é perpendicular ao plano do carregamento, na figura abaixo, perpendicular ao plano XY.</p>
+<p><img title="Deflexão em Vigas" alt="Deflexão em Vigas" src="../../user/pages/03.vigas/01.teoria/imagens/DeflexaoVigas.svg" />
+<small>Deflexão em Vigas.</small></p>
+<p>Essa viga com um certo volume em uma geometria qualquer tridimensional também pode ser representada em uma idealização unidimensional para cálculo de seus efeitos, visto que as tensões são consideradas variando linearmente na viga e algumas simplificações são adotadas, como a desconsideração dos efeitos de <a href="https://pt.wikipedia.org/wiki/Princípio_de_Saint-Venant">Saint-Venant</a> (por ocorrerem em uma pequena região e não interferirem de forma relevante no resposta mecânica total da viga da estrutura) e as deformações transversais são desprezadas (por serem muito pequenas, pois estamos considerando uma viga de pequena altura se comparada com seu comprimento). Quando viga tem pouca altura essa última simplificação pode ser adotada e nesse caso chamamos a mesma de <strong>viga de Euler-Bernoulli</strong>, que desconsidera as deformações por cisalhamento em <span class="mathjax mathjax--inline">$w(x)$</span>. Elas existem mesmo em vigas com pouca altura, mas são tão pequenas que se tornam irrelevantes.</p>
+<p>No caso de uma viga com um altura considerável, em relação ao seu comprimento, as deformações por cortante influenciam de forma significativa em <span class="mathjax mathjax--inline">$w(x)$</span> e devem ser consideradas. Nesse caso a viga é conhecida como <strong>viga de Timoshenko</strong>, e sua equação diferencial um pouco mais complexa.</p>
+<p class="mathjax mathjax--block">$$
+\dfrac{d^4w}{dx^4} - \dfrac{1}{\kappa A G} \dfrac{d^2 g}{dx^2} = - \dfrac{g}{EI}$$</p>
+<p>A constante <span class="mathjax mathjax--inline">$\kappa$</span> é conhecida como coeficiente de cisalhamento e é definida com o valor de 5/6 para uma seção retangular. Certo, mas a nossa é um perfil I! Quanto vale esse <span class="mathjax mathjax--inline">$\kappa$</span>? O <span class="mathjax mathjax--inline">$\kappa$</span> é calculado...</p>
+<p>Muito bem, mas o quanto é essa tal altura em que eu precisaria começar a considerar as deformações de cilhamento? Observe que no caso da rigidez a flexão, <span class="mathjax mathjax--inline">$EI$</span>, dividida pelo coefficiente de cisalhamento, <span class="mathjax mathjax--inline">$\kappa$</span>, multiplicado pela rigidez ao cisalhamento, <span class="mathjax mathjax--inline">$AG$</span>, e pelo comprimento da viga ao quadrado, ser muito menor que 1, pode-se usar a teoria da <strong>viga de Euler-Bernoulli</strong>, caso contrário deve-se utilizar a <strong>viga de Timoshenko</strong>.</p>
+<p class="mathjax mathjax--block">$$
+\dfrac{EI}{\kappa L^2 A G} \ll 1$$</p>
+<blockquote>
+<p>Para quem ainda não se ligou, <span class="mathjax mathjax--inline">$G$</span> é o módulo de elasticidade transversal do material da viga e <span class="mathjax mathjax--inline">$A$</span> a área da seção transversal.</p>
+</blockquote>
+<p>Na viga de Timoshenko considera-se uma rotação adicional entre a seção transversal e a linha neutra, ou seja, a rotação total da seção transversal não é somente <span class="mathjax mathjax--inline">$dw/dw$</span>, mas sim <span class="mathjax mathjax--inline">$dw/dx + \theta$</span>, sendo esse <span class="mathjax mathjax--inline">$\theta$</span> a rotação que vai se transformar na deformação de cisalhamento.</p>
+<p>E agora, como formular essas duas teorias usando elementos finitos? Vamos começar pela mais simples.</p>
+<h1 id="viga-de-euler-bernoulli" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#viga-de-euler-bernoulli" title="Permanent link: Viga de Euler-Bernoulli" data-icon="#">Viga de Euler-Bernoulli</a></h1>
+<h3 id="deslocamentos" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#deslocamentos" title="Permanent link: Deslocamentos" data-icon="#">Deslocamentos</a></h3>
+<p>Daqui para frente, esquece a viga real da ponte, esquece a ponte real e nos focamos apenas na idealização unidimensional. Da equação diferencial da viga de Euler-Bernoulli podemos chegar a conclusão de que os deslocamentos <span class="mathjax mathjax--inline">$w(x)$</span> são um polinômio de 4 grau e a rotação da seção transversal <span class="mathjax mathjax--inline">$dw/dx$</span> um polinômio de 3 grau. A ideia fundamental em elementos finitos é conseguirmos escrever esse campo de deslocamentos em função de deslocamentos nodais interpolados por funções de forma. Portanto, precisamos encontrar essas funções de forma. Observando o comportamento da seção transversal em um ponto, notamos que ela se desloca na direção do carregamento e também rotaciona em torno de um eixo perpendicular do plano XY, tal fato nos dá um dica sobre que tipo de grau de liberdade precisamos nos nós para representar esse efeito.</p>
+<p>De uma forma bem simples, a ideia básica do método dos elementos finitos aplicados à estruturas é transformar essa viga com seus deslocamentos e rotações contínuos em <span class="mathjax mathjax--inline">$x$</span> em um elemento discreto com deslocamentos e rotações definidos apenas nos seus extremos ou nós, sendo os deslocamentos dentro desse elemento calculados através de uma interpolação, utilizando as chamadas funções de forma, dos deslocamentos nos nós ou nodais.</p>
+<p>De outra forma, digamos que se conheçam os deslocamentos e as rotações nos nós desse elemento, sendo eles de valor qualquer <span class="mathjax mathjax--inline">$u_1$</span> e <span class="mathjax mathjax--inline">$u_2$</span> no nós 1 e <span class="mathjax mathjax--inline">$u_3$</span> e <span class="mathjax mathjax--inline">$u_4$</span> no nó 2 respectivamente, e que, através deles, queremos calcular os deslocamentos em qualquer ponto desse elemento, entre os nós 1 e 2. Digamos ainda que esse elemento tem comprimento L.</p>
+<p><img title="Deslocamentos e Rotações na Viga" alt="Deslocamentos e Rotações na Viga" src="../../user/pages/03.vigas/01.teoria/imagens/DeslocamentoRotacaoViga.svg" />
+<small>Deslocamentos e Rotações na Viga.</small></p>
+<p>Observe que definimos 4 graus de liberdade no elemento, dois de deslocamentos e 2 de rotações.</p>
+<h3 id="funes-de-forma" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#funes-de-forma" title="Permanent link: Funções de forma" data-icon="#">Funções de forma</a></h3>
+<p>Diferente do caso da barra de treliça, fica um pouco difícil escrever um polinômio de 4 grau baseando-se nos valores genéricos dados aos graus de liberdade nos nós ou extremos do elemento. Além disso, o polinômio completo de 4 grau possui 5 coeficientes e nossa idealização apenas 4 graus de liberdade o que impede uma definição direta das funções de forma seguindo a mesma metodologia aplicada ao elemento de treliça.</p>
+<p>Em vigas de Euler-Bernoulli usamos como funções de forma polinômios de Hermite aplicados aos graus de liberdade da viga. Esses polinômios são importantes pois possuem a propriedade de serem ortogonais o que vai garantir um sistema linearmente independente em nosso equilíbrio. Os polinômios de Hermite para os 4 graus de liberdade da viga são:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+N_1 &= \dfrac{1}{2} - \dfrac{3}{2L}x + \dfrac{2}{L^3}x^3 \\
+N_2 &= \dfrac{L}{8} - \dfrac{1}{4}x - \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3 \\
+N_3 &= \dfrac{1}{2} + \dfrac{3}{2L}x - \dfrac{2}{L^3}x^3 \\
+N_4 &= - \dfrac{L}{8} - \dfrac{1}{4}x + \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3
+\end{align}$$</p>
+<p>Portanto, o campo de deslocamentos no domínio do elemento é interpolado pelas funções de forma em função dos valores dos deslocamentos nodais.</p>
+<p class="mathjax mathjax--block">$$
+w(x) = \left[ 
+\begin{array}{cccc}
+    N_1 & N_2 & N_3 & N_4 \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace$$</p>
+<p>A equação acima condensada é escrita como:</p>
+<p class="mathjax mathjax--block">$$
+w(x) = \textbf{N} \textbf{u}$$</p>
+<p>Essa equação de interpolação dos deslocamentos nodais em sua forma condensada é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda, obviamente, são as funções de forma na matriz <span class="mathjax mathjax--inline">$\textbf{N}$</span> e os deslocamentos nodais no vetor <span class="mathjax mathjax--inline">$\textbf{u}$</span>. </p>
+<h3 id="graus-de-liberdade" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#graus-de-liberdade" title="Permanent link: Graus de liberdade" data-icon="#">Graus de liberdade</a></h3>
+<p>Vamos relembrar a conceituação dentro das premissas do MEF do conceito de <strong>grau de liberdade</strong>.</p>
+<p>Os deslocamentos <span class="mathjax mathjax--inline">$u_1$</span> e <span class="mathjax mathjax--inline">$u_3$</span> e as rotações <span class="mathjax mathjax--inline">$u_2$</span> e <span class="mathjax mathjax--inline">$u_4$</span>, dentro do conceito do MEF, são chamados de <strong>graus de liberdade</strong>. Os graus de liberdade, no MEF, são as possíveis direções de deslocamentos, rotações, velocidades, acelerações, entre outros, que podem ser discretizados em um nó em função de um sistema de coordenadas referencial, aos quais estão associadas funções de forma que "distribuem" os seus efeitos dentro de um determinado elemento (ou no domínio de um elemento). Ou seja, o nosso elemento representativo de uma viga plana possui 4 graus de liberdade!</p>
+<p>Então, como determinar os valores de deslocamentos associados aos graus de liberdade <span class="mathjax mathjax--inline">$u_1$</span> e <span class="mathjax mathjax--inline">$u_2$</span> e as rotações <span class="mathjax mathjax--inline">$u_2$</span> e <span class="mathjax mathjax--inline">$u_4$</span>?</p>
+<h2 id="resoluo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#resoluo" title="Permanent link: Resolução" data-icon="#">Resolução</a></h2>
+<h3 id="deformaes" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#deformaes" title="Permanent link: Deformações" data-icon="#">Deformações</a></h3>
+<p>Os deslocamentos da seção transversal na viga <span class="mathjax mathjax--inline">$u(x,y)$</span> são função do deslocamento <span class="mathjax mathjax--inline">$w(x)$</span> da viga, na linha neutra, quando fletida e da posição na qual é medido na seção transversal <span class="mathjax mathjax--inline">$y$</span>, considerando-se a linha neutra com deslocamentos zero. Observe que esses deslocamentos não são constantes e podem ser considerados com variação linear na seção transversal.</p>
+<p><img title="Deformações na Viga" alt="Deformações na Viga" src="../../user/pages/03.vigas/01.teoria/imagens/DeformacaoViga.svg" />
+<small>Deformações na Viga.</small></p>
+<p>Ou seja, para cada posição <span class="mathjax mathjax--inline">$y$</span> na seção transversal, existe um correspondente valor de <span class="mathjax mathjax--inline">$u(x)$</span>, que pode ser escrito como:</p>
+<p class="mathjax mathjax--block">$$
+u(x) = -y tan \theta$$</p>
+<p>Como estamos trabalhando com pequenas deformações, e isso é muito importante, o valor da <span class="mathjax mathjax--inline">$tan \theta$</span> se aproxima do proprio valor de <span class="mathjax mathjax--inline">$\theta$</span>. Além disso, esse ângulo de giro, <span class="mathjax mathjax--inline">$\theta$</span>, nada mais é que a variação em <span class="mathjax mathjax--inline">$x$</span> da função <span class="mathjax mathjax--inline">$w(x)$</span> que descreve o deslocamento transversal da linha neutra da viga e, portanto:</p>
+<p class="mathjax mathjax--block">$$
+u(x) = -y tan \theta = -y \theta = -y \dfrac{dw}{dx}$$</p>
+<blockquote>
+<p>Mas que malandragem... de onde <span class="mathjax mathjax--inline">$tan \theta$</span> se aproxima do proprio valor de <span class="mathjax mathjax--inline">$\theta$</span>?? Vamos ver: <span class="mathjax mathjax--inline">$\theta = 1 rad \ \therefore \ tan \theta = 1,557$</span>, nem perto. Ok, que tal <span class="mathjax mathjax--inline">$\theta = 0,1 rad \ \therefore \ tan \theta = 0,10033$</span>, melhor mas ainda tem diferença. Então <span class="mathjax mathjax--inline">$\theta = 0,01 rad \ \therefore \ tan \theta = 0,0100003$</span>, melhor. Entendeu o quão pequeno? Detalhe <span class="mathjax mathjax--inline">$1^o = \pi/180 rad$</span>, ou seja, <span class="mathjax mathjax--inline">$0,01 rad = 0,5729578^o$</span>. Então quer dizer que se o meu giro da seção transversal foi maior que <span class="mathjax mathjax--inline">$0,01rad$</span>, aproximadamente, está tudo errado!? Não, quer dizer que a formulação não se aplica por, no caso, <span class="mathjax mathjax--inline">$tan \theta \neq \theta$</span>.</p>
+</blockquote>
+<p>Sabemos que a deformação, por definição, é a variação do deslocamento axial em relação ao comprimento indeformado do elemento da estrutura, associando isso ao disposto acima, chegamos a:</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon = \dfrac{d u}{d x} = \dfrac{d \left(-y \dfrac{dw}{dx}\right)}{d x} = -y \dfrac{d^2w}{dx^2}$$</p>
+<p>Como ao deslocamento da nossa viga <span class="mathjax mathjax--inline">$w(x)$</span> serão aplicados as premissas de elementos finitos, podemos reescrever as deformações utilizando as funções de forma e os deslocamentos nodais.</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon = -y \dfrac{d^2w}{dx^2} = -y \dfrac{d^2 \textbf{N}}{dx^2} \textbf{u} = -y \dfrac{d^2}{dx^2}\left(\left[
+\begin{array}{cccc}
+    N_1 & N_2 & N_3 & N_4$\\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace \right) = y \left[\begin{array}{cccc}
+    -\dfrac{d^2N_1}{dx^2} & -\dfrac{d^2N_2}{dx^2} & -\dfrac{d^2N_3}{dx^2} & -\dfrac{d^2N_4}{dx^2} \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace$$</p>
+<p>A matrix das derivadas segundas das funções de forma na equação é chamada de matriz <span class="mathjax mathjax--inline">$\textbf{B}$</span> em elementos finitos, e portanto, a equação pode ser rescrita de uma forma condensada como:</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon = \textbf{B} \textbf{u}$$</p>
+<p>Da mesma forma a equação também é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda é a matriz das derivadas das funções de interpolação, <span class="mathjax mathjax--inline">$\textbf{B}$</span> e os graus de liberdade (ou deslocamentos) <span class="mathjax mathjax--inline">$\textbf{u}$</span>.</p>
+<p>Como no nosso caso:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align*}
+N_1 &= \dfrac{1}{2} - \dfrac{3}{2L}x + \dfrac{2}{L^3}x^3 \\
+N_2 &= \dfrac{L}{8} - \dfrac{1}{4}x - \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3 \\
+N_3 &= \dfrac{1}{2} + \dfrac{3}{2L}x - \dfrac{2}{L^3}x^3 \\
+N_4 &= - \dfrac{L}{8} - \dfrac{1}{4}x + \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3
+\end{align*}$$</p>
+<p>Portanto:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align*}
+    \dfrac{d^2N_1}{dx^2} &= - \dfrac{12}{L^3}x \\
+    \dfrac{d^2N_2}{dx^2} &= \dfrac{1}{L} - \dfrac{6}{L^2}x \\
+    \dfrac{d^2N_3}{dx^2} &= \dfrac{12}{L^3}x \\
+    \dfrac{d^2N_4}{dx^2} &= - \dfrac{1}{L} - \dfrac{6}{L^2}x
+\end{align*}$$</p>
+<p>Então:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{B} = y \left[ 
+\begin{array}{cccc}
+    - \dfrac{12}{L^3}x & \dfrac{1}{L} - \dfrac{6}{L^2}x & \dfrac{12}{L^3}x & - \dfrac{1}{L} - \dfrac{6}{L^2}x \\ 
+\end{array} \right]$$</p>
+<p>Observe que as funções precisam ser contínuas em suas segundas derivadas para que possam ser utilizadas no elemento de viga, diferentemente do elemento de treliça onde apenas a primeira derivada precisava de continuidade.</p>
+<h3 id="equilbrio" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#equilbrio" title="Permanent link: Equilíbrio" data-icon="#">Equilíbrio</a></h3>
+<p>Agora precisamos colocar a nossa viga em equilíbrio, ou seja, todos os efeitos internos devem ser iguais aos efeitos externos. As tensões e deformações (internas) devem ser equivalentes às solicitações externas em seus efeitos, por exemplo trabalho, energia. Estamos fazendo uma análise elástica linear estática considerando pequenas deformações, não queremos que nossa barra se movimente como um corpo rígido ou se deforme em excesso, nem que ajam sobre ela cargas que variam no tempo ou que perca energia através de algum processo dissipativo, além disso, desconsideramos os efeitos de amortecimento do material e da sua inércia, por se tratar de uma análise estática.</p>
+<p>O equilíbrio das quantidades internas e externas nessas condições pode ser escrito através do Princípio dos Trabalhos Virtuais. Esse princípio, na mecânica dos sólidos, estabelece que o trabalho das forças internas (tensões), <span class="mathjax mathjax--inline">$W_i$</span> deve ser igual ao trabalho das forças externas (no nosso caso f), <span class="mathjax mathjax--inline">$W_e$</span>, então:</p>
+<p class="mathjax mathjax--block">$$
+W_i = W_e$$</p>
+<p>O trabalho das forças internas, <span class="mathjax mathjax--inline">$W_i$</span>, ou seja, o trabalho das tensões é calculando multiplicando essas tensões pelas suas respectivas deformações. O trabalho interno total é a soma das tensões multiplicadas pelas deformações em toda a barra da treliça, portanto:</p>
+<p class="mathjax mathjax--block">$$
+W_i = {\displaystyle\int_V \sigma \varepsilon dV }$$</p>
+<p>O trabalho das forças externas agora é diferente, como aplicamos uma carga distribuída <span class="mathjax mathjax--inline">$g$</span> em todo o comprimento da viga e essa carga fez com que a viga se deslocasse em <span class="mathjax mathjax--inline">$w(x)$</span> também em todo o seu comprimento, o trabalho externo total é a soma da contribuição de cada pedacinho de <span class="mathjax mathjax--inline">$g \times w$</span> na viga</p>
+<p class="mathjax mathjax--block">$$
+W_e = {\displaystyle\int_x g w(x) dx }$$</p>
+<p>O detalhe aqui é que tanto <span class="mathjax mathjax--inline">$\varepsilon$</span> quanto <span class="mathjax mathjax--inline">$w(x)$</span> estão em equilíbrio, mas não sabemos quanto valem nem como mantém o sistema em equilíbrio. Para testar o equilíbrio desse sistema vamos perturbar ele, partindo de zero deslocamentos e perturbando com deslocamentos imaginários ou virtuais nos nós de <span class="mathjax mathjax--inline">$\delta u_1$</span> e <span class="mathjax mathjax--inline">$\delta u_3$</span> e rotações virtuais de <span class="mathjax mathjax--inline">$\delta u_2$</span> e <span class="mathjax mathjax--inline">$\delta u_5$</span>.</p>
+<p>Sendo assim, nossa deformação virtual se escreve:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \delta \varepsilon &= y \left[\begin{array}{cccc}
+    -\dfrac{d^2N_1}{dx^2} & -\dfrac{d^2N_2}{dx^2} & -\dfrac{d^2N_3}{dx^2} & -\dfrac{d^2N_4}{dx^2} \\ 
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_1 \\
+        \delta u_2 \\
+        \delta u_3 \\
+        \delta u_4
+    \end{array} \right\rbrace \\
+    \delta \varepsilon &= \textbf{B} \delta \textbf{u}
+\end{align}$$</p>
+<p>E o deslocamento virtual total <span class="mathjax mathjax--inline">$w(x)$</span>:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \delta w(x) &= \left [\begin{array}{cccc}
+    N_1 & N_2 & N_3 & N_4 \\ 
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_1 \\
+        \delta u_2 \\
+        \delta u_3 \\
+        \delta u_4
+    \end{array} \right\rbrace \\
+    \delta w(x) &= \textbf{N} \delta \textbf{u}
+\end{align}$$</p>
+<p>Substituindo esses valores respectivamente nas equações e fazendo o equilíbrio, chegamos à:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    W_i &= W_e \\
+    {\displaystyle\int_V \sigma \delta \varepsilon dV } &= {\displaystyle\int_x g w(x) dx } \\
+    {\displaystyle\int_V \sigma \textbf{B} \delta \textbf{u} dV } &= {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }
+\end{align}$$</p>
+<p>Como estamos trabalhando com nosso material utilizando apenas o seu limite elástico, ou seja, o valor das tensões e deformações não podem ser maiores que as limites para esse regime, <span class="mathjax mathjax--inline">$\sigma \leq \sigma_{lim}$</span> e <span class="mathjax mathjax--inline">$\varepsilon \leq \varepsilon_{lim}$</span>.</p>
+<p><img title="Relação Constitutiva Linear Proporcional" alt="Relação Constitutiva Linear Proporcional" src="../../user/pages/03.vigas/01.teoria/imagens/RelConstitutiva.svg" />
+<small>Relação constitutiva linear proporcional do material, com rigidez elástica E.</small></p>
+<p>Além disso, como as tensões são proporcionais às deformações, podemos escrever que:</p>
+<p class="mathjax mathjax--block">$$
+\sigma = E \varepsilon$$</p>
+<p>Observe que no caso da viga, mesmo com as deformações variando linearmente ao longo da seção transversal, <span class="mathjax mathjax--inline">$\sigma$</span> e <span class="mathjax mathjax--inline">$\varepsilon$</span> são escalares (ou tensores de ordem zero), pois apenas existe a componente na direção axial da viga. Aliás, <span class="mathjax mathjax--inline">$E$</span> também é um escalar (ou tensores de ordem zero) por estarmos trabalhando com a resposta mecânica do material em apenas uma direção.</p>
+<p>Dessa forma, substituindo o valor de <span class="mathjax mathjax--inline">$\sigma$</span>:</p>
+<p class="mathjax mathjax--block">$$
+{\displaystyle\int_V E \varepsilon \textbf{B} \delta \textbf{u} dV } = {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }$$</p>
+<p>Como em nosso problemas estamos discretizando utilizando MEF, substituimos a deformação <span class="mathjax mathjax--inline">$\varepsilon$</span> pela respectiva discretização utilizando as funções de forma e os deslocamentos nodais:</p>
+<p class="mathjax mathjax--block">$$
+{\displaystyle\int_V \delta \textbf{u}^T \textbf{B}^T E \textbf{B} \textbf{u} dV } = {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }$$</p>
+<p>Como os deslocamentos <span class="mathjax mathjax--inline">$\delta \textbf{u}$</span> e <span class="mathjax mathjax--inline">$\textbf{u}$</span> não dependem do volume da viga, podemos retirá-los da integral.</p>
+<p class="mathjax mathjax--block">$$
+\delta \textbf{u}^T {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u} = \delta \textbf{u}^T g {\displaystyle\int_x \textbf{N}^T dx }$$</p>
+<blockquote>
+<p>Lembre-se de que os transpostos são adicionados para manter a multiplicação matricial quando \delta \textbf{u} foi retirado da integral.</p>
+</blockquote>
+<p>E, como <span class="mathjax mathjax--inline">$\delta \textbf{u}$</span> são os mesmos em ambos os lados da equação, chegamos ao equilíbrio da nossa viga.</p>
+<p class="mathjax mathjax--block">$$
+{\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u} = g {\displaystyle\int_x \textbf{N}^T dx }$$</p>
+<p>Que, em MEF, chamamos de equilíbrio estático e escrevemos de forma condensada como:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k} \textbf{u} = \textbf{f}$$</p>
+<p>Sendo a integral no volume conhecida como matriz de rigidez do elemento, <span class="mathjax mathjax--inline">$\textbf{k}$</span> e <span class="mathjax mathjax--inline">$\textbf{f}$</span> o vetor de forças nodais equivalentes.</p>
+<h3 id="matriz-de-rigidez-do-elemento..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#matriz-de-rigidez-do-elemento..." title="Permanent link: Matriz de rigidez do elemento de viga de Euler-Bernoulli" data-icon="#">Matriz de rigidez do elemento de viga de Euler-Bernoulli</a></h3>
+<p>O vetor de forças nodais equivalentes também pode ser escrito como a força aplicada em cada nó. No caso da viga, como a carga é distribuída em todo o comprimento do elemento precisamos descobrir o quanto dessa carga vai para cada um dos graus de liberdade. Fazemos isso utilizando as funções de forma de acordo com:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{f} = g {\displaystyle\int_x \textbf{N}^T dx }$$</p>
+<p>Substituindo os valores de <span class="mathjax mathjax--inline">$\textbf{N}$</span> e integrando no comprimento da viga, ou seja de <span class="mathjax mathjax--inline">$-L/2$</span> até <span class="mathjax mathjax--inline">$L/2$</span>:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{f} = g {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left [\begin{array}{c}
+    N_1 \\
+    N_2 \\
+    N_3 \\
+    N_4 \\ 
+    \end{array} \right] dx } = g {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left [\begin{array}{c}
+    \dfrac{1}{2} - \dfrac{3}{2L}x + \dfrac{2}{L^3}x^3 \\
+    \dfrac{L}{8} - \dfrac{1}{4}x - \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3 \\
+    \dfrac{1}{2} + \dfrac{3}{2L}x - \dfrac{2}{L^3}x^3 \\
+    \dfrac{L}{8} - \dfrac{1}{4}x + \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3
+    \end{array} \right] dx }$$</p>
+<p class="mathjax mathjax--block">$$
+\therefore \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{L}{2} \\
+    \dfrac{L^2}{12} \\
+    \dfrac{L}{2} \\
+    -\dfrac{L^2}{12} 
+    \end{array} \right]$$</p>
+<p>No caso da integral no volume, conhecida como matriz de rigidez do elemento, podemos abrir a integral em uma integral na área e outra no comprimento. No entanto, lembra que a matriz <span class="mathjax mathjax--inline">$\textbf{B}$</span> possui um <span class="mathjax mathjax--inline">$y$</span> multiplicando as derivadas segundas das funções de interpolação? Isso significa que as deformações são função tanto de <span class="mathjax mathjax--inline">$x$</span> quando de <span class="mathjax mathjax--inline">$y$</span> da seção transversal (não confunda o <span class="mathjax mathjax--inline">$y$</span> da seção com o <span class="mathjax mathjax--inline">$y$</span> do sistema de coordenadas). Isolando o <span class="mathjax mathjax--inline">$y$</span> de <span class="mathjax mathjax--inline">$\textbf{B}$</span>, podemos escrever:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{B} = y \textbf{B}_x$$</p>
+<p>E ao resolver a integral na área chegamos a um velho conhecido nosso, o segundo momento de área ou momento de inércia.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    {\displaystyle\int_A \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}^T E \textbf{B} dx dA } \textbf{u} &= \textbf{f} \\
+    {\displaystyle\int_A y dA \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx  } \textbf{u} &= \textbf{f} \\
+    I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx }\textbf{u} &= \textbf{f} 
+\end{align}$$</p>
+<p>Substituindo os valores de <span class="mathjax mathjax--inline">$\textbf{B}_x$</span>, realizando as multiplicações matriciais e resolvendo a integral:</p>
+<p class="mathjax mathjax--block">$$
+I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left[ \begin{array}{c}
+    - \dfrac{12}{L^3}x \\
+    \dfrac{1}{L} - \dfrac{6}{L^2}x \\
+    \dfrac{12}{L^3}x \\
+    - \dfrac{1}{L} - \dfrac{6}{L^2}x
+\end{array} \right] E \left[ 
+\begin{array}{cccc}
+    - \dfrac{12}{L^3}x & \dfrac{1}{L} - \dfrac{6}{L^2}x & \dfrac{12}{L^3}x & - \dfrac{1}{L} - \dfrac{6}{L^2}x \\ 
+\end{array} \right] dx }\textbf{u} = \textbf{f} $$</p>
+<p class="mathjax mathjax--block">$$
+\therefore \dfrac{EI_z}{L} \left[ 
+\begin{array}{cccc}
+    \dfrac{12}{L^2} & \dfrac{6}{L} & -\dfrac{12}{L^2} & \dfrac{6}{L} \\
+    \dfrac{6}{L} & 4 & -\dfrac{6}{L} & 2 \\
+    -\dfrac{12}{L^2} & -\dfrac{6}{L} & \dfrac{12}{L^2} & -\dfrac{6}{L} \\
+    \dfrac{6}{L} & 2 & -\dfrac{6}{L} & 4 \\
+\end{array} \right] \textbf{u} = \textbf{f} $$</p>
+<p>Sendo:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k} = \dfrac{EI_z}{L} \left[ 
+\begin{array}{cccc}
+    \dfrac{12}{L^2} & \dfrac{6}{L} & -\dfrac{12}{L^2} & \dfrac{6}{L} \\
+    \dfrac{6}{L} & 4 & -\dfrac{6}{L} & 2 \\
+    -\dfrac{12}{L^2} & -\dfrac{6}{L} & \dfrac{12}{L^2} & -\dfrac{6}{L} \\
+    \dfrac{6}{L} & 2 & -\dfrac{6}{L} & 4 \\
+\end{array} \right] \quad \quad \textbf{u} = \left\lbrace \begin{array}{c}
+        u_1 \\
+        u_2 \\
+        u_3 \\
+        u_4
+    \end{array} \right\rbrace \quad \quad \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{L}{2} \\
+    \dfrac{L^2}{12} \\
+    \dfrac{L}{2} \\
+    -\dfrac{L^2}{12} 
+    \end{array} \right]$$</p>
+<p>O problema dessa matriz de rigidez é que ela está escrita para um elemento disposto na horizontal na direção do eixo x. E se o nosso elemento for inclinado? A resposta é simples, não se comportaria mais como uma viga. Portanto a matriz de rigidez no sistema local do elemento de viga coincide com a do sistema global da estrutura, pois sempre vamos considerar a viga disposta na horizontal para aplicar nossas definições visto que em toda a formulação tratamos apenas do efeito da flexão.</p>
+<p><img title="Graus de Liberdade da Viga" alt="Graus de Liberdade da Viga" src="../../user/pages/03.vigas/01.teoria/imagens/GrausLiberdadeViga.svg" />
+<small>Graus de Liberdade da Viga.</small></p>
+<p>E agora?! Agora é hora de voltar a treliça de três barras e resolvê-la na mão na <a href="../beams/teoria/aplicacao.html">aplicação na mão</a></p>
 </p>
 </div>
 
@@ -6764,7 +7109,7 @@ $(document).ready(function() {
         	<div id="navigation">
 		    <a class="nav nav-prev" href="../beams.html"> <i class="fa fa-chevron-left"></i></a>
 	
-		    <a class="nav nav-next" href="../beams/implementacao.html"><i class="fa fa-chevron-right"></i></a>
+		    <a class="nav nav-next" href="../beams/teoria/aplicacao.html"><i class="fa fa-chevron-right"></i></a>
 		</div>
     </section>
                      </body>
