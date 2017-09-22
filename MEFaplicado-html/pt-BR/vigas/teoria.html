@@ -6770,7 +6770,7 @@ $(document).ready(function() {
 <h4 id="contedo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#contedo" title="Permanent link: Conteúdo" data-icon="#">Conteúdo</a></h4>
 <nav class="table-of-contents toc" role="navigation">
   
-                                                                                  
+                                                                                                                      
   <ul>
       
         
@@ -6824,6 +6824,36 @@ $(document).ready(function() {
         
         
               <li><a href="teoria.html#matriz-de-rigidez-do-elemento..." class="toclink" title="Matriz de rigidez do elemento de viga de Euler-Bernoulli">Matriz de rigidez do elemento de viga de Euler-Bernoulli</a></li>
+      
+                      </ul></li>
+              </ul></li>
+          
+        
+              <li><a href="teoria.html#viga-de-timoshenko" class="toclink" title="Viga de Timoshenko">Viga de Timoshenko</a></li>
+      
+                      <li><ul>
+              <li><ul>
+          
+        
+              <li><a href="teoria.html#deslocamentos-1" class="toclink" title="Deslocamentos">Deslocamentos</a></li>
+      
+        
+        
+              <li><a href="teoria.html#elemento-mestre" class="toclink" title="Elemento Mestre">Elemento Mestre</a></li>
+      
+        
+        
+              <li><a href="teoria.html#funes-de-forma-1" class="toclink" title="Funções de forma">Funções de forma</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="teoria.html#resoluo-1" class="toclink" title="Resolução">Resolução</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="teoria.html#deformaes-1" class="toclink" title="Deformações">Deformações</a></li>
       
               </ul></li>
           </ul></li>
@@ -7097,10 +7127,173 @@ I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left[ \begin{array}{c}
     \dfrac{L}{2} \\
     -\dfrac{L^2}{12} 
     \end{array} \right]$$</p>
-<p>O problema dessa matriz de rigidez é que ela está escrita para um elemento disposto na horizontal na direção do eixo x. E se o nosso elemento for inclinado? A resposta é simples, não se comportaria mais como uma viga. Portanto a matriz de rigidez no sistema local do elemento de viga coincide com a do sistema global da estrutura, pois sempre vamos considerar a viga disposta na horizontal para aplicar nossas definições visto que em toda a formulação tratamos apenas do efeito da flexão.</p>
+<p>O problema dessa matriz de rigidez é que ela está escrita para um elemento disposto na horizontal na direção do eixo x. E se o nosso elemento for inclinado? A resposta é simples, não se comportaria mais como uma viga. Portanto a matriz de rigidez no sistema local do elemento de viga coincide com a do sistema global da estrutura, pois sempre vamos considerar a viga disposta na horizontal para aplicar nossas definições visto que, em toda a formulação, tratamos apenas do efeito da flexão.</p>
 <p><img title="Graus de Liberdade da Viga" alt="Graus de Liberdade da Viga" src="../../user/pages/03.vigas/01.teoria/imagens/GrausLiberdadeViga.svg" />
 <small>Graus de Liberdade da Viga.</small></p>
-<p>E agora?! Agora é hora de voltar a treliça de três barras e resolvê-la na mão na <a href="teoria/aplicacao.html">aplicação na mão</a></p>
+<p>Agora vamos complicar um pouco adicionando o efeito da deformação causada pelo cisalhamento.</p>
+<h1 id="viga-de-timoshenko" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#viga-de-timoshenko" title="Permanent link: Viga de Timoshenko" data-icon="#">Viga de Timoshenko</a></h1>
+<h3 id="deslocamentos-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#deslocamentos-1" title="Permanent link: Deslocamentos" data-icon="#">Deslocamentos</a></h3>
+<p>Com a consideração das deformações por cisalhamento precisamos de um modelo um pouco mais detalhado de viga, conhecido como viga de Timoshenko. Os graus de liberdade na viga continuam os mesmos porém, agora, a rotação não é mais escrita em função da variação dos deslocamentos da viga.</p>
+<p><img title="Deslocamentos e Rotações na Viga" alt="Deslocamentos e Rotações na Viga" src="../../user/pages/03.vigas/01.teoria/imagens/DeslocamentoRotacaoViga.svg" />
+<small>Deslocamentos e Rotações na Viga.</small></p>
+<p>Observe que também definimos 4 graus de liberdade no elemento, dois de deslocamentos e 2 de rotações.</p>
+<p>Antes de encontrarmos as funções de forma, vou apresentar um conceito novo, onde consideramos um elemento chamado mestre que possui coordenadas unitárias em seus nós e esse será o elemento onde efetuaremos a integração que resultará na matriz de rigidez, transformando o resultado para o nosso elemento na estrutura utilizando um Jacobiano definido para a transformação.</p>
+<h3 id="elemento-mestre" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#elemento-mestre" title="Permanent link: Elemento Mestre" data-icon="#">Elemento Mestre</a></h3>
+<p>O elemento mestre é um elemento muito bem comportado no qual o procedimento de integração para o cálculo da matriz de rigidez é simples. Para vigas, ele é definido como possuindo comprimento 2 (pode ser feito de outras formas também), sendo as coordenadas dos nós em -1 e 1. Além disso, esse elemento existe em outro espaço cartesiano, diferente da viga, definido pelos eixos <span class="mathjax mathjax--inline">$s$</span> e <span class="mathjax mathjax--inline">$t$</span>.</p>
+<p><img title="Definições do elemento Mestre" alt="Definições do elemento Mestre" src="../../user/pages/03.vigas/01.teoria/imagens/DeslocamentoRotacaoVigaMestre.svg" />
+<small>Definições do elemento Mestre.</small></p>
+<p>A transformação de coordenadas entre o sistema xy e o sistema st pode ser feita em função da própria imposição do comprimento unitário na viga, ou seja:</p>
+<p class="mathjax mathjax--block">$$
+x = \dfrac{L}{2}s$$</p>
+<p>Para cada 1 <span class="mathjax mathjax--inline">$s$</span> temos <span class="mathjax mathjax--inline">$L/2$</span> x. O que resulta no jacobiano de transformação (o Jacobiano define a variação de x em s).</p>
+<p class="mathjax mathjax--block">$$
+J = \dfrac{d x}{d s} = \dfrac{L}{2}$$</p>
+<h3 id="funes-de-forma-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#funes-de-forma-1" title="Permanent link: Funções de forma" data-icon="#">Funções de forma</a></h3>
+<p>Diferente do caso da viga de Euler-Bernoulli, em função da rotação não ser mais somente escrita em função da variação dos deslocamentos, na viga de Timoshenko consideramos desacoplados os graus de liberdade de deslocamento e de rotação, ou seja, temos apenas 1 grau de liberdade independente por nó. Por isso, o polinômio que conseguimos descrever para interpolar os deslocamentos nos nós e as rotações acaba se resumindo a uma reta, pois temos apenas 2 graus de liberdade independentes por nó e a equação de uma reta, ou um polinômio de ordem 1, possui 2 coeficientes.</p>
+<p>Portanto, o campo de deslocamentos no domínio do elemento e o campo de rotações são interpolados na forma:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+w(s) &= N_1(s)u_1 + N_2(s)u_3 \\
+\theta(s) &= N_1(s)u_2 + N_2(s)u_4 \\
+\end{align}$$</p>
+<p>Observe que as mesmas funções de interpolação são utilizadas para os deslocamentos e rotações e elas estão definidas no sistema de coordenadas st para o elemento mestre. São definidas para o elemento mestre justamente pelo fato de utilizarmos esse elemento para as integrações necessárias para a obtenção da matriz de rigidez.</p>
+<blockquote>
+<p>Obvio que as funções seriam as mesmas, afinal ambas resultariam em uma equação de reta, que considera uma variação linear dos deslocamentos e rotações no domínio do elemento mestre.</p>
+</blockquote>
+<p>Portanto, as funções de forma, que foram obtidas da mesma forma que foram as funções de forma do elemento de treliça, são:</p>
+<p class="mathjax mathjax--block">$$
+N_1(s) = \dfrac{1-s}{2} \qquad N_2(s) = \dfrac{1+s}{2}$$</p>
+<p>As equações acima condensadas são escritas como:</p>
+<p class="mathjax mathjax--block">$$
+w(x) = \textbf{N} \textbf{u}_i \qquad \theta(x) = \textbf{N} \textbf{u}_p$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$\textbf{u}_i$</span> o vetor de deslocamentos com os graus de liberdade ímpares e <span class="mathjax mathjax--inline">$\textbf{u}_p$</span> o vetor de deslocamentos com os graus de liberdade pares:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{u}_i = \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_3
+\end{array}\right\rbrace \qquad \textbf{u}_p = \left\lbrace \begin{array}{c}
+    u_2 \\
+    u_4
+\end{array} \right\rbrace$$</p>
+<p>Quaisquer dessas equações de interpolação dos deslocamentos nodais em sua forma condensada são válidas para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda, obviamente, são as funções de forma na matriz <span class="mathjax mathjax--inline">$\textbf{N}$</span> e os deslocamentos nodais no vetor <span class="mathjax mathjax--inline">$\textbf{u}$</span>. </p>
+<h2 id="resoluo-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#resoluo-1" title="Permanent link: Resolução" data-icon="#">Resolução</a></h2>
+<h3 id="deformaes-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#deformaes-1" title="Permanent link: Deformações" data-icon="#">Deformações</a></h3>
+<p>Os deslocamentos da seção transversal na viga <span class="mathjax mathjax--inline">$u(x,y)$</span> são função do deslocamento <span class="mathjax mathjax--inline">$w(x)$</span> da viga acrescidos de um deslocamento adicional causado pela rotação <span class="mathjax mathjax--inline">$\phi$</span> da seção transversal que representa a deformação por cisalhamento na seção. Observe que esses deslocamentos não são constantes e podem ser considerados com variação linear na seção transversal e que agora estamos tratando dos deslocamentos da viga e não do elemento mestre.</p>
+<p><img title="Deformações na Viga" alt="Deformações na Viga" src="../../user/pages/03.vigas/01.teoria/imagens/DeformacaoVigaTimoshenko.svg" />
+<small>Deformações na Viga.</small></p>
+<p>Ou seja, para cada posição <span class="mathjax mathjax--inline">$y$</span> na seção transversal, existe um correspondente valor de <span class="mathjax mathjax--inline">$u(x)$</span>, que pode ser escrito como:</p>
+<p class="mathjax mathjax--block">$$
+u(x) = -y tan \theta$$</p>
+<p>Como estamos trabalhando com pequenas deformações, e isso é muito importante, o valor da <span class="mathjax mathjax--inline">$tan \theta$</span> se aproxima do proprio valor de <span class="mathjax mathjax--inline">$\theta$</span>. Além disso, esse ângulo de giro, <span class="mathjax mathjax--inline">$\theta$</span>, nada mais é que a variação em <span class="mathjax mathjax--inline">$x$</span> da função <span class="mathjax mathjax--inline">$w(x)$</span> que descreve o deslocamento transversal da linha neutra da viga e, portanto:</p>
+<p class="mathjax mathjax--block">$$
+u(x) = -y tan \theta = -y \theta$$</p>
+<p>No entanto, como vamos levar em conta a deformação por cisalhamento <span class="mathjax mathjax--inline">$\theta$</span> agora é uma soma da rotação pela flexão mais a rotação pelo corte.</p>
+<p class="mathjax mathjax--block">$$
+\theta = \dfrac{dw}{dx} + \phi$$</p>
+<p>Sabemos que a deformação, por definição, é a variação do deslocamento axial em relação ao comprimento indeformado do elemento da estrutura, associando isso ao disposto acima, chegamos a:</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon = \dfrac{d u}{d x} = \dfrac{d \left(-y \theta \right)}{d x} = -y \dfrac{d \theta}{dx}$$</p>
+<p>Ainda não vamos substituir o valor de <span class="mathjax mathjax--inline">$\theta$</span> na equação acima pois nos estamos interpolando o valor de <span class="mathjax mathjax--inline">$\theta$</span> de forma independente de <span class="mathjax mathjax--inline">$u$</span>, lembra:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+w(s) &= N_1(s)u_1 + N_2(s)u_3 \\
+\theta(s) &= N_1(s)u_2 + N_2(s)u_4 \\
+\end{align}$$</p>
+<p>Portanto, ao aplicarmos as premissas de elementos finitos à nossa deformação <span class="mathjax mathjax--inline">$\varepsilon$</span> podemos reescrever as deformações diretamente utilizando as funções de forma para <span class="mathjax mathjax--inline">$\theta$</span> e os deslocamentos nodais.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\varepsilon &= -y \dfrac{d \theta(s)}{dx} = -y \dfrac{d (N_1(s)u_2 + N_2(s)u_4)}{dx} \textbf{u} = -y \dfrac{d}{dx}\left(\left[
+\begin{array}{cccc}
+    0 & N_1(s) & 0 & N_2(s)\\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace \right) \\
+\therefore \varepsilon &= y \left[\begin{array}{cccc}
+    0 & -\dfrac{dN_1(s)}{dx} & 0 & -\dfrac{dN_2(s)}{dx} \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace
+\end{align}$$</p>
+<p>A matrix das derivadas segundas das funções de forma na equação é chamada de matriz <span class="mathjax mathjax--inline">$\textbf{B}$</span> em elementos finitos, e portanto, a equação pode ser rescrita de uma forma condensada como:</p>
+<p class="mathjax mathjax--block">$$
+\varepsilon = \textbf{B} \textbf{u}$$</p>
+<p>Da mesma forma a equação também é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda é a matriz das derivadas das funções de interpolação, <span class="mathjax mathjax--inline">$\textbf{B}$</span> e os graus de liberdade (ou deslocamentos) <span class="mathjax mathjax--inline">$\textbf{u}$</span>.</p>
+<p>Como no nosso caso:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align*}
+N_1(s) &= \dfrac{1-s}{2} \\
+N_2(s) &= \dfrac{1+s}{2} \\
+\end{align*}$$</p>
+<p>Portanto:</p>
+<p class="mathjax mathjax--block">$$
+\dfrac{dN_1(s)}{dx} = ???$$</p>
+<p>Opa!! <span class="mathjax mathjax--inline">$N_1(s)$</span> e <span class="mathjax mathjax--inline">$N_2(s)$</span> são função de <span class="mathjax mathjax--inline">$s$</span> e a derivada é em <span class="mathjax mathjax--inline">$x$</span>... e agora?! Lembra da regra da cadeia? Então, como as funções de forma são escritas no sistema st e é necessário se calcular a derivada em relação a x, nós podemos utilizar o jacobiano e a regra da cadeia e fazer o seguinte:</p>
+<p class="mathjax mathjax--block">$$
+\dfrac{dN_i(s)}{ds} = \dfrac{dN_i(s)}{dx}\dfrac{dx}{ds} = \dfrac{dN_i(s)}{dx} J = \dfrac{dN_i(s)}{dx} \dfrac{L}{2}$$</p>
+<p>Ou então, utilizando o inverso do Jacobiano:</p>
+<p class="mathjax mathjax--block">$$
+\dfrac{dN_i(s)}{dx} = \dfrac{dN_i(s)}{ds} \dfrac{2}{L}$$</p>
+<p>Então:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align*}
+\dfrac{dN_1(s)}{dx} = &= \dfrac{dN_1(s)}{ds} \dfrac{2}{L} = \dfrac{d \left( \dfrac{1-s}{2} \right)}{ds} \dfrac{2}{L} = -\dfrac{1}{L}\\
+\dfrac{dN_2(s)}{dx} = &= \dfrac{dN_2(s)}{ds} \dfrac{2}{L} = \dfrac{d \left( \dfrac{1+s}{2} \right)}{ds} \dfrac{2}{L} = \dfrac{1}{L}\\
+\end{align*}$$</p>
+<p class="mathjax mathjax--block">$$
+\textbf{B} = y \left[ 
+\begin{array}{cccc}
+    0 & \dfrac{1}{L} & 0 & -\dfrac{1}{L} \\ 
+\end{array} \right]$$</p>
+<p>Observe que as funções precisam ser contínuas em suas primeiras derivadas para que possam ser utilizadas no elemento de viga de Timoshenko.</p>
+<p>Mas não acabou aqui, e a deformação por cortante? Essa deformação é causada pela distorção angular <span class="mathjax mathjax--inline">$\gamma_{xy}$</span> que também precisa ser escrita em função dos deslocamentos nodais com as premissas de elementos finitos. Da teoria da elasticidade sabe-se que essa deformação angular é a variação do deslocamento na direção x em y somada a variação do deslocamento na direção y em x.</p>
+<p class="mathjax mathjax--block">$$
+\gamma_{xy} = \dfrac{du}{dy} + \dfrac{dw}{dx}$$</p>
+<p>Lembrando que <span class="mathjax mathjax--inline">$u(x) = -y \theta$</span>, temos:</p>
+<p class="mathjax mathjax--block">$$
+\gamma_{xy} = \dfrac{d ( -y \theta )}{dy} + \dfrac{dw}{dx} = -\theta + \dfrac{dw}{dx}$$</p>
+<p>Como:</p>
+<p class="mathjax mathjax--block">$$
+\theta = \dfrac{dw}{dx} + \phi$$</p>
+<p>Portanto concluimos que:</p>
+<p class="mathjax mathjax--block">$$
+\gamma_{xy} = -\phi$$</p>
+<p>Justamente nossa definição inicial de que a deformação do cisalhamento ou nossa distorção angular é definida por <span class="mathjax mathjax--inline">$\phi$</span>. Mas vamos manter a equação anterior de <span class="mathjax mathjax--inline">$\gamma_{xy}$</span> pois sabemos como discretizar <span class="mathjax mathjax--inline">$\theta$</span> e <span class="mathjax mathjax--inline">$\frac{dw}{dx}$</span> em elementos finitos, que, por sinal, são interpolados pelas funções de forma da seguinte maneira:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \dfrac{dw}{dx} &= \dfrac{d N_1(s)u_1 + N_2(s)u_3}{dx} = \dfrac{d N_1(s)}{dx}u_1 + \dfrac{d N_2(s)}{dx}u_3 \\
+    \theta &= N_1(s)u_2 + N_2(s)u_4
+\end{align}$$</p>
+<p>Substituindo em <span class="mathjax mathjax--inline">$\gamma_{xy}$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\gamma_{xy} = -N_1(s)u_2 - N_2(s)u_4 + \dfrac{d N_1(s)}{dx}u_1 + \dfrac{d N_2(s)}{dx}u_3$$</p>
+<p>Da mesma forma fazemos as derivadas das funções de forma do espaço st em x usando o Jacobiano e a regra da cadeia e, como são as mesmas, já sabemos exatamente o resultado. Em notação matricial:</p>
+<p class="mathjax mathjax--block">$$
+\gamma_{xy} = \left[
+\begin{array}{cccc}
+    \dfrac{d N_1(s)}{dx} & -N_1(s) & \dfrac{d N_2(s)}{dx} & N_2(s)$\\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace = \left[\begin{array}{cccc}
+    -\dfrac{1}{L} & -\dfrac{1-s}{2} & \dfrac{1}{L} & -\dfrac{1+s}{2} \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace$$</p>
+<p>A matriz das derivadas e das próprias funções de forma na equação é chamada para a deformação por cisalhamento de matriz <span class="mathjax mathjax--inline">$\textbf{B}_c$</span> em elementos finitos, e portanto, a equação pode ser rescrita de uma forma condensada como:</p>
+<p class="mathjax mathjax--block">$$
+\gamma_{xy} = \textbf{B}_c \textbf{u}$$</p>
+<p>Continua...</p>
 </p>
 </div>
 
