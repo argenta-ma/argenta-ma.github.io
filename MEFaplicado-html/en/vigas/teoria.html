@@ -15,10 +15,10 @@
         <link href="../../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6770,7 +6770,7 @@ $(document).ready(function() {
 <h4 id="contedo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#contedo" title="Permanent link: Conteúdo" data-icon="#">Conteúdo</a></h4>
 <nav class="table-of-contents toc" role="navigation">
   
-                                                                                                                      
+                                                                                                                                  
   <ul>
       
         
@@ -6854,6 +6854,14 @@ $(document).ready(function() {
           
         
               <li><a href="teoria.html#deformaes-1" class="toclink" title="Deformações">Deformações</a></li>
+      
+        
+        
+              <li><a href="teoria.html#equilbrio-1" class="toclink" title="Equilíbrio">Equilíbrio</a></li>
+      
+        
+        
+              <li><a href="teoria.html#matriz-de-rigidez-do-elemento...-1" class="toclink" title="Matriz de rigidez do elemento de viga de Timoshenko">Matriz de rigidez do elemento de viga de Timoshenko</a></li>
       
               </ul></li>
           </ul></li>
@@ -7009,7 +7017,7 @@ W_e = {\displaystyle\int_x g w(x) dx }$$</p>
     \end{array} \right\rbrace \\
     \delta \varepsilon &= \textbf{B} \delta \textbf{u}
 \end{align}$$</p>
-<p>E o deslocamento virtual total <span class="mathjax mathjax--inline">$w(x)$</span>:</p>
+<p>E o deslocamento virtual total <span class="mathjax mathjax--inline">$w(x)$</span>... Espera! O <span class="mathjax mathjax--inline">$w(x)$</span> escrito para a viga de Timoshenko leva em conta apenas os deslocamentos transversais, sem levar em conta as rotações (óbvio, são desacoplados!). Por isso, para determinar o vetor de cargas nodais equivalentes as funções de forma da viga de Timoshenko são insuficientes. Por isso, para determinar vetor de forças nodais equivalentes vamos utilizar os mesmos polinômios de Hermite utilizados na viga de Euler-Bernoulli.</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
     \delta w(x) &= \left [\begin{array}{cccc}
@@ -7086,7 +7094,7 @@ W_e = {\displaystyle\int_x g w(x) dx }$$</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
     {\displaystyle\int_A \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}^T E \textbf{B} dx dA } \textbf{u} &= \textbf{f} \\
-    {\displaystyle\int_A y dA \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx  } \textbf{u} &= \textbf{f} \\
+    {\displaystyle\int_A y^2 dA \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx  } \textbf{u} &= \textbf{f} \\
     I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx }\textbf{u} &= \textbf{f} 
 \end{align}$$</p>
 <p>Substituindo os valores de <span class="mathjax mathjax--inline">$\textbf{B}_x$</span>, realizando as multiplicações matriciais e resolvendo a integral:</p>
@@ -7276,7 +7284,7 @@ N_2(s) &= \dfrac{1+s}{2} \\
 <p class="mathjax mathjax--block">$$
 \gamma_{xy} = \left[
 \begin{array}{cccc}
-    \dfrac{d N_1(s)}{dx} & -N_1(s) & \dfrac{d N_2(s)}{dx} & N_2(s)$\\
+    \dfrac{d N_1(s)}{dx} & -N_1(s) & \dfrac{d N_2(s)}{dx} & N_2(s)\\
 \end{array} \right] \left\lbrace \begin{array}{c}
     u_1 \\
     u_2 \\
@@ -7293,7 +7301,210 @@ N_2(s) &= \dfrac{1+s}{2} \\
 <p>A matriz das derivadas e das próprias funções de forma na equação é chamada para a deformação por cisalhamento de matriz <span class="mathjax mathjax--inline">$\textbf{B}_c$</span> em elementos finitos, e portanto, a equação pode ser rescrita de uma forma condensada como:</p>
 <p class="mathjax mathjax--block">$$
 \gamma_{xy} = \textbf{B}_c \textbf{u}$$</p>
-<p>Continua...</p>
+<h3 id="equilbrio-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#equilbrio-1" title="Permanent link: Equilíbrio" data-icon="#">Equilíbrio</a></h3>
+<p>Agora precisamos colocar a nossa viga em equilíbrio, ou seja, todos os efeitos internos devem ser iguais aos efeitos externos. As tensões e deformações (internas, normais e tangenciais) devem ser equivalentes às solicitações externas em seus efeitos, por exemplo trabalho, energia. Lembrando, estamos fazendo uma análise elástica linear estática considerando pequenas deformações, não queremos que nossa barra se movimente como um corpo rígido ou se deforme em excesso, nem que ajam sobre ela cargas que variam no tempo ou que perca energia através de algum processo dissipativo, além disso, desconsideramos os efeitos de amortecimento do material e da sua inércia, por se tratar de uma análise estática.</p>
+<p>O equilíbrio das quantidades internas e externas nessas condições pode ser escrito através do Princípio dos Trabalhos Virtuais. Esse princípio, na mecânica dos sólidos, estabelece que o trabalho das forças internas (tensões), <span class="mathjax mathjax--inline">$W_i$</span> deve ser igual ao trabalho das forças externas (no nosso caso f), <span class="mathjax mathjax--inline">$W_e$</span>, então:</p>
+<p class="mathjax mathjax--block">$$
+W_i = W_e$$</p>
+<p>O trabalho das forças internas, <span class="mathjax mathjax--inline">$W_i$</span>, ou seja, o trabalho das tensões é calculando multiplicando essas tensões pelas suas respectivas deformações. No caso da viga de Timoshenko podemos escrever o trabalho das forças internas em duas parcelas, uma relativa ao trabalho das tensões e respectivas deformações normais, representativas do efeito da flexão, <span class="mathjax mathjax--inline">$W_f$</span>, e outra relativa ao trabalho das tensões de cisalhamento e respectivas distorções angulares, relativa ao efeito do corte, <span class="mathjax mathjax--inline">$W_c$</span>.</p>
+<p class="mathjax mathjax--block">$$
+W_i = W_f + W_c$$</p>
+<p>O trabalho interno total é a soma das tensões multiplicadas pelas respectivas deformações em toda a barra da treliça, portanto:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    W_f &= {\displaystyle\int_V \sigma \varepsilon dV } \\
+    W_c &= {\displaystyle\int_V \tau_{xy} \gamma_{xy} dV } \\
+    &\therefore W_i = {\displaystyle\int_V \sigma \varepsilon dV } + {\displaystyle\int_V \tau_{xy} \gamma_{xy} dV }
+\end{align}$$</p>
+<p>O trabalho das forças externas continua sendo calculado pela força multiplicada pelo seu respectivo deslocamento, afinal as condições do carregamento externo são as mesmas, ou seja, como aplicamos uma carga distribuída <span class="mathjax mathjax--inline">$g$</span> em todo o comprimento da viga e essa carga fez com que a viga se deslocasse em <span class="mathjax mathjax--inline">$w(x)$</span> também em todo o seu comprimento, o trabalho externo total é a soma da contribuição de cada pedacinho de <span class="mathjax mathjax--inline">$g \times w$</span> na viga</p>
+<p class="mathjax mathjax--block">$$
+W_e = {\displaystyle\int_x g w(x) dx }$$</p>
+<p>Sabemos que tanto <span class="mathjax mathjax--inline">$\varepsilon$</span> quanto <span class="mathjax mathjax--inline">$w(x)$</span> estão em equilíbrio, mas não o quanto valem nem como mantém o sistema em equilíbrio. Para testar o equilíbrio desse sistema vamos perturbar ele, partindo de zero deslocamentos e perturbando com deslocamentos imaginários ou virtuais nos nós de <span class="mathjax mathjax--inline">$\delta u_1$</span> e <span class="mathjax mathjax--inline">$\delta u_3$</span> e rotações virtuais de <span class="mathjax mathjax--inline">$\delta u_2$</span> e <span class="mathjax mathjax--inline">$\delta u_5$</span>.</p>
+<p>Sendo assim, nossa deformação normal virtual se escreve:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \delta \varepsilon &= y \left[ 
+    \begin{array}{cccc}
+        0 & \dfrac{1}{L} & 0 & -\dfrac{1}{L} \\ 
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_1 \\
+        \delta u_2 \\
+        \delta u_3 \\
+        \delta u_4
+    \end{array} \right\rbrace \\
+    \delta \varepsilon &= \textbf{B} \delta \textbf{u}
+\end{align}$$</p>
+<p>A distorção angular virtual:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \delta \gamma_{xy} &= \left[\begin{array}{cccc}
+    -\dfrac{1}{L} & -\dfrac{1-s}{2} & \dfrac{1}{L} & -\dfrac{1+s}{2} \\ 
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_1 \\
+        \delta u_2 \\
+        \delta u_3 \\
+        \delta u_4
+    \end{array} \right\rbrace \\
+    \delta \gamma_{xy} &= \textbf{B}_c \delta \textbf{u}
+\end{align}$$</p>
+<p>E para o deslocamento virtual total <span class="mathjax mathjax--inline">$w(x)$</span> vamos manter, por enquanto, em uma forma genérica:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \delta w(x) &= \textbf{N} \delta \textbf{u}
+\end{align}$$</p>
+<p>Substituindo esses valores respectivamente nas equações e fazendo o equilíbrio, chegamos à:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    W_i &= W_e \\
+    {\displaystyle\int_V \sigma \varepsilon dV } + {\displaystyle\int_V \tau_{xy} \gamma_{xy} dV } &= {\displaystyle\int_x g w(x) dx } \\
+    {\displaystyle\int_V \sigma \textbf{B} \delta \textbf{u} dV } + {\displaystyle\int_V \tau_{xy} \textbf{B}_c \delta \textbf{u} dV } &= {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }
+\end{align}$$</p>
+<p>Como estamos trabalhando com nosso material utilizando apenas o seu limite elástico, ou seja, o valor das tensões e deformações não podem ser maiores que as limites para esse regime, <span class="mathjax mathjax--inline">$\sigma \leq \sigma_{lim}$</span> e <span class="mathjax mathjax--inline">$\varepsilon \leq \varepsilon_{lim}$</span>.</p>
+<p><img title="Relação Constitutiva Linear Proporcional" alt="Relação Constitutiva Linear Proporcional" src="../../user/pages/03.vigas/01.teoria/imagens/RelConstitutiva.svg" />
+<small>Relação constitutiva linear proporcional do material, com rigidez elástica E.</small></p>
+<p>Além disso, como as tensões são proporcionais às deformações, podemos escrever para as tensões normais e tensões cisalhantes:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \sigma &= E \varepsilon \\
+    \tau_{xy} &= G \gamma_{xy}
+\end{align}$$</p>
+<p>Observe que no caso da viga, mesmo com as deformações variando linearmente ao longo da seção transversal, <span class="mathjax mathjax--inline">$\sigma$</span>, <span class="mathjax mathjax--inline">$\varepsilon$</span>, <span class="mathjax mathjax--inline">$\tau_{xy}$</span> e <span class="mathjax mathjax--inline">$\gamma_{xy}$</span> são escalares (ou tensores de ordem zero), pois apenas existe a componente na direção axial da viga e sua respectiva componente na direção paralela a direção do carregamento e a seção transversal. Aliás, <span class="mathjax mathjax--inline">$E$</span> e <span class="mathjax mathjax--inline">$G$</span> também são escalares (ou tensores de ordem zero) por estarmos trabalhando com a resposta mecânica do material em apenas uma direção.</p>
+<blockquote>
+<p>Uma direção? Mas a normal e o cisalhamento não são ortogonais? São sim, mas o efeito do cisalhamento que estamos considerando foi definido como desacoplado da flexão e obtido com um ângulo <span class="mathjax mathjax--inline">$\phi$</span> adicional de giro na seção transversal. Além disso, os parâmetros do material que precisamos encontrar são o modulo de elasticidade e o coeficiente de poisson, pois:</p>
+<p><span class="mathjax mathjax--inline">$G = \dfrac{E}{2(1 + \nu)} \qquad \text{e, no caso:} \qquad \nu = -\dfrac{\varepsilon_y}{\varepsilon_x}$</span></p>
+<p>Lembre-se, cisalhamento não existe! Somente aparece pois estamos escrevendo nossa resposta mecânica em função de um referencial fixo, no caso, cartesiano. Então, as tensões principais, que de fato existem fisicamente, são decompostas em parcelas normal e tangencial em cada ponto do material.</p>
+</blockquote>
+<p>Dessa forma, substituindo o valor de <span class="mathjax mathjax--inline">$\sigma$</span> e de <span class="mathjax mathjax--inline">$\tau_{xy}$</span>:</p>
+<p class="mathjax mathjax--block">$$
+{\displaystyle\int_V E \varepsilon \textbf{B} \delta \textbf{u} dV } + {\displaystyle\int_V G \gamma_{xy} \textbf{B}_c \delta \textbf{u} dV } = {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }$$</p>
+<p>Como em nosso problemas estamos discretizando utilizando MEF, substituimos as deformações <span class="mathjax mathjax--inline">$\varepsilon$</span> e <span class="mathjax mathjax--inline">$\gamma_{xy}$</span> pelas respectivas discretizações utilizando as funções de forma e os deslocamentos nodais:</p>
+<p class="mathjax mathjax--block">$$
+{\displaystyle\int_V \delta \textbf{u}^T \textbf{B}^T E \textbf{B} \textbf{u} dV } + {\displaystyle\int_V \delta \textbf{u}^T \textbf{B}_c^T G \textbf{B}_c \textbf{u} dV } = {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }$$</p>
+<blockquote>
+<p>Lembre-se que as transposições são feitas para continuar possível a multiplicação matricial!</p>
+</blockquote>
+<p>Como os deslocamentos <span class="mathjax mathjax--inline">$\delta \textbf{u}$</span> e <span class="mathjax mathjax--inline">$\textbf{u}$</span> não dependem do volume da viga, podemos retirá-los da integral.</p>
+<p class="mathjax mathjax--block">$$
+\delta \textbf{u}^T {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u}  + \delta \textbf{u}^T {\displaystyle\int_V \textbf{B}_c^T G \textbf{B}_c dV } \textbf{u} = \delta \textbf{u}^T g {\displaystyle\int_x \textbf{N}^T dx }$$</p>
+<p>Ou ainda:</p>
+<p class="mathjax mathjax--block">$$
+\delta \textbf{u}^T \left[ {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } + {\displaystyle\int_V \textbf{B}_c^T G \textbf{B}_c dV } \right] \textbf{u} = \delta \textbf{u}^T g {\displaystyle\int_x \textbf{N}^T dx }$$</p>
+<p>E, como <span class="mathjax mathjax--inline">$\delta \textbf{u}$</span> são os mesmos em ambos os lados da equação, chegamos ao equilíbrio da nossa viga.</p>
+<p class="mathjax mathjax--block">$$
+\left[ {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } + {\displaystyle\int_V \textbf{B}_c^T G \textbf{B}_c dV } \right] \textbf{u} = g {\displaystyle\int_x \textbf{N}^T dx }$$</p>
+<p>Que, em MEF, chamamos de equilíbrio estático e escrevemos de forma condensada como:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k} \textbf{u} = \textbf{f}$$</p>
+<p>Sendo as integrais no volume conhecidas como matriz de rigidez do elemento, <span class="mathjax mathjax--inline">$\textbf{k}$</span> e <span class="mathjax mathjax--inline">$\textbf{f}$</span> o vetor de forças nodais equivalentes. No caso da viga de Timoshenko nossa matriz de rigidez é composta de duas parcelas:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k} = \textbf{k}_f + \textbf{k}_c$$</p>
+<p>Uma relativa a rigidez a flexão e outra a rigidez ao cortante.</p>
+<h3 id="matriz-de-rigidez-do-elemento...-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#matriz-de-rigidez-do-elemento...-1" title="Permanent link: Matriz de rigidez do elemento de viga de Timoshenko" data-icon="#">Matriz de rigidez do elemento de viga de Timoshenko</a></h3>
+<p>O vetor de forças nodais equivalentes construído com as funções de forma da viga de Timoshenko não consegue interpolar de forma eficiente o carregamento para a obteção das forças nodais que de fato equivalem a esse carregamento. Isso se deve ao fato da interpolação dos deslocamentos e das rotações ser desacoplada. Como a trabalho interno é definido pela força multiplicada pelo seu respectivo deslocamento, no caso da viga de Timoshenko, obteríamos apenas forças nodais nos graus de liberdade de translação.</p>
+<p>Matematicamente, como:</p>
+<p class="mathjax mathjax--block">$$
+w(s) = N_1(s)u_1 + N_2(s)u_3$$</p>
+<p>Sendo as funções de forma:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align*}
+N_1(s) &= \dfrac{1-s}{2} \\
+N_2(s) &= \dfrac{1+s}{2}
+\end{align*}$$</p>
+<p>E a transformação de coordenadas <span class="mathjax mathjax--inline">$s = \dfrac{2}{L}x$</span>, <span class="mathjax mathjax--inline">$\textbf{N}$</span> resulta em:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{N} = \left [\begin{array}{cccc}
+    N_1 & 0 & N_2 & 0
+    \end{array} \right]$$</p>
+<p>E ainda, como:</p>
+<p class="mathjax mathjax--block">$$
+W_e = {\displaystyle\int_x g w(x) dx }$$</p>
+<p>Que resulta após a aplicação da discretização de MEF em:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{f} = g {\displaystyle\int_x \textbf{N}^T dx } = g {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left [\begin{array}{c}
+    N_1 \\
+    0 \\
+    N_2 \\
+    0 \\ 
+    \end{array} \right] dx } = g {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left [\begin{array}{c}
+    \dfrac{1}{2} - \dfrac{x}{L} \\
+    0 \\
+    \dfrac{1}{2} + \dfrac{x}{L} \\
+    0
+    \end{array} \right] dx }$$</p>
+<p>Sendo o <span class="mathjax mathjax--inline">$\textbf{N}$</span> na equação acima relativo a interpolação dos deslocamentos <span class="mathjax mathjax--inline">$w(x)$</span>, fica claro observar que nesse caso a interpolação e a resolução da integral resultariam apenas em forças nodais equivalentes relativas aos graus de liberdade de deslocamento.</p>
+<p>Por isso vamos utilizar o vetor de forças nodais equivalentes definido para a carga distribuída utilizando as funções de forma de Hermite, da mesma forma que foi feito para a viga de Euler-Bernoulli, ou seja:</p>
+<p class="mathjax mathjax--block">$$
+\therefore \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{L}{2} \\
+    \dfrac{L^2}{12} \\
+    \dfrac{L}{2} \\
+    -\dfrac{L^2}{12} 
+    \end{array} \right]$$</p>
+<p>No caso da integral no volume, conhecida como matriz de rigidez do elemento, podemos abrir a integral em uma integral na área e outra no comprimento. No entanto, lembra que a matriz <span class="mathjax mathjax--inline">$\textbf{B}$</span> possui um <span class="mathjax mathjax--inline">$y$</span> multiplicando as derivadas segundas das funções de interpolação? Isso significa que as deformações são função tanto de <span class="mathjax mathjax--inline">$x$</span> quando de <span class="mathjax mathjax--inline">$y$</span> da seção transversal (não confunda o <span class="mathjax mathjax--inline">$y$</span> da seção com o <span class="mathjax mathjax--inline">$y$</span> do sistema de coordenadas). Isolando o <span class="mathjax mathjax--inline">$y$</span> de <span class="mathjax mathjax--inline">$\textbf{B}$</span>, podemos escrever:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{B} = y \textbf{B}_x$$</p>
+<p>E ao resolver a integral na área chegamos a um velho conhecido nosso, o segundo momento de área ou momento de inércia.</p>
+<p>{\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } + {\displaystyle\int<em>A \int</em>{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx dA }</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+    \left[ {\displaystyle\int_A \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}^T E \textbf{B} dx dA } + {\displaystyle\int_A \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx dA } \right] \textbf{u} &= \textbf{f} \\
+    \left[ {\displaystyle\int_A y^2 dA \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx  } + {\displaystyle\int_A dA \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx }\right] \textbf{u} &= \textbf{f} \\
+    \left[ I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx } + A {\displaystyle \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx } \right] \textbf{u} &= \textbf{f} 
+\end{align}$$</p>
+<p>Chamando a primeira integral dentro dos colchetes de <span class="mathjax mathjax--inline">$\textbf{k}_f$</span> e a segunda de <span class="mathjax mathjax--inline">$\textbf{k}_c$</span> e substituindo os valores de <span class="mathjax mathjax--inline">$\textbf{B}_x$</span> e <span class="mathjax mathjax--inline">$\textbf{B}_c$</span>, realizando as multiplicações matriciais e resolvendo a integral:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k}_f = I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left[ 
+\begin{array}{c}
+    0 \\
+    \dfrac{1}{L} \\
+    0 \\
+    -\dfrac{1}{L} 
+\end{array} \right] E \left[ 
+\begin{array}{cccc}
+    0 & \dfrac{1}{L} & 0 & -\dfrac{1}{L} \\ 
+\end{array} \right] dx }$$</p>
+<p class="mathjax mathjax--block">$$
+\textbf{k}_c = A {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left[\begin{array}{c}
+    -\dfrac{1}{L} \\
+    -\dfrac{1-s}{2} \\
+     \dfrac{1}{L} \\
+    -\dfrac{1+s}{2} 
+\end{array} \right] G \left[\begin{array}{cccc}
+    -\dfrac{1}{L} & -\dfrac{1-s}{2} & \dfrac{1}{L} & -\dfrac{1+s}{2} \\ 
+\end{array} \right] dx }$$</p>
+<p class="mathjax mathjax--block">$$
+\therefore \textbf{k}_f = \dfrac{EI_z}{L} \left[ 
+\begin{array}{cccc}
+    0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & -1 \\
+    0 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 1 \\
+\end{array} \right]$$</p>
+<p class="mathjax mathjax--block">$$
+\therefore \textbf{k}_c = \dfrac{AG}{L} \left[ 
+\begin{array}{cccc}
+    1 & \dfrac{L}{2} & -1 & \dfrac{L}{2} \\
+    \dfrac{L}{2} & \dfrac{L^2}{3} & -\dfrac{L}{2} & \dfrac{L^2}{6} \\
+    -1 & -\dfrac{L}{2} & 1 & -\dfrac{L}{2} \\
+    \dfrac{L}{2} & \dfrac{L^2}{6} & -\dfrac{L}{2} & \dfrac{L^2}{3} \\
+\end{array} \right]$$</p>
+<p>E:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{u} = \left\lbrace \begin{array}{c}
+        u_1 \\
+        u_2 \\
+        u_3 \\
+        u_4
+    \end{array} \right\rbrace \quad \quad \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{L}{2} \\
+    \dfrac{L^2}{12} \\
+    \dfrac{L}{2} \\
+    -\dfrac{L^2}{12} 
+    \end{array} \right]$$</p>
+<p>E o equilíbrio sendo dado por:</p>
+<p class="mathjax mathjax--block">$$
+\left[\textbf{k}_f + \textbf{k}_c \right] \textbf{u} = \textbf{f}$$</p>
+<p>E agora?! Agora é hora de voltar a treliça de três barras e resolvê-la na mão na <a href="../beams/teoria/aplicacao.html">aplicação na mão</a></p>
 </p>
 </div>
 

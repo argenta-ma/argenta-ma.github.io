@@ -6,8 +6,8 @@
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <link rel="alternate" type="application/atom+xml" href="./feed:atom.html" title="Atom Feed" />
-    <link rel="alternate" type="application/rss+xml" href="./feed:rss.html" title="RSS Feed" />
+    <link rel="alternate" type="application/atom+xml" href="feed:atom.html" title="Atom Feed" />
+    <link rel="alternate" type="application/rss+xml" href="feed:rss.html" title="RSS Feed" />
     <link rel="icon" type="image/png" href="../user/themes/learn2/images/favicon.png">
 
                                             
@@ -15,10 +15,10 @@
         <link href="../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6739,7 +6739,7 @@ $(document).ready(function() {
 
 
                         
-    <li><a href="../en/trelicaespacial.html" class="external" style="font-size: 80%;">English</a></li>
+    <li><a href="../en/trelicaEspacial.html" class="external" style="font-size: 80%;">English</a></li>
 
 
                         
@@ -6768,7 +6768,7 @@ $(document).ready(function() {
 <p>O que difere uma treliça espacial da treliça plana que desvendamos anteriormente? Se você pensou "ela é tridimensional" ou "ela está disposta em um espaço não em um plano", deixe-me colocar da seguinte forma: ela é espacial porque não conseguimos descrever um plano que contenha todos os seus pontos usando quaisquer sistemas de coordenadas. Mas isso também é válido para seus elementos?</p>
 <h2>Idealização</h2>
 <p>O objeto estrutural da imagem a seguir é o seu objetivo agora:</p>
-<p><img title="Retirado de: http://wirelessestimator.com/content/articles/?pagename=New%20Wireless%20Products" alt="Torre de Comunicação Seção Triangular" src="../user/pages/02.trelicaespacial/imagens/TriangularCommunicationTower.jpg" />
+<p><img title="Retirado de: http://wirelessestimator.com/content/articles/?pagename=New%20Wireless%20Products" alt="Torre de Comunicação Seção Triangular" src="../user/pages/02.trelicaEspacial/imagens/TriangularCommunicationTower.jpg" />
 <small>Torre de Comunicação Seção Triangular.</small></p>
 <p>Torres de Comunicação Seção Triangular normalmente são autoportantes e atirantadas para estabilização quanto a efeitos laterais (vê os tirantes na foto?). Como posso obter os esforços desse tipo de estrutura usando elementos finitos? Note que as barras não estão em um mesmo plano.</p>
 <p>Como já sabemos, o primeiro passo é a idealização estrutural, ou seja, transformar uma estrutura física real em um modelo idealizado representativo dos efeitos que ocorrem, ou irão ocorrer, na estrutura real. No entanto, observe bem a foto, esse tipo de torre em específico é construída em módulos justamente para facilitar e agilizar a sua montagem em campo. </p>
@@ -6777,7 +6777,7 @@ $(document).ready(function() {
 <p>Nesse caso, da torre, a idealização como treliça espacial é válida? Você consegue justificar? Vamos ver: barras concorrentes em um mesmo nó? Triângulos? Mas, e essa solda? Não forma uma ligação rígida? Se a ligação é rígida não transmite momento? Corte? Torção? Miserável... Sim, tudo isso, nas uma análise rigorosa da estrutura pode constatar que o esforço axial se comprarado com todos esses demais esforços é tão superior que os demais podem ser negligênciados para a idealização estrutural sem o menor problema, pois seus efeitos de uma forma global na estrutura, ou ainda, nos módulos é irrelevante. Fica a cargo das combinações do estado limite último e das ponderações das resistências corrigir sua não consideração.</p>
 </blockquote>
 <p>Como se trata de uma treliça espacial, podemos idealizar da seguinte forma:</p>
-<p><img title="Idealização de um módulo da torre" alt="Idealização" src="../user/pages/02.trelicaespacial/imagens/ModuloCompletoTrelicaEspacial.svg" />
+<p><img title="Idealização de um módulo da torre" alt="Idealização" src="../user/pages/02.trelicaEspacial/imagens/ModuloCompletoTrelicaEspacial.svg" />
 <small>Idealização de um módulo da torre.</small></p>
 <p>Os apoios abaixo referem-se à restrições nos três eixos cartesianos. As cargas em verde o esforço do vento na face XZ e as em azul a reação de apoio do módulo superior. Vamos resumir a nossa análise ao efeito do vento na face XZ discretizado diretamente nos nós da treliça, negligenciando o efeito de flexão que provoca nas barras, além disso vamos desonsiderar o peso próprio. Digamos que é uma combinação do estado limite último que leva em conta apenas o valor desfavorável do vento na face XZ.</p>
 <blockquote>
@@ -6786,12 +6786,12 @@ $(document).ready(function() {
 <p>Então, e se pudessemos também criar um programinha computacional para resolver essa treliça e calcular os deslocamentos, deformações, tensões e esforços, ou melhor, para resolver qualquer treliça espacial?</p>
 <p>Mas, vamos por partes, primeiro vamos cortar em um pedaço o nosso módulo da torre utilizando o mesmo esquema de acoplamento entre módulos, de forma a controlarmos melhor o processo de solução na mão, e é claro, vamos resolver usando o Método dos Elementos Finitos!</p>
 <p>Esse será o corte no nosso módulo:</p>
-<p><img title="Parte do módulo da torre" alt="Parte do módulo da torre" src="../user/pages/02.trelicaespacial/imagens/ModuloTrelicaEspacialSeparação.svg" />
+<p><img title="Parte do módulo da torre" alt="Parte do módulo da torre" src="../user/pages/02.trelicaEspacial/imagens/ModuloTrelicaEspacialSeparação.svg" />
 <small>Parte do módulo da torre.</small></p>
 <p>São três barras verticais com seção transversal tubular de 40 mm de diâmetro e 5 mm de espessura, seis horizontais (três acima e três abaixo) com seção transversal tubular de 32 mm de diâmetro e 5 mm de espessura e três diagonais com seção maciça tubular de 16 mm de diâmetro. Os apoios na face inferior nos nós das extremidades restringem os deslocamentos em X, Y e Z. barra vertical e carga concentrada na extremidade oposta. Essa treliça possui barras de aço ASTM A36 (<span class="mathjax mathjax--inline">$E = 200 GPa$</span>). As cargas F são relativas ao vento e valem 111,16 N e as cargas R, relativas as reações de apoio do resto do módulo sobre essa parte valem <span class="mathjax mathjax--inline">$R_1 = 194,809 N$</span>, <span class="mathjax mathjax--inline">$R_2 = 780,704 N$</span>, <span class="mathjax mathjax--inline">$R_3 = 337,41 N$</span>, <span class="mathjax mathjax--inline">$R_4 = 194,809 N$</span>, <span class="mathjax mathjax--inline">$R_5 = 1561,41 N$</span>, <span class="mathjax mathjax--inline">$R_6 = 337,41 N$</span> e <span class="mathjax mathjax--inline">$R_7 = 780,704 N$</span>, seguindo o sentido mostrado na figura.</p>
 <p>As cargas de vento foram calculadas para a cidade de Curitiba considerando-se o módulo implantado a uma altura de 10 m, sendo o terreno de categoria III, e o local de implantação classe B, fator estatístico grupo 3.</p>
 <p>As dimensões e coordenadas dos nós da base são mostradas abaixo em centímetros (cm), a seção da torre é um triângulo equilátero.</p>
-<p><img title="Parte do módulo da torre dimensões e coordenadas" alt="Parte do módulo da torre dimensões e coordenadas" src="../user/pages/02.trelicaespacial/imagens/ModuloTrelicaEspacial.svg" />
+<p><img title="Parte do módulo da torre dimensões e coordenadas" alt="Parte do módulo da torre dimensões e coordenadas" src="../user/pages/02.trelicaEspacial/imagens/ModuloTrelicaEspacial.svg" />
 <small>Parte do módulo da torre, dimensões e coordenadas.</small></p>
 <blockquote>
 <p>Fica ligado nas unidades utilizadas!!</p>

@@ -15,10 +15,10 @@
         <link href="../../../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6739,7 +6739,7 @@ $(document).ready(function() {
 
 
                         
-    <li><a href="../../../en/trelicaplana/teoria/aplicacao.html" class="external" style="font-size: 80%;">English</a></li>
+    <li><a href="../../../en/trelicaPlana/teoria/aplicacao.html" class="external" style="font-size: 80%;">English</a></li>
 
 
                         
@@ -6835,7 +6835,7 @@ $(document).ready(function() {
 
 <h3 id="graus-de-liberdade-da-estrutura" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#graus-de-liberdade-da-estrutura" title="Permanent link: Graus de liberdade da estrutura" data-icon="#">Graus de liberdade da estrutura</a></h3>
 <p>Primeiro, vamos descrever todos os graus de liberdade globais da estrutura em nossa treliça idealizada em um diagrama de corpo livre, assim como numerar seus nós e suas barras.</p>
-<p><img title="Graus de liberdade da treliça" alt="Graus de liberdade da treliça" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLib.svg" />
+<p><img title="Graus de liberdade da treliça" alt="Graus de liberdade da treliça" src="../../../user/pages/01.trelicaPlana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLib.svg" />
 <small>Graus de liberdade da treliça.</small></p>
 <p>A numeração dos nós, barras e graus de liberdade pode ser qualquer, porém, por questões práticas de implementação computacional sempre iniciam em 1, nunca pula-se um número e para os graus de liberdade numeram-se primeiro as direções com graus de liberdade livre, ou seja, direções as quais os apoios não influenciam.</p>
 <p>Matemaricamente, vamos descrever a numeração dos graus de liberdade através da matriz de graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>. Nessa matriz contamos as linhas como sendo a numeração dos nós, ou seja, a linha 1 é relativa ao nó 1, a 2 ao nó 2 e assim por diante, e as colunas relativas às direções cartesianas, ou seja, no plano a coluna 1 é <span class="mathjax mathjax--inline">$X$</span> e a coluna 2 é <span class="mathjax mathjax--inline">$Y$</span>. Então populamos essa matriz com os números dos graus de liberdade relativos à cada nó (linhas da matriz) de acordo com cada direção cartesiana (colunas da matriz), ou seja, para nosso exemplo:</p>
@@ -6858,7 +6858,7 @@ $(document).ready(function() {
 <p>No caso de outros tipos elementos com mais graus de liberdade por nó, por exemplo, na treliça espacial, a matriz <span class="mathjax mathjax--inline">$\textbf{GL}$</span> teria mais uma coluna.</p>
 <h3 id="graus-de-liberdade-dos-elementos" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#graus-de-liberdade-dos-elementos" title="Permanent link: Graus de liberdade dos elementos" data-icon="#">Graus de liberdade dos elementos</a></h3>
 <p>Na sequência precisamos explodir a estrutura divindindo-a em elementos de treliça e a cada elemento descrever os graus de liberdade locais do elemento. A numeração dos nós do elemento é fundamentada no utilizado para sua formulação, como foram dois, sempre teremos nós 1 e 2.</p>
-<p><img title="Graus de liberdade dos elementos" alt="Graus de liberdade dos elementos" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLibExp.svg" />
+<p><img title="Graus de liberdade dos elementos" alt="Graus de liberdade dos elementos" src="../../../user/pages/01.trelicaPlana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLibExp.svg" />
 <small>Graus de liberdade dos elementos.</small></p>
 <blockquote>
 <p>Mas antes os locais não eram apenas 1 por nó? Sim, mas lembra que expandimos a matriz de rigidez para poder compatibilizar e transformá-la para o global de 4x4, pois bem, por isso colocamos mais 1 grau de liberdade por nó, cujo efeito é zero como já comentado.</p>
@@ -7058,7 +7058,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
     1\\
     2 \end{array} \right\rbrace$$</p>
 <p>Observe que os valores dos carteiros são exatemente os números dos graus de liberdade da estrutura para cada um dos elementos nela discretizados. Complica um pouco a visualização para o elemento 1 visto que os graus de liberdade locais decompostos nas direções globais se misturam.</p>
-<p><img title="Correspondência do Carteiro" alt="Correspondência do Carteiro" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasCarteiro.svg" />
+<p><img title="Correspondência do Carteiro" alt="Correspondência do Carteiro" src="../../../user/pages/01.trelicaPlana/01.teoria/01.aplicacao/imagens/Trelica3barrasCarteiro.svg" />
 <small>Correspondência do Carteiro.</small></p>
 <p>O carteiro só funciona se as matrizes dos graus de liberdade e de incidência dos elementos foram corretamente construídas. O legal da regra da correspondência é que as direções globais e os sinais já estão implícitos na formulação e saem automáticos.</p>
 <blockquote>
@@ -7165,7 +7165,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
 <h3 id="aplicando-as-condies-de-contorno" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#aplicando-as-condies-de-contorno" title="Permanent link: Aplicando as condições de contorno" data-icon="#">Aplicando as condições de contorno</a></h3>
 <p>Como você pode perceber a matriz <span class="mathjax mathjax--inline">$\textbf{K}$</span> tem algumas importantes propriedades, ela deve ser simétrica e singular, ou seja, com o determinante igual a zero e não inversível. Então, como vou resolver o equilíbrio estático do MEF?? <span class="mathjax mathjax--inline">$\textbf{K}\textbf{U}=\textbf{F}$</span> Resposta: aplicando às condições de contorno.</p>
 <p>Observe que na matriz de rigidez da estrutura, <span class="mathjax mathjax--inline">$\textbf{K}$</span>, as linhas e colunas representam os graus de liberdade da estruturas contendo a rigidez referente ao efeito de certo grau em outro. Sendo assim, para aplicar as condições de contorno do problema, que são os apoios simples e rotulado, basta observarmos quais graus de liberdade esses apoios influenciam e aplicar essa influência na matriz de rigidez da estrutura, no vetor de deslocamentos da estrutura e no vetor de forças nodais da estrutura. </p>
-<p><img title="Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade" alt="Condições de Contorno" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLib.svg" />
+<p><img title="Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade" alt="Condições de Contorno" src="../../../user/pages/01.trelicaPlana/01.teoria/01.aplicacao/imagens/Trelica3barrasGrausLib.svg" />
 <small>Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade.</small></p>
 <p>Da imagem notamos que o apoio simples no nó 2 influencia o grau de liberdade 4 apenas e que o apoio rotulado no nó 3 influencia os graus de liberdade 5 e 6. Ainda, a força F de 10.000 N está orientada no sentido negativo do grau de liberdade 2. Sabendo disso, podemos montar nossos vetores de deslocamentos nodais <span class="mathjax mathjax--inline">$\textbf{U}$</span> e de foças nodais <span class="mathjax mathjax--inline">$\textbf{F}$</span> da estrutura como:</p>
 <p class="mathjax mathjax--block">$$
@@ -7388,7 +7388,7 @@ U_3 &= \dfrac{c_3}{l^T_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
 <blockquote>
 <p>Por que esses valores deram negativos? Lembra das direções que impomos aos graus de liberdade globais, definidas nos sentidos positivos dos eixos <span class="mathjax mathjax--inline">$X$</span> e <span class="mathjax mathjax--inline">$Y$</span>, então, se o deslocamento desse positivo, significa que sua direção seria a mesma do grau de liberdade, no caso como deu negativo, significa que a direção do deslocamento é oposta à do grau de liberdade. Em outras palavras, o nó 2 da estrutura vem para baixo e o nó 1 da estrutura vem para baixo e para a esquerda.</p>
 </blockquote>
-<p><img title="Deslocamentos" alt="Deslocamentos" src="../../../user/pages/01.trelicaplana/01.teoria/01.aplicacao/imagens/Trelica3barrasDesl.svg" />
+<p><img title="Deslocamentos" alt="Deslocamentos" src="../../../user/pages/01.trelicaPlana/01.teoria/01.aplicacao/imagens/Trelica3barrasDesl.svg" />
 <small>Deslocamentos.</small></p>
 <h3 id="clculo-das-reaes-de-apoio" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#clculo-das-reaes-de-apoio" title="Permanent link: Cálculo das reações de apoio" data-icon="#">Cálculo das reações de apoio</a></h3>
 <p>Com os deslocamentos calculados, podemos utilizar a separação de variáveis que foi feita com a matriz de rigidez e os vetores de deslocamentos e forças nodais para calcular as reações de apoio.</p>

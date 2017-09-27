@@ -15,10 +15,10 @@
         <link href="../../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6743,7 +6743,7 @@ $(document).ready(function() {
 
 
                         
-    <li><a href="../../pt-BR/trelicaespacial/teoria.html" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
+    <li><a href="../../pt-BR/trelicaEspacial/teoria.html" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
 
 </ul>
 	</div>
@@ -6822,7 +6822,7 @@ $(document).ready(function() {
 <h2 id="fundamentao" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#fundamentao" title="Permanent link: Fundamentação" data-icon="#">Fundamentação</a></h2>
 <p>Da mesma forma que para a treliça no plano, a idealização de uma estrutura em uma treliça é simples, supõe-se que em todas as barras apenas existam esforços axiais normais a sua direção longitudinal, que derivam de tensões uniformes nessa seção, aplicando-se as mesmas simplificações definidas para a treliça plana. </p>
 <p>Observe a barra da treliça espacial isolada, ela é exatamente a mesma barra da treliça plana, com as mesmas considerações e idealizações, não muda absolutamente nada. Então, o elemento de treliça que derivamos para a treliça plana é o mesmo que usaremos para a treliça espacial, com a mesma consideração para os deslocamentos, as mesmas funções de forma, a mesma definição dos graus de liberdade, as mesmas considerações para as deformações e tensões, o mesmo equilíbrio, a mesma matriz de rigidez, claro que tudo isso para o elemento no sistema local.</p>
-<p><img title="Deslocamentos nodais da barra de uma treliça unidimensional" alt="Deslocamentos nodais" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/barraTrelicaGrausLib.svg" />
+<p><img title="Deslocamentos nodais da barra de uma treliça unidimensional" alt="Deslocamentos nodais" src="../../user/pages/02.trelicaEspacial/01.teoria/imagens/barraTrelicaGrausLib.svg" />
 <small>Deslocamentos nodais da barra de treliça unidimensional idealizada.</small></p>
 <p>Portanto, a matriz de rigidez, o vetor de deslocamentos e de forças nodais equivalentes no elemento no sistema local, são:</p>
 <p class="mathjax mathjax--block">$$
@@ -6838,7 +6838,7 @@ $(document).ready(function() {
         f_2
     \end{array} \right\rbrace$$</p>
 <p>O detalhe agora é que vamos precisar dispor essa barra ou esse elemento em um espaço, não mais em um plano, e os 2 graus de liberdade no sistema local deverão ser decompostos nas 3 direções definidas pelo sistema de coordenadas global no qual está escrita a estrutura, resultando em um elemento com 6 graus de liberdade no sistema global.</p>
-<p><img title="Graus de liberdade no sistema local" alt="Graus de liberdade no local" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/barraTrelicaGrausLibGlob3D.svg" />
+<p><img title="Graus de liberdade no sistema local" alt="Graus de liberdade no local" src="../../user/pages/02.trelicaEspacial/01.teoria/imagens/barraTrelicaGrausLibGlob3D.svg" />
 <small>Graus de liberdade no sistema local.</small></p>
 <h3 id="matriz-de-rigidez-no-sistema..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="teoria.html#matriz-de-rigidez-no-sistema..." title="Permanent link: Matriz de rigidez no sistema global" data-icon="#">Matriz de rigidez no sistema global</a></h3>
 <p>Precisamos, então, corrigir a matriz de rigidez do elemento já que, com 6 graus de liberdade por nó no global, deverá ser de 6x6 e não somente de 2x2 como a determinada no local. Sabendo que as rigidezes dentro da matriz de rigidez local significam a rigidez de uma direção na outra, por exemplo, <span class="mathjax mathjax--inline">$k_{11}$</span> rigidez do efeito de um deslocamento do nó 1 nele mesmo, <span class="mathjax mathjax--inline">$k_{12}$</span> rigidez do efeito de um deslocamento do nó 1 no nó 2, podemos expandir esse conceito para uma matriz 6x6 mantendo as mesmas considerações de rigidez locais, por exemplo, para quando elemento está na horizontal, ou seja, contido no plano XY e paralelo com o eixo X:</p>
@@ -6866,7 +6866,7 @@ $(document).ready(function() {
 <blockquote>
 <p>Estruturas reticuladas tridimensionais normalmente possuem planos locais onde suas barras estão posicionadas. Pense em uma torre de transmissão de energia elétrica constituída de cantoneiras. Na região inclinada, todas as cantoneiras estão com uma de suas abas orientada de acordo com a inclinação dessa região, sendo assim, pode-se utilizar um nó de outro elemento nesse plano inclinado para definir o posicionamento da seção transversal do elemento analisado e assim por diante.</p>
 </blockquote>
-<p><img title="Posicionamento da seção transversal" alt="Posicionamento da seção transversal" src="../../user/pages/02.trelicaespacial/01.teoria/imagens/posicaoSecao.svg" />
+<p><img title="Posicionamento da seção transversal" alt="Posicionamento da seção transversal" src="../../user/pages/02.trelicaEspacial/01.teoria/imagens/posicaoSecao.svg" />
 <small>Posicionamento da seção transversal.</small></p>
 <p>Na verdade, esse posicionamento é apenas uma questão prática ou uma forma de definir y e z locais (de fato necessários) no caso de uma treliça, já que, como somente utilizamos a área da seção transversal na formulação, y e z locais podem ter direção quaisquer sem modificar o resultado. Entretanto, em formulações que utilizam propriedades da seção transversal que variam com a direção, como por exemplo a inércia no caso de vigas, essa correta orientação de y e z é fundamental para a correta obtenção dos resultados.</p>
 <p>Nós vamos posicionar o plano xy local utilizando um ponto de referência <span class="mathjax mathjax--inline">$r$</span>. Primeiro precisamos definir um vetor unitário, <span class="mathjax mathjax--inline">$\textbf{i}_l$</span>, orientado de acordo com o eixo x local do elemento escrito no sistema global. Isso pode ser feito utilizando-se as coordenadas dos nós 1 e 2 do elemento no sistema global.</p>
