@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
         <meta charset="utf-8" />
-    <title>Pórtico | Applied FEM</title>
+    <title>Pórticos | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -6515,14 +6515,17 @@ $(document).ready(function() {
                             <li class="dd-item active" data-nav-id="/porticos">
             <a href="porticos.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b>4. </b>Pórtico</span>
+                <span><b>4. </b>Pórticos</span>
             </a>
                         <ul>
                                                             <li class="dd-item" data-nav-id="/porticos/teoria">
             <a href="porticos/teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Teoria</span>
+                <span><b></b>Pórticos</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/porticos/implementacao">
             <a href="porticos/implementacao.html" >
@@ -6757,7 +6760,7 @@ $(document).ready(function() {
 <div id="breadcrumbs" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                                             <a href="../pt-BR.html" itemprop="url"><span itemprop="title">MEF Aplicado</span></a>
                         <i class="fa fa-angle-right"></i>
-                                                <span itemprop="title">Pórtico</span>
+                                                <span itemprop="title">Pórticos</span>
                         </div>
                             </div>
             
@@ -6766,11 +6769,18 @@ $(document).ready(function() {
 			<p>
 				<h1>Pórticos</h1>
 <h2>Idealização</h2>
-<p>Discover the <strong>basic</strong> principals</p>
-<h2>Solução Isostática</h2>
-<p>texto...</p>
-<h2>Elementos Finitos</h2>
-<p>...</p>
+<p>O objeto estrutural da imagem a seguir é o seu objetivo:</p>
+<p><img title="Retirado de: http://www.mectal.com.br/produtos/porticos-e-semi-porticos/" alt="Pórtico para sinalização viária" src="../user/pages/04.porticos/imagens/Portico-Para-PMV-5.jpg" />
+<small>Pórtico para sinalização viária.</small></p>
+<p>Pórticos para sinalização viária vem sendo empregados no Brasil com a modernização de concessão de rodovias para o suporte de placas de aviso dinâmicas aos motoristas. São estruturas metálicas com ligações rígidas nas bases e entre as vigas e colunas.</p>
+<p>O primeiro passo é a idealização estrutural, ou seja, transformar uma estrutura física real em um modelo idealizado representativo dos efeitos que ocorrem, ou irão ocorrer, na estrutura real. Como se trata de um pórtico simples, podemos idealizar da seguinte forma:</p>
+<p><img title="Idealização da ponte" alt="Idealização" src="../user/pages/04.porticos/imagens/PorticoIdeal.svg" />
+<small>Idealização do Pórtico para sinalização viária.</small></p>
+<p>Então, basta aplicar as cargas permanentes de peso próprio, acidentais de uso e o vento e obter os esforços e os deslocamentos.</p>
+<p><img title="Deslocamentos da ponte idealizada" alt="Deslocamentos" src="../user/pages/04.porticos/imagens/PorticoIdealDesl.svg" />
+<small>Deslocamentos do Pórtico para sinalização viária.</small></p>
+<p>Mas, como calcular os deslocamentos? Bem, vamos resolver usando o Método dos Elementos Finitos, então precisamos de um único elemento que seja representativo dos efeitos das colunas e da viga do pórtico. Além disso, olha a carga na viga, lembra de alguma coisa? Mas dessa vez vamos resolver discretizando aquela viga em apenas um elemento de pórtico.</p>
+<p><strong>Vamos começar pela <a href="porticos/teoria.html">teoria</a>!</strong></p>
 			</p>
 		</div>
     </div>
