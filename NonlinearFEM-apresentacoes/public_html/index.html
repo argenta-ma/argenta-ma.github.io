@@ -1,0 +1,2674 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Elementos Finitos Não Lineares</title>
+
+        <meta name="description" content="Apresentações para a disciplina
+                                    de elementos finitos não lineares">
+        <meta name="author" content="Marco André Argenta">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" 
+              content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+                            maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/white.css">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="css/qtcreator.css">
+        
+        <!-- MathJax configuração local 
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+            });
+        </script>
+        <script type="text/javascript" src="plugin/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>-->
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <style>
+            .reveal .slide-number {
+                    font-size: 0.5cm;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section id="titulo" data-background-image="imagens/background2.jpg">
+                    <h1>Método dos Elementos Finitos</h1>
+                    <h3>Abordagens para simulaçoes não-lineares</h3>
+                    <p>
+                        <small>Prof. Marco André Argenta / PPGECC / UFPR</small>
+                    </p>
+                    
+                    <img style="border: 0px;float:center;width:400px;" src="imagens/background.jpg">
+
+                    <aside class="notes">
+                        Disciplina de introdução à análise numérica e simulação computacional
+                        de comportamentos geométricos não lineares e resposta não linear de materiais
+                        utilizando o método dos elementos finitos. (apresentação otimizada para o Google Chrome!)
+                    </aside>
+                </section> 
+                
+                <section id="introducao">
+                    <section id="objetivos_intro" data-background-image="imagens/Objetivos.jpg">
+                        <h1 style="position: absolute; top: 40%; left: 15%;">Objetivos da disciplina</h1>                        
+                    </section>
+                    <section id="objetivos">
+                        <h2>Objetivos da disciplina</h2>
+                        <ul>
+                            <li>Entender o que é um problema não linear estrutural.</li>
+                            <li>O que difere uma solução linear ou uma solução não linear de uma estrutura.</li>
+                            <li>Tipos de não linearidade.</li>
+                            <li>Tensões e deformações em estruturas com respostas não lineares.</li>
+                            <li>Formulação de problemas de estruturas não lineares.</li>
+                            <li>Solução das equações de problemas de estruturas não lineares.</li>
+                            <li>Dificuldade na solução e modelagem para estruturas não linear.</li>
+                        </ul> 
+                    </section>
+                    <section id="simNL">
+                        <h2>Simulação não linear de estruturas</h2>
+                        <p>O que é um comportamento não linear de uma estrutura?</p>
+                        <ul>
+                            <li><i>É a não existência de proporcionalidade entre quaisquer ou várias
+                            grandezas estruturais.</i></li>
+                        </ul>
+                        <p>O que é um comportamento linear?</p>                        
+                        <ul>
+                            <li><i>É justamente a EXISTÊNCIA OBRIGATÓRIA de proporcionalidade
+                                entre TODAS as grandezas estruturais!</i></li>
+                        </ul>
+                        <img style="border: 0px;" src="imagens/desenho.svg">
+                    </section>
+                    <section id="simL">
+                        <h2>Simulação linear de estruturas</h2>
+                        <p>A linearidade é uma aproximação:</p>
+                        <ul>
+                            <li>Pequenas deformações (<0,2%)</li>
+                            <li>Pequenos deslocamentos</li>
+                            <li>Pequenas rotações</li>
+                            <li>Relações constitutivas tensão-deformação linear</li>
+                            <li>Condições de contorno constantes</li>
+                            <li>Forças aplicadas constantes*</li>
+                        </ul>
+                        <p>Com proporcionalidade entre todas as grandezas!</p>
+                        <aside class="notes">
+                            * Constantes no sentido de não modificarem a sua posição ou direção ou mesmo
+                            intensidade com modificações nos deslocamentos ou deformações no corpo.
+                        </aside>
+                    </section>
+                    <section id="proporL">
+                        <h2>Proporcionalidades:</h2>
+                        <img style="border: 0px;" src="imagens/desenho2.svg">
+                        <img style="border: 0px; width: 800px;" src="imagens/desenho3.svg">
+                        $$ \sigma = \dfrac{F}{A_0} \text{ ou } \dfrac{F}{A} \text{ ?}$$
+                        $$ \varepsilon = \dfrac{\delta L}{L_0} \text{ ou } \dfrac{\delta L}{L} \text{ ?}$$
+                        $$ F = \sigma A_0 = A_0 E \varepsilon = \dfrac{A_0 E}{L_0}\delta L $$
+                    </section>
+                    <section id="obsEst">
+                        <h2>Observação de problemas estruturais</h2>
+                        <p>Qual dos dois acontece na simulação linear? E na estrutura real?</p>
+                        <img style="border: 0px; width: 800px;" src="imagens/vigaMomento.png">
+                        <p>E isso? Acontece na linear?</p>
+                        <img style="border: 0px; width: 800px;" src="imagens/barraCargaVertical.png">
+                    </section>
+                    <section id="vigaL">
+                        <h2>Código para teste linear da viga</h2>
+                        Equação diferencial da linha neutra:
+                        $$ E I_z \dfrac{d^2y}{dx^2}=-M $$
+                        <pre><code>
+                            import numpy as np
+                            import matplotlib.pyplot as plt
+
+                            M = 10 #kNm
+                            Iz = 0.000533 #m4
+                            E = 200000000 #kN/m2
+                            l = 2 #m
+                            def func(x):
+                                return -M*x**2/(2*E*Iz)
+                            x = np.linspace(0, 2, 10)
+                            y = func(x)
+                            plt.plot(x, y, 'r', linewidth=2)
+                            plt.xlim(xmin=0, xmax=2.2)
+                            plt.show()
+                        </code></pre>
+                    </section>
+                    <section id="vigaNL">
+                        <h2>Código para teste não linear da viga</h2>
+                        Equação diferencial da linha neutra:
+                        $$ \dfrac{\dfrac{d^2y}{dx^2}}{\left[ 1 + \left( \dfrac{dy}{dx} \right)^2 \right]^{\frac{3}{2}}} = \dfrac{M}{EI} $$                        
+                        <pre><code>
+                            import numpy as np
+                            import matplotlib.pyplot as plt
+
+                           ?????
+                        </code></pre>
+                    </section>
+                </section>
+                
+                <section id="def-basicas">
+                    <section id="tiposNL_intro" data-background-image="imagens/EstruturaNaoLinear.jpg">
+                        <h1 style="position: absolute; top: 30%; left: 3%;">Não linearidade em estruturas</h1>                        
+                    </section>
+                    <section id="tiposNL">
+                        <h2>Tipos de não linearidade em estruturas</h2>
+                        <ul>
+                            <li>Não linearidade geométrica: relação deformação-deslocamento não linear;</li>
+                            <li>Não linearidade material: relação constitutiva não linear;</li>
+                            <li>Não linearidade cinemática: condições de contorno ou apoios não constantes</li>
+                            <li>Não linearidade da força: forças aplicadas dependem da configuração do corpo (efeitos de segunda ordem).</li>
+                        </ul>
+                        <p>Mais de uma não linearidade pode existir ao mesmo tempo!</p>
+                        <img style="border: 0px; width: 800px;" src="imagens/naoLinear.png">
+                    </section>
+                    <section id="NLgeom">
+                        <h2>Não linearidade geométrica</h2>
+                        <p>Relações entre quantidades cinemáticas (ou seja, deslocamento, 
+                            rotação e deformações) são não linear*</p>
+                        <p>Relação deslocamento-deformação:</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left;">
+                                <img style="border: 0px;" src="imagens/naoLinearGeom.png">
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <div style="height: 200px; float: top;">
+                                    Linear: $$ \varepsilon(x)=\dfrac{du}{dx} $$
+                                </div>
+                                <div>
+                                    Não linear: $$ \varXi(x) = \dfrac{du}{dx}+\dfrac{1}{2} \left( \dfrac{du}{dx} \right)^2 $$
+                                </div>
+                            </div>
+                        </div>       
+                        <aside class="notes">
+                            * Normalmente em grandes deformações.
+                        </aside>
+                    </section>
+                    <section id="NLgeom-cont">
+                        <h2>Não linearidade geométrica (cont.)</h2>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 700px; float: left;">
+                                <div style="height: 200px; float: top; text-align: left;">
+                                    Relação deslocamento-deformação:
+                                    <ul>
+                                        <li>$\varXi(x)$ tem um termo de alta ordem;</li>
+                                        <li>$ \dfrac{du}{dx} \ll 1 \rightarrow \varepsilon(x) \sim \varXi(x) $</li>
+                                    </ul>
+                                </div>                                
+                                <div style="margin-top: 5px; text-align: left;">
+                                    Domínio de integração:
+                                    <ul>
+                                        <li>Domínio $ \Omega_0 $ indeformado;</li>
+                                        <li>Domínio deformado $ \Omega_x $</li>
+                                    </ul>
+                                    $$ a(u,\bar{u}) = \iint_\Omega \varepsilon(\bar{u}):\sigma(u) d\Omega $$
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="700" height="250" style="position:absolute; margin: -130px 235px auto;">
+                                            <!--<rect x="0" y="0" width="100%" height="100%" fill="none" stroke="black"/>-->
+                                            <circle cx="95" cy="125" r="25" fill="none" stroke="red" stroke-width="4"/>
+                                            <circle cx="326" cy="83" r="35" fill="none" stroke="red" stroke-width="4"/>
+                                            <line x1="97" y1="150" x2="200" y2="190" stroke="red" stroke-width="4" />
+                                            <line x1="306" y1="110" x2="200" y2="190" stroke="red" stroke-width="4" />
+                                            <text x="0" y="220" fill="red">Domínio deformado é desconhecido</text>
+                                    </svg> 
+                                </div>                                                               
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <img style="border: 0px;" src="imagens/naoLinearGeom2.png">
+                            </div>
+                        </div>       
+                    </section>
+                    <section id="NLmat">
+                        <h2>Não linearidade material</h2>
+                        <h4>Material no regime elástico linear:</h4>
+                        $$ \sigma = D \varepsilon $$
+                        $$ U = \dfrac{1}{2} E \varepsilon^2 \quad \text{e} \quad \sigma = \dfrac{dU}{d \varepsilon}=E \varepsilon $$
+                        <ul>
+                            <li>Somente para deformações infinitesimais!</li>
+                        </ul>                        
+                        <h4>Material com comportamento não linear elástico:</h4>
+                        $$ \sigma = f(\varepsilon) $$
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 600px; float: left;">
+                                <ul>
+                                    <li>$ D $ não é constante e depende da deformação;</li>
+                                    <li>A tensão é uma função da deformação.</li>
+                                </ul>
+                            </div>
+                            <div style="margin-left: 600px;">
+                                <img style="border: 0px;" src="imagens/naoLinearSpring1.png">
+                            </div>
+                        </div>                        
+                    </section>
+                    <section id="NLmat-cont1">
+                        <h2>Não linearidade material (cont. 1)</h2>
+                        <h4>Material elastoplastico (dissipação de energia):</h4>
+                        <img style="border: 0px;" src="imagens/naoLinearSpring2.png">
+                        <ul>
+                            <li>Suporta tensões até $\sigma_y$;</li>
+                            <li>A tensão não pode ser determinada apenas pela tensão em si;</li>
+                            <li>O histórico de carregamento é necessário: "path-dependent".</li>
+                        </ul>                
+                    </section>
+                    <section id="NLmat-cont2">
+                        <h2>Não linearidade material (cont. 2)</h2>                                  
+                        <h4>Material viscoelástico:</h4>
+                        <img style="border: 0px;" src="imagens/naoLinearSpring3.png">
+                        <ul>
+                            <li>Comportamento dependente do tempo;</li>
+                            <li>Fluência, relaxação.</li>
+                        </ul>                      
+                    </section>
+                    <section id="NLcinematica">
+                        <h2>Não linearidade cinemática</h2>
+                        <h4>Condição de contorno ou borda não linear</h4>
+                        <img style="border: 0px;" src="imagens/naoLinearContato.png">
+                        <p>Problemas de contato, condições de apoio deslocáveis ou dependente de deslocamentos</p>
+                    </section>
+                    <section id="NLforca">
+                        <h2>Não linearidade da força</h2>
+                        <h4>Cargas aplicadas não lineares</h4>
+                        <img style="border: 0px;" src="imagens/naoLinearCarga.png">
+                        <p>Aplicação da força depende da deformada do corpo (efeitos de segunda ordem)</p>
+                        <p>Cargas de pressão de fluídos, carga excêntrica no topo de pilares...</p>
+                    </section>
+                    <section id="NLidentificacao">
+                        <h2>Identifique as Não linearidades do processo</h2>
+                        <img style="border: 0px;" src="imagens/roll-forming.png">
+                    </section>
+                    <section id="NLsimComp">
+                        <h2>Não linearidades simples e complicadas</h2>
+                        <h4>Simples:</h4>
+                        <ul>
+                            <li>Relações contínuas não lineares tensão-deformação não dependentes do histórico de carregamento;</li>
+                            <li>Elasticidade não linear, não linearidade geométrica e cargas dependentes da deformação.</li>
+                        </ul>
+                        <h4>Complicadas:</h4>
+                        <ul>
+                            <li>Relações não lineares tensão-deformação dependentes do histórico de carregamento;</li>
+                            <li>Elastoplasticidade e problemas de contato.</li>
+                        </ul>
+                    </section>
+                    <section id="NLeqFEM">
+                        <h2>Equações Não lineares de Elementos Finitos</h2>
+                        <p>Equilíbrio entre forças internas e externas</p>
+                        $$ P(d) = F(d) $$
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="130" style="position:absolute; margin: -80px -515px auto;">
+                            <!--<rect x="0" y="0" width="100%" height="100%" fill="none" stroke="black"/>-->
+                            <defs>
+                                <marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="blue" />
+                                </marker>
+                                <marker id="arrow2" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="red" />
+                                </marker>
+                            </defs>
+                            <circle cx="440" cy="55" r="50" fill="none" stroke="blue" stroke-width="4"/>
+                            <circle cx="585" cy="55" r="50" fill="none" stroke="red" stroke-width="4"/>
+                            <line x1="170" y1="80" x2="350" y2="60" stroke="blue" stroke-width="3" marker-end="url(#arrow)" />
+                            <line x1="900" y1="80" x2="680" y2="60" stroke="red" stroke-width="3" marker-end="url(#arrow2)" />                                                        
+                            <text x="10" y="115" fill="blue">Tensão/Deformação</text>
+                            <text x="850" y="115" fill="red">Cargas</text>
+                        </svg>
+                        <br>
+                        <h4>Não linearidades cinética e cinemática:</h4>
+                        <ul>
+                            <li>Aparecem nos contornos;</li>
+                            <li>Governadas por deslocamentos e forças (global, explícita).</li>                            
+                        </ul>
+                        <h4>Não linearidades geométrica e de material (física):</h4>
+                        <ul>
+                            <li>Aparecem no domíno;</li>
+                            <li>Dependem de tensões e deformações (locais, implícitas).</li>
+                        </ul>
+                        <aside class="notes">
+                            * d são os deslocamentos, para problemas lineares K <b>d</b> = F
+                        </aside>
+                    </section>
+                </section>
+                
+                <section id="solucaoNaoLinear">
+                    <section id="solucaoNaoLinear_intro" data-background-image="imagens/ProcessoSolucao.jpg">
+                        <h1 style="position: absolute; top: 40%; left: 8%;">Procedimento de Solução</h1>                        
+                    </section>
+                    <section id="molasNL">
+                        <h2>Procedimento de Solução</h2>
+                        <h4>Somente se resolvem problemas lineares...</h4>
+                        <p><b>Exemplo:</b> Molas não lineares</p>
+                        <img style="border: 0px;" src="imagens/molasNaoLineares.png">
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 350px; float: left;">
+                                <p>Rigidez das molas:</p>
+                                $$ k_1 = 50 + 500u $$
+                                $$ k_2 = 100 + 200u $$
+                            </div>
+                            <div style="margin-left: 350px;">
+                                <p>Equações governantes:</p>
+                                $$ \begin{cases}
+                                    300u_1^2 + 400u_1u_2 - 200u_2^2 + 150u_1 - 100 u_2 = 0 \\
+                                    200u_1^2 - 400u_1u_2 + 200u_2^2 - 100u_1 + 100 u_2 = 100
+                                \end{cases} $$
+                            </div>
+                        </div>    
+                        <aside class="notes">
+                            * para chegar nas equações governantes monta-se Ku=F, sendo K de cada mola 2x2 k,
+                            -k, -k, k (barra) e em k1 u = u1 e em k2 u = u2-u1 (o deslocamento da mola 1 afeta a mola 2). Ainda, F = 100.
+                        </aside>
+                    </section>
+                    <section id="molaNL-cont">
+                        <h4><b>Exemplo:</b> Molas não lineares (cont.)</h4>
+                        <ul>
+                            <li>A solução são as curvas de intersecção entre os planos das equações 
+                                governantes (P1 primeira, P2 segunda);</li>
+                            <li>Multiplas soluções podem existir;</li>
+                            <li>Em certa situação, nenhuma solução existe.</li>
+                        </ul>                 
+                        <img style="border: 0px;" src="imagens/molasNaoLinearesGraf.png">
+                        <aside class="notes">
+                            Graficar a solução!
+                        </aside>
+                    </section>    
+                    <section id="solucao">
+                        <h2>Procedimento de Solução</h2>
+                        <p>Problemas lineares</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left;">
+                                $$ K d = F $$ ou
+                                $$ P(d) = F $$
+                                <p>A matriz de rigidez K é constante</p>                                
+                                $$ P(d_1 + d_2) = P(d_1) + P(d_2) $$
+                                $$ P(\alpha d) = \alpha P(d) = \alpha F $$
+                                <ul>
+                                    <li>Se a carga dobra, o deslocamento dobra;</li>
+                                    <li>Superposição dos efeitos é possível!.</li>
+                                </ul>
+                                
+                            </div>
+                            <div style="margin-left: 800px;">
+                                <img style="border: 0px;" src="imagens/tensaoDeformacaoLinear.png">
+                            </div>
+                        </div> 
+                    </section>
+                    <section id="solucao-cont">
+                        <h2>Procedimento de Solução (cont.)</h2>                        
+                        <p>Problemas não lineares</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left;">
+                                $$ K d = F $$ ou
+                                $$ P(d) \neq F $$      
+                                <br>
+                                <ul>
+                                    <li>Como achar d para uma dada F?</li>
+                                </ul>
+                                <p>Procedimento <b>incremental</b> de solução!</p>                                
+                            </div>
+                            <div style="margin-left: 800px;">
+                                <img style="border: 0px;" src="imagens/tensaoDeformacaoNaoLinear.png">
+                            </div>
+                        </div> 
+                    </section>
+                    <section id="NR">
+                        <h2>Método de Newton-Raphson</h2>
+                        <ul>
+                            <li>Método mais popular;</li>
+                            <li>Equações não lineares são aproximadas por equações locais lineares iterativamente 
+                            até satisfazerem certa tolerância;</li>
+                            <li>Estima-se $ d^i $ da i-ésima iteração;</li>
+                            <li>Calcula-se $ d^{i+1} $ a partir de uma expansão em séries de 
+                                Taylor de primeira ordem:</li>
+                        </ul>                        
+                        $$ P(d^{i+1}) \approx P(d^i) + K_T^i(d^i) \cdot \Delta d^i = F $$
+                        Sendo: 
+                        $$ K_T^i(d^i) \equiv \left( \dfrac{\partial P}{\partial d} \right)^i$$
+                        A matriz Jacobiana ou a matriz de Rigidez Tangente                                               
+                    </section>
+                    <section id="NR-cont1">
+                        <h2>Método de Newton-Raphson (cont. 1)</h2>
+                        <ul style="float: left">
+                            <li>Resolve-se a solução incremental:</li>
+                        </ul>                        
+                        $$ K_T^i \Delta d^i = F - P(d^i) $$
+                        <ul style="float: left">
+                            <li>Atualiza-se a solução:</li>
+                        </ul> 
+                        $$ d^{i+1} = d^i + \Delta d^i $$
+                        <img style="border: 0px;" src="imagens/newtonRaphson.png">
+                    </section>
+                    <section id="NR-cont2">
+                        <h2>Método de Newton-Raphson (cont. 2)</h2>
+                        <p>Observações:</p>
+                        <ul>
+                            <li>A solução converge rapidamente quando a estimativa inicial está próxima da solução;</li>
+                            <li>Quanto a iteração atual está próxima da solução, o método apresenta convergência 
+                                de segunda ordem (rápido)*;</li>
+                        </ul>
+                        $$ \lim_{n \to \infty} \dfrac{\left| d_{exato} - d_{n+1} \right|}{\left| d_{exato} - d_n \right|^2} = c$$
+                        <ul>
+                            <li>Rigidez Tangente $ K_T^i(d^i) $ não é constante;</li>
+                            <li>A equação matricial é resolvida para deslocamentos incrementais $ \Delta d^i $;</li>
+                        </ul>    
+                        <aside class="notes">
+                            * para mostrar que o algotirmo numérico tem convergência quadrática, basta mostrar que o limite do número de incrementos
+                            em d tende a uma constante c.
+                        </aside>
+                    </section>
+                    <section id="NR-cont3">
+                        <h2>Método de Newton-Raphson (cont. 3)</h2>
+                        <p>Observações:</p>
+                        <ul>
+                            <li>O lado direito da equação não representa uma força, mas sim uma força residual:</li>
+                        </ul>
+                        $$ R^i \equiv F - P(d^i) $$
+                        <br>
+                        <ul style="float: left;">
+                            <li>As iterações param quando é satisfeita certa tolerância:</li>
+                        </ul>
+                        $$ conv = \dfrac{\sum_{j=1}^{n} \left( R_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( F_j \right)^2} \leq tol 
+                        \quad \text{ou} \quad 
+                        conv = \dfrac{\sum_{j=1}^{n} \left( \Delta d_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( \Delta d_j^0 \right)^2} \leq tol$$
+                        <aside class="notes">
+                            * muitas vezes é interessante monitorar ambos os critérios para verificar a convergência. $ f_i $ são as forças
+                            externas. $n$ é o número de forças aplicadas ou graus de liberdade livres, ou tamanho de $F$ ou de $u$.
+                        </aside>
+                    </section>
+                    <section id="algoritmoNR">
+                        <h2>Algoritmo de Newton-Raphson</h2>
+                        <p><b>INÍCIO:</b>Definir a tolerância ($tol = 10^{-3}$), $i = 0$, $max_{iter} = 20$ 
+                            e estimar $d = d^0$.</p>
+                        <div style="margin-left: 200px;">
+                            <ol>
+                                <li>Calcular a força residual: $R^i \equiv F - P(d^i)$ e se $conv_F \leq tol_F$, 
+                                    <font color="blue">cálculo completo!</font></li>
+                                <li>Calcular a matriz Jacobiana, ou rigidez tangente $ K_T^i $;
+                                    <ul>
+                                        <li>Se o determinante de $ K_T $ for zero, <font color="red">pare com mensagem de erro!</font></li>
+                                    </ul>
+                                </li>
+                                <li>Calcular o incremento da solução $ K_T^i \Delta d^i = F - P(d^i) $ e se $conv_d \leq tol_d$, 
+                                    <font color="blue">cálculo completo!</font></li>
+                                <li>Atualizar a solução: $ d^{i+1} = d^i + \Delta d^i $</li>
+                                <li>Definir: $ i = i + 1 $ e se $ i > max_{iter} $, <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Ou então, voltar ao passo 1!</li>
+                            </ol>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; top: 0px; left: 0px; width: 100%; height: 100%;">
+                            <!--<rect x="0" y="0" width="100%" height="100%" fill="none" stroke="black"/>-->
+                            <defs>
+                                <marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="blue" />
+                                </marker>
+                            </defs>
+                            <line x1="160" y1="95%" x2="20" y2="95%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="95%" x2="20" y2="32%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="32%" x2="150" y2="32%" stroke="blue" stroke-width="3" marker-end="url(#arrow)" />      
+                            <text x="-5%" y="280" fill="blue" transform="rotate(-90, 60, 280)">Iteração</text> 
+                        </svg>
+                    </section>
+                    <section id="exemploNR">
+                        <h2>Exemplo do método de Newton-Raphson</h2>
+                        Seja o sistema não linear:
+                        $$ P(d) = F \quad \Rightarrow \quad
+                        \begin{Bmatrix}
+                            d_1 + d_2 \\ 
+                            d_1^2 + d_2^2
+                        \end{Bmatrix} = 
+                        \begin{Bmatrix}
+                            3 \\ 
+                            9
+                        \end{Bmatrix} $$
+                        <p><b>Solução</b> usando Newton-Raphson:</p>
+                        <b>INÍCIO:</b> Arbitrando inicialmente a tolerância ($tol = 10^{-3}$), $i = 0$, $max_{iter} = 20$, 
+                           estimando $ d = d^0 = \begin{Bmatrix}
+                            1 \\ 
+                            5
+                        \end{Bmatrix} \ \rightarrow \ P(d^0) = \begin{Bmatrix}
+                            6 \\ 
+                            26
+                        \end{Bmatrix}$ e a matriz Jacobiana (ou rigidez tangente): $ K_T^i(d^i) \equiv 
+                            \left( \dfrac{\partial P}{\partial d} \right)^i = \begin{bmatrix}
+                            \frac{\partial P_1}{\partial d_1} & \frac{\partial P_1}{\partial d_2} \\ 
+                            \frac{\partial P_2}{\partial d_1} & \frac{\partial P_2}{\partial d_2}
+                        \end{bmatrix}^i = \begin{bmatrix}
+                            1 & 1 \\ 
+                            2 d_1^i & 2 d_2^i
+                        \end{bmatrix}^i$                        
+                    </section>
+                    <section id="exemploNR-cont1">
+                        <h2>Exemplo MN-R (cont. 1)</h2> 
+                        <p><b>1.</b> Calculando a força residual: $ R^0 = F - P(d^0) =  \begin{Bmatrix}
+                            -3 \\ 
+                            -17
+                            \end{Bmatrix}$ <br>
+                        Verificando a convergência da força residual: 
+                        $ conv_F = \dfrac{\sum_{j=1}^{n} \left( R_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( F_j \right)^2} =
+                        \dfrac{\left(R_1^{0}\right)^2 + \left(R_2^{0}\right)^2 }{1 +\left(F_1\right)^2 + \left(F_2\right)^2} = 
+                        \dfrac{\left[ (-3)^2 + (-17)^2 \right]}{1 +\left( 3^2 + 9^2 \right)} = 2,7586 $
+                        $ \therefore conv_F = 3,2747 > tol = 10^{-3} $ continua...</p>
+                        <p><b>2.</b> Calculando a matriz Jacobiana (ou rigidez tangente): $ K_T^0 = \begin{bmatrix}
+                            1 & 1 \\ 
+                            2 & 10
+                            \end{bmatrix}^0$ <br>
+                        Verificando o determinante de $ K_T^0 $: $ det(K_T^0) =  8 \neq 0$ OK!</p>
+                    </section>
+                    <section id="exemploNR-cont2">
+                        <h2>Exemplo MN-R (cont. 2)</h2> 
+                        <b>3.</b> Calculando o incremento da solução: $ K_T^0 \Delta d^0 = R^0 =  \begin{bmatrix}
+                                1 & 1 \\ 
+                                2 & 10
+                            \end{bmatrix}^0 \begin{Bmatrix}
+                                \Delta d_1^0 \\ 
+                                \Delta d_2^0
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                -3 \\ 
+                                -17
+                                \end{Bmatrix}$ <br> $ \therefore \begin{Bmatrix}
+                                \Delta d_1^0 \\ 
+                                \Delta d_2^0
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                -1,625 \\ 
+                                -1,375
+                            \end{Bmatrix} $ <br>
+                        Verificando a convergência dos incrementos de deslocamentos: 
+                        $conv_d = \dfrac{\sum_{j=1}^{n} \left( \Delta d_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( \Delta d_j^0 \right)^2} 
+                        = \dfrac{\left[ (-1,625)^2 + (-1,375)^2 \right]}{1 + \left[ (-1,625)^2 + (-1,375)^2 \right]} 
+                        = 0,8192 $<br>
+                        $\therefore conv_d = 0,8192 > tol = 10^{-3} $ continua...                                          
+                    </section>
+                    <section id="exemploNR-cont3">
+                        <h2>Exemplo MN-R (cont. 3)</h2>                         
+                        <p><b>4.</b> Atualizando a solução: $ d^1 = d^0 + \Delta d^0 = \begin{Bmatrix}
+                                -0,625 \\ 
+                                3,625
+                        \end{Bmatrix}$</p>
+                        <br>
+                        <p><b>5.</b> Atualizando $i$: $i = i + 1 \quad i = 0 + 1 = 1$ <br>
+                            Verificando o número de passos: $ i < max_{iter} \quad \therefore i = 1 < 20$ OK!</p>
+                        <br>
+                        <h4><font color="blue">Inicia-se nova iteração!</font></h4>
+                    </section>
+                    <section id="exemploNR-cont4">
+                        <h2>Exemplo MN-R (cont. 4)</h2> 
+                        <p><b>1.</b> Calculando a força residual: $ R^1 = F - P(d^1) =  \begin{Bmatrix}
+                            0 \\ 
+                            -4,531
+                            \end{Bmatrix}$ <br>
+                        Verificando a convergência da força residual: 
+                        $ conv_F = \dfrac{\sum_{j=1}^{n} \left( R_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( F_j \right)^2} = 
+                        \dfrac{\left[ 0^2 + (-4,531)^2 \right]}{1 +\left( 3^2 + 9^2 \right)} = 0,2256 $
+                        $ \therefore conv_F = 0,2256 > tol = 10^{-3} $ continua...</p>
+                        <p><b>2.</b> Calculando a matriz Jacobiana (ou rigidez tangente): $ K_T^1 = \begin{bmatrix}
+                            1 & 1 \\ 
+                            -1,25 & 7,25
+                            \end{bmatrix}^1$ <br>
+                        Verificando o determinante de $ K_T^1 $: $ det(K_T^1) =  8,5 \neq 0$ OK!</p>
+                    </section>
+                    <section id="exemploNR-cont5">
+                        <h2>Exemplo MN-R (cont. 5)</h2> 
+                        <b>3.</b> Calculando o incremento da solução: $ K_T^1 \Delta d^1 = R^1 =  \begin{bmatrix}
+                                1 & 1 \\ 
+                                -1,25 & 7,25
+                            \end{bmatrix}^0 \begin{Bmatrix}
+                                \Delta d_1^1 \\ 
+                                \Delta d_2^1
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                0 \\ 
+                                -4,531
+                                \end{Bmatrix}$ <br> $ \therefore \begin{Bmatrix}
+                                \Delta d_1^1 \\ 
+                                \Delta d_2^1
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                0,533 \\ 
+                                -0,533
+                            \end{Bmatrix} $ <br>
+                        Verificando a convergência dos incrementos de deslocamentos: 
+                        $conv_d = \dfrac{\sum_{j=1}^{n} \left( \Delta d_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( \Delta d_j^0 \right)^2} 
+                        = \dfrac{\left[ (0,533)^2 + (-0,533)^2 \right]}{1 + \left[ (-1,625)^2 + (-1,375)^2 \right]} 
+                        = 0,10272 $<br>
+                        $\therefore conv_d = 0,10272 > tol = 10^{-3} $ continua...                                          
+                    </section>
+                    <section id="exemploNR-cont6">
+                        <h2>Exemplo MN-R (cont. 6)</h2>                         
+                        <p><b>4.</b> Atualizando a solução: $ d^2 = d^1 + \Delta d^1 = \begin{Bmatrix}
+                                -0,092 \\ 
+                                3,092
+                        \end{Bmatrix}$</p>
+                        <br>
+                        <p><b>5.</b> Atualizando $i$: $i = i + 1 \quad i = 1 + 1 = 2$ <br>
+                            Verificando o número de passos: $ i < max_{iter} \quad \therefore i = 2 < 20$ OK!</p>
+                        <br>
+                        <h4><font color="blue">Inicia-se nova iteração!</font></h4>
+                    </section>
+                    <section id="exemploNR-cont7">
+                        <h2>Exemplo MN-R (cont. 7)</h2> 
+                        <p><b>1.</b> Calculando a força residual: $ R^2 = F - P(d^2) =  \begin{Bmatrix}
+                            0 \\ 
+                            -0,568
+                            \end{Bmatrix}$ <br>
+                        Verificando a convergência da força residual: 
+                        $ conv_F = \dfrac{\sum_{j=1}^{n} \left( R_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( F_j \right)^2} = 
+                        \dfrac{\left[ 0^2 + (-0,568)^2 \right]}{1 +\left( 3^2 + 9^2 \right)} = 0,003545 $
+                        $ \therefore conv_F = 0,003545 > tol = 10^{-3} $ continua...</p>
+                        <p><b>2.</b> Calculando a matriz Jacobiana (ou rigidez tangente): $ K_T^2 = \begin{bmatrix}
+                            1 & 1 \\ 
+                            -0,184 & 6,184
+                            \end{bmatrix}^1$ <br>
+                        Verificando o determinante de $ K_T^2 $: $ det(K_T^2) =  6,368 \neq 0$ OK!</p>
+                    </section>
+                    <section id="exemploNR-cont8">
+                        <h2>Exemplo MN-R (cont. 8)</h2> 
+                        <b>3.</b> Calculando o incremento da solução: $ K_T^2 \Delta d^2 = R^2 =  \begin{bmatrix}
+                                1 & 1 \\ 
+                                -0,184 & 6,184
+                            \end{bmatrix}^0 \begin{Bmatrix}
+                                \Delta d_1^2 \\ 
+                                \Delta d_2^2
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                0 \\ 
+                                -0,568
+                                \end{Bmatrix}$ <br> $ \therefore \begin{Bmatrix}
+                                \Delta d_1^2 \\ 
+                                \Delta d_2^2
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                0,089 \\ 
+                                -0,089
+                            \end{Bmatrix} $ <br>
+                        Verificando a convergência dos incrementos de deslocamentos: 
+                        $conv_d = \dfrac{\sum_{j=1}^{n} \left( \Delta d_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( \Delta d_j^0 \right)^2} 
+                        = \dfrac{\left[ (0,089)^2 + (-0,089)^2 \right]}{1 + \left[ (-1,625)^2 + (-1,375)^2 \right]} 
+                        = 0,002864 $<br>
+                        $\therefore conv_d = 0,002864 > tol = 10^{-3} $ continua...                                          
+                    </section>
+                    <section id="exemploNR-cont9">
+                        <h2>Exemplo MN-R (cont. 9)</h2>                         
+                        <p><b>4.</b> Atualizando a solução: $ d^3 = d^2 + \Delta d^2 = \begin{Bmatrix}
+                                -0,003 \\ 
+                                3,003
+                        \end{Bmatrix}$</p>
+                        <br>
+                        <p><b>5.</b> Atualizando $i$: $i = i + 1 \quad i = 2 + 1 = 3$ <br>
+                            Verificando o número de passos: $ i < max_{iter} \quad \therefore i = 3 < 20$ OK!</p>
+                        <br>
+                        <h4><font color="blue">Inicia-se nova iteração!</font></h4>
+                    </section>
+                    <section id="exemploNR-cont10">
+                        <h2>Exemplo MN-R (cont. 10)</h2> 
+                        <p><b>1.</b> Calculando a força residual: $ R^3 = F - P(d^3) =  \begin{Bmatrix}
+                            0 \\ 
+                            -0,016
+                            \end{Bmatrix}$ <br>
+                        Verificando a convergência da força residual: 
+                        $ conv_F = \dfrac{\sum_{j=1}^{n} \left( R_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( F_j \right)^2} = 
+                        \dfrac{\left[ 0^2 + (-0,016)^2 \right]}{1 +\left( 3^2 + 9^2 \right)} = 0,000002535 $
+                        $ \therefore conv_F = 0,000002535 < tol = 10^{-3} $ CÁLCULO ENCERRADO!</p>
+                        <p><b>2.</b> Calculando a matriz Jacobiana (ou rigidez tangente): $ K_T^3 = \begin{bmatrix}
+                            1 & 1 \\ 
+                            -0,005 & 6,005
+                            \end{bmatrix}^1$ <br>
+                        Verificando o determinante de $ K_T^2 $: $ det(K_T^2) =  6,01 \neq 0$ OK!</p>
+                    </section>
+                    <section id="exemploNR-cont11">
+                        <h2>Exemplo MN-R (cont. 11)</h2> 
+                        <b>3.</b> Calculando o incremento da solução: $ K_T^3 \Delta d^3 = R^3 =  \begin{bmatrix}
+                                1 & 1 \\ 
+                                -0,005 & 6,005
+                            \end{bmatrix}^0 \begin{Bmatrix}
+                                \Delta d_1^3 \\ 
+                                \Delta d_2^3
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                0 \\ 
+                                -0,016
+                                \end{Bmatrix}$ <br> $ \therefore \begin{Bmatrix}
+                                \Delta d_1^3 \\ 
+                                \Delta d_2^3
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                0,003 \\ 
+                                -0,003
+                            \end{Bmatrix} $ <br>
+                        Verificando a convergência dos incrementos de deslocamentos: 
+                        $conv_d = \dfrac{\sum_{j=1}^{n} \left( \Delta d_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( \Delta d_j^0 \right)^2} 
+                        = \dfrac{\left[ (0,003)^2 + (-0,003)^2 \right]}{1 + \left[ (-1,625)^2 + (-1,375)^2 \right]} 
+                        = 0,000005137 $<br>
+                        $\therefore conv_d = 0,000005137 < tol = 10^{-3} $ CÁLCULO ENCERRADO!                                         
+                    </section>
+                    <section id="exemploNR-cont12">
+                        <h2>Exemplo MN-R (cont. 12)</h2>                         
+                        <p><b>4.</b> Atualizando a solução: $ d^4 = d^3 + \Delta d^3 = \begin{Bmatrix}
+                                -0,003 \\ 
+                                3,000
+                        \end{Bmatrix}$</p>
+                        <p><b>5.</b> Atualizando $i$: $i = i + 1 \quad i = 3 + 1 = 4$ <br>
+                            Verificando o número de passos: $ i < max_{iter} \quad \therefore i = 4 < 20$ OK!</p>
+                        <h4><font color="blue">Não precisa de nova iteração!</font></h4>
+                        <img style="border: 0px;" src="imagens/newtonRaphsonConvG.png" height="250">
+                        <img style="border: 0px;" src="imagens/newtonRaphsonConv.png" height="250">
+                    </section>
+                    <section id="NR-nConv">
+                        <h2>Quando Newton-Raphson não converge</h2>
+                        <p>Dificuldades:</p>
+                        <ul>
+                            <li>A convergência não é sempre garantida! A solução pode divergir;</li>
+                            <li>Controle automático de passo de carga e/ou técnicas de busca linear 
+                                são usados frequentemente;</li>
+                            <li>Cálculo difícil ou dispendioso de $ K_T^I(d^i) $;</li>
+                            <li>A solução pode oscilar entre dois pontos.</li>
+                        </ul>
+                        <img style="border: 0px;" src="imagens/newtonRaphson-Dificuldades.png" height="350">
+                    </section>
+                    <section id="NR-nConv-cont">
+                        <h2>Quando Newton-Raphson não converge (cont.)</h2>
+                        <p>Dificuldades na convergência ocorrem quando:</p>
+                        <ul>
+                            <li>A matriz Jacobiana (ou de rigidez tangente) não é positivo-definida*;</li>
+                            <li>Bifurcações e salto por instabilidade (snap-through)**
+                                exigem um algoritmo especial.</li>
+                        </ul>
+                        <img style="border: 0px;" src="imagens/newtonRaphsonBifSnapT.png" height="300">
+                        <aside class="notes">
+                            * ser positivo definida significa que para se aumentar o deslocamento, a força 
+                            deve ser aumentada.<br>
+                            ** a viga representa um salto por instabilidade (snap-through), o 
+                            Jacobiano se torna singular em C.
+                        </aside>
+                    </section>
+                    <section id="exerciciosNR">
+                        <h2>Exercícios</h2>
+                        <p style="float: left;"><b>1.</b> Resolver as molas não lineares em série usando Newton-Raphson:</p><br>
+                        <img style="border: 0px;" src="imagens/molasNaoLineares.png">
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 350px; float: left;">
+                                <p>Rigidez das molas:</p>
+                                $$ k_1 = 50 + 500u $$
+                                $$ k_2 = 100 + 200u $$
+                            </div>
+                            <div style="margin-left: 350px;">
+                                <p>Equações governantes:</p>
+                                $$ \begin{cases}
+                                    300u_1^2 + 400u_1u_2 - 200u_2^2 + 150u_1 - 100 u_2 = 0 \\
+                                    200u_1^2 - 400u_1u_2 + 200u_2^2 - 100u_1 + 100 u_2 = 100
+                                \end{cases} $$
+                            </div>
+                        </div> 
+                        <p><b>2.</b> Resolver a seguinte equação não linear usando Newton-Raphson:</p>
+                        $$ P(u) = u + tan^{-1}(5u) $$
+                        <p>*Use como tolerância $ 10^{-5} $ e como estimativa inicial $ u^0 = 0,5 $</p>
+                    </section>
+		    <section id="NR-M">
+                        <h2>Método de Newton-Raphson Modificado</h2>
+                        <ul>
+				<li>Construir $ K_T^i(d^i) $ e resolver $ K_T^i \Delta d^i = R^i $ é custoso;</li>
+				<li>Custo computacional (matriz de tamanho NxN): </li>
+				<ul>
+					<li>Decomposição LU ~ $ N^2 $</li>
+					<li>Substituição Progressiva/Inversa ~ N</li>
+				</ul>
+			</ul>
+			<div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left; margin-top: 100px;">
+                                <p>Usa-se, então, a decomposição LU em $ K_T^i(d^i) $ repetidamente*.</p>
+                                <p>É mais estável que o método de Newton-Raphson.</p>
+                                <p>É possível formular um método híbrido**.</p>                                
+                            </div>
+                            <div style="margin-left: 800px;">
+                                <img style="border: 0px;" src="imagens/ModifiedNR-iteracoes.png">
+                            </div>
+                        </div> 
+			<aside class="notes">
+                            * Mais iterações são necessárias, mas cada iteração é rápida.<br>
+                            ** Algumas iterações com a matriz jacobiana (rigidez tangente) constante e 
+                            após atualiza-se.
+                        </aside>
+                    </section>
+		    <section id="algoritmoNR-M">
+                        <h2>Algoritmo de Newton-Raphson Modificado</h2>
+                        <p><b>INÍCIO:</b>Definir a tolerância ($tol = 10^{-3}$), $i = 0$, $max_{iter} = 20$ 
+                            e estimar $d = d^0$.</p>
+                        <p style="text-align: left; margin-left: 80px;">Calcular a matriz Jacobiana, ou rigidez tangente $ K_T^i $:</p>
+                            <ul style="text-align: left; margin-left: 150px;">
+                                <li>Se o determinante de $ K_T $ for zero, <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Se não, calcule a inversa $ \left( K_T^i \right)^{-1} $</li>
+                            </ul>                        
+                        <div style="margin-left: 200px;">
+                            <ol>                                
+                                <li>Calcular a força residual: $R^i \equiv F - P(d^i)$ e se $conv_F \leq tol_F$, 
+                                    <font color="blue">cálculo completo!</font></li>                                
+                                <li>Calcular o incremento da solução $ \Delta d^i = \left( K_T^i \right)^{-1} \left[ F - P(d^i) \right] $ e se $conv_d \leq tol_d$, 
+                                    <font color="blue">cálculo completo!</font></li>
+                                <li>Atualizar a solução: $ d^{i+1} = d^i + \Delta d^i $</li>
+                                <li>Definir: $ i = i + 1 $ e se $ i > max_{iter} $, <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Ou então, voltar ao passo 1!</li>
+                            </ol>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; top: 0px; left: 0px; width: 100%; height: 100%;">
+                            <!--<rect x="0" y="0" width="100%" height="100%" fill="none" stroke="black"/>-->
+                            <defs>
+                                <marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="blue" />
+                                </marker>
+                            </defs>
+                            <line x1="160" y1="95%" x2="20" y2="95%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="95%" x2="20" y2="52%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="52%" x2="150" y2="52%" stroke="blue" stroke-width="3" marker-end="url(#arrow)" />      
+                            <text x="-15%" y="280" fill="blue" transform="rotate(-90, 60, 280)">Iteração</text> 
+                        </svg>
+                    </section>
+                    <section id="exemploNRM">
+                        <h2>Exemplo do método de Newton-Raphson Modificado</h2>
+                        Resolver o mesmo sistema não linear com o método de Newton-Raphson Modificado:
+                        $$ P(d) = F \quad \Rightarrow \quad
+                        \begin{Bmatrix}
+                            d_1 + d_2 \\ 
+                            d_1^2 + d_2^2
+                        \end{Bmatrix} = 
+                        \begin{Bmatrix}
+                            3 \\ 
+                            9
+                        \end{Bmatrix} $$
+                        <p><b>Solução</b> usando Newton-Raphson:</p>
+                        <b>INÍCIO:</b> Arbitrando inicialmente a tolerância ($tol = 10^{-3}$), $i = 0$, $max_{iter} = 20$, 
+                           estimando $ d = d^0 = \begin{Bmatrix}
+                            1 \\ 
+                            5
+                        \end{Bmatrix} \ \rightarrow \ P(d^0) = \begin{Bmatrix}
+                            6 \\ 
+                            26
+                        \end{Bmatrix}$ e a matriz Jacobiana (ou rigidez tangente): $ K_T^i(d^i) \equiv 
+                            \left( \dfrac{\partial P}{\partial d} \right)^i = \begin{bmatrix}
+                            \frac{\partial P_1}{\partial d_1} & \frac{\partial P_1}{\partial d_2} \\ 
+                            \frac{\partial P_2}{\partial d_1} & \frac{\partial P_2}{\partial d_2}
+                        \end{bmatrix}^i = \begin{bmatrix}
+                            1 & 1 \\ 
+                            2 d_1^i & 2 d_2^i
+                        \end{bmatrix}^i \ \therefore  K_T^0 = \begin{bmatrix}
+                            1 & 1 \\ 
+                            2 & 10
+                        \end{bmatrix}$                                                   
+                    </section>
+                    <section id="exemploNRM-cont1">
+                        <h2>Exemplo MN-RM (cont. 1)</h2> 
+                        <p>Verificando o determinante de $ K_T^0 $: $ det(K_T^0) =  8 \neq 0$ OK!</p>
+                        <p>Calculando a inversa da matriz Jacobiana (ou rigidez tangente): 
+                            $ \left(K_T^0\right)^{-1} = \begin{bmatrix}
+                                1,25 & -0,125 \\ 
+                                -0,25 & 0,125
+                            \end{bmatrix}$ <br>
+                        </p>
+                        <p><b>1.</b> Calculando a força residual: $ R^0 = F - P(d^0) =  \begin{Bmatrix}
+                            -3 \\ 
+                            -17
+                            \end{Bmatrix}$ <br>
+                        Verificando a convergência da força residual: 
+                        $ conv_F = \dfrac{\sum_{j=1}^{n} \left( R_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( F_j \right)^2} =
+                        \dfrac{\left(R_1^{0}\right)^2 + \left(R_2^{0}\right)^2 }{1 +\left(F_1\right)^2 + \left(F_2\right)^2} = 
+                        \dfrac{\left[ (-3)^2 + (-17)^2 \right]}{1 +\left( 3^2 + 9^2 \right)} = 2,7586 $
+                        $ \therefore conv_F = 3,2747 > tol = 10^{-3} $ continua...</p>                        
+                    </section>
+                    <section id="exemploNRM-cont2">
+                        <h2>Exemplo MN-RM (cont. 2)</h2> 
+                        <b>2.</b> Calculando o incremento da solução: 
+                            $ \Delta d^0 = \left(K_T^0\right)^{-1} R^0 = \begin{Bmatrix}
+                                \Delta d_1^0 \\ 
+                                \Delta d_2^0
+                            \end{Bmatrix} = \begin{bmatrix}
+                                1,25 & -0,125 \\ 
+                                -0,25 & 0,125
+                            \end{bmatrix} \begin{Bmatrix}
+                                -3 \\ 
+                                -17
+                                \end{Bmatrix}$ <br> $ \therefore \begin{Bmatrix}
+                                \Delta d_1^0 \\ 
+                                \Delta d_2^0
+                            \end{Bmatrix} = \begin{Bmatrix}
+                                -1,625 \\ 
+                                -1,375
+                            \end{Bmatrix} $ <br>
+                        Verificando a convergência dos incrementos de deslocamentos: 
+                        $conv_d = \dfrac{\sum_{j=1}^{n} \left( \Delta d_j^{i} \right)^2}{1 + \sum_{j=1}^{n} \left( \Delta d_j^0 \right)^2} 
+                        = \dfrac{\left[ (-1,625)^2 + (-1,375)^2 \right]}{1 + \left[ (-1,625)^2 + (-1,375)^2 \right]} 
+                        = 0,8192 $<br>
+                        $\therefore conv_d = 0,8192 > tol = 10^{-3} $ continua...                                          
+                    </section>
+                    <section id="exemploNRM-cont3">
+                        <h2>Exemplo MN-RM (cont. 3)</h2>                         
+                        <p><b>3.</b> Atualizando a solução: $ d^1 = d^0 + \Delta d^0 = \begin{Bmatrix}
+                                -0,625 \\ 
+                                3,625
+                        \end{Bmatrix}$</p>
+                        <p><b>4.</b> Atualizando $i$: $i = i + 1 \quad i = 0 + 1 = 1$ <br>
+                            Verificando o número de passos: $ i < max_{iter} \quad \therefore i = 1 < 20$ OK!</p>
+                        <h4><font color="blue">Inicia-se nova iteração!*</font></h4>
+                        <img style="border: 0px;" width="800" src="imagens/ModifiedNR-exemplo1.png">
+                        <aside class="notes">
+                            * Fazer as demais iterações e comparar com o método de Newton-Raphson.
+                        </aside>
+                    </section>
+                    <section id="exerciciosNRM">
+                        <h2>Exercícios</h2>
+                        <p style="float: left;"><b>1.</b> Resolver as mesmas molas não lineares em série 
+                            usando Newton-Raphson Modificado*:</p><br>
+                        <img style="border: 0px;" src="imagens/molasNaoLineares.png">
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 350px; float: left;">
+                                <p>Rigidez das molas:</p>
+                                $$ k_1 = 50 + 500u $$
+                                $$ k_2 = 100 + 200u $$
+                            </div>
+                            <div style="margin-left: 350px;">
+                                <p>Equações governantes:</p>
+                                $$ \begin{cases}
+                                    300u_1^2 + 400u_1u_2 - 200u_2^2 + 150u_1 - 100 u_2 = 0 \\
+                                    200u_1^2 - 400u_1u_2 + 200u_2^2 - 100u_1 + 100 u_2 = 100
+                                \end{cases} $$
+                            </div>
+                        </div> 
+                        <br>
+                        <p><b>2.</b> Resolver a mesma equação não linear usando Newton-Raphson Modificado:</p>
+                        $$ P(u) = u + tan^{-1}(5u) $$
+                        <p>*Use como tolerância $ 10^{-5} $ e como estimativa inicial $ u^0 = 0,5 $</p>
+                        <aside class="notes">
+                            * Observe o que ocorre quando se usa o estimador inicial $ u^0 = \left[ 0, 0 \right]^T $
+                        </aside>
+                    </section>
+                    <section id="MetodoSecante">
+                        <h2>Método da Secante</h2>                         
+                        <p>Utiliza uma aproximação usando a iteração anterior no lugar do jacobiano (rigidez tangente);</p>			
+			<div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left;">
+                                <p>Na i-ésima iteração:</p>
+				$$ K_s^i \Delta d^i = F - P(d^i) $$
+				<p>A matriz secante satisfaz:</p>
+				$$ K_s^i \left( d^i - d^{i-1} \right) = P(d^i) - P(d^{i-1}) $$
+                                <p>Ou seja, o incremento de deslocamento é:</p>
+                                $$ \Delta d^i = \dfrac{d^i - d^{i-1}}{P(d^i) - P(d^{i-1})}\left[ F - P(d^i) \right] $$
+				<p>Para grandes dimensões não se torna um processo unicamente definido!</p>                                
+                            </div>
+                            <div style="margin-left: 800px;">
+                                <img style="border: 0px;" src="imagens/caminhoSecante.png">
+                            </div>
+                        </div> 
+                    </section>
+		    <section id="MetodoSecanteC1">
+                        <h2>Método da Secante (cont. 1)</h2>                         
+                        <p>Inicia-se da matriz $ K_T $, idêntica ao método de Newton-Raphson, <br>
+			sendo atualizada iterativamente.</p>
+                        <p>O problema realmente é como fazer sua atualização!</p>
+			<br>
+			<p>A atualização pode ser feita por dois métodos:</p>
+			<ul>
+				<li>Algoritmo de Broyden (atualização da rigidez*);</li>
+				<li>Método BFGS (Broyden, Fletcher, Goldfarb e Shanno, atualização da inversa da rigidez**).</li>
+			</ul>
+			<aside class="notes">
+                            * Rank-1 update <br>
+			    ** Rank-1 update
+                        </aside>
+                    </section>
+                    <section id="MetodoSecanteBroyden">
+                        <h2>Método da Secante - Broyden</h2>                         
+                        <p>A atualização da rigidez é feita com:</p>
+                        $$ K_s^i = K_s^{i-1} + \dfrac{\Delta R - K_s^{i-1} \Delta d}{\lVert \Delta d \rVert^2} \Delta d^T  $$
+                        <p style="text-align: left;">Sendo:</p>
+                        $$ \Delta R = R(d^i) - R(d^{i-1}) \quad \text{e} \quad \Delta d = d^i - d^{i-1} $$
+                        <p style="text-align: left;">Então, resolve-se:</p>
+                        $$ K_s^i \Delta d^i = F - P(d^i) $$
+                        <p style="text-align: left;">E, atualiza-se a solução com:</p>
+                        $$ d^{i+1} = d^i + \Delta d^i $$
+                        <aside class="notes">
+                            Observa-se que o incremento da solução deve ser calculado com a solução de um sistema
+                            linear a cada iteração!
+                        </aside>
+                    </section>
+                    <section id="algoritmoMetodoSecanteBroyden">
+                        <h2>Método da Secante - O Algoritmo de Broyden</h2>                         
+                        <p><b>INÍCIO:</b>Definir a tolerância ($tol = 10^{-3}$), $i = 0$, $max_{iter} = 20$ 
+                            e estimar $d = d^0$.</p>
+                        <p style="margin-top: 50px;">Calcular a matriz Jacobiana, ou rigidez tangente $ K_T^i $:</p>
+                            <ul style="text-align: left;">
+                                <li>Definir, inicialmente, que $ K_s^0 \equiv K_T^0 $;</li>
+                                <li> Se $ det(K_s^0) = 0 $,
+                                    <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Se não, calcule $ \left( K_s^0 \right)^{-1} $;</li>
+                                <li>Calcular $ P(d^0) $ e $ R^0 = P(d^0) - F $;</li>
+                            </ul>
+                    </section>
+                    <section id="algoritmoMetodoSecanteBroydenITER">
+                        <h4>Continuação - O Algoritmo de Broyden (iterações)</h4> 
+                        <div style="margin-left: 200px;">
+                            <ol>
+                                <li>Calcular o incremento da solução $ \Delta d^i = -\left( K_s^{i-1} \right)^{-1} R(d^{i-1}) $, 
+                                    sendo $ R(d^{i-1}) = \left[ P(d^{i-1} - F) \right] $ e se $conv_d \leq tol_d$, 
+                                    <font color="blue">cálculo completo!</font></li>
+                                <li>Atualizar a solução: $ d^{i} = d^{i-1} + \Delta d^i $; </li>
+                                <li>Calcular $ R(d^i) = P(d^i) - F $ e se $conv_F \leq tol_F$, 
+                                    <font color="blue">cálculo completo!</font>;</li>
+                                <li>Calcular $ \Delta R = R(d^i) - R(d^{i-1}) $;</li>
+                                <li>Atualizar a rigidez secante: 
+                                    $ K_s^i = K_s^{i-1} + \dfrac{\Delta R - K_s^{i-1} \Delta d^i}
+                                    {\lVert \Delta d^i \rVert^2} \left( \Delta d^i \right)^T $ </li>                                
+                                <li>Se $ det(K_s^i) = 0 $, <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Se não, calcule $ \left( K_s^i \right)^{-1} $;</li>
+                                <li>Definir: $ i = i + 1 $ e se $ i > max_{iter} $, <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Ou então, voltar ao passo 1!</li>
+                            </ol>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; top: 0px; left: 0px; width: 100%; height: 100%;">
+                            <!--<rect x="0" y="0" width="100%" height="100%" fill="none" stroke="black"/>-->
+                            <defs>
+                                <marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="blue" />
+                                </marker>
+                            </defs>
+                            <line x1="160" y1="95%" x2="20" y2="95%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="95%" x2="20" y2="15%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="15%" x2="150" y2="15%" stroke="blue" stroke-width="3" marker-end="url(#arrow)" />      
+                            <text x="-5%" y="280" fill="blue" transform="rotate(-90, 60, 280)">Iteração</text> 
+                        </svg>
+                    </section>
+                    <section id="MetodoSecanteBFGS">
+                        <h2>Método da Secante - Método BFGS</h2>                         
+                        <p>A atualização da inversa da rigidez $ \left(K_s^i\right)^{-1} \equiv H_s^i $ é feita com:</p>
+                        $$ H_s^i = \left[ I + w^i (v^i)^T \right] H_s^{i-1} \left[ I + w^i (v^i)^T \right] $$
+                        <p style="text-align: left;">Sendo:</p>
+                        $$ v^i = R^{i-1} \left[ 1 - \dfrac{(\Delta d^{i-1})^T (R^{i-1} - R^i)}{(\Delta d^{i})^T R^{i-1}} \right] - R^i
+                        $$
+                        <p style="text-align: left;">E:</p>
+                        $$ w^i = \dfrac{\Delta d^{i-1}}{(\Delta d^{i-1})^T (R^{i-1} - R^i)} $$
+                        <p style="text-align: left;">Então, resolve-se:
+                        $ \Delta d^i = H_s^i \left[ F - P(d^i) \right]$</p>
+                        <p style="text-align: left;">E, atualiza-se a solução com:
+                        $ d^{i+1} = d^i + \Delta d^i $</p>
+                        <aside class="notes">
+                            * A matriz de rigidez deve ser simétrica e positivo definida!
+                        </aside>
+                    </section>
+                    <section id="algoritmoMetodoSecanteBFGS">
+                        <h2>Método da Secante - O Algoritmo BFGS</h2>                         
+                        <p><b>INÍCIO:</b>Definir a tolerância ($tol = 10^{-3}$), $i = 0$, $max_{iter} = 20$ 
+                            e estimar $d = d^0$.</p>
+                        <p style="margin-top: 50px;">Calcular a matriz Jacobiana, ou rigidez tangente $ K_T^i $:</p>
+                            <ul style="text-align: left;">
+                                <li>Definir, inicialmente, que $ K_s^0 \equiv K_T^0 $;</li>
+                                <li> Se $ det(K_s^0) = 0 $,
+                                    <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Se não, calcule $ H_s^0 \equiv \left( K_s^0 \right)^{-1} $;</li>
+                                <li>Calcular $ P(d^0) $ e $ R^0 = F - P(d^0) $;</li>
+                            </ul>
+                    </section>
+                    <section id="algoritmoMetodoSecanteBFGSITER">
+                        <h4>Continuação - O Algoritmo BFGS (iterações)</h4> 
+                        <div style="margin-left: 200px;">
+                            <ol>
+                                <li>Calcular o incremento da solução $ \Delta d^i = \left( H_s^{i-1} \right)^{-1} R(d^{i-1}) $, 
+                                    sendo $ R(d^{i-1}) = \left[ F - P(d^{i-1}) \right] $ e se $conv_d \leq tol_d$, 
+                                    <font color="blue">cálculo completo!</font></li>
+                                <li>Atualizar a solução: $ d^{i} = d^{i-1} + \Delta d^i $; </li>
+                                <li>Calcular $ R(d^i) = F - P(d^i) $ e se $conv_F \leq tol_F$, 
+                                    <font color="blue">cálculo completo!</font>;</li>
+                                <li>Calcular $ \Delta R = R(d^{i-1}) - R(d^i) $;</li>
+                                <li>Calcular $ v^i =  R(d^{i-1}) \left[ 1 - \dfrac{(\Delta d^{i-1})^T \Delta R}
+                                    {(\Delta d^{i})^T R(d^{i-1})} \right] - R(d^i)$;</li>
+                                <li>Calcular $ w^i = \dfrac{\Delta d^{i-1}}{(\Delta d^{i-1})^T \Delta R} $;</li>
+                                <li>Atualizar a inversa: 
+                                    $ H_s^i = \left[ I + w^i (v^i)^T \right] H_s^{i-1} \left[ I + w^i (v^i)^T \right] $ </li>                                                                
+                                <li>Definir: $ i = i + 1 $ e se $ i > max_{iter} $, <font color="red">pare com mensagem de erro!</font></li>
+                                <li>Ou então, voltar ao passo 1!</li>
+                            </ol>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; top: 0px; left: 0px; width: 100%; height: 100%;">
+                            <!--<rect x="0" y="0" width="100%" height="100%" fill="none" stroke="black"/>-->
+                            <defs>
+                                <marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="blue" />
+                                </marker>
+                            </defs>
+                            <line x1="160" y1="95%" x2="20" y2="95%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="95%" x2="20" y2="15%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="15%" x2="150" y2="15%" stroke="blue" stroke-width="3" marker-end="url(#arrow)" />      
+                            <text x="-5%" y="280" fill="blue" transform="rotate(-90, 60, 280)">Iteração</text> 
+                        </svg>
+                    </section>
+                    <section id="MetodoIncrementalForca">
+                        <h2>Método incremental da Força</h2>                                                 
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left; text-align: left; margin-top: 50px;">
+                                <ul>
+                                    <li>O método de Newton-Raphson converge rapidamente quando o estimador inicial
+                                    está próximo da solução</li>
+                                    <br>
+                                    <li>Na mecânica dos sólidos, normalmente, o estimador inicial refere-se à situação 
+                                    <b>indeformada</b> da estrutra</li>
+                                    <br>
+                                    <li>Dificuldades de convergência ocorrem quando a força aplicada é grande*.</li>
+                                    <br>
+                                    <li>Solução: aplicar as cargas em incrementos até atingir o valor total**.</li>
+                                </ul>
+                            </div>
+                            <div style="margin-left: 800px;">
+                                <img style="border: 0px;" src="imagens/forcaIncremental.png">
+                            </div>
+                        </div> 
+                        <aside class="notes">
+                            * E consequentemente a deformação também será grande (não proporcional).<br>
+                            ** Utiliza-se a solução do incremento anterior como novo estimador inicial.
+                        </aside>
+                    </section>
+                    <section id="MetodoIncrementalForcaC1">
+                        <h2>Método incremental da Força (cont. 1)</h2>                                                 
+                        <ul>
+                            <li>Os incrementos de carregamento não precisam ser uniformes:
+                                <ul>
+                                    <li>Partes críticas precisam de incrementos menores*</li>
+                                </ul>
+                            </li>
+                            <br>
+                            <li>As soluções nos incrementos de força intermediários:
+                                <ul>
+                                    <li>O histórico da resposta pode fornecer informações sobre o problema;</li>
+                                    <li>Podem estimar pontos de bifurcação ou a carga crítica;</li>
+                                    <li>O incrementos de força afetam consideravelmente a precisão em problemas
+                                    dependentes do caminho**.</li>
+                                </ul>
+                            </li>
+                            <li>A melhor forma de verificar se o incremento de força está muito grande ou muito pequeno
+                            é contar o número de iterações para a convergência***.</li>
+                        </ul>
+                        <aside class="notes">
+                            * Por exemplo, a região de mudança de regime elástico para plástico em uma análise elastoplástica.<br>
+                            ** Path-dependent.<br>
+                            *** No método de Newton-Raphson, o incremento de força é considerado apropriado quando a solução
+                            converge entre 5 ou 6 iterações. Se convergir antes, pode-se aumentar o incremento de força, 
+                            se depois, diminuir.
+                        </aside>
+                    </section>
+                    <section id="IncrementoForcaXDeslocamento">
+                        <h2>Incrementos de Força X Deslocamentos</h2>                                                
+                        <ul>
+                            <li>Controle de forças: gradualmente aumentam-se as forças aplicadas e encontra-se
+                            a configuração de equilíbrio;</li>
+                            <li>Controle de deslocamentos: gradualmente aumentam-se os deslocamentos prescritos:
+                                <ul>
+                                    <li>A força aplicada pode ser calculada como uma reação;</li>
+                                    <li>É mais estável que o controle das forças;</li>
+                                    <li>Útil para contatos, "snap-through"...</li>
+                                </ul>
+                            </li>                            
+                        </ul>
+                        <img style="border: 0px;" width="900" src="imagens/ControleForcaXDeslocamento.png">                        
+                    </section>
+                    <section id="exerciciosIncrementosFD">
+                        <h2>Exercícios</h2>
+                        <p style="float: left;"> Grafique a curva força-deslocamento usando Newton-Raphson, através 
+                            do aumento do deslocamento $ u_2 $ de 0 até 0,9 com 9 incrementos,<br>
+                            para as mesmas molas não lineares em série:</p><br>
+                        <img style="border: 0px;" src="imagens/molasNaoLineares.png">
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 350px; float: left;">
+                                <p>Rigidez das molas:</p>
+                                $$ k_1 = 50 + 500u $$
+                                $$ k_2 = 100 + 200u $$
+                            </div>
+                            <div style="margin-left: 350px;">
+                                <p>Equações governantes:</p>
+                                $$ \begin{cases}
+                                    300u_1^2 + 400u_1u_2 - 200u_2^2 + 150u_1 - 100 u_2 = 0 \\
+                                    200u_1^2 - 400u_1u_2 + 200u_2^2 - 100u_1 + 100 u_2 = 100
+                                \end{cases} $$
+                            </div>
+                        </div>                         
+                    </section>
+                </section>
+                <section id="SolucaoNaoLinear">
+                    <section id="passos_intro" data-background-image="imagens/PassosSolucao.jpg">
+                        <h1 style="position: absolute; top: 40%; left: 3%;">Passos para solução não linear</h1>                        
+                    </section>
+                    <section id="passosSolucaoNaoLinear">
+                        <h2>Passos para solução não linear</h2>
+                        <ol style="margin-left: 150px;">
+                            <li>Inicialização: $ d^0 = 0 $ e $ i = 0 $;</li>
+                            <li>Cálculo do resíduo: $ R^i = F - P(d^i) $;</li>
+                            <li>Verificação de convergência (se convergiu, pare!);</li>
+                            <li>Linearização
+                                <ul>
+                                    <li>Cálculo da matriz de rigidez tangente (ou matriz jacobiana): $ K_T^i(d^i) $;</li>
+                                </ul>
+                            </li>
+                            <li>Solução Incremental:
+                                <ul>
+                                    <li>Resolver: $ K_T^i(d^i) \Delta d^i = R^i $</li>
+                                </ul>
+                            </li>
+                            <li>Determinação do estado:
+                                <ul>
+                                    <li>Atualização de:</li>
+                                    <ul>
+                                        <li>Deslocamentos: $ d^{i+1} = d^i + \Delta d^i $</li>
+                                        <li>Tensões: $ \sigma^{i+1} = \sigma^i + \Delta \sigma^i $</li>
+                                    </ul>
+                                </ul>
+                            </li>
+                        </ol>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute; top: 0px; left: 0px; width: 100%; height: 100%;">
+                            <!--<rect x="0" y="0" width="100%" height="100%" fill="none" stroke="black"/>-->
+                            <defs>
+                                <marker id="arrow" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+                                    <path d="M0,0 L0,6 L9,3 z" fill="blue" />
+                                </marker>
+                            </defs>
+                            <line x1="160" y1="73%" x2="20" y2="73%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="73%" x2="20" y2="21%" stroke="blue" stroke-width="3" />
+                            <line x1="20" y1="21%" x2="150" y2="21%" stroke="blue" stroke-width="3" marker-end="url(#arrow)" />      
+                            <text x="0%" y="280" fill="blue" transform="rotate(-90, 60, 280)">Iteração</text> 
+                        </svg>
+                    </section>
+                    <section id="passosSolucaoNaoLinearC1">
+                        <h2>Passos para solução não linear (cont. 1)</h2>
+                        <ol start="2">
+                            <li>Cálculo do resíduo**:
+                                <ul>
+                                    <li>Forças nodais devido a tensões internas =  - forças nodais aplicadas</li>
+                                </ul>                                
+                            </li>
+                        </ol>
+                        $$ R^k =  \iint_{\Gamma_s} N^T f^{\Gamma} d\Gamma + \iiint_{\Omega} N^T f^b d\Omega 
+                        - \iiint_{\Omega} B^T \sigma^k d\Omega $$
+                        <ol start="6">
+                            <li>Determinação do estado:
+                                <ul>
+                                    <li>Para um dado deslocamento $ d^k $, determine o estado atual 
+                                        (deformações, tensões, etc)</li>                                    
+                                    <li>As vezes, tensões não podem ser determinadas usando somente as deformações!</li>
+                                </ul>
+                            </li>                            
+                        </ol>
+                        $$ u^k(x) = N(x) d^k \quad \quad \varepsilon^k = B d^k \quad \quad 
+                        \sigma^k = f(\varepsilon^k) $$      
+                        <aside class="notes">
+                            * aproximação de Galerkin na forma fraca.
+                        </aside>
+                    </section>
+                    <section id="exemploSolucaoNaoLinear-ML">
+                        <h2>Exemplo - Material Linear Elástico</h2>
+                        <p>Equação governante (equação escalar):</p>
+                        $$  \iiint_{\Omega} \varepsilon(\overline{u})^T \sigma d\Omega =  
+                        \iint_{\Gamma_s} \overline{u}^T f^{\Gamma} d\Gamma + 
+                        \iiint_{\Omega} \overline{u}^T f^b d\Omega $$
+                        <p>Substituindo $ \overline{u} = N \overline{d} $ e 
+                            $ \varepsilon(\overline{u}) = B \overline{d} $, e isolando $ \overline{d} $:</p>
+                        $$ \overline{d}^T \left( \underbrace{\iiint_{\Omega} B^T \sigma d\Omega}_{P(d)} = 
+                        \underbrace{\iint_{\Gamma_s} N^T f^{\Gamma} d\Gamma + 
+                        \iiint_{\Omega} N^T f^b d\Omega}_F \right)$$
+                    </section>
+                    <section id="exemploSolucaoNaoLinear-ML-C1">
+                        <h2>Exemplo - Material Linear Elástico (cont. 1)</h2>
+                        <p>O resíduo é:</p>
+                        $$  R = F - P(d) $$
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left; text-align: left; margin-top: 50px;">
+                                <p>Material elastico linear:</p>
+                                $$ \sigma = D \varepsilon = D B d $$
+                                $$ K_T = \dfrac{\partial P(d)}{\partial d} = \iiint_\Omega B^T D B d\Omega $$
+                            </div>
+                            <div style="margin-left: 800px;">
+                                <img style="border: 0px;" src="imagens/RigidezElasticoLinear.png">
+                            </div>
+                        </div> 
+                    </section>
+                    <section id="exemploSolucaoNaoLinear-MNL">
+                        <h2>Exemplo - Material Não Linear (borracha)</h2>                        
+                        <img style="border: 0px;" width="1100" src="imagens/barraBorrachaNL.png">                        
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 30%; float: left; text-align: left; margin-left: 20%;">
+                                <p>Constantes do material:</p>
+                                <p>$ E = 100 $ MPa</p>
+                                <p>$ m = 40 $</p>
+                                <p>$ A = 10^{-4} \ m^2 $</p>
+                            </div>
+                            <div style="margin-left: 50%; margin-right: 10%;">
+                                <p>Relação tensão deformação da barra de borracha:</p>
+                                $$ \sigma = E tan^{-1}(m \varepsilon) $$
+                            </div>
+                        </div>                         
+                    </section>
+                    <section id="exemploSolucaoNaoLinear-MNL-C1">
+                        <h2>Exemplo - Material Não Linear (cont. 1)</h2>                        
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left; text-align: left;">
+                                
+                                <p>Forma fraca discreta: $ \overline{d}^T \int_0^L B^T \sigma A dx = \overline{d}^T F $</p>
+                                <p>Sendo: $ B = \dfrac{1}{L} \left[ -1 \quad 1 \right] $ (barra)</p>
+                                <p>Ou: $ B = \dfrac{1}{L} $ (restingido em $d_1$)</p>
+                                <p>O resíduo é: $R = F - \int_0^L \dfrac{\sigma A}{L} dx $</p>
+                                <p>ou seja: $ R = F - P(d) A $</p>                                 
+                            </div>
+                            <div style="margin-left: 800px;">
+                                $$ \overline{d} = d = \left\lbrace \begin{array}{c}
+                                        d_1 \\
+                                        d_2
+                                \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+                                        0 \\
+                                        d_2
+                                \end{array} \right\rbrace$$
+                                $$ F= \left\lbrace \begin{array}{c}
+                                        R_a \\
+                                        F
+                                \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+                                        R_a \\
+                                        10
+                                \end{array} \right\rbrace$$                                
+                            </div>
+                        </div>                        
+                    </section>
+                    <section id="exemploSolucaoNaoLinear-MNL-C2">
+                        <h2>Exemplo - Material Não Linear (cont. 2)</h2>                        
+                        <p>Jacobiano: $ \dfrac{dP}{dd} = \dfrac{d \sigma(d)}{dd} A = 
+                            \dfrac{d\sigma}{d\varepsilon} \dfrac{d\varepsilon}{dd} A = 
+                            \dfrac{1}{L} m A E \left( \dfrac{1}{1 + m^2 \varepsilon^2} \right)$</p>
+                        <p>Sendo: $ \dfrac{d\sigma}{d\varepsilon} = 
+                            E m \left( \dfrac{1}{1 + m^2 \varepsilon^2} \right) $ e: $ \dfrac{d\varepsilon}{dd} = 
+                            \dfrac{1}{L}$*</p>
+                        <p>Da relação tensão-deformação, pode-se escrever: $ \varepsilon = 
+                            \dfrac{1}{m} tan \left(\dfrac{\sigma}{E}\right) $</p>
+                        <p>Sabendo-se que: $1 + tan^2(u) = \dfrac{1}{cos^2(u)}$</p>
+                        <p>Equação de Newton-Raphson: 
+                            $ \left[ \dfrac{1}{L} m A E cos^2 \left( \dfrac{\sigma^k}{E} \right) \right] \Delta d^k = 
+                            F - \sigma^k A$</p>
+                        <aside class="notes">
+                            * Vem da matriz B.
+                        </aside>
+                    </section>
+                    <section id="exemploSolucaoNaoLinear-MNL-C3">
+                        <h2>Exemplo - Material Não Linear (cont. 3)</h2>                        
+                        <p>Estimador inicial: $ d^0 = 0 $</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 800px; float: left; text-align: left;">                                
+                                <p>Iteração 1:</p>
+                                $$ \left[ \dfrac{1}{L} m A E cos^2 \left( \dfrac{\sigma^0}{E} \right) \right] \Delta d^0 = 
+                                    F - \sigma^0 A $$                               
+                            </div>
+                            <div style="margin-left: 800px;">
+                                $$ \begin{array}{l}
+                                        d^1 = d^0 + \Delta d^0 = 0,025\\
+                                        \varepsilon^1 = \dfrac{d^1}{L} = 0,025 \\
+                                        \sigma^1 = E tan^-1(m \varepsilon^1) = 78,5 MPa
+                                \end{array} $$                             
+                            </div>
+                        </div>
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 100px;">
+                            <div style="width: 800px; float: left; text-align: left;">
+                                <p>Iteração 2:</p> 
+                                    $$ \left[ \dfrac{1}{L} m A E cos^2 \left( \dfrac{\sigma^1}{E} \right) \right] \Delta d^1 = 
+                                    F - \sigma^1 A $$                                 
+                            </div>
+                            <div style="margin-left: 800px;">
+                                $$ \begin{array}{l}
+                                        d^2 = d^1 + \Delta d^1 = 0,0357\\
+                                        \varepsilon^2 = \dfrac{d^2}{L} = 0,0357 \\
+                                        \sigma^2 = E tan^-1(m \varepsilon^2) = 96 MPa
+                                \end{array} $$                                
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            Continuar e discutir o resultado!
+                        </aside>
+                    </section>
+                    <section id="SolucaoNaoLinear-qual">
+                        <h2>Newton-Raphson ou Newton-Raphson Modificado?</h2>                        
+                        <ul>
+                            <li>É sempre recomendado utilizar métodos incrementais*:
+                                <ul>
+                                    <li>Não linearidade simples: $ \sim $ incrementos;</li>
+                                    <li>Não linearidade complicada: $ 20 \sim 100 $ incrementos;</li>
+                                </ul>
+                            </li>
+                            <li>Em cada incremento, Newton Raphson ou Newton Raphson modificado
+                            pode ser utilizado:
+                                <ul>
+                                    <li>Newton Raphson calcula $ K_T $ a cada iteração;</li>
+                                    <li>Newton Raphson modificado somente calcula $ K_T $ uma vez;</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * De forças ou deslocamentos.
+                        </aside>
+                    </section>
+                    <section id="SolucaoNaoLinear-qual2">
+                        <h4>Newton-Raphson ou Newton-Raphson Modificado?</h4>
+                        <ul style="margin-top: 100px;">
+                            <li>Newton Raphson é melhor quando:
+                                <ul>
+                                    <li>A não linearidade é simples (leve);</li>
+                                    <li>O critério de convergência mais rigoroso.</li>
+                                </ul>
+                            </li>
+                            <li>Newton Raphson modificado é melhor quando:
+                                <ul>
+                                    <li>Cálculo computacional é custoso;</li>
+                                    <li>Incremento pequeno;</li>
+                                    <li>Newton Raphson não converge bem.</li>
+                                </ul>
+                            </li>
+                        </ul>   
+                    </section>
+                    <section id="PrecisaoXconvergencia">
+                        <h2>Precisão X Convergência</h2>
+                        <ul>
+                            <li>O procedimento de solução não linear precisa de:
+                                <ul>
+                                    <li>Força interna $ P(d) $;</li>
+                                    <li>Jacobiano ou matriz de rigidez tangente: 
+                                        $ K_T(d) = \dfrac{\partial P}{\partial d} $;</li>
+                                    <li>Normalmente implementados na mesma rotina.</li>
+                                </ul>
+                            </li>
+                            <li>A força interna necessita de precisão:
+                                <ul>
+                                    <li>Resolve-se o equilíbrio de $ P(d) = F $</li>
+                                </ul>
+                            </li>
+                            <li>A matriz de rigidez tangente contribui para a convergência:
+                                <ul>
+                                    <li>$ K_T $ precisa fornece convergência quadratica;</li>
+                                    <li>$ K_T $ aproximada necessita dae mais iterações;</li>
+                                    <li>$ K_T $ errônea causa falta de convergência.</li>
+                                </ul>
+                            </li>
+                        </ul>   
+                    </section>
+                    <section id="CriterioDeConvergencia">
+                        <h2>Critério de Convergência</h2>
+                        <ul>
+                            <li>Normalmente são três:
+                                <ul>
+                                    <li>Trabalho, deslocamento e carregamento (residual);</li>
+                                    <li>Trabalho  = deslocamento * carregamento;</li>
+                                    <li>Pelo menos dois critérios devem convergir.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 700px; float: left; text-align: left;">
+                                <ul>                                    
+                                    <li>O critério de convergência tradicional é o de carregamento (residual):
+                                        <ul>
+                                            <li>Equilíbrio entre forças internas e externas $ P(d) = F(d) $</li>
+                                        </ul>
+                                    </li>
+                                    <li style="margin-top: 30px">O critério de deslocamentos é 
+                                        utilizado para sistemas insensíveis ao tipo do carregamento.</li>
+                                </ul>                                 
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <img style="border: 0px;" width="600" src="imagens/cargaInsensivel.png">                            
+                            </div>
+                        </div>                        
+                    </section>
+                    <section id="estrategiasSolucao1">
+                        <h2>Estratégias de Solução</h2>
+                        <ul>
+                            <li>Casos de carregamento (ou passos de carga)*:
+                                <ul>
+                                    <li>Um caso de carregamento é um conjunto de cargas e
+                                    condições de contorno que definem um problema de análise;</li>
+                                    <li>Múltiplos casos de carregamento pode ser utilizados para definir
+                                    uma sequência de condições de carregamento:</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <img style="border: 0px;" width="900" src="imagens/MultiplosCasosCarga.png">
+                        <aside class="notes">
+                            * Load Step, subcase ou step.
+                        </aside>
+                    </section>
+                    <section id="estrategiasSolucao2">
+                        <h4>Estratégias de Solução (cont. 1)</h4>
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 700px; float: left; text-align: left; margin-top: 50px;">
+                                <ul>
+                                    <li>Incrementos de carga*:
+                                        <ul>
+                                            <li>Análise linear diz respeito à carga total;</li>
+                                            <li>Análise não linear depende do caminho de carregamento
+                                            (história);</li>
+                                            <li>A carga aplicada é aumentada gradualmente em um
+                                            passo de carga;</li>
+                                            <li>Seguem o caminho da carga, melhoram a precisão e
+                                            convergem facilmente.</li>
+                                        </ul>
+                                    </li>
+                                </ul>                                 
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <img style="border: 0px;" width="700" src="imagens/IncrementosCarga.png">                            
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            * Substeps. Também pode ser um incremento de deslocamentos.
+                        </aside>
+                    </section>
+                    <section id="estrategiasSolucao3">
+                        <h4>Estratégias de Solução (cont. 2)</h4>
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 700px; float: left; text-align: left; margin-top: 50px;">
+                                <ul>
+                                    <li>Iteração de convergência:
+                                        <ul>
+                                            <li>Dentro de um incremento de carga, um método 
+                                            iterativo* é utilizado para encontrar a 
+                                            solução não linear;</li>
+                                            <li>Além disso, para tentar novamente a convergência
+                                                antes da parada por máximas tentativas,
+                                                métodos como da Bisecção, busca linear, estabilização, etc.
+                                            podem ser utilizados.</li>
+                                        </ul>
+                                    </li>
+                                </ul>                                 
+                            </div>
+                            <div style="margin-left: 700px;">
+                                <img style="border: 0px;" width="400" src="imagens/IteracaoConvergencia.png">                            
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            * Por exemplo, o método de Newton Raphson.
+                        </aside>
+                    </section>
+                    <section id="estrategiasSolucao4">
+                        <h4>Estratégias de Solução (cont. 3)</h4>
+                        <ul>
+                            <li>Incremento de carga automático (variável)*:
+                                <ul>
+                                    <li>O incremento de carga pode não ser uniforme;</li>
+                                    <li>Quando a iteração de convergência diverge, o 
+                                    incremento de carga é reduzido a metade;</li>
+                                    <li>Se a solução convergir em menos de 4 iterações,
+                                    aumenta-se o incremento em 25%;</li>
+                                    <li>Se a solução converge em mais de 8 iterações,
+                                    diminui-se o incremento em 25%.</li>
+                                </ul>
+                            </li>
+                            <li>Subincremento**:
+                                <ul>
+                                    <li>Quando não há convergência em dado incremento, 
+                                    retorna-se ao anterior qua convergiu e reduz-se
+                                    o incremento a metade;</li>
+                                    <li>Processo repetido até o número máximo de 
+                                    subincrementos.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Ou passo de tempo (time stepping) automático.<br>
+                            ** Ou bisecção.
+                        </aside>
+                    </section>
+                    <section id="analiseNaoLinearNaoConverge">
+                        <h2>Quando a análise não linear não converge</h2>                        
+                        <div style="width: 100%; height: 100%; overflow: hidden; margin-top: 30px;">
+                            <div style="width: 600px; float: left; text-align: left;">
+                                <ul>
+                                    <li>O método de Newton Raphson adota uma curvatura
+                                    constante localmente;</li>
+                                    <li>Quando o sinal da curvatura muda em torno da solução,
+                                    o método de Newton Raphson oscila ou diverge;</li>
+                                    <li>Geralmente a força residual muda de sinal entre iterações;</li>
+                                    <li>Uma busca linear pode ajudar a convergir.</li>
+                                </ul>
+                            </div>
+                            <div style="margin-left: 600px;">
+                                <img style="border: 0px;" width="800" src="imagens/newtonRaphson-Divergencia.png">
+                                $$ P(d) = d + tan^{-1}(5d) $$
+                                $$ \dfrac{d P}{d d} = 1 + 5cos^2(tan^{-1}(5d)) $$
+                            </div>
+                        </div>
+                    </section>
+                    <section id="analiseNaoLinearNaoConverge2">
+                        <h4>Quando a análise não linear não converge (cont. 1)</h4>                        
+                        <p>Procedimentos de Controle de deslocamento x Controle de força:</p>
+                        <ul>                            
+                            <li>Quase todos os problemas lineares são controlados por força;</li>
+                            <li>Procedimento de controle de deslocamento é mais estável
+                                para análises não lineares;</li>
+                            <li>Usa-se as reações para calcular as forças aplicadas.</li>
+                        </ul>
+                        <img style="border: 0px;" width="800" src="imagens/newtonRaphsonBifSnapT.png">
+                    </section>
+                    <section id="analiseNaoLinearNaoConverge3">
+                        <h4>Quando a análise não linear não converge (cont. 2)</h4>                        
+                        <p>Distorções na malha:</p>
+                        <ul>                            
+                            <li>A análise deve ser parada quando a malha está muito distorcida;</li>
+                            <li>Uma malha boa inicialmente pode ser distorcida durante
+                                um grande deslocamento;</li>
+                            <li>Exite a possibilidade de se utilizar procedimentos de remalhagem,
+                                mas ainda são inprecisos e inconvenientes;</li>
+                            <li>O melhor é fazer a malha de certo modo que a qualidade da mesma
+                            se preserve após os deslocamentos (tentativa e erro).</li>
+                        </ul>
+                        <img style="border: 0px;" width="700" src="imagens/malhaDistorcida.png">
+                    </section>
+                    <section id="exercicioFinalPassos1">
+                        <h2>Exercício Final 1</h2>                        
+                        <p>Seja a barra da figura abaixo e sabendo que o módulo
+                        de elasticidade varia com a deformação:</p>
+                        $$ \sigma = E(u) \varepsilon (u) \quad \varepsilon (u) = \dfrac{du}{dx}
+                        \quad E(u) = E_0 \left( 1 - \dfrac{du}{dx} \right)$$          
+                        <p>Use um elemento para a barra e resolva o deslocamento da ponta da barra 
+                            usando força incremental com 10 incrementos iguais.</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 600px; float: left; text-align: left; margin-top: 20px;">                                
+                                <p>Use $ E_0 = 1,0 GPa $, $ A = 10^{-4} $ e $ F = 25 kN $ e grafique
+                                a curva força x deslocamento.</p>
+                            </div>
+                            <div style="margin-left: 600px;">
+                                <img style="border: 0px;" width="450" src="imagens/barraExFinal.png">
+                            </div>
+                        </div>                        
+                        <aside class="notes">
+                            OBS.: O que acontece se F = 30 kN? Sabe explicar?
+                        </aside>
+                    </section>
+                    <section id="exercicioFinalPassos2">
+                        <h2>Exercício Final 2</h2>                        
+                        <p>A barra uniforme da figura abaixo apresenta comportamento
+                        elastoplástico conforme figura. A deformação plástica inicia em
+                        $ \sigma_y = 400 MPa $. Na região elástica $ E = 200 GPa $ e na
+                        plástica $ E_T = 20 GPa $. A barra tem $ A = 2e10^{-4} m^2 $ e 
+                        $ L = 1,0 m $.</p>         
+                        <p>Calcule o deslocamento na ponta da barra quando uma força de
+                        $ F = 50 kN $ é aplicada na extremidade.</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 400px; float: left; text-align: left; margin-top: 20px;">                                
+                                <p>Grafique a curva força x deslocamento e adote relação 
+                                    deslocamento-deformação linear.</p>
+                            </div>
+                            <div style="margin-left: 400px;">
+                                <img style="border: 0px;" width="800" src="imagens/barraExFinal2.png">
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                
+                <section>
+                    <section id="mef_intro" data-background-image="imagens/nonlinear-fem2.png">
+                        <h1 style="position: absolute; top: 40%; left: 3%;">Elementos Finitos para análises 
+                            não lineares elásticas</h1>                        
+                    </section>
+                    <section id="mef_elastico_relembrando">
+                        <h2>Relembrando conceitos...</h2>
+                        <ul>
+                            <li>Problemas elásticos não lineares usam diferentes medidas de tensão
+                            e deformação função das modificações na geometria de referência;</li>
+                            <li>Deformação Lagrangiana é independente da rotação de corpo rígido,
+                            porém, deformações infinitesimais não;</li>
+                            <li>Qualquer deformação pode ser unicamente decomposta em
+                            rotação de corpo rígido e extensão*;</li>
+                            <li>O determinante do gradiente de deformação é relacionado com a
+                            mudança de volume, enquanto que o próprio gradiente de deformação
+                            e a normal a superfície estão relacionados com a mudança
+                            na área;</li>
+                            <li>Quatro diferente medições de tensão são definidas baseadas
+                            na geometria de referência;</li>
+                            <li>Quando a deformação é infinitesimal, todas as medições de 
+                            tensões e deformações são idênticas;</li>
+                        </ul>
+                        <aside class="notes">
+                            * stretch
+                        </aside>
+                    </section>
+                    <section id="mef_elastico">
+                        <h2>Elementos Finitos para análises não lineares elásticas</h2>
+                        <ul>
+                            <li>A equação variacional será obtida utilizando-se o princípio da
+                            energia potencial mínima*;</li>
+                            <li>O método de Newton-Raphson será utilizado (há a necessidade de
+                            cálculo da matriz jacobiana);</li>
+                            <li>Formulação Lagrangiana Total (material) usa a configuração
+                            indeformada como referência;</li>
+                            <li>Formulação Lagrangiana Atualizada (espacial) utiliza a configuração
+                            atual como referência;</li>
+                            <li>Ambas são matematicamente equivalentes, porém com diferentes 
+                            aspectos computacionais.</li>
+                        </ul>
+                        <aside class="notes">
+                            * Propriedade única da elasticidade: um potencial existe tal que uma
+                            estrutura sob deformação estará em equilíbrio quando esse potencial
+                            atingir seu valor mínimo.
+                        </aside>
+                    </section>
+                    <section id="mef_elastico_constitutiva">
+                        <h2>Relação Constitutiva</h2>
+                        <p>Em materiais elásticos, a densidade de energia de deformação $ W $
+                            existe, tal que, diferenciando-se a densidade de energia de deformação
+                            em relação às deformações adequadas, obtém-se as relacionadas tensões,
+                            por exemplo*:</p>
+                        $$ \textbf{S} = \dfrac{\partial W}{\partial \textbf{E}} $$
+                        <p style="margin-top: 40px;">Ou seja, é necessário, com essa formulação, expressar $ W $ em função
+                            de $ E $ e, no caso, manter a relação elástica linear**.</p>
+                        <p>Para tal, pode-se utilizar o modelo de St. Venant-Kirchhoff***:</p>
+                        $$ W = \dfrac{1}{2} \textbf{E} : \textbf{D} : \textbf{E} $$
+                        <aside class="notes">
+                            * S é o segundo tensor de tensões de Piola-Kirchhoff (simétrico) e E é a 
+                            deformação Lagrangiana.<br>
+                            ** A grande maioria dos materiais apresentam uma relação não linear para grandes
+                            deformações, o que torna o modelo com sentido apenas para pequenas deformações.<br>
+                            *** Operador de contração $ a : b = a_{ij}b_{ij} = a_{11}b_{11} + a_{12}b_{12} ...$, 
+                            considerado como um duplo produto interno (reduz a um escalar).
+                        </aside>
+                    </section>
+                    <section id="mef_elastico_constitutiva_c1">
+                        <h2>Relação Constitutiva (cont. 1)</h2>
+                        <p>O tensor constitutivo de 4 ordem para materiais isotrópicos é:</p>
+                        $$ D_{ijkl} = \lambda \delta_{ij} \delta_{kl} + 
+                            \mu (\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk})  $$
+                        <p style="margin-bottom: 40px;">ou</p>
+                        $$ \textbf{D} = \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I} $$
+                        <p style="margin-top: 40px;">E as constantes de Lamé:</p>
+                        $$ \lambda = \dfrac{\nu E}{(1 + \nu)(1 - 2\nu)} \quad \mu \equiv G = \dfrac{E}{2(1 + \nu)} $$
+                        <aside class="notes">
+                            * Sendo $\textbf{i}$ o tensor identidade de segunda ordem e $\textbf{I}$
+                            o tensor identidade de quarta ordem.
+                        </aside>
+                    </section>
+                    <section id="mef_elastico_constitutiva_c2">
+                        <h2>Relação Constitutiva (cont. 2)</h2>
+                        <p>Portanto, para o modelo de St. Venant-Kirchhoff:</p>
+                        <ul>
+                            <li>Cálculo das tensões (diferenciando a densidade de energia de deformação):
+                                $$ \textbf{S} = \dfrac{\partial W}{\partial \textbf{E}} = 
+                                    \textbf{D} : \textbf{E} = \lambda \text{tr}(\textbf{E}) \textbf{i} + 
+                                    2 \mu \textbf{E}$$
+                            </li>
+                            <li>Cálculo das deformações:
+                                $$ \textbf{E} = \dfrac{1}{2} \left( \textbf{C} - \textbf{i} \right) $$
+                                Aplicando-se a decomposição polar:
+                                $$ \textbf{E} = \dfrac{1}{2} \left( \textbf{F}^T \textbf{F} - \textbf{i} \right) =
+                                    \dfrac{1}{2} \left( \textbf{U}^2 - \textbf{i} \right)$$
+                                Mostra que a rotação de corpo rígido não influência na deformação.
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            Sendo $\textbf{i}$ o tensor identidade de segunda ordem e $\textbf{I}$
+                            o tensor identidade de quarta ordem.<br>
+                            Sendo $\textbf{U}$ o tensor direito de extensão (decomposição polar).
+                        </aside>
+                    </section>
+                    <section id="mef_elastico_CC">
+                        <h2>Condições de Contorno</h2>
+                        <p>As condições de contorno podem ser definidas como:</p>
+                        <ul>
+                            <li>Essencial (deslocamento no contorno):
+                                $$ \textbf{u} = \textbf{g} \quad \quad \text{em} \ \Gamma^h $$
+                            </li>
+                            <li>Natural (tração no contorno)*:
+                                $$ \textbf{t} = \textbf{P}^T \textbf{N} \quad \quad \text{em} \ \Gamma^s $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Não é possível utilizar $ \textbf{S} $
+                        </aside>
+                    </section>
+                    <section id="formulacao_variacional">
+                        <h2>Formulação Variacional</h2>
+                        <p>O objetivo é minimizar o potencial de energia para atingir o equilíbrio*.</p>
+                        $$ \Pi = \Pi^{int} + \Pi^{ext} $$
+                        $$ \Pi = \iint_{\Omega_0} W d\Omega - \iint_{\Omega_0} \textbf{u}^T \textbf{f}^b d\Omega
+                            - \int_{\Gamma^S_0} \textbf{u}^T \textbf{t} $$
+                        <p>Para tal, deve-se encontrar um $ \textbf{u} $ que minimize esse potencial de energia**:</p>
+                        <ul>
+                            <li>Perturba-se $ \textbf{u} $ em direção a $ \bar{\textbf{u}} $ proporcionalmente a 
+                            $ \tau $;</li>
+                            <li>Se $ \textbf{u} $ minimiza o potencial de energia,$ \Pi $ deve ser menor que 
+                                $ \Pi(\textbf{u}_{\tau}) $ para todo $ \bar{\textbf{u}} $ admissível.</li>
+                        </ul>
+                        <aside class="notes">
+                            * $ \Pi^{int} $ a energia interna armazenada e $ \Pi^{ext} $ a energia potencial
+                            das cargas aplicadas.<br>
+                            ** $ \bar{\textbf{u}} $ é um valor arbitrário e $ \tau $ é o parametro que controla
+                            o tamanho da perturbação: $ \textbf{u}_{\tau} = \textbf{u} + \tau \bar{\textbf{u}} $.
+                        </aside>
+                    </section>
+                    <section id="formulacao_variacional_c1">
+                        <h2>Formulação Variacional (cont. 1)</h2>
+                        <p>Variação da energia potencial (derivada direcional):</p>
+                        $$ \bar{\Pi}(\textbf{u},\bar{\textbf{u}}) = \dfrac{d}{d\tau} \Pi(\textbf{u} + 
+                            \tau \bar{\textbf{u}}) \Biggr\rvert_{\tau=0} $$
+                        <ul>
+                            <li>$ \Pi $ depende somente de $ \textbf{u} $, mas $ \bar{\Pi} $
+                            depende de $ \textbf{u} $ e $ \bar{\textbf{u}} $;</li>
+                            <li>A energia potencial mínima acontece quando sua variação se torna zero
+                            para qualquer $ \bar{\textbf{u}} $ possível;</li>                            
+                        </ul>
+                        <p>Exemplo unidimensional:</p>
+                        <img style="border: 0px;" width="600" src="imagens/minimoPotencial.png">
+                        <aside class="notes">
+                            No mínimo, todas as derivadas direcionais são zero.
+                        </aside>
+                    </section>
+                    <section id="formulacao_variacional_ex">
+                        <h2>Formulação Variacional - Exemplo com mola linear</h2>
+                        <img style="border: 0px;" width="400" src="imagens/molaLinear.png"><br>
+                        <ul>
+                            <li>Energia potencial: $ \Pi =\dfrac{1}{2} k \cdot u^2 - f \cdot u $</li>
+                            <li>Perturbação: $ \Pi(u + \tau \bar{u}) = \dfrac{1}{2} k \cdot (u + \tau \bar{u}) -
+                                f \cdot (u + \tau \bar{u}) $</li>
+                            <li>Diferenciação*: $ \dfrac{d}{d \tau} \left[ \Pi(u + \tau \bar{u}) \right] = 
+                                k \cdot (u + \tau \bar{u}) \cdot \bar{u} - f \cdot \bar{u} $</li>
+                            <li>Avaliação no estado original: $ \dfrac{d}{d \tau} \left[ \Pi(u + \tau \bar{u}) \right] 
+                                \biggr\rvert_{\tau=0} = k \cdot u \cdot \bar{u} - f \cdot \bar{u} = 0 $</li>
+                        </ul>
+                        <aside class="notes">
+                            * Variação é similar a diferenciação!
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total">
+                        <h2>Formulação Lagrangiana Total</h2>
+                        <p>Usando o método de Newton-Raphson com força incremental:</p>
+                        <p>seja um sistema estático com $ N $ passos de carga, sendo $ n $ o 
+                            passo atual da carga $ t $.</p>
+                        <p style="margin-top: 30px;">Assumindo que a solução convergiu em $ ^{n-1}t_k $ 
+                            com $ k $ iterações, o objetivo é encontrar o equilíbrio do estado 
+                            $ ^{n}t_{i} $, com $ i = 0 ... k $</p>
+                        <img style="border: 0px;" width="800" src="imagens/totalLagrange.png">
+                    </section>
+                    <section id="lagrangiana_total_c1">
+                        <h2>Formulação Lagrangiana Total (cont. 1)</h2>
+                        <p>Na formulação Total Lagrangiana:</p>
+                        <ul>
+                            <li>A configuração indeformada é a referência;</li>
+                            <li>Portanto, o segundo tensor de tensões de Piola-Kirchhoff $ S $
+                            e a deformação Lagrangiana $ E $ são as escolhas naturais;</li>
+                            <li>Equação variacional:
+                            $$ \bar{\Pi} = \iint_{\Omega_0} \dfrac{\partial W}{\partial \textbf{E}} : \bar{\textbf{E}} d\Omega
+                                - \iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega 
+                                - \int_{\Gamma_o^S} \bar{\textbf{u}}^T \textbf{t} d\Gamma = 0$$
+                            <p>Substituindo a variação da energia na deformação:</p>
+                            $$ \iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega
+                                = \iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega 
+                                + \int_{\Gamma_o^S} \bar{\textbf{u}}^T \textbf{t} d\Gamma $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            - O termo de carga é similar ao termo da formulação linear!<br>
+                            - O termo de energia de deformação apresenta não linearidade!<br>
+                            - Há a necessidade de se escrever o lado esquerdo da equação em função de $ \textbf{u} $ e 
+                            $ \bar{\textbf{u}} $.
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_c2">
+                        <h2>Formulação Lagrangiana Total (cont. 2)</h2>
+                        <p>Expressando a variação de deformações:</p>
+                        $$ \textbf{E}(\textbf{u}) = \dfrac{1}{2} \left( \textbf{C} - \textbf{I} \right) 
+                            = \dfrac{1}{2} \left( \nabla_0 \textbf{u} + \nabla_0 \textbf{u}^T 
+                            + \nabla_0 \textbf{u}^T \nabla_0 \textbf{u} \right)$$
+                        $$ \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \dfrac{d}{d \tau} \textbf{E} ( \textbf{u} + \tau \bar{\textbf{u}} ) \biggr\rvert_{\tau=0}
+                            = \dfrac{1}{2} \left( \nabla_0 \bar{\textbf{u}} + \nabla_0 \bar{\textbf{u}}^T
+                            + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \textbf{u} 
+                            + \nabla_0 \textbf{u}^T \nabla_0 \bar{\textbf{u}} \right)$$
+                        $$ \therefore \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right)$$
+                        <aside class="notes">
+                            $ \textbf{E}(\textbf{u}) $ é não linear, mas 
+                            $ \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) $ é linear.
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_c3">
+                        <h2>Formulação Lagrangiana Total (cont. 3)</h2>
+                        <p>Retornando à equação variacional e chamando de:</p>
+                        $$ \underbrace{\iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega}_{a(\textbf{u},\bar{\textbf{u}})}
+                                = \underbrace{\iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega 
+                                + \int_{\Gamma_o^S} \bar{\textbf{u}}^T \textbf{t} d\Gamma}_{\ell(\bar{\textbf{u}})} $$
+                        <p>Sendo $ a(\textbf{u},\bar{\textbf{u}}) $ a forma de energia e 
+                            $ \ell(\bar{\textbf{u}}) $ a forma de carga.</p>
+                        $$ a(\textbf{u},\bar{\textbf{u}}) = \ell(\bar{\textbf{u}}) $$
+                        <ul>
+                            <li>Linearidade nos termos de deformação no caso do uso do material de St. Venant-Kirchhoff;</li>
+                            <li>Linearidade também nos termos de $ \bar{\textbf{u}} $;</li>
+                            <li>Não linearidade nos termos de $ \textbf{u} $ por causa da relação não linear entre
+                            deslocamentos e deformações;</li>
+                        </ul>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao">
+                        <h2>Formulação Lagrangiana Total - Linearização</h2>
+                        <p>Resíduo:</p>
+                        $$ R = a(\textbf{u}, \bar{\textbf{u}}) - \ell(\bar{\textbf{u}}) $$
+                        <p>O objetivo é linearizar $ R $ na direção de $ \Delta \textbf{u} $:</p>
+                        <ul>
+                            <li>Assume-se que $ \textbf{u} $ é perturbado na direção de 
+                            $ \Delta \textbf{u} $ usando a variável $ \tau $;</li>
+                            <li>Então, a linearização se torna:
+                            $$ L[R] = \dfrac{\partial R(\textbf{u} + \tau \Delta \textbf{u})}{\partial \tau}\biggr\rvert_{\tau=0}
+                            = \left[ \dfrac{\partial R}{\partial \textbf{u}} \right]^T \Delta \textbf{u}$$
+                            </li>
+                            <li>$ R $ é não linear em relação a $ \textbf{u} $, mas $ L[R] $
+                            é linear em relação a $ \Delta \textbf{u} $;</li>
+                            <li>Supondo uma iteração $ k $ que não convergiu, o incremento de deslocamentos
+                            $ \Delta \textbf{u} $ é obtido fazendo-se o resíduo em $ k + 1 $ ser
+                            igual a zero:
+                            $$ R^{k+1} \approx \left[ \dfrac{\partial R^k}{\partial \textbf{u}} \right]^T \Delta \textbf{u}
+                            + R^k = 0$$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c1">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 1)</h2>
+                        <p>Que, basicamente, é o método de Newton-Raphson:</p>
+                        $$ \left[ \dfrac{\partial R^k}{\partial \textbf{u}} \right]^T \Delta \textbf{u}
+                            = - R^k$$
+                        <p>E o estado atualizado:</p>
+                        $$ \textbf{u}^{k+1} = \textbf{u}^k + \Delta \textbf{u}^k $$
+                        $$ \textbf{x}^{k+1} = \textbf{X} + \textbf{u}^{k+1} $$
+                        <p>Sabe-se como calcular $ R $, e como variar $ R $ em $ \textbf{u} $?</p>
+                        $$ \dfrac{\partial}{\partial \textbf{u}}[R] 
+                        = \dfrac{\partial}{\partial \textbf{u}}[a(\textbf{u}, \bar{\textbf{u}}) - \ell(\bar{\textbf{u}})] $$
+                        <p>Note que o termo $ \ell(\bar{\textbf{u}}) $ desaparece caso não se 
+                            considere a carga dependente do deslocamento*, ou seja:</p>
+                        <ul>
+                            <li>Somente a linearização da energia é necessária;</li>
+                        </ul>
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!<br>
+                            * Consideração aplicada na derivação das equações!
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c2">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 2)</h2>
+                        <p>Linearização da energia:</p>
+                        $$ L[a(\textbf{u}, \bar{\textbf{u}})] = L \left[ 
+                        \iint_{\Omega^0} \textbf{S} : \bar{\textbf{E}} d\Omega \right]
+                        = \iint_{\Omega_0} \left[ \Delta \textbf{S}:\bar{\textbf{E}} + 
+                        \textbf{S} : \Delta \bar{\textbf{E}} \right] d\Omega $$
+                        <ul>
+                            <li>Observe que o domínio está fixado na indeformada!</li>
+                            <li>Precisa-se escrever em termos do incremento de deslocamento $ \Delta \textbf{u} $.</li>
+                        </ul>
+                        <p>Incremento de Tensões (material de St. Venant-Kirchhoff):</p>
+                        $$ \Delta \textbf{S} = \dfrac{\partial S}{\partial E} : \Delta \textbf{E} 
+                        = \textbf{D} : \Delta \textbf{E} $$
+                        <p>Incremento de deformações (deformação de Green-Lagrange):</p>
+                        $$ \Delta \textbf{E} = \dfrac{1}{2}(\Delta \textbf{F}^T \textbf{F} 
+                        + \textbf{F}^T \Delta \textbf{F}) $$
+                        $$ \Delta \textbf{F} = \Delta \left( \dfrac{\partial \textbf{x}}{\partial \textbf{X}} \right)
+                        = \Delta \left( \dfrac{\partial (\textbf{X} + \textbf{u})}{\partial \textbf{X}} \right)
+                        = \dfrac{\partial \textbf{u}}{\partial \textbf{X}} = \nabla_0 \Delta \textbf{u} $$
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c3">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 3)</h2>
+                        <p>Continuação, incremento de deformações*:</p>
+                        $$ \Delta \textbf{E} = \dfrac{1}{2}(\Delta \textbf{F}^T \textbf{F} 
+                        + \textbf{F}^T \Delta \textbf{F})
+                        = \dfrac{1}{2}(\nabla_0 \Delta \textbf{u}^T \textbf{F} 
+                        + \textbf{F}^T \nabla_0 \Delta \textbf{u})$$
+                        <p>Variação do incremento de deformação**:</p>
+                        $$ \Delta \bar{\textbf{E}} = \Delta \left[ \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right) \right]
+                            = \dfrac{1}{2} \left( \Delta\textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \Delta\textbf{F} \right) $$ 
+                        $$ \therefore \Delta \bar{\textbf{E}} = \dfrac{1}{2} 
+                        \left( \nabla_0 \Delta \textbf{u}^T \nabla_0 \bar{\textbf{u}} 
+                        + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \Delta \textbf{u} \right)$$
+                        <p>Energia linearizada***:</p>
+                        $$ L[a(\textbf{u}, \bar{\textbf{u}})] = 
+                        \iint_{\Omega^0} \left[ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} 
+                        + \textbf{S} : \Delta \bar{\textbf{E}} \right] d\Omega 
+                        \equiv a^{*}(\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) $$
+                        <aside class="notes">
+                            AINDA NO DOMÍNIO CONTÍNUO!<br>
+                            * Linear em relação a $ \Delta \textbf{u} $. <br>
+                            ** Obtida anteriormente. Também linear em relação a $ \Delta \textbf{u} $. <br>
+                            *** Primeiro termo: rigidez tangente. Segundo termo: tangente inicial.
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_total_linearizacao_c4">
+                        <h2>Formulação Lagrangiana Total - Linearização (cont. 4)</h2>
+                        <p>Iteração de Newtow-Raphson com força incremental:</p>
+                        <ul>
+                            <li>Seja $ t_n $ o passo de carga atual e $ k + 1 $ a iteração atual;</li>
+                            <li>Então, o iteração de Newton-Raphson pode ser feira com:
+                            $$ a^{*}(^{n}\textbf{u}^k ; \Delta \textbf{u}^k, \bar{\textbf{u}}) 
+                            = \ell(\bar{\textbf{u}}) - a(^{n}\textbf{u}^k, \bar{\textbf{u}}) $$
+                            </li>
+                            <li>O deslocamento total atualizado:
+                            $$ ^{n}\textbf{u}^{k+1} = ^{n}\textbf{u}^k + \Delta\textbf{u}^k $$
+                            </li>
+                            <li>Ou ainda, a iteração na forma discreta:
+                            $$ {\bar{\textbf{d}}}^T \left[ ^n\textbf{K}^k_T \right] {\Delta \textbf{d}^k}
+                            = {\bar{\textbf{d}}}^T { ^n\textbf{R}^k }$$
+                            </li>
+                        </ul>
+                        <p style="margin-top: 40px;">Quem são $ \left[ ^n\textbf{K}^k_T \right] $ e ${ ^n\textbf{R}^k }  $?</p>
+                    </section>
+                    <section id="lagrangiana_total_exemplo">
+                        <h2>Formulação Lagrangiana Total - Exemplo</h2>
+                        <p>Seja a barra da figura abaixo, use um elemento para a barra e resolva o 
+                            deslocamento da ponta da barra usando a formulação total lagrangiana.</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 600px; float: left; text-align: left; margin-top: 20px;">                                
+                                <p>Use $ E_0 = 200 Pa $, $ A = 1,0 m^2 $ e $ F = 100 kN $.</p>
+                            </div>
+                            <div style="margin-left: 600px;">
+                                <img style="border: 0px;" width="450" src="imagens/barraExFinal.png">
+                            </div>
+                        </div>
+                        <p>Resolver na mão até a linearização.</p>
+                        <img style="border: 0px;" width="600" src="imagens/lagraTotalResEx.png">
+                    </section>
+                    <section id="lagrangiana_atualizada">
+                        <h2>Formulação Lagrangiana Atualizada</h2>
+                        <p>A configuração atual (deformada) é a referência.</p>
+                        <ul>
+                            <li>Lembre-se: é desconhecida até o problema ser resolvido.</li>
+                            <li>Como integrar se não é conhecido o domínio de integração?</li>
+                        </ul>
+                        <p style="margin-top: 40px;">Quais medidas de tensão e deformação devem ser utilizadas?</p>
+                        <ul>
+                            <li>Tensão: tensor de tensão de Cauchy ($ \sigma $);</li>
+                            <li>Deformação: tensor de deformação de engenharia ($ \varepsilon $)*. 
+                                Mas, deve ser definido na configuração atual (deformada):
+                                $$ \boldsymbol{\varepsilon} = \dfrac{1}{2} \left( \dfrac{\partial \textbf{u}}{\partial \textbf{x}}^T
+                                + \dfrac{\partial \textbf{u}}{\partial \textbf{x}} \right) $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Pois é quem forma par com tensões de Cauchy!<br>
+                            Em sistemas sob grande deformação, o trabalho interno é definido como: 
+                            $ \iiint_{\Omega_x} = \sigma : \bar{\varepsilon} d\Omega$ 
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_atualizada_c1">
+                        <h2>Formulação Lagrangiana Atualizada (cont. 1)</h2>
+                        <p>A equação variacional da formulação Lagrangiana Atualizada será
+                        derivada da formulação Lagrangiana Total.</p>
+                        <p>A tensão de Cauchy se relaciona com o segundo tensor de Piola-Kirchhoff na forma:</p>
+                        $$ \boldsymbol{\sigma} = \dfrac{1}{J} \textbf{F} \textbf{S} \textbf{F}^T $$
+                        $$ \textbf{S} = J \textbf{F}^{-1} \boldsymbol{\sigma} (\textbf{F}^{-1})^T $$
+                        <p>A variação da deformação Lagrangiana é (definido anteriormente), 
+                            e multiplicando corretamente por $ \textbf{F}^T $ e $ \textbf{F} $:</p>
+                        $$ \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right) 
+                            = \dfrac{1}{2} \textbf{F}^T \left( (\textbf{F}^{-1})^T \nabla_0 \bar{\textbf{u}}^T
+                            + \nabla_0 \bar{\textbf{u}} \textbf{F}^{-1} \right) \textbf{F} $$
+                        $$ \therefore \bar{\textbf{E}}(\textbf{u},\bar{\textbf{u}}) 
+                            = \textbf{F}^T \bar{\boldsymbol{\varepsilon}} \textbf{F} \quad \text{ou} 
+                            \quad \bar{\boldsymbol{\varepsilon}} = (\textbf{F}^{-1})^T \bar{\textbf{E}} \textbf{F}^{-1}$$
+                        <p>De forma similar:</p>
+                        $$ \Delta \textbf{E}(\textbf{u},\bar{\textbf{u}}) 
+                            = \textbf{F}^T \Delta \boldsymbol{\varepsilon} \textbf{F} 
+                            \quad \text{com:} \quad \Delta \boldsymbol{\varepsilon} =
+                            \dfrac{1}{2} \left( \dfrac{\partial \Delta \textbf{u}}{\partial \textbf{x}}^T
+                                + \dfrac{\partial \Delta \textbf{u}}{\partial \textbf{x}} \right) $$
+                        <aside class="notes">
+                            * Sendo: $ \textbf{F} = \dfrac{\partial \textbf{x}}{\partial \textbf{X}} $ 
+                            e $ \nabla_0 \bar{\textbf{u}} = \dfrac{\partial \bar{\textbf{u}}}{\partial \textbf{X}} $
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_atualizada_c2">
+                        <h2>Formulação Lagrangiana Atualizada (cont. 2)</h2>
+                        <p>A forma de energia é transformada, então:</p>
+                        $$ \iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega
+                            = \iint_{\Omega_0} J \textbf{F}^{-1} \boldsymbol{\sigma} (\textbf{F}^{-1})^T :
+                            \textbf{F}^T \bar{\boldsymbol{\varepsilon}} \textbf{F} d\Omega 
+                            = \iint_{\Omega_0} \boldsymbol{\sigma} : \bar{\boldsymbol{\varepsilon}} J d\Omega 
+                            = \iint_{\Omega_X} \boldsymbol{\sigma} : \bar{\boldsymbol{\varepsilon}} d\Omega $$
+                        <p>O que demonstra que as formas material e espacial são matematicamente equivalentes.</p>
+                        $$ \therefore a_X(\textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega_X} \boldsymbol{\sigma} : \bar{\boldsymbol{\varepsilon}} d\Omega $$
+                        <p style="margin-top: 40px;">O que acontece com o termo de carga $ \ell(\bar{\textbf{u}}) $?</p>
+                        <aside class="notes">
+                            * Em notação indicial: $ F_{ik}^{-1} \sigma_{kl} F_{jl}^{-1} F_{mi} 
+                            \bar{\varepsilon}_{mn} F_{nj} = \delta_{mk} \delta_{nl} \sigma_{kl} \bar{\varepsilon}_{mn}
+                            = \sigma_{mn} \bar{\varepsilon}_{mn}$ 
+                        </aside>
+                    </section>
+                    <section id="lagrangiana_atualizada_linearizacao">
+                        <h2>Formulação Lagrangiana Atualizada - Linearização</h2>
+                        <p>A linearização de $ a_X(\textbf{u}, \bar{\textbf{u}}) $ é complexa pois não
+                        se conhece a configuração atual (deformada é função de $ \textbf{u} $).</p>
+                        <p>De maneira similar a forma de energia, pode-se converter a forma de energia
+                        lineariza da formulação Lagrangiana total, sendo essa:</p>
+                        $$ a^{*}(\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega^0} \left[ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} 
+                        + \textbf{S} : \Delta \bar{\textbf{E}} \right] d\Omega $$
+                        <p>O termo de rigidez inicial convertido:</p>
+                        $$ \textbf{S} : \Delta \bar{\textbf{E}} 
+                        = J \textbf{F}^{-1} \boldsymbol{\sigma} (\textbf{F}^{-1})^T :
+                        \dfrac{1}{2} \left( \nabla_0 \Delta \textbf{u}^T \nabla_0 \bar{\textbf{u}} 
+                        + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \Delta \textbf{u} \right) $$
+                        $$ = J F^{-1}_{ik} \sigma_{kl} F^{-1}_{jl} \dfrac{1}{2}
+                        \left( \dfrac{\partial \bar{u}_m}{\partial X_i} \dfrac{\partial \Delta u_m}{\partial X_j} 
+                        + \dfrac{\partial \Delta u_m}{\partial X_i} \dfrac{\partial \bar{u}_m}{\partial X_j} \right)
+                        \equiv J \sigma_{kl} \underbrace{\dfrac{1}{2} 
+                        \left( \dfrac{\partial \bar{u}_m}{\partial x_k} \dfrac{\partial \Delta u_m}{\partial x_l} 
+                        + \dfrac{\partial \Delta u_m}{\partial x_k} \dfrac{\partial \bar{u}_m}{\partial x_l} 
+                        \right)}_{\boldsymbol{\eta} (\Delta \textbf{u}, \bar{\textbf{u}})}$$
+                    </section>
+                    <section id="lagrangiana_atualizada_linearizacao_c1">
+                        <h2>Formulação Lagrangiana Atualizada - Linearização (cont. 1)</h2>
+                        <p>Ou seja, o termo de rigidez inicial:</p>
+                        $$ \textbf{S} : \Delta \bar{\textbf{E}} = 
+                        J \boldsymbol{\sigma} : \boldsymbol{\eta}(\Delta \textbf{u}, \bar{\textbf{u}}) $$
+                        <p>O termo de rigidez tangente convertido:</p>
+                        $$ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} = 
+                        (\textbf{F}^T \bar{\boldsymbol{\varepsilon}} \textbf{F}) : \textbf{D} : 
+                        (\textbf{F}^T \Delta \boldsymbol{\varepsilon} \textbf{F})
+                        = F_{ki} \bar{\varepsilon}_{kl} F_{lj} D_{ijmn} F_{pm} \Delta \varepsilon_{pq} F_{qn}$$
+                        $$ = J \bar{\varepsilon}_{kl} 
+                        \underbrace{\left[ \dfrac{1}{J} F_{ki} F_{lj} D_{ijmn} F_{pm} F_{qn} 
+                        \right]}_{\text{Tensor constitutivo espacial de $4^a$ ordem}}
+                        \Delta \varepsilon_{pq}  $$
+                        <p>Ou seja, o termo de rigidez tangente:</p>
+                        $$ \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} = 
+                        J \bar{\boldsymbol{\varepsilon}} : \textbf{c} : \Delta \boldsymbol{\varepsilon}$$
+                        <p>Sendo: $ c_{ijkl} = \dfrac{1}{J} F_{ir} F_{js} F_{km} F_{ln} D_{rsmn} $</p>
+                    </section>
+                    <section id="lagrangiana_atualizada_linearizacao_c2">
+                        <h2>Formulação Lagrangiana Atualizada - Linearização (cont. 2)</h2>
+                        <p>Portanto a forma linearizada da formulação Lagrangiana atualizada:</p>
+                        $$ a^{*} (\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega^0} \left[ \bar{\boldsymbol{\varepsilon}} : \textbf{c} : \Delta \boldsymbol{\varepsilon}
+                        + \boldsymbol{\sigma} : \boldsymbol{\eta} (\Delta \textbf{u}, \bar{\textbf{u}})
+                        \right] J d\Omega $$
+                        $$ a^{*}_X (\textbf{u} ; \Delta \textbf{u}, \bar{\textbf{u}}) = 
+                        \iint_{\Omega^X} \left[ \bar{\boldsymbol{\varepsilon}} : \textbf{c} : \Delta \boldsymbol{\varepsilon}
+                        + \boldsymbol{\sigma} : \boldsymbol{\eta} (\Delta \textbf{u}, \bar{\textbf{u}}) \right]  d\Omega$$
+                        <p>Iteração de Newton-Raphson:</p>
+                        $$ a^{*} (^n\textbf{u}^k ; \Delta \textbf{u}^k, \bar{\textbf{u}}) 
+                        = \ell(\bar{\textbf{u}}) - a(^n\textbf{u}^k, \bar{\textbf{u}}) $$
+                        <p style="text-align: left;">Observações:</p>
+                        <ul>
+                            <li>Ambas formulações são idênticas teoricamente, porém com diferentes expressões;</li>
+                            <li>A implementação numérica será diferente;</li>
+                            <li>A relação constitutiva também é diferente.</li>
+                        </ul>
+                    </section>
+                    <section id="constitutivo_espacial">
+                        <h2>Tensor constitutivo espacial</h2>
+                        <p>Sendo o material de St. Venanr-Kirchhoff:</p>
+                        $$ \textbf{D} = \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I}  $$
+                        <p style="margin-bottom: 40px;">ou</p>
+                        $$ D_{ijkl} = \lambda \delta_{ij} \delta_{kl} + 
+                            \mu (\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk}) $$
+                        <p>Utilizando a relação com o tensor de deformação esquerdo de Cauchy-Green 
+                            $ \text{G} = \textbf{F}\textbf{F}^T $, chega-se a:</p>
+                        $$ c_{ijkl} = \dfrac{1}{J} \left[ \lambda G_{ij} G_{kl} + 
+                            \mu (G_{ik} G_{jl} + G_{il} G_{jk}) \right]$$
+                        <p>Observações:</p>
+                        <ul>
+                            <li>$ \textbf{D} $ é constante, mas $ \textbf{c} $ não;</li>
+                            <li>$ \textbf{S} = \textbf{D} : \textbf{E} $ mas 
+                                $ \boldsymbol{\sigma} \neq \textbf{c} : \boldsymbol{\varepsilon} $ </li>
+                        </ul>
+                    </section>
+                    <section id="lagrangiana_atualizada_exemplo">
+                        <h2>Formulação Lagrangiana Atualizada - Exemplo</h2>
+                        <p>Seja a barra da figura abaixo, use um elemento para a barra e resolva o 
+                            deslocamento da ponta da barra usando a formulação total lagrangiana.</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 600px; float: left; text-align: left; margin-top: 20px;">                                
+                                <p>Use $ E_0 = 200 Pa $, $ A = 1,0 m^2 $ e $ F = 100 kN $.</p>
+                            </div>
+                            <div style="margin-left: 600px;">
+                                <img style="border: 0px;" width="450" src="imagens/barraExFinal.png">
+                            </div>
+                        </div>
+                        <p>Resolver na mão até a linearização.</p>
+                        <img style="border: 0px;" width="600" src="imagens/lagraAtuaResEx.png">
+                    </section>
+                    <section id="MEF_elasticidade_naolinear">
+                        <h2>Formulação de Elementos Finitos para Elasticidade não linear</h2>
+                        <p>Conceitos Iniciais:</p>
+                        <ul>
+                            <li>Será utilizada a notação de Voigt:
+                                <ul>
+                                    <li>Tensor de segunda ordem $ \rightarrow $ vetor;</li>
+                                    <li>Tensor de quarta ordem $ \rightarrow $ matriz</li>
+                                </ul>                                
+                            </li>
+                            <li>Vetores de tensão e deformação, exemplo*:
+                                $$ \textbf{S} = \{S_{11} \ S_{22} \ S_{12} \}^T  $$
+                                $$ \textbf{E} = \{E_{11} \ E_{22} \ 2E_{12} \}^T $$
+                            </li>
+                            <li>O tensor constitutivo utilizando-se o material isotrópico linear
+                            de St. Venant-Kirchhoff para o exemplo bidimensional:
+                            $$ \textbf{D} = \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I} = 
+                            \left[ \begin{array}{ccc}
+                                D_{1111} & D_{1122} & D_{1112} \\ 
+                                D_{2211} & D_{2222} & D_{2212} \\ 
+                                D_{1211} & D_{1222} & D_{1212} 
+                            \end{array}  \right] $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Como os tensores de tensão e deformação são simétricos, não
+                            é necessário utilizar 21 componentes! <br>
+                            ** No estado plano de deformações: $S_{33} = D_{3311}E_{11}+D_{3322}E_{22} 
+                            = \lambda E_{11} + \lambda E_{22} $
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_elemento">
+                        <h2>Elemento e formulação geométrica não linear</h2>
+                        <p>Inicialmente será discutido o elemento do estado plano de deformação, 
+                            quadrilateral de 4 nós, utilizando a formulação lagrangiana total.</p>
+                        <img style="border: 0px;" width="600" src="imagens/elementoEPD4nos.png">
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_interp">
+                        <h2>Interpolação e Mapeamento Isoparamétrico</h2>
+                        <ul>
+                            <li>Interpolação dos deslocamentos* ($n$ = o nó, $n_n$ = número total de nós):
+                                $$ \textbf{u} = \sum^{n_{n}}_{n=1} N_{n}(\boldsymbol{\xi}) \textbf{u}_{n} $$
+                            </li>
+                            <li>Mapeamento Isoparamétrico**:
+                                $$ \textbf{X} = \sum^{n_{n}}_{n=1} N_{n}(\boldsymbol{\xi}) \textbf{X}_{n} $$
+                                <ul>
+                                    <li>A mesma função de interpolação é utilizada para o mapeamento
+                                    da geometria.</li>
+                                </ul>
+                            </li>
+                            <li>Funções de interpolação para o elemento quadrilateral de 4 nós do slide anterior:</li>
+                        </ul>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 50%; float: left; text-align: left; margin-top: 5px;">                                
+                                $$ N_1 = \dfrac{1}{4}(1 - \xi)(1 - \eta) $$
+                                $$ N_2 = \dfrac{1}{4}(1 + \xi)(1 - \eta) $$
+                            </div>
+                            <div style="margin-left: 50%;">
+                                $$ N_3 = \dfrac{1}{4}(1 + \xi)(1 + \eta) $$
+                                $$ N_4 = \dfrac{1}{4}(1 - \xi)(1 + \eta) $$
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            * $N_{n}(\boldsymbol{\xi})$ funções de interpolação e $\textbf{u}_{n}$ 
+                            vetor de deslocamentos nodais $(u_1, u_2)_n$ <br>
+                            ** $\textbf{X}_{n}$ coordenadas nodais na indeformada $(X_1, X_2)_n$
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_gradientes">
+                        <h2>Gradientes de deslocamento e deformação</h2>
+                        <ul>
+                            <li>Gradiente de deslocamento:
+                                $$ \dfrac{\partial \textbf{u}}{\partial \textbf{X}} = \sum^{n_n}_{n=1}
+                                \dfrac{\partial N_n(\boldsymbol{\xi})}{\partial \textbf{X}} \textbf{u}_n \quad
+                                \text{com} \quad u_{i,j} = \sum^{n_n}_{n=1} N_{n,j}(\boldsymbol{\xi}) u_{n,i}$$
+                                $$ \nabla_0 \textbf{u} = \{u_{1,1} \ u_{1,2} \ u_{2,1} \ u_{2,2}\}^T $$
+                                <ul>
+                                    <li>Como calcular $ \dfrac{\partial N_n(\boldsymbol{\xi})}{\partial \textbf{X}} $?</li>
+                                </ul>
+                            </li>
+                            <li>Gradiente de deformação:
+                                $$ \textbf{F} = \textbf{I} + \nabla_0 \textbf{u} = \{ F_{11} \ F_{12} \ F_{21} \ F_{22} \}^T = 
+                                \{ 1 + u_{1,1} \ u_{1,2} \ u_{2,1} \ 1 + u_{2,2} \}^T$$
+                            </li>
+                            <p style="margin-top: 40px;">AMBOS gradientes de deslocamento e de deformação são assimétricos!</p>
+                        </ul>
+                        <aside class="notes">
+                            * $u_{n,i}$ derivada de $u_n$ em relação à $i$, $1$ representa a direção horizontal e $2$ 
+                            representa a direção vertical.
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_deformacao">
+                        <h2>Deformação Lagrangiana</h2>
+                        $$ \textbf{E} = \dfrac{1}{2}(\textbf{C} - \textbf{I}) = 
+                        \dfrac{1}{2}\left( \nabla_0 \textbf{u} + \nabla_0 \textbf{u}^T
+                        + \nabla_0 \textbf{u}^T \nabla_0 \textbf{u} \right) $$
+                        $$ \therefore \textbf{E} = \left\lbrace \begin{array}{c}
+                            E_{11} \\ 
+                            E_{22} \\ 
+                            2E_{12}
+                        \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+                            u_{1,1} + \dfrac{1}{2}(u_{1,1}u_{1,1} + u_{2,1}u_{2,1}) \\ 
+                            u_{2,2} + \dfrac{1}{2}(u_{1,2}u_{2,1} + u_{2,2}u_{2,2}) \\ 
+                            u_{1,2} + u_{2,1} + u_{1,2}u_{1,1} + u_{2,1}u_{2,2}
+                        \end{array} \right\rbrace$$
+                        <ul>
+                            <li>Devido a não linearidade: $ \textbf{E} \neq \textbf{B} \textbf{u} $</li>
+                        </ul>
+                        <p>Para o material de St. Venant-Kirchhoff:</p>
+                        $$ \textbf{D} =  \lambda \textbf{i} \otimes \textbf{i} + 2 \mu \textbf{I} = 
+                        \left[ \begin{array}{ccc}
+                            \lambda + 2 \mu & \lambda & 0 \\ 
+                            \lambda & \lambda + 2 \mu & 0 \\ 
+                            0 & 0 & \mu 
+                        \end{array}  \right]$$
+                        <aside class="notes">
+                            * Suprimindo a relação com $S_{33} = \lambda E_{11} + \lambda E_{22}$!
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_var_deformacao">
+                        <h2>Variação da Deformação Lagrangiana</h2>
+                        <p>Embora $\textbf(E)$ seja não linear, $\bar{\textbf{E}}$ é linear</p>
+                        $$ \bar{\textbf{E}} =  \dfrac{1}{2} \left( \textbf{F}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \textbf{F} \right) \quad \longrightarrow \quad
+                        \bar{\textbf{E}} = \textbf{B}_{NL} \bar{\textbf{u}}$$
+                        <p style="font-size: 70%; margin-top: 40px; margin-bottom: 40px;">
+                            $$ \textbf{B}_{NL} = \left[ \begin{array}{cccccccc}
+                            F_{11}N_{1,1} & F_{21}N_{1,1} & F_{11}N_{2,1} & F_{21}N_{2,1} &
+                            F_{11}N_{3,1} & F_{21}N_{3,1} & F_{11}N_{4,1} & F_{21}N_{4,1} \\ 
+                            
+                            F_{12}N_{1,2} & F_{22}N_{1,2} & F_{12}N_{2,2} & F_{22}N_{2,2} &
+                            F_{12}N_{3,2} & F_{22}N_{3,2} & F_{12}N_{4,2} & F_{22}N_{4,2} \\
+                            
+                            {F_{12}N_{1,1} + \\ + F_{11}N_{1,2}} & {F_{21}N_{1,2} + \\ + F_{22}N_{1,1}} &
+                            {F_{12}N_{2,1} + \\ + F_{11}N_{2,2}} & {F_{21}N_{2,2} + \\ + F_{22}N_{2,1}} &
+                            {F_{12}N_{3,1} + \\ + F_{11}N_{3,2}} & {F_{21}N_{3,2} + \\ + F_{22}N_{3,1}} & 
+                            {F_{12}N_{4,1} + \\ + F_{11}N_{4,2}} & {F_{21}N_{4,2} + \\ + F_{22}N_{4,1}} 
+                        \end{array} \right] $$</p>
+                        $$ \bar{\textbf{u}} = \{\bar{u}_{11} \ \bar{u}_{12} \ \bar{u}_{21} \ \bar{u}_{22} \ 
+                        \bar{u}_{31} \ \bar{u}_{32} \ \bar{u}_{41} \ \bar{u}_{42}\}^T $$
+                        <aside class="notes">
+                            * Sendo $\textbf{B}_{NL}$ a matriz não linear da relação deslocamento deformação,
+                            função de $\textbf{u}$.
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_var_eq">
+                        <h2>Equação Variacional</h2>
+                        <ul>
+                            <li>Forma de Energia:
+                            $$ a(\textbf{u}, \bar{\textbf{u}}) = 
+                            \iint_{\Omega_0} \textbf{S} : \bar{\textbf{E}} d\Omega $$
+                            $$ a(\textbf{u}, \bar{\textbf{u}}) \approx
+                            \bar{\textbf{u}}^T \iint_{\Omega_0} \textbf{B}_{NL}^T \textbf{S} d\Omega$$
+                            $$ a(\textbf{u}, \bar{\textbf{u}}) \equiv \bar{\textbf{u}}^T F^{int}$$
+                            </li>
+                            <li>Forma de Força:
+                            $$\ell(\bar{\textbf{u}}) = \iint_{\Omega_0} \bar{\textbf{u}}^T \textbf{f}^b d\Omega +
+                            \iint_{\Gamma^s_0} \bar{\textbf{u}}^T \textbf{t} d\Gamma $$
+                            $$ \ell(\bar{\textbf{u}}) \approx 
+                            \sum_{n=1}^{n_e} \bar{\textbf{u}}_n^T \left[ 
+                            \iint_{\Omega_0} N_n(\boldsymbol{\xi}) \textbf{f}^b d\Omega + 
+                            \iint_{\Gamma^s_0} N_n(\boldsymbol{\xi}) \textbf{t} d\Gamma \right] $$
+                            $$ \ell(\bar{\textbf{u}}) \equiv \bar{\textbf{u}}^T F^{ext} $$
+                            </li>
+                            <li>Resíduo:
+                            $$ \bar{\textbf{u}}^T F^{int} = \bar{\textbf{u}}^T F^{ext} $$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * Para quaisquer $ \bar{\textbf{u}} $
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_lin1">
+                        <h2>Linearização</h2>
+                        <ul>
+                            <li>Incremento de deformação*: $ \Delta \textbf{E} = \textbf{B}_{NL} \Delta \textbf{u} $ </li>
+                            <li>Variação do incremento de deformação:
+                            $$ \Delta \bar{\textbf{E}} = \dfrac{1}{2} 
+                            \left( \nabla_0 \Delta \textbf{u}^T \nabla_0 \bar{\textbf{u}} 
+                            + \nabla_0 \bar{\textbf{u}}^T \nabla_0 \Delta \textbf{u} \right)$$
+                            </li>
+                            <li>Linearização:
+                            $$ \iint_{\Omega_0} = \bar{\textbf{E}} : \textbf{D} : \Delta \textbf{E} d\Omega
+                            = \bar{\textbf{u}}^T \left[ 
+                            \iint_{\Omega_0} \textbf{B}_{NL}^T \textbf{D} \textbf{B}_{NL} d\Omega  \right] \Delta \textbf{u} $$
+                            $$ \iint_{\Omega_0} \textbf{S} : \Delta \bar{\textbf{E}} = 
+                            \bar{\textbf{u}}^T \left[ 
+                            \iint_{\Omega_0} \textbf{B}_{L}^T \textbf{S}_{\oslash} \textbf{B}_{L} d\Omega \right] \Delta \textbf{u}$$
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                            * O incremento das deformações possui uma forma análoga a variação das deformações, 
+                            conforme mostrado anteriormente <a href="#lagrangiana_total_c2"> aqui </a> para o $\bar{\textbf{E}}$ e
+                            <a href="#lagrangiana_total_linearizacao_c3"> aqui </a> para o $ \Delta \textbf{E} $ e,
+                            portanto, resultam na mesma forma discretizada em elementos finitos, com suas corretas
+                            substituições ($\bar{\textbf{u}}$ por $\Delta \textbf{u}$).
+                        </aside>
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_lin2">
+                        <h2>Linearização (cont. 1)</h2>
+                        <p>Sendo:</p>
+                        $$ \textbf{S}_{\oslash} = \left[ \begin{array}{cccc}
+                            S_{11} & S_{12} & 0 & 0 \\ 
+                            S_{21} & S_{22} & 0 & 0 \\ 
+                            0 & 0 & S_{11} & S_{12} \\ 
+                            0 & 0 & S_{21} & S_{22}
+                        \end{array} \right] $$
+                        $$ \textbf{B}_{L} = \left[ \begin{array}{cccccccc}
+                            N_{1,1} & 0 & N_{2,1} & 0 & N_{3,1} & 0 & N_{4,1} & 0 \\ 
+                            N_{1,2} & 0 & N_{2,2} & 0 & N_{3,2} & 0 & N_{4,2} & 0 \\ 
+                            0 & N_{1,1} & 0 & N_{2,1} & 0 & N_{3,1} & 0 & N_{4,1} \\ 
+                            0 & N_{1,2} & 0 & N_{2,2} & 0 & N_{3,2} & 0 & N_{4,2}
+                        \end{array} \right] $$
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_lin3">
+                        <h2>Linearização (cont. 3)</h2>
+                        <ul>
+                            <li>Rigidez:
+                            $$ \textbf{K} = \iint_{\Omega_0} \textbf{B}_{NL}^T \textbf{D} \textbf{B}_{NL} +
+                            \textbf{B}_{L}^T \textbf{S}_{\oslash} \textbf{B}_{L} d\Omega $$
+                            </li>
+                            <li>Equação incremental discreta (Newton-Raphson):
+                            $$ \bar{\textbf{u}}^T \textbf{K} \Delta \textbf{u} = 
+                            \bar{\textbf{u}}^T (\textbf{F}^{ext} - \textbf{F}^{int})$$
+                            </li>
+                            <ul>
+                                <li>$ \textbf{K} $ muda de acordo com tensões e deformações;</li>
+                                <li>Resolução iterativa até o resíduo satisfazer a tolerância.</li>
+                            </ul>
+                        </ul>                            
+                    </section>
+                    <section id="MEF_elasticidade_naolinear_exemplo">
+                        <h2>Exemplo não linearidade geométrica com elementos finitos</h2>
+                        <p>Grande deformação de uma viga em balanço.</p>
+                        <div style="width: 100%; height: 100%; overflow: hidden;">
+                            <div style="width: 50%; float: left; text-align: left; margin-top: 5px;">                                
+                                <img style="border: 0px;" width="500" src="imagens/vigaGrandeDeform.png">
+                            </div>
+                            <div style="margin-left: 50%;">
+                                <p>Dados:</p>
+                                <ul>
+                                    <li>$ l_0 $ = 10 m;</li>
+                                    <li>$ A $ = 100 x 147,8 mm (b x h);</li>
+                                    <li>$ E_e $ = 100 MPa;</li>
+                                    <li>$ M $ = 3384,78 N.m (na extremidade livre).</li>
+                                </ul>
+                                <p>Resolver usando a formulação Lagrangiana Total e
+                                o método de Newton-Raphson.</p>
+                                <p>Usar elemento do estado plano de tensões e
+                                    elemento de viga de Euler-Bernoulli.</p>
+                                <p>Graficar a deformada da viga a cada incremento
+                                de carga, a variação dos deslocamentos horizontal e
+                                vertical  e a rotação na extremidade da viga.</p>
+                            </div>
+                        </div>                        
+                    </section>
+                </section>
+                
+                
+                <section>
+                    When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                    $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$            
+                </section>
+                                
+                <section data-menu-title="Opening the menu">
+                    <p>See the &nbsp;<a href="#" onclick="RevealMenu.toggle(); return false;"><i class="fa fa-bars"></i></a>&nbsp; in the corner?</p>
+                    <p>Click it and the menu will open from the side.</p>
+                    <p>
+                        Click anywhere on the slide to return to the presentation,<br>
+                        or use the close button in the menu.
+                    </p>
+                </section>
+
+                <section data-menu-title="Using the slide number">
+                    <p>If you don't like the menu button,<br/>you can use the slide number instead.</p>
+                    <p>Go on, give it a go.</p>
+                    <p>The menu button can be hidden using the options, <br/>but you need to enable the slide number link.</p>
+                </section>
+
+                <section id="keyboard" data-menu-title="Keyboard">
+                    <p>Or you can open the menu by pressing the <code>m</code> key.</p>
+                    <p>
+                        You can navigate the menu with the keyboard as well. <br/>Just use the arrow keys and <code>&lt;space&gt;</code> or <code>&lt;enter&gt;</code> to change slides.
+                    </p>
+                    <p>You can disable the keyboard for the <br/>menu in the options if you wish.</p>
+                </section>
+
+                <section>
+                    <h3>Left or Right</h3>
+                    <p>You can configure the menu to slide in from the left or right</p>
+                </section>
+
+                <section>
+                    <h3>Markers</h3>
+                    <p>The slide markers in the menu can be useful to show <br/>you the progress through the presentation.</p>
+                    <p>You can hide them if you want.</p>
+                    <p>You can also add slide numbers.</p>
+                </section>
+
+                <section id="titles">
+                    <h3>Slide Titles</h3>
+                    <p>
+                        The menu uses the first heading to label each slide<br/>
+                        but you can specify another label if you want.
+                    </p>
+                    <p>
+                        Use a <code>data-menu-title</code> attribute in the section element to give the slide a custom label,
+                        or add a <code>menu-title</code> class to any element in the slide you wish.
+                    </p>
+                    <p>
+                        You can change the <code>titleSelector</code> option and use<br/>
+                        any elements you like as the default for labelling each slide.
+                    </p>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Vertical Slides</h2>
+                        <p>The menu indents your vertical slides so it's easy to see the structure of your presentation.</p>
+                        <br>
+                        <a href="#" class="navigate-down">
+                                <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+                        </a>
+                    </section>
+                    <section>
+                        <h2>Next slide down</h2>
+                    </section>
+                    <section>
+                        <h2>At the bottom</h2>
+                        <br>
+                        <a href="#/2">
+                                <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+                        </a>
+                    </section>
+                </section>
+
+                <section id="themes">
+                    <h3>Themes</h3>
+                    <p>The menu can also be used to change the <br/>theme of your presentation.</p>
+                    <p>Just click the Themes button at the top of the menu.</p>
+                    <p>The list of themes can be configured in the options.</p>
+                </section>
+
+                <section id="transitions">
+                    <h3>Transitions</h3>
+                    <p>You can also change the default <br/>transition style from the menu.</p>
+                </section>
+
+                <section data-menu-title="Hiding menu panels">
+                    <p>Of course,</p>
+                    <p>if you don't want to see the <i>Themes</i> or <i>Transitions</i> menus you can hide them in the options.</p>
+                </section>
+
+                <section id="custom">
+                    <h3>Custom Panels</h3>
+                    <p>
+                        Create your own custom menu panels where<br/>
+                        you can add your own html content.
+                    </p>
+                    <p>
+                        Custom panels support menu items so you<br/>
+                        can create your own menus that look and<br/>
+                        behaviour just like the other menus.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Speaker View</h3>
+                    <p>The menu works independently in the speaker view.</p>
+                    <p>You can changes slides without your audience <br/>seeing you doing any of it.</p>
+                </section>
+
+                <section style="text-align: left;">
+                    <h1>THE END</h1>
+                    <p><a href="https://github.com/denehyg/reveal.js-menu/archive/master.zip">Download reveal.js-menu</a> and add it to your plugin folder</p>
+                    <p>Have a look at the <a href="https://github.com/denehyg/reveal.js-menu">source code &amp; documentation</a></p>
+                    <p>And don't forget to check out <a href="https://github.com/hakimel/reveal.js">Reveal.js</a> if you haven't already</p>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+                showNotes: true,
+                
+                width: window.innerWidth,
+                height: window.innerHeight,
+                
+                margin: 0.1,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.1,
+                maxScale: 1.0,
+
+                transition: 'concave', // none/fade/slide/convex/concave/zoom
+
+                menu: {
+                    markers: true,
+                    openSlideNumber: true,
+                    themes: false,
+                    transitions: false,
+                    custom: false,
+                    numbers: true
+                },
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                    { src: 'js/classList.js', condition: function() { return !document.body.classList; } },                                        
+                    { src: 'plugin/menu/menu.js', async: true },
+                    // MathJax
+                    { src: 'plugin/math/math.js', async: true },                    
+                ]
+            });
+        </script>
+
+    </body>
+</html>
