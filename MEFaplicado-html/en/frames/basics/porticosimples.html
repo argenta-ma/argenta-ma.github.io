@@ -5,6 +5,7 @@
     <title>Pórtico Simples | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../../feed:rss.html" title="RSS Feed" />
@@ -15,10 +16,10 @@
         <link href="../../../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6443,7 +6444,7 @@ $(document).ready(function() {
                                                             <li class="dd-item" data-nav-id="/beams/teoria">
             <a href="../../beams/teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Vigas</span>
+                <span><b></b>Teoria de Vigas</span>
             </a>
                         <ul>
                                                             <li class="dd-item" data-nav-id="/beams/teoria/aplicacao">
@@ -6521,10 +6522,19 @@ $(document).ready(function() {
                                                             <li class="dd-item" data-nav-id="/frames/teoria">
             <a href="../teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Pórticos</span>
+                <span><b></b>Teoria de Pórticos</span>
+            </a>
+                        <ul>
+                                                            <li class="dd-item" data-nav-id="/frames/teoria/aplicacao">
+            <a href="../teoria/aplicacao.html" >
+                <i class="fa fa-check read-icon"></i>
+                <span><b></b>Aplicação na mão</span>
             </a>
                         <ul>
                                     
+            </ul>
+                    </li>
+    
             </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/frames/implementacao">
@@ -6562,12 +6572,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Vinculações Viga-Pilar</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/frames/basics/edificios">
             <a href="edificios.html" >
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Edifícios</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
     
             </ul>
@@ -6604,12 +6620,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Consolo Curto</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/planeState/basics/concentracaotensoes">
             <a href="../../planeState/basics/concentracaotensoes.html" >
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Concentração de Tensões</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/planeState/basics/vigaparede">
             <a href="../../planeState/basics/vigaparede.html" >
@@ -6746,7 +6768,7 @@ $(document).ready(function() {
 
 
                         
-    <li><a href="../../../pt-BR/porticos/aplicacoes/porticoSimples.html" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
+    <li><a href="../../../pt-BR/porticos/aplicacoes/porticosimples.html" class="external" style="font-size: 80%;">Português (do brasil)</a></li>
 
 </ul>
 	</div>
@@ -6866,11 +6888,11 @@ $(document).ready(function() {
 
 <h2 id="objetivo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#objetivo" title="Permanent link: OBJETIVO" data-icon="#">OBJETIVO</a></h2>
 <p>Avaliar o pórtico confecionado em concreto <strong>C25</strong> esquematizado abaixo sabendo-se que os elementos <strong>horizontais</strong> e <strong>diagonal</strong> possuem seção retangular de <strong>20x30 cm²</strong> e os <strong>verticais 20x20 cm²</strong>.</p>
-<p><a href="porticosimples/imagens/imagem_01.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 1." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_01.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_01.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 1." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_01.png" /></a></p>
 <p><sup></sup></p>
 <h2 id="resoluo-utilizando-o-abaqus-6..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#resoluo-utilizando-o-abaqus-6..." title="Permanent link: RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION" data-icon="#">RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION</a></h2>
 <p>O procedimento usual de resolução é demonstrado no seguinte fluxograma, cuja ordem pode eventualmente ser alterada por conveniência:</p>
-<p><a href="porticosimples/imagens/imagem_02.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 2." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_02.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_02.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 2." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_02.png" /></a></p>
 <p><sup></sup></p>
 <h3 id="1-pr-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-pr-processamento" title="Permanent link: 1. PRÉ-PROCESSAMENTO" data-icon="#">1. PRÉ-PROCESSAMENTO</a></h3>
 <h4 id="1-1-incio-da-anlise" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-1-incio-da-anlise" title="Permanent link: 1.1. INÍCIO DA ANÁLISE" data-icon="#">1.1. INÍCIO DA ANÁLISE</a></h4>
@@ -6887,14 +6909,14 @@ $(document).ready(function() {
 <li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>.</li>
 <li>Em <strong>Approximante Size</strong> digite <strong>20</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_03.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 3." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_03.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_03.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 3." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_03.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
 <li>Na <strong>área de comando</strong>, <strong>desenhe</strong> a estrutura.</li>
 <li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> do teclado e clique em <strong>Done</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_04.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 4." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_04.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_04.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 4." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_04.png" /></a></p>
 <p><sup></sup></p>
 <h4 id="1-3-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-3-atribuio-das-propriedades..." title="Permanent link: 1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS" data-icon="#">1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS</a></h4>
 <ul>
@@ -6903,7 +6925,7 @@ $(document).ready(function() {
 <li>Na caixa <strong>Edit Material</strong> clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
 <li>Em <strong>Young’s Modulus</strong> digite <strong>24E9</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_05.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 5." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_05.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_05.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 5." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_05.png" /></a></p>
 <p><sup></sup></p>
 <h4 id="1-4-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-4-atribuio-das-propriedades..." title="Permanent link: 1.4. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA" data-icon="#">1.4. ATRIBUIÇÃO DAS PROPRIEDADES DA SEÇÃO DA VIGA</a></h4>
 <ul>
@@ -6912,23 +6934,23 @@ $(document).ready(function() {
 <li>Em <strong>Category</strong> selecione <strong>Beam</strong>.</li>
 <li>Em <strong>Type</strong> selecione <strong>Beam</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_06.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 6." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_06.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_06.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 6." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_06.png" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/icone_01.png" />.</li>
+<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/icone_01.png" />.</li>
 <li>Em <strong>Name</strong> digite <strong>Viga</strong>, selecione <strong>Rectangular</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_07.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 7." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_07.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_07.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 7." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_07.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>Insira o valor <strong>0.20</strong> para <strong>a</strong>, <strong>0.30</strong> para <strong>b</strong> e clique em <strong>OK</strong> nas duas janelas.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_08.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 8." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_08.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_08.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 8." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_08.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li><strong>Repita</strong> o procedimento para criar a <strong>Seção Pilar</strong>, digitando <strong>0.20</strong> para <strong>a</strong> e <strong>b</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_09.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 9." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_09.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_09.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 9." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_09.png" /></a></p>
 <p><sup></sup></p>
 <h4 id="1-5-associao-das-sees" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-5-associao-das-sees" title="Permanent link: 1.5. ASSOCIAÇÃO DAS SEÇÕES" data-icon="#">1.5. ASSOCIAÇÃO DAS SEÇÕES</a></h4>
 <ul>
@@ -6937,30 +6959,30 @@ $(document).ready(function() {
 <li>Selecione os elementos <strong>horizontais</strong> e <strong>diagonal</strong> e clique em <strong>Done</strong>.</li>
 <li>Selecione <strong>Seção Viga</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_10.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 10." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_10.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_10.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 10." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_10.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>Selecione agora os elementos <strong>verticais</strong> atribuindo a <strong>Seção Pilar</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_11.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 11." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_11.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_11.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 11." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_11.png" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li>Na <strong>Caixa de Ferramentas</strong>, clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/icone_02.png" />.</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/icone_02.png" />.</li>
 <li>Clique em <strong>Sets...</strong>, selecione <strong>Set-1</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_12.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 12." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_12.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_12.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 12." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_12.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>Tecle <strong>Enter</strong> e clique em <strong>OK</strong>.</li>
 <li>Selecione agora <strong>Set-2</strong>, repita os procedimentos e ao final clique em <strong>Dismiss</strong> e em seguida em <strong>Done</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_13.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 13." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_13.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_13.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 13." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_13.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê um duplo clique em <strong>Instances</strong>.</li>
 <li>Certifique-se que está selecionado <strong>Dependent (mesh on part)</strong> em <strong>Instance Type</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_14.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 14." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_14.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_14.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 14." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_14.png" /></a></p>
 <p><sup></sup></p>
 <h4 id="1-6-aplicao-das-condies-de..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-6-aplicao-das-condies-de..." title="Permanent link: 1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO" data-icon="#">1.6. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO</a></h4>
 <h5 id="1-6-1-cargas" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-6-1-cargas" title="Permanent link: 1.6.1 CARGAS" data-icon="#">1.6.1 CARGAS</a></h5>
@@ -6969,41 +6991,41 @@ $(document).ready(function() {
 <li>Renomeie para <strong>Carregamento</strong> e clique <strong>Continue...</strong></li>
 <li>Em <strong>Edit Step</strong> clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_15.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 15." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_15.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_15.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 15." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_15.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Loads</strong>.</li>
 <li>No campo <strong>Name</strong> digite <strong>Carga 10 kN</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_16.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 16." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_16.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_16.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 16." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_16.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>Selecione os pontos <strong>conforme indicado na imagem</strong> e clique em <strong>Done</strong>.</li>
 <li>Em <strong>Edit Load</strong> digite <strong>-10E3</strong> no campo <strong>CF2</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_17.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 17." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_17.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_17.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 17." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_17.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li><strong>Repita</strong> o procedimento para criar a <strong>Carga 20 kN</strong>, aplicada nos nós <strong>indicados na imagem</strong> e digite <strong>20E3</strong> no campo <strong>CF1</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_18.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 18." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_18.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_18.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 18." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_18.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li><strong>Novamente</strong>, clique em <strong>Loads</strong>.</li>
 <li>No campo <strong>Name</strong> digite <strong>Carga 15 kN/m</strong>, selecione <strong>Line Load</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_19.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 19." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_19.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_19.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 19." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_19.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>Selecione as barras <strong>conforme a imagem</strong> e clique em <strong>Done</strong>.</li>
 <li>Na janela <strong>Edit Load</strong> digite <strong>-15E3</strong> no campo <strong>Component 2</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_20.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 20." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_20.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_20.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 20." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_20.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li><strong>Repita</strong> o procedimento para criar a <strong>Carga 8 kN/m</strong>, aplicada na barra <strong>diagonal</strong> e digitando <strong>-8E3</strong> no campo <strong>Component 2</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_21.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 21." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_21.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_21.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 21." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_21.png" /></a></p>
 <p><sup></sup></p>
 <h5 id="1-6-2-apoios" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-6-2-apoios" title="Permanent link: 1.6.2 APOIOS" data-icon="#">1.6.2 APOIOS</a></h5>
 <ul>
@@ -7013,7 +7035,7 @@ $(document).ready(function() {
 <li>Selecione os pontos <strong>conforme a imagem a seguir</strong> e clique em <strong>Done</strong>.</li>
 <li>Na janela <strong>Edit Boundary Condition</strong> selecione <strong>ENCASTRE(U1 = U2 = U3 = UR1 = UR2 = UR3 = 0)</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_22.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 22." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_22.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_22.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 22." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_22.png" /></a></p>
 <p><sup></sup></p>
 <h4 id="1-7-criao-da-malha" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#1-7-criao-da-malha" title="Permanent link: 1.7. CRIAÇÃO DA MALHA" data-icon="#">1.7. CRIAÇÃO DA MALHA</a></h4>
 <ul>
@@ -7025,13 +7047,13 @@ $(document).ready(function() {
 <li>Em <strong>Geometric Order</strong> selecione <strong>Quadratic</strong>.</li>
 <li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_23.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 23." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_23.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_23.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 23." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_23.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Part</strong>.</li>
 <li>Em <strong>Approximate Global Size</strong> digite <strong>0.5</strong>, clique em <strong>OK</strong> e em seguida <strong>Done</strong>.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_24.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 24." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_24.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_24.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 24." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_24.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>.</li>
@@ -7071,7 +7093,7 @@ $(document).ready(function() {
 <li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>.</li>
 <li>Clique em <strong>OK</strong> nas duas janelas abertas.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_25.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 25." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_25.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_25.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 25." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_25.png" /></a></p>
 <p><sup></sup></p>
 <h4 id="3-2-variveis-de-sada" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="porticosimples.html#3-2-variveis-de-sada" title="Permanent link: 3.2. VARIÁVEIS DE SAÍDA" data-icon="#">3.2. VARIÁVEIS DE SAÍDA</a></h4>
 <ul>
@@ -7080,7 +7102,7 @@ $(document).ready(function() {
 <li>A mensagem aparecerá: <strong>"The field output report was appended to file “abaqus.rpt"</strong>. O arquivo <strong>abaqus.rpt</strong> pode ser encontrado em <strong>C:\Users\”Nome do Usuário”\abaqus.rpt</strong>.</li>
 <li>O arquivo listará os <strong>momentos fletores</strong> no pórtico.</li>
 </ul>
-<p><a href="porticosimples/imagens/imagem_26.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 26." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticoSimples/imagens/imagem_26.png" /></a></p>
+<p><a href="porticosimples/imagens/imagem_26.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 26." src="../../../user/pages/04.porticos/03.aplicacoes/01.porticosimples/imagens/imagem_26.png" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Principal</strong>, clique em <strong>File</strong> e em seguida em <strong>Save As...</strong></li>

@@ -5,6 +5,7 @@
     <title>Edifícios | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../../feed:rss.html" title="RSS Feed" />
@@ -15,10 +16,10 @@
         <link href="../../../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6443,7 +6444,7 @@ $(document).ready(function() {
                                                             <li class="dd-item" data-nav-id="/beams/teoria">
             <a href="../../beams/teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Vigas</span>
+                <span><b></b>Teoria de Vigas</span>
             </a>
                         <ul>
                                                             <li class="dd-item" data-nav-id="/beams/teoria/aplicacao">
@@ -6521,10 +6522,19 @@ $(document).ready(function() {
                                                             <li class="dd-item" data-nav-id="/frames/teoria">
             <a href="../teoria.html" >
                 <i class="fa fa-check read-icon"></i>
-                <span><b></b>Pórticos</span>
+                <span><b></b>Teoria de Pórticos</span>
+            </a>
+                        <ul>
+                                                            <li class="dd-item" data-nav-id="/frames/teoria/aplicacao">
+            <a href="../teoria/aplicacao.html" >
+                <i class="fa fa-check read-icon"></i>
+                <span><b></b>Aplicação na mão</span>
             </a>
                         <ul>
                                     
+            </ul>
+                    </li>
+    
             </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/frames/implementacao">
@@ -6562,12 +6572,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Vinculações Viga-Pilar</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item active" data-nav-id="/frames/basics/edificios">
             <a href="edificios.html" >
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Edifícios</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
     
             </ul>
@@ -6604,12 +6620,18 @@ $(document).ready(function() {
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Consolo Curto</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/planeState/basics/concentracaotensoes">
             <a href="../../planeState/basics/concentracaotensoes.html" >
                 <i class="fa fa-check read-icon"></i>
                 <span><b></b>Concentração de Tensões</span>
             </a>
+                        <ul>
+                                    
+            </ul>
                     </li>
                             <li class="dd-item" data-nav-id="/planeState/basics/vigaparede">
             <a href="../../planeState/basics/vigaparede.html" >
@@ -6771,8 +6793,406 @@ $(document).ready(function() {
                 <div id="body-inner">
 <h1>Edifícios</h1>
 <p>
-	<h1>Elemento de treliça</h1>
-<h2>Basico...</h2>
+	<h1 id="modelagem-de-um-edificio" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#modelagem-de-um-edificio" title="Permanent link: MODELAGEM DE UM EDIFICIO" data-icon="#">MODELAGEM DE UM EDIFICIO</a></h1>
+<nav class="table-of-contents toc" role="navigation">
+  
+                                                                                                                      
+  <ul>
+      
+        
+        
+              <li><a href="edificios.html#modelagem-de-um-edificio" class="toclink" title="MODELAGEM DE UM EDIFICIO">MODELAGEM DE UM EDIFICIO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="edificios.html#objetivo" class="toclink" title="OBJETIVO">OBJETIVO</a></li>
+      
+        
+        
+              <li><a href="edificios.html#resoluo-utilizando-o-abaqus-6..." class="toclink" title="RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION">RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="edificios.html#1-pr-processamento" class="toclink" title="1. PRÉ-PROCESSAMENTO">1. PRÉ-PROCESSAMENTO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="edificios.html#1-1-incio-da-anlise" class="toclink" title="1.1. INÍCIO DA ANÁLISE">1.1. INÍCIO DA ANÁLISE</a></li>
+      
+        
+        
+              <li><a href="edificios.html#1-2-criao-da-geometria-base-e..." class="toclink" title="1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO">1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO</a></li>
+      
+        
+        
+              <li><a href="edificios.html#1-3-atribuio-das-propriedades..." class="toclink" title="1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS">1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS</a></li>
+      
+        
+        
+              <li><a href="edificios.html#1-4-atribuio-das-propriedades-e..." class="toclink" title="1.4. ATRIBUIÇÃO DAS PROPRIEDADES E ASSOCIAÇÃO DAS SEÇÕES">1.4. ATRIBUIÇÃO DAS PROPRIEDADES E ASSOCIAÇÃO DAS SEÇÕES</a></li>
+      
+        
+        
+              <li><a href="edificios.html#1-5-aplicao-das-condies-de..." class="toclink" title="1.5. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO">1.5. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="edificios.html#1-5-1-cargas" class="toclink" title="1.5.1 CARGAS">1.5.1 CARGAS</a></li>
+      
+        
+        
+              <li><a href="edificios.html#1-5-2-apoios" class="toclink" title="1.5.2 APOIOS">1.5.2 APOIOS</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="edificios.html#1-6-criao-da-malha" class="toclink" title="1.6. CRIAÇÃO DA MALHA">1.6. CRIAÇÃO DA MALHA</a></li>
+      
+        
+        
+              <li><a href="edificios.html#1-7-definio-das-variveis-de-sada" class="toclink" title="1.7. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA">1.7. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="edificios.html#1-8-direo-das-vigas" class="toclink" title="1.8 DIREÇÃO DAS VIGAS">1.8 DIREÇÃO DAS VIGAS</a></li>
+      
+        
+        
+              <li><a href="edificios.html#2-processamento" class="toclink" title="2. PROCESSAMENTO">2. PROCESSAMENTO</a></li>
+      
+        
+        
+              <li><a href="edificios.html#3-ps-processamento" class="toclink" title="3. PÓS-PROCESSAMENTO">3. PÓS-PROCESSAMENTO</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="edificios.html#3-1-anlise-grfica" class="toclink" title="3.1. ANÁLISE GRÁFICA">3.1. ANÁLISE GRÁFICA</a></li>
+      
+              </ul></li>
+          </ul></li>
+          </ul></li>
+      
+  </ul>
+</nav>
+
+
+<h2 id="objetivo" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#objetivo" title="Permanent link: OBJETIVO" data-icon="#">OBJETIVO</a></h2>
+<p>Sabendo que o edificio abaixo será confeccionado em concreto <strong>C25</strong> e com agregado basaltico, desta forma <strong>E = 33.6 GPa</strong> e <strong>v = 0.2</strong> e que os <strong>pilares</strong> e <strong>vigas</strong> terão <strong>seção transversal</strong> de <strong>respectivamente 20x20cm e 20x60cm</strong>, determinar os <strong>esforços</strong> para <strong>dimensionamento dos elementos estruturais</strong>. Considerar uma carga de <strong>10 kN/m²</strong> atuando em todas as <strong>lajes</strong> e que as <strong>alturas entre os pavimentos</strong> é de <strong>3 m</strong> e os <strong>vão</strong> são de <strong>6 m</strong>.</p>
+<p><a href="edificios/imagens/imagem_01.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 1." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_01.png" /></a></p>
+<p><sup></sup></p>
+<h2 id="resoluo-utilizando-o-abaqus-6..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#resoluo-utilizando-o-abaqus-6..." title="Permanent link: RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION" data-icon="#">RESOLUÇÃO UTILIZANDO O ABAQUS 6.12 STUDENT EDITION</a></h2>
+<p>O procedimento usual de resolução é demonstrado no seguinte fluxograma, cuja ordem pode eventualmente ser alterada por conveniência:</p>
+<p><a href="edificios/imagens/imagem_02.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 2." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_02.png" /></a></p>
+<p><sup></sup></p>
+<h3 id="1-pr-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-pr-processamento" title="Permanent link: 1. PRÉ-PROCESSAMENTO" data-icon="#">1. PRÉ-PROCESSAMENTO</a></h3>
+<h4 id="1-1-incio-da-anlise" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-1-incio-da-anlise" title="Permanent link: 1.1. INÍCIO DA ANÁLISE" data-icon="#">1.1. INÍCIO DA ANÁLISE</a></h4>
+<ul>
+<li>Na caixa <strong>Start Session</strong>, selecione <strong>With Standard/Explicit Model</strong>.</li>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>.</li>
+<li>Digite <strong>Edificio de 2 andares</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<h4 id="1-2-criao-da-geometria-base-e..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-2-criao-da-geometria-base-e..." title="Permanent link: 1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO" data-icon="#">1.2. CRIAÇÃO DA GEOMETRIA BASE E DEFINIÇÃO DO TIPO DE ELEMENTO</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Parts</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Vigas e Pilares</strong>.</li>
+<li>Em <strong>Modeling Space</strong> selecione <strong>3D</strong>.</li>
+<li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>.</li>
+<li>Em <strong>Approximante Size</strong> digite <strong>20</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_03.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 3." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_03.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
+<li>Na <strong>área de comando</strong>, <strong>desenhe</strong> a estrutura <strong>conforme abaixo</strong>.</li>
+<li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> do teclado e clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_04.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 4." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_04.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_03.png" /></li>
+<li>Clique em <strong>XY Plane</strong>, digite <strong>6</strong>, tecle <strong>Enter</strong> e em seguida <strong>Esc</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_05.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 5." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_05.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_04.png" /> e em seguida na <strong>linha criada na etapa anterior</strong>.</li>
+<li>Selecione <strong>horizontal and on the top</strong> e clique na <strong>barra horizontal superior do pórtico</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_06.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 6." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_06.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Digite as coordenadas <strong>(-3.0,-4.5)</strong>, <strong>(-3.0,-1.5)</strong>, <strong>(3.0,-1.5)</strong> e <strong>(3.0,-4.5)</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_07.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 7." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_07.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_05.png" />, <strong>selecione as barras criadas anteriormente</strong> e clique em <strong>Done</strong>.</li>
+<li>Digite os valores na janela <strong>Linear Pattern conforme abaixo</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_08.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 8." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_08.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_09.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 9." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_09.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Rotacione a estrutura</strong> com a ferramente <strong>Rotate View conforme abaixo</strong>, clique e segure o icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_04.png" /> e selecione <strong>Create Wire: Point to Point</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_10.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 10." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_10.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_06.png" /></li>
+<li><strong>Ligue os pontos conforme a imagem a seguir</strong>, marque <strong>Merge wire with part geometry</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_11.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 11." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_11.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Parts</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Lajes</strong>.</li>
+<li>Em <strong>Modeling Space</strong> selecione <strong>3D</strong>.</li>
+<li>Em <strong>Base Feature</strong> selecione <strong>Shell</strong>.</li>
+<li>Em <strong>Approximante Size</strong> digite <strong>20</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_12.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 12." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_12.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
+<li>Na <strong>área de comando</strong>, <strong>digite</strong> as coordenadas <strong>(1.5,0)</strong>, <strong>(6,0)</strong>, <strong>(6,6)</strong>, <strong>(0,6)</strong>, <strong>(0,1.5)</strong>, <strong>(1.5,1.5)</strong> e <strong>(1.5,0)</strong>.</li>
+<li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> do teclado e clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_13.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 13." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_13.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimento realizado para as <strong>Lajes</strong> para criar a <strong>Cobertura</strong>, clicando, porém, no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_07.png" /> e digitando <strong>0,0</strong> e <strong>6,6</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_14.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 14." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_14.png" /></a></p>
+<p><sup></sup></p>
+<h4 id="1-3-atribuio-das-propriedades..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-3-atribuio-das-propriedades..." title="Permanent link: 1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS" data-icon="#">1.3. ATRIBUIÇÃO DAS PROPRIEDADES DOS MATERIAIS</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Materials</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Concreto C25</strong>.</li>
+<li>Na caixa <strong>Edit Material</strong> clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
+<li>Em <strong>Young’s Modulus</strong> digite <strong>33.6E9</strong>, em <strong>Poisson's Ratio</strong> digite <strong>0.2</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="http://localhost:8000/en/frames/basics/edificios/imagens/imagem_15.png" title="Clique para ampliar"><img src="http://localhost:8000/frames/basics/edificios/imagens/imagem_15.png" alt="Figura 15." title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h4 id="1-4-atribuio-das-propriedades-e..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-4-atribuio-das-propriedades-e..." title="Permanent link: 1.4. ATRIBUIÇÃO DAS PROPRIEDADES E ASSOCIAÇÃO DAS SEÇÕES" data-icon="#">1.4. ATRIBUIÇÃO DAS PROPRIEDADES E ASSOCIAÇÃO DAS SEÇÕES</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Parts (3)</strong> e em seguida <strong>Vigas e Pilares</strong>.</li>
+<li>Clique duas vezes em <strong>Section Assigments</strong>.</li>
+<li>Selecione os <strong>Pilares</strong> e clique em <strong>Done</strong>.</li>
+<li>Clique no icone no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_08.png" /> na janela que será aberta.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_16.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 16." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_16.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Create Section</strong> digite <strong>Seção Pilares</strong> em <strong>Name</strong>, marque <strong>Beam</strong> em <strong>Category</strong>, selecione <strong>Beam</strong> em <strong>Type</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_17.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 17." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_17.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Edit Beam Section</strong> clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_01.png" />.</li>
+<li>Na janela <strong>Create Profile</strong> digite <strong>Seção 20x20</strong> em <strong>Name</strong>, selecione <strong>Rectangular</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_18.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 18." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_18.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Edit Profile</strong> em <strong>a</strong> e <strong>b</strong> digite <strong>0.2</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_19.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 19." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_19.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Cliquem <strong>OK</strong> nas tres janelas abertas e em seguida clique em <strong>Done</strong>.</li>
+<li><strong>Repita</strong> o procedimento para as <strong>vigas</strong>, digitando <strong>Seção Vigas</strong> em  <strong>Create Section</strong>, <strong>Seção 20x60</strong> em <strong>Create Profile</strong> e <strong>0.2</strong> em <strong>a</strong> e <strong>0.6</strong> em <strong>b</strong> na janela <strong>Edit Profile</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_20.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 20." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_20.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Model</strong>, abra agora <strong>Parts (3)</strong> e em seguida <strong>Cobertura</strong>.</li>
+<li>Clique duas vezes em <strong>Section Assigments</strong>.</li>
+<li>Selecione a <strong>Laje da cobertura</strong> e clique em <strong>Done</strong>.</li>
+<li>Clique no icone no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_08.png" /> na janela que será aberta.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_21.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 21." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_21.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Create Section</strong> digite <strong>Seção Lajes</strong> em <strong>Name</strong>, marque <strong>Shell</strong> em <strong>Category</strong>, selecione <strong>Homogeneous</strong> em <strong>Type</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_22.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 22." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_22.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Edit Section</strong> digite <strong>0.12</strong> em value e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_23.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 23." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_23.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Edit Section Assignment</strong> altere <strong>Midle Surfac</strong>e para <strong>Bottom surface</strong> em <strong>Definition</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_24.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 24." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_24.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimento para <strong>Lajes</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_25.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 25." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_25.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê um duplo clique em <strong>Instances</strong>.</li>
+<li>Certifique-se que está selecionado <strong>Dependent (mesh on part)</strong> em <strong>Instance Type</strong>, Selecione <strong>Cobertura</strong>, <strong>Lajes</strong> e <strong>Vigas e Pilares</strong> clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_26.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 26." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_26.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Utilizando as ferramentas <strong>Translate Instance</strong> e <strong>Rotate Instance</strong>, posicione a laje e a cobertura <strong>conforme a imagem a seguir</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_27.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 27." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_27.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique novamente em <strong>Instance</strong>, mas selecionando desta vez <strong>apenas Lajes</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_28.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 28." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_28.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Posicione a laje</strong>, utilizando das mesmas ferramentas ja citadas, <strong>conforme a imagem a seguir.</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_29.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 29." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_29.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>De um duplo clique em <strong>Constraints</strong>, selecione <strong>Tie</strong> e clique em <strong>Continue...</strong></li>
+<li>Clique em <strong>Node Region</strong> e em seguida no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_09.png" />.</li>
+<li>Selecione as <strong>lajes</strong> e clique em <strong>Done</strong> duas vezes.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_30.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 30." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_30.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Selecione as <strong>vigas</strong> e clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_31.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 31." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_31.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique novamente em <strong>Node Region</strong> e em seguida no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_10.png" />.</li>
+<li>Selecione as arestas das lajes <strong>conforme indicado</strong>, clique em <strong>Done</strong> e na janela que ira se abrir clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_32.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 32." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_32.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_11.png" />.</li>
+</ul>
+<h4 id="1-5-aplicao-das-condies-de..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-5-aplicao-das-condies-de..." title="Permanent link: 1.5. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO" data-icon="#">1.5. APLICAÇÃO DAS CONDIÇÕES DE CONTORNO</a></h4>
+<h5 id="1-5-1-cargas" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-5-1-cargas" title="Permanent link: 1.5.1 CARGAS" data-icon="#">1.5.1 CARGAS</a></h5>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Steps (1)</strong> e clique <strong>Continue...</strong></li>
+<li>Em <strong>Edit Step</strong> clique em <strong>OK</strong>.</li>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Loads</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Carga 10 kN/m2</strong>,selecione <strong>Pressure</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_33.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 33." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_33.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Selecione todas as <strong>lajes</strong>, clique em <strong>Done</strong> e em seguida em <strong>Brown</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_34.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 34." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_34.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Em <strong>Edit Load</strong> digite <strong>10E3</strong> no campo <strong>Magnitude</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_35.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 35." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_35.png" /></a></p>
+<p><sup></sup></p>
+<h5 id="1-5-2-apoios" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-5-2-apoios" title="Permanent link: 1.5.2 APOIOS" data-icon="#">1.5.2 APOIOS</a></h5>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>BCs</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Apoio Engastado</strong>.</li>
+<li>Em <strong>Step</strong> selecione <strong>Initial</strong>.</li>
+<li>Selecione os pontos <strong>conforme a imagem a seguir</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Boundary Condition</strong> selecione <strong>ENCASTRE(U1 = U2 = U3 = UR1 = UR2 = UR3 = 0)</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_36.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 36." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_36.png" /></a></p>
+<p><sup></sup></p>
+<h4 id="1-6-criao-da-malha" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-6-criao-da-malha" title="Permanent link: 1.6. CRIAÇÃO DA MALHA" data-icon="#">1.6. CRIAÇÃO DA MALHA</a></h4>
+<ul>
+<li>Em <strong>Module</strong> selecione <strong>Mesh</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_37.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 37." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_37.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Barra de Contexto</strong>, em <strong>Object</strong>, selecione <strong>Part</strong>.</li>
+<li>Certifique-se que esta selecionado <strong>Lajes</strong> e no <strong>Menu Principal</strong> clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>.</li>
+<li><strong>Selecione a laje</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Element Type</strong> selecione <strong>Shell</strong> em <strong>Family</strong>.</li>
+<li>Em <strong>Geometric Order</strong> selecione <strong>Quadratic</strong>.</li>
+<li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_38.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 38." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_38.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Part</strong>.</li>
+<li>Em <strong>Approximate Global Size</strong> digite <strong>0.5</strong>, clique em <strong>OK</strong> e em seguida <strong>Done</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_38.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 39." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_38.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>.</li>
+<li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>.</li>
+<li><strong>Repita</strong> o procedimento para a <strong>Cobertura</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_40.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 40." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_40.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>E <strong>repita</strong>, por fim para, <strong>Vigas e Pilares,</strong> este com <strong>aproximate global</strong> size de <strong>1</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_41.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 41." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_41.png" /></a></p>
+<p><sup></sup></p>
+<h4 id="1-7-definio-das-variveis-de-sada" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-7-definio-das-variveis-de-sada" title="Permanent link: 1.7. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA" data-icon="#">1.7. DEFINIÇÃO DAS VARIÁVEIS DE SAÍDA</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Field Output Requests (1)</strong> e dê um duplo clique em <strong>F-Output-1</strong>.</li>
+<li>Marque <strong>RF, Reaction forces and moments</strong>.</li>
+<li>Em seguida, clique em <strong>OK</strong>.</li>
+</ul>
+<h3 id="1-8-direo-das-vigas" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#1-8-direo-das-vigas" title="Permanent link: 1.8 DIREÇÃO DAS VIGAS" data-icon="#">1.8 DIREÇÃO DAS VIGAS</a></h3>
+<ul>
+<li>Em Module, selecione <strong>Propertyes</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_42.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 42." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_42.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Certifique-se que esta selecionado <strong>Vigas e Pilares</strong> em <strong>Part</strong> e clique no icone <img alt="" src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/icone_02.png" /></li>
+<li>Selecione as vigas <strong>conforme indicado</strong> e clique em <strong>Done</strong>, aperte <strong>Enter</strong> e em seguida clique em <strong>OK</strong></li>
+</ul>
+<p><a href="edificios/imagens/imagem_43.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 43." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_43.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimentopara as <strong>outras barras</strong>, digitado <strong>1,0,0</strong> para a <strong>direção do vetor</strong>. Ao final clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_44.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 44." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_44.png" /></a></p>
+<p><sup></sup></p>
+<h3 id="2-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#2-processamento" title="Permanent link: 2. PROCESSAMENTO" data-icon="#">2. PROCESSAMENTO</a></h3>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Jobs</strong>.</li>
+<li>Na janela <strong>Create Job</strong> clique em <strong>Continue...</strong></li>
+<li>Na janela <strong>Edit Job</strong> clique em <strong>OK</strong>.</li>
+<li>Abra <strong>Jobs</strong> e clique com o botão direito em <strong>Job-1</strong> e clique em <strong>Submit</strong>.</li>
+<li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique <strong>OK</strong>.</li>
+<li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no <strong>Menu Model</strong>.</li>
+</ul>
+<h3 id="3-ps-processamento" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#3-ps-processamento" title="Permanent link: 3. PÓS-PROCESSAMENTO" data-icon="#">3. PÓS-PROCESSAMENTO</a></h3>
+<h4 id="3-1-anlise-grfica" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="edificios.html#3-1-anlise-grfica" title="Permanent link: 3.1. ANÁLISE GRÁFICA" data-icon="#">3.1. ANÁLISE GRÁFICA</a></h4>
+<ul>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Job-1(Completed)</strong> e clique em <strong>Results</strong>.</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Plot Deformed Shape</strong>.</li>
+<li>Clique em <strong>View</strong> e em seguida <strong>OBD Display Options</strong>.</li>
+<li>Marque <strong>Render Beam Profiles</strong> e <strong>Render Shell Thickness</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="edificios/imagens/imagem_45.png" title="Clique para ampliar"><img title="Clique para ampliar" alt="Figura 45." src="../../../user/pages/04.porticos/03.aplicacoes/04.edificios/imagens/imagem_45.png" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>E agora, consegue <strong>dimensionar</strong> o edificio? Qual <strong>esforços</strong> voce utilizaria? Seria possivel <strong>simplificar</strong> mais ainda a analise e obter resultados ainda satisfatorios? Melhor ainda...os resultados são...<strong>REPRESENTATIVOS</strong>?</li>
+</ul>
 </p>
 </div>
 
