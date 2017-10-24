@@ -5,7 +5,6 @@
     <title>Aplicação na mão | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../../feed:rss.html" title="RSS Feed" />
@@ -6793,7 +6792,7 @@ $(document).ready(function() {
                 <div id="body-inner">
 <h1>Aplicação na mão</h1>
 <p>
-	<p>Bom, agora que conhecemos o equilíbrio estático dado pelo MEF e a matriz de rigidez do elemento de pórtico no sistema global, é hora de voltar ao nosso pórtico metálico simples e resolvê-lo na mão. Lembrando que esse pórtico possui o mesmo perfil nas colunas e na viga, tubular retangular de 400x200 mm e 12,5 mm de espessura da parede, com a maior dimensão (direção do eixo y da seção) perpendicular na viga e nas colunas. As propriedades da seção são <span class="mathjax mathjax--inline">$A = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_x = 27100 cm^4$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span>, <span class="mathjax mathjax--inline">$Z_x = 1355 cm^3$</span>, <span class="mathjax mathjax--inline">$Z_y = 1062 cm^3$</span>, <span class="mathjax mathjax--inline">$J = 23590 cm^3$</span> e <span class="mathjax mathjax--inline">$\rho_l = 110 kg/m$</span> (massa por unidade de comprimento). O pórtico tem a largura de 9,4 m e altura de 4,7 m. A placa pesa 300 kg a carga de uso, <span class="mathjax mathjax--inline">$q$</span>, é de 2,0 kN/m e a carga de vento vale <span class="mathjax mathjax--inline">$v = 465,87 y^{0,2}N/m$</span> sendo <span class="mathjax mathjax--inline">$y$</span> variando na altura do pórtico.</p>
+	<p>Bom, agora que conhecemos o equilíbrio estático dado pelo MEF e a matriz de rigidez do elemento de pórtico no sistema global, é hora de voltar ao nosso pórtico metálico simples e resolvê-lo na mão. Lembrando que esse pórtico possui o mesmo perfil nas colunas e na viga, tubular retangular de 400x200 mm e 12,5 mm de espessura da parede, com a maior dimensão (direção do eixo y da seção) perpendicular na viga e nas colunas. As propriedades da seção são <span class="mathjax mathjax--inline">$A = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_x = 27100 cm^4$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span>, <span class="mathjax mathjax--inline">$Z_x = 1355 cm^3$</span>, <span class="mathjax mathjax--inline">$Z_y = 1062 cm^3$</span>, <span class="mathjax mathjax--inline">$J = 23590 cm^3$</span> e <span class="mathjax mathjax--inline">$\rho_l = 110 kg/m$</span> (massa por unidade de comprimento). Toda a estrutura é de aço A36 (<span class="mathjax mathjax--inline">$E = 200 GPa$</span>). O pórtico tem a largura de 9,4 m e altura de 4,7 m. A placa pesa 300 kg a carga de uso, <span class="mathjax mathjax--inline">$q$</span>, é de 2,0 kN/m e a carga de vento vale <span class="mathjax mathjax--inline">$v = 465,87 y^{0,2}N/m$</span> sendo <span class="mathjax mathjax--inline">$y$</span> variando na altura do pórtico.</p>
 <p><img title="Idealização" alt="Idealização" src="../../../user/pages/04.porticos/01.teoria/01.aplicacao/imagens/PorticoIdeal.svg" />
 <small>Idealização do Pórtico para sinalização viária.</small></p>
 <nav class="table-of-contents toc" role="navigation">
@@ -6907,15 +6906,14 @@ $(document).ready(function() {
 <p>No caso de elementos com mais nós, a matriz de incidência deve seguir uma ordem pré-definida de posicionamentos, com o número de colunas igual ao número de nós do elemento.</p>
 <h3 id="ngulo-de-rotao-das-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#ngulo-de-rotao-das-barras" title="Permanent link: Ângulo de rotação das barras" data-icon="#">Ângulo de rotação das barras</a></h3>
 <p>O ângulo <span class="mathjax mathjax--inline">$\theta$</span> é sempre medido no sentido anti-horário partindo-se da direção positiva do eixo <span class="mathjax mathjax--inline">$X$</span> global à direção longitudinal da barra, ou direção do eixo <span class="mathjax mathjax--inline">$x$</span> local. Portanto, os ângulos para as barras 1, 2 e 3 são respectivamente:</p>
+<p class="mathjax mathjax--block">$$
+\theta_1 = 90^o \quad \quad \theta_2 = 0^o \quad \quad \theta_3 = 90^o$$</p>
 <blockquote>
 <p>Lembre de sempre observar a incidência das barras. Por exemplo, no caso da barra 1 ter a incidência de 2 para 1, isso significa que seu eixo local <span class="mathjax mathjax--inline">$x$</span> está com direção positiva para baixo (figura como referência). Sendo assim o ângulo medido entre a direção global <span class="mathjax mathjax--inline">$X$</span> e a local <span class="mathjax mathjax--inline">$x$</span> nesse exemplo é <span class="mathjax mathjax--inline">$270^o$</span>. Mas, utilizando-se coordenadas resolve tudo.</p>
 </blockquote>
-<p class="mathjax mathjax--block">$$
-\theta_1 = 90^o \quad \quad \theta_2 = 0^o \quad \quad \theta_3 = 90^o$$</p>
 <p>Como você fez isso? Simples, utilizei as coordenadas dos nós no sistema global de acordo com a matriz de incidência dos elementos. As coordenadas dos nós 1, 2, 3 e 4 em metros são as seguintes:</p>
 <p class="mathjax mathjax--block">$$
-N_1 = (-4,7;0) \qquad N_2 = (-4,7;4,7) \qquad N_3 = (4,7;4,7) \qquad N_4 = (4,7;0) $$</p>
-<p>AQUI!!!!</p>
+no_1 = (-4,7;0) \qquad no_2 = (-4,7;4,7) \qquad no_3 = (4,7;4,7) \qquad no_4 = (4,7;0) $$</p>
 <p>O ângulo medido no sentido anti-horário partindo-se da direção positiva do eixo <span class="mathjax mathjax--inline">$X$</span> global à direção longitudinal da barra pode ser medido como:</p>
 <p class="mathjax mathjax--block">$$
 \begin{align}
@@ -6930,96 +6928,87 @@ sen \theta &= \dfrac{y_2 - y_1}{\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}} \\
 cos \theta &= \dfrac{x_2 - x_1}{\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}}
 \end{align}$$</p>
 <p>Portanto, os ângulos de cada uma das barras e os valores dos senos e cossenos respectivos são:</p>
-<p><strong>Elemento 1</strong>: <span class="mathjax mathjax--inline">$\theta = 135^o$</span>, <span class="mathjax mathjax--inline">$cos 135^o = -\frac{\sqrt{2}}{2}$</span>, <span class="mathjax mathjax--inline">$sen 135^o = \frac{\sqrt{2}}{2}$</span></p>
-<p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span>, <span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span></p>
-<p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span>, <span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span></p>
+<p><strong>Elemento 1</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span>, <span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span></p>
+<p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span>, <span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span></p>
+<p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span>, <span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span></p>
 <blockquote>
 <p>E o que vai acontecer com os graus de liberdade das barras que não estão na horizontal quando eu calcular <span class="mathjax mathjax--inline">$\textbf{k}_g$</span>? Eles serão decompostos nas direções (X, Y) globais e então você terá matrizes de rigidez de todos os elementos escritas em um mesmo sistema de coordenadas.</p>
 </blockquote>
 <h3 id="determinao-das-matrizes-de..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-das-matrizes-de..." title="Permanent link: Determinação das matrizes de rigidez globais dos elementos" data-icon="#">Determinação das matrizes de rigidez globais dos elementos</a></h3>
-<p>Das determinações anteriores, sabemos que a matriz de rigidez de um elemento de treliça no sistema global é:</p>
+<p>Das determinações anteriores, sabemos que a matriz de rigidez de um elemento de pórtico no sistema global é:</p>
 <p class="mathjax mathjax--block">$$
-\textbf{k}_g = \dfrac{EA}{L} \left[ 
-\begin{array}{cccc}
-    cos^2 \theta & cos \theta sen \theta & -cos^2 \theta & -cos \theta sen \theta\\
-    cos \theta sen \theta & sen^2 \theta & -cos \theta sen \theta & -sen^2 \theta \\
-    -cos^2 \theta & -cos \theta sen \theta & cos^2 \theta & cos \theta sen \theta\\
-    -cos \theta sen \theta & -sen^2 \theta & cos \theta sen \theta & sen^2 \theta \\
+\textbf{k}_g = \left[ 
+\begin{array}{cccccc}
+\dfrac{A E c^2}{L} + \dfrac{12 E I_z s^2}{L^3} &
+ -\dfrac{A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
+  \dfrac{6 E I_z s}{L^2} &
+ -\dfrac{A E c^2}{L} - \dfrac{12 E I_z s^2}{L^3} &
+  \dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
+  \dfrac{6 E I_z s}{L^2} \\
+\dfrac{-A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
+ \dfrac{A E s^2}{L} + \dfrac{12 E I_z c^2}{L^3} &
+  \dfrac{6 E I_z c}{L^2} &
+  \dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
+ -\dfrac{A E s^2}{L} - \dfrac{12 E I_z c^2}{L^3} &
+  \dfrac{6 E I_z c}{L^2} \\
+\dfrac{6 E I_z s}{L^2 } &
+ \dfrac{6 E I_z c}{L^2} &
+ \dfrac{4 E I_z}{L} & 
+\dfrac{-6 E I_z s}{L^2} &
+ \dfrac{-6 E I_z c}{L^2} &
+ \dfrac{2 E I_z}{L} \\
+\dfrac{-A E c^2}{L} - \dfrac{12 E I_z s^2}{L^3} &
+ \dfrac{ A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
+ \dfrac{-6 E I_z s}{L^2} &
+ \dfrac{A E c^2}{L} + \dfrac{12 E I_z s^2}{L^3} &
+ \dfrac{-A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
+ \dfrac{-6 E I_z s}{L^2} \\
+\dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} & 
+\dfrac{-A E s^2}{L} - \dfrac{12 E I_z c^2}{L^3} &
+ \dfrac{-6 E I_z c}{L^2} &
+ \dfrac{-A E s c}{L} + \dfrac{12 E I_z s c}{L^3 } &
+ \dfrac{A E s^2}{L} + \dfrac{12 E I_z c^2}{L^3} &
+ \dfrac{-6 E I_z c}{L^2} \\
+\dfrac{6 E I_z s}{L^2} &
+ \dfrac{6 E I_z c}{L^2} & 
+\dfrac{2 E I_z}{L} &
+ \dfrac{-6 E I_z s}{L^2} & 
+\dfrac{-6 E I_z c}{L^2} & 
+\dfrac{4 E I_z}{L}
 \end{array} \right]$$</p>
-<p>Portanto, podemos escrever as matrizes de rigidez no sistema global de todos os três elementos da estrutura. Atenção às constantes <span class="mathjax mathjax--inline">$E$</span>, <span class="mathjax mathjax--inline">$A$</span> e <span class="mathjax mathjax--inline">$L$</span>, elas variam de elemento para elemento.</p>
-<p><strong>Elemento 1</strong>: <span class="mathjax mathjax--inline">$\theta = 135^o$</span> (<span class="mathjax mathjax--inline">$cos 135^o = -\frac{\sqrt{2}}{2}$</span>, <span class="mathjax mathjax--inline">$sen 135^o = \frac{\sqrt{2}}{2}$</span>), <span class="mathjax mathjax--inline">$E_1 = 200000 N/mm^2$</span>, <span class="mathjax mathjax--inline">$A_1 = 10030,05 mm^2$</span> e <span class="mathjax mathjax--inline">$L_1 = 1414,21 mm$</span></p>
+<p>Portanto, podemos escrever as matrizes de rigidez no sistema global de todos os três elementos da estrutura. Atenção às constantes <span class="mathjax mathjax--inline">$E$</span>, <span class="mathjax mathjax--inline">$A$</span> e <span class="mathjax mathjax--inline">$L$</span>, elas podem variar de elemento para elemento. Além disso, observe o posicionamento da seção transversal em relação ao plano do pórtico para o correto uso da inércia e que a discretização é feita no centro de gravidade da seção transversal (pode ser feita em relação a outro ponto, mas as propriedades precisariam ser recalculadas), por isso os comprimentos precisam ser calculados levando em conta o comprimento das barras do pórtico ligadas pelos centros de gravidade das seções.</p>
+<p><strong>Elemento 1</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>), <span class="mathjax mathjax--inline">$E_1 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_1 = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span> e <span class="mathjax mathjax--inline">$L_1 = 460 cm$</span></p>
 <p class="mathjax mathjax--block">$$
-\textbf{k1}_g = \dfrac{E_1A_1}{2 L_1} \left[ 
-\begin{array}{cccc}
-    1 & -1 & -1 & 1\\
-    -1 & 1 & 1 & -1 \\
-    -1 & 1 & 1 & -1\\
-    1 & -1 & -1 & 1 \\
-\end{array} \right] = \dfrac{200000 \times 10030,05}{2 \times 1414,21} \left[ 
-\begin{array}{cccc}
-    1 & -1 & -1 & 1\\
-    -1 & 1 & 1 & -1 \\
-    -1 & 1 & 1 & -1\\
-    1 & -1 & -1 & 1 \\
+\textbf{k1}_g = \left[ \begin{array}{cccccc}
+27,59 & 0 & 6345,94 & -27,59 & 0 & 6345,94 \\
+0 & 6086,96 & 0 & 0 & -6086,96 & 0 \\
+6345,94 & 0 & 1946086,96 & -6345,94 & 0 & 973043,48 \\
+-27,59 & 0 & -6345,94 & 27,59 & 0 & -6345,94 \\
+0 & -6086,96 & 0 & 0 & 6086,96 & 0 \\
+6345,94 & 0 & 973043,48 & -6345,94 & 0 & 1946086,96
 \end{array} \right]$$</p>
+<p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span>), <span class="mathjax mathjax--inline">$E_2 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_2 = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span> e <span class="mathjax mathjax--inline">$L_2 = 920 cm$</span></p>
 <p class="mathjax mathjax--block">$$
-\therefore \textbf{k1}_g = \left[ 
-\begin{array}{cccc}
-    709233,42 & -709233,42 & -709233,42 & 709233,42\\
-    -709233,42 & 709233,42 & 709233,42 & -709233,42 \\
-    -709233,42 & 709233,42 & 709233,42 & -709233,42\\
-    709233,42 & -709233,42 & -709233,42 & 709233,42 \\
+\textbf{k2}_g = \left[ \begin{array}{cccccc}
+3043,48 & 0 & 0 & -3043,48 & 0 & 0 \\
+0 & 3,45 & 1586,48 & 0 & -3,45 & 1586,48 \\
+0 & 1586,48 & 973043,48 & 0 & -1586,48 & 486521,74 \\
+-3043,48 & 0 & 0 & 3043,48 & 0 & 0 \\
+0 & -3,45 & -1586,48 & 0 & 3,45 & -1586,48 \\
+0 & 1586,48 & 486521,74 & 0 & -1586,48 & 973043,48
 \end{array} \right]$$</p>
-<p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>), <span class="mathjax mathjax--inline">$E_2 = 69000 N/mm^2$</span>, <span class="mathjax mathjax--inline">$A_2 = 10030,05 mm^2$</span> e <span class="mathjax mathjax--inline">$L_2 = 1000 mm$</span></p>
+<p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>), <span class="mathjax mathjax--inline">$E_3 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_3 = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span> e <span class="mathjax mathjax--inline">$L_3 = 460 mm$</span></p>
 <p class="mathjax mathjax--block">$$
-\textbf{k2}_g = \dfrac{E_2A_2}{L_2} \left[ 
-\begin{array}{cccc}
-    0 & 0 & 0 & 0 \\
-    0 & 1 & 0 & -1\\
-    0 & 0 & 0 & 0 \\
-    0 & -1 & 0 & 1\\
-\end{array} \right] = \dfrac{69000 \times 10030,05}{1000} \left[ 
-\begin{array}{cccc}
-    0 & 0 & 0 & 0 \\
-    0 & 1 & 0 & -1\\
-    0 & 0 & 0 & 0 \\
-    0 & -1 & 0 & 1\\
+\textbf{k3}_g = \left[ \begin{array}{cccccc}
+27,59 & 0 & 6345,94 & -27,59 & 0 & 6345,94 \\
+0 & 6086,96 & 0 & 0 & -6086,96 & 0 \\
+6345,94 & 0 & 1946086,96 & -6345,94 & 0 & 973043,48 \\
+-27,59 & 0 & -6345,94 & 27,59 & 0 & -6345,94 \\
+0 & -6086,96 & 0 & 0 & 6086,96 & 0 \\
+6345,94 & 0 & 973043,48 & -6345,94 & 0 & 1946086,96
 \end{array} \right]$$</p>
-<p class="mathjax mathjax--block">$$
-\therefore \textbf{k2}_g = \left[ 
-\begin{array}{cccc}
-    0 & 0 & 0 & 0 \\
-    0 & 692073,45 & 0 & -692073,45\\
-    0 & 0 & 0 & 0 \\
-    0 & -692073,45 & 0 & 692073,45\\
-\end{array} \right]$$</p>
-<p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span>), <span class="mathjax mathjax--inline">$E_3 = 69000 N/mm^2$</span>, <span class="mathjax mathjax--inline">$A_3 = 10030,05 mm^2$</span> e <span class="mathjax mathjax--inline">$L_3 = 1000 mm$</span></p>
-<p class="mathjax mathjax--block">$$
-\textbf{k3}_g = \dfrac{E_3A_3}{L_3} \left[ 
-\begin{array}{cccc}
-    1 & 0 & -1 & 0\\
-    0 & 0 & 0 & 0 \\
-    -1 & 0 & 1 & 0\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right] = \dfrac{69000 \times 10030,05}{1000} \left[ 
-\begin{array}{cccc}
-    1 & 0 & -1 & 0\\
-    0 & 0 & 0 & 0 \\
-    -1 & 0 & 1 & 0\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right]$$</p>
-<p class="mathjax mathjax--block">$$
-\therefore \textbf{k3}_g = \left[ 
-\begin{array}{cccc}
-    692073,45 & 0 & -692073,45 & 0\\
-    0 & 0 & 0 & 0 \\
-    -692073,45 & 0 & 692073,45 & 0\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right]$$</p>
-<blockquote>
-<p>Observe que a matriz de rigidez do elemento 1 ficou cheia, isso acontece por que os graus de liberdade locais em <span class="mathjax mathjax--inline">$(x, y)$</span> se decompõe em <span class="mathjax mathjax--inline">$(X, Y)$</span> com ambos os graus de liberdade contribuindo para ambas as direções, ou seja, por exemplo, o grau de liberdade 1 que no sistema local está na direção de <span class="mathjax mathjax--inline">$x$</span>, no sistema global terá efeitos nas direções <span class="mathjax mathjax--inline">$X$</span> e <span class="mathjax mathjax--inline">$Y$</span>. Observe a matriz de rigidez do elemento 2 também, o que acontece com os graus de liberdade 1 e 3 locais?</p>
-</blockquote>
 <p>Agora precisamos criar a matriz de rigidez da estrutura como um todo, acoplando as matrizes de rigidez globais dos elementos da mesma forma que as barras estão conectadas, para garantir a correta distribuição das rigidezes nos graus de liberdade da estrutura.</p>
+<p>AQUI!!!!!</p>
 <h3 id="determinao-da-matriz-de-rigidez..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-da-matriz-de-rigidez..." title="Permanent link: Determinação da matriz de rigidez da estrutura" data-icon="#">Determinação da matriz de rigidez da estrutura</a></h3>
 <p>O que é a matriz de rigidez da estruturas? É a matriz de rigidez que rege o comportamento estrutural (no nosso caso) da estrutura como um todo composta pelos seus elementos formulados como matrizes de rigidez globais. </p>
 <p>Essa matriz de rigidez da estrutura pode ser criada (existem outras formas) utilizando uma regrinha simples de endereçamento, chamada <strong>regra da correspondência</strong>. A ideia dessa regra é relacionar os graus de liberdade do elemento no sistema global com os graus de liberdade da estrutura também no sistem global, utilizando a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, e a matriz de incidência dos elementos, <span class="mathjax mathjax--inline">$\textbf{IE}$</span>. O endereçamento é feito por um vetor chamado carteiro (essa eu inventei agora!). </p>
