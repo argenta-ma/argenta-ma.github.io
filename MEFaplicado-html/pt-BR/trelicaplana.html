@@ -6,8 +6,8 @@
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <link rel="alternate" type="application/atom+xml" href="./feed:atom.html" title="Atom Feed" />
-    <link rel="alternate" type="application/rss+xml" href="./feed:rss.html" title="RSS Feed" />
+    <link rel="alternate" type="application/atom+xml" href="feed:atom.html" title="Atom Feed" />
+    <link rel="alternate" type="application/rss+xml" href="feed:rss.html" title="RSS Feed" />
     <link rel="icon" type="image/png" href="../user/themes/learn2/images/favicon.png">
 
                                             
@@ -15,10 +15,10 @@
         <link href="../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6763,7 +6763,7 @@ $(document).ready(function() {
 
 
                         
-    <li><a href="../en/trelicaplana.1.html" class="external" style="font-size: 80%;">English</a></li>
+    <li><a href="../en/trelicaPlana.html" class="external" style="font-size: 80%;">English</a></li>
 
 
                         
@@ -6791,23 +6791,23 @@ $(document).ready(function() {
 				<h1>Treliça Plana</h1>
 <h2>Idealização</h2>
 <p>O objeto estrutural da imagem a seguir é o seu objetivo:</p>
-<p><img title="Retirado de: https://en.wikipedia.org/wiki/Wills_Creek_Bollman_Bridge" alt="Wills Creek Bollman Bridge" src="../user/pages/01.trelicaplana/imagens/WillsCreekBollmanBridge.jpg" />
+<p><img title="Retirado de: https://en.wikipedia.org/wiki/Wills_Creek_Bollman_Bridge" alt="Wills Creek Bollman Bridge" src="../user/pages/01.trelicaPlana/imagens/WillsCreekBollmanBridge.jpg" />
 <small>Wills Creek Bollman Bridge, 1871.</small></p>
 <p>A Wills Creek Bollman Bridge é uma ponte em treliça do tipo Warren e a pergunta é como obter os esforços em seus elementos estruturais para conseguir dimensioná-los?</p>
 <p>Bom, você sendo um aluno do 4 ou 5 ano de engenharia civil sabe como fazer isso, pois a estrutura trata-se basicamente de duas treliças planas apoiadas sobe um apoio rotulado, não permite deslocamento vertical e horizontal (na direita da figura) e um apoio simples, não permite deslocamento vertical (na esquerda da figura), sendo, então, uma estrutura isostática.</p>
 <p>O primeiro passo é a idealização estrutural, ou seja, transformar uma estrutura física real em um modelo idealizado representativo dos efeitos que ocorrem, ou irão ocorrer, na estrutura real. Como se trata de uma treliça, podemos idealizar da seguinte forma:</p>
-<p><img title="Idealização da ponte" alt="Idealização" src="../user/pages/01.trelicaplana/imagens/WarrenIdeal.svg" />
+<p><img title="Idealização da ponte" alt="Idealização" src="../user/pages/01.trelicaPlana/imagens/WarrenIdeal.svg" />
 <small>Idealização da Wills Creek Bollman Bridge.</small></p>
 <p>Então, basta aplicar as cargas permanentes de peso próprio, do pavimento, as acidentais de uso e vento, e obter os esforços através do método das forças ou método das seções.</p>
-<p><img title="Solução da ponte idealizada" alt="Solução" src="../user/pages/01.trelicaplana/imagens/WarrenIdealSol.svg" />
+<p><img title="Solução da ponte idealizada" alt="Solução" src="../user/pages/01.trelicaPlana/imagens/WarrenIdealSol.svg" />
 <small>Solução da ponte idealizada para uma carga distribuída no pavimento (5 kN nos nós próximos aos apoios e 10 kN nos três internos no pavimento).</small></p>
 <p>Resolvido! Demorou né!? E como calcular os deslocamentos? </p>
-<p><img title="Deslocamentos da ponte idealizada" alt="Deslocamentos" src="../user/pages/01.trelicaplana/imagens/WarrenIdealDesl.svg" />
+<p><img title="Deslocamentos da ponte idealizada" alt="Deslocamentos" src="../user/pages/01.trelicaPlana/imagens/WarrenIdealDesl.svg" />
 <small>Deslocamentos da ponte idealizada.</small></p>
 <p>Então, e se pudessemos criar um programinha computacional para resolver essa treliça e calcular os deslocamentos, ou melhor, para resolver qualquer treliça plana?</p>
 <p>Mas, vamos por partes, primeiro vamos usar uma treliça mais simples, de forma a controlarmos melhor o processo de solução na mão, e é claro, vamos resolver usando o Método dos Elementos Finitos!</p>
 <p>Essa será a nossa treliça simples:</p>
-<p><img title="Treliça Simples" alt="Treliça Simples" src="../user/pages/01.trelicaplana/imagens/Trelica3barras.svg" />
+<p><img title="Treliça Simples" alt="Treliça Simples" src="../user/pages/01.trelicaPlana/imagens/Trelica3barras.svg" />
 <small>Treliça Simples com três barras.</small></p>
 <p>São apenas três barras, com apoios na barra vertical e carga concentrada na extremidade oposta. Essa treliça possui barras de aço (<span class="mathjax mathjax--inline">$E = 200 GPa$</span>) e alumínio (<span class="mathjax mathjax--inline">$E = 69 GPa$</span>), as barras vertical e horizontal são de alumínio a inclinada de aço. Todas as barras são tubulares maciças com diâmetro de 113 mm. A carga F é de 10.000 N e o comprimento L de 1,0 m.</p>
 <p><strong>Vamos começar pela <a href="trelicaplana/teoria.html">teoria</a>!</strong></p>

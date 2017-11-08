@@ -5,6 +5,7 @@
     <title>Aplicação na mão | Applied FEM</title>
     <meta name="generator" content="GravCMS" />
 <meta name="description" content="Aplied Finite Elements" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="alternate" type="application/atom+xml" href="../../feed:atom.html" title="Atom Feed" />
     <link rel="alternate" type="application/rss+xml" href="../../feed:rss.html" title="RSS Feed" />
@@ -15,10 +16,10 @@
         <link href="../../../user/themes/learn2/css-compiled/nucleus.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css-compiled/theme.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/toc/assets/css/toc.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/breadcrumbs/css/breadcrumbs.css" type="text/css" rel="stylesheet" />
-<link href="../../../user/plugins/langswitcher/css/langswitcher.css" type="text/css" rel="stylesheet" />
+<link href="../../../user/plugins/mathjax/assets/css/mathjax.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/plugins/highlight/css/learn.css" type="text/css" rel="stylesheet" />
 <link href="../../../user/themes/learn2/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
@@ -6792,12 +6793,12 @@ $(document).ready(function() {
                 <div id="body-inner">
 <h1>Aplicação na mão</h1>
 <p>
-	<p>Bom, agora que conhecemos o equilíbrio estático dado pelo MEF e a matriz de rigidez do elemento de pórtico no sistema global, é hora de voltar ao nosso pórtico metálico simples e resolvê-lo na mão. Lembrando que esse pórtico possui o mesmo perfil nas colunas e na viga, tubular retangular de 400x200 mm e 12,5 mm de espessura da parede, com a maior dimensão (direção do eixo y da seção) perpendicular na viga e nas colunas. As propriedades da seção são <span class="mathjax mathjax--inline">$A = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_x = 27100 cm^4$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span>, <span class="mathjax mathjax--inline">$Z_x = 1355 cm^3$</span>, <span class="mathjax mathjax--inline">$Z_y = 1062 cm^3$</span>, <span class="mathjax mathjax--inline">$J = 23590 cm^3$</span> e <span class="mathjax mathjax--inline">$\rho_l = 110 kg/m$</span> (massa por unidade de comprimento). Toda a estrutura é de aço A36 (<span class="mathjax mathjax--inline">$E = 200 GPa$</span>). O pórtico tem a largura de 9,4 m e altura de 4,7 m. A placa pesa 300 kg a carga de uso, <span class="mathjax mathjax--inline">$q$</span>, é de 2,0 kN/m e a carga de vento vale <span class="mathjax mathjax--inline">$v = 465,87 y^{0,2}N/m$</span> sendo <span class="mathjax mathjax--inline">$y$</span> variando na altura do pórtico.</p>
+	<p>Bom, agora que conhecemos o equilíbrio estático dado pelo MEF e a matriz de rigidez do elemento de pórtico no sistema global, é hora de voltar ao nosso pórtico metálico simples e resolvê-lo na mão. Lembrando que esse pórtico possui o mesmo perfil nas colunas e na viga, tubular retangular de 400x200 mm e 12,5 mm de espessura da parede, com a maior dimensão (direção do eixo y da seção) perpendicular na viga e nas colunas. As propriedades da seção são <span class="mathjax mathjax--inline">$A = 143,75 cm^2$</span>, <span class="mathjax mathjax--inline">$I_x = 9918,62 cm^4$</span>, <span class="mathjax mathjax--inline">$I_y = 29762,37 cm^4$</span>, <span class="mathjax mathjax--inline">$Z_x = 991,86 cm^3$</span>, <span class="mathjax mathjax--inline">$Z_y = 1488,12 cm^3$</span>, <span class="mathjax mathjax--inline">$J = 22951,87 cm^3$</span> e <span class="mathjax mathjax--inline">$\rho_l = 113 kg/m$</span> (massa por unidade de comprimento). Toda a estrutura é de aço A36 (<span class="mathjax mathjax--inline">$E = 200 GPa$</span>). O pórtico tem a largura de 9,4 m e altura de 4,7 m. A placa pesa 300 kg tem o comprimento de <span class="mathjax mathjax--inline">$4,0 m$</span> e está a <span class="mathjax mathjax--inline">$d = 4,2 m$</span> da extremidade direita a carga de uso, <span class="mathjax mathjax--inline">$q$</span>, é de 2,0 kN/m e a carga de vento vale <span class="mathjax mathjax--inline">$v = 465,87 y^{0,2}N/m$</span> sendo <span class="mathjax mathjax--inline">$y$</span> variando na altura do pórtico.</p>
 <p><img title="Idealização" alt="Idealização" src="../../../user/pages/04.porticos/01.teoria/01.aplicacao/imagens/PorticoIdeal.svg" />
 <small>Idealização do Pórtico para sinalização viária.</small></p>
 <nav class="table-of-contents toc" role="navigation">
   
-                                                                                              
+                                                                                                                            
   <ul>
       
         
@@ -6820,7 +6821,27 @@ $(document).ready(function() {
         
               <li><a href="aplicacao.html#determinao-da-matriz-de-rigidez..." class="toclink" title="Determinação da matriz de rigidez da estrutura">Determinação da matriz de rigidez da estrutura</a></li>
       
+                      <li><ul>
+          
         
+              <li><a href="aplicacao.html#regra-da-correspondncia" class="toclink" title="Regra da correspondência">Regra da correspondência</a></li>
+      
+                      <li><ul>
+          
+        
+              <li><a href="aplicacao.html#determinao-do-remetente" class="toclink" title="Determinação do remetente">Determinação do remetente</a></li>
+      
+                      </ul></li>
+          
+        
+              <li><a href="aplicacao.html#determinao-da-matriz-para..." class="toclink" title="Determinação da matriz para cálculo dos deslocamentos">Determinação da matriz para cálculo dos deslocamentos</a></li>
+      
+        
+        
+              <li><a href="aplicacao.html#determinao-da-matriz-para...-1" class="toclink" title="Determinação da matriz para cálculo das reações de apoio">Determinação da matriz para cálculo das reações de apoio</a></li>
+      
+                      </ul></li>
+          
         
               <li><a href="aplicacao.html#deslocamentos-e-foras-nodais" class="toclink" title="Deslocamentos e forças nodais">Deslocamentos e forças nodais</a></li>
       
@@ -6828,7 +6849,13 @@ $(document).ready(function() {
         
               <li><a href="aplicacao.html#aplicando-as-condies-de-contorno" class="toclink" title="Aplicando as condições de contorno">Aplicando as condições de contorno</a></li>
       
+                      <li><ul>
+          
         
+              <li><a href="aplicacao.html#determinao-das-foras-nodais..." class="toclink" title="Determinação das forças nodais equivalentes para cargas com variação não linear e descontínuas">Determinação das forças nodais equivalentes para cargas com variação não linear e descontínuas</a></li>
+      
+                      </ul></li>
+          
         
               <li><a href="aplicacao.html#separao-das-variveis" class="toclink" title="Separação das variáveis">Separação das variáveis</a></li>
       
@@ -6940,229 +6967,290 @@ cos \theta &= \dfrac{x_2 - x_1}{\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}}
 \textbf{k}_g = \left[ 
 \begin{array}{cccccc}
 \dfrac{A E c^2}{L} + \dfrac{12 E I_z s^2}{L^3} &
- -\dfrac{A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
-  \dfrac{6 E I_z s}{L^2} &
- -\dfrac{A E c^2}{L} - \dfrac{12 E I_z s^2}{L^3} &
-  \dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
-  \dfrac{6 E I_z s}{L^2} \\
-\dfrac{-A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
- \dfrac{A E s^2}{L} + \dfrac{12 E I_z c^2}{L^3} &
-  \dfrac{6 E I_z c}{L^2} &
-  \dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
- -\dfrac{A E s^2}{L} - \dfrac{12 E I_z c^2}{L^3} &
-  \dfrac{6 E I_z c}{L^2} \\
-\dfrac{6 E I_z s}{L^2 } &
- \dfrac{6 E I_z c}{L^2} &
- \dfrac{4 E I_z}{L} & 
-\dfrac{-6 E I_z s}{L^2} &
- \dfrac{-6 E I_z c}{L^2} &
- \dfrac{2 E I_z}{L} \\
-\dfrac{-A E c^2}{L} - \dfrac{12 E I_z s^2}{L^3} &
- \dfrac{ A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
- \dfrac{-6 E I_z s}{L^2} &
- \dfrac{A E c^2}{L} + \dfrac{12 E I_z s^2}{L^3} &
- \dfrac{-A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
- \dfrac{-6 E I_z s}{L^2} \\
-\dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} & 
-\dfrac{-A E s^2}{L} - \dfrac{12 E I_z c^2}{L^3} &
- \dfrac{-6 E I_z c}{L^2} &
- \dfrac{-A E s c}{L} + \dfrac{12 E I_z s c}{L^3 } &
- \dfrac{A E s^2}{L} + \dfrac{12 E I_z c^2}{L^3} &
- \dfrac{-6 E I_z c}{L^2} \\
+\dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
+\dfrac{ - 6 E I_z s}{L^2} &
+\dfrac{ - A E c^2}{L} - \dfrac{12 E I_z s^2}{L^3} &
+\dfrac{ - A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
+\dfrac{ - 6 E I_z s}{L^2} \\
+\dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
+\dfrac{A E s^2}{L} + \dfrac{12 E I_z c^2}{L^3} &
+\dfrac{6 E I_z c}{L^2} &
+\dfrac{ - A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
+\dfrac{ - A E s^2}{L} - \dfrac{12 E I_z c^2}{L^3} &
+\dfrac{6 E I_z c}{L^2} \\
+\dfrac{ - 6 E I_z s}{L^2} &
+\dfrac{6 E I_z c}{L^2} &
+\dfrac{4 E I_z}{L}  &
 \dfrac{6 E I_z s}{L^2} &
- \dfrac{6 E I_z c}{L^2} & 
+\dfrac{ - 6 E I_z c}{L^2} &
+\dfrac{2 E I_z}{L} \\
+\dfrac{ - A E c^2}{L} - \dfrac{12 E I_z s^2}{L^3} &
+\dfrac{ - A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
+\dfrac{6 E I_z s}{L^2} &
+\dfrac{A E c^2}{L} + \dfrac{12 E I_z s^2}{L^3} &
+\dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
+\dfrac{6 E I_z s}{L^2}\\
+\dfrac{ - A E s c}{L} + \dfrac{12 E I_z s c}{L^3} &
+\dfrac{ - A E s^2}{L} - \dfrac{12 E I_z c^2}{L^3} &
+\dfrac{ - 6 E I_z c}{L^2} &
+\dfrac{A E s c}{L} - \dfrac{12 E I_z s c}{L^3} &
+\dfrac{A E s^2}{L} + \dfrac{12 E I_z c^2}{L^3} &
+\dfrac{ - 6 E I_z c}{L^2}\\
+\dfrac{ - 6 E I_z s}{L^2} &
+\dfrac{6 E I_z c}{L^2} &
 \dfrac{2 E I_z}{L} &
- \dfrac{-6 E I_z s}{L^2} & 
-\dfrac{-6 E I_z c}{L^2} & 
+\dfrac{6 E I_z s}{L^2} &
+\dfrac{ - 6 E I_z c}{L^2} &
 \dfrac{4 E I_z}{L}
 \end{array} \right]$$</p>
 <p>Portanto, podemos escrever as matrizes de rigidez no sistema global de todos os três elementos da estrutura. Atenção às constantes <span class="mathjax mathjax--inline">$E$</span>, <span class="mathjax mathjax--inline">$A$</span> e <span class="mathjax mathjax--inline">$L$</span>, elas podem variar de elemento para elemento. Além disso, observe o posicionamento da seção transversal em relação ao plano do pórtico para o correto uso da inércia e que a discretização é feita no centro de gravidade da seção transversal (pode ser feita em relação a outro ponto, mas as propriedades precisariam ser recalculadas), por isso os comprimentos precisam ser calculados levando em conta o comprimento das barras do pórtico ligadas pelos centros de gravidade das seções.</p>
-<p><strong>Elemento 1</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>), <span class="mathjax mathjax--inline">$E_1 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_1 = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span> e <span class="mathjax mathjax--inline">$L_1 = 460 cm$</span></p>
+<p><strong>Elemento 1</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 90^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>), <span class="mathjax mathjax--inline">$E_1 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_1 = 143,75 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 9918,62 cm^4$</span> e <span class="mathjax mathjax--inline">$L_1 = 460 cm$</span></p>
 <p class="mathjax mathjax--block">$$
-\textbf{k1}_g = \left[ \begin{array}{cccccc}
-27,59 & 0 & 6345,94 & -27,59 & 0 & 6345,94 \\
-0 & 6086,96 & 0 & 0 & -6086,96 & 0 \\
-6345,94 & 0 & 1946086,96 & -6345,94 & 0 & 973043,48 \\
--27,59 & 0 & -6345,94 & 27,59 & 0 & -6345,94 \\
-0 & -6086,96 & 0 & 0 & 6086,96 & 0 \\
-6345,94 & 0 & 973043,48 & -6345,94 & 0 & 1946086,96
+\textbf{k}1_g = \left[ \begin{array}{cccccc}
+24,46 & 0 & -5624,93 & -24,46 & 0 & -5624,93\\
+0 & 6250 & 0 & 0 & -6250 & 0\\
+-5624,93 & 0 & 1724977,39 & 5624,93 & 0 & 862488,70\\
+-24,46 & 0 & 5624,93 & 24,46 & 0 & 5624,93\\
+0 & -6250 & 0 & 0 & 6250 & 0\\
+-5624,93 & 0 & 862488,70 & 5624,93 & 0 & 1724977,39
 \end{array} \right]$$</p>
-<p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span>), <span class="mathjax mathjax--inline">$E_2 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_2 = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span> e <span class="mathjax mathjax--inline">$L_2 = 920 cm$</span></p>
+<p><strong>Elemento 2</strong>: <span class="mathjax mathjax--inline">$\theta = 0^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 1$</span>, <span class="mathjax mathjax--inline">$sen 0^o = 0$</span>), <span class="mathjax mathjax--inline">$E_2 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_2 = 143,75 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 9918,62 cm^4$</span> e <span class="mathjax mathjax--inline">$L_2 = 920 cm$</span></p>
 <p class="mathjax mathjax--block">$$
-\textbf{k2}_g = \left[ \begin{array}{cccccc}
-3043,48 & 0 & 0 & -3043,48 & 0 & 0 \\
-0 & 3,45 & 1586,48 & 0 & -3,45 & 1586,48 \\
-0 & 1586,48 & 973043,48 & 0 & -1586,48 & 486521,74 \\
--3043,48 & 0 & 0 & 3043,48 & 0 & 0 \\
-0 & -3,45 & -1586,48 & 0 & 3,45 & -1586,48 \\
-0 & 1586,48 & 486521,74 & 0 & -1586,48 & 973043,48
+\textbf{k}2_g = \left[ \begin{array}{cccccc}
+3125,00 & 0 & 0 & -3125,00 & 0 & 0 \\
+0 & 3,06 & 1406,23 & 0 & -3,06 & 1406,23 \\
+0 & 1406,23 & 862488,70 & 0 & -1406,23 & 431244,35 \\
+-3125,00 & 0 & 0 & 3125,00 & 0 & 0 \\
+0 & -3,06 & -1406,23 & 0 & 3,06 & -1406,23 \\
+0 & 1406,23 & 431244,35 & 0 & -1406,23 & 862488,70
 \end{array} \right]$$</p>
-<p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>), <span class="mathjax mathjax--inline">$E_3 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_3 = 140 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 11190 cm^4$</span> e <span class="mathjax mathjax--inline">$L_3 = 460 mm$</span></p>
+<p><strong>Elemento 3</strong>: <span class="mathjax mathjax--inline">$\theta = 90^o$</span> (<span class="mathjax mathjax--inline">$cos 0^o = 0$</span>, <span class="mathjax mathjax--inline">$sen 90^o = 1$</span>), <span class="mathjax mathjax--inline">$E_3 = 20000 kN/cm^2$</span>, <span class="mathjax mathjax--inline">$A_3 = 143,75 cm^2$</span>, <span class="mathjax mathjax--inline">$I_y = 9918,62 cm^4$</span> e <span class="mathjax mathjax--inline">$L_3 = 460 mm$</span></p>
 <p class="mathjax mathjax--block">$$
-\textbf{k3}_g = \left[ \begin{array}{cccccc}
-27,59 & 0 & 6345,94 & -27,59 & 0 & 6345,94 \\
-0 & 6086,96 & 0 & 0 & -6086,96 & 0 \\
-6345,94 & 0 & 1946086,96 & -6345,94 & 0 & 973043,48 \\
--27,59 & 0 & -6345,94 & 27,59 & 0 & -6345,94 \\
-0 & -6086,96 & 0 & 0 & 6086,96 & 0 \\
-6345,94 & 0 & 973043,48 & -6345,94 & 0 & 1946086,96
+\textbf{k}3_g = \left[ \begin{array}{cccccc}
+24,46 & 0 & -5624,93 & -24,46 & 0 & -5624,93\\
+0 & 6250 & 0 & 0 & -6250 & 0\\
+-5624,93 & 0 & 1724977,39 & 5624,93 & 0 & 862488,70\\
+-24,46 & 0 & 5624,93 & 24,46 & 0 & 5624,93\\
+0 & -6250 & 0 & 0 & 6250 & 0\\
+-5624,93 & 0 & 862488,70 & 5624,93 & 0 & 1724977,39
 \end{array} \right]$$</p>
 <p>Agora precisamos criar a matriz de rigidez da estrutura como um todo, acoplando as matrizes de rigidez globais dos elementos da mesma forma que as barras estão conectadas, para garantir a correta distribuição das rigidezes nos graus de liberdade da estrutura.</p>
-<p>AQUI!!!!!</p>
 <h3 id="determinao-da-matriz-de-rigidez..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-da-matriz-de-rigidez..." title="Permanent link: Determinação da matriz de rigidez da estrutura" data-icon="#">Determinação da matriz de rigidez da estrutura</a></h3>
-<p>O que é a matriz de rigidez da estruturas? É a matriz de rigidez que rege o comportamento estrutural (no nosso caso) da estrutura como um todo composta pelos seus elementos formulados como matrizes de rigidez globais. </p>
-<p>Essa matriz de rigidez da estrutura pode ser criada (existem outras formas) utilizando uma regrinha simples de endereçamento, chamada <strong>regra da correspondência</strong>. A ideia dessa regra é relacionar os graus de liberdade do elemento no sistema global com os graus de liberdade da estrutura também no sistem global, utilizando a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, e a matriz de incidência dos elementos, <span class="mathjax mathjax--inline">$\textbf{IE}$</span>. O endereçamento é feito por um vetor chamado carteiro (essa eu inventei agora!). </p>
-<p>O carteiro, ou <span class="mathjax mathjax--inline">$Ca$</span>, possui uma quantidade de elementos igual ao número total de graus de liberdade do elemento, então, no nosso caso, como temos dois graus de liberdade por nó e dois nós no elemento, o vetor carteiro terá 4 elementos. Os dois primeiros elementos do carteiro se relacionam com o nó da estrutura correspondente ao nó 1 do elemento, e os dois últimos ao nó da estrutura correspondente ao nó 2 do elemento (no nosso caso, para o elemento de treliça, claro que isso muda com o tipo de elemento). Por exemplo, o nó 1 do elemento 3 é o nó 3 na estrutura. </p>
-<p>A construção do carteiro é feita para cada barra com uma busca por elementos da matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, de acordo com a matriz de incidência, <span class="mathjax mathjax--inline">$\textbf{IE}$</span>, em função das direções <span class="mathjax mathjax--inline">$X$</span> e <span class="mathjax mathjax--inline">$Y$</span>. De uma forma genérica, para o elemento de treliça plana, podemos escrever o carteiro como:</p>
+<p>O que é a matriz de rigidez da estruturas? Lembra? É a matriz de rigidez que rege o comportamento estrutural (no nosso caso) da estrutura como um todo composta pelos seus elementos formulados como matrizes de rigidez globais. </p>
+<p>Essa matriz de rigidez da estrutura será criada (existem outras formas) utilizando a nossa regrinha simples de endereçamento, a <strong>regra da correspondência</strong>. Recordando que a ideia dessa regra é relacionar os graus de liberdade do elemento no sistema global com os graus de liberdade da estrutura também no sistem global, utilizando a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, e a matriz de incidência dos elementos, <span class="mathjax mathjax--inline">$\textbf{IE}$</span>. O endereçamento é feito pelos vetores de cada elemento chamados carteiros. </p>
+<p>Antes de determinar a matriz de rigidez da estrutura, vamos pensar um pouquinho. Como vimos todas as colunas da matriz de rigidez da estrutura correspondentes aos graus de liberdade restringidos estarão multiplicadas por zero, ou seja, seu cálculo não vai servir para nada além de desperdiçar tempo (como?! veja <a href="../../trelicaplana/teoria/aplicacao.html#aplicando-as-condições-de-contorno">aqui</a>. Também vimos que em função da forma com que é montado o nosso sistema linear de equações da estrutura, equilíbrio estático <span class="mathjax mathjax--inline">$\textbf{K} \textbf{U} = \textbf{F}$</span>, em função do pré-estabelecido para a numeração dos graus de liberdade, livres primeiro, a matriz de rigidez pode ser separada em duas, uma para o cálculo dos deslocamentos e outra para o cálculo das reações de apoio (não lembra?! veja <a href="../../trelicaplana/teoria/aplicacao.html#separação-das-variáveis">aqui</a>). Então, vamos ser espertos e montar apenas o que precisamos, primeiro a porção da matriz de rigidez da estrutura para cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>, e depois a porção para cálculo das reações de apoio, <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>.</p>
+<p>Precisamos determinar uma metodologia para construir as matrizes <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> e <span class="mathjax mathjax--inline">$\textbf{K}_R$</span> de forma direta, sem ter que constriuir toda a matriz de rigidez da estrutura, ou seja, vamos precisar manipular um pouquinho a regra da corresposndência.</p>
+<h4 id="regra-da-correspondncia" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#regra-da-correspondncia" title="Permanent link: Regra da correspondência" data-icon="#">Regra da correspondência</a></h4>
+<p>Lembrando que a regra da correspondência relaciona os graus de liberdade do elemento no sistema global com os graus de liberdade da estrutura também no sistem global, utilizando a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, e a matriz de incidência dos elementos, <span class="mathjax mathjax--inline">$\textbf{IE}$</span>. O endereçamento é feito por um vetor chamado carteiro definido para cada elemento da estrutura. </p>
+<p>O carteiro, ou <span class="mathjax mathjax--inline">$Ca$</span>, possui uma quantidade de elementos igual ao número total de graus de liberdade do elemento, então, no nosso caso, como temos três graus de liberdade por nó e dois nós no elemento, o vetor carteiro terá 6 elementos. Os três primeiros elementos do carteiro se relacionam com o nó da estrutura correspondente ao nó 1 do elemento, e os três últimos ao nó da estrutura correspondente ao nó 2 do elemento.</p>
+<p>A construção do carteiro é feita para cada barra com uma busca por elementos da matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, de acordo com a matriz de incidência, <span class="mathjax mathjax--inline">$\textbf{IE}$</span>, em função das direções <span class="mathjax mathjax--inline">$X$</span>, <span class="mathjax mathjax--inline">$Y$</span> e <span class="mathjax mathjax--inline">$Z$</span>. </p>
+<p>De uma forma genérica, para o elemento de pórtico plano, podemos escrever o carteiro como:</p>
 <p class="mathjax mathjax--block">$$
-Ca_b = \left\lbrace \begin{array}{c}
+\textbf{Ca}_b = \left\lbrace \begin{array}{c}
     GL_{IE_{b,1},1}\\
     GL_{IE_{b,1},2} \\
+    GL_{IE_{b,1},3}\\
     GL_{IE_{b,2},1}\\
-    GL_{IE_{b,2},2} \end{array} \right\rbrace$$</p>
+    GL_{IE_{b,2},2}\\
+    GL_{IE_{b,2},3} \end{array} \right\rbrace$$</p>
 <p>Sendo b o número da barra. Observe que <span class="mathjax mathjax--inline">$IE_{b,1}$</span> são linha b e coluna 1 da matriz de incidência <span class="mathjax mathjax--inline">$\textbf{IE}$</span> e que <span class="mathjax mathjax--inline">$GL_{IE_{b,1},1}$</span> são linha <span class="mathjax mathjax--inline">$IE_{b,1}$</span> e coluna 1 da matriz de graus de liberdade <span class="mathjax mathjax--inline">$\textbf{GL}$</span>.</p>
-<p>O carteiro nada mais é que um identificador das linhas e colunas das matrizes dos elementos no sistema global na matriz de rigidez da estrutura no sistema global. Portanto, no nosso exemplo, como:</p>
+<p>O carteiro nada mais é que um identificador das linhas e colunas das matrizes dos elementos no sistema global na matriz de rigidez da estrutura no sistema global. Então, de uma forma condensada podemos escrever a construção do carteiro como sendo uma sequência de variação de índices que representam cada definição disposta no carteiro.</p>
 <p class="mathjax mathjax--block">$$
-\textbf{GL} = \left[ \begin{array}{cc}
-        1 & 2 \\
-        4 & 3 \\
-        5 & 6 
-    \end{array} \right]
+\textbf{Ca}_{b,i^2+(j-1)} = \textbf{GL}_{(\textbf{IE}_{b,i}),j} = i^2+(j-1) \qquad \text{para} \quad i = 1,2 \quad j = 1,2,3$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$b$</span> representativo do número do elemento análisado, <span class="mathjax mathjax--inline">$j$</span> dos graus de liberdade por nó do elemento, por isso que varia de 1 a 3, <span class="mathjax mathjax--inline">$i$</span> da quantidade de nós do elemento, no caso 1 e 2, dois nós no elemento e <span class="mathjax mathjax--inline">$i^2+(j-1)$</span> a quantidade total de graus de liberdade do elemento, no caso variando de 1 a 6 em função de <span class="mathjax mathjax--inline">$i$</span> e <span class="mathjax mathjax--inline">$j$</span>, três por nó.</p>
+<p>Observe que <span class="mathjax mathjax--inline">$\textbf{IE}_{b,i}$</span> é o primeiro índice de <span class="mathjax mathjax--inline">$\textbf{GL}$</span> e <span class="mathjax mathjax--inline">$j$</span> o segundo. É como se transformassemos o nosso carteiro em uma matriz sendo suas linhas relativas aos elementos e suas colunas aos graus de liberdade do elemento, sendo preenchida respectivamente pelos graus de liberdade da estrutura.</p>
+<p>No entanto, o carteiro não funciona para a nossa ideia de montar diretamente <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> e <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>, pois o carteiro endereça os graus de liberdade do elemento no sistema global para os da estrutura e para montarmos <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> e <span class="mathjax mathjax--inline">$\textbf{K}_R$</span> precisamos endereçar os da estrutura para os do elemento no sistema global, identificando para cada grau de liberdade da estrutura quem são os elementos que o influênciam e seus respectivos graus de liberdade do elemento no sistema global. Vamos fazer isso escrevendo o remetente. </p>
+<h5 id="determinao-do-remetente" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-do-remetente" title="Permanent link: Determinação do remetente" data-icon="#">Determinação do remetente</a></h5>
+<p>O remetente, <span class="mathjax mathjax--inline">$\textbf{Re}$</span> é uma matriz em que suas colunas significam os graus de liberdade da estrutura, todos, e suas linhas os elementos que compõe a estrutura. Ela é composta pelos graus de liberdade de cada elemento no sistema global, obtidos em função dos carteiros. Portanto, para determinar uma posição qualquer dentro do remetente, podemos seguir a seguinte regrinha:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{Re}_{b,\textbf{GL}_{(\textbf{IE}_{b,i}),j}} = i^2+(j-1) \qquad \text{para} \quad i = 1,2 \quad j = 1,2,3 \quad b = 1,...,t_{el}$$</p>
+<p>Sendo <span class="mathjax mathjax--inline">$b$</span> a linha de <span class="mathjax mathjax--inline">$\textbf{Re}$</span> relativo ao número do elemento analisado, que no nosso caso em específico varia de 1 a 3, sendo então o total de elementos <span class="mathjax mathjax--inline">$t_{el}=3$</span>, <span class="mathjax mathjax--inline">$j$</span> graus de liberdade por nó do elemento, variando de 1 a 3 e <span class="mathjax mathjax--inline">$i$</span> da quantidade de nós do elemento, no caso 1 e 2.</p>
+<p>Vamos parar um pouco para relembrar a equação para a montagem do <span class="mathjax mathjax--inline">$\textbf{Re}$</span> parte a parte. </p>
+<p>Nessa equação, o que significa <span class="mathjax mathjax--inline">$\textbf{IE}_{b,i}$</span>? <span class="mathjax mathjax--inline">$\textbf{IE}$</span> é a matriz de incidência dos elementos que indica em sua primeira coluna quem é o nó inicial do elemento na estrutura e na segunda coluna quem é o nó final do elemento da estrutura, portanto, <span class="mathjax mathjax--inline">$\textbf{IE}_{b,i}$</span> para um certo elemento <span class="mathjax mathjax--inline">$b$</span> retorna o seu nó inicial caso <span class="mathjax mathjax--inline">$i$</span> seja igual a 1 ou seu nó final caso <span class="mathjax mathjax--inline">$i$</span> seja igual a dois, então, <span class="mathjax mathjax--inline">$\textbf{IE}_{b,i}$</span> vai retornar o número de um nó da estrutura associado ao elemento <span class="mathjax mathjax--inline">$b$</span>.</p>
+<p>Certo, e <span class="mathjax mathjax--inline">$\textbf{GL}_{(\textbf{IE}_{b,i}),j}$</span>, o que significa? Bem, se <span class="mathjax mathjax--inline">$\textbf{IE}_{b,i}$</span> retorna o número de um nó da estrutura relativo ao elemento <span class="mathjax mathjax--inline">$b$</span> e serve como primeiro índice da matriz dos graus de liberdade <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, sua associação com <span class="mathjax mathjax--inline">$j$</span> no segundo índice, que é relativo aos graus de liberdade do elemento por nó, vai retornar exatamente o grau de liberdade da estrutura, disposto em <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, relativo ao nó <span class="mathjax mathjax--inline">$i$</span>, associado ao grau de liberdade do elemento <span class="mathjax mathjax--inline">$j$</span> do elemento <span class="mathjax mathjax--inline">$b$</span>.</p>
+<p>No nosso exemplo de parte do módulo da torre temos que:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{GL} = \left[ \begin{array}{ccc}
+        7 & 8 & 9 \\
+        1 & 2 & 3 \\
+        4 & 5 & 6 \\
+        10 & 11 & 12 
+    \end{array} \right]  
 \qquad \text{e} \qquad
 \textbf{IE} = \left[ \begin{array}{cc}
         1 & 2 \\
-        3 & 2 \\
-        3 & 1 
+        2 & 3 \\
+        4 & 3 
     \end{array} \right]$$</p>
-<p>Então, os carteiros para os elementos 1, 2 e 3 valem:</p>
+<p>Usando a equação do remetente pretendemos construir a matriz do remetente <span class="mathjax mathjax--inline">$\textbf{Re}$</span> de tamanho 3x12, 3 o total de elementos da estrutura e 12 o total de graus de liberdade da estrutura. Para isso, precisamos primeiro fixar um valor de <span class="mathjax mathjax--inline">$b$</span>, ou seja, vamos analisar o elemento 1, <span class="mathjax mathjax--inline">$b=1$</span>, fixar um valor para i, por exemplo, nó inicial <span class="mathjax mathjax--inline">$i=1$</span> e variar <span class="mathjax mathjax--inline">$j$</span> de 1 a 3, os três graus de liberdade do elemento no nó inicial.</p>
 <p class="mathjax mathjax--block">$$
-Ca_1 = \left\lbrace \begin{array}{c}
-    GL_{IE_{1,1},1}\\
-    GL_{IE_{1,1},2} \\
-    GL_{IE_{1,2},1}\\
-    GL_{IE_{1,2},2} \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    GL_{1,1}\\
-    GL_{1,2} \\
-    GL_{2,1}\\
-    GL_{2,2} \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    1\\
-    2 \\
-    4\\
-    3 \end{array} \right\rbrace \quad 
-Ca_2 = \left\lbrace \begin{array}{c}
-    GL_{IE_{2,1},1}\\
-    GL_{IE_{2,1},2} \\
-    GL_{IE_{2,2},1}\\
-    GL_{IE_{2,2},2} \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    GL_{3,1}\\
-    GL_{3,2} \\
-    GL_{2,1}\\
-    GL_{2,2} \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    5\\
-    6 \\
-    4\\
-    3 \end{array} \right\rbrace$$</p>
+\begin{align}
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,1}),1}} &= 1^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{1,1}} = 7 \quad \rightarrow \quad \textbf{Re}_{1,7} = 1 \\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,1}),2}} &= 1^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{1,2}} = 8 \quad \rightarrow \quad \textbf{Re}_{1,8} = 2\\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,1}),3}} &= 1^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{1,3}} = 9 \quad \rightarrow \quad \textbf{Re}_{1,9} = 3\\
+\end{align}$$</p>
+<p>Agora, mantendo <span class="mathjax mathjax--inline">$b=1$</span>, ou seja, ainda no elemento 1, mudando <span class="mathjax mathjax--inline">$i$</span> para <span class="mathjax mathjax--inline">$i=2$</span>, indo para o nó final e de novo variando <span class="mathjax mathjax--inline">$j$</span> de 1 a 3, os três graus de liberdade do elemento no nó, no caso, final.</p>
 <p class="mathjax mathjax--block">$$
-Ca_3 = \left\lbrace \begin{array}{c}
-    GL_{IE_{3,1},1}\\
-    GL_{IE_{3,1},2} \\
-    GL_{IE_{3,2},1}\\
-    GL_{IE_{3,2},2} \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    GL_{3,1}\\
-    GL_{3,2} \\
-    GL_{1,1}\\
-    GL_{1,2} \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    5\\
-    6 \\
-    1\\
-    2 \end{array} \right\rbrace$$</p>
-<p>Observe que os valores dos carteiros são exatemente os números dos graus de liberdade da estrutura para cada um dos elementos nela discretizados. Complica um pouco a visualização para o elemento 1 visto que os graus de liberdade locais decompostos nas direções globais se misturam.</p>
-<p><img src="http://localhost:8000/porticos/teoria/aplicacao/imagens/Trelica3barrasCarteiro.svg" alt="Correspondência do Carteiro" title="Correspondência do Carteiro" />
-<small>Correspondência do Carteiro.</small></p>
-<p>O carteiro só funciona se as matrizes dos graus de liberdade e de incidência dos elementos foram corretamente construídas. O legal da regra da correspondência é que as direções globais e os sinais já estão implícitos na formulação e saem automáticos.</p>
-<blockquote>
-<p>Por exemplo, no elemento 2 (barra 2), se a incidência fosse o nó 1 do elemento para o nó 2 da estrutura e o nó 2  do elemento para o nó 3 da estrutura, o ângulo do elemento seria <span class="mathjax mathjax--inline">$\theta = 270^o$</span>, pois esse é medido da direção positiva do eixo <span class="mathjax mathjax--inline">$X$</span> no sentido anti-horário até o eixo <span class="mathjax mathjax--inline">$x$</span> longitudinal ao elemento, e o carteiro seria <span class="mathjax mathjax--inline">$\lbrace 4, 3, 5, 6 \rbrace$</span>.</p>
-</blockquote>
-<p>A montagem da matriz global segue o endereçamento dado pelo carteiro. Na prática é bem simples, basta colocar os valores determinados nos carteiros nas linhas e colunas das matrizes de rigidez dos elementos no sistema global. Esses valores são as novas linhas e colunas de cada elemento dessas matrizes na matriz de rigidez da estrutura.</p>
+\begin{align}
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,2}),1}} &= 2^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{2,1}} = 1 \quad \rightarrow \quad \textbf{Re}_{1,1} = 4 \\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,2}),2}} &= 2^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{2,2}} = 2 \quad \rightarrow \quad \textbf{Re}_{1,2} = 5\\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,2}),3}} &= 2^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{2,3}} = 3 \quad \rightarrow \quad \textbf{Re}_{1,3} = 6\\
+\end{align}$$</p>
+<p>Pronto! Já temos a primeira linha feita da matriz do rementente <span class="mathjax mathjax--inline">$\textbf{Re}$</span>. </p>
 <p class="mathjax mathjax--block">$$
-\textbf{k1}_g = \begin{array}{cc}
-    1 \hspace{50pt} 2 \hspace{50pt} 4 \hspace{50pt} 3 & \\
-    \left[ 
-\begin{array}{cccc}
-    709233,42 & -709233,42 & -709233,42 & 709233,42\\
-    -709233,42 & 709233,42 & 709233,42 & -709233,42 \\
-    -709233,42 & 709233,42 & 709233,42 & -709233,42\\
-    709233,42 & -709233,42 & -709233,42 & 709233,42 \\
+\textbf{Re} = \begin{array}{cc}
+1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{3pt} & \\
+\left[ \begin{array}{cccccccccccccccccc}
+    4 & 5 & 6 & 0 & 0 & 0 & 1 & 2 & 3 & 0 & 0 & 0 \\
+     & & & & & & & & & & & \\
+     & & & & & & & & & & & 
 \end{array} \right] & \begin{array}{c} 
                             1\\ 
                             2\\  
-                            4\\
-                            3\\ 
+                            3
                          \end{array}\\
 \end{array}$$</p>
+<p>Vamos ilustrar melhor o conceito escrevendo a linha do remetente para o elemento 3, ou seja, <span class="mathjax mathjax--inline">$b=3$</span>. Fixando <span class="mathjax mathjax--inline">$i=1$</span> e variando <span class="mathjax mathjax--inline">$j$</span> de 1 a 3 e depois fixando <span class="mathjax mathjax--inline">$i=2$</span> e variando <span class="mathjax mathjax--inline">$j$</span> de um a 3, temos:</p>
 <p class="mathjax mathjax--block">$$
-\textbf{k2}_g = \begin{array}{cc}
-    5 \hspace{37pt} 6 \hspace{37pt} 4 \hspace{37pt} 3 & \\
-    \left[ 
-\begin{array}{cccc}
-    \hspace{10pt} 0 \hspace{10pt} & 0 & \hspace{15pt} 0 \hspace{15pt} & 0 \\
-    0 & 692073,45 & 0 & -692073,45\\
-    0 & 0 & 0 & 0 \\
-    0 & -692073,45 & 0 & 692073,45\\
+\begin{align}
+    \textbf{Re}_{3,\textbf{GL}_{(\textbf{IE}_{3,1}),1}} &= 1^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{3,\textbf{GL}_{4,1}} = 1 \quad \rightarrow \quad \textbf{Re}_{3,10} = 1 \\
+    \textbf{Re}_{3,\textbf{GL}_{(\textbf{IE}_{3,1}),2}} &= 1^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{3,\textbf{GL}_{4,2}} = 2 \quad \rightarrow \quad \textbf{Re}_{3,11} = 2\\
+    \textbf{Re}_{3,\textbf{GL}_{(\textbf{IE}_{3,1}),3}} &= 1^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{3,\textbf{GL}_{4,3}} = 3 \quad \rightarrow \quad \textbf{Re}_{3,12} = 3\\
+\textbf{Re}_{3,\textbf{GL}_{(\textbf{IE}_{3,2}),1}} &= 2^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{3,\textbf{GL}_{3,1}} = 4 \quad \rightarrow \quad \textbf{Re}_{3,4} = 4 \\
+    \textbf{Re}_{3,\textbf{GL}_{(\textbf{IE}_{3,2}),2}} &= 2^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{3,\textbf{GL}_{3,2}} = 5 \quad \rightarrow \quad \textbf{Re}_{3,5} = 5\\
+    \textbf{Re}_{3,\textbf{GL}_{(\textbf{IE}_{3,2}),3}} &= 2^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{3,\textbf{GL}_{3,3}} = 6 \quad \rightarrow \quad \textbf{Re}_{3,6} = 6\\
+\end{align}$$</p>
+<p>Colocando os resultados na correspondente linha 6 da matriz <span class="mathjax mathjax--inline">$\textbf{Re}$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{Re} = \begin{array}{cc}
+1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{3pt} & \\
+\left[ \begin{array}{cccccccccccccccccc}
+    4 & 5 & 6 & 0 & 0 & 0 & 1 & 2 & 3 & 0 & 0 & 0 \\
+     & & & & & & & & & & & \\
+    0 & 0 & 0 & 4 & 5 & 6 & 0 & 0 & 0 & 1 & 2 & 3 
 \end{array} \right] & \begin{array}{c} 
-                            5\\ 
-                            6\\  
-                            4\\
-                            3\\ 
-                         \end{array}\\
-\end{array}$$</p>
-<p class="mathjax mathjax--block">$$
-\textbf{k3}_g = \begin{array}{cc}
-    5 \hspace{37pt} 6 \hspace{37pt} 1 \hspace{37pt} 2 & \\
-    \left[ 
-\begin{array}{cccc}
-    692073,45 & 0 & -692073,45 & 0\\
-    0 & \hspace{10pt} 0 \hspace{10pt} & 0 & \hspace{15pt} 0  \hspace{15pt} \\
-    -692073,45 & 0 & 692073,45 & 0\\
-    0 & 0 & 0 & 0 \\
-\end{array} \right] & \begin{array}{c} 
-                            5\\ 
-                            6\\  
-                            1\\
-                            2\\ 
-                         \end{array}\\
-\end{array}$$</p>
-<p>Agora basta montar a matriz de rigidez da estrutura transportando os respectivos valores das linha e colunas para a sua correta posição dada pelo carteriro na matriz do elemento. Se dois valores cairem na mesma possição, bastá somá-los, é assim que acoplamos os elementos e montamos a estrutura matematicamente.</p>
-<p class="mathjax mathjax--block">$$
-\textbf{K} = \begin{array}{cc}
-    1 \hspace{50pt} 2 \hspace{50pt} 3 \hspace{50pt} 4 \hspace{50pt} 5 \hspace{50pt} 6 & \\
-        \left[ \begin{array}{cccccc}
-         1401306,87 & -709233,42 & 709233,42 & -709233,42 & -692073,45 & 0 \\
-         -709233,42 & 709233,42 & -709233,42 & 709233,42 & 0 & 0 \\
-         709233,42 & -709233,42 & 1401306,87 & -709233,42 & 0 & -692073,45 \\
-         -709233,42 & 709233,42 & -709233,42 & 709233,42 & 0 & 0 \\
-         -692073,45 & 0 & 0 & 0 & 692073,45 & 0 \\
-         0 & 0 & -692073,45 & 0 & 0 & 692073,45 \\
-        \end{array} \right] & \begin{array}{c} 
                             1\\ 
                             2\\  
-                            3\\
-                            4\\ 
-                            5\\
-                            6\\
+                            3
                          \end{array}\\
 \end{array}$$</p>
+<p>Fazendo para todos os elementos, chegamos a matriz do remetente, retirando os zeros para a melhor visualização, ou seja, espaço em branco na matriz significa zero!</p>
+<p class="mathjax mathjax--block">$$
+\textbf{Re} = \begin{array}{cc}
+1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{3pt} & \\
+\left[ \begin{array}{cccccccccccccccccc}
+    4 & 5 & 6 &  &  &  & 1 & 2 & 3 &  &  &  \\
+    1 & 2 & 3 & 4 & 5 & 6 & & & & & & \\
+     &  &  & 4 & 5 & 6 &  &  &  & 1 & 2 & 3 
+\end{array} \right] & \begin{array}{c} 
+                            1\\ 
+                            2\\  
+                            3
+                         \end{array}\\
+\end{array}$$</p>
+<p>Olha que legal essa matriz! Ela nos diz exatamente qual grau de liberdade de qual elemento influencia em determinado grau de liberdade da estrutura. Por exemplo, grau de liberdade 6 da estrutura, quais elementos e quais graus de liberdade desses elementos contribuem para esse grau de liberdade da estutura? Olhe a coluna 6, temos o grau de liberdade 6 do elemento 2 e o grau de liberdade 6 do elemento 3.</p>
+<p>Além disso, veja que claramente os graus de liberdade 1, 2 e 3 dos elementos 1 e 3 não influenciam na matriz para cálculo dos deslocamentos, pois essa somente é composta pelos 3 graus de liberdade livres.</p>
+<p>Com a matriz do remetente <span class="mathjax mathjax--inline">$\textbf{Re}$</span> completa, podemos construir sem maiores dificuldades, as matrizes para cálculo dos deslocamentos <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> da estrutura e para cálculo das reações de apoio à posteriori <span class="mathjax mathjax--inline">$\textbf{K}_R$</span> da estrutura. Além disso, esse procedimento é de simples implementação computacional.</p>
 <blockquote>
-<p>Por exemplo, quem é o <span class="mathjax mathjax--inline">$\textbf{K}_{5,1}$</span>? É o <span class="mathjax mathjax--inline">$\textbf{k3}_{g 1,3} = -692073,45$</span>. E o <span class="mathjax mathjax--inline">$\textbf{K}_{3,3}$</span>? É o <span class="mathjax mathjax--inline">$\textbf{k1}_{g 3,3} = 709233,42$</span> + <span class="mathjax mathjax--inline">$\textbf{k2}_{g 4,4} = 692073,45$</span>, e o <span class="mathjax mathjax--inline">$\textbf{K}_{1,1}$</span> é o <span class="mathjax mathjax--inline">$\textbf{k1}_{g 1,1} = 709233,42$</span> + <span class="mathjax mathjax--inline">$\textbf{k3}_{g 1,1} = 692073,45$</span>, resultando em <span class="mathjax mathjax--inline">$1401306,87$</span>, e assim por diante. As matrizes dos elementos globais não estão numeradas com suas linhas e colunas por motivos óbvios, não acha? a linha 1 é 1, a 2 é 2, etc. Somente estão numeradas com o carteiro para indicar qual é o número da linha na matriz da estrutura dos elementos da linha tal na matriz do elemento global.</p>
+<p>Agora, você não está um pouco confuso?! Veja, o grau de liberdade 1 do elemento 1 não é o grau de liberdade axial? Portanto, não deveria ser o 8 da estrutura? Mas pelo remetente ele vai se tornar o 7! E agora?!? Lembre-se de que rotacionamos o elemento em <span class="mathjax mathjax--inline">$90^o$</span>, seu ângulo em relação ao <span class="mathjax mathjax--inline">$X$</span> global no sentido anti-horário e que isso, basicamente, significa decompor os graus de liberdade das direções locais nas globais. Observe a matriz de rigidez do elemento 1 no sistema global, note que a rigidez axial relativa ao efeito do grau de liberdade 1 do elemento nele mesmo (1,1) está na posição 2,2 da matriz no sistema local, que será direcionada, de acordo com o remetente, para a posição 8,8 da matriz de rigidez da estrutura, relativa ao grau de liberdade axial desse elemento na estrutura. Entendeu que a rotação da matriz do elemento faz com que os grau de liberdade se posicionem automaticamente na estrutura?</p>
 </blockquote>
+<h4 id="determinao-da-matriz-para..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-da-matriz-para..." title="Permanent link: Determinação da matriz para cálculo dos deslocamentos" data-icon="#">Determinação da matriz para cálculo dos deslocamentos</a></h4>
+<p>A submatriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> para o cálculo dos deslocamentos é definida como uma porção da matriz de rigidez relativa ao cálculo dos deslocamentos. Ela é identificada na matriz de rigidez pelas linhas e colunas correspondentes aos graus de liberdade livres, ou seja, se 3 e 5 forem graus de liberdade livres da estrutura, as linhas 3 e 5 estarão de forma parcial na matriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>. </p>
+<p>Por que de forma parcial? Por que as colunas relativas aos graus de liberdade restringidos serão eliminadas, ou seja, as colunas da linha 3 referentes aos graus de liberdade restringidos não serão calculadas e as linhas referentes aos graus de liberdade restringidos serão dispostas na matriz <span class="mathjax mathjax--inline">$\textbf{K}_R$</span> para cálculo das reações de apoio, ou seja, as linhas da coluna 5 referentes aos graus de liberdade restringidos não serão calculadas para a matriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>.</p>
+<p>A montagem da matriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> segue a seguinte equação:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{K}_{U(i,j)} = \sum_{b=1}^n \textbf{k}b_{g(\textbf{Re}_{b,i}),(\textbf{Re}_{b,j})} \psi_b \begin{cases}
+\psi_b = 1 \ \text{se} \ \textbf{Re}_{b,i} \neq 0 \ \text{e} \ \textbf{Re}_{b,j} \neq 0 \\
+\psi_b = 0 \ \text{se} \ \textbf{Re}_{b,i} = 0 \ \text{ou} \ \textbf{Re}_{b,j} = 0
+\end{cases}$$</p>
+<p>Para todos os elementos <span class="mathjax mathjax--inline">$b$</span> da estrutura, no caso <span class="mathjax mathjax--inline">$n=3$</span>, sendo <span class="mathjax mathjax--inline">$i$</span> e <span class="mathjax mathjax--inline">$j$</span> variando de 1 a 6, os seis graus de liberdade livres da estrutura. O <span class="mathjax mathjax--inline">$\psi$</span> é um parâmetro utilizado para eliminar os termos iguais a zero do somatório, ou seja, os termos referentes aos nós que não possuem nenhum grau de liberdade do elemento que influência o grau de liberdade <span class="mathjax mathjax--inline">$i$</span> ou <span class="mathjax mathjax--inline">$j$</span> da estrutura. Note que o <span class="mathjax mathjax--inline">$g$</span> é apenas um indicador de matriz do elemento no sistema global.</p>
+<blockquote>
+<p>Lembrando que isso só funciona porque numeramos primeiro os graus de liberdade livres da estrutura! Observe que somente vamos utilizar as colunas de 1 a 6 do remetente. E as demais?</p>
+</blockquote>
+<p>Vamos fazer para alguns elementos da matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>, para ilustrar a aplicação da equação que a determina, começando com o elemento <span class="mathjax mathjax--inline">$\textbf{K}_{U(1,1)}$</span>, ou seja, <span class="mathjax mathjax--inline">$i=1$</span> e <span class="mathjax mathjax--inline">$j=1$</span> e <span class="mathjax mathjax--inline">$n$</span> o número total de elementos da estrutra, no caso 3.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\textbf{K}_{U(1,1)} &= \sum_{b=1}^n \textbf{k}b_{g(\textbf{Re}_{b,1}),(\textbf{Re}_{b,1})} \psi_b \\
+    &= \textbf{k}1_{g(\textbf{Re}_{1,1}),(\textbf{Re}_{1,1})}\\
+    &\quad + \textbf{k}2_{g(\textbf{Re}_{2,1}),(\textbf{Re}_{2,1})}\\
+    &\quad + \textbf{k}3_{g(\textbf{Re}_{3,1}),(\textbf{Re}_{3,1})}\\
+    &= \textbf{k}1_{g(4,4)}\\
+    &\quad + \textbf{k}2_{g(1,1)}\\
+    &\quad + 0 \\
+    &= 24,46 + 3125,0 + 0 = 3149,46\\
+\end{align}$$</p>
+<p>Já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1.</p>
+<p>Como mais um exemplo, vamos fazer <span class="mathjax mathjax--inline">$i=3$</span> e <span class="mathjax mathjax--inline">$j=5$</span>, ou seja, determinar <span class="mathjax mathjax--inline">$\textbf{K}_{U(3,5)}$</span>, já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1 e apenas utilizando os valores referentes a <span class="mathjax mathjax--inline">$\psi_b = 1$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\textbf{K}_{U(3,5)} &= \sum_{b=1}^n \textbf{k}b_{g(\textbf{Re}_{b,3}),(\textbf{Re}_{b,5})} \psi_b \\
+    &= \textbf{k}1_{g(\textbf{Re}_{1,3}),(\textbf{Re}_{1,5})}\\
+    &\quad + \textbf{k}2_{g(\textbf{Re}_{2,3}),(\textbf{Re}_{2,5})}\\
+    &\quad + \textbf{k}3_{g(\textbf{Re}_{3,3}),(\textbf{Re}_{3,5})}\\
+    &= 0\\
+    &\quad + \textbf{k}2_{g(3,5)}\\
+    &\quad + 0 \\
+    &= -1406,23\\
+\end{align}$$</p>
+<p>Portanto, fazendo a mesma aplicação para todos os 36 termos (matriz 6x6) chegamos a matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{K}_U = \left[ \begin{array}{cccccc}
+3149,46 & 0 & 5624,93 & -3125,00 & 0 & 0 \\
+0 & 6253,06 & 1406,23 & 0 & -3,06 & 1406,23 \\
+5624,93 & 1406,23 & 2587466,09 & 0 & -1406,23 & 431244,35 \\
+-3125,00 & 0 & 0 & 3149,46 & 0 & 5624,93 \\
+0 & -3,06 & -1406,23 & 0 & 6253,06 & -1406,23 \\
+0 & 1406,23 & 431244,35 & 5624,93 & -1406,23 & 2587466,09
+\end{array} \right]$$</p>
+<h4 id="determinao-da-matriz-para...-1" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-da-matriz-para...-1" title="Permanent link: Determinação da matriz para cálculo das reações de apoio" data-icon="#">Determinação da matriz para cálculo das reações de apoio</a></h4>
+<p>A metodologia é a mesma, no entanto, agora devemos percorrer o rementente para todas as barras (linhas) e todos os graus de liberdade (colunas), inclusive os restringidos. Precisamos dos graus de liberdade livres para identificar onde possuimos deslocamentos e precisamos dos graus de liberdade restringidos para relacionar as reações de apoio. Por isso, precisamos modificar um pouco a relação dos índices para que <span class="mathjax mathjax--inline">$i$</span> e <span class="mathjax mathjax--inline">$j$</span> signifiquem 1, 2, .., 6 na matriz de rigidez para cálculo das reações de apoio e 7, 9, ...,11 no índice da coluna do remetente, <span class="mathjax mathjax--inline">$\textbf{Re}$</span>, apenas quando se referir à linhas que serão caluladas e posicionadas na matriz de rigidez para cálculo dos deslocamentos.</p>
+<p>Isso é bem simples, basta adicionarmos o número de graus de liberdade livres da estrutura, no nosso caso 6, ao índice <span class="mathjax mathjax--inline">$i$</span> quando for relativo a matriz remetente <span class="mathjax mathjax--inline">$\textbf{Re}$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{K}_{U(i,j)} = \sum_{b=1}^n \textbf{k}b_{g(\textbf{Re}_{b,i+6}),(\textbf{Re}_{b,j})} \psi_b \begin{cases}
+\psi_b = 1 \ \text{se} \ \textbf{Re}_{b,i} \neq 0 \ \text{e} \ \textbf{Re}_{b,j} \neq 0 \\
+\psi_b = 0 \ \text{se} \ \textbf{Re}_{b,i} = 0 \ \text{ou} \ \textbf{Re}_{b,j} = 0
+\end{cases}$$</p>
+<p>Vamos fazer para alguns elementos da matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>, para ilustrar a aplicação da equação que a determina, começando com o elemento <span class="mathjax mathjax--inline">$\textbf{K}_{R(1,1)}$</span>, ou seja, <span class="mathjax mathjax--inline">$i=1$</span> e <span class="mathjax mathjax--inline">$j=1$</span> e <span class="mathjax mathjax--inline">$n$</span> o número total de elementos da estrutra, no caso 3.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\textbf{K}_{R(1,1)} &= \sum_{b=1}^3 \textbf{k}b_{g(\textbf{Re}_{b,1+6}),(\textbf{Re}_{b,1})} \\
+    &= \textbf{k}1_{g(\textbf{Re}_{1,7}),(\textbf{Re}_{1,1})}\\
+    &\quad + \textbf{k}2_{g(\textbf{Re}_{2,7}),(\textbf{Re}_{2,1})}\\
+    &\quad + \textbf{k}3_{g(\textbf{Re}_{3,7}),(\textbf{Re}_{3,1})}\\
+    &= \textbf{k}1_{g(1,4)}\\
+    &\quad + 0\\
+    &\quad + 0 \\
+    &= −24,46\\
+\end{align}$$</p>
+<p>Já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1 e apenas utilizando os valores referentes a <span class="mathjax mathjax--inline">$\psi_b = 1$</span>.</p>
+<p>Como mais um exemplo, vamos fazer <span class="mathjax mathjax--inline">$i=4$</span> e <span class="mathjax mathjax--inline">$j=12$</span>, ou seja, determinar <span class="mathjax mathjax--inline">$\textbf{K}_{U(4,12)}$</span>, já substituído o valor de <span class="mathjax mathjax--inline">$\psi_b$</span> por 0 ou 1 e apenas utilizando os valores referentes a <span class="mathjax mathjax--inline">$\psi_b = 1$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+\textbf{K}_{R(3,11)} &= \sum_{b=1}^3 \textbf{k}b_{g(\textbf{Re}_{b,4+6}),(\textbf{Re}_{b,12})} \\
+    &= \textbf{k}1_{g(\textbf{Re}_{1,10}),(\textbf{Re}_{1,12})}\\
+    &\quad + \textbf{k}2_{g(\textbf{Re}_{2,10}),(\textbf{Re}_{2,12})}\\
+    &\quad + \textbf{k}3_{g(\textbf{Re}_{3,10}),(\textbf{Re}_{3,12})}\\
+    &= 0\\
+    &\quad + 0\\
+    &\quad + \textbf{k}3_{g(1,3)} \\
+    &= −5624,93\\
+\end{align}$$</p>
+<p>Portanto, fazendo a mesma aplicação para todos os 81 termos (matriz 9x9) chegamos a matriz de rigidez para o cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>.</p>
+<p class="mathjax mathjax--block">$$
+\textbf{K}_R = \left[ \begin{array}{cccccc}
+-24,46 & 0 & -5624,93 & 0 & 0 & 0 \\
+0 & -6250 & 0 & 0 & 0 & 0 \\
+5624,93 & 0 & 862488,70 & 0 & 0 & 0 \\
+0 & 0 & 0 & -24,46 & 0 & -5624,93 \\
+0 & 0 & 0 & 0 & -6250 & 0 \\
+0 & 0 & 0 & 5624,93 & 0 & 862488,70
+\end{array} \right]$$</p>
+<p>Determinada as porções da matriz de rigidez da estrutura para o cálculo dos deslocamentos e reações de apoio, precisamos definir os vetores de deslocamentos e forças nodais a essas matrizes associados para montar o sistema de equações lineares de equilíbrio</p>
 <h3 id="deslocamentos-e-foras-nodais" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#deslocamentos-e-foras-nodais" title="Permanent link: Deslocamentos e forças nodais" data-icon="#">Deslocamentos e forças nodais</a></h3>
 <p>O equilíbro estático da estrutura em MEF é regido pela mesma expressão que utilizamos para o equilíbrio do elemento englobando todos os graus de liberdade da estrutura, ou seja, o equilíbrio estático da estrutura pelo MEF é dado pela equação:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{K}\textbf{U} = \textbf{F}$$</p>
 <p>Sendo <span class="mathjax mathjax--inline">$\textbf{U}$</span> o vetor de deslocamentos da estrutura e <span class="mathjax mathjax--inline">$\textbf{F}$</span> o vetor de forças nodais da estrutura.</p>
-<blockquote>
-<p>Por que é válida a mesma consideração local do elemento (lembra, princípio dos trabalhos virtuais, deslocamentos virtuais, etc...) para toda a estrutura globalmente?</p>
-</blockquote>
 <p>Os vetores <span class="mathjax mathjax--inline">$\textbf{U}$</span> e <span class="mathjax mathjax--inline">$\textbf{F}$</span> representam os deslocamentos da estrutura, definidos pelos graus de liberdade, e as forças nodais relativas aos graus de liberdade. Portanto, podemos escrevê-los de forma genérica como:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{U} = \left\lbrace \begin{array}{c}
@@ -7172,6 +7260,12 @@ Ca_3 = \left\lbrace \begin{array}{c}
     U_4 \\
     U_5 \\
     U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+    U_{10} \\
+    U_{11} \\
+    U_{12} 
 \end{array} \right\rbrace \qquad \textbf{F} = \left\lbrace \begin{array}{c}
     F_1 \\
     F_2 \\
@@ -7179,108 +7273,136 @@ Ca_3 = \left\lbrace \begin{array}{c}
     F_4 \\
     F_5 \\
     F_6 \\
+    F_7 \\
+    F_8 \\
+    F_9 \\
+    F_{10} \\
+    F_{11} \\
+    F_{12} 
 \end{array} \right\rbrace$$</p>
 <p>Não sabemos, por enquanto, os valores dos deslocamentos em cada grau de liberdade do vetor <span class="mathjax mathjax--inline">$\textbf{U}$</span>, afinal essas são as nossa incógnitas do problema (quer dizer, alguns valores nos conhecemos como veremos a seguir). Já o vetor de forças nodais <span class="mathjax mathjax--inline">$\textbf{F}$</span> nós conhecemos completamente, basta entender como as forças nodais se relacionam com os graus de liberdade e aplicar as condições de contorno.</p>
 <h3 id="aplicando-as-condies-de-contorno" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#aplicando-as-condies-de-contorno" title="Permanent link: Aplicando as condições de contorno" data-icon="#">Aplicando as condições de contorno</a></h3>
-<p>Como você pode perceber a matriz <span class="mathjax mathjax--inline">$\textbf{K}$</span> tem algumas importantes propriedades, ela deve ser simétrica e singular, ou seja, com o determinante igual a zero e não inversível. Então, como vou resolver o equilíbrio estático do MEF?? <span class="mathjax mathjax--inline">$\textbf{K}\textbf{U}=\textbf{F}$</span> Resposta: aplicando às condições de contorno.</p>
-<p>Observe que na matriz de rigidez da estrutura, <span class="mathjax mathjax--inline">$\textbf{K}$</span>, as linhas e colunas representam os graus de liberdade da estruturas contendo a rigidez referente ao efeito de certo grau em outro. Sendo assim, para aplicar as condições de contorno do problema, que são os apoios simples e rotulado, basta observarmos quais graus de liberdade esses apoios influenciam e aplicar essa influência na matriz de rigidez da estrutura, no vetor de deslocamentos da estrutura e no vetor de forças nodais da estrutura. </p>
-<p><img src="http://localhost:8000/porticos/teoria/aplicacao/imagens/Trelica3barrasGrausLib.svg" alt="Condições de Contorno" title="Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade" />
-<small>Correspondência das Forças Nodais e Deslocamentos com os Graus de Liberdade.</small></p>
-<p>Da imagem notamos que o apoio simples no nó 2 influencia o grau de liberdade 4 apenas e que o apoio rotulado no nó 3 influencia os graus de liberdade 5 e 6. Ainda, a força F de 10.000 N está orientada no sentido negativo do grau de liberdade 2. Sabendo disso, podemos montar nossos vetores de deslocamentos nodais <span class="mathjax mathjax--inline">$\textbf{U}$</span> e de foças nodais <span class="mathjax mathjax--inline">$\textbf{F}$</span> da estrutura como:</p>
+<p>Diferentemente de como resolvemos para a treliça plana, no caso da treliça espacial não montamos a matriz de rigidez completa da estrutura. Portanto, precisamos definir quais partes do vetor de deslocamentos da estrutura e do vetor de forças nodais devem ser utilizadas para o cálculo dos deslocamentos e quais partes para o cálculo das reações de apoio. Para tal, precisamos observar e aplicar as condições de contorno do problemas, em outras palavras, os efeitos dos apoios da estrutura nos vetores de deslocamentos e forças nodais da estrutura.</p>
+<p><img title="Pórtico idealizado" alt="Pórtico idealizado" src="../../../user/pages/04.porticos/01.teoria/01.aplicacao/imagens/PorticoIdeal.svg" />
+<small>Pórtico idealizado.</small></p>
+<p><img title="Graus de liberdade do pórtico" alt="Graus de liberdade do pórtico" src="../../../user/pages/04.porticos/01.teoria/01.aplicacao/imagens/PorticoIdealGls.svg" />
+<small>Graus de liberdade do pórtico.</small></p>
+<p>Observando as duas figuras acima fica fácil montar os vetores de deslocamentos e forças nodais da estrutura. Sendo os apoios dos nós 1 e 3 do tipo engaste, ou seja, restringindo a translação dos referidos nós nas duas direções, X, Y e a rotação em Z, tais vetores resultam em:</p>
 <p class="mathjax mathjax--block">$$
 \textbf{U} = \left\lbrace \begin{array}{c}
     U_1 \\
     U_2 \\
     U_3 \\
+    U_4 \\
+    U_5 \\
+    U_6 \\
     0 \\
     0 \\
     0 \\
-\end{array} \right\rbrace \qquad \textbf{F} = \left\lbrace \begin{array}{c}
     0 \\
-    -10000 \\
     0 \\
-    R_4 \\
-    R_5 \\
-    R_6 \\
+    0 
 \end{array} \right\rbrace$$</p>
-<p>Os deslocamentos <span class="mathjax mathjax--inline">$U_4$</span>, <span class="mathjax mathjax--inline">$U_5$</span> e <span class="mathjax mathjax--inline">$U_6$</span> são iguais à zero pelas restrições dos apoios nas respectivas direções dos graus de liberdade relacionados à esses deslocamentos. As forças <span class="mathjax mathjax--inline">$F_1$</span> e <span class="mathjax mathjax--inline">$F_3$</span> são zero pois nenhuma força atua nas respectivas direções dos respectivos graus de liberdade. As forças <span class="mathjax mathjax--inline">$F_4$</span>, <span class="mathjax mathjax--inline">$F_5$</span> e <span class="mathjax mathjax--inline">$F_6$</span> são relacionadas com as restrições impostas pelos apoios nas respectivas direções dos graus de liberdade e, portanto, são exatamente as reações de apoio provocadas por essas restrições. Portanto, nosso equilíbrio se escreve:</p>
 <p class="mathjax mathjax--block">$$
-\left[ \begin{array}{cccccc}
-         1401306,87 & -709233,42 & 709233,42 & -709233,42 & -692073,45 & 0 \\
-         -709233,42 & 709233,42 & -709233,42 & 709233,42 & 0 & 0 \\
-         709233,42 & -709233,42 & 1401306,87 & -709233,42 & 0 & -692073,45 \\
-         -709233,42 & 709233,42 & -709233,42 & 709233,42 & 0 & 0 \\
-         -692073,45 & 0 & 0 & 0 & 692073,45 & 0 \\
-         0 & 0 & -692073,45 & 0 & 0 & 692073,45 \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    U_1 \\
-    U_2 \\
-    U_3 \\
-    0 \\
-    0 \\
-    0 \\
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    0 \\
-    -10000 \\
-    0 \\
-    R_4 \\
-    R_5 \\
-    R_6 \\
+\textbf{F} = \left\lbrace \begin{array}{c}
+    F_{1} \\
+    F_{2}  \\
+    F_{3} \\
+    F_{4} \\
+    F_{5} \\
+    F_{6} \\
+    R_{7} \\
+    R_{8} \\
+    R_{9} \\
+    R_{10} \\
+    R_{11} \\
+    R_{12} 
 \end{array} \right\rbrace$$</p>
-<p>Somente foi possível separar os deslocamentos colocando os 3 primeiros como as incógnitas do problema e os 3 últimos restringidos pelas condições de contorno dadas pelos apoios (o mesmo com as forças nodais, mas ao contrário) por que numeramos primeiro os graus de liberdade livres da estrutura e construimos a matriz dos graus de liberdade, <span class="mathjax mathjax--inline">$\textbf{GL}$</span>, em função disso. De outra forma, precisaríamos aplicar uma mudança de linhas e colunas na matriz de rigidez e de linhas aos vetores de deslocamentos e forças para chegar a esse resultado, sem o qual, não poderíamos resolver o sistema aplicando a separação das variáveis, e, por falar nisso...</p>
+<p>Os deslocamentos de <span class="mathjax mathjax--inline">$U_7$</span> a <span class="mathjax mathjax--inline">$U_12$</span> são iguais à zero pelas restrições dos apoios nas respectivas direções dos graus de liberdade relacionados à esses deslocamentos. As forças de <span class="mathjax mathjax--inline">$F_1$</span> a <span class="mathjax mathjax--inline">$F_6$</span> são as forças nodasi equivalentes aos carregamentos das barras 1 e 2 nos graus de liberdade de 1 a 6 respectivamente, as quais precisamos determinar. E para os graus de liberdade de 7 a 12, temos as respectivas reações de apoio.</p>
+<h4 id="determinao-das-foras-nodais..." class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#determinao-das-foras-nodais..." title="Permanent link: Determinação das forças nodais equivalentes para cargas com variação não linear e descontínuas" data-icon="#">Determinação das forças nodais equivalentes para cargas com variação não linear e descontínuas</a></h4>
+<p>A nossa estrutura possui dois tipos de carregamentos um tanto complexos em suas barras 1 e 2, uma carga com variação não linear que no nosso caso representa a força do vento, e uma carga com descontinuidade na barra 2, que no nosso caso representa o peso da placa de sinalização.</p>
+<p><img title="Pórtico idealizado" alt="Pórtico idealizado" src="../../../user/pages/04.porticos/01.teoria/01.aplicacao/imagens/PorticoIdeal.svg" />
+<small>Pórtico idealizado.</small></p>
+<p>AQUI!!!!!</p>
+<p>A carga com descontinuidade já vimos em vigas que podemos resolver discretizando em mais de um elemento, sendo um para cada região se carga da viga e outro para a região com o carregamento distribuído. Mas, como escreveríamos um vetor de forças nodais equivalentes para um carregamento distribuído em apenas uma porção do elemento?</p>
+<p>...</p>
+<p>No caso da carga com variação não linear, partimos do mesmo princípio:</p>
+<p>Polinomios de hermite:</p>
+<p class="mathjax mathjax--block">$$
+\begin{align}
+N_1 &= \dfrac{1}{2} - \dfrac{3}{2L}x + \dfrac{2}{L^3}x^3 \\
+N_2 &= \dfrac{L}{8} - \dfrac{1}{4}x - \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3 \\
+N_3 &= \dfrac{1}{2} + \dfrac{3}{2L}x - \dfrac{2}{L^3}x^3 \\
+N_4 &= - \dfrac{L}{8} - \dfrac{1}{4}x + \dfrac{1}{2L}x^2 + \dfrac{1}{L^2}x^3
+\end{align}$$</p>
+<p class="mathjax mathjax--block">$$
+W_e = {\displaystyle\int_x g w(x) dx }$$</p>
+<p class="mathjax mathjax--block">$$
+w(x) = \left[ 
+\begin{array}{cccc}
+    N_1 & N_2 & N_3 & N_4 \\ 
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace$$</p>
+<p class="mathjax mathjax--block">$$
+\textbf{f} = {\displaystyle\int_x v \textbf{N}^T dx }$$</p>
+<p><span class="mathjax mathjax--inline">$v = 465,87 y^{0,2}N/m$</span></p>
+<p>[5*2<strong>(4/5)<em>A / 3696 </em>        (   67*L*<em>(6/5)   - 87</em>(-L)</strong>(6/5)    ) ],
+[5*2<strong>(4/5)<em>A / 3696 </em> 1/32 <em> (   401</em>L</strong>(11/5) - 369<em>L</em>(-L)<strong>(6/5) ) ],
+[5*2*<em>(4/5)</em>A / 3696 <em>        (   87</em>L</strong>(6/5)   - 67*(-L)*<em>(6/5)    ) ],
+[5</em>2<strong>(4/5)<em>A / 3696 </em> 1/32 <em> (  -369</em>L</strong>(11/5) + 401<em>L</em>(-L)**(6/5) ) ]</p>
 <h3 id="separao-das-variveis" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#separao-das-variveis" title="Permanent link: Separação das variáveis" data-icon="#">Separação das variáveis</a></h3>
-<p>Observe bem a equação matricial de equilíbrio que escrevemos acima e tente visualizar na forma de um sistema de equações. Note que as três últimas colunas da matriz de rigidez sempre estão multiplicadas por zero, ou seja, não influenciam em nada na resolução do nosso sistema. Então, como primeira simplificação, podemos reescrever o equilíbrio estático dado pelo MEF da nossa treliça de três barras como:</p>
+<p>Precisamos agora determinar porções dos vetores de deslocamentos da estrutura e de forças nodais relativos ao cálculo dos deslocamentos e das reações de apoio. Isso é bem simples e fica até explícito se observarmos o vetor de deslocamentos da estrutura.</p>
+<blockquote>
+<p>Fica explícito porque numeramos primeiro os graus de liberdade livres!</p>
+</blockquote>
+<p>Os primeiros 9 graus de liberdade são responsáveis pelo cálculo dos deslocamentos, conforme vimos na definição de <span class="mathjax mathjax--inline">$\textbf{K}_U$</span>, os graus de liberdade de 10 a 18, associados a efeitos dos primeiros graus de liberdade, são responsáveis pela determinação das reações de apoio, conforme vimos na determinação de <span class="mathjax mathjax--inline">$\textbf{K}_R$</span>. Portanto, podemos escrever o vetor de deslocamentos da estrutura e o vetor de forças nodais em duas parcelas, uma relativa ao cálculo dos deslocamentos, <span class="mathjax mathjax--inline">$\textbf{U}_U$</span> e <span class="mathjax mathjax--inline">$\textbf{F}_U$</span>, e outra relativa ao cálculo das reações de apoio, <span class="mathjax mathjax--inline">$\textbf{U}_U$</span> e <span class="mathjax mathjax--inline">$\textbf{F}_R$</span>.</p>
 <p class="mathjax mathjax--block">$$
-\left[ \begin{array}{cccccc}
-         1401306,87 & -709233,42 & 709233,42  \\
-         -709233,42 & 709233,42 & -709233,42 \\
-         709233,42 & -709233,42 & 1401306,87  \\
-         -709233,42 & 709233,42 & -709233,42  \\
-         -692073,45 & 0 & 0  \\
-         0 & 0 & -692073,45  \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
+\textbf{U}_U = \left\lbrace \begin{array}{c}
     U_1 \\
     U_2 \\
     U_3 \\
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+\end{array} \right\rbrace \qquad \textbf{F}_U = \left\lbrace \begin{array}{c}
+    -0,194809 \\
+    -0,44857  \\
+    0,780704 \\
+    0,194809 \\
+    -0,33741 \\
+    -1,56141 \\
     0 \\
-    -10000 \\
-    0 \\
-    R_4 \\
-    R_5 \\
-    R_6 \\
+    -0,11116 \\
+    0,780704 \\
 \end{array} \right\rbrace$$</p>
-<p>Agora, olhe bem para a matriz de rigidez simplificada acima e sua relação com os deslocamentos incógnitas e as forças nodais. Perceba que as três primeiras linhas da matriz de rigidez simplificada são responsáveis pela determinação dos deslocamentos incógnita, visto que se iguala a forças nodais conhecidas e que, as três últimas linhas da matriz de rigidez simplificada são responsáveis pela determinação das reações de apoio em função dos deslocamentos já determinados. Ou seja, podemos separar a matriz de rigidez simplificada e consequetemente nosso equilíbrio estático em:</p>
 <p class="mathjax mathjax--block">$$
-\left[ \begin{array}{ccc}
-         1401306,87 & -709233,42 & 709233,42  \\
-         -709233,42 & 709233,42 & -709233,42 \\
-         709233,42 & -709233,42 & 1401306,87 
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    U_1 \\
-    U_2 \\
-    U_3 \\
-\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
-    0 \\
-    -10000 \\
-    0 \\
+\textbf{F}_R = \left\lbrace \begin{array}{c}
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
 \end{array} \right\rbrace$$</p>
-<p>Para cálculo dos deslocamentos e:</p>
+<blockquote>
+<p>Por que <span class="mathjax mathjax--inline">$\textbf{U}_U$</span> é utilizado para calcular os deslocamentos e as reações de apoio? Precisamos dos efeitos dos graus de liberdade livres nos restringidos para calcular as reações de apoio, ou seja, as reações de apoio são proporcionais aos deslocamentos da estrutura em função da rigidez relativa entre os graus de liberdade livres e restringidos.</p>
+</blockquote>
+<p>Ou seja, podemos escrever nosso equilíbrio estático para cálculo dos deslocamentos utilizando a matriz <span class="mathjax mathjax--inline">$\textbf{K}_U$</span> como:</p>
 <p class="mathjax mathjax--block">$$
-\left\lbrace \begin{array}{c}
-    R_4 \\
-    R_5 \\
-    R_6 \\
-\end{array} \right\rbrace = \left[ \begin{array}{ccc}
-         -709233,42 & 709233,42 & -709233,42  \\
-         -692073,45 & 0 & 0  \\
-         0 & 0 & -692073,45   \\
-        \end{array} \right]  \left\lbrace \begin{array}{c}
-    U_1 \\
-    U_2 \\
-    U_3 \\
-\end{array} \right\rbrace$$</p>
-<p>Para cálculo das reações de apoio. Escreví ao contrário de propósito já.</p>
+\textbf{K}_U \textbf{U}_U = \textbf{F}_U $$</p>
+<p>E, para calcular as reações de apoio utilizamos a matriz <span class="mathjax mathjax--inline">$\textbf{K}_R$</span> na forma:</p>
+<p class="mathjax mathjax--block">$$
+\textbf{F}_R = \textbf{K}_R \textbf{U}_R $$</p>
 <h3 id="clculo-dos-deslocamentos" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#clculo-dos-deslocamentos" title="Permanent link: Cálculo dos deslocamentos" data-icon="#">Cálculo dos deslocamentos</a></h3>
 <p>O cálculo dos deslocamentos é feito resolvendo-se o seguinte sistema de equações, escrito na forma matricial:</p>
 <p class="mathjax mathjax--block">$$
@@ -7666,7 +7788,7 @@ Ca_3 = \begin{array}{cc}
 \end{array} \right] \left\lbrace \begin{array}{c}
     −0,02019 \\
     −0,01022 \\
-\end{array} \right\rbrace = 0,00000705$$</p>
+\end{array} \right\rbrace = 0000705$$</p>
 <p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$L_2 = 1000mm$</span>)</p>
 <p class="mathjax mathjax--block">$$
 \varepsilon_2 = \textbf{B} \textbf{u} = \left[ 
@@ -7675,7 +7797,7 @@ Ca_3 = \begin{array}{cc}
 \end{array} \right] \left\lbrace \begin{array}{c}
     0 \\
     −0,01445 \\
-    \end{array} \right\rbrace = -0,00001445$$</p>
+    \end{array} \right\rbrace = 0001445$$</p>
 <p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$L_3 = 1000mm$</span>)</p>
 <p class="mathjax mathjax--block">$$
 \varepsilon_3 = \textbf{B} \textbf{u} = \left[ 
@@ -7684,17 +7806,17 @@ Ca_3 = \begin{array}{cc}
 \end{array} \right] \left\lbrace \begin{array}{c}
     0 \\
     −0,01445 \\
-    \end{array} \right\rbrace = -0,00001445$$</p>
+    \end{array} \right\rbrace = 0001445$$</p>
 <p>E, por fim, para calcular as tensões basta utilizar a equação constitutiva do material das barras da treliça definidos para cada elemento.</p>
 <p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$E_1 = 200000 N/mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
-\sigma_1 = E_1 \varepsilon_1 = 200000 \times 0,00000705 = 1,41 N/mm^2$$</p>
+\sigma_1 = E_1 \varepsilon_1 = 200000 \times 0000705 = 1,41 N/mm^2$$</p>
 <p><strong>Elemento 2</strong>: (<span class="mathjax mathjax--inline">$E_2 = 69000 N/mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
-\sigma_2 = E_2 \varepsilon_2 = 69000 \times -0,00001445 = -0,99705 N/mm^2$$</p>
+\sigma_2 = E_2 \varepsilon_2 = 69000 \times 0001445 = -0,99705 N/mm^2$$</p>
 <p><strong>Elemento 3</strong>: (<span class="mathjax mathjax--inline">$E_3 = 69000 N/mm^2$</span>)</p>
 <p class="mathjax mathjax--block">$$
-\sigma_3 = E_3 \varepsilon_3 = 69000 \times -0,00001445 = -0,99705 N/mm^2$$</p>
+\sigma_3 = E_3 \varepsilon_3 = 69000 \times 0001445 = -0,99705 N/mm^2$$</p>
 <h3 id="esforos-nas-barras" class="headeranchor"><a class="headeranchor-link headeranchor-link--left headeranchor-visible--hover" aria-hidden="true" href="aplicacao.html#esforos-nas-barras" title="Permanent link: Esforços nas Barras" data-icon="#">Esforços nas Barras</a></h3>
 <p>E os esforços nas barras? Afinal, como é o caso de uma estrutura metálica as equações apresentadas pela norma se referem à esforços para o dimensionamento. É simples, não é uma barra de uma treliça, com tensões normais uniformes e constantes ao longo da barra? Pois bem, é só multiplicar a tensão pela área para obter o diagrama de esforços normais em cada barra da estrutura.</p>
 <p><strong>Elemento 1</strong>: (<span class="mathjax mathjax--inline">$A_1 = 10030,05 mm^2$</span>)</p>
