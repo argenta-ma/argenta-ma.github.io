@@ -3,7 +3,7 @@
 
 
 body {
-    background: url(../paginaentrada_uteis/images/background_white_white.jpg) no-repeat;
+    background: url(../images/background_white_white.jpg) no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: 50% 50%;
@@ -213,8 +213,10 @@ fieldset[disabled] .btn-primary.active {
 .menu-item:hover a {
     text-decoration: none;
     //color: #333;
-	animation: wobble;
-	-webkit-animation: wobble;
+	/*animation: wobble;
+	-webkit-animation: wobble; */
+	animation: tada;
+	-webkit-animation: tada;
 	animation-duration: 1000ms;
 	-webkit-animation-duration: 1000ms;
 }
