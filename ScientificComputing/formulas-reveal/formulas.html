@@ -8,11 +8,11 @@ and open the template in the editor.
     <head>
         <meta charset="utf-8">
 
-        <title>Programando Equações</title>
+        <title>Programando EquaÃ§Ãµes</title>
 
-        <meta name="description" content="Apresentações para a disciplina
-                                    de elementos finitos não lineares">
-        <meta name="author" content="Marco André Argenta">
+        <meta name="description" content="ApresentaÃ§Ãµes para a disciplina
+                                    de elementos finitos nÃ£o lineares">
+        <meta name="author" content="Marco AndrÃ© Argenta">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" 
@@ -42,37 +42,37 @@ and open the template in the editor.
             <div class="slides">
                 
                 <section id="titulo">
-                    <h1>Programando equações</h1>
-                    <h3>Você usa equações? Então, como programá-las?</h3>
+                    <h1>Programando equaÃ§Ãµes</h1>
+                    <h3>VocÃª usa equaÃ§Ãµes? EntÃ£o, como programÃ¡-las?</h3>
                     <p>
-                        <small>Prof. Marco André Argenta / PPGECC / UFPR</small>
+                        <small>Prof. Marco AndrÃ© Argenta / PPGECC / UFPR</small>
                     </p>
                     
                     <img style="border: 0px;float:center;width:400px;" src="figuras/programando_equacoes.jpg">
 
                     <aside class="notes">
-                        Os primeiros exemplos envolvem programas para resolver equações matemáticas.
-                        Vamos aprender como escrever e rodar um programa em Python, como trabalhar com as variáveis,
-                        como computar funções matemáticas como $e^x$ e $sen(x)$, e como usar o Python
-                        para cálculos interativos.
+                        Os primeiros exemplos envolvem programas para resolver equaÃ§Ãµes matemÃ¡ticas.
+                        Vamos aprender como escrever e rodar um programa em Python, como trabalhar com as variÃ¡veis,
+                        como computar funÃ§Ãµes matemÃ¡ticas como $e^x$ e $sen(x)$, e como usar o Python
+                        para cÃ¡lculos interativos.
                     </aside>
                 </section>  
                 
                 <section id="estrategia">
-                    <h2>Estratégia de aprendizado</h2>
+                    <h2>EstratÃ©gia de aprendizado</h2>
                     
-                    <p>A melhor estratégia para aprender a programar é se baseando e entendendo exemplos.</p>
-                    <p style="margin-top: 50px">Por isso, no curso, nós vamos:</p>
+                    <p>A melhor estratÃ©gia para aprender a programar Ã© se baseando e entendendo exemplos.</p>
+                    <p style="margin-top: 50px">Por isso, no curso, nÃ³s vamos:</p>
                     
                     <ul style="margin-top: 50px">
                         <li>Apresentar um problema;</li>
                         <li>Apresentar o programa completo;</li>
                         <li>Dissecar e discutir cada linha do programa;</li>
-                        <li>Simular programas na mão (ser o computador!).</li>
+                        <li>Simular programas na mÃ£o (ser o computador!).</li>
                     </ul>
                 </section>
                 <section id="avaliando_equacao">
-                    <h2>Avaliando uma equação matemática</h2>
+                    <h2>Avaliando uma equaÃ§Ã£o matemÃ¡tica</h2>
                     
                     <b>Atura de uma bola em movimento vertical.</b>
 
@@ -81,24 +81,24 @@ and open the template in the editor.
                     <p style="margin-top: 50px">sendo:</p>
 
                     <ul style="margin-top: 50px">
-                      <li> \( y \) a altura (posição) em função do tempo \( t \)</li>
-                      <li> \( v_0 \) é a velocidade inicial em \( t=0 \)</li>
-                      <li> \( g \) é a aceleração da gravidade</li>
+                      <li> \( y \) a altura (posiÃ§Ã£o) em funÃ§Ã£o do tempo \( t \)</li>
+                      <li> \( v_0 \) Ã© a velocidade inicial em \( t=0 \)</li>
+                      <li> \( g \) Ã© a aceleraÃ§Ã£o da gravidade</li>
                     </ul>
 
                     <p style="margin-top: 50px">Tarefa: dado \( v_0 \), \( g \) e \( t \), calcular \( y \).</p>
                     
                 </section>
                 <section id="calculadora">
-                    <h2>Usar uma calculadora? Um programa é muito mais poderoso...</h2>
+                    <h2>Usar uma calculadora? Um programa Ã© muito mais poderoso...</h2>
                     
-                    <b>Mas afinal, o que é um programa?</b>
+                    <b>Mas afinal, o que Ã© um programa?</b>
                     <p>
-                        Uma sequência de instruções para o computador, escritas em uma linguagem de
-                        programação, parecida com uma gramática, mas mais simples e mais rigorosa.
+                        Uma sequÃªncia de instruÃ§Ãµes para o computador, escritas em uma linguagem de
+                        programaÃ§Ã£o, parecida com uma gramÃ¡tica, mas mais simples e mais rigorosa.
                     <p>
-                        Este curso trabalha com computação científica usando a linguagem de 
-                        programação Python (www.python.org).
+                        Este curso trabalha com computaÃ§Ã£o cientÃ­fica usando a linguagem de 
+                        programaÃ§Ã£o Python (www.python.org).
                     <p>
                         <b>Nosso primeiro programa exemplo:</b><br>
                         Avaliar \( y(t) = v_0t- \frac{1}{2}gt^2 \) para \( v_0=5 \), \( g=9.81 \) e \( t=0.6 \):<br>
@@ -114,8 +114,8 @@ and open the template in the editor.
                     <h2>Como escrever e rodar um programa?</h2>
                     
                     <ul>
-                        <li> Um programa é texto simples, escrito em um <em>editor de texto</em>;</li>
-                        <li> Use Gedit, Notepad++, Emacs, Vim, Spyder, or IDLE (<em>não</em> MS Word!).</li>
+                        <li> Um programa Ã© texto simples, escrito em um <em>editor de texto</em>;</li>
+                        <li> Use Gedit, Notepad++, Emacs, Vim, Spyder, or IDLE (<em>nÃ£o</em> MS Word!).</li>
                     </ul>
 
                     <p style="margin-top: 20px; text-align: left; margin-left: 50px;">
@@ -128,7 +128,7 @@ and open the template in the editor.
                         <b>Passo 2.</b> Salve o programa para um arquivo, digamos, <code>movimento.py</code><br>
                         (<code>.py</code> significa arquivo do Python);<br>
                         <b>Passo 3.</b> Abra um terminal (linux, mac) ou prompt do comando (windows CMD)
-                        e vá até a pasta onde você salvou o arquivo;<br>
+                        e vÃ¡ atÃ© a pasta onde vocÃª salvou o arquivo;<br>
                         <b>Passo 4.</b> Execute o programa:
                         <pre><code class="language-bash">
                             Terminal> python ball1.py
@@ -137,42 +137,42 @@ and open the template in the editor.
                     </p>
                 </section>
                 <section id="semPython">
-                    <h2>O programa não rodou?</h2>
+                    <h2>O programa nÃ£o rodou?</h2>
                     
-                    <p style="margin-top: 20px;">Você precisa instalar o interpretador Python!</p>
-                    <p style="margin-top: 20px;">Sugestão: Anaconda!<br>
+                    <p style="margin-top: 20px;">VocÃª precisa instalar o interpretador Python!</p>
+                    <p style="margin-top: 20px;">SugestÃ£o: Anaconda!<br>
                         
                     <img style="border: 0px;float:center;width:400px;" src="figuras/logo-horizontal-large.svg">   
                         
-                    <p style="margin-top: 20px;">Anaconda é uma interessante plataforma
+                    <p style="margin-top: 20px;">Anaconda Ã© uma interessante plataforma
                     para o desenvolvimento em Python. </p>
-                    <p style="margin-top: 50px;">Você pode baixar aqui: https://www.continuum.io/downloads</p>
-                    <p style="margin-top: 20px;"><b>Use a versão para Python 2.7!</b></p>
+                    <p style="margin-top: 50px;">VocÃª pode baixar aqui: https://www.continuum.io/downloads</p>
+                    <p style="margin-top: 20px;"><b>Use a versÃ£o para Python 2.7!</b></p>
                 </section>
                 <section id="computadoresDiferentes">
-                    <h2>Provavelmente o seu computador é diferente do meu</h2>
+                    <h2>Provavelmente o seu computador Ã© diferente do meu</h2>
                     
                     <ul>
-                        <li> Quando você está usando um computador você está sempre
+                        <li> Quando vocÃª estÃ¡ usando um computador vocÃª estÃ¡ sempre
                             rodando algum programa;</li>
-                        <li> O computador não faz absolutamente nada sem ser comandado,
-                            e nós, humanos, escrevemos e usamos programas que dizem ao computador
+                        <li> O computador nÃ£o faz absolutamente nada sem ser comandado,
+                            e nÃ³s, humanos, escrevemos e usamos programas que dizem ao computador
                             o que fazer;</li>
-                        <li> A maioria das pessoas está acostumada a dar um duplo clique em 
-                            um símbolo (ícone) para rodar um programa, mas neste curso
-                            nós vamos comandar o computador através dos terminais (ou prompt de comando)
-                            ou de IDEs (integrated development environment) porque é mais eficiente para trabalhar com programação!</li>
-                        <li> Programas matemáticos complexos de repente se tornam diretos quando escrevemos programas.</li>
+                        <li> A maioria das pessoas estÃ¡ acostumada a dar um duplo clique em 
+                            um sÃ­mbolo (Ã­cone) para rodar um programa, mas neste curso
+                            nÃ³s vamos comandar o computador atravÃ©s dos terminais (ou prompt de comando)
+                            ou de IDEs (integrated development environment) porque Ã© mais eficiente para trabalhar com programaÃ§Ã£o!</li>
+                        <li> Programas matemÃ¡ticos complexos de repente se tornam diretos quando escrevemos programas.</li>
                     </ul>                    
                 </section>
                 <section id="programaIntegralCurso">
                     <h2>Um programa pode calcular uma integral</h2>
                     
-                    <p>Você pode calcular essa integral na mão?</p>
+                    <p>VocÃª pode calcular essa integral na mÃ£o?</p>
                     
                     $$ \int_{-\infty}^1 e^{-x^2}dx$$
                     
-                    <p>Um pequeno programa pode calculá-la assim
+                    <p>Um pequeno programa pode calculÃ¡-la assim
                     como outras integrais:</p>
                     
                     <pre><code class="language-python">                        import numpy as np
@@ -180,10 +180,10 @@ and open the template in the editor.
                         def integracao(f, a, b, n=100):
                             """
                             Integra f de a a b,
-                            usando a regra dos trapézios com n intervalos.
+                            usando a regra dos trapÃ©zios com n intervalos.
                             """
                             x = np.linspace(a, b, n+1)    # Coordenadas dos intervalos
-                            h = x[1] - x[0]            # Espaçamento entre intervalos
+                            h = x[1] - x[0]            # EspaÃ§amento entre intervalos
                             I = h*(sum(f(x)) - 0.5*(f(a) + f(b)))
                             return I
 
@@ -191,14 +191,14 @@ and open the template in the editor.
                         def minha_funcao(x):
                             return np.exp(-x**2)
 
-                        menos_infinito = -20  # Aproximação de menos infinito
+                        menos_infinito = -20  # AproximaÃ§Ã£o de menos infinito
                         I = integracao(minha_funcao, menos_infinito, 1, n=1000)
                         print 'Valor da integral:', I
                     </code></pre>                    
-                    <p><b>O programa calcula uma aproximação com erro \( 10^{-12} \) em 0.1 s</b> (\( n=10^6 \))!</p>
+                    <p><b>O programa calcula uma aproximaÃ§Ã£o com erro \( 10^{-12} \) em 0.1 s</b> (\( n=10^6 \))!</p>
                 </section>
                 <section id="regrasDigitacao">
-                    <h2>Os computadores são muito exigentes quanto às regras gramaticais e erros de digitação</h2>
+                    <h2>Os computadores sÃ£o muito exigentes quanto Ã s regras gramaticais e erros de digitaÃ§Ã£o</h2>
                     
                     <p>Olhe para:</p>
                     <pre><code class="language-python">
@@ -206,20 +206,20 @@ and open the template in the editor.
                         write 5*0,6 - 0,5*9,81*0,6^2
                     </code></pre>
                     
-                    Você consideraria essas duas linhas iguais?
+                    VocÃª consideraria essas duas linhas iguais?
 
                     <ul>
-                        <li> Humanos dirão <em>sim</em>, computadores <em>não</em>;</li>
-                        <li> A segunda linha não tem sentido dentro de um programa Python;</li>
-                        <li> <code>write</code> não é uma palavra reservada em Python, a vírgula tem outro
-                            sentido diferente do matemático e o acento circunflexo não é exponenciação;</li>
+                        <li> Humanos dirÃ£o <em>sim</em>, computadores <em>nÃ£o</em>;</li>
+                        <li> A segunda linha nÃ£o tem sentido dentro de um programa Python;</li>
+                        <li> <code>write</code> nÃ£o Ã© uma palavra reservada em Python, a vÃ­rgula tem outro
+                            sentido diferente do matemÃ¡tico e o acento circunflexo nÃ£o Ã© exponenciaÃ§Ã£o;</li>
                         <li> Precisamos ser extremamente precisos quando vamos escrever
                             programas computacionais!</li>
-                        <li> Toma tempo e experiência aprender isso.</li>
+                        <li> Toma tempo e experiÃªncia aprender isso.</li>
                     </ul>                    
                 </section>
                 <section id="novaVida">
-                    <h2>Programação abre novas perspectivas</h2>
+                    <h2>ProgramaÃ§Ã£o abre novas perspectivas</h2>
                     
                     <blockquote>
                         <em>People only become computer programmers if they're
@@ -230,20 +230,20 @@ and open the template in the editor.
                     </blockquote>
 
                     <aside class="notes">
-                        As pessoas só se tornam programadores de computador se eles 
-                        são obsessivos com detalhes, anseiam poder sobre máquinas e 
-                        podem suportar ser informados dia após dia exatamente como 
-                        eles são estúpidos. Gregory J. E. Rawlins 
+                        As pessoas sÃ³ se tornam programadores de computador se eles 
+                        sÃ£o obsessivos com detalhes, anseiam poder sobre mÃ¡quinas e 
+                        podem suportar ser informados dia apÃ³s dia exatamente como 
+                        eles sÃ£o estÃºpidos. Gregory J. E. Rawlins 
                     </aside>                           
                 </section>
                 <section id="numerosVariaveis">
-                    <h2>Guarde números em variáveis para fazer um programa mais legível</h2>
-                    <p>Na matemática nós estamos acostumados às variáveis, ou seja:</p>
+                    <h2>Guarde nÃºmeros em variÃ¡veis para fazer um programa mais legÃ­vel</h2>
+                    <p>Na matemÃ¡tica nÃ³s estamos acostumados Ã s variÃ¡veis, ou seja:</p>
 
                     $$ v_0=5,\quad g=9.81,\quad t=0.6,\quad y = v_0t -\frac{1}{2}gt^2$$
 
-                    <p>Nós podemos usar variáveis em um programa também, e isso torna o programa
-                        mais fácil de ser lido e entendido:</p>
+                    <p>NÃ³s podemos usar variÃ¡veis em um programa tambÃ©m, e isso torna o programa
+                        mais fÃ¡cil de ser lido e entendido:</p>
                     
                     <pre><code class="language-python">
                         v0 = 5
@@ -253,18 +253,18 @@ and open the template in the editor.
                         print y
                     </code></pre>
                     
-                    <p>Esse programa abrange várias linhas de texto e usa variáveis,
-                        mesmo assim o programa executa os mesmos cálculos e dá a mesma saída que o programa anterior.</p>
+                    <p>Esse programa abrange vÃ¡rias linhas de texto e usa variÃ¡veis,
+                        mesmo assim o programa executa os mesmos cÃ¡lculos e dÃ¡ a mesma saÃ­da que o programa anterior.</p>
                 </section>
                 <section id="nomesVariaveis">
-                    <h2>Existe grande flexibilidade para a escolha dos nomes das variáveis</h2>
+                    <h2>Existe grande flexibilidade para a escolha dos nomes das variÃ¡veis</h2>
                     
                     <ul>
-                        <li> Na matemática nós normalmente usamos uma letra para a variável;</li>
-                        <li> O nome da variável em um programa pode conter letras de a-z ou A-Z, símbolo de 
-                            sublinhado "<code>_</code>" e dígitos de 0-9, mas não pode iniciar com um dígito;</li>
-                        <li>Não se utilizam caracteres especiais em nomes de variáveis, como ã, é, $, &, etc;</li>
-                        <li> Os nomes das variáveis são "case-sensitive" (ou seja, <code>a</code> é diferente de <code>A</code>).</li>
+                        <li> Na matemÃ¡tica nÃ³s normalmente usamos uma letra para a variÃ¡vel;</li>
+                        <li> O nome da variÃ¡vel em um programa pode conter letras de a-z ou A-Z, sÃ­mbolo de 
+                            sublinhado "<code>_</code>" e dÃ­gitos de 0-9, mas nÃ£o pode iniciar com um dÃ­gito;</li>
+                        <li>NÃ£o se utilizam caracteres especiais em nomes de variÃ¡veis, como Ã£, Ã©, $, &, etc;</li>
+                        <li> Os nomes das variÃ¡veis sÃ£o "case-sensitive" (ou seja, <code>a</code> Ã© diferente de <code>A</code>).</li>
                     </ul>
                     <pre><code class="language-python">
                         velocidade_inicial = 5
@@ -274,14 +274,14 @@ and open the template in the editor.
                                                  0.5*acel_gravidade*TEMPO**2
                         print PosicaoVerticalDaBola
                     </code></pre>
-                    <p>Bons nomes para variáveis tornam um programa fácil de entender!</p>
+                    <p>Bons nomes para variÃ¡veis tornam um programa fÃ¡cil de entender!</p>
                 </section>
                 <section id="palavrasReservados">
-                    <h2>Algumas palavras em inglês são reservadas para o uso do Python</h2>
+                    <h2>Algumas palavras em inglÃªs sÃ£o reservadas para o uso do Python</h2>
 
                     <p>Certas palavras possuem um significado especial em Python 
-                        e não podem ser usadas como nome de variáveis.</p>
-                    <p>São elas:</p>
+                        e nÃ£o podem ser usadas como nome de variÃ¡veis.</p>
+                    <p>SÃ£o elas:</p>
                     
                     <code>and, as, assert, break, class, continue, def, del, elif,
                         else, except, exec, finally, for, from, global, if, import,
@@ -289,52 +289,52 @@ and open the template in the editor.
                         with, while, and yield.</code>
                 </section>
                 <section id="comentarios">
-                    <h2>Comentários são uma forma útil de se explicar um programa</h2>
+                    <h2>ComentÃ¡rios sÃ£o uma forma Ãºtil de se explicar um programa</h2>
                     
-                    <p><b>Programa com comentários:</b></p>
+                    <p><b>Programa com comentÃ¡rios:</b></p>
                     
                     <pre><code class="language-python">
                         # programa para calcular a altura de uma bola
                         # em movimento vertical
                         v0 = 5    # velocidade inicial
-                        g = 9.81  # aceleração da gravidade
+                        g = 9.81  # aceleraÃ§Ã£o da gravidade
                         t = 0.6   # tempo
-                        y = v0*t - 0.5*g*t**2  # posição vertical
+                        y = v0*t - 0.5*g*t**2  # posiÃ§Ã£o vertical
                         print y
                     </code></pre>
                     
                     <p style="text-align: left;"><b>Notas:</b></p>
 
                     <ul>
-                      <li> Tudo após o símbolo <code>#</code> em uma linha é um comentário e 
-                      é ignorado pelo Python;</li>
-                      <li> Comentários são utilizados para explicar o que as instruções
-                          do código significam, o que as variáveis significam,
+                      <li> Tudo apÃ³s o sÃ­mbolo <code>#</code> em uma linha Ã© um comentÃ¡rio e 
+                      Ã© ignorado pelo Python;</li>
+                      <li> ComentÃ¡rios sÃ£o utilizados para explicar o que as instruÃ§Ãµes
+                          do cÃ³digo significam, o que as variÃ¡veis significam,
                           como o programador raciocinou quando escrever o programa, etc.</li>
-                      <li> Comentários ruins não dizem nada a mais que o código: <br><code>a = 5  # definir a como 5</code></li>
+                      <li> ComentÃ¡rios ruins nÃ£o dizem nada a mais que o cÃ³digo: <br><code>a = 5  # definir a como 5</code></li>
                     </ul>
                 </section>
                 <section id="comentariosNaoIgnorados">
-                    <h2>Comentários não são sempre ignorados</h2>
+                    <h2>ComentÃ¡rios nÃ£o sÃ£o sempre ignorados</h2>
                     
-                    <p>Regra padrão: Programas Python, exceto os comentários e textos (strings), podem somente
-                    possuir caracteres do alfabeto inglês.</p>
-                    <p>Por questões de boas práticas e por generalizar a leitura do código, 
-                    normalmente todo o programa, inclusive os comentários são escritos em inglês!</p>
+                    <p>Regra padrÃ£o: Programas Python, exceto os comentÃ¡rios e textos (strings), podem somente
+                    possuir caracteres do alfabeto inglÃªs.</p>
+                    <p>Por questÃµes de boas prÃ¡ticas e por generalizar a leitura do cÃ³digo, 
+                    normalmente todo o programa, inclusive os comentÃ¡rios sÃ£o escritos em inglÃªs!</p>
 
-                    <p>Algumas vezes mesmo caracteres especiais colocados em textos ou comentários
+                    <p>Algumas vezes mesmo caracteres especiais colocados em textos ou comentÃ¡rios
                     podem gerar um erro no programa:</p>
                     
-                    <pre><code class="language-python">                    verdade = 'Não é não!'  # ã e é são permitidos em uma string?
+                    <pre><code class="language-python">                    verdade = 'NÃ£o Ã© nÃ£o!'  # Ã£ e Ã© sÃ£o permitidos em uma string?
                     print verdade</code></pre>
                     
                     <p>Pode gerar o erro:</p>
                     
                     <pre><code class="language-bash">                    SyntaxError: Non-ASCII character ...</code></pre>
                     
-                    <p>A solução para esse tipo de erro e acrescentar
-                    na primeira linha do seu programa a codificação na qual
-                    você está escrevendo o código, para Linux e Mac:</p>
+                    <p>A soluÃ§Ã£o para esse tipo de erro e acrescentar
+                    na primeira linha do seu programa a codificaÃ§Ã£o na qual
+                    vocÃª estÃ¡ escrevendo o cÃ³digo, para Linux e Mac:</p>
                     
                     <pre><code class="language-python">                    # -*- coding: utf-8 -*-</code></pre>
 
@@ -345,47 +345,47 @@ and open the template in the editor.
                 <section id="comandoPrintf">
                     <h2>printf</h2>
                     
-                    <p>O comando <code>printf</code> nós dá grande flexibilidade formantando texto com números</p>
+                    <p>O comando <code>printf</code> nÃ³s dÃ¡ grande flexibilidade formantando texto com nÃºmeros</p>
 
-                    <p>O resultado de cálculos normalmente contém números com algum significado,<br> por exemplo:</p>
+                    <p>O resultado de cÃ¡lculos normalmente contÃ©m nÃºmeros com algum significado,<br> por exemplo:</p>
                     
-                    <blockquote>Em t = 0.6s, y é 1.23m</blockquote>
+                    <blockquote>Em t = 0.6s, y Ã© 1.23m</blockquote>
                     
-                    <p>É interessante controlar a formatação dos números como:<br> quantidade 
+                    <p>Ã interessante controlar a formataÃ§Ã£o dos nÃºmeros como:<br> quantidade 
                     de decimais, estilo (0,6 ou 6e-01), entre outros.</p>
                     
-                    <p>O comando interno do Python (ou palavra reservada) <code>printf</code> é útil para
-                    esse propósito:</p>
+                    <p>O comando interno do Python (ou palavra reservada) <code>printf</code> Ã© Ãºtil para
+                    esse propÃ³sito:</p>
                     
                     <pre><code class="language-python">                    t = 0.6
                     y = 1.2342
-                    print 'Em t=%g s, y é %.2f m.' % (t, y)</code></pre>    
+                    print 'Em t=%g s, y Ã© %.2f m.' % (t, y)</code></pre>    
                     
-                    <p>O comando <code>printf</code> possui &quot;espaços&quot; onde as variáveis
-                        listadas ao final são acrescentadas ao texto formatado:
+                    <p>O comando <code>printf</code> possui &quot;espaÃ§os&quot; onde as variÃ¡veis
+                        listadas ao final sÃ£o acrescentadas ao texto formatado:
                         <code>%g</code> \( \leftarrow \) <code>t</code>, <code>%.2f</code> \( \leftarrow \) <code>y</code></p>
                 </section>
                 <section id="exemplosPrintf">
-                    <h2>Exemplos de diferentes formatações com o printf</h2>
+                    <h2>Exemplos de diferentes formataÃ§Ãµes com o printf</h2>
                     
-                    <pre>                    %g         formato mais compacto de um número real
-                    %f         notação decimal (-34.674)
-                    %10.3f     notação decimal com 3 decimais e 10 dígitos inteiros
-                    %.3f       notação decimal com 3 decimais e mínimo tamanho
-                    %e or %E   notação científica (1.42e-02 ou 1.42E-02)
-                    %9.2e      notação científica com 2 decimais e 9 dígitos inteiros
+                    <pre>                    %g         formato mais compacto de um nÃºmero real
+                    %f         notaÃ§Ã£o decimal (-34.674)
+                    %10.3f     notaÃ§Ã£o decimal com 3 decimais e 10 dÃ­gitos inteiros
+                    %.3f       notaÃ§Ã£o decimal com 3 decimais e mÃ­nimo tamanho
+                    %e or %E   notaÃ§Ã£o cientÃ­fica (1.42e-02 ou 1.42E-02)
+                    %9.2e      notaÃ§Ã£o cientÃ­fica com 2 decimais e 9 dÃ­gitos inteiros
                     %d         inteiro
-                    %5d        inteiro com 5 dígitos
+                    %5d        inteiro com 5 dÃ­gitos
                     %s         string (texto)
-                    %-20s      string, com 20 caracteres, alinhado à esquerda
-                    %%         símbolo de porcentagem %
+                    %-20s      string, com 20 caracteres, alinhado Ã  esquerda
+                    %%         sÃ­mbolo de porcentagem %
                     </pre>
                     
                 </section>
                 <section id="usandoPrintf">
-                    <h2>Usando formatações com o printf em seu programa</h2>
+                    <h2>Usando formataÃ§Ãµes com o printf em seu programa</h2>
                     Textos (strings) com triplas aspas (""" ou ''') podem ser utilizados para 
-                    saídas em múltiplas linhas que, ainda, podem ser combinadas com uma formatação
+                    saÃ­das em mÃºltiplas linhas que, ainda, podem ser combinadas com uma formataÃ§Ã£o
                     do comando <code>printf</code>:
                     
                     <pre><code class="language-python">                    v0 = 5
@@ -396,7 +396,7 @@ and open the template in the editor.
                     print """
                     Em t=%f s, uma bola com
                     velocidade inicial v0=%.3E m/s
-                    está posicionada na altura de %.2f m.
+                    estÃ¡ posicionada na altura de %.2f m.
                     """ % (t, v0, y)</code></pre> 
                     
                     <p>Salve como um arquivo do python (ex. saida_formatada.py) e rode o programa:</p>
@@ -405,56 +405,56 @@ and open the template in the editor.
                     
                 </section>
                 <section id="termosComputacaoCientifica">
-                    <h2>Alguns termos comumente usados em computação científica</h2>
+                    <h2>Alguns termos comumente usados em computaÃ§Ã£o cientÃ­fica</h2>
                     
                     <ul>
-                        <li> Programa, código ou aplicação (Program or code or application);</li>
-                        <li> Código fonte (Source code, é o "texto" do programa)</li>
-                        <li> Fragmento ou parte de Código/programa (Code/program snippet);</li>
+                        <li> Programa, cÃ³digo ou aplicaÃ§Ã£o (Program or code or application);</li>
+                        <li> CÃ³digo fonte (Source code, Ã© o "texto" do programa)</li>
+                        <li> Fragmento ou parte de CÃ³digo/programa (Code/program snippet);</li>
                         <li> Executar ou rodar um programa (Execute or run a program);</li>
-                        <li> Algoritmo (Algorithm, é a "receita" para um programa);</li>
-                        <li> Implementação (Implementation, o ato de escrever o programa);</li>
-                        <li> Verificação (Verification, o programa funciona como esperado?);</li>
-                        <li> Erros e depuração (Bugs and debugging);</li>
+                        <li> Algoritmo (Algorithm, Ã© a "receita" para um programa);</li>
+                        <li> ImplementaÃ§Ã£o (Implementation, o ato de escrever o programa);</li>
+                        <li> VerificaÃ§Ã£o (Verification, o programa funciona como esperado?);</li>
+                        <li> Erros e depuraÃ§Ã£o (Bugs and debugging);</li>
                     </ul>
                     
-                    <p style="margin-top: 30px;">O significado de alguns termos em computação científica 
-                    é geralmente diferente do significado do "dicionário".</p>
+                    <p style="margin-top: 30px;">O significado de alguns termos em computaÃ§Ã£o cientÃ­fica 
+                    Ã© geralmente diferente do significado do "dicionÃ¡rio".</p>
                     
                 </section>
                 <section id="declaracoesPrograma">
-                    <h2>Um programa consiste em declarações</h2>
+                    <h2>Um programa consiste em declaraÃ§Ãµes</h2>
                     
-                    <pre><code class="language-python">                    a = 1      # 1a declaração (declaração de atribuição)
-                    b = 2      # 2a declaração (declaração de atribuição)
-                    c = a + b  # 3a declaração (declaração de atribuição)
-                    print c    # 4a declaração (declaração de impressão)</code></pre>
+                    <pre><code class="language-python">                    a = 1      # 1a declaraÃ§Ã£o (declaraÃ§Ã£o de atribuiÃ§Ã£o)
+                    b = 2      # 2a declaraÃ§Ã£o (declaraÃ§Ã£o de atribuiÃ§Ã£o)
+                    c = a + b  # 3a declaraÃ§Ã£o (declaraÃ§Ã£o de atribuiÃ§Ã£o)
+                    print c    # 4a declaraÃ§Ã£o (declaraÃ§Ã£o de impressÃ£o)</code></pre>
                     
-                    <p>Regra padrão: <br>
-                        uma declaração por linha, mas múltiplas declarações por linha
-                        são permitidas através do uso do ponto-vírgula entre as declarações:
+                    <p>Regra padrÃ£o: <br>
+                        uma declaraÃ§Ã£o por linha, mas mÃºltiplas declaraÃ§Ãµes por linha
+                        sÃ£o permitidas atravÃ©s do uso do ponto-vÃ­rgula entre as declaraÃ§Ãµes:
                     </p>
                     
                     <pre><code class="language-python">                    a = 1;  b = 2;  c = a + b;  print c</code></pre>
                     
                 </section>
                 <section id="declaracoesAtribuicao">
-                    <h2>Declarações de Atribuição</h2>
+                    <h2>DeclaraÃ§Ãµes de AtribuiÃ§Ã£o</h2>
                     
-                    <p>Declarações de atribuição avaliam o lado direito do símbolo de 
-                    atribuição "=" e atribuem o resultado à variável do lado esquerdo:</p>
+                    <p>DeclaraÃ§Ãµes de atribuiÃ§Ã£o avaliam o lado direito do sÃ­mbolo de 
+                    atribuiÃ§Ã£o "=" e atribuem o resultado Ã  variÃ¡vel do lado esquerdo:</p>
                     
                     <pre><code class="language-python">                    myvar = 10
                     myvar = 3*myvar   # = 30    </code></pre>
                 </section>
                 <section id="sintaxe">
-                    <h2>Sintaxe do código</h2>
+                    <h2>Sintaxe do cÃ³digo</h2>
                     
-                    <p>Programas devem conter uma sintaxe correta, isto é, um correto
-                    uso das regras "gramaticais" da linguagem de programação em uso,
-                    e sem erros de impressão!</p>
+                    <p>Programas devem conter uma sintaxe correta, isto Ã©, um correto
+                    uso das regras "gramaticais" da linguagem de programaÃ§Ã£o em uso,
+                    e sem erros de impressÃ£o!</p>
                     
-                    <p><b>Esse é um programa com dois erros de sintaxe:</b></p>
+                    <p><b>Esse Ã© um programa com dois erros de sintaxe:</b></p>
                     
                     <pre><code class="language-python">                    myvar = 5.2
                     prinnt Myvar
@@ -462,8 +462,8 @@ and open the template in the editor.
                                    ^
                     SyntaxError: invalid syntax</code></pre>
                     
-                    <p>Somente o primeiro erro encontrado é relatado e o programa
-                    para (corrija o erro e continue para o pŕoximo...).</p>
+                    <p>Somente o primeiro erro encontrado Ã© relatado e o programa
+                    para (corrija o erro e continue para o pÅoximo...).</p>
                     
                     <blockquote>
                         <em>Programming demands significantly higher standard of accuracy. 
@@ -473,59 +473,59 @@ and open the template in the editor.
                     </blockquote>
                     
                     <aside class="notes">
-                        A programação exige um nível de precisão significativamente maior. 
-                        As coisas simplesmente não têm que fazer sentido para outro ser humano, 
+                        A programaÃ§Ã£o exige um nÃ­vel de precisÃ£o significativamente maior. 
+                        As coisas simplesmente nÃ£o tÃªm que fazer sentido para outro ser humano, 
                         elas devem fazer sentido para um computador.
                         Donald Knuth, computer scientist, 1938
                     </aside>  
                     
                 </section>
                 <section id="espacosBranco">
-                    <h2>Espaços em branco</h2>
+                    <h2>EspaÃ§os em branco</h2>
                     
-                    <p>Espaços em branco (blank, whitespaces) podem ser utilizados
-                    para uma melhor formatação do texto do código.</p>
+                    <p>EspaÃ§os em branco (blank, whitespaces) podem ser utilizados
+                    para uma melhor formataÃ§Ã£o do texto do cÃ³digo.</p>
                     
-                    <p>Espaços em branco podem ou não ser importantes em programas Python.</p>
+                    <p>EspaÃ§os em branco podem ou nÃ£o ser importantes em programas Python.</p>
                     
-                    <p>Essas declarações são equivalentes (espaços em branco aqui não importam): </p>
+                    <p>Essas declaraÃ§Ãµes sÃ£o equivalentes (espaÃ§os em branco aqui nÃ£o importam): </p>
                     
                     <pre><code class="language-python">                    v0=3
                     v0  =  3
                     v0=   3
                     v0 = 3</code></pre>
                     
-                    <p>Aqui os espaço em branco são importantes:</p>
+                    <p>Aqui os espaÃ§o em branco sÃ£o importantes:</p>
                     
                     <pre><code class="language-python">            contador = 1
             while contador <= 4:
-                contador = contador + 1   # correto (4 espaços em branco no inicio ou um "tab", indentação)
+                contador = contador + 1   # correto (4 espaÃ§os em branco no inicio ou um "tab", indentaÃ§Ã£o)
 
             while contador <= 4:
-            contador = contador + 1       # sintaxe inválida</code></pre>
+            contador = contador + 1       # sintaxe invÃ¡lida</code></pre>
                     
                 </section>
                 <section id="entradaSaida">
-                    <h2>Entrada e Saída</h2>
+                    <h2>Entrada e SaÃ­da</h2>
                     
                     <p>O programa recebe dados de entrada e calcula os 
-                        dados de saída de acordo com o código escrito.</p>
+                        dados de saÃ­da de acordo com o cÃ³digo escrito.</p>
                     
                     <pre><code class="language-python">                    v0 = 3;  g = 9.81;  t = 0.6
                     posicao = v0*t - 0.5*g*t*t
                     velocidade = v0 - g*t
-                    print 'posição:', posicao, 'velocidade:', velocidade</code></pre>
+                    print 'posiÃ§Ã£o:', posicao, 'velocidade:', velocidade</code></pre>
                     
                     <ul>
                         <li> Entrada: <code>v0</code>, <code>g</code>, e <code>t</code></li>
-                        <li> Saída: <code>posicao</code> e <code>velocidade</code></li>
+                        <li> SaÃ­da: <code>posicao</code> e <code>velocidade</code></li>
                     </ul>
                     
                 </section>
                 <section id="sistemaOperacional">
                     <h2>Sistema Operacional</h2>
                     
-                    <p>Um sistema operacional (OS) é um conjunto de programas que
+                    <p>Um sistema operacional (OS) Ã© um conjunto de programas que
                     gerenciam os recursos de hardware e software em um computador.</p>
                     
                     <ul>
@@ -533,19 +533,19 @@ and open the template in the editor.
                         <li> Windows (95, 98, NT, ME, 2000, XP, Vista, 7, 8)</li>
                         <li> Macintosh (old Mac OS, Mac OS X)</li>
                         <li> Mac OS X \( \approx \) Unix \( \approx \) Linux \( \neq \) Windows</li>
-                        <li> Os comandos tipicos do OS são bem similares:</li>
+                        <li> Os comandos tipicos do OS sÃ£o bem similares:</li>
                         <ul>
                             <li> Linux/Unix: <code>mkdir nome-da-pasta; cd nome-da-pasta; ls</code></li>
                             <li> Windows: <code>mkdir nome-da-pasta; cd nome-da-pasta; dir</code></li>
                         </ul>
 
-                        <li> Python suporta programação cross-plataforma, ou seja, 
-                            um programa é independente de qual OS utilizamos para
+                        <li> Python suporta programaÃ§Ã£o cross-plataforma, ou seja, 
+                            um programa Ã© independente de qual OS utilizamos para
                             programar ou rodar o programa.</li>
                     </ul>
                 </section>
                 <section id="equacaoTemperatura">
-                    <h2>Avaliando uma equação para conversão de temperatura</h2>
+                    <h2>Avaliando uma equaÃ§Ã£o para conversÃ£o de temperatura</h2>
                     
                     <p>Dado \( C \) como uma temperatura em graus Celsius,
                     calcule a temperatura correspondente em graus Fahrenheit \( F \):</p>
@@ -558,7 +558,7 @@ and open the template in the editor.
                     F = (9/5)*C + 32
                     print F</code></pre>
                     
-                    <p>Execução e resultado:</p>
+                    <p>ExecuÃ§Ã£o e resultado:</p>
                     
                     <pre><code class="language-bash">                    Terminal> python c2f.py
                     53</code></pre>
@@ -571,26 +571,26 @@ and open the template in the editor.
                     
                     <p style="margin-top: 30px;">Por exemplo, usando uma calculadora:</p>
                     
-                    <code>9/5 vezes 21 mais 32 é 69.8, e não 53!!</code>                    
+                    <code>9/5 vezes 21 mais 32 Ã© 69.8, e nÃ£o 53!!</code>                    
                 </section>
                 <section id="erroNaRespostaCerta">
                     <h2>Erro na resposta</h2>
                     
                     <p style="margin-top: 30px;">O erro na resposta foi causado
-                    (não intencionalmente) por divisão de inteiros.</p>
+                    (nÃ£o intencionalmente) por divisÃ£o de inteiros.</p>
                     
                     <ul>
-                        <li> 9/5 não é 1.8 mas 1 na maioria das linguagens de programação!</li>
-                        <li> Se \( a \) e \( b \) são inteiros, \( a/b \) implica em uma divisão 
+                        <li> 9/5 nÃ£o Ã© 1.8 mas 1 na maioria das linguagens de programaÃ§Ã£o!</li>
+                        <li> Se \( a \) e \( b \) sÃ£o inteiros, \( a/b \) implica em uma divisÃ£o 
                             de inteiros: o maior inteiro \( c \) tal que \( cb\leq a \);</li>
                         <li> Exemplos: \( 1/5=0 \), \( 2/5=0 \), \( 7/5=1 \), \( 12/5=2 \);</li>
-                        <li> Na matemática, 9/5 é um número real (1.8) - isso 
-                            é chamado divisão de ponto flutuante em Python e é a divisão que queremos;</li>
-                        <li> Um dos operandos (\( a \) ou \( b \)) em \( a/b \) deve ser um número real 
-                            (ponto flutuante ou "float") para resultar na divisão com ponto flutuante;</li>
+                        <li> Na matemÃ¡tica, 9/5 Ã© um nÃºmero real (1.8) - isso 
+                            Ã© chamado divisÃ£o de ponto flutuante em Python e Ã© a divisÃ£o que queremos;</li>
+                        <li> Um dos operandos (\( a \) ou \( b \)) em \( a/b \) deve ser um nÃºmero real 
+                            (ponto flutuante ou "float") para resultar na divisÃ£o com ponto flutuante;</li>
                         <li> Um float em Python possui um ponto (ou decimais): <code>9.0</code> 
-                            ou <code>9.</code> é float;</li>
-                        <li> Nenhum ponto implica em inteiro: <code>9</code> é um inteiro;</li>
+                            ou <code>9.</code> Ã© float;</li>
+                        <li> Nenhum ponto implica em inteiro: <code>9</code> Ã© um inteiro;</li>
                         <li> <code>9.0/5</code> resulta <code>1.8</code>, <code>9/5.</code> 
                             resulta <code>1.8</code>, <code>9/5</code> resulta <code>1</code>;</li>
                     </ul>
@@ -598,68 +598,68 @@ and open the template in the editor.
                     <p>Corrija o programa de temperatura.</p>
                 </section>
                 <section id="objetosPython">
-                    <h2>Tudo no Python é um objeto</h2>
+                    <h2>Tudo no Python Ã© um objeto</h2>
                     
-                    <p>Variáveis se referem à objetos:</p>
+                    <p>VariÃ¡veis se referem Ã  objetos:</p>
                     
                     <pre><code class="language-python">                    a = 5       # a refere-se a um objeto inteiro (int)
                     b = 9       # b refere-se a um objeto inteiro (int)
-                    c = 9.0     # c refere-se a um objeto número real (float)
+                    c = 9.0     # c refere-se a um objeto nÃºmero real (float)
                     d = b/a     # d refere-se a uma int/int => objeto int
                     e = c/a     # e refere-se a uma float/int => objeto float
-                    s = 'b/a=%g' % (b/a)  # s é um objeto string/texto (str)</code></pre>
+                    s = 'b/a=%g' % (b/a)  # s Ã© um objeto string/texto (str)</code></pre>
                     
-                    <p>Podemos fazer conversões entre objetos:</p>
+                    <p>Podemos fazer conversÃµes entre objetos:</p>
                     
-                    <pre><code class="language-python">                    a = 3              # a é int
-                    b = float(a)       # b é float 3.0
-                    c = 3.9            # c é float
-                    d = int(c)         # d é int 3
-                    d = round(c)       # d é float 4.0
-                    d = int(round(c))  # d é int 4
-                    d = str(c)         # d é str '3.9'
-                    e = '-4.2'         # e é str
-                    f = float(e)       # f é float -4.2</code></pre>
+                    <pre><code class="language-python">                    a = 3              # a Ã© int
+                    b = float(a)       # b Ã© float 3.0
+                    c = 3.9            # c Ã© float
+                    d = int(c)         # d Ã© int 3
+                    d = round(c)       # d Ã© float 4.0
+                    d = int(round(c))  # d Ã© int 4
+                    d = str(c)         # d Ã© str '3.9'
+                    e = '-4.2'         # e Ã© str
+                    f = float(e)       # f Ã© float -4.2</code></pre>
                     
                 </section>
                 <section id="expressoesAritmeticas">
-                    <h2>Expressões Aritméticas</h2>
+                    <h2>ExpressÃµes AritmÃ©ticas</h2>
 
-                    <p>Expressões aritméticas são avaliadas como você aprendeu 
-                    na matemática:</p>
+                    <p>ExpressÃµes aritmÃ©ticas sÃ£o avaliadas como vocÃª aprendeu 
+                    na matemÃ¡tica:</p>
                     
                     <ul>
-                        <li> Exemplo: \( \dfrac{5}{9} + 2\dfrac{a^4}{2} \), no Python é escrita como <code>5/9 + 2*a**4/2</code></li>
-                        <li> As mesmas regras da matemática: procedimento termo à termo* a partir da esquerda, no mesmo termo 
-                            potências são calculadas primeiro, depois multiplicação e divisão, por fim adições/subtrações:</li>
+                        <li> Exemplo: \( \dfrac{5}{9} + 2\dfrac{a^4}{2} \), no Python Ã© escrita como <code>5/9 + 2*a**4/2</code></li>
+                        <li> As mesmas regras da matemÃ¡tica: procedimento termo Ã  termo* a partir da esquerda, no mesmo termo 
+                            potÃªncias sÃ£o calculadas primeiro, depois multiplicaÃ§Ã£o e divisÃ£o, por fim adiÃ§Ãµes/subtraÃ§Ãµes:</li>
                         <li> <code>r1 = 5/9</code> (=0)</li>
                         <li> <code>r2 = a**4</code></li>
                         <li> <code>r3 = 2*r2</code></li>
                         <li> <code>r4 = r3/2</code></li>
                         <li> <code>r5 = r1 + r4</code></li>
-                        <li> Use parenteses para sobrescrever essas regras padrões, 
+                        <li> Use parenteses para sobrescrever essas regras padrÃµes, 
                             ou use parenteses para explicitamente dizer como as regras funcionam: <br />
                             <code>(5/9) + (2*(a**4))/2</code></li>
                     </ul>
                     
                     <aside class="notes">
-                        * Um termo é definido ou separado por adição ou subtrações.
+                        * Um termo Ã© definido ou separado por adiÃ§Ã£o ou subtraÃ§Ãµes.
                     </aside>
                 </section>
                 <section id="funcoesPadroes">
-                    <h2>Funções Matemáticas Padrões</h2>
+                    <h2>FunÃ§Ãµes MatemÃ¡ticas PadrÃµes</h2>
 
-                    <p>Algumas funções matemáticas podem ser encontradas
-                        no módulo <code>math</code> do python</p>
+                    <p>Algumas funÃ§Ãµes matemÃ¡ticas podem ser encontradas
+                        no mÃ³dulo <code>math</code> do python</p>
                     
                     <ul>
                         <li> E se precisarmos calcular  $\sin x$, $\cos x$, 
                             $\ln x$, etc. em um programa?</li>
-                        <li> Tais funções estão disponíveis no módulo 
+                        <li> Tais funÃ§Ãµes estÃ£o disponÃ­veis no mÃ³dulo 
                             <code>math</code> do python;</li>
-                        <li> Um monte de funcionalidades úteis estão disponíveis
-                            em módulos do próprio Python e em módulos de terceiros;</li>
-                        <li>Para funcionar, devemos importar esses módulos para nosso
+                        <li> Um monte de funcionalidades Ãºteis estÃ£o disponÃ­veis
+                            em mÃ³dulos do prÃ³prio Python e em mÃ³dulos de terceiros;</li>
+                        <li>Para funcionar, devemos importar esses mÃ³dulos para nosso
                         programa.</li>
                     </ul>
                     
@@ -673,9 +673,9 @@ and open the template in the editor.
                     r = sqrt(2)</code></pre>                    
                 </section>
                 <section id="funcoesPadroes2">
-                    <h2>Funções Matemáticas Padrões</h2>
+                    <h2>FunÃ§Ãµes MatemÃ¡ticas PadrÃµes</h2>
                     
-                    <p>Mais um exemplo do uso de funções matemáticas com
+                    <p>Mais um exemplo do uso de funÃ§Ãµes matemÃ¡ticas com
                         o <code>math</code>:</p>
 
                     <p>Calcule</p>
@@ -692,7 +692,7 @@ and open the template in the editor.
                 <section id="errosArredondamento">
                     <h2>Erros de arredondamento</h2>
                     
-                    <p>Computadores possuem uma aritmética inexata por causa
+                    <p>Computadores possuem uma aritmÃ©tica inexata por causa
                     dos erros de arredondamento e ponto flutuante.</p>
                     
                     <p>Vamos calcular $1/49 \cdot 49$ e $1/51 \cdot 51$:</p>
@@ -701,39 +701,39 @@ and open the template in the editor.
                     v2 = 1/51.0*51
                     print '%.16f %.16f' % (v1, v2)</code></pre>
                     
-                    <p>A saída com os 16 decimais é retornada como:</p>
+                    <p>A saÃ­da com os 16 decimais Ã© retornada como:</p>
                     
                     <code>0.9999999999999999 1.0000000000000000</code>
                     
                     <ul>
-                        <li> A maioria dos números reais possui uma representação
-                            inexata em um computador (ex. 16 dígitos);</li>
-                        <li> Nem 1/49 ou 1/51 está representado exatamente, sendo 
+                        <li> A maioria dos nÃºmeros reais possui uma representaÃ§Ã£o
+                            inexata em um computador (ex. 16 dÃ­gitos);</li>
+                        <li> Nem 1/49 ou 1/51 estÃ¡ representado exatamente, sendo 
                             o erro normalmente na ordem de $ 10^{-16} $;</li>
-                        <li> As vezes esses pequenos erros se propagam até a resposta 
-                            final, as vezes não, e as vezes os pequenos erros são
-                            acumulados através de várias operações matemáticas;</li>
-                        <li> Lição aprendida: Os números reais em computadores e
-                        os resultados da cálculos matemáticos são apenas
-                        aproximações!</li>
+                        <li> As vezes esses pequenos erros se propagam atÃ© a resposta 
+                            final, as vezes nÃ£o, e as vezes os pequenos erros sÃ£o
+                            acumulados atravÃ©s de vÃ¡rias operaÃ§Ãµes matemÃ¡ticas;</li>
+                        <li> LiÃ§Ã£o aprendida: Os nÃºmeros reais em computadores e
+                        os resultados da cÃ¡lculos matemÃ¡ticos sÃ£o apenas
+                        aproximaÃ§Ãµes!</li>
                     </ul>                    
                 </section>
                 <section id="errosArredondamento2">
-                    <h2>Funções Matemáticas Padrões e possíveis erros</h2>
+                    <h2>FunÃ§Ãµes MatemÃ¡ticas PadrÃµes e possÃ­veis erros</h2>
                     
-                    <p>Mais um exemplo do uso de funções matemáticas com
+                    <p>Mais um exemplo do uso de funÃ§Ãµes matemÃ¡ticas com
                         o <code>math</code>:</p>
                     
-                    <p>A função $\sinh x$ é definida como:</p>
+                    <p>A funÃ§Ã£o $\sinh x$ Ã© definida como:</p>
                     
                     $$\sinh (x) = \frac{1}{2}\left(e^{x} - e^{-x}\right) $$
                     
-                    <p>Podemos avaliar essa função de três formas:</p>
+                    <p>Podemos avaliar essa funÃ§Ã£o de trÃªs formas:</p>
                     
                     <ul>
                         <li><code>math.sinh</code></li>
-                        <li>combinação de duas <code>math.exp</code></li>
-                        <li>combinação de duas potências de <code>math.e</code></li>
+                        <li>combinaÃ§Ã£o de duas <code>math.exp</code></li>
+                        <li>combinaÃ§Ã£o de duas potÃªncias de <code>math.e</code></li>
                     </ul>
                     
                     <pre><code class="language-python">                    from math import sinh, exp, e, pi
@@ -743,22 +743,22 @@ and open the template in the editor.
                     r3 = 0.5*(e**x - e**(-x))
                     print '%.16f %.16f %.16f' % (r1,r2,r3)</code></pre>
                     
-                    <p>Saída: <code>267.744894041016<u>4369</u> 267.744894041016<u>4369</u> 267.744894041016<u>3232</u></code>??</p>
+                    <p>SaÃ­da: <code>267.744894041016<u>4369</u> 267.744894041016<u>4369</u> 267.744894041016<u>3232</u></code>??</p>
                 </section>
                 <section id="interativo">
                     <h2>Python interativo</h2>
                     
                     <p>Python pode ser utilizado interativamente como uma calculadora
-                    e para testar declarações.</p>
+                    e para testar declaraÃ§Ãµes.</p>
                     
                     <ul>
-                        <li>Até agora nós executamos cálculos em <code>programas</code> Python;</li>
-                        <li>Python também pode ser utilizado interativamente, utilizando 
+                        <li>AtÃ© agora nÃ³s executamos cÃ¡lculos em <code>programas</code> Python;</li>
+                        <li>Python tambÃ©m pode ser utilizado interativamente, utilizando 
                             o chamado <code>shell</code>;</li>
                         <li>Digite <code>python</code>, ou <code>ipython</code>, ou
                             <code>idle</code> no terminal (CMD no windows);</li>
-                        <li>Um <code>shell</code> Python é aberto onde você pode
-                        escrever declarações e realizar operações em Python.</li>
+                        <li>Um <code>shell</code> Python Ã© aberto onde vocÃª pode
+                        escrever declaraÃ§Ãµes e realizar operaÃ§Ãµes em Python.</li>
                     </ul>
                     
                     <pre><code class="language-bash">Terminal> python
@@ -777,17 +777,17 @@ Python 2.7.12 |Anaconda custom (64-bit)| (default, Jul  2 2016, 17:42:40)
                     
                 </section>
                 <section id="numerosComplexos">
-                    <h2>Números Complexos</h2>
+                    <h2>NÃºmeros Complexos</h2>
 
-                    <p>Python possui suporte total para cálculos com números
+                    <p>Python possui suporte total para cÃ¡lculos com nÃºmeros
                         complexos.</p>
                     
-                    <p>$2 + 3i$ na matemática é escrito como <code>2 + 3j</code>
+                    <p>$2 + 3i$ na matemÃ¡tica Ã© escrito como <code>2 + 3j</code>
                     em Python.</p>
                     
                     <pre><code class="language-bash">>>> a = -2
 >>> b = 0.5
->>> s = complex(a, b)  # monte um complexo das variáveis
+>>> s = complex(a, b)  # monte um complexo das variÃ¡veis
 >>> s
 (-2+0.5j)
 >>> s*w                # complexo*complexo
@@ -801,14 +801,14 @@ Python 2.7.12 |Anaconda custom (64-bit)| (default, Jul  2 2016, 17:42:40)
                     
                 </section>
                 <section id="calculoSimbolico">
-                    <h2>Cálculo algébrico</h2>
+                    <h2>CÃ¡lculo algÃ©brico</h2>
 
-                    <p>Python também pode realizar operações algébricas,
-                        através do módulo <code>sympy</code>.</p>
+                    <p>Python tambÃ©m pode realizar operaÃ§Ãµes algÃ©bricas,
+                        atravÃ©s do mÃ³dulo <code>sympy</code>.</p>
                     
                     <ul>
-                        <li>Computação numérica: computação com números;</li>
-                        <li>Computação simbólica: operações algébricas com variáveis.</li>
+                        <li>ComputaÃ§Ã£o numÃ©rica: computaÃ§Ã£o com nÃºmeros;</li>
+                        <li>ComputaÃ§Ã£o simbÃ³lica: operaÃ§Ãµes algÃ©bricas com variÃ¡veis.</li>
                     </ul>
                     
                     <pre><code class="language-bash">>>> from sympy import *
@@ -817,20 +817,20 @@ Python 2.7.12 |Anaconda custom (64-bit)| (default, Jul  2 2016, 17:42:40)
 >>> dydt = diff(y, t)                     # 1a derivada
 >>> dydt
 -g*t + v0
->>> print 'aceleração:', diff(y, t, t)  # 2a derivada
-aceleração: -g
+>>> print 'aceleraÃ§Ã£o:', diff(y, t, t)  # 2a derivada
+aceleraÃ§Ã£o: -g
 >>> y2 = integrate(dydt, t)
 >>> y2
 -g*t**2/2 + t*v0
 </code></pre>
-                    <p>Foi gerado um erro de importação? Você não tem o
-                        módulo <code>sympy</code> instalado!</p>                    
+                    <p>Foi gerado um erro de importaÃ§Ã£o? VocÃª nÃ£o tem o
+                        mÃ³dulo <code>sympy</code> instalado!</p>                    
                 </section>
                 <section id="calculoSimbolico2">
-                    <h2>Cálculo algébrico (cont.)</h2>
+                    <h2>CÃ¡lculo algÃ©brico (cont.)</h2>
 
-                    <p>O SymPy pode realizar uma série de operações
-                    tradicionais da matemática.</p>
+                    <p>O SymPy pode realizar uma sÃ©rie de operaÃ§Ãµes
+                    tradicionais da matemÃ¡tica.</p>
                     
                     <pre><code class="language-bash">>>> y = v0*t - Rational(1,2)*g*t**2
 >>> roots = solve(y, t)    # resolve y=0 para t
@@ -840,39 +840,39 @@ aceleração: -g
 >>> f = -sin(x)*sin(y) + cos(x)*cos(y)
 >>> simplify(f)
 cos(x + y)
->>> expand(sin(x+y), trig=True)  # na forma trigonométrica
+>>> expand(sin(x+y), trig=True)  # na forma trigonomÃ©trica
 sin(x)*cos(y) + sin(y)*cos(x)
 </code></pre>
                     
                 </section>
                 <section id="sumarioEquacoes">
-                    <h2>Sumário de Programando Equações</h2>
+                    <h2>SumÃ¡rio de Programando EquaÃ§Ãµes</h2>
                     
                     <ul>
                         <li>Programas deve ser precisos!</li>
-                        <li>Variáveis são nomes de objetos;</li>
+                        <li>VariÃ¡veis sÃ£o nomes de objetos;</li>
                         <li>Conhecemos diferentes tipos de objetos:
                             <code>int</code>, <code>float</code>, <code>str</code>;</li>
-                        <li>Escolha nomes de variáveis próximos aos 
-                        símbolos matemáticos do problema sendo resolvido;</li>
-                        <li>Operações aritméticas em Python: termo a termo
-                        (+/-) da esquerda para a direita, potências antes *
-                        e / - como na matemática! Use parênteses se ficar na dúvida;</li>
-                        <li>Cuidado com divisões por inteiros!</li>
-                        <li>Use o <code>printf</code> para controlar melhor as saídas;</li>
-                        <li>Termos importantes: objeto, variáveis, algoritmos, 
-                                declarações, atribuições, implementação, verificação, 
-                                depuração.</li>
+                        <li>Escolha nomes de variÃ¡veis prÃ³ximos aos 
+                        sÃ­mbolos matemÃ¡ticos do problema sendo resolvido;</li>
+                        <li>OperaÃ§Ãµes aritmÃ©ticas em Python: termo a termo
+                        (+/-) da esquerda para a direita, potÃªncias antes *
+                        e / - como na matemÃ¡tica! Use parÃªnteses se ficar na dÃºvida;</li>
+                        <li>Cuidado com divisÃµes por inteiros!</li>
+                        <li>Use o <code>printf</code> para controlar melhor as saÃ­das;</li>
+                        <li>Termos importantes: objeto, variÃ¡veis, algoritmos, 
+                                declaraÃ§Ãµes, atribuiÃ§Ãµes, implementaÃ§Ã£o, verificaÃ§Ã£o, 
+                                depuraÃ§Ã£o.</li>
                     </ul>
                     
                 </section>
                 <section id="programacaoDesafio">
-                    <h2>Programar é desafiador!</h2>
+                    <h2>Programar Ã© desafiador!</h2>
 
-                    <p><em>Você pensa que sabe quando você pode aprender,
+                    <p><em>VocÃª pensa que sabe quando vocÃª pode aprender,
                         tem mais certeza quando pode escrever,
                         mais ainda quando pode ensinar,
-                        mas seguro quando você pode programar!</em></p>
+                        mas seguro quando vocÃª pode programar!</em></p>
                     
                         AQUI!!!!!!!!
                         
@@ -928,7 +928,7 @@ sin(x)*cos(y) + sin(y)*cos(x)
                 dependencies: [
                     // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
                     { src: 'js/classList.js', condition: function() { return !document.body.classList; } },                                        
-                    //menu de navegação
+                    //menu de navegaÃ§Ã£o
                     { src: 'plugin/menu/menu.js', async: true },
                     // MathJax
                     { src: 'plugin/math/math.js', async: true },                    
@@ -937,7 +937,7 @@ sin(x)*cos(y) + sin(y)*cos(x)
         </script>
         
         <a class="fork-reveal" href="../index.html" target="_blank">
-            <img style="position: absolute; top: 0; right: 0; border: 0;" src="../imagens/estruturasUFPR.png" alt="Voltar para Computação Científica">
+            <img style="position: absolute; top: 0; right: 0; border: 0;" src="../imagens/estruturasUFPR.png" alt="Voltar para ComputaÃ§Ã£o CientÃ­fica">
         </a>
         
     </body>
