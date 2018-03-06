@@ -973,9 +973,39 @@ sin(x)*cos(y) + sin(y)*cos(x)
                             \( v_0 \) para m/s e \( \theta \) para radianos
                         </p> 
                         
-                                            
+                        <!--SOLUÇÃO DA TAREFA-->
+                            <!--<button type="button" class="btn btn-info disabled">Solução</button>-->                        
+                            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tarefa">Solução</button>
+                        <!--Final solução da tarefa-->                        
                         
-                        
+                        <div id="tarefa" class="collapse">
+                            <h3> Exemplo de solução: </h3>
+
+                            <pre><code class="language-python"># -*- coding: utf-8 -*-
+'''
+Solução da tarefa para x = 1/2
+'''
+import math as m
+
+g = 9.81    # m/s**2
+v0 = 15     # km/h
+theta = 60  # graus
+x = 0.5     # m
+y0 = 1      # m
+
+print """v0    = %.1f km/h
+theta = %d graus
+y0    = %.1f m
+x     = %.1f m""" % (v0, theta, y0, x)
+
+# converter v0 para m/s e theta para radianos:
+v0 = v0/3.6
+theta = theta*m.pi/180
+
+y = x*m.tan(theta) - 1/(2*v0)*g*x**2/((m.cos(theta))**2) + y0
+
+print 'y     = %.1f m' % y</code></pre>
+                        </div>
                         
                     </div>
                 </div>
