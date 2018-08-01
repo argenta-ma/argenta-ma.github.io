@@ -110,4 +110,39 @@
      <lastmod>2018-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    <url>
+     <loc>/porticos/introducao_p/</loc>
+     <lastmod>2018-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/porticos/teoria_p/</loc>
+     <lastmod>2018-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/porticos/aplicacao_p/</loc>
+     <lastmod>2018-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/porticos/aplicacoes/portico_simples/</loc>
+     <lastmod>2018-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/porticos/aplicacoes/vinculacoes_vigapilar/</loc>
+     <lastmod>2018-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/porticos/aplicacoes/flambagem_pilar/</loc>
+     <lastmod>2018-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/porticos/aplicacoes/edificios/</loc>
+     <lastmod>2018-08-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
 </urlset>

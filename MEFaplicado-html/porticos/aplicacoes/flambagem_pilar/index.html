@@ -40,7 +40,7 @@
     
     
       
-        <title>Contraventamentos - Elementos Finitos Aplicados</title>
+        <title>Flambagem de Pilares - Elementos Finitos Aplicados</title>
       
     
     
@@ -85,7 +85,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#estudo-de-diversos-tipos-de-contraventamento-em-trelicas" tabindex="1" class="md-skip">
+      <a href="#modelagem-da-flambagem-de-um-pilar" tabindex="1" class="md-skip">
         Ir para o conteúdo
       </a>
     
@@ -111,7 +111,7 @@
                 Elementos Finitos Aplicados
               </span>
               <span class="md-header-nav__topic">
-                Contraventamentos
+                Flambagem de Pilares
               </span>
             
           
@@ -192,12 +192,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Treliça Plana
@@ -215,7 +213,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../introducao_tp/" title="Introdução" class="md-nav__link">
+    <a href="../../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
       Introdução
     </a>
   </li>
@@ -227,7 +225,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../teoria_tp/" title="Teoria" class="md-nav__link">
+    <a href="../../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
       Teoria
     </a>
   </li>
@@ -239,7 +237,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../aplicacao_tp/" title="Aplicação" class="md-nav__link">
+    <a href="../../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
       Aplicação
     </a>
   </li>
@@ -249,12 +247,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
     <label class="md-nav__link" for="nav-2-4">
       Aplicações
@@ -272,7 +268,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+    <a href="../../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
       Treliça com 3 barras
     </a>
   </li>
@@ -284,7 +280,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+    <a href="../../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
       Treliça com 11 barras
     </a>
   </li>
@@ -294,178 +290,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Contraventamentos
-      </label>
-    
-    <a href="./" title="Contraventamentos" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
       Contraventamentos
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Índice</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#objetivo" title="Objetivo" class="md-nav__link">
-    Objetivo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resolucao-utilizando-o-abaqus-612-student-edition" title="Resolução utilizando o abaqus 6.12 student edition" class="md-nav__link">
-    Resolução utilizando o abaqus 6.12 student edition
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-pre-processamento" title="1. Pré-processamento" class="md-nav__link">
-    1. Pré-processamento
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-inicio-da-analise" title="1.1. Início da análise" class="md-nav__link">
-    1.1. Início da análise
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-criacao-da-geometria-base-e-definicao-do-tipo-de-elemento" title="1.2. Criação da geometria base e definição do tipo de elemento" class="md-nav__link">
-    1.2. Criação da geometria base e definição do tipo de elemento
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-atribuicao-das-propriedades-dos-materiais" title="1.3. Atribuição das propriedades dos materiais" class="md-nav__link">
-    1.3. Atribuição das propriedades dos materiais
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-atribuicao-das-propriedades-das-secoes-das-barras" title="1.4. Atribuição das propriedades das seções das barras" class="md-nav__link">
-    1.4. Atribuição das propriedades das seções das barras
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-associacao-das-secoes" title="1.5. Associação das seções" class="md-nav__link">
-    1.5. Associação das seções
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#16-aplicacao-das-condicoes-de-contorno" title="1.6. Aplicação das condições de contorno" class="md-nav__link">
-    1.6. Aplicação das condições de contorno
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#161-cargas" title="1.6.1 Cargas" class="md-nav__link">
-    1.6.1 Cargas
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#162-apoios" title="1.6.2 Apoios" class="md-nav__link">
-    1.6.2 Apoios
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#17-criacao-da-malha" title="1.7. Criação da malha" class="md-nav__link">
-    1.7. Criação da malha
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-processamento" title="2. Processamento" class="md-nav__link">
-    2. Processamento
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-pos-processamento" title="3. Pós-processamento" class="md-nav__link">
-    3. Pós-processamento
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-analise-grafica" title="3.1. Análise gráfica" class="md-nav__link">
-    3.1. Análise gráfica
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-variaveis-de-saida" title="3.2. Variáveis de saída" class="md-nav__link">
-    3.2. Variáveis de saída
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -475,7 +304,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../analisemodal/" title="Análise Modal" class="md-nav__link">
+    <a href="../../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
       Análise Modal
     </a>
   </li>
@@ -487,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+    <a href="../../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
       Barra elasto-plástica
     </a>
   </li>
@@ -759,10 +588,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Pórticos
@@ -780,7 +611,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../porticos/introducao_p/" title="Introdução" class="md-nav__link">
+    <a href="../../introducao_p/" title="Introdução" class="md-nav__link">
       Introdução
     </a>
   </li>
@@ -792,7 +623,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../porticos/teoria_p/" title="Teoria" class="md-nav__link">
+    <a href="../../teoria_p/" title="Teoria" class="md-nav__link">
       Teoria
     </a>
   </li>
@@ -804,7 +635,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../porticos/aplicacao_p/" title="Aplicação" class="md-nav__link">
+    <a href="../../aplicacao_p/" title="Aplicação" class="md-nav__link">
       Aplicação
     </a>
   </li>
@@ -814,10 +645,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4" checked>
     
     <label class="md-nav__link" for="nav-5-4">
       Aplicações
@@ -835,7 +668,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../porticos/aplicacoes/portico_simples/" title="Pórtico Simples" class="md-nav__link">
+    <a href="../portico_simples/" title="Pórtico Simples" class="md-nav__link">
       Pórtico Simples
     </a>
   </li>
@@ -847,7 +680,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../porticos/aplicacoes/vinculacoes_vigapilar/" title="Vinculações Viga-Pilar" class="md-nav__link">
+    <a href="../vinculacoes_vigapilar/" title="Vinculações Viga-Pilar" class="md-nav__link">
       Vinculações Viga-Pilar
     </a>
   </li>
@@ -857,11 +690,178 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../../porticos/aplicacoes/flambagem_pilar/" title="Flambagem de Pilares" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Flambagem de Pilares
+      </label>
+    
+    <a href="./" title="Flambagem de Pilares" class="md-nav__link md-nav__link--active">
       Flambagem de Pilares
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" title="Objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucao-utilizando-o-abaqus-612-student-edition" title="Resolução utilizando o abaqus 6.12 student edition" class="md-nav__link">
+    Resolução utilizando o abaqus 6.12 student edition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pre-processamento" title="1. Pré-processamento" class="md-nav__link">
+    1. Pré-processamento
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-inicio-da-analise" title="1.1. Início da análise" class="md-nav__link">
+    1.1. Início da análise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-criacao-da-geometria-base-e-definicao-do-tipo-de-elemento" title="1.2. Criação da geometria base e definição do tipo de elemento" class="md-nav__link">
+    1.2. Criação da geometria base e definição do tipo de elemento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-atribuicao-das-propriedades-dos-materiais" title="1.3. Atribuição das propriedades dos materiais" class="md-nav__link">
+    1.3. Atribuição das propriedades dos materiais
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-atribuicao-das-propriedades-da-secao-do-pilar" title="1.4. Atribuição das propriedades da seção do pilar" class="md-nav__link">
+    1.4. Atribuição das propriedades da seção do pilar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-associacao-das-secoes" title="1.5. Associação das seções" class="md-nav__link">
+    1.5. Associação das seções
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-aplicacao-das-condicoes-de-contorno" title="1.6. Aplicação das condições de contorno" class="md-nav__link">
+    1.6. Aplicação das condições de contorno
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161-cargas" title="1.6.1 Cargas" class="md-nav__link">
+    1.6.1 Cargas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162-apoios" title="1.6.2 Apoios" class="md-nav__link">
+    1.6.2 Apoios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-criacao-da-malha" title="1.7. Criação da malha" class="md-nav__link">
+    1.7. Criação da malha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processamento" title="2. Processamento" class="md-nav__link">
+    2. Processamento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pos-processamento" title="3. Pós-processamento" class="md-nav__link">
+    3. Pós-processamento
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-analise-grafica" title="3.1. Análise gráfica" class="md-nav__link">
+    3.1. Análise gráfica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-variaveis-de-saida" title="3.2. Variáveis de saída" class="md-nav__link">
+    3.2. Variáveis de saída
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -871,7 +871,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../porticos/aplicacoes/edificios/" title="Edifícios" class="md-nav__link">
+    <a href="../edificios/" title="Edifícios" class="md-nav__link">
       Edifícios
     </a>
   </li>
@@ -952,8 +952,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#14-atribuicao-das-propriedades-das-secoes-das-barras" title="1.4. Atribuição das propriedades das seções das barras" class="md-nav__link">
-    1.4. Atribuição das propriedades das seções das barras
+  <a href="#14-atribuicao-das-propriedades-da-secao-do-pilar" title="1.4. Atribuição das propriedades da seção do pilar" class="md-nav__link">
+    1.4. Atribuição das propriedades da seção do pilar
   </a>
   
 </li>
@@ -1060,249 +1060,200 @@
               
                 
                 
-                <h1 id="estudo-de-diversos-tipos-de-contraventamento-em-trelicas">Estudo de diversos tipos de contraventamento em treliças</h1>
+                <h1 id="modelagem-da-flambagem-de-um-pilar">Modelagem da flambagem de um pilar</h1>
 <h2 id="objetivo">Objetivo</h2>
-<p>Avaliar as tensões das barras em função do tipo de contraventamento utilizado.</p>
-<p><a href="../imagens_cont/imagem_01.png" title="Clique para ampliar"><img alt="Figura 1." src="../imagens_cont/imagem_01.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<table>
-<thead>
-<tr>
-<th align="center">Propriedades das barras</th>
-<th align="center">Montantes</th>
-<th align="center">Diagonais</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Módulo de Elasticidade (kN/cm²)</td>
-<td align="center">20500</td>
-<td align="center">20500</td>
-</tr>
-<tr>
-<td align="center">Área da seção transversal (cm²)</td>
-<td align="center">9.27</td>
-<td align="center">7.66</td>
-</tr>
-</tbody>
-</table>
+<p>Determinar as <strong>cargas criticas</strong> e <strong>modos de flambagem</strong> de um pilar de seção circular, de diâmetro de <strong>24 cm</strong>, confecionada em <strong>Aço</strong>.</p>
 <h2 id="resolucao-utilizando-o-abaqus-612-student-edition">Resolução utilizando o abaqus 6.12 student edition</h2>
 <p>O procedimento usual de resolução é demonstrado no seguinte fluxograma, cuja ordem pode eventualmente ser alterada por conveniência:</p>
-<p><a href="../imagens_cont/imagem_02.png" title="Clique para ampliar"><img alt="Figura 2." src="../imagens_cont/imagem_02.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_01.png" title="Clique para ampliar"><img alt="Figura 1." src="../imagens_fp/imagem_01.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h3 id="1-pre-processamento">1. Pré-processamento</h3>
-<p>Será apenas realizado a análise da estrutura que possui contraventamento do <strong>Tipo K</strong>, cabendo <strong>ao aluno</strong> a modelagem dos contraventamentos em <strong>Diamante</strong> e em <strong>X</strong>.</p>
 <h4 id="11-inicio-da-analise">1.1. Início da análise</h4>
 <ul>
 <li>Na caixa <strong>Start Session</strong>, selecione <strong>With Standard/Explicit Model</strong>.</li>
 <li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>.</li>
-<li>Digite <strong>EstruturadeTreliças</strong> e clique em <strong>OK</strong>.</li>
+<li>Digite <strong>Flambagem Pilar</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_03.png" title="Clique para ampliar"><img alt="Figura 3." src="../imagens_cont/imagem_03.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
 <h4 id="12-criacao-da-geometria-base-e-definicao-do-tipo-de-elemento">1.2. Criação da geometria base e definição do tipo de elemento</h4>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Parts</strong>.</li>
-<li>No campo <strong>Name</strong> digite <strong>Tipo K</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Pilar</strong>.</li>
 <li>Em <strong>Modeling Space</strong> selecione <strong>2D planar</strong>.</li>
 <li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>.</li>
 <li>Em <strong>Approximante Size</strong> digite <strong>20</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="../imagens_cont/imagem_04.png" title="Clique para ampliar"><img alt="Figura 4." src="../imagens_cont/imagem_04.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_02.png" title="Clique para ampliar"><img alt="Figura 2." src="../imagens_fp/imagem_02.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
-<li><strong>Digite em ordem</strong> as seguintes <strong>coordenadas</strong>, teclando <strong>Enter</strong> entre uma e outra: <strong>0,0</strong> - <strong>0,1.5</strong> - <strong>0,3</strong> - <strong>0,4.5</strong> - <strong>0,6</strong> - <strong>1,6</strong> - <strong>2,6</strong> - <strong>2,4.5</strong> - <strong>2,3</strong> - <strong>2,1.5</strong> - <strong>2,0</strong> - <strong>1,1.5</strong> - <strong>2,1.5</strong> - <strong>1,3</strong> - <strong>2,3</strong> - <strong>1,4.5</strong> - <strong>2,4.5</strong> - <strong>1,6</strong> - <strong>0,4.5</strong> - <strong>1,4.5</strong> - <strong>0,3</strong> - <strong>1,3</strong> - <strong>0,1.5</strong> - <strong>1,1.5</strong> - <strong>0,0</strong>.</li>
+<li>Na <strong>área de comando</strong>, digite <strong>0,0</strong> e <strong>0,3.2</strong>, teclando <strong>Enter</strong> entre uma e outra.</li>
 <li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> do teclado e clique em <strong>Done</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_05.png" title="Clique para ampliar"><img alt="Figura 5." src="../imagens_cont/imagem_05.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_03.png" title="Clique para ampliar"><img alt="Figura 3." src="../imagens_fp/imagem_03.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h4 id="13-atribuicao-das-propriedades-dos-materiais">1.3. Atribuição das propriedades dos materiais</h4>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Materials</strong>.</li>
-<li>Na caixa <strong>Edit Material</strong>, digite <strong>Aço estrutural</strong> no campo <strong>Name</strong>.</li>
-<li>Clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
-<li>Em <strong>Young’s Modulus</strong> digite <strong>205E9</strong> e clique em <strong>OK</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Aço</strong>.</li>
+<li>Na caixa <strong>Edit Material</strong> clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
+<li>Em <strong>Young’s Modulus</strong> digite <strong>200E9</strong> e <strong>0.3</strong> em <strong>Poisson's Ratio</strong>. Ao final, clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_06.png" title="Clique para ampliar"><img alt="Figura 6." src="../imagens_cont/imagem_06.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_04.png" title="Clique para ampliar"><img alt="Figura 4." src="../imagens_fp/imagem_04.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
-<h4 id="14-atribuicao-das-propriedades-das-secoes-das-barras">1.4. Atribuição das propriedades das seções das barras</h4>
+<h4 id="14-atribuicao-das-propriedades-da-secao-do-pilar">1.4. Atribuição das propriedades da seção do pilar</h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Profiles</strong>.</li>
+<li>Em <strong>Name</strong> digite <strong>Seção Pilar</strong>.</li>
+<li>Selecione <strong>Cirular</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="../imagens_fp/imagem_05.png" title="Clique para ampliar"><img alt="Figura 5." src="../imagens_fp/imagem_05.png" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Edit Profile</strong>, digite <strong>0.12</strong> em <strong>r</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_fp/imagem_06.png" title="Clique para ampliar"><img alt="Figura 6." src="../imagens_fp/imagem_06.png" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Sections</strong>.</li>
-<li>No campo <strong>Name</strong> digite <strong>Montantes</strong>.</li>
+<li>Em <strong>Name</strong> digite <strong>Seção Pilar</strong>.</li>
 <li>Em <strong>Category</strong> selecione <strong>Beam</strong>.</li>
-<li>Em <strong>Type</strong> selecione <strong>Truss</strong> e clique em <strong>Continue...</strong></li>
+<li>Em <strong>Type</strong> selecione <strong>Beam</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="../imagens_cont/imagem_07.png" title="Clique para ampliar"><img alt="Figura 7." src="../imagens_cont/imagem_07.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_07.png" title="Clique para ampliar"><img alt="Figura 7." src="../imagens_fp/imagem_07.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li>Em <strong>Cross-sectional area</strong> digite <strong>9.27E-4</strong> e clique em <strong>OK</strong>.</li>
+<li>Na janela <strong>Edit Beam Section</strong> selecione <strong>Before analysis</strong> e digite <strong>200E9</strong> em <strong>Young’s Modulus</strong>, <strong>77E9</strong> em <strong>Shear Modulus</strong> e <strong>0.3</strong> em <strong>Poisson's Ratio</strong>. Ao final, clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_08.png" title="Clique para ampliar"><img alt="Figura 8." src="../imagens_cont/imagem_08.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li><strong>Repita</strong> o procedimento para criar a seção <strong>Diagonal</strong>, alterando o valor de <strong>Cross-sectional area</strong> para <strong>7.66E-4</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_09.png" title="Clique para ampliar"><img alt="Figura 9." src="../imagens_cont/imagem_09.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_08.png" title="Clique para ampliar"><img alt="Figura 8." src="../imagens_fp/imagem_08.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h4 id="15-associacao-das-secoes">1.5. Associação das seções</h4>
 <ul>
-<li>No <strong>Menu Model</strong>, abra <strong>Parts (1)</strong> e em seguida <strong>Tipo K</strong>.</li>
+<li>No <strong>Menu Model</strong>, abra <strong>Parts (1)</strong> e em seguida <strong>Pilar</strong>.</li>
 <li>Clique duas vezes em <strong>Section Assigments</strong>.</li>
-<li><strong>Pressione Shift</strong> e selecione as barras de <strong>montante</strong> e clique em <strong>Done</strong>.</li>
-<li>Selecione <strong>Montantes</strong> e clique em <strong>OK</strong>.</li>
+<li>Selecione o <strong>Pilar</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Section Assigment</strong> clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_10.png" title="Clique para ampliar"><img alt="Figura 10." src="../imagens_cont/imagem_10.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_09.png" title="Clique para ampliar"><img alt="Figura 9." src="../imagens_fp/imagem_09.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li><strong>Repita</strong> este procedimento para as barras do <strong>interior da treliça</strong> associando à seção <strong>Diagonal</strong> e ao final clique em <strong>Done</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_11.png" title="Clique para ampliar"><img alt="Figura 11." src="../imagens_cont/imagem_11.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê duplo clique em <strong>Instances</strong>.</li>
+<li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê um duplo clique em <strong>Instances</strong>.</li>
 <li>Certifique-se que está selecionado <strong>Dependent (mesh on part)</strong> em <strong>Instance Type</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_12.png" title="Clique para ampliar"><img alt="Figura 12." src="../imagens_cont/imagem_12.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_10.png" title="Clique para ampliar"><img alt="Figura 10." src="../imagens_fp/imagem_10.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h4 id="16-aplicacao-das-condicoes-de-contorno">1.6. Aplicação das condições de contorno</h4>
 <h5 id="161-cargas">1.6.1 Cargas</h5>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Steps (1)</strong>.</li>
-<li>Renomeie para <strong>Carregamento</strong>.</li>
-<li>Em <strong>Procedure type</strong> selecione <strong>Linear perturbation</strong>, selecione <strong>Static, Linear perturbation</strong> e clique em <strong>Continue...</strong></li>
-<li>Em <strong>Edit Step</strong> clique em <strong>OK</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Carga de Flambagem</strong>.</li>
+<li>Selecione <strong>Linear perturbation</strong> em <strong>Procedure type</strong>.</li>
+<li>Selecione <strong>Buckle</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="../imagens_cont/imagem_13.png" title="Clique para ampliar"><img alt="Figura 13." src="../imagens_cont/imagem_13.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_11.png" title="Clique para ampliar"><img alt="Figura 11." src="../imagens_fp/imagem_11.png" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Edit Load</strong>, digite <strong>6</strong> em <strong>Number of eigenvalues requested</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_fp/imagem_12.png" title="Clique para ampliar"><img alt="Figura 12." src="../imagens_fp/imagem_12.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Loads</strong>.</li>
-<li>Na janela <strong>Create Load</strong>, no campo <strong>Name</strong> digite <strong>Cargas Horizontais</strong> e clique em <strong>Continue...</strong></li>
+<li>No campo <strong>Name</strong> digite <strong>Carga unitária</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="../imagens_cont/imagem_14.png" title="Clique para ampliar"><img alt="Figura 14." src="../imagens_cont/imagem_14.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_13.png" title="Clique para ampliar"><img alt="Figura 13." src="../imagens_fp/imagem_13.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li>Selecione os <strong>quatro nós acima do apoio esquerdo</strong>, e clique em <strong>Done</strong>.</li>
-<li>Em <strong>Edit Load</strong>, digite <strong>10000</strong> no campo <strong>CF1</strong> e clique em <strong>OK</strong>.</li>
+<li>Selecione o ponto <strong>superior</strong> do pilar e clique em <strong>Done</strong>.</li>
+<li>Em <strong>Edit Load</strong> digite <strong>-1</strong> no campo <strong>CF2</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_15.png" title="Clique para ampliar"><img alt="Figura 15." src="../imagens_cont/imagem_15.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li><strong>Repita</strong> o procedimento para criar as <strong>Cargas Verticais</strong>, aplicada nos pontos da <strong>extremidade superior da estrutura</strong> e digite <strong>-20000</strong> em <strong>CF2</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_16.png" title="Clique para ampliar"><img alt="Figura 16." src="../imagens_cont/imagem_16.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_14.png" title="Clique para ampliar"><img alt="Figura 14." src="../imagens_fp/imagem_14.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h5 id="162-apoios">1.6.2 Apoios</h5>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>BCs</strong>.</li>
 <li>No campo <strong>Name</strong> digite <strong>Apoio Fixo</strong>.</li>
-<li>Em <strong>Step</strong> selecione <strong>Initial</strong>.</li>
-<li>Em <strong>Types for Selected Step</strong> selecione <strong>Displacement/Rotation</strong> e clique em <strong>Continue...</strong></li>
+<li>Mantenha <strong>Carga de Flambagem</strong> em <strong>Step</strong>.</li>
+<li>Selecione <strong>Displacement/Rotation</strong> e clique em <strong>Continue...</strong></li>
 </ul>
-<p><a href="../imagens_cont/imagem_17.png" title="Clique para ampliar"><img alt="Figura 17." src="../imagens_cont/imagem_17.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_15.png" title="Clique para ampliar"><img alt="Figura 15." src="../imagens_fp/imagem_15.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li>Selecione os <strong>pontos inferiores da estrutura</strong> e clique em <strong>Done</strong>.</li>
-<li>Na janela <strong>Edit Boundary Condition</strong> selecione as opções <strong>U1</strong> e <strong>U2</strong> e clique em <strong>OK</strong>.</li>
+<li>Selecione o ponto <strong>inferior</strong> do pilar e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Boundary Condition</strong> marque <strong>U1</strong> e <strong>U2</strong> e clique em <strong>OK</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_18.png" title="Clique para ampliar"><img alt="Figura 18." src="../imagens_cont/imagem_18.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_16.png" title="Clique para ampliar"><img alt="Figura 16." src="../imagens_fp/imagem_16.png" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimento para criar o <strong>Apoio Móvel</strong>, aplicado no <strong>ponto superior</strong> e marcando apenas <strong>U1</strong>.</li>
+</ul>
+<p><a href="../imagens_fp/imagem_17.png" title="Clique para ampliar"><img alt="Figura 17." src="../imagens_fp/imagem_17.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h4 id="17-criacao-da-malha">1.7. Criação da malha</h4>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Mesh (Empty)</strong>.</li>
 <li>Na <strong>Barra de Contexto</strong>, em <strong>Object</strong>, selecione <strong>Part</strong>.</li>
-<li>No <strong>Menu Principal</strong> clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>.</li>
-<li>Selecione com o mouse <strong>toda a treliça</strong> e clique em <strong>Done</strong>.</li>
-<li>Na janela <strong>Element Type</strong> selecione <strong>Truss</strong> em <strong>Family</strong>.</li>
-<li>Clique em <strong>OK</strong> e após a janela <strong>Element Type</strong> fechar clique em <strong>Done</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>.</li>
+<li><strong>Selecione o pilar</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Element Type</strong> selecione <strong>Beam</strong> em <strong>Family</strong>.</li>
+<li>Mantenha <strong>Linear</strong> em <strong>Geometric Order</strong>.</li>
+<li>Selecione <strong>Cubic formulation</strong> em <strong>Element Controls</strong>.</li>
+<li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_19.png" title="Clique para ampliar"><img alt="Figura 19." src="../imagens_cont/imagem_19.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_18.png" title="Clique para ampliar"><img alt="Figura 18." src="../imagens_fp/imagem_18.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Edges</strong>.</li>
-<li><strong>Selecione a treliça</strong> e clique em <strong>Done</strong>.</li>
-<li>Na janela <strong>Local Seeds</strong>, altere <strong>Method</strong> para <strong>By number</strong>.</li>
-<li>Altere <strong>Number of elements</strong> para <strong>1</strong>.</li>
-<li>Clique em <strong>OK</strong> e após a janela <strong>Local Seeds</strong> fechar clique em <strong>Done</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Part</strong>.</li>
+<li>Em <strong>Approximate Global Size</strong> digite <strong>0.1</strong>, clique em <strong>OK</strong> e em seguida <strong>Done</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_20.png" title="Clique para ampliar"><img alt="Figura 20." src="../imagens_cont/imagem_20.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_19.png" title="Clique para ampliar"><img alt="Figura 19." src="../imagens_fp/imagem_19.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Principal</strong>, clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>.</li>
 <li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>.</li>
+<li>Na <strong>Caixa de Contexto</strong>, selecione <strong>Property</strong> em <strong>Module</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_21.png" title="Clique para ampliar"><img alt="Figura 21." src="../imagens_cont/imagem_21.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_20.png" title="Clique para ampliar"><img alt="Figura 20." src="../imagens_fp/imagem_20.png" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique no icone <img alt="" src="../imagens_fp/icone_01.png" /></li>
+<li>Selecione o <strong>pilar</strong>, clique em <strong>Done</strong> e  tecle <strong>Enter</strong>.</li>
+<li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
+</ul>
+<p><a href="../imagens_fp/imagem_21.png" title="Clique para ampliar"><img alt="Figura 21." src="../imagens_fp/imagem_21.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h3 id="2-processamento">2. Processamento</h3>
 <ul>
 <li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Jobs</strong>.</li>
 <li>Na janela <strong>Create Job</strong> clique em <strong>Continue...</strong></li>
 <li>Na janela <strong>Edit Job</strong> clique em <strong>OK</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_22.png" title="Clique para ampliar"><img alt="Figura 22." src="../imagens_cont/imagem_22.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li>Abra <strong>Jobs (1)</strong> e clique com o botão direito em <strong>Job-1</strong>.</li>
-<li>Clique em <strong>Submit</strong>.</li>
-<li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique em <strong>OK</strong>.</li>
+<li>Abra <strong>Jobs</strong> e clique com o botão direito em <strong>Job-1</strong> e clique em <strong>Submit</strong>.</li>
+<li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique <strong>OK</strong>.</li>
 <li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no <strong>Menu Model</strong>.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_23.png" title="Clique para ampliar"><img alt="Figura 23." src="../imagens_cont/imagem_23.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
 <h3 id="3-pos-processamento">3. Pós-processamento</h3>
 <h4 id="31-analise-grafica">3.1. Análise gráfica</h4>
 <ul>
 <li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Job-1(Completed)</strong> e clique em <strong>Results</strong>.</li>
-<li>A tela de análise de dados se abrirá.</li>
-<li>Na caixa de ferramentas clique em <strong>Plot Contours on Deformed Shape</strong>.</li>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Plot Deformed Shape</strong>.</li>
+<li>Na <strong>Caixa de Contexto</strong>, clique no icone <img alt="" src="../imagens_fp/icone_02.png" /> para visualizar os <strong>outros modos de flambagem</strong> do pilar.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_24.png" title="Clique para ampliar"><img alt="Figura 24." src="../imagens_cont/imagem_24.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_22.png" title="Clique para ampliar"><img alt="Figura 22." src="../imagens_fp/imagem_22.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
-<li>Na <strong>Área de Ferramentas</strong>, selecione <strong>S11</strong> onde, por padrão, deve estar selecionado <strong>Mises</strong>.</li>
-<li>Na <strong>Caixa de ferramentas</strong>, clique em <strong>Common Options</strong>.</li>
-<li>Na janela <strong>Common Plot Options</strong> selecione a aba <strong>Labels</strong> e marque <strong>Show element labels</strong> e <strong>Show node labels</strong> e clique em <strong>OK</strong>.</li>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Results</strong> e em seguida em <strong>Step/Frame...</strong></li>
+<li>A janela mostrara os <strong>modos de flambagem</strong> com as respectivas <strong>cargas criticas</strong>.</li>
+<li>Selecione a de indíce <strong>3</strong>, clique em <strong>Apply</strong> e em seguida em <strong>OK</strong></li>
 </ul>
-<p><a href="../imagens_cont/imagem_25.png" title="Clique para ampliar"><img alt="Figura 25." src="../imagens_cont/imagem_25.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li>No <strong>Menu Principal</strong>, clique em <strong>Viewport</strong> e em seguida em <strong>Viewport Annotation Options...</strong></li>
-<li>Na janela aberta selecione a aba <strong>Legend</strong>.</li>
-<li>Clique em <strong>Set Font</strong>.</li>
-<li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>.</li>
-<li>Clique <strong>OK</strong> nas duas janelas abertas.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_26.png" title="Clique para ampliar"><img alt="Figura 26." src="../imagens_cont/imagem_26.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li>As <strong>tensões</strong> nas barras já estão exibidos em <strong>escala de cores</strong>, mas é possível ainda salvar os valores das tensões em um <strong>documento de texto</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_27.png" title="Clique para ampliar"><img alt="Figura 27." src="../imagens_cont/imagem_27.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_23.png" title="Clique para ampliar"><img alt="Figura 23." src="../imagens_fp/imagem_23.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <h4 id="32-variaveis-de-saida">3.2. Variáveis de saída</h4>
 <ul>
-<li>No <strong>Menu Principal</strong>, clique em <strong>Report</strong> e em seguida em <strong>Field Output...</strong></li>
-<li>Na janela <strong>Report Field Output</strong>, abra <strong>S: Stress components</strong>, marque <strong>S11</strong> e clique em <strong>OK</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_28.png" title="Clique para ampliar"><img alt="Figura 28." src="../imagens_cont/imagem_28.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Report</strong> e em seguida em <strong>Field Output...</strong>.</li>
+<li>Na janela <strong>Report Field Output</strong>, selecione <strong>Unique Nodal</strong>, marque <strong>U: Spatial displacement</strong> e <strong>UR3: rotation displacement</strong> e clique em <strong>OK</strong>.</li>
 <li>A mensagem aparecerá: <strong>"The field output report was appended to file “abaqus.rpt"</strong>. O arquivo <strong>abaqus.rpt</strong> pode ser encontrado em <strong>C:\Users\”Nome do Usuário”\abaqus.rpt</strong>.</li>
-<li>O arquivo listará os <strong>tensões</strong> das barras.</li>
+<li>O arquivo listará os <strong>deslocamentos e rotações</strong> do pilar.</li>
 </ul>
-<p><a href="../imagens_cont/imagem_29.png" title="Clique para ampliar"><img alt="Figura 29." src="../imagens_cont/imagem_29.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li>Clique em <strong>Report</strong> e em seguida em <strong>Field Output...</strong></li>
-<li>Na janela <strong>Report Field Output</strong>, desmarque <strong>S: Stress components</strong> e no campo <strong>Position</strong> selecione <strong>Unique Nodal</strong>.</li>
-<li>Marque <strong>U: Spatial displacement</strong> e clique em <strong>OK</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_30.png" title="Clique para ampliar"><img alt="Figura 30." src="../imagens_cont/imagem_30.png" title="Clique para ampliar" /></a></p>
-<p><sup></sup></p>
-<ul>
-<li>O arquivo listará os <strong>deslocamentos</strong> dos <strong>Nós</strong>.</li>
-</ul>
-<p><a href="../imagens_cont/imagem_31.png" title="Clique para ampliar"><img alt="Figura 31." src="../imagens_cont/imagem_31.png" title="Clique para ampliar" /></a></p>
+<p><a href="../imagens_fp/imagem_25.png" title="Clique para ampliar"><img alt="Figura 25." src="../imagens_fp/imagem_25.png" title="Clique para ampliar" /></a></p>
 <p><sup></sup></p>
 <ul>
 <li>No <strong>Menu Principal</strong>, clique em <strong>File</strong> e em seguida em <strong>Save As...</strong></li>
@@ -1328,7 +1279,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../trelica11barras/" title="Treliça com 11 barras" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../vinculacoes_vigapilar/" title="Vinculações Viga-Pilar" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1337,19 +1288,19 @@
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
-                Treliça com 11 barras
+                Vinculações Viga-Pilar
               </span>
             </div>
           </a>
         
         
-          <a href="../analisemodal/" title="Análise Modal" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../edificios/" title="Edifícios" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
-                Análise Modal
+                Edifícios
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
