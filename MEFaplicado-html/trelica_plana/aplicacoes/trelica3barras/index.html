@@ -1,0 +1,1309 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>Treliça com 3 barras - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../../css/estilos.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#modelagem-de-uma-trelica-composta-por-3-barras" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Elementos Finitos Aplicados
+              </span>
+              <span class="md-header-nav__topic">
+                Treliça com 3 barras
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Treliça com 3 barras
+      </label>
+    
+    <a href="./" title="Treliça com 3 barras" class="md-nav__link md-nav__link--active">
+      Treliça com 3 barras
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" title="Objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucao-utilizando-o-abaqus-612-student-edition" title="Resolução utilizando o Abaqus 6.12 Student Edition" class="md-nav__link">
+    Resolução utilizando o Abaqus 6.12 Student Edition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pre-processamento" title="1. Pré-processamento" class="md-nav__link">
+    1. Pré-processamento
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-inicio-da-analise" title="1.1. Início da análise" class="md-nav__link">
+    1.1. Início da análise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-criacao-da-geometria-base-e-definicao-do-tipo-de-elemento" title="1.2. Criação da geometria base e definição do tipo de elemento" class="md-nav__link">
+    1.2. Criação da geometria base e definição do tipo de elemento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-atribuicao-das-propriedades-dos-materiais" title="1.3. Atribuição das propriedades dos materiais" class="md-nav__link">
+    1.3. Atribuição das propriedades dos materiais
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-atribuicao-das-propriedades-das-secoes-das-barras" title="1.4. Atribuição das propriedades das seções das barras" class="md-nav__link">
+    1.4. Atribuição das propriedades das seções das barras
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-associacao-das-secoes" title="1.5. Associação das seções" class="md-nav__link">
+    1.5. Associação das seções
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-aplicacao-das-condicoes-de-contorno" title="1.6. Aplicação das condições de contorno" class="md-nav__link">
+    1.6. Aplicação das condições de contorno
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161-cargas" title="1.6.1 Cargas" class="md-nav__link">
+    1.6.1 Cargas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162-apoios" title="1.6.2 Apoios" class="md-nav__link">
+    1.6.2 Apoios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-criacao-da-malha" title="1.7. Criação da malha" class="md-nav__link">
+    1.7. Criação da malha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processamento" title="2. Processamento" class="md-nav__link">
+    2. Processamento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pos-processamento" title="3. Pós-processamento" class="md-nav__link">
+    3. Pós-processamento
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-analise-grafica" title="3.1. Análise gráfica" class="md-nav__link">
+    3.1. Análise gráfica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-variaveis-de-saida" title="3.2. Variáveis de saída" class="md-nav__link">
+    3.2. Variáveis de saída
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Treliça Espacial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Treliça Espacial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_espacial/introducao_te/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_espacial/teoria_te/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_espacial/aplicacao_te/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_espacial/aplicacoes/modulotorre/" title="Módulo de uma torre" class="md-nav__link">
+      Módulo de uma torre
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_espacial/aplicacoes/ponterolante/" title="Ponte rolante" class="md-nav__link">
+      Ponte rolante
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_espacial/aplicacoes/coberturatrelicada/" title="Cobertura treliçada" class="md-nav__link">
+      Cobertura treliçada
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/teoria_v/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" title="Objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucao-utilizando-o-abaqus-612-student-edition" title="Resolução utilizando o Abaqus 6.12 Student Edition" class="md-nav__link">
+    Resolução utilizando o Abaqus 6.12 Student Edition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pre-processamento" title="1. Pré-processamento" class="md-nav__link">
+    1. Pré-processamento
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-inicio-da-analise" title="1.1. Início da análise" class="md-nav__link">
+    1.1. Início da análise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-criacao-da-geometria-base-e-definicao-do-tipo-de-elemento" title="1.2. Criação da geometria base e definição do tipo de elemento" class="md-nav__link">
+    1.2. Criação da geometria base e definição do tipo de elemento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-atribuicao-das-propriedades-dos-materiais" title="1.3. Atribuição das propriedades dos materiais" class="md-nav__link">
+    1.3. Atribuição das propriedades dos materiais
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-atribuicao-das-propriedades-das-secoes-das-barras" title="1.4. Atribuição das propriedades das seções das barras" class="md-nav__link">
+    1.4. Atribuição das propriedades das seções das barras
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-associacao-das-secoes" title="1.5. Associação das seções" class="md-nav__link">
+    1.5. Associação das seções
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-aplicacao-das-condicoes-de-contorno" title="1.6. Aplicação das condições de contorno" class="md-nav__link">
+    1.6. Aplicação das condições de contorno
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161-cargas" title="1.6.1 Cargas" class="md-nav__link">
+    1.6.1 Cargas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162-apoios" title="1.6.2 Apoios" class="md-nav__link">
+    1.6.2 Apoios
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-criacao-da-malha" title="1.7. Criação da malha" class="md-nav__link">
+    1.7. Criação da malha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processamento" title="2. Processamento" class="md-nav__link">
+    2. Processamento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pos-processamento" title="3. Pós-processamento" class="md-nav__link">
+    3. Pós-processamento
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-analise-grafica" title="3.1. Análise gráfica" class="md-nav__link">
+    3.1. Análise gráfica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-variaveis-de-saida" title="3.2. Variáveis de saída" class="md-nav__link">
+    3.2. Variáveis de saída
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="modelagem-de-uma-trelica-composta-por-3-barras">Modelagem de uma treliça composta por 3 barras</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Determinar oas tensões na treliça representada abaixo sabendo-se que todas as barras são tubulares maciças e com <strong>diâmetro</strong> de <strong>113 mm</strong>, sendo a vertical e horizontal de alumínio ($E = 69 GPa$) e a inclinada de aço ($E = 200 GPa$).
+A carga <strong>F</strong> é de <strong>10.000 N</strong> e o comprimento <strong>L</strong> de <strong>1,0 m</strong>.</p>
+<p><a href="../imagens_3bar/imagem_01.svg#center" title="Clique para ampliar"><img alt="Figura 1." src="../imagens_3bar/imagem_01.svg#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h2 id="resolucao-utilizando-o-abaqus-612-student-edition">Resolução utilizando o Abaqus 6.12 Student Edition</h2>
+<p>O procedimento usual de resolução é demonstrado no seguinte fluxograma, cuja ordem pode eventualmente ser alterada por conveniência:</p>
+<p><a href="../imagens_3bar/imagem_02.png#center" title="Clique para ampliar"><img alt="Figura 2." src="../imagens_3bar/imagem_02.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h3 id="1-pre-processamento">1. Pré-processamento</h3>
+<h4 id="11-inicio-da-analise">1.1. Início da análise</h4>
+<ul>
+<li>Na caixa <strong>Start Session</strong>, selecione <strong>With Standard/Explicit Model</strong>.</li>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Model-1</strong> e selecione <strong>Rename</strong>.</li>
+<li>Digite <strong>Treliça3barras</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_03.png#center" title="Clique para ampliar"><img alt="Figura 3." src="../imagens_3bar/imagem_03.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h4 id="12-criacao-da-geometria-base-e-definicao-do-tipo-de-elemento">1.2. Criação da geometria base e definição do tipo de elemento</h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Parts</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>treliça</strong>.</li>
+<li>Em <strong>Modeling Space</strong> selecione <strong>2D planar</strong>.</li>
+<li>Em <strong>Base Feature</strong> selecione <strong>Wire</strong>.</li>
+<li>Em <strong>Approximante Size</strong> digite <strong>10</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="../imagens_3bar/imagem_04.png#center" title="Clique para ampliar"><img alt="Figura 4." src="../imagens_3bar/imagem_04.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Caixa de Ferramentas</strong>, selecione <strong>Create Lines: Connected</strong>.</li>
+<li>Na <strong>Área de Comando</strong>, insira <strong>em ordem</strong> as coordenadas, teclando <strong>Enter</strong> entre uma e outra: <strong>0,0</strong> - <strong>1,0</strong> - <strong>0,1</strong> - <strong>0,0</strong>.</li>
+<li><strong>Desative</strong> a função <strong>Create Lines: Connected</strong> apertando a tecla <strong>Esc</strong> e clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_05.png#center" title="Clique para ampliar"><img alt="Figura 5." src="../imagens_3bar/imagem_05.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h4 id="13-atribuicao-das-propriedades-dos-materiais">1.3. Atribuição das propriedades dos materiais</h4>
+<ul>
+<li>No <strong>Menu Model</strong>, de duplo clique em <strong>Materials</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Alumínio</strong>.</li>
+<li>Na caixa <strong>Edit Material</strong> clique em <strong>Mechanical</strong>, selecione <strong>Elasticity</strong> e clique em <strong>Elastic</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_06.png#center" title="Clique para ampliar"><img alt="Figura 6." src="../imagens_3bar/imagem_06.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Em <strong>Young’s Modulus</strong> digite <strong>69E9</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_07.png#center" title="Clique para ampliar"><img alt="Figura 7." src="../imagens_3bar/imagem_07.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimento para criar o material <strong>Aço</strong> com <strong>Young’s Modulus</strong> de <strong>200E9</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_08.png#center" title="Clique para ampliar"><img alt="Figura 8." src="../imagens_3bar/imagem_08.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h4 id="14-atribuicao-das-propriedades-das-secoes-das-barras">1.4. Atribuição das propriedades das seções das barras</h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Sections</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Seção 1</strong>.</li>
+<li>Em <strong>Category</strong> selecione <strong>Beam</strong>.</li>
+<li>Em <strong>Type</strong> selecione <strong>Truss</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="../imagens_3bar/imagem_09.png#center" title="Clique para ampliar"><img alt="Figura 9." src="../imagens_3bar/imagem_09.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Selecione <strong>Alumínio</strong> em <strong>Material</strong> e em <strong>Cross-sectional area</strong> digite <strong>0.010028749</strong> e clique em <strong>Ok</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_10.png#center" title="Clique para ampliar"><img alt="Figura 10." src="../imagens_3bar/imagem_10.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimento para criar a <strong>Seção 2</strong>, de <strong>mesma área</strong> e selecionando <strong>Aço</strong> em <strong>Material</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_11.png#center" title="Clique para ampliar"><img alt="Figura 11." src="../imagens_3bar/imagem_11.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h4 id="15-associacao-das-secoes">1.5. Associação das seções</h4>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Parts (1)</strong> e em seguida <strong>treliça</strong>.</li>
+<li>Clique duas vezes em <strong>Section Assigments</strong>.</li>
+<li><strong>Pressione Shift</strong>, selecione as barras <strong>vertical</strong> e <strong>horizontal</strong> e clique em <strong>Done</strong>.</li>
+<li>Selecione <strong>Seção 1</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_12.png#center" title="Clique para ampliar"><img alt="Figura 12." src="../imagens_3bar/imagem_12.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Selecione agora a barra <strong>diagonal</strong> atribuindo-a a <strong>Seção 2</strong>. Ao final clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_13.png#center" title="Clique para ampliar"><img alt="Figura 13." src="../imagens_3bar/imagem_13.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Model</strong>, abra <strong>Assembly</strong> e dê um duplo clique em <strong>Instances</strong>.</li>
+<li>Certifique-se que está selecionado <strong>Dependent (mesh on part)</strong> em <strong>Instance Type</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_14.png#center" title="Clique para ampliar"><img alt="Figura 14." src="../imagens_3bar/imagem_14.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h4 id="16-aplicacao-das-condicoes-de-contorno">1.6. Aplicação das condições de contorno</h4>
+<h5 id="161-cargas">1.6.1 Cargas</h5>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Steps (1)</strong>.</li>
+<li>Renomeie para <strong>Carregamento</strong>.</li>
+<li>Em <strong>Procedure type</strong> selecione <strong>Linear Perturbation</strong>, clique em <strong>Static, Linear Perturbation</strong> e em seguida em <strong>Continue...</strong></li>
+<li>Na janela <strong>Edit Step</strong>, clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_15.png#center" title="Clique para ampliar"><img alt="Figura 15." src="../imagens_3bar/imagem_15.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Loads</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Carga F</strong> e clique em <strong>Continue...</strong></li>
+</ul>
+<p><a href="../imagens_3bar/imagem_16.png#center" title="Clique para ampliar"><img alt="Figura 16." src="../imagens_3bar/imagem_16.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Selecione</strong> o ponto de <strong>aplicação da força</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Load</strong> digite <strong>-10000</strong> no campo <strong>CF2</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_17.png#center" title="Clique para ampliar"><img alt="Figura 17." src="../imagens_3bar/imagem_17.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h5 id="162-apoios">1.6.2 Apoios</h5>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo em <strong>BCs</strong>.</li>
+<li>No campo <strong>Name</strong> digite <strong>Apoio Fixo</strong>.</li>
+<li>Em <strong>Step</strong> selecione <strong>Initial</strong>.</li>
+<li>Em <strong>Types for Selected Step</strong> selecione <strong>Displacement/Rotation</strong> e clique em <strong>Continue…</strong></li>
+</ul>
+<p><a href="../imagens_3bar/imagem_18.png#center" title="Clique para ampliar"><img alt="Figura 18." src="../imagens_3bar/imagem_18.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Selecione o ponto <strong>inferior esquerdo</strong> da treliça e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Edit Boundary Condition</strong> marque as opções <strong>U1</strong> e <strong>U2</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_19.png#center" title="Clique para ampliar"><img alt="Figura 19." src="../imagens_3bar/imagem_19.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Repita</strong> o procedimento para criar o <strong>Apoio Móvel</strong>, aplicado no ponto <strong>superior esquerdo</strong> e marcando apenas <strong>U1</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_20.png#center" title="Clique para ampliar"><img alt="Figura 20." src="../imagens_3bar/imagem_20.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h4 id="17-criacao-da-malha">1.7. Criação da malha</h4>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Mesh (Empty)</strong>.</li>
+<li>Na <strong>Barra de Contexto</strong>, em <strong>Object</strong>, selecione <strong>Part</strong>.</li>
+<li>No <strong>Menu Principal</strong> clique em <strong>Mesh</strong> e posteriormente em <strong>Element Type</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_21.png#center" title="Clique para ampliar"><img alt="Figura 21." src="../imagens_3bar/imagem_21.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Selecione com o mouse <strong>toda a treliça</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Element Type</strong> selecione <strong>Truss</strong> em <strong>Family</strong>.</li>
+<li>Clique em <strong>OK</strong> e em seguida em <strong>Done</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_22.png#center" title="Clique para ampliar"><img alt="Figura 22." src="../imagens_3bar/imagem_22.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Seed</strong> e posteriormente em <strong>Edges</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_23.png#center" title="Clique para ampliar"><img alt="Figura 23." src="../imagens_3bar/imagem_23.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li><strong>Selecione a treliça</strong> e clique em <strong>Done</strong>.</li>
+<li>Na janela <strong>Local Seeds</strong>, altere <strong>Method</strong> para <strong>By number</strong>.</li>
+<li>Altere <strong>Number of elements</strong> para <strong>1</strong>.</li>
+<li>Clique em <strong>OK</strong> e após a janela <strong>Local Seeds</strong> fechar clique em <strong>Done</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_24.png#center" title="Clique para ampliar"><img alt="Figura 24." src="../imagens_3bar/imagem_24.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Principal</strong> clique em <strong>Mesh</strong> e posteriormente em <strong>Part</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_25.png#center" title="Clique para ampliar"><img alt="Figura 25." src="../imagens_3bar/imagem_25.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Aparecerá a pergunta "<strong>OK to mesh the part?</strong>", clique <strong>Yes</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_26.png#center" title="Clique para ampliar"><img alt="Figura 26." src="../imagens_3bar/imagem_26.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h3 id="2-processamento">2. Processamento</h3>
+<ul>
+<li>No <strong>Menu Model</strong>, dê um duplo clique em <strong>Jobs</strong>.</li>
+<li>Na janela <strong>Create Job</strong> clique em <strong>Continue...</strong> e em <strong>Edit Job</strong> clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_27.png#center" title="Clique para ampliar"><img alt="Figura 27." src="../imagens_3bar/imagem_27.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Abra <strong>Jobs (1)</strong>, clique com o botão direito em <strong>Job-1</strong> e clique em <strong>Submit</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_28.png#center" title="Clique para ampliar"><img alt="Figura 28." src="../imagens_3bar/imagem_28.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Se aparecer uma janela dizendo “<strong>Job files already exist for Job-1. OK to overwrite?</strong>”, clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_29.png#center" title="Clique para ampliar"><img alt="Figura 29." src="../imagens_3bar/imagem_29.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Aguarde o processamento dos dados, que estará concluído quando aparecer <strong>(Completed)</strong> ao lado de <strong>Job-1</strong> no <strong>Menu Model</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_30.png#center" title="Clique para ampliar"><img alt="Figura 30." src="../imagens_3bar/imagem_30.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<h3 id="3-pos-processamento">3. Pós-processamento</h3>
+<h4 id="31-analise-grafica">3.1. Análise gráfica</h4>
+<ul>
+<li>No <strong>Menu Model</strong>, clique com o botão direito em <strong>Job-1(Completed)</strong> e clique em <strong>Results</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_31.png#center" title="Clique para ampliar"><img alt="Figura 31." src="../imagens_3bar/imagem_31.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Plot Contours on Deformed Shape</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_32.png#center" title="Clique para ampliar"><img alt="Figura 32." src="../imagens_3bar/imagem_32.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Área de Ferramentas</strong>, selecione <strong>S11</strong> onde, por padrão, deve estar selecionado <strong>Mises</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_33.png#center" title="Clique para ampliar"><img alt="Figura 33." src="../imagens_3bar/imagem_33.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na <strong>Caixa de Ferramentas</strong>, clique em <strong>Common Options</strong>.</li>
+<li>Na janela <strong>Common Plot Options</strong> selecione a aba <strong>Labels</strong> e marque <strong>Show element labels</strong> e <strong>Show node labels</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_34.png#center" title="Clique para ampliar"><img alt="Figura 34." src="../imagens_3bar/imagem_34.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Viewport</strong> e em seguida em <strong>Viewport Annotation Options...</strong></li>
+</ul>
+<p><a href="../imagens_3bar/imagem_35.png#center" title="Clique para ampliar"><img alt="Figura 35." src="../imagens_3bar/imagem_35.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela aberta selecione a aba <strong>Legend</strong>.</li>
+<li>Clique em <strong>Set Font</strong>.</li>
+<li>Na nova janela, altere <strong>Size</strong> para <strong>14</strong>.</li>
+<li>Clique em <strong>OK</strong> nas duas janelas abertas.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_36.png#center" title="Clique para ampliar"><img alt="Figura 36." src="../imagens_3bar/imagem_36.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Clique em <strong>View</strong> e em seguida em <strong>ODB Display Options</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_37.png#center" title="Clique para ampliar"><img alt="Figura 37." src="../imagens_3bar/imagem_37.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na aba <strong>General</strong>, em <strong>Idealizations</strong>, marque <strong>Render beam profiles</strong> e digite <strong>0.3</strong> em <strong>Scale factor</strong>.</li>
+<li>Clique em <strong>Apply</strong> e veja a mudança.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_38.png#center" title="Clique para ampliar"><img alt="Figura 38." src="../imagens_3bar/imagem_38.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Desmarque <strong>Render beam profiles</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_39.png#center" title="Clique para ampliar"><img alt="Figura 39." src="../imagens_3bar/imagem_39.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>As <strong>tensões</strong> nas barras já estão exibidos em <strong>escala de cores</strong>, mas é possível ainda salvar as tensões em um <strong>documento de texto</strong>.</li>
+</ul>
+<h4 id="32-variaveis-de-saida">3.2. Variáveis de saída</h4>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>Report</strong> e em seguida em <strong>Field Output...</strong></li>
+</ul>
+<p><a href="../imagens_3bar/imagem_40.png#center" title="Clique para ampliar"><img alt="Figura 40." src="../imagens_3bar/imagem_40.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Na janela <strong>Report Field Output</strong>, abra <strong>S: Stress components</strong>, marque <strong>S11</strong> e clique em <strong>OK</strong>.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_41.png#center" title="Clique para ampliar"><img alt="Figura 41." src="../imagens_3bar/imagem_41.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>A mensagem aparecerá: <strong>"The field output report was appended to file “abaqus.rpt"</strong>. O arquivo <strong>abaqus.rpt</strong> pode ser encontrado em <strong>C:\Users\”Nome do Usuário”\abaqus.rpt</strong>.</li>
+<li>O arquivo listará as <strong>tensões</strong> das barras.</li>
+</ul>
+<p><a href="../imagens_3bar/imagem_42.png#center" title="Clique para ampliar"><img alt="Figura 42." src="../imagens_3bar/imagem_42.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>No <strong>Menu Principal</strong>, clique em <strong>File</strong> e em seguida em <strong>Save As...</strong></li>
+</ul>
+<p><a href="../imagens_3bar/imagem_43.png#center" title="Clique para ampliar"><img alt="Figura 43." src="../imagens_3bar/imagem_43.png#center" title="Clique para ampliar" /></a></p>
+<p><sup></sup></p>
+<ul>
+<li>Dê um nome ao arquivo e clique em <strong>OK</strong>.</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../aplicacao_tp/" title="Aplicação" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Aplicação
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../trelica11barras/" title="Treliça com 11 barras" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Treliça com 11 barras
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.30f6b8b1.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../../js/mathjaxhelper.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

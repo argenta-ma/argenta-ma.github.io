@@ -1,0 +1,2114 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>Aplicação - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#aplicacao-na-mao" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Elementos Finitos Aplicados
+              </span>
+              <span class="md-header-nav__topic">
+                Aplicação
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+      Treliça com 3 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Treliça Espacial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Treliça Espacial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introducao_te/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_te/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Aplicação
+      </label>
+    
+    <a href="./" title="Aplicação" class="md-nav__link md-nav__link--active">
+      Aplicação
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#graus-de-liberdade-da-estrutura" title="Graus de liberdade da estrutura" class="md-nav__link">
+    Graus de liberdade da estrutura
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graus-de-liberdade-dos-elementos" title="Graus de liberdade dos elementos" class="md-nav__link">
+    Graus de liberdade dos elementos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-de-rigidez-da-estrutura" title="Determinação da matriz de rigidez da estrutura" class="md-nav__link">
+    Determinação da matriz de rigidez da estrutura
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regra-da-correspondencia" title="Regra da correspondência" class="md-nav__link">
+    Regra da correspondência
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-do-remetente" title="Determinação do remetente" class="md-nav__link">
+    Determinação do remetente
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-para-calculo-dos-deslocamentos" title="Determinação da matriz para cálculo dos deslocamentos" class="md-nav__link">
+    Determinação da matriz para cálculo dos deslocamentos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-para-calculo-das-reacoes-de-apoio" title="Determinação da matriz para cálculo das reações de apoio" class="md-nav__link">
+    Determinação da matriz para cálculo das reações de apoio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deslocamentos-e-forcas-nodais" title="Deslocamentos e forças nodais" class="md-nav__link">
+    Deslocamentos e forças nodais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicando-as-condicoes-de-contorno" title="Aplicando as condições de contorno" class="md-nav__link">
+    Aplicando as condições de contorno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separacao-das-variaveis" title="Separação das variáveis" class="md-nav__link">
+    Separação das variáveis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculo-dos-deslocamentos" title="Cálculo dos deslocamentos" class="md-nav__link">
+    Cálculo dos deslocamentos
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fatoracao-de-cholesky" title="Fatoração de Cholesky" class="md-nav__link">
+    Fatoração de Cholesky
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculo-das-reacoes-de-apoio" title="Cálculo das reações de apoio" class="md-nav__link">
+    Cálculo das reações de apoio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensoes-nas-barras" title="Tensões nas barras" class="md-nav__link">
+    Tensões nas barras
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/modulotorre/" title="Módulo de uma torre" class="md-nav__link">
+      Módulo de uma torre
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/ponterolante/" title="Ponte rolante" class="md-nav__link">
+      Ponte rolante
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/coberturatrelicada/" title="Cobertura treliçada" class="md-nav__link">
+      Cobertura treliçada
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/teoria_v/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#graus-de-liberdade-da-estrutura" title="Graus de liberdade da estrutura" class="md-nav__link">
+    Graus de liberdade da estrutura
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graus-de-liberdade-dos-elementos" title="Graus de liberdade dos elementos" class="md-nav__link">
+    Graus de liberdade dos elementos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-de-rigidez-da-estrutura" title="Determinação da matriz de rigidez da estrutura" class="md-nav__link">
+    Determinação da matriz de rigidez da estrutura
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regra-da-correspondencia" title="Regra da correspondência" class="md-nav__link">
+    Regra da correspondência
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-do-remetente" title="Determinação do remetente" class="md-nav__link">
+    Determinação do remetente
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-para-calculo-dos-deslocamentos" title="Determinação da matriz para cálculo dos deslocamentos" class="md-nav__link">
+    Determinação da matriz para cálculo dos deslocamentos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-para-calculo-das-reacoes-de-apoio" title="Determinação da matriz para cálculo das reações de apoio" class="md-nav__link">
+    Determinação da matriz para cálculo das reações de apoio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deslocamentos-e-forcas-nodais" title="Deslocamentos e forças nodais" class="md-nav__link">
+    Deslocamentos e forças nodais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicando-as-condicoes-de-contorno" title="Aplicando as condições de contorno" class="md-nav__link">
+    Aplicando as condições de contorno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separacao-das-variaveis" title="Separação das variáveis" class="md-nav__link">
+    Separação das variáveis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculo-dos-deslocamentos" title="Cálculo dos deslocamentos" class="md-nav__link">
+    Cálculo dos deslocamentos
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fatoracao-de-cholesky" title="Fatoração de Cholesky" class="md-nav__link">
+    Fatoração de Cholesky
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculo-das-reacoes-de-apoio" title="Cálculo das reações de apoio" class="md-nav__link">
+    Cálculo das reações de apoio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensoes-nas-barras" title="Tensões nas barras" class="md-nav__link">
+    Tensões nas barras
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="aplicacao-na-mao">Aplicação na mão</h1>
+<p>Bom, agora que conhecemos a matriz de rigidez do elemento de treliça tridimensional no sistema global, é hora de voltar à parte do módulo da torre de comunicação e resolvê-la na mão, lembrando que essa treliça possui barras de aço ASTM A36 ($E = 200 GPa$), três barras verticais com seção transversal tubular de 40 mm de diâmetro e 5 mm de espessura, seis horizontais (três acima e três abaixo) com seção transversal tubular de 32 mm de diâmetro e 5 mm de espessura e três diagonais com seção maciça tubular de 16 mm de diâmetro. As cargas F são relativas ao vento e valem 111,16 N e as cargas R, relativas as reações de apoio do resto do módulo sobre essa parte valem $R_1 = 194,809 N$, $R_2 = 780,704 N$, $R_3 = 337,41 N$, $R_4 = 194,809 N$, $R_5 = 1561,41 N$, $R_6 = 337,41 N$ e $R_7 = 780,704 N$, seguindo o sentido mostrado na figura. As coordenadas dos nós e os comprimentos das barras horizontais e verticais são mostrados nas figura.</p>
+<p><img alt="Parte do módulo da torre dimensões e coordenadas" src="../imagens/ModuloTrelicaEspacial.svg#center" title="Parte do módulo da torre dimensões e coordenadas" />
+<small>Parte do módulo da torre, dimensões e coordenadas.</small></p>
+<p><img alt="Parte do módulo da torre" src="../imagens/ModuloTrelicaEspacialSeparação.svg#center" title="Parte do módulo da torre" />
+<small>Parte do módulo da torre.</small></p>
+<h3 id="graus-de-liberdade-da-estrutura">Graus de liberdade da estrutura</h3>
+<p>Primeiro, vamos descrever todos os graus de liberdade globais da estrutura em nossa treliça idealizada em um diagrama de corpo livre, assim como numerar seus nós e suas barras.</p>
+<p><img alt="Graus de liberdade da treliça" src="../imagens/ModuloTrelicaEspacialGLs.svg#center" title="Graus de liberdade da treliça" />
+<small>Graus de liberdade da treliça.</small></p>
+<p>A numeração dos nós, barras e graus de liberdade pode ser qualquer, porém, por questões práticas de implementação computacional sempre iniciam em 1, nunca pula-se um número e para os graus de liberdade numeram-se primeiro as direções com graus de liberdade livre, ou seja, direções as quais os apoios não influenciam, exatamente como a treliça plana.</p>
+<p>Sobre essa numeração, vamos descrever a numeração dos graus de liberdade através da matriz de graus de liberdade, $\textbf{GL}$. Relembrando, na matriz contamos as linhas como sendo a numeração dos nós, ou seja, a linha 1 é relativa ao nó 1, a 2 ao nó 2 e assim por diante, e as colunas relativas às direções cartesianas, ou seja, no plano a coluna 1 é $X$, a coluna 2 é $Y$ e a coluna 3 é $Z$. Então populamos essa matriz com os números dos graus de liberdade relativos à cada nó (linhas da matriz) de acordo com cada direção cartesiana (colunas da matriz), ou seja, para a parte do módulo da torre:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{GL} = \begin{array}{cc}
+    X \hspace{10pt} Y \hspace{10pt} Z \hspace{20pt} & \\
+    \left[ \begin{array}{ccc}
+        1 & 2 & 3\\
+        4 & 5 & 6\\
+        7 & 8 & 9\\
+        10 & 11 & 12\\
+        13 & 14 & 15\\
+        16 & 17 & 18\\
+    \end{array} \right] \begin{array}{c}
+    \text{nó 1} \\
+    \text{nó 2} \\
+    \text{nó 3} \\
+    \text{nó 4} \\
+    \text{nó 5} \\
+    \text{nó 6} \\
+\end{array}
+\end{array}
+</script>
+</p>
+<h3 id="graus-de-liberdade-dos-elementos">Graus de liberdade dos elementos</h3>
+<p>Na sequência precisamos explodir a estrutura divindindo-a em elementos de treliça tridimensional, numerar esses elementos e a cada elemento descrever os graus de liberdade locais. A numeração dos nós do elemento é fundamentada no utilizado para sua formulação, como foram dois, sempre teremos nós 1 e 2.</p>
+<p><img alt="Graus de liberdade dos elementos" src="../imagens/ModuloTrelicaEspacialExplodida.svg#center" title="Graus de liberdade dos elementos" />
+<small>Graus de liberdade dos elementos.</small></p>
+<p>A numeração dos graus de liberdade nesse caso é fixa a numeração do nó no elemento, pois foi seguindo essa ordem que derivamos a matriz de rigidez. Portanto, para o nó 1, o grau de liberdade longitudinal à barra é o 1, o perpendicular 2 em Y, o transversal 3 em Z, para o nó 2, o longitudinal é o 4, o perpendicular 5 em Y e o transversal 6 em Z. O que podemos variar é quem será o nó 1 ou 2 dos elementos quando posicionados na estrutura. Sua posição implica na direção do eixo x local para a definição dos cossenos diretores da matriz de rotação tridimensional e consequente matriz de rigidez do elemento no sistema global.</p>
+<blockquote>
+<p>Lembre-se que já transformamos os graus de liberdade locais em globais, por isso eles já estão orientados de acordo com os eixos globais, mas os eixos locais ainda permanecem pois precisamos dos cossenos diretores.</p>
+</blockquote>
+<p>A relação dos nós locais dos elementos com os globais da estrutura é feita através da matriz de incidência do elemento, $\textbf{IE}$, na qual as linhas representam os números dos elementos, a primeira coluna representa o nó na estrutura escolhido para o posicionamento do nó 1 do elemento e a segunda coluna do nó na estrutura para o posicionamento do nó 2 do elemento. Portanto, para o nosso caso, a matriz $IE$ fica:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{IE} = \begin{array}{cc}
+    \text{nó 1} \hspace{3pt} \text{nó 2} \hspace{40pt} & \\
+    \left[ \begin{array}{cc}
+        1 & 2 \\
+        2 & 3 \\
+        3 & 1 \\
+        4 & 1 \\
+        5 & 2 \\
+        6 & 3 \\
+        4 & 2 \\
+        5 & 3 \\
+        6 & 1 \\
+        4 & 5 \\
+        5 & 6 \\
+        6 & 4 \\
+    \end{array} \right] \begin{array}{c}
+    \text{elemento 1} \\
+    \text{elemento 2} \\
+    \text{elemento 3} \\
+    \text{elemento 4} \\
+    \text{elemento 5} \\
+    \text{elemento 6} \\
+    \text{elemento 7} \\
+    \text{elemento 8} \\
+    \text{elemento 9} \\
+    \text{elemento 10} \\
+    \text{elemento 11} \\
+    \text{elemento 12} \\
+\end{array}
+\end{array}
+</script>
+</p>
+<p>Com a matriz de incidência completa e as coordenadas dos nós da estrutura no sistema global, já podemos calcular todos os cossenos diretores para a definição da matriz de rigidez dos elementos no sistema global.</p>
+<blockquote>
+<p>Calma aí!!! Vou precisar calcular 9 cossenos diretores para cada um dos 12 elementos... ou seja, 108 cossenos diretores diferentes?! Na mão?! Claro que não, primeiro que a matriz de rigidez é apenas função dos cossenos diretores do eixo x local e depois... vamos pensar um pouquinho...</p>
+</blockquote>
+<p>Observe que nossa estrutura tem 9 graus de liberdade livres dos 18 totais, isso significa que para resolvermos os deslocamentos precisamos de um pedaço da matriz de rigidez da estrutura relativa a esses 9 graus de liberdade. Associados a esses 9 graus de liberdade livres temos os elementos 1, 2, 3, 4, 5, 6, 7, 8 e 9, portanto, para esses precisamos calcular os cossenos diretores.</p>
+<p>Podemos criar uma matriz de coordenadas dos nós da estrutura, $\textbf{COO}$, para agilizar o processo de cálculo, sendo as colunas representativas das coordenadas globais X, Y e Z e as linhas representativas dos números dos nós.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{COO} = \left[ \begin{array}{ccc}
+    25 & 14,43 & -50 \\
+    0 & -28,87 & -50 \\
+    -25 & 14,43 & -50 \\
+    25 & 14,43 & 0 \\
+    0 & -28,87 & 0 \\
+    -25 & 14,43 & 0 \\
+\end{array} \right]
+</script>
+</p>
+<blockquote>
+<p>Obseve bem os valores utilizados nas coordenadas acima, que unidades são?</p>
+</blockquote>
+<p>De uma forma genérica para uma barra $b$, o vetor dos cossenos diretores do seu eixo x local no sistema global, $\textbf{C}$ pode ser calculado em função das coordenadas dos seus nós como, utilizando a matriz de incidência $\textbf{IE}$ e a de coordenada dos nós da estrutura $\textbf{COO}$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C}_b = \dfrac{1}{L_b} \left\lbrace \begin{array}{c}
+    COO_{IE_{b,2},1} - COO_{IE_{b,1},1} \\ COO_{IE_{b,2},2} - COO_{IE_{b,1},2} \\ COO_{IE_{b,2},3} - COO_{IE_{b,1},3} \\
+    COO_{IE_{b,1},1} - COO_{IE_{b,2},1} \\ COO_{IE_{b,1},2} - COO_{IE_{b,2},2} \\ COO_{IE_{b,1},3} - COO_{IE_{b,2},3}
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Sendo, por exemplo, $IE_{b,2}$ o número do nó 2 do elemento $b$ obtido da matriz de incidência e $COO_{IE_{b,2},1}$ a coordenada X do nó 2 do elemento $b$ e $L_b$ o comprimento do elemento $b$, calculado por:</p>
+<p>
+<script type="math/tex; mode=display">
+L_b = \sqrt{(COO_{IE_{b,2},1} - COO_{IE_{b,1},1})^2 + (COO_{IE_{b,2},2} - COO_{IE_{b,1},2})^2 + (COO_{IE_{b,2},3} - COO_{IE_{b,1},3})^2}
+</script>
+</p>
+<blockquote>
+<p>Observe que os cossenos diretores negativos na matriz $\textbf{C}$ são calculados invertendo as coordenadas dos nós inicial com o final. Os positivos calculamos com as coordenadas do nó final menos do nó inicial e os negativos com as do nó inicial menos do nó final.</p>
+</blockquote>
+<p>Primeiro calculamos os comprimentos de cada uma das barras da estrutura em função de suas coordenadas.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    L_1 &= \sqrt{(COO_{IE_{1,2},1} - COO_{IE_{1,1},1})^2 + (COO_{IE_{1,2},2} - COO_{IE_{1,1},2})^2 + (COO_{IE_{1,2},3} - COO_{IE_{1,1},3})^2} = \\
+        &= \sqrt{(0 - 25)^2 + (-28,87 - 14,47)^2 + [-50 - (-50)]^2} = 50\\
+    L_2 &= \sqrt{(COO_{IE_{2,2},1} - COO_{IE_{2,1},1})^2 + (COO_{IE_{2,2},2} - COO_{IE_{2,1},2})^2 + (COO_{IE_{2,2},3} - COO_{IE_{2,1},3})^2} = \\
+        &= \sqrt{(-25 - 0)^2 + [14,43 - (-28,87)]^2 + [-50 - (-50)]^2} = 50\\
+    L_3 &= 50\\
+    L_4 &= 50\\
+    L_5 &= 50\\
+    L_6 &= 50\\
+    L_7 &= 70,71\\
+    L_8 &= 70,71\\
+    L_9 &= 70,71\\
+    L_{10} &= 50\\
+    L_{11} &= 50\\
+    L_{12} &= 50\\
+\end{align}
+</script>
+</p>
+<blockquote>
+<p>E quais são as unidades dos comprimentos? Centímetros? Porque? Porque as coordenadas foram definidas em centímetros? Muito bem... tá mas, por que centímetros??</p>
+</blockquote>
+<p>Então, os vetores com os cossenos diretores de cada barra $\textbf{C}_b$ resultam em:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C}_1 = \dfrac{1}{L_1} \left\lbrace \begin{array}{c}
+    COO_{IE_{1,2},1} - COO_{IE_{1,1},1} \\ COO_{IE_{1,2},2} - COO_{IE_{1,1},2} \\ COO_{IE_{1,2},3} - COO_{IE_{1,1},3} \\
+    COO_{IE_{1,1},1} - COO_{IE_{1,2},1} \\ COO_{IE_{1,1},2} - COO_{IE_{1,2},2} \\ COO_{IE_{1,1},3} - COO_{IE_{1,2},3}
+\end{array} \right\rbrace = \dfrac{1}{L_1} \left\lbrace \begin{array}{c}
+    COO_{2,1} - COO_{1,1} \\ COO_{2,2} - COO_{1,2} \\ COO_{2,3} - COO_{1,3} \\
+    COO_{1,1} - COO_{2,1} \\ COO_{1,2} - COO_{2,2} \\ COO_{1,3} - COO_{2,3}
+\end{array} \right\rbrace = \dfrac{1}{0,5} \left\lbrace \begin{array}{c}
+    0 - 25 \\ -28,87 - 14,47 \\ -50 - (-50) \\
+    25 - 0 \\ 14,47 -(-28,87) \\ -50 - (-50)
+\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    -0,5 \\ −0,8668 \\ 0 \\
+    0,5 \\ 0,8668 \\ 0
+\end{array} \right\rbrace
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C}_2 = \dfrac{1}{L_2} \left\lbrace \begin{array}{c}
+    COO_{IE_{2,2},1} - COO_{IE_{2,1},1} \\ COO_{IE_{2,2},2} - COO_{IE_{2,1},2} \\ COO_{IE_{2,2},3} - COO_{IE_{2,1},3} \\
+    COO_{IE_{2,1},1} - COO_{IE_{2,2},1} \\ COO_{IE_{2,1},2} - COO_{IE_{2,2},2} \\ COO_{IE_{2,1},3} - COO_{IE_{2,2},3}
+\end{array} \right\rbrace = \dfrac{1}{L_2} \left\lbrace \begin{array}{c}
+    COO_{3,1} - COO_{2,1} \\ COO_{3,2} - COO_{2,2} \\ COO_{3,3} - COO_{2,3} \\
+    COO_{2,1} - COO_{3,1} \\ COO_{2,2} - COO_{3,2} \\ COO_{2,3} - COO_{3,3}
+\end{array} \right\rbrace = \dfrac{1}{0,5} \left\lbrace \begin{array}{c}
+    -25 - 0 \\ 14,43 - (-28,87) \\ -50 - (-50) \\
+    0 - (-25) \\ -28,87 - 14,43 \\ -50 - (-50)
+\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    -0,5    \\
+    0,866   \\
+    0   \\
+    0,5 \\
+    -0,866  \\
+    0   \\
+\end{array} \right\rbrace
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C}_3 = \left\lbrace \begin{array}{c}
+    1   \\
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+\end{array} \right\rbrace \qquad \textbf{C}_4 = \left\lbrace \begin{array}{c}
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+    1   \\
+\end{array} \right\rbrace \qquad \textbf{C}_5 = \left\lbrace \begin{array}{c}
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+    1   \\
+\end{array} \right\rbrace \qquad \textbf{C}_6 = \left\lbrace \begin{array}{c}
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+    1   \\
+\end{array} \right\rbrace \qquad \textbf{C}_7 = \left\lbrace \begin{array}{c}
+    -0,3536 \\
+    -0,6124 \\
+    -0,7071 \\
+    0,3536  \\
+    0,6124  \\
+    0,7071  \\
+\end{array} \right\rbrace
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C}_8 = \left\lbrace \begin{array}{c}
+    -0,3536 \\
+    0,6124  \\
+    -0,7071 \\
+    0,3536  \\
+    -0,6124 \\
+    0,7071  \\
+\end{array} \right\rbrace \qquad \textbf{C}_9 = \left\lbrace \begin{array}{c}
+    0,7071  \\
+    0   \\
+    -0,70718    \\
+    -0,7071 \\
+    0   \\
+    0,7071  \\
+\end{array} \right\rbrace \qquad \textbf{C}_{10} = \left\lbrace \begin{array}{c}
+    -0,5    \\
+    -0,866  \\
+    0   \\
+    0,5 \\
+    0,866   \\
+    0   \\
+\end{array} \right\rbrace \qquad \textbf{C}_{11} = \left\lbrace \begin{array}{c}
+    -0,5    \\
+    0,866   \\
+    0   \\
+    0,5 \\
+    -0,866  \\
+    0   \\
+\end{array} \right\rbrace \qquad \textbf{C}_{12} = \left\lbrace \begin{array}{c}
+    1   \\
+    0   \\
+    0   \\
+    -1  \\
+    0   \\
+    0   \\
+\end{array} \right\rbrace
+</script>
+</p>
+<blockquote>
+<p>Beleza, mas, por exemplo, no vetor $\textbf{C}_{11}$, primeiro termo vale $-0,5$ o que?? Ou melhor, o que significa o $-0,5$? Cosseno do ângulo da direção x da barra 11 com o eixo x global? É isso? Lembra <a href="../../../teoria#orientao-da-seo-transversal">disso</a>?</p>
+</blockquote>
+<p>E dessa forma, já conseguimos escrever as matrizes de rigidez dos elementos no sistema global, visto que na sua forma condensada ela é calculada para um elemento $b$:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_{g,b} = \dfrac{E_b A_b}{L_b} \textbf{C}_b \textbf{C}_b^T
+</script>
+</p>
+<h3 id="determinacao-da-matriz-de-rigidez-da-estrutura">Determinação da matriz de rigidez da estrutura</h3>
+<p>O que é a matriz de rigidez da estruturas? Lembra? É a matriz de rigidez que rege o comportamento estrutural (no nosso caso) da estrutura como um todo composta pelos seus elementos formulados como matrizes de rigidez globais. </p>
+<p>Essa matriz de rigidez da estrutura será criada (existem outras formas) utilizando a nossa regrinha simples de endereçamento, a <strong>regra da correspondência</strong>. Recordando que a ideia dessa regra é relacionar os graus de liberdade do elemento no sistema global com os graus de liberdade da estrutura também no sistem global, utilizando a matriz dos graus de liberdade, $\textbf{GL}$, e a matriz de incidência dos elementos, $\textbf{IE}$. O endereçamento é feito pelos vetores de cada elemento chamados carteiros. </p>
+<p>Antes de determinar a matriz de rigidez da estrutura, vamos pensar um pouquinho. Como vimos na treliça plana, todas as colunas da matriz de rigidez da estrutura correspondentes aos graus de liberdade restringidos estarão multiplicadas por zero, ou seja, seu cálculo não vai servir para nada além de desperdiçar tempo (como?! veja <a href="../../../../trelicaplana/teoria/aplicacao#aplicando-as-condições-de-contorno">aqui</a>. Também vimos que em função da forma com que é montado o nosso sistema linear de equações da estrutura, equilíbrio estático $\textbf{K} \textbf{U} = \textbf{F}$, em função do pré-estabelecido para a numeração dos graus de liberdade, livres primeiro, a matriz de rigidez pode ser separada em duas, uma para o cálculo dos deslocamentos e outra para o cálculo das reações de apoio (não lembra?! veja <a href="../../../../trelicaplana/teoria/aplicacao#separação-das-variáveis">aqui</a>). Então, vamos ser espertos e montar apenas o que precisamos, primeiro a porção da matriz de rigidez da estrutura para cálculo dos deslocamentos, $\textbf{K}_U$, e depois a porção para cálculo das reações de apoio, $\textbf{K}_R$.</p>
+<p>Precisamos determinar uma metodologia para construir as matrizes $\textbf{K}_U$ e $\textbf{K}_R$ de forma direta, sem ter que constriuir toda a matriz de rigidez da estrutura, ou seja, vamos precisar manipular um pouquinho a regra da corresposndência.</p>
+<h4 id="regra-da-correspondencia">Regra da correspondência</h4>
+<p>Lembrando que a regra da correspondência relaciona os graus de liberdade do elemento no sistema global com os graus de liberdade da estrutura também no sistem global, utilizando a matriz dos graus de liberdade, $\textbf{GL}$, e a matriz de incidência dos elementos, $\textbf{IE}$. O endereçamento é feito por um vetor chamado carteiro definido para cada elemento da estrutura. </p>
+<p>O carteiro, ou $Ca$, possui uma quantidade de elementos igual ao número total de graus de liberdade do elemento, então, no nosso caso, como temos três graus de liberdade por nó e dois nós no elemento, o vetor carteiro terá 6 elementos. Os três primeiros elementos do carteiro se relacionam com o nó da estrutura correspondente ao nó 1 do elemento, e os três últimos ao nó da estrutura correspondente ao nó 2 do elemento.</p>
+<p>A construção do carteiro é feita para cada barra com uma busca por elementos da matriz dos graus de liberdade, $\textbf{GL}$, de acordo com a matriz de incidência, $\textbf{IE}$, em função das direções $X$, $Y$ e $Z$. </p>
+<p>De uma forma genérica, para o elemento de treliça tridimensional, podemos escrever o carteiro como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{Ca}_b = \left\lbrace \begin{array}{c}
+    GL_{IE_{b,1},1}\\
+    GL_{IE_{b,1},2} \\
+    GL_{IE_{b,1},3}\\
+    GL_{IE_{b,2},1}\\
+    GL_{IE_{b,2},2}\\
+    GL_{IE_{b,2},3} \end{array} \right\rbrace
+</script>
+</p>
+<p>Sendo b o número da barra. Observe que $IE_{b,1}$ são linha b e coluna 1 da matriz de incidência $\textbf{IE}$ e que $GL_{IE_{b,1},1}$ são linha $IE_{b,1}$ e coluna 1 da matriz de graus de liberdade $\textbf{GL}$.</p>
+<p>O carteiro nada mais é que um identificador das linhas e colunas das matrizes dos elementos no sistema global na matriz de rigidez da estrutura no sistema global. Então, de uma forma condensada podemos escrever a construção do carteiro como sendo uma sequência de variação de índices que representam cada definição disposta no carteiro.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{Ca}_{b,i^2+(j-1)} = \textbf{GL}_{(\textbf{IE}_{b,i}),j} = i^2+(j-1) \qquad \text{para} \quad i = 1,2 \quad j = 1,2,3
+</script>
+</p>
+<p>Sendo $b$ representativo do número do elemento análisado, $j$ dos graus de liberdade por nó do elemento, por isso que varia de 1 a 3, $i$ da quantidade de nós do elemento, no caso 1 e 2, dois nós no elemento e $i^2+(j-1)$ a quantidade total de graus de liberdade do elemento, no caso variando de 1 a 6 em função de $i$ e $j$, três por nó.</p>
+<p>Observe que $\textbf{IE}_{b,i}$ é o primeiro índice de $\textbf{GL}$ e $j$ o segundo. É como se transformassemos o nosso carteiro em uma matriz sendo suas linhas relativas aos elementos e suas colunas aos graus de liberdade do elemento, sendo preenchida respectivamente pelos graus de liberdade da estrutura.</p>
+<p>No entanto, o carteiro não funciona para a nossa ideia de montar diretamente $\textbf{K}_U$ e $\textbf{K}_R$, pois o carteiro endereça os graus de liberdade do elemento no sistema global para os da estrutura e para montarmos $\textbf{K}_U$ e $\textbf{K}_R$ precisamos endereçar os da estrutura para os do elemento no sistema global, identificando para cada grau de liberdade da estrutura quem são os elementos que o influênciam e seus respectivos graus de liberdade do elemento no sistema global. Vamos fazer isso escrevendo o remetente. </p>
+<h5 id="determinacao-do-remetente">Determinação do remetente</h5>
+<p>O remetente, $\textbf{Re}$ é uma matriz em que suas colunas significam os graus de liberdade da estrutura, todos, e suas linhas os elementos que compõe a estrutura. Ela é composta pelos graus de liberdade de cada elemento no sistema global, obtidos em função dos carteiros. Portanto, para determinar uma posição qualquer dentro do remetente, podemos seguir a seguinte regrinha:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{Re}_{b,\textbf{GL}_{(\textbf{IE}_{b,i}),j}} = i^2+(j-1) \qquad \text{para} \quad i = 1,2 \quad j = 1,2,3 \quad b = 1,...,t_{el}
+</script>
+</p>
+<p>Sendo $b$ a linha de $\textbf{Re}$ relativo ao número do elemento analisado, que no nosso caso em específico varia de 1 a 12, sendo então o total de elementos $t_{el}=12$, $j$ graus de liberdade por nó do elemento, variando de 1 a 3 e $i$ da quantidade de nós do elemento, no caso 1 e 2.</p>
+<p>Vamos parar um pouco para entender a equação para a montagem do $\textbf{Re}$ parte a parte. </p>
+<p>Nessa equação, o que significa $\textbf{IE}<em>{b,i}$? $\textbf{IE}$ é a matriz de incidência dos elementos que indica em sua primeira coluna quem é o nó inicial do elemento na estrutura e na segunda coluna quem é o nó final do elemento da estrutura, portanto, $\textbf{IE}</em>{b,i}$ para um certo elemento $b$ retorna o seu nó inicial caso $i$ seja igual a 1 ou seu nó final caso $i$ seja igual a dois, então, $\textbf{IE}_{b,i}$ vai retornar o número de um nó da estrutura associado ao elemento $b$.</p>
+<p>Certo, e $\textbf{GL}<em>{(\textbf{IE}</em>{b,i}),j}$, o que significa? Bem, se $\textbf{IE}_{b,i}$ retorna o número de um nó da estrutura relativo ao elemento $b$ e serve como primeiro índice da matriz dos graus de liberdade $\textbf{GL}$, sua associação com $j$ no segundo índice, que é relativo aos graus de liberdade do elemento por nó, vai retornar exatamente o grau de liberdade da estrutura, disposto em $\textbf{GL}$, relativo ao nó $i$, associado ao grau de liberdade do elemento $j$ do elemento $b$.</p>
+<blockquote>
+<p>!@%*&amp;$%#?!@#%!? Calma, é simples, vamos aplicar!</p>
+</blockquote>
+<p>No nosso exemplo de parte do módulo da torre temos que:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{GL} = \left[ \begin{array}{ccc}
+        1 & 2 & 3\\
+        4 & 5 & 6\\
+        7 & 8 & 9\\
+        10 & 11 & 12\\
+        13 & 14 & 15\\
+        16 & 17 & 18\\
+    \end{array} \right] 
+\qquad \text{e} \qquad
+\textbf{IE} = \left[ \begin{array}{cc}
+        1 & 2 \\
+        2 & 3 \\
+        3 & 1 \\
+        4 & 1 \\
+        5 & 2 \\
+        6 & 3 \\
+        4 & 2 \\
+        5 & 3 \\
+        6 & 1 \\
+        4 & 5 \\
+        5 & 6 \\
+        6 & 4 \\
+    \end{array} \right]
+</script>
+</p>
+<p>Usando a equação do remetente pretendemos construir a matriz do remetente $\textbf{Re}$ de tamanho 12x18, 12 o total de elementos da estrutura e 18 o total de graus de liberdade da estrutura. Para isso, precisamos primeiro fixar um valor de $b$, ou seja, vamos analisar o elemento 1, $b=1$, fixar um valor para i, por exemplo, nó inicial $i=1$ e variar $j$ de 1 a 3, os três graus de liberdade do elemento no nó inicial.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,1}),1}} &= 1^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{1,1}} = 1 \quad \rightarrow \quad \textbf{Re}_{1,1} = 1 \\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,1}),2}} &= 1^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{1,2}} = 2 \quad \rightarrow \quad \textbf{Re}_{1,2} = 2\\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,1}),3}} &= 1^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{1,3}} = 3 \quad \rightarrow \quad \textbf{Re}_{1,3} = 3\\
+\end{align}
+</script>
+</p>
+<p>Agora, mantendo $b=1$, ou seja, ainda no elemento 1, mudando $i$ para $i=2$, indo para o nó final e de novo variando $j$ de 1 a 3, os três graus de liberdade do elemento no nó, no caso, final.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,2}),1}} &= 2^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{2,1}} = 4 \quad \rightarrow \quad \textbf{Re}_{1,4} = 4 \\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,2}),2}} &= 2^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{2,2}} = 5 \quad \rightarrow \quad \textbf{Re}_{1,5} = 5\\
+    \textbf{Re}_{1,\textbf{GL}_{(\textbf{IE}_{1,2}),3}} &= 2^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{1,\textbf{GL}_{2,3}} = 6 \quad \rightarrow \quad \textbf{Re}_{1,6} = 6\\
+\end{align}
+</script>
+</p>
+<p>Pronto! Já temos a primeira linha feita da matriz do rementente $\textbf{Re}$. </p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{Re} = \begin{array}{cc}
+1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{5.3pt} 13 \hspace{5.3pt} 14 \hspace{5.3pt} 15 \hspace{5.3pt} 16 \hspace{5.3pt} 17 \hspace{5.3pt} 18  \hspace{3pt} & \\
+\left[ \begin{array}{cccccccccccccccccc}
+    1 & 2 & 3 & 4 & 5 & 6 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+\end{array} \right] & \begin{array}{c} 
+                            1\\ 
+                            2\\  
+                            3\\
+                            4\\ 
+                            5\\
+                            6\\
+                            7\\
+                            8\\
+                            9\\
+                            10\\
+                            11\\
+                            12\\
+                         \end{array}\\
+\end{array}
+</script>
+</p>
+<p>Vamos ilustrar melhor o conceito escrevendo a linha do remetente para o elemento 6, ou seja, $b=6$. Fixando $i=1$ e variando $j$ de 1 a 3 e depois fixando $i=2$ e variando $j$ de um a 3, temos:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{Re}_{6,\textbf{GL}_{(\textbf{IE}_{6,1}),1}} &= 1^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{6,\textbf{GL}_{6,1}} = 1 \quad \rightarrow \quad \textbf{Re}_{6,16} = 1 \\
+    \textbf{Re}_{6,\textbf{GL}_{(\textbf{IE}_{6,1}),2}} &= 1^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{6,\textbf{GL}_{6,2}} = 2 \quad \rightarrow \quad \textbf{Re}_{6,17} = 2\\
+    \textbf{Re}_{6,\textbf{GL}_{(\textbf{IE}_{6,1}),3}} &= 1^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{6,\textbf{GL}_{6,3}} = 3 \quad \rightarrow \quad \textbf{Re}_{6,18} = 3\\
+\textbf{Re}_{6,\textbf{GL}_{(\textbf{IE}_{6,2}),1}} &= 2^2+(1-1) \quad \rightarrow \quad \textbf{Re}_{6,\textbf{GL}_{3,1}} = 4 \quad \rightarrow \quad \textbf{Re}_{6,7} = 4 \\
+    \textbf{Re}_{6,\textbf{GL}_{(\textbf{IE}_{6,2}),2}} &= 2^2+(2-1) \quad \rightarrow \quad \textbf{Re}_{6,\textbf{GL}_{3,2}} = 5 \quad \rightarrow \quad \textbf{Re}_{6,8} = 5\\
+    \textbf{Re}_{6,\textbf{GL}_{(\textbf{IE}_{6,2}),3}} &= 2^2+(3-1) \quad \rightarrow \quad \textbf{Re}_{6,\textbf{GL}_{3,3}} = 6 \quad \rightarrow \quad \textbf{Re}_{6,9} = 6\\
+\end{align}
+</script>
+</p>
+<p>Colocando os resultados na correspondente linha 6 da matriz $\textbf{Re}$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{Re} = \begin{array}{cc}
+1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{5.3pt} 13 \hspace{5.3pt} 14 \hspace{5.3pt} 15 \hspace{5.3pt} 16 \hspace{5.3pt} 17 \hspace{5.3pt} 18  \hspace{3pt} & \\
+\left[ \begin{array}{cccccccccccccccccc}
+    1 & 2 & 3 & 4 & 5 & 6 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+    0 & 0 & 0 & 0 & 0 & 0 & 4 & 5 & 6 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 2 & 3 \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+     & & & & & & & & & & & & & & & & & \\
+\end{array} \right] & \begin{array}{c} 
+                            1\\ 
+                            2\\  
+                            3\\
+                            4\\ 
+                            5\\
+                            6\\
+                            7\\
+                            8\\
+                            9\\
+                            10\\
+                            11\\
+                            12\\
+                         \end{array}\\
+\end{array}
+</script>
+</p>
+<p>Fazendo para todos os elementos, chegamos a matriz do remetente, retirando os zeros para a melhor visualização, ou seja, espaço em branco na matriz significa zero!</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{Re} = \begin{array}{cc}
+1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{5.3pt} 13 \hspace{5.3pt} 14 \hspace{5.3pt} 15 \hspace{5.3pt} 16 \hspace{5.3pt} 17 \hspace{5.3pt} 18  \hspace{3pt} & \\
+\left[ \begin{array}{cccccccccccccccccc}
+    1 & 2 & 3 & 4 & 5 & 6 &   &   &   &   &   &   &   &   &   &   &   & \\ 
+      &   &   & 1 & 2 & 3 & 4 & 5 & 6 &   &   &   &   &   &   &   &   & \\ 
+    4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   &   &   &   &   &   &   & \\ 
+    4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3 &   &   &   &   &   & \\ 
+      &   &   & 4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3 &   &   & \\ 
+      &   &   &   &   &   & 4 & 5 & 6 &   &   &   &   &   &   & 1 & 2 & 3\\ 
+      &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   &   &   &   & \\ 
+      &   &   &   &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3 &   &   & \\ 
+    4 & 5 & 6 &   &   &   &   &   &   &   &   &   &   &   &   & 1 & 2 & 3\\ 
+      &   &   &   &   &   &   &   &   & 1 & 2 & 3 & 4 & 5 & 6 &   &   & \\ 
+      &   &   &   &   &   &   &   &   &   &   &   & 1 & 2 & 3 & 4 & 5 & 6\\ 
+      &   &   &   &   &   &   &   &   & 4 & 5 & 6 &   &   &   & 1 & 2 & 3\\ 
+\end{array} \right] & \begin{array}{c} 
+                            1\\ 
+                            2\\  
+                            3\\
+                            4\\ 
+                            5\\
+                            6\\
+                            7\\
+                            8\\
+                            9\\
+                            10\\
+                            11\\
+                            12\\
+                         \end{array}\\
+\end{array}
+</script>
+</p>
+<p>Olha que legal essa matriz! Ela nos diz exatamente qual grau de liberdade de qual elemento influencia em determinado grau de liberdade da estrutura. Por exemplo, grau de liberdade 10 da estrutura, quais elementos e quais graus de liberdade desses elementos contribuem para esse grau de liberdade da estutura? Olhe a coluna 10, temos o grau de liberdade 1 do elemento 4, o grau de liberdade 1 do elemento 7, o grau de liberdade 1 do elemento 10 e o grau de liberdade 4 do elemento 12. Sensacional!!</p>
+<p>Além disso, veja que claramente os elementos 10, 11 e 12 não influenciam na matriz para cálculo dos deslocamentos pois essa somente é composta pelos 9 graus de liberdade livres.</p>
+<p>Com a matriz do remetente $\textbf{Re}$ completa, podemos construir sem maiores dificuldades, as matrizes para cálculo dos deslocamentos $\textbf{K}_U$ da estrutura e para cálculo das reações de apoio à posteriori $\textbf{K}_R$ da estrutura. Além disso, esse procedimento é de simples implementação computacional.</p>
+<h4 id="determinacao-da-matriz-para-calculo-dos-deslocamentos">Determinação da matriz para cálculo dos deslocamentos</h4>
+<p>A submatriz $\textbf{K}_U$ para o cálculo dos deslocamentos é definida como uma porção da matriz de rigidez relativa ao cálculo dos deslocamentos. Ela é identificada na matriz de rigidez pelas linhas e colunas correspondentes aos graus de liberdade livres, ou seja, se 3 e 5 forem graus de liberdade livres da estrutura, as linhas 3 e 5 estarão de forma parcial na matriz $\textbf{K}_U$. </p>
+<p>Por que de forma parcial? Por que as colunas relativas aos graus de liberdade restringidos serão eliminadas, ou seja, as colunas da linha 3 referentes aos graus de liberdade restringidos não serão calculadas e as linhas referentes aos graus de liberdade restringidos serão dispostas na matriz $\textbf{K}_R$ para cálculo das reações de apoio, ou seja, as linhas da coluna 5 referentes aos graus de liberdade restringidos não serão calculadas para a matriz $\textbf{K}_U$.</p>
+<blockquote>
+<p>Complicou?! Releia os paragrafos acima até fazer sentido em sua cabeça! Use uma caneta e um papel e rascunhe para facilitar.</p>
+</blockquote>
+<p>A montagem da matriz $\textbf{K}_U$ segue a seguinte equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_{U(i,j)} = \sum_{b=1}^n \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,i})} \textbf{C}_{b,(\textbf{Re}_{b,j})}^T \psi_b \begin{cases}
+\psi_b = 1 \ \text{se} \ \textbf{Re}_{b,i} \neq 0 \ \text{e} \ \textbf{Re}_{b,j} \neq 0 \\
+\psi_b = 0 \ \text{se} \ \textbf{Re}_{b,i} = 0 \ \text{ou} \ \textbf{Re}_{b,j} = 0
+\end{cases}
+</script>
+</p>
+<p>Para todos os elementos $b$ da estrutura, no caso $n=12$, sendo $i$ e $j$ variando de 1 a 9, os nove graus de liberdade livres da estrutura. O $\psi$ é um parâmetro utilizado para eliminar os termos iguais a zero do somatório, ou seja, os termos referentes aos nós que não possuem nenhum grau de liberdade do elemento que influência o grau de liberdade $i$ ou $j$ da estrutura.</p>
+<blockquote>
+<p>Lembrando que isso só funciona porque numeramos primeiro os graus de liberdade livres da estrutura! Observe que somente vamos utilizar as colunas de 1 a 9 do remetente. E as demais?</p>
+</blockquote>
+<p>Precisamos agora das propriedades de cada elemento. Lembrando o disposto no <a href="../../aplicacao">início</a> temos que:</p>
+<p>Módulo de elasticidade: $E_1 = E_2 = E_3 = E_4 = E_5 = E_6 = E_7 = E_8 = E_9 = E_{10} = E_{11} = E_{12} = 200 GPa \equiv 20000 kN/cm^2 $,</p>
+<p>Áreas:  $A_1 = A_2 = A_3 = A_{10} = A_{11} = A_{12} = 2,317 cm^2$, $A_4 = A_5 = A_6 = 2,946 cm^2$ e $A_7 = A_8 = A_9 = 2,011 cm^2$,</p>
+<p>Comprimentos:  $L_1 = L_2 = L_3 = L_4 = L_5 = L_6 = L_{10} = L_{11} = L_{12} = 50 cm$ e $L_7 = L_8 = L_9 = 70,71 cm$,</p>
+<p>Além dos respectivos cossenos diretores definidos no vetor $\textbf{C}$.</p>
+<p>Vamos fazer para alguns elementos da matriz de rigidez para o cálculo dos deslocamentos, $\textbf{K}<em>U$, para ilustrar a aplicação da equação que a determina, começando com o elemento $\textbf{K}</em>{U(1,1)}$, ou seja, $i=1$ e $j=1$ e $n$ o número total de elementos da estrutra, no caso 12.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{K}_{U(1,1)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,1})} \textbf{C}_{b,(\textbf{Re}_{b,1})}^T \psi_b \\
+    &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,(\textbf{Re}_{1,1})} \textbf{C}_{1,(\textbf{Re}_{1,1})}^T\\
+    &\quad + 0\\
+    &\quad + \dfrac{E_3 A_3}{L_3} \textbf{C}_{3,(\textbf{Re}_{3,1})} \textbf{C}_{3,(\textbf{Re}_{3,1})}^T\\
+    &\quad + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,(\textbf{Re}_{4,1})} \textbf{C}_{4,(\textbf{Re}_{4,1})}^T\\
+    &\quad + 0 + 0 + 0 + 0 \\
+    &\quad + \dfrac{E_9 A_9}{L_9} \textbf{C}_{9,(\textbf{Re}_{9,1})} \textbf{C}_{9,(\textbf{Re}_{9,1})}^T \\
+    &\quad + 0 + 0 + 0 \\
+\end{align}
+</script>
+</p>
+<p>Já substituído o valor de $\psi_b$ por 0 ou 1 e apenas utilizando os valores referentes a $\psi_b = 1$.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\therefore \textbf{K}_{U(1,1)} &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,1} \textbf{C}_{1,1}^T + \dfrac{E_3 A_3}{L_3} \textbf{C}_{3,4} \textbf{C}_{3,4}^T + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,4} \textbf{C}_{4,4}^T + \dfrac{E_9 A_9}{L_9} \textbf{C}_{9,4} \textbf{C}_{9,4}^T \\
+    &= \dfrac{20000 \times 2,317}{50} \times (-0,5) \times (-0,5) \\
+    &\quad + \dfrac{20000 \times 2,317}{50} \times (-1) \times (-1) \\
+    &\quad + \dfrac{20000 \times 2,946}{50} \times 0 \times 0 \\
+    &\quad + \dfrac{20000 \times 2,011}{70,71} \times (-0,7071) \times (-0,7071) \\
+    &= 1442,8956
+\end{align}
+</script>
+</p>
+<p>Como mais um exemplo, vamos fazer $i=3$ e $j=5$, ou seja, determinar $\textbf{K}_{U(3,5)}$, já substituído o valor de $\psi_b$ por 0 ou 1 e apenas utilizando os valores referentes a $\psi_b = 1$.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{K}_{U(3,5)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,3})} \textbf{C}_{b,(\textbf{Re}_{b,5})}^T \psi_b \\
+    &= \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,(\textbf{Re}_{1,3})} \textbf{C}_{1,(\textbf{Re}_{1,5})}^T\\
+    &\quad + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0
+\end{align}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \textbf{K}_{U(3,5)} = \dfrac{E_1 A_1}{L_1} \textbf{C}_{1,3} \textbf{C}_{1,5}^T = \dfrac{20000 \times 2,317}{50} \times 0 \times 0,8668 = 0
+</script>
+</p>
+<p>Portanto, fazendo a mesma aplicação para todos os 81 termos (matriz 9x9) chegamos a matriz de rigidez para o cálculo dos deslocamentos, $\textbf{K}_U$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_U = \left[ \begin{array}{ccccccccc}
+     1442,91364043 &   401,33088755 &  -284,39834739 &  -231,71529304 & -401,33088755 &     0  &  -926,8 &     0  &    0 \\
+      401,33088755 &   695,10509723 &     0  &  -401,33088755 & -695,10509723 &     0  &     0  &     0  &    0 \\
+     -284,39834739 &     0  &  1462,79834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+     -231,71529304 &  -401,33088755 &     0  &   534,53251928 &  123,1485483  &   142,2038664  &  -231,71529304 &   401,33088755 &    0 \\
+     -401,33088755 &  -695,10509723 &     0  &   123,1485483  & 1603,50348012 &   246,2970966  &   401,33088755 &  -695,10509723 &    0 \\
+        0  &     0  &     0  &   142,2038664  &  246,2970966  &  1462,8077328  &     0  &     0  &    0 \\
+     -926,8 &     0  &     0  &  -231,71529304 &  401,33088755 &     0  &  1229,61722624 &  -524,47943585 &  142,2038664 \\
+        0  &     0  &     0  &   401,33088755 & -695,10509723 &     0  &  -524,47943585 &   908,39838289 & -246,2970966 \\
+        0  &     0  &     0  &     0  &    0  &     0  &   142,2038664  &  -246,2970966  & 1462,8077328 
+\end{array} \right]
+</script>
+</p>
+<h4 id="determinacao-da-matriz-para-calculo-das-reacoes-de-apoio">Determinação da matriz para cálculo das reações de apoio</h4>
+<p>A metodologia é a mesma, ou seja a equação para a determinação da porção da matriz de rigidez da estrutura associada ao cálculo das reações de apoio também é função dos vetores de cossenos diretores dos elementos, $\textbf{C}_b$ e da rigidez axial do elemento $E_bA_b/L_b$. No entanto, agora devemos percorrer o rementente para todas as barras (linhas) e todos os graus de liberdade (colunas), inclusive os restringidos. Precisamos dos graus de liberdade livres para identificar onde possuimos deslocamentos e precisamos dos graus de liberdade restringidos para relacionar as reações de apoio. Por isso, precisamos modificar um pouco a relação dos índices para que $i$ e $j$ signifiquem 1, 2, ..., 9 na matriz de rigidez para cálculo das reações de apoio e 10, 11, ...,18 no índice da coluna do remetente, $\textbf{Re}$, apenas quando se referir à linhas que serão caluladas e posicionadas na matriz de rigidez para cálculo dos deslocamentos.</p>
+<blockquote>
+<p>Heim?! Pense na matriz de rigidez da estrutura como um todo (dúvidas, veja <a href="../../../../trelicaplana/teoria/aplicacao#separação-das-variáveis">treliça plana</a>) de, no nosso caso, 18x18, precisamos da porção relativa às linhas de 10 a 18 e as colunas de 1 a 9. Como montar apenas essa porção?</p>
+</blockquote>
+<p>Isso é bem simples, basta adicionarmos o número de graus de liberdade livres da estrutura, no nosso caso 9, ao índice $i$ quando for relativo a matriz remetente $\textbf{Re}$. Assim, fazendo $i$ e $j$ variarem de 1 a 9, quando se tratar do remetente as linhas de 10 a 18 serão utilizadas e quando se tratar da matriz de rigidez para o cálculo das reações de apoio as linhas de 1 a 9 serão utilizadas.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_{R(i,j)} = \sum_{b=1}^n \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,i+9})} \textbf{C}_{b,(\textbf{Re}_{b,j})}^T \psi_b \begin{cases}
+\psi_b = 1 \ \text{se} \ \textbf{Re}_{b,i+9} \neq 0 \ \text{e} \ \textbf{Re}_{b,j} \neq 0 \\
+\psi_b = 0 \ \text{se} \ \textbf{Re}_{b,i+9} = 0 \ \text{ou} \ \textbf{Re}_{b,j} = 0
+\end{cases}
+</script>
+</p>
+<p>Vamos fazer para alguns elementos da matriz de rigidez para o cálculo dos deslocamentos, $\textbf{K}<em>R$, para ilustrar a aplicação da equação que a determina, começando com o elemento $\textbf{K}</em>{R(1,1)}$, ou seja, $i=1$ e $j=1$ e $n$ o número total de elementos da estrutra, no caso 12.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{K}_{R(1,1)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,1+9})} \textbf{C}_{b,(\textbf{Re}_{b,1})}^T \psi_b \\
+    &= 0 + 0 + 0 \\
+    &\quad + \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,(\textbf{Re}_{4,10})} \textbf{C}_{4,(\textbf{Re}_{4,1})}^T\\
+    &\quad + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 \\
+\end{align}
+</script>
+</p>
+<p>Já substituído o valor de $\psi_b$ por 0 ou 1 e apenas utilizando os valores referentes a $\psi_b = 1$.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\therefore \textbf{K}_{R(1,1)} &= \dfrac{E_4 A_4}{L_4} \textbf{C}_{4,1} \textbf{C}_{4,4}^T \\
+    &= \dfrac{20000 \times 2,946}{L_4} 0 \times 0 \\
+    &= 0
+\end{align}
+</script>
+</p>
+<p>Como mais um exemplo, vamos fazer $i=3$ e $j=5$, ou seja, determinar $\textbf{K}_{U(3,5)}$, já substituído o valor de $\psi_b$ por 0 ou 1 e apenas utilizando os valores referentes a $\psi_b = 1$.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{K}_{R(3,5)} &= \sum_{b=1}^{12} \dfrac{E_b A_b}{L_b} \textbf{C}_{b,(\textbf{Re}_{b,3+9})} \textbf{C}_{b,(\textbf{Re}_{b,5})}^T \psi_b \\
+    &= 0 + 0 + 0 + 0 + 0 + 0\\
+    &\quad \dfrac{E_7 A_7}{L_7} \textbf{C}_{7,(\textbf{Re}_{7,12})} \textbf{C}_{7,(\textbf{Re}_{7,5})}^T\\
+    &\quad + 0 + 0 + 0 + 0 + 0
+\end{align}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \textbf{K}_{R(3,5)} = \dfrac{E_7 A_7}{L_7} \textbf{C}_{7,3} \textbf{C}_{7,5}^T = \dfrac{20000 \times 2,011}{70,71} \times (-0,7071) \times 0,6124 = −246,307
+</script>
+</p>
+<p>Portanto, fazendo a mesma aplicação para todos os 81 termos (matriz 9x9) chegamos a matriz de rigidez para o cálculo dos deslocamentos, $\textbf{K}_R$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_R = \left[ \begin{array}{ccccccccc}
+    0  &     0  &     0  &   -71,1019332  & -123,1485483  &  -142,2038664  &     0  &     0  &    0 \\
+    0  &     0  &     0  &  -123,1485483  & -213,29328566 &  -246,2970966  &     0  &     0  &    0 \\
+    0  &     0  & -1178,4 &  -142,2038664  & -246,2970966  &  -284,4077328  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   -71,1019332  &   123,1485483  & -142,2038664 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   123,1485483  &  -213,29328566 &  246,2970966 \\
+    0  &     0  &     0  &     0  &    0  & -1178,4 &  -142,2038664  &   246,2970966  & -284,4077328 \\
+ -284,39834739 &     0  &   284,39834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &     0  &     0  &    0 \\
+  284,39834739 &     0  &  -284,39834739 &     0  &    0  &     0  &     0  &     0  &-1178,4\\
+\end{array} \right]
+</script>
+</p>
+<p>Determinada as porções da matriz de rigidez da estrutura para o cálculo dos deslocamentos e reações de apoio, precisamos definir os vetores de deslocamentos e forças nodais a essas matrizes associados para montar o sistema de equações lineares de equilíbrio</p>
+<h3 id="deslocamentos-e-forcas-nodais">Deslocamentos e forças nodais</h3>
+<p>O equilíbro estático da estrutura em MEF é regido pela mesma expressão que utilizamos para o equilíbrio do elemento englobando todos os graus de liberdade da estrutura, ou seja, o equilíbrio estático da estrutura pelo MEF é dado pela equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}\textbf{U} = \textbf{F}
+</script>
+</p>
+<p>Sendo $\textbf{U}$ o vetor de deslocamentos da estrutura e $\textbf{F}$ o vetor de forças nodais da estrutura.</p>
+<p>Os vetores $\textbf{U}$ e $\textbf{F}$ representam os deslocamentos da estrutura, definidos pelos graus de liberdade, e as forças nodais relativas aos graus de liberdade. Portanto, podemos escrevê-los de forma genérica como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{U} = \left\lbrace \begin{array}{c}
+    U_1 \\
+    U_2 \\
+    U_3 \\
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+    U_{10} \\
+    U_{11} \\
+    U_{12} \\
+    U_{13} \\
+    U_{14} \\
+    U_{15} \\
+    U_{16} \\
+    U_{17} \\
+    U_{18} \\
+\end{array} \right\rbrace \qquad \textbf{F} = \left\lbrace \begin{array}{c}
+    F_1 \\
+    F_2 \\
+    F_3 \\
+    F_4 \\
+    F_5 \\
+    F_6 \\
+    F_7 \\
+    F_8 \\
+    F_9 \\
+    F_{10} \\
+    F_{11} \\
+    F_{12} \\
+    F_{13} \\
+    F_{14} \\
+    F_{15} \\
+    F_{16} \\
+    F_{17} \\
+    F_{18} \\
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Não sabemos, por enquanto, os valores dos deslocamentos em cada grau de liberdade do vetor $\textbf{U}$, afinal essas são as nossa incógnitas do problema (quer dizer, alguns valores nos conhecemos como veremos a seguir). Já o vetor de forças nodais $\textbf{F}$ nós conhecemos completamente, basta entender como as forças nodais se relacionam com os graus de liberdade e aplicar as condições de contorno.</p>
+<h3 id="aplicando-as-condicoes-de-contorno">Aplicando as condições de contorno</h3>
+<p>Diferentemente de como resolvemos para a treliça plana, no caso da treliça espacial não montamos a matriz de rigidez completa da estrutura. Portanto, precisamos definir quais partes do vetor de deslocamentos da estrutura e do vetor de forças nodais devem ser utilizadas para o cálculo dos deslocamentos e quais partes para o cálculo das reações de apoio. Para tal, precisamos observar e aplicar as condições de contorno do problemas, em outras palavras, os efeitos dos apoios da estrutura nos vetores de deslocamentos e forças nodais da estrutura.</p>
+<p><img alt="Parte do módulo da torre" src="../imagens/ModuloTrelicaEspacialSeparação.svg#center" title="Parte do módulo da torre" />
+<small>Parte do módulo da torre.</small></p>
+<p><img alt="Graus de liberdade da treliça" src="../imagens/ModuloTrelicaEspacialGLs.svg#center" title="Graus de liberdade da treliça" />
+<small>Graus de liberdade da treliça.</small></p>
+<p>Observando as duas figuras acima fica fácil montar os vetores de deslocamentos e forças nodais da estrutura. Sendo as cargas F relativas ao vento, com valor 111,16 N e as cargas R, relativas as reações de apoio do resto do módulo sobre essa parte, com valor $R_1 = 194,809 N$, $R_2 = 780,704 N$, $R_3 = 337,41 N$, $R_4 = 194,809 N$, $R_5 = 1561,41 N$, $R_6 = 337,41 N$ e $R_7 = 780,704 N$ e sentido mostrado na figura, e ainda os apoios dos nós 4, 5 e 6 do tipo rotulado, ou seja, restringindo a translação dos referidos nós nas três direções, X, Y e Z, tais vetores resultam em:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{U} = \left\lbrace \begin{array}{c}
+    U_1 \\
+    U_2 \\
+    U_3 \\
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+    0 \\
+\end{array} \right\rbrace \qquad \textbf{F} = \left\lbrace \begin{array}{c}
+    -0,194809 \\
+    -0,11116 + (-0,33741)  \\
+    0,780704 \\
+    0,194809 \\
+    -0,33741 \\
+    -1,56141 \\
+    0 \\
+    -0,11116 \\
+    0,780704 \\
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    -0,194809 \\
+    -0,44857  \\
+    0,780704 \\
+    0,194809 \\
+    -0,33741 \\
+    -1,56141 \\
+    0 \\
+    -0,11116 \\
+    0,780704 \\
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Os deslocamentos de $U_10$ a $U_18$ são iguais à zero pelas restrições dos apoios nas respectivas direções dos graus de liberdade relacionados à esses deslocamentos. A força $F_7$ é zero pois nenhuma força atua na respectiva direção do respectivo grau de liberdade. As forças de $F_1$ a $F_6$ e $F_8$ e $F_9$ representam as forças externas aplicadas à treliça. Observe que na direção 2 temos duas forças aplicadas, $F$ e $R_3$ e, portanto, seus valores devem ser somados. </p>
+<blockquote>
+<p>Claro que no caso de uma análise do E.L.U. (Estado Limite Último), na qual as reações do resto do módulo e a carga do vento estejam sendo combinadas em diversas situações distintas, deve ser levado em conta o que cada uma das combinações aplica de efeitos na estrutura. Ih, viajou? Em outras palavras, se na combinação atuarem $R_3$ e $F$ você soma, se não... adivinha? Não soma. Ainda viajando? Melhor conhecer um pouco mais de <a href="http://www.estruturas.ufpr.br/wp-content/uploads/2016/03/Capitulo3.pdf">combinação de cargas em ELU</a>.</p>
+</blockquote>
+<p>As forças de $F_{10}$ a $F_{18}$ são relacionadas com as restrições impostas pelos apoios nas respectivas direções dos graus de liberdade e, portanto, são exatamente as reações de apoio provocadas por essas restrições. </p>
+<h3 id="separacao-das-variaveis">Separação das variáveis</h3>
+<p>Precisamos agora determinar porções dos vetores de deslocamentos da estrutura e de forças nodais relativos ao cálculo dos deslocamentos e das reações de apoio. Isso é bem simples e fica até explícito se observarmos o vetor de deslocamentos da estrutura.</p>
+<blockquote>
+<p>Fica explícito porque numeramos primeiro os graus de liberdade livres!</p>
+</blockquote>
+<p>Os primeiros 9 graus de liberdade são responsáveis pelo cálculo dos deslocamentos, conforme vimos na definição de $\textbf{K}_U$, os graus de liberdade de 10 a 18, associados a efeitos dos primeiros graus de liberdade, são responsáveis pela determinação das reações de apoio, conforme vimos na determinação de $\textbf{K}_R$. Portanto, podemos escrever o vetor de deslocamentos da estrutura e o vetor de forças nodais em duas parcelas, uma relativa ao cálculo dos deslocamentos, $\textbf{U}_U$ e $\textbf{F}_U$, e outra relativa ao cálculo das reações de apoio, $\textbf{U}_U$ e $\textbf{F}_R$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{U}_U = \left\lbrace \begin{array}{c}
+    U_1 \\
+    U_2 \\
+    U_3 \\
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+\end{array} \right\rbrace \qquad \textbf{F}_U = \left\lbrace \begin{array}{c}
+    -0,194809 \\
+    -0,44857  \\
+    0,780704 \\
+    0,194809 \\
+    -0,33741 \\
+    -1,56141 \\
+    0 \\
+    -0,11116 \\
+    0,780704 \\
+\end{array} \right\rbrace
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{F}_R = \left\lbrace \begin{array}{c}
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace
+</script>
+</p>
+<blockquote>
+<p>Por que $\textbf{U}_U$ é utilizado para calcular os deslocamentos e as reações de apoio? Precisamos dos efeitos dos graus de liberdade livres nos restringidos para calcular as reações de apoio, ou seja, as reações de apoio são proporcionais aos deslocamentos da estrutura em função da rigidez relativa entre os graus de liberdade livres e restringidos.</p>
+</blockquote>
+<p>Ou seja, podemos escrever nosso equilíbrio estático para cálculo dos deslocamentos utilizando a matriz $\textbf{K}_U$ como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_U \textbf{U}_U = \textbf{F}_U 
+</script>
+</p>
+<p>E, para calcular as reações de apoio utilizamos a matriz $\textbf{K}_R$ na forma:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{F}_R = \textbf{K}_R \textbf{U}_R 
+</script>
+</p>
+<h3 id="calculo-dos-deslocamentos">Cálculo dos deslocamentos</h3>
+<p>Existem diversas formas de cálcular dos deslocamentos. Como já comentado, nós vamos utilizar a <a href="https://pt.wikipedia.org/wiki/Fatora%C3%A7%C3%A3o_de_Cholesky">fatoração de Cholesky</a>, por ser mais rápida para sistemas com vários graus de liberdade.</p>
+<h4 id="fatoracao-de-cholesky">Fatoração de Cholesky</h4>
+<p>A fatoração (ou decomposição) de Cholesky procura decompor uma matriz $\textbf{A}$ na forma $\textbf{A} = \textbf{L}\textbf{L}^T$, na qual $\textbf{L}$ é uma matriz triangular inferior com elementos da diagonal principal estritamente positivos. No entanto, a matriz $\textbf{A}$ deve simétrica, não singular e positivo definida, como no nosso caso, portanto, a fatoração de Cholesky se aplica. Além disso, a fatoração de Cholesky é conhecida pela velocidade na solução quando temos sistemas com muitos graus de liberdade, porém também pela fragilidade e instabilidade numérica quando a matriz é próxima da singularidade e ou possui baixo número de linhas ou colunas independentes, fatores raros no sistema de equações lineares de um equilíbrio que considera o material no regime linear proporcional e pequenas deformações.</p>
+<p>Como já vimos, de uma forma prática para uma matriz $n \times n$ vamos fazer o seguinte (lembrando que a matriz é simétrica, então $a_{k,n} = a_{n,k}$):</p>
+<p>
+<script type="math/tex; mode=display">
+\left[ \begin{array}{cccc}
+    a_{1,1} & a_{2,1} & ... & a_{n,1} \\
+    a_{2,1} & a_{2,2} & ... & a_{n,2} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n,1} & a_{n,2} & ... & a_{n,n} \\
+\end{array} \right] = \left[ \begin{array}{cccc}
+    l_{1,1} & 0 & ... & 0 \\
+    l_{2,1} & l_{2,2} & ... & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    l_{n,1} & l_{n,2} & ... & a_{n,n} \\
+\end{array} \right] \left[ \begin{array}{cccc}
+    l_{1,1} & l_{2,1} & ... & l_{n,1} \\
+    0 & l_{2,2} & ... & l_{n,2} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & ... & a_{n,n} \\
+\end{array} \right]
+</script>
+</p>
+<p>Sendo que os elementos da matriz $\textbf{L}$ são calculados da seguinte forma, para a coluna 1 de $\textbf{L}$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    l_{1,1} &= \sqrt{a_{1,1}} \\
+    l_{j,1} &= \dfrac{a_{j,1}}{l_{1,1}} \quad \text{para} \quad j=2,3,...,n \\
+\end{align}
+</script>
+</p>
+<p>Para a coluna $k$ de $\textbf{L}$, sendo $k=2,3,...,n$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    l_{k,k} &= \sqrt{a_{k,k} - \sum_{i=1}^{k-1} l_{k,i}^2} \\
+    l_{j,k} &= \dfrac{a_{j,k} - \displaystyle{\sum_{i=1}^{k-1}} l_{j,i}l_{k,i}}{l_{k,k}} \quad \text{para} \quad j=k+1,k+2,...,n \\
+\end{align}
+</script>
+</p>
+<p>Portanto, para o nosso caso com a matriz $\textbf{K}_U$ com $n=9$, ou seja, $9 \times 9$:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_U = \left[ \begin{array}{ccccccccc}
+     1442,91364043 &   401,33088755 &  -284,39834739 &  -231,71529304 & -401,33088755 &     0  &  -926,8 &     0  &    0 \\
+      401,33088755 &   695,10509723 &     0  &  -401,33088755 & -695,10509723 &     0  &     0  &     0  &    0 \\
+     -284,39834739 &     0  &  1462,79834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+     -231,71529304 &  -401,33088755 &     0  &   534,53251928 &  123,1485483  &   142,2038664  &  -231,71529304 &   401,33088755 &    0 \\
+     -401,33088755 &  -695,10509723 &     0  &   123,1485483  & 1603,50348012 &   246,2970966  &   401,33088755 &  -695,10509723 &    0 \\
+        0  &     0  &     0  &   142,2038664  &  246,2970966  &  1462,8077328  &     0  &     0  &    0 \\
+     -926,8 &     0  &     0  &  -231,71529304 &  401,33088755 &     0  &  1229,61722624 &  -524,47943585 &  142,2038664 \\
+        0  &     0  &     0  &   401,33088755 & -695,10509723 &     0  &  -524,47943585 &   908,39838289 & -246,2970966 \\
+        0  &     0  &     0  &     0  &    0  &     0  &   142,2038664  &  -246,2970966  & 1462,8077328 
+\end{array} \right]
+</script>
+</p>
+<p>Calcula-se (lembrando que $a_{k,n} = a_{n,k}$):</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    l_{1,1} &= \sqrt{a_{1,1}} = \sqrt{1442,91364043} = 37,986\\
+    l_{2,1} &= \dfrac{a_{2,1}}{l_{1,1}} = \dfrac{401,33088755}{37,986} = 10,565\\
+    l_{3,1} &= \dfrac{a_{3,1}}{l_{1,1}} = \dfrac{-284,39834739}{37,986} = -7,4898\\
+    & \vdots \\
+    l_{2,2} &= \sqrt{a_{2,2} - l_{2,1}^2} = \sqrt{695,10509723 - 10,565^2} = 24,155 \quad (k=2) \\
+    & \vdots \\
+    l_{3,2} &= \dfrac{a_{3,2} - l_{3,1}l_{2,1}}{l_{2,2}} = \dfrac{0 - (-7,4898) \times 10,565}{24,155} = 3,2747 \quad (k=2 \quad j=3) \\
+    & \vdots\\
+    l_{5,4} &= \dfrac{a_{5,4} - (l_{5,1}l_{4,1} + l_{5,2}l_{4,2} + l_{5,3}l_{4,3})}{l_{4,4}} = \dfrac{123,1485483 - [(-10,565) \times (-6,1) + (-24,155) \times (-13,9465) + 0 \times 0]}{17,4016} = -15,986 \\
+    & \vdots \\
+    l_{9,9} &= \sqrt{a_{9,9} - (l_{9,1}^2 + l_{9,2}^2 + l_{9,3}^2 + l_{9,4}^2 + l_{9,5}^2 + l_{9,6}^2 + l_{9,7}^2 + l_{9,8}^2)} \\
+    \quad &= \sqrt{1462,8077328 - [0 + 0 + 0 + 0 + 0 + 0 + 8,9087^2 + (-14,319)^2]} = 34,3278
+\end{align}
+</script>
+</p>
+<p>E, portanto, resolvendo os demais itens da matriz triangular $\textbf{L}$:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{L} = \left[ \begin{array}{ccc}
+ 37,986 &    0    &    0    &    0    &    0    &    0    &    0    &   0    &    0   \\ 
+ 10,565 &   24,155 &    0    &    0    &    0    &    0    &    0    &   0    &    0   \\ 
+ -7,487 &    3,275 &   37,363 &    0    &    0    &    0    &    0    &   0    &    0   \\ 
+ -6,1   &  -13,946 &    0    &   17,402 &    0    &    0    &    0    &   0    &    0   \\ 
+-10,565 &  -24,155 &    0    &  -15,986 &   25,551 &    0    &    0    &   0    &    0   \\ 
+  0    &    0    &    0    &    8,172 &   14,752 &   34,328 &    0    &   0    &    0   \\ 
+-24,399 &   10,672 &   -5,824 &  -13,316 &    7,376 &   0    &   15,962 &   0    &    0   \\ 
+  0    &    0    &    0    &   23,063 &  -12,775 &   0    &   -7,715 &  12,401 &    0   \\ 
+  0    &    0    &    0    &    0    &    0    &    0    &    8,909 & -14,319 &   34,328\\ 
+\end{array} \right]
+</script>
+</p>
+<p>Agora, para resolver precisamos aplicar uma substituição direta e uma retrosubstituição em $\textbf{L}$ e $\textbf{L}^T$ respectivamente. Precisamos calcular um vetor $\textbf{c}$, tal que:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{L} \textbf{c} = \textbf{F}
+</script>
+</p>
+<p>Então, podemos encontrar os deslocamentos com:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{L}^T \textbf{U} = \textbf{c}
+</script>
+</p>
+<p>Esse vetor $\textbf{c}$ é calculado da seguinte maneira, para o elemento 1 de $\textbf{c}$:</p>
+<p>
+<script type="math/tex; mode=display">
+c_1 = \dfrac{F_1}{l_{1,1}}
+</script>
+</p>
+<p>Para os demais elementos com $i=1,2,...,n$:</p>
+<p>
+<script type="math/tex; mode=display">
+c_i = \dfrac{F_i - \displaystyle{\sum_{j=1}^{i-1}} \left( l_{i,j} c_j \right)}{l_{i,i}}
+</script>
+</p>
+<p>E, portanto, para o nosso caso, com $i=1,..,n$ e $n=9$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+c_1 &= \dfrac{F_1}{l_{1,1}} = \dfrac{−0,194809}{37,986} = −0,00512848\\
+c_2 &= \dfrac{F_2 - l_{2,1} c_1}{l_{2,2}} = \dfrac{-10000 - (-599,132) \times 0}{591,8397} = -0,01632709\\
+&\quad \vdots \\
+c_8 &= \dfrac{F_8 - \left( l_{8,1} c_1 + l_{8,2} c_2 + l_{8,3} c_3 + l_{8,4} c_4 + l_{8,5} c_5 + l_{8,6} c_6 + l_{8,7} c_7 \right)}{l_{8,8}} \\
+&\quad = \dfrac{−0,11116 - \left( 0 + 0 + 0 + 23,063 \times (−0,00368819) + (-12,775) \times (−0,03306891) + 0 + (-7,715) \times 0,06057446 \right)}{12,319} = -0,03131827 \\
+c_9 &= \dfrac{F_9 - \left( l_{9,1} c_1 + l_{9,2} c_2 + l_{9,3} c_3 + l_{9,4} c_4 + l_{9,5} c_5 + l_{9,6} c_6 + l_{9,7} c_7 + l_{9,8} c_8 \right)}{l_{9,9}}\\
+&\quad = \dfrac{-0,780704 - \left( 0 + 0 + 0 + 0 + 0 + 0 + 8,909 \times 0,00780387 + (-14,319) \times (-0,03131827) \right)}{34,328} = -0,03783177
+\end{align}
+</script>
+</p>
+<p>Calculando os demais valores:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{c} = \left\lbrace \begin{array}{c}
+    -0,00512848\\ 
+    -0,01632709\\ 
+    -0,02049158\\ 
+    -0,00368819\\ 
+    -0,03306891\\
+     0,06057446\\ 
+     0,00780387\\ 
+    -0,03131827\\ 
+    -0,03783177
+\end{array} \right\rbrace
+</script>
+</p>
+<p>A solução, então, dos deslocamentos $\textbf{U}$ pode ser calculada pela retrosubstituição em $\textbf{L}^T$, sendo o útimo elemento de $\textbf{U}$ calculado como:</p>
+<p>
+<script type="math/tex; mode=display">
+U_n = \dfrac{c_n}{l^T_{n,n}}
+</script>
+</p>
+<p>E os demais deslocamentos com $i=1,2,...,n-1$:</p>
+<p>
+<script type="math/tex; mode=display">
+U_{n-i} = \dfrac{c_{n-i} - \displaystyle{\sum_{j=n-i+1}^n} \left( l^T_{n-i,j} U_j \right)}{l^T_{n-i,n-i}}
+</script>
+</p>
+<p>E finalmente... chegamos aos valores dos deslocamentos (sendo $n=9$), resolve-se do $U_9$ ao $U_1$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+U_9 &= \dfrac{c_9}{l^T_{9,9}} = \dfrac{-0,03783177}{34,328} = -0,00110207\\
+U_8 &= \dfrac{c_8 - \left( l^T_{8,9} U_9 \right)}{l^T_{8,8}} = \dfrac{(-0,03131827) - \left[ (−14,319)  \times (-0,00110207) \right]}{12,401} = -0,00379816\\
+&\quad \vdots \\
+U_2 &= \dfrac{c_2 - \left( l^T_{2,3} U_3 + l^T_{2,4} U_4 + l^T_{2,5} U_5 + l^T_{2,6} U_6 + l^T_{2,7} U_7 + l^T_{2,8} U_8 + l^T_{2,9} U_9 \right)}{l^T_{2,2}} \\
+&\quad = \dfrac{(−0,01632709) - \left( 3,275 \times (-0,00066251) + (-13,946) \times (-0,00024215) + (-24,155) \times (-0,00400089) + 0 + 10,672 \times -0,00073176 + 0 + 0 \right)}{24,155} = -0,00440351\\
+U_1 &= \dfrac{c_1 - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 + l^T_{1,4} U_4 + l^T_{1,5} U_5 + l^T_{1,6} U_6 + l^T_{1,7} U_7 + l^T_{1,8} U_8 + l^T_{12,9} U_9 \right)}{l^T_{1,1}}\\
+&\quad = \dfrac{(−0,00512848) - \left( 10,565 \times (-0,00440351) + (-7,487) \times (-0,00066251) + (-6,1) \times (-0,00024215) + (-10,565) \times 0,00400089 + 0 + (-24,399) \times (-0,00073176) + 0 + 0 \right)}{37,986}  = -0,00066251\\
+\end{align}
+</script>
+</p>
+<p>Portanto, resolvendo para todos os deslocamentos:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{U} = \left\lbrace \begin{array}{c}
+ -0,00066251\\ 
+ -0,00440351\\ 
+ -0,00066251\\ 
+ -0,00024215\\ 
+ -0,00400089\\ 
+  0,00176459\\ 
+ -0,00073176\\ 
+ -0,00379816\\ 
+ -0,00110207
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Lembra em que unidade de comprimento estamos trabalhando? A treliça deslocou no nó 1, nos graus de liberdade 1, 2 e 3 respectivamente $U_1 = -0,00066251$, $U_2 = -0,00440351$ e $U_3 = -0,00066251$. Certo, mas deslocou o que? Metros? Centímetros? Quilômetros? De novo, o MEF <strong>não trabalha com unidades</strong>, portanto, todos os valores de entrada devem possuir unidades compatíveis para uso na formulação. Nossos dados de entrada foram: aço com módulo de elasticidade de $E = 200000 kN/cm^2$, a área da seção transversal das barras em $cm^2$, as cargas em $kN$ e os comprimentos em $cm$, portanto os deslocamentos no vetor $\textbf{U}$ estão em $cm$.</p>
+<blockquote>
+<p>Você consegue visualizar a configuração deformada da estrutura? Para que posição os nós se moveram? Seria mais ou menos como na figura a seguir, que está fora de escala para melhor visualização.</p>
+</blockquote>
+<p><img alt="Deslocamentos" src="../imagens/ModuloTrelicaEspacialDesl.svg#center" title="Deslocamentos" />
+<small>Deslocamentos.</small></p>
+<h3 id="calculo-das-reacoes-de-apoio">Cálculo das reações de apoio</h3>
+<p>Com os deslocamentos calculados, podemos utilizar a separação de variáveis que foi feita nos vetores de deslocamentos e forças nodais para calcular as reações de apoio usando ma matriz $\textbf{K}_R$</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace = \left[ \begin{array}{ccccccccc}
+    0  &     0  &     0  &   -71,1019332  & -123,1485483  &  -142,2038664  &     0  &     0  &    0 \\
+    0  &     0  &     0  &  -123,1485483  & -213,29328566 &  -246,2970966  &     0  &     0  &    0 \\
+    0  &     0  & -1178,4 &  -142,2038664  & -246,2970966  &  -284,4077328  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   -71,1019332  &   123,1485483  & -142,2038664 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   123,1485483  &  -213,29328566 &  246,2970966 \\
+    0  &     0  &     0  &     0  &    0  & -1178,4 &  -142,2038664  &   246,2970966  & -284,4077328 \\
+ -284,39834739 &     0  &   284,39834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &     0  &     0  &    0 \\
+  284,39834739 &     0  &  -284,39834739 &     0  &    0  &     0  &     0  &     0  &-1178,4\\
+\end{array} \right]  \left\lbrace \begin{array}{c}
+    U_1 \\
+    U_2 \\
+    U_3 \\
+    U_4 \\
+    U_5 \\
+    U_6 \\
+    U_7 \\
+    U_8 \\
+    U_9 \\
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Substituindo os valores dos deslocamentos.</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace = \left[ \begin{array}{ccccccccc}
+    0  &     0  &     0  &   -71,1019332  & -123,1485483  &  -142,2038664  &     0  &     0  &    0 \\
+    0  &     0  &     0  &  -123,1485483  & -213,29328566 &  -246,2970966  &     0  &     0  &    0 \\
+    0  &     0  & -1178,4 &  -142,2038664  & -246,2970966  &  -284,4077328  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   -71,1019332  &   123,1485483  & -142,2038664 \\
+    0  &     0  &     0  &     0  &    0  &     0  &   123,1485483  &  -213,29328566 &  246,2970966 \\
+    0  &     0  &     0  &     0  &    0  & -1178,4 &  -142,2038664  &   246,2970966  & -284,4077328 \\
+ -284,39834739 &     0  &   284,39834739 &     0  &    0  &     0  &     0  &     0  &    0 \\
+    0  &     0  &     0  &     0  &    0  &     0  &     0  &     0  &    0 \\
+  284,39834739 &     0  &  -284,39834739 &     0  &    0  &     0  &     0  &     0  &-1178,4\\
+\end{array} \right]  \left\lbrace \begin{array}{c}
+ -0,00066251\\ 
+ -0,00440351\\ 
+ -0,00066251\\ 
+ -0,00024215\\ 
+ -0,00400089\\ 
+  0,00176459\\ 
+ -0,00073176\\ 
+ -0,00379816\\ 
+ -0,00110207
+\end{array} \right\rbrace
+</script>
+</p>
+<p>E, portanto, após a multiplicação da porção da matriz de rigidez pelo vetor de deslocamentos nodais, chegamos à:</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    R_{10} \\
+    R_{11} \\
+    R_{12} \\
+    R_{13} \\
+    R_{14} \\
+    R_{15} \\
+    R_{16} \\
+    R_{17} \\
+    R_{18} \\
+\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+     0,259 \\ 
+     0,4486\\ 
+     1,2987\\ 
+    -0,259 \\ 
+     0,4486\\ 
+    -2,5974\\ 
+    -0    \\
+     0    \\ 
+     1,2987
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Ou seja, 0,259 kN na direção x do nó 4, grau de liberdade 10, 0,44857 kN na direção y do nó 4, grau de liberdade 11, 1,2987 kN na direção z do nó 4, ou seja, sentido oposto ao grau de liberdade 12, e assim por diante.</p>
+<h3 id="tensoes-nas-barras">Tensões nas barras</h3>
+<p>A determinação das tensões nas barras é feita no elemento original, no sistema local, sem nenhuma rotação para compatibilização dos sistemas dos graus de liberdade, ou seja, primeiro precisamos escrever os deslocamentos da estrutura como deslocamentos em cada elemento. Para isso, vamos desacoplar o vetor de deslocamentos nodais e escrever um vetor de deslocamentos globais (total, inclusive com os deslocamentos restringidos pelos apoios) para cada elemento chamados de $\textbf{u}<em>{1g}$, $\textbf{u}</em>{2g}$ e $\textbf{u}_{3g}$ para os elementos 1, 2 e 3 respectivamente.</p>
+<blockquote>
+<p>Saberia fazer isso??</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../teoria_te/" title="Teoria" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Teoria
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../aplicacoes/modulotorre/" title="Módulo de uma torre" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Módulo de uma torre
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.30f6b8b1.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

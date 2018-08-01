@@ -1,0 +1,1086 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>Teoria - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#teoria-do-elemento-de-trelica" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Elementos Finitos Aplicados
+              </span>
+              <span class="md-header-nav__topic">
+                Teoria
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+      Treliça com 3 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Treliça Espacial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Treliça Espacial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introducao_te/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Teoria
+      </label>
+    
+    <a href="./" title="Teoria" class="md-nav__link md-nav__link--active">
+      Teoria
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentacao" title="Fundamentação" class="md-nav__link">
+    Fundamentação
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-rigidez-no-sistema-global" title="Matriz de rigidez no sistema global" class="md-nav__link">
+    Matriz de rigidez no sistema global
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orientacao-da-secao-transversal" title="Orientação da seção transversal" class="md-nav__link">
+    Orientação da seção transversal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotacao-tridimensional" title="Rotação tridimensional" class="md-nav__link">
+    Rotação tridimensional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equilibrio-do-local-para-o-global" title="Equilíbrio do local para o global" class="md-nav__link">
+    Equilíbrio do local para o global
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacao_te/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/modulotorre/" title="Módulo de uma torre" class="md-nav__link">
+      Módulo de uma torre
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/ponterolante/" title="Ponte rolante" class="md-nav__link">
+      Ponte rolante
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/coberturatrelicada/" title="Cobertura treliçada" class="md-nav__link">
+      Cobertura treliçada
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/teoria_v/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Aplicações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Aplicações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentacao" title="Fundamentação" class="md-nav__link">
+    Fundamentação
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-rigidez-no-sistema-global" title="Matriz de rigidez no sistema global" class="md-nav__link">
+    Matriz de rigidez no sistema global
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orientacao-da-secao-transversal" title="Orientação da seção transversal" class="md-nav__link">
+    Orientação da seção transversal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotacao-tridimensional" title="Rotação tridimensional" class="md-nav__link">
+    Rotação tridimensional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equilibrio-do-local-para-o-global" title="Equilíbrio do local para o global" class="md-nav__link">
+    Equilíbrio do local para o global
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="teoria-do-elemento-de-trelica">Teoria do elemento de treliça</h1>
+<h2 id="fundamentacao">Fundamentação</h2>
+<p>Da mesma forma que para a treliça no plano, a idealização de uma estrutura em uma treliça é simples, supõe-se que em todas as barras apenas existam esforços axiais normais a sua direção longitudinal, que derivam de tensões uniformes nessa seção, aplicando-se as mesmas simplificações definidas para a treliça plana. </p>
+<p>Observe a barra da treliça espacial isolada, ela é exatamente a mesma barra da treliça plana, com as mesmas considerações e idealizações, não muda absolutamente nada. Então, o elemento de treliça que derivamos para a treliça plana é o mesmo que usaremos para a treliça espacial, com a mesma consideração para os deslocamentos, as mesmas funções de forma, a mesma definição dos graus de liberdade, as mesmas considerações para as deformações e tensões, o mesmo equilíbrio, a mesma matriz de rigidez, claro que tudo isso para o elemento no sistema local.</p>
+<p><img alt="Deslocamentos nodais" src="../imagens/barraTrelicaGrausLib.svg#center" title="Deslocamentos nodais da barra de uma treliça unidimensional" />
+<small>Deslocamentos nodais da barra de treliça unidimensional idealizada.</small></p>
+<p>Portanto, a matriz de rigidez, o vetor de deslocamentos e de forças nodais equivalentes no elemento no sistema local, são:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} = \dfrac{EA}{L} \left[ 
+\begin{array}{cc}
+    1 & - 1\\
+    - 1 & 1 
+\end{array} \right] \quad \quad \textbf{u} = \left\lbrace \begin{array}{c}
+        u_1 \\
+        u_2
+    \end{array} \right\rbrace \quad \quad \textbf{f} = \left\lbrace \begin{array}{c}
+        f_1 \\
+        f_2
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>O detalhe agora é que vamos precisar dispor essa barra ou esse elemento em um espaço, não mais em um plano, e os 2 graus de liberdade no sistema local deverão ser decompostos nas 3 direções definidas pelo sistema de coordenadas global no qual está escrita a estrutura, resultando em um elemento com 6 graus de liberdade no sistema global.</p>
+<p><img alt="Graus de liberdade no local" src="../imagens/barraTrelicaGrausLibGlob3D.svg#center" title="Graus de liberdade no sistema local" />
+<small>Graus de liberdade no sistema local.</small></p>
+<h3 id="matriz-de-rigidez-no-sistema-global">Matriz de rigidez no sistema global</h3>
+<p>Precisamos, então, corrigir a matriz de rigidez do elemento já que, com 6 graus de liberdade por nó no global, deverá ser de 6x6 e não somente de 2x2 como a determinada no local. Sabendo que as rigidezes dentro da matriz de rigidez local significam a rigidez de uma direção na outra, por exemplo, $k_{11}$ rigidez do efeito de um deslocamento do nó 1 nele mesmo, $k_{12}$ rigidez do efeito de um deslocamento do nó 1 no nó 2, podemos expandir esse conceito para uma matriz 6x6 mantendo as mesmas considerações de rigidez locais, por exemplo, para quando elemento está na horizontal, ou seja, contido no plano XY e paralelo com o eixo X:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} = \dfrac{EA}{L} \left[ 
+\begin{array}{cc}
+    1 & - 1\\
+    - 1 & 1 
+\end{array} \right] \equiv \dfrac{EA}{L} \left[ 
+\begin{array}{cccc}
+    1 & 0 & 0 & -1 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    -1 & 0 & 0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+\end{array} \right]_{6x6}
+</script>
+</p>
+<blockquote>
+<p>Lembra como mediamos $\theta$? A partir da direção positiva do eixo X global no sentido anti-horário. Mas agora é tridimensional, são três os ângulos que definem um vetor no espaço... e agora? <a href="http://www.euclideanspace.com/maths/geometry/rotations/euler/index.htm">Ângulos de Euler</a></p>
+</blockquote>
+<p>Observe que se o elemento está contido no plano XY e paralelo com o eixo X ainda possui efeitos em apenas 2 graus de liberdade por nó no sistema global, por isso as linhas e colunas representativas dos efeitos dos graus de liberdade 2, 3, 5 e 6 globais são zero, pois eles não representam efeito nenhum da barra. Agora, caso essa barra ou elemento não estejam contidos em nenhum plano dos sitema de coordenadas global precisamos decompor corretamente as componentes locais nas globais. Para isso, precisamos conhecer os 9 ângulos entre os eixos do sistema local do elemento e do sistema global, ângulo de x com X, de y com X, e assim por diante.</p>
+<p>O problema é que isso não é simples. Primeiro nos precisamos conhecer como os eixos locais estão orientados em relação aos globais. No caso do eixo x local isso é simples, visto que ele está orientado de acordo com o elemento, portanto, conhecendo-se as coordenadas globais dos nós do elemento é possível definir a direção do eixo x local no sistema global. Já no caso dos eixos locais y e z nem tanto. A questão é como eles estão orientados? Em outras palavras, como os eixos que definem a seção transversal do elemento se orientam no sistema global? Em outras palavras, a seção transversal do elemento está na vertical? Horizontal? Inclinada? Em que ângulo? Com quem?</p>
+<h4 id="orientacao-da-secao-transversal">Orientação da seção transversal</h4>
+<p>Uma forma interessante de determinar esse posicionamento da seção transversal, e consequentemente dos eixos locais y e z, é estipular um ponto de referência, $r$, que, junto com os nós do elemento, definem o plano xz ou xy local no sistema global, resultando no posicionamento da seção e definição das direções locais y e z no sistema global.</p>
+<blockquote>
+<p>Estruturas reticuladas tridimensionais normalmente possuem planos locais onde suas barras estão posicionadas. Pense em uma torre de transmissão de energia elétrica constituída de cantoneiras. Na região inclinada, todas as cantoneiras estão com uma de suas abas orientada de acordo com a inclinação dessa região, sendo assim, pode-se utilizar um nó de outro elemento nesse plano inclinado para definir o posicionamento da seção transversal do elemento analisado e assim por diante.</p>
+</blockquote>
+<p><img alt="Posicionamento da seção transversal" src="../imagens/posicaoSecao.svg#center" title="Posicionamento da seção transversal" />
+<small>Posicionamento da seção transversal.</small></p>
+<p>Na verdade, esse posicionamento é apenas uma questão prática ou uma forma de definir y e z locais (de fato necessários) no caso de uma treliça, já que, como somente utilizamos a área da seção transversal na formulação, y e z locais podem ter direção quaisquer sem modificar o resultado. Entretanto, em formulações que utilizam propriedades da seção transversal que variam com a direção, como por exemplo a inércia no caso de vigas, essa correta orientação de y e z é fundamental para a correta obtenção dos resultados.</p>
+<p>Nós vamos posicionar o plano xy local utilizando um ponto de referência $r$. Primeiro precisamos definir um vetor unitário, $\textbf{i}_l$, orientado de acordo com o eixo x local do elemento escrito no sistema global. Isso pode ser feito utilizando-se as coordenadas dos nós 1 e 2 do elemento no sistema global.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{i}_l = \dfrac{X_2 - X_1}{L} \textbf{i} + \dfrac{Y_2 - Y_1}{L} \textbf{j} + \dfrac{Z_2 - Z_1}{L} \textbf{k} = l_x \textbf{i} + m_x \textbf{j} + n_x \textbf{k}
+</script>
+</p>
+<p>Sendo $\textbf{i}$, $\textbf{j}$, $\textbf{k}$ os vetores unirários dos eixos globais X, Y e Z, que valem respectivamente $(1,0,0)$, $(0,1,0)$ e $(0,0,1)$, $X_1$, $Y_1$, $Z_1$ as coordenadas do nó 1 do elemento no sistema global, $X_1$, $Y_2$, $Z_2$ as coordenadas do nó 2 do elemento no sistema global e $L$ o comprimento do elemento, calculado por:</p>
+<p>
+<script type="math/tex; mode=display">
+L = \sqrt{(X_2 - X_1)^2 + (Y_2 - Y_1)^2 + (Z_2 - Z_1)^2}
+</script>
+</p>
+<blockquote>
+<p>Observe que a relação $\frac{X_2 - X_1}{L}$ é chamada de cosseno diretor da direção x local com a direção X global, assim como $\frac{Y_2 - Y_1}{L}$ é o cosseno diretor da x local com a Y global e $\frac{Z_2 - Z_1}{L}$ da x local com a Z global.</p>
+</blockquote>
+<p>Agora, precisamos calcular um vetor, $\textbf{r}$, que define a direção do nó 1 do elemento ao nó $r$ de referência escrito no sistema global. Para tal, supomos que o que o nó de referência, $r$, esteja em uma posição qualquer global porém dentro do plano xy local do elemento.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{r} = X_r - X_1 \textbf{i} + Y_r - Y_1 \textbf{j} + Z_r - Z_1 \textbf{k} = l_r \textbf{i} + m_r \textbf{j} + n_r \textbf{k}
+</script>
+</p>
+<p>Sendo $X_r$, $Y_r$, $Z_r$ as coordenadas do ponto de referência $r$ no sistema global.</p>
+<p>Um vetor $\textbf{z}$ (não unitário) que define a direção do eixo local z em relação ao sistema global nada mais é que o produto vetorial (cross product) entre o vetor $\textbf{i}_l$ e o vetor $\textbf{r}$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{z} = \left| \begin{array}{ccc}
+    \textbf{i} & \textbf{j} & \textbf{k}\\
+    l_x & m_x & n_x \\
+    l_r & m_r & n_r\\
+\end{array} \right| = (m_x n_r - n_x m_r) \textbf{i} + (n_x l_r - l_x n_r) \textbf{j} + (l_x m_r - m_x l_r) \textbf{k}
+</script>
+</p>
+<p>Transformando $\textbf{z}$ em um vetor unirário obtém-se a direção do eixo local z, $\textbf{k}_l$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_l = \dfrac{(m_x n_r - n_x m_r)}{L_z} \textbf{i} + \dfrac{(n_x l_r - l_x n_r)}{L_z} \textbf{j} + \dfrac{(l_x m_r - m_x l_r)}{L_z} \textbf{k} = l_z \textbf{i} + m_z \textbf{j} + n_z \textbf{k}
+</script>
+</p>
+<p>Sendo $L_z$ calculado por:</p>
+<p>
+<script type="math/tex; mode=display">
+L_z = \sqrt{(m_x n_r - n_x m_r)^2 + (n_x l_r - l_x n_r)^2 + (l_x m_r - m_x l_r)^2}
+</script>
+</p>
+<p>Com o mesmo raciocínio, um vetor que define a direção do eixo y local descrita no sistema global, $\textbf{y}$, é obtido com o produto vetorial entre $\textbf{i}_l$ e $\textbf{k}_l$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{y} = \left| \begin{array}{ccc}
+    \textbf{i} & \textbf{j} & \textbf{k}\\
+    l_x & m_x & n_x \\
+    l_z & m_z & n_z\\
+\end{array} \right| = (m_x n_z - n_x m_z) \textbf{i} + (n_x l_z - l_x n_z) \textbf{j} + (l_x m_z - m_x l_z) \textbf{k}
+</script>
+</p>
+<p>Por fim, a direção do eixo y local é definida pelo vetor unitário $\textbf{j}_l$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{j}_l = \dfrac{(m_x n_z - n_x m_z)}{L_y} \textbf{i} + \dfrac{(n_x l_z - l_x n_z)}{L_y} \textbf{j} + \dfrac{(l_x m_z - m_x l_z)}{L_y} \textbf{k} = l_y \textbf{i} + m_y \textbf{j} + n_y \textbf{k}
+</script>
+</p>
+<p>Sendo $L_y$ o comprimento do vetor $\textbf{y}$ calculado por:</p>
+<p>
+<script type="math/tex; mode=display">
+L_y = \sqrt{(m_x n_z - n_x m_z)^2 + (n_x l_z - l_x n_z)^2 + (l_x m_z - m_x l_z)^2}
+</script>
+</p>
+<p>Resumindo, conseguimos escrever três vetores unitários representativos das direções do eixo local do elemento no sistema global, sendo eles:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{i}_l &= l_x \textbf{i} + m_x \textbf{j} + n_x \textbf{k}\\
+    \textbf{j}_l &= l_y \textbf{i} + m_y \textbf{j} + n_y \textbf{k}\\
+    \textbf{k}_l &= l_z \textbf{i} + m_z \textbf{j} + n_z \textbf{k}
+\end{align}
+</script>
+</p>
+<p>Nas quais, as constantes $l$, $m$ e $n$ são os cossenos diretores, referentes àqueles 9 ângulos que precisávamos calcular, das direções locais com as direções globais.</p>
+<p>Ou seja, é possível escrever um vetor qualquer $\textbf{v}$ definido por coordenadas $(x, y, z)$ em um sistema local a partir de um sistema global com coordenadas $(X, Y, Z)$, decompondo as suas respectivas componentes globas nos eixos locais em função dos cossenos formados entre os eixos dos dois sistemas e vice-versa.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{v} = \left\lbrace \begin{array}{c}
+    x \\
+    y \\
+    z \\
+\end{array} \right\rbrace = \left[ \begin{array}{ccc}
+    l_x & m_x & n_x \\
+    l_y & m_y & n_y \\
+    l_z & m_z & n_z \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    X\\
+    Y\\
+    Z\\
+\end{array} \right\rbrace
+</script>
+</p>
+<h4 id="rotacao-tridimensional">Rotação tridimensional</h4>
+<p>Como nosso elemento dispõe de dois "vetores" ou melhor, de dois graus de liberdade no sistema local, podemos compor uma matriz de rotação tridimensional do elemento utilizando a matriz dos cossenos diretores.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{R}_3 = \left[ \begin{array}{cccccc}
+    l_x & m_x & n_x & 0 & 0 & 0\\
+    l_y & m_y & n_y & 0 & 0 & 0 \\
+    l_z & m_z & n_z & 0 & 0 & 0 \\
+    0 & 0 & 0 & l_x & m_x & n_x \\
+    0 & 0 & 0 & l_y & m_y & n_y \\
+    0 & 0 & 0 & l_z & m_z & n_z \\
+\end{array} \right]
+</script>
+</p>
+<p>Uma importante propriedade da matriz de rotação tridimensional é que pelo fato de ser composta por vetores que são ortnormais entre sí, sua inversa é igual a sua transposta, $\textbf{R}_3^{-1} = \textbf{R}_3^{T}$</p>
+<h4 id="equilibrio-do-local-para-o-global">Equilíbrio do local para o global</h4>
+<p>O equilíbio do elemento foi definido no sistema local como sendo:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} \textbf{u} = \textbf{f} \tag{1} \label{equiLocal}
+</script>
+</p>
+<p>Portanto, podemos aplicar a rotação tridimensional, $R_3$, aos vetores globais de deslocamentos e forças nodais do elemento $\textbf{U}$ e $\textbf{F}$, que representam em um único vetor os graus de liberdade de ambos os nós do elemento, obtendo assim seus respectivos representantes no sistema local $\textbf{u}$ e $\textbf{f}$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{u} = \textbf{R}_3 \textbf{U} \qquad \text{e} \qquad \textbf{f} = \textbf{R}_3 \textbf{F}
+</script>
+</p>
+<p>Sustituindo as definições acim na equação \eqref{equiLocal}, é possível definir a rotação da matriz de rigidez local do elemento para a obtenção da matriz de rigidez do elemento no sistema global.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{k} \textbf{R}_3 \textbf{U} &= \textbf{R}_3 \textbf{F}\\
+\therefore \textbf{R}_3^T \textbf{k} \textbf{R}_3 \textbf{U} &= \textbf{F}
+\end{align}
+</script>
+</p>
+<p>E portanto, a matriz de rigidez do elemento de treliça tridimensional no sistema global é calculada com:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_g = \textbf{R}_3^T \textbf{k} \textbf{R}_3
+</script>
+</p>
+<p>Realizando as multiplicações com os cossenos diretores genéricos, chega-se a:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_g = \dfrac{EA}{L} \left[ \begin{array}{cccccc}
+      l_x^2 &  l_x m_x &  l_x n_x &  -l_x^2 & -l_x m_x & -l_x n_x \\
+     l_x m_x &   m_x^2 &  m_x n_x & -l_x m_x &  -m_x^2 & -m_x n_x \\
+     l_x n_x &  m_x n_x &   n_x^2 & -l_x n_x & -m_x n_x &  -n_x^2 \\
+     -l_x^2 & -l_x m_x & -l_x n_x &   l_x^2 &  l_x m_x &  l_x n_x \\
+    -l_x m_x &  -m_x^2 & -m_x n_x &  l_x m_x &   m_x^2 &  m_x n_x \\
+    -l_x n_x & -m_x n_x &  -n_x^2 &  l_x n_x &  m_x n_x &   n_x^2 \\
+\end{array} \right]
+</script>
+</p>
+<p>Observem que interessante essa matriz de rigidez. Ela é identica se dividirmos em 4 partes iguais de 3x3 apenas com sinal trocado nas regiões das linhas 1,2 e 3 com colunas 4, 5 e 6 e linhas 4, 5 e 6 com colunas 1, 2 e 3, ou seja, é possível escrever essa matriz na forma de uma multiplicação vetorial de certo vetor com seu transposto (somente a matriz dos cossenos diretores, mantendo isolado o termo de rigidez). Esse vetor deve ser definido contendo os três cossenos diretores positivos e os três negativos e será chamado de $\textbf{C}$.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C} = \left\lbrace \begin{array}{c}  l_x \\ m_x \\ n_x \\ -l_x \\ -m_x \\ -n_x \end{array} \right\rbrace
+</script>
+</p>
+<p>Portanto, a matriz de rigidez do elemento no sistema global pode ser escrita como uma multiplicação do vetor $\textbf{C}$ com seu transposto.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_g = \dfrac{EA}{L} \textbf{C} \textbf{C}^T
+</script>
+</p>
+<blockquote>
+<p>Faça a multiplicação para conferir se volta realmente na matriz de rigidez original.</p>
+</blockquote>
+<p>Esse truque vai economizar recursos computacionais, afinal vamos precisar calcular apenas os três cossenos diretores da direção x local e escrever um vetor 6x1 e não uma matriz de 6x6.</p>
+<blockquote>
+<p>Mas depois eu não vou precisar fazer essa multiplicação e não vai dar na mesma?! Eu acho que não, vamos modificar a regra da correspondência para não precisar fazer essa multiplicação e chegar a matriz de rigidez da estrutura utilizando o vetor $\textbf{C}$ de cada um dos elementos, evitando assim ter que montar a matriz de rigidez do elemento no sistema global.</p>
+</blockquote>
+<p>Deixando bem claro, para o elemento de treliça espacial não é necessária a definição do ponto de referência, pois não há a necessidade de calcular os cossenos diretores dos outros eixos locais, y e z, e nem de posicionar a seção transversal do elemento. Mas é interessante o conceito e de certa forma necessário para chegar a nossa conclusão, além disso, vamos usar mais para frente quando falarmos de pórticos espaciais.</p>
+<blockquote>
+<p>Meio óbvio não acha? Como só tenho graus de liberdade funcionais no sentido axial é de se esperar que sua decomposição no sistema global seja função apenas dos cossenos diretores de sua direção.</p>
+</blockquote>
+<p>Ufa! E agora?! Agora é hora de voltar à parte do módulo da torre de comunicação e resolvê-la na mão na <a href="../aplicacao_te">aplicação na mão</a>.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../introducao_te/" title="Introdução" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Introdução
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../aplicacao_te/" title="Aplicação" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Aplicação
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.30f6b8b1.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
