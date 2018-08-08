@@ -1559,7 +1559,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
 </script>
 </p>
 <p>Calcula-se (lembrando que $a_{k,n} = a_{n,k}$):</p>
-<p>
+<p><small>
 <script type="math/tex; mode=display">
 \begin{align}
     l_{1,1} &= \sqrt{a_{1,1}} = \sqrt{1401306,87} = 1183,768\\
@@ -1570,9 +1570,9 @@ Ca_3 = \left\lbrace \begin{array}{c}
     l_{3,3} &= \sqrt{a_{3,3} - (l_{3,1}^2 + l_{3,2}^2)} = \sqrt{1401306,87 - \left(599,132^2 + (−591,8398)^2\right)} = 831,9095 \quad (k=3)
 \end{align}
 </script>
-</p>
+</small></p>
 <p>E, portanto:</p>
-<p>
+<p><small>
 <script type="math/tex; mode=display">
 \textbf{L} = \left[ \begin{array}{ccc}
          1183,768 & 0 & 0  \\
@@ -1584,7 +1584,7 @@ Ca_3 = \left\lbrace \begin{array}{c}
           0 & 0 & 831,9095
         \end{array} \right]
 </script>
-</p>
+</small></p>
 <p>Agora, para resolver precisamos aplicar uma substituição direta e uma retro substituição em $\textbf{L}$ e $\textbf{L}^T$ respectivamente. Precisamos calcular um vetor $\textbf{c}$, tal que:</p>
 <p>
 <script type="math/tex; mode=display">
@@ -1610,7 +1610,7 @@ c_i = \dfrac{F_i - \displaystyle{\sum_{j=1}^{i-1}} \left( l_{i,j} c_j \right)}{l
 </script>
 </p>
 <p>E, portanto, para o nosso caso, com $i=1,..,n$ e $n=3$:</p>
-<p>
+<p><small>
 <script type="math/tex; mode=display">
 \begin{align}
 c_1 &= \dfrac{F_1}{l_{1,1}} = \dfrac{0}{1183,768} = 0\\
@@ -1618,7 +1618,7 @@ c_2 &= \dfrac{F_2 - l_{2,1} c_1}{l_{2,2}} = \dfrac{-10000 - (-599,132) \times 0}
 c_3 &= \dfrac{F_3 - \left( l_{3,1} c_1 + l_{3,2} c_2\right)}{l_{3,3}} = \dfrac{0 - \left( 599,132 \times 0 + (-591,8398) \times −16,8965\right)}{831,9095} = −12,0206
 \end{align}
 </script>
-</p>
+</small></p>
 <p>A solução, então, dos deslocamentos $\textbf{U}$ pode ser calculada pela retro substituição em $\textbf{L}^T$, sendo o útimo elemento de $\textbf{U}$ calculado como:</p>
 <p>
 <script type="math/tex; mode=display">
@@ -1632,7 +1632,7 @@ U_{n-i} = \dfrac{c_{n-i} - \displaystyle{\sum_{j=n-i+1}^n} \left( l^T_{n-i,j} U_
 </script>
 </p>
 <p>E finalmente... chegamos aos valores dos deslocamentos (sendo $n=3$), resolve-se do $U_3$ ao $U_1$:</p>
-<p>
+<p><small>
 <script type="math/tex; mode=display">
 \begin{align}
 U_1 &= \dfrac{c_{1} - \left( l^T_{1,2} U_2 + l^T_{1,3} U_3 \right)}{l^T_{1,1}} = \dfrac{0 - \left( -599,132 \times −0,042999 + 599,132 \times (−0,01445) \right)}{1183,768} = −0,01445\\
@@ -1640,7 +1640,7 @@ U_2 &= \dfrac{c_{2} - \left( l^T_{2,3} U_3 \right)}{l^T_{2,2}} = \dfrac{-16,8965
 U_3 &= \dfrac{c_3}{l^T_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
 \end{align}
 </script>
-</p>
+</small></p>
 <p>Portanto:</p>
 <p>
 <script type="math/tex; mode=display">
@@ -1722,7 +1722,7 @@ U_3 &= \dfrac{c_3}{l^T_{3,3}} = \dfrac{-12,0206}{831,9095} = −0,01445\\
 <p>A unidade você já sabe o porque. Mas, não deveriam ser 10000, -10000 e 10000 respectivamente? Por que ficou aproximado? Por que o MEF é um método de solução <strong>aproximado</strong>, e a aproximação depende muito de como foi formulado o problema em relação ao refino, tanto de malha, quanto das funções de forma. Em outras palavras e de forma muito superficial, se você utilizar mais elementos ou aumentar o grau do polinômio das funções de forma, você terá melhores aproximações. É, não é bem assim existem outros fatores que influenciam na aproximação do resultado, mas por enquanto está valendo.</p>
 </blockquote>
 <h3 id="tensoes-nas-barras">Tensões nas barras</h3>
-<p>A determinação das tensões nas barras é feita no elemento original, no sistema local, sem nenhuma rotação para compatibilização dos sistemas dos graus de liberdade, ou seja, primeiro precisamos escrever os deslocamentos da estrutura como deslocamentos em cada elemento. Para isso, vamos desacoplar o vetor de deslocamentos nodais e escrever um vetor de deslocamentos globais (total, inclusive com os deslocamentos restringidos pelos apoios) para cada elemento chamados de $\textbf{u}<em>{1g}$, $\textbf{u}</em>{2g}$ e $\textbf{u}_{3g}$ para os elementos 1, 2 e 3 respectivamente.</p>
+<p>A determinação das tensões nas barras é feita no elemento original, no sistema local, sem nenhuma rotação para compatibilização dos sistemas dos graus de liberdade, ou seja, primeiro precisamos escrever os deslocamentos da estrutura como deslocamentos em cada elemento. Para isso, vamos desacoplar o vetor de deslocamentos nodais e escrever um vetor de deslocamentos globais (total, inclusive com os deslocamentos restringidos pelos apoios) para cada elemento chamados de <script type="math/tex"> \textbf{u}_{1g} </script>, <script type="math/tex">\textbf{u}_{2g}</script> e <script type="math/tex">\textbf{u}_{3g}</script> para os elementos 1, 2 e 3 respectivamente.</p>
 <p>Essa montagem é feita utilizando a regra da correspondência aplicando-se o carteiro ao contrário, agora os valores do carteiro irão corresponder às linhas e colunas do vetor de deslocamentos da estrutura e as linhas e colunas do carteiro às linhas e colunas dos vetores de deslocamentos globais dos elementos. Lembra dos carteiros para cada elemento?</p>
 <p>
 <script type="math/tex; mode=display">
