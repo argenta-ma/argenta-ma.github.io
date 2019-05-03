@@ -1,0 +1,1167 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução à computação científica usando python 2.7">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/terminal.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>Dados de arquivos - Computação Científica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#f9a825">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+      <link rel="stylesheet" href="../../css/spyder.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="yellow" data-md-color-accent="yellow">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#uma-rapida-recapitulada-na-leitura-de-arquivos" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/terminal.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Computação Científica
+            </span>
+            <span class="md-header-nav__topic">
+              Dados de arquivos
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Computação Científica" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/terminal.svg" width="48" height="48">
+      
+    </a>
+    Computação Científica
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Equações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Equações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../equacoes/equacoes/" title="Programando Equações" class="md-nav__link">
+      Programando Equações
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../equacoes/regras/" title="Regras de programação" class="md-nav__link">
+      Regras de programação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../equacoes/sintaxe/" title="Sintaxe e erros" class="md-nav__link">
+      Sintaxe e erros
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Laços e listas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Laços e listas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/lacoslistas/" title="Laços simples" class="md-nav__link">
+      Laços simples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/condicionais/" title="Condicionais" class="md-nav__link">
+      Condicionais
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/listas/" title="Listas" class="md-nav__link">
+      Listas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/lacosavancados/" title="Laços avançados" class="md-nav__link">
+      Laços avançados
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/listasavancadas/" title="Listas avançadas" class="md-nav__link">
+      Listas avançadas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/tuplas/" title="Tuplas" class="md-nav__link">
+      Tuplas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Funções e ramificações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Funções e ramificações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../funcoesramificacoes/funcoesramificacoes/" title="Funções" class="md-nav__link">
+      Funções
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../funcoesramificacoes/funcoeslambda/" title="Funções lambda" class="md-nav__link">
+      Funções lambda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../funcoesramificacoes/ramificacoes/" title="Ramificações" class="md-nav__link">
+      Ramificações
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../funcoesramificacoes/funcoesteste/" title="Funçoes de teste" class="md-nav__link">
+      Funçoes de teste
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Entrada de dados e erros
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Entrada de dados e erros
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/entradaerros/" title="Entrada de dados" class="md-nav__link">
+      Entrada de dados
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/argumentoslinhacomando/" title="Argumentos linha comando" class="md-nav__link">
+      Argumentos linha comando
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/eval/" title="Função eval" class="md-nav__link">
+      Função eval
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/exec/" title="Função exec" class="md-nav__link">
+      Função exec
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/interfacesgraficas/" title="Interfaces gráficas" class="md-nav__link">
+      Interfaces gráficas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/arquivos/" title="Dados de arquivos" class="md-nav__link">
+      Dados de arquivos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/erros/" title="Erros" class="md-nav__link">
+      Erros
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/modulos/" title="Módulos" class="md-nav__link">
+      Módulos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Arranjos e gráficos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Arranjos e gráficos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../arranjosgraficos/arranjosgraficos/" title="Arranjos" class="md-nav__link">
+      Arranjos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../arranjosgraficos/graficos/" title="Gráficos" class="md-nav__link">
+      Gráficos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../arranjosgraficos/aprofundandoarranjos/" title="Aprofundando em arranjos" class="md-nav__link">
+      Aprofundando em arranjos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Dicionários e cadeias de caracteres
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Dicionários e cadeias de caracteres
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dicionariosstrings/" title="Dicionários" class="md-nav__link">
+      Dicionários
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dados de arquivos
+      </label>
+    
+    <a href="./" title="Dados de arquivos" class="md-nav__link md-nav__link--active">
+      Dados de arquivos
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uma-rapida-recapitulada-na-leitura-de-arquivos" title="Uma rápida recapitulada na leitura de arquivos" class="md-nav__link">
+    Uma rápida recapitulada na leitura de arquivos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-lendo-dados-de-um-arquivo-para-um-dicionario" title="Exemplo: lendo dados de um arquivo para um dicionário" class="md-nav__link">
+    Exemplo: lendo dados de um arquivo para um dicionário
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lendo-um-arquivo-com-tabela-para-um-dicionario" title="Lendo um arquivo com tabela para um dicionário" class="md-nav__link">
+    Lendo um arquivo com tabela para um dicionário
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formato-no-arquivo-de-entrada" title="Formato no arquivo de entrada" class="md-nav__link">
+    Formato no arquivo de entrada
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cadeiacaracteres/" title="Cadeia de Caracteres" class="md-nav__link">
+      Cadeia de Caracteres
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../resumos/" title="Resumo das funcionalidades" class="md-nav__link">
+      Resumo das funcionalidades
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Classes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Classes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/classes/" title="Classes" class="md-nav__link">
+      Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/exemplosclasses/" title="Exemplos" class="md-nav__link">
+      Exemplos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/metodosespeciais/" title="Métodos especiais" class="md-nav__link">
+      Métodos especiais
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/aplicacoes/" title="Aplicações" class="md-nav__link">
+      Aplicações
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Programação orientada a objeto
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Programação orientada a objeto
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/poo/" title="Programação Orientada a Objeto" class="md-nav__link">
+      Programação Orientada a Objeto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/exemplosheranca/" title="Exemplos heranças" class="md-nav__link">
+      Exemplos heranças
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/derivadaclasses/" title="Classes para derivadas" class="md-nav__link">
+      Classes para derivadas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/integralclasses/" title="Classes para integrais" class="md-nav__link">
+      Classes para integrais
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uma-rapida-recapitulada-na-leitura-de-arquivos" title="Uma rápida recapitulada na leitura de arquivos" class="md-nav__link">
+    Uma rápida recapitulada na leitura de arquivos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-lendo-dados-de-um-arquivo-para-um-dicionario" title="Exemplo: lendo dados de um arquivo para um dicionário" class="md-nav__link">
+    Exemplo: lendo dados de um arquivo para um dicionário
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lendo-um-arquivo-com-tabela-para-um-dicionario" title="Lendo um arquivo com tabela para um dicionário" class="md-nav__link">
+    Lendo um arquivo com tabela para um dicionário
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formato-no-arquivo-de-entrada" title="Formato no arquivo de entrada" class="md-nav__link">
+    Formato no arquivo de entrada
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Dados de arquivos</h1>
+                
+                <h2 id="uma-rapida-recapitulada-na-leitura-de-arquivos">Uma rápida recapitulada na leitura de arquivos</h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">do_arquivo</span>  <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1">## abre o arquivo para leitura</span>
+
+<span class="n">linha</span>    <span class="o">=</span> <span class="n">do_arquivo</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>   <span class="c1">## lê a próxima linha</span>
+<span class="n">conteudo</span> <span class="o">=</span> <span class="n">do_arquivo</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>       <span class="c1">## lê o resto do arquivo em cadeias de caracteres</span>
+<span class="n">linhas</span>   <span class="o">=</span> <span class="n">do_arquivo</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>  <span class="c1">## lê o resto do arquivo em lista</span>
+<span class="k">for</span> <span class="n">linha</span> <span class="ow">in</span> <span class="n">do_arquivo</span><span class="p">:</span>           <span class="c1">## lê o resto do arquivo linha por linha</span>
+
+<span class="n">do_arquivo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                <span class="c1">## lembre-se de fechar o arquivo!</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="exemplo-lendo-dados-de-um-arquivo-para-um-dicionario">Exemplo: lendo dados de um arquivo para um dicionário</h2>
+<p>Conteúdo do arquivo:</p>
+<p>Oslo:          21.8
+Londres:        18.1
+Berlim:        19
+Paris:         23
+Roma:          26
+Helsinque:      17.8</p>
+<p>Armazene em um dicionário com os nomes das cidades como chaves e as temperaturas como valores.</p>
+<p>O programa:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">do_arquivo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;deg2.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">temps</span> <span class="o">=</span> <span class="p">{}</span>                  <span class="c1">## inicie um dicionário vazio</span>
+<span class="k">for</span> <span class="n">linha</span> <span class="ow">in</span> <span class="n">do_arquivo</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+    <span class="n">cidade</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">linha</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">cidade</span> <span class="o">=</span> <span class="n">cidade</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>        <span class="c1">## remove o último caractere (:)</span>
+    <span class="n">temps</span><span class="p">[</span><span class="n">cidade</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="lendo-um-arquivo-com-tabela-para-um-dicionario">Lendo um arquivo com tabela para um dicionário</h2>
+<p>Um arquivo contendo uma tabela pode ser lindo para um dicionário de um dicionário.</p>
+<p>O arquivo de dados:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>       A        B       C      D
+1     11.7    0.035    2017    99.1
+2      9.2    0.037    2019   101.2
+3     12.2     no       no    105.2
+4     10.1    0.031     no    102.1
+5      9.1    0.033    2009   103.3
+6      8.7    0.036    2015   101.9
+</pre></div>
+</td></tr></table>
+
+<p>Crie um dicionário <code class="codehilite">dados[p][i]</code> (dicionário de dicionários) para armazenar as medicões número <code class="codehilite">i</code> (1, 2, etc.) da propriedade <code class="codehilite">p</code> (A, B, etc.).</p>
+<p>Antes de implementar, precisamos desenvolver um plano (algoritmo) para fazer isso:</p>
+<ol>
+<li>Examine a primeira linha:<ul>
+<li>Divida em palavras;</li>
+<li>Inicie um dicionário com os nomes das propriedades como chaves e dicionários vazios <code class="codehilite">{}</code> como valores;</li>
+</ul>
+</li>
+<li>Para cada uma das linhas remanescentes:<ul>
+<li>Divida em palavras;</li>
+<li>Para cada palavras após a primeira: se a palavra não for <code class="codehilite">no</code> converte para ponto flutuante e armazene.</li>
+</ul>
+</li>
+</ol>
+<p>MÃOS À OBRA!</p>
+<h2 id="formato-no-arquivo-de-entrada">Formato no arquivo de entrada</h2>
+<p>Precisamos analisar o formato no arquivo de entrada para descrever um algoritmo para interpretar o conteúdo. Exemplo, variações nos preços das ações de várias companhias:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Date,Open,High,Low,Close,Volume,Adj Close
+2017-05-01,145.100006,148.089996,144.960007,147.509995,57002300,147.509995
+2017-04-03,143.710007,145.460007,140.059998,143.649994,20592400,143.649994
+2017-03-01,137.889999,144.50,137.050003,143.660004,25273400,143.660004
+2017-02-01,127.029999,137.479996,127.010002,136.990005,31497400,136.990005
+2017-01-03,115.800003,122.440002,114.760002,121.349998,30616100,120.826149
+2016-12-01,110.370003,118.019997,108.25,115.82,30442300,115.320023
+...
+2010-08-02,260.440002,264.279999,235.559998,243.100006,113748900,31.495928
+2010-07-01,254.300003,265.990021,239.600006,257.25,191879900,33.329193
+2010-06-01,259.690002,279.009979,242.199982,251.529999,197621600,32.588116
+2010-05-03,263.839996,267.880005,199.25,256.880005,236228300,33.281258
+</pre></div>
+</td></tr></table>
+
+<p>Dados de <a href="https://finance.yahoo.com/quote/AAPL/history?p=AAPL">Yahoo Finance AAPL</a> para a Apple (AAPL) por exemplo. Para outras companhias <a href="https://finance.yahoo.com/trending-tickers">Yahoo Finance</a></p>
+<p>Formato no arquivo:</p>
+<ul>
+<li>Colunas separadas por vírgulas;</li>
+<li>Primeira coluna é a data e a final é o preço;</li>
+<li>Os preços inicial em diferentes datas.</li>
+</ul>
+<p>Um exemplo de algoritmo para ler esse arquivo de dados de várias companhias:</p>
+<ol>
+<li>Pule a primeira linha;</li>
+<li>Leia linha por linha;</li>
+<li>Divida cada linha nas vírgulas;</li>
+<li>Armazene a primeira palavra, data, em uma lista de datas;</li>
+<li>Armazene a última palavra, preço, em uma lista de preços;</li>
+<li>Colete as listas de datas e preços e armazene em um dicionário (a chave é a companhia);</li>
+<li>Maça uma função para ler um arquivo de uma companhia em específico;</li>
+</ol>
+<p>Para imprimir:</p>
+<ol>
+<li>Converta as datas ano-mês-dia em coordenadas de ano no eixo x para montagem de um gráfico;</li>
+<li>Observe que os históricos de preços das companhias iniciam em anos diferentes.</li>
+</ol>
+<p>Dicas: usar <code class="codehilite"><span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span></code> para criar criar objetos data e <code class="codehilite"><span class="kn">import</span> <span class="nn">glob</span></code> para buscar vários arquivos, por exemplo <code class="codehilite">precoAcoes_*.csv</code>.</p>
+<p>Resultado em escala logarítmica:</p>
+<p><img alt="Gráfico resultante" src="../imagens/variacaoAcoes.png#center" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../dicionariosstrings/" title="Dicionários" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Dicionários
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../cadeiacaracteres/" title="Cadeia de Caracteres" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Cadeia de Caracteres
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+    
+  </body>
+</html>

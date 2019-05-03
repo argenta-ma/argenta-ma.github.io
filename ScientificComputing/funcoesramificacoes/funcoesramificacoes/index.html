@@ -1,0 +1,1934 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução à computação científica usando python 2.7">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/terminal.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>Funções - Computação Científica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#f9a825">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
+        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+      <link rel="stylesheet" href="../../css/spyder.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="yellow" data-md-color-accent="yellow">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#ja-usamos-varias-funcoes-em-python" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/terminal.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Computação Científica
+            </span>
+            <span class="md-header-nav__topic">
+              Funções
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Computação Científica" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/terminal.svg" width="48" height="48">
+      
+    </a>
+    Computação Científica
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Equações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Equações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../equacoes/equacoes/" title="Programando Equações" class="md-nav__link">
+      Programando Equações
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../equacoes/regras/" title="Regras de programação" class="md-nav__link">
+      Regras de programação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../equacoes/sintaxe/" title="Sintaxe e erros" class="md-nav__link">
+      Sintaxe e erros
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Laços e listas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Laços e listas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/lacoslistas/" title="Laços simples" class="md-nav__link">
+      Laços simples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/condicionais/" title="Condicionais" class="md-nav__link">
+      Condicionais
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/listas/" title="Listas" class="md-nav__link">
+      Listas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/lacosavancados/" title="Laços avançados" class="md-nav__link">
+      Laços avançados
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/listasavancadas/" title="Listas avançadas" class="md-nav__link">
+      Listas avançadas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../lacoslistas/tuplas/" title="Tuplas" class="md-nav__link">
+      Tuplas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Funções e ramificações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Funções e ramificações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Funções
+      </label>
+    
+    <a href="./" title="Funções" class="md-nav__link md-nav__link--active">
+      Funções
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ja-usamos-varias-funcoes-em-python" title="Já usamos várias funções em Python" class="md-nav__link">
+    Já usamos várias funções em Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-sao-importantes" title="Funções são importantes" class="md-nav__link">
+    Funções são importantes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-em-python" title="Funções em Python" class="md-nav__link">
+    Funções em Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-devem-ser-chamadas" title="Funções devem ser chamadas" class="md-nav__link">
+    Funções devem ser chamadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argumentos-de-funcoes" title="Argumentos de Funções" class="md-nav__link">
+    Argumentos de Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argumentos-dentro-da-funcao" title="Argumentos dentro da função" class="md-nav__link">
+    Argumentos dentro da função
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-e-variaveis-globais" title="Funções e variáveis globais" class="md-nav__link">
+    Funções e variáveis globais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variaveis-locais-e-globais-de-mesmo-nome" title="Variáveis locais e globais de mesmo nome" class="md-nav__link">
+    Variáveis locais e globais de mesmo nome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modificar-variaveis-globais-na-funcao" title="Modificar variáveis globais na função" class="md-nav__link">
+    Modificar variáveis globais na função
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-podem-retornar-multiplos-valores" title="Funções podem retornar múltiplos valores" class="md-nav__link">
+    Funções podem retornar múltiplos valores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo" title="Exemplo" class="md-nav__link">
+    Exemplo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retornando-os-erros-da-funcao-lx-n" title="Retornando os erros da função $ L(x, n) $" class="md-nav__link">
+    Retornando os erros da função $ L(x, n) $
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-nao-precisam-retornar-objetos" title="Funções não precisam retornar objetos" class="md-nav__link">
+    Funções não precisam retornar objetos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-uma-funcao-sem-valor-de-retorno" title="Exemplo de uma função sem valor de retorno" class="md-nav__link">
+    Exemplo de uma função sem valor de retorno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agrumentos-palavra-chave" title="Agrumentos palavra-chave" class="md-nav__link">
+    Agrumentos palavra-chave
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-chamando-funcoes-com-palavra-chave" title="Exemplos chamando funções com palavra-chave" class="md-nav__link">
+    Exemplos chamando funções com palavra-chave
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcao-matematica-com-uma-variavel-e-parametros-adicionais" title="Função matemática com uma variável e parâmetros adicionais" class="md-nav__link">
+    Função matemática com uma variável e parâmetros adicionais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentando-uma-funcao-doc-strings" title="Documentando uma função Doc Strings" class="md-nav__link">
+    Documentando uma função Doc Strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convencao-de-entrada-e-saida-em-python" title="Convenção de entrada e saída em Python" class="md-nav__link">
+    Convenção de entrada e saída em Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-programa-principal-e-uma-serie-de-declaracoes-fora-de-funcoes" title="O programa principal é uma série de declarações fora de funções" class="md-nav__link">
+    O programa principal é uma série de declarações fora de funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-python-como-argumentos-de-funcoes-pythom" title="Funções Python como argumentos de funções Pythom" class="md-nav__link">
+    Funções Python como argumentos de funções Pythom
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicacao-da-funcao-dif2" title="Aplicação da função dif2" class="md-nav__link">
+    Aplicação da função dif2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-de-arredondamento-causados-por-valores-sem-sentido-na-tabela" title="Erros de arredondamento causados por valores sem sentido na tabela" class="md-nav__link">
+    Erros de arredondamento causados por valores sem sentido na tabela
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../funcoeslambda/" title="Funções lambda" class="md-nav__link">
+      Funções lambda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ramificacoes/" title="Ramificações" class="md-nav__link">
+      Ramificações
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../funcoesteste/" title="Funçoes de teste" class="md-nav__link">
+      Funçoes de teste
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Entrada de dados e erros
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Entrada de dados e erros
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/entradaerros/" title="Entrada de dados" class="md-nav__link">
+      Entrada de dados
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/argumentoslinhacomando/" title="Argumentos linha comando" class="md-nav__link">
+      Argumentos linha comando
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/eval/" title="Função eval" class="md-nav__link">
+      Função eval
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/exec/" title="Função exec" class="md-nav__link">
+      Função exec
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/interfacesgraficas/" title="Interfaces gráficas" class="md-nav__link">
+      Interfaces gráficas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/arquivos/" title="Dados de arquivos" class="md-nav__link">
+      Dados de arquivos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/erros/" title="Erros" class="md-nav__link">
+      Erros
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../entradaerros/modulos/" title="Módulos" class="md-nav__link">
+      Módulos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Arranjos e gráficos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Arranjos e gráficos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../arranjosgraficos/arranjosgraficos/" title="Arranjos" class="md-nav__link">
+      Arranjos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../arranjosgraficos/graficos/" title="Gráficos" class="md-nav__link">
+      Gráficos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../arranjosgraficos/aprofundandoarranjos/" title="Aprofundando em arranjos" class="md-nav__link">
+      Aprofundando em arranjos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Dicionários e cadeias de caracteres
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Dicionários e cadeias de caracteres
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dicionariosstrings/dicionariosstrings/" title="Dicionários" class="md-nav__link">
+      Dicionários
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dicionariosstrings/dadosarquivos/" title="Dados de arquivos" class="md-nav__link">
+      Dados de arquivos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dicionariosstrings/cadeiacaracteres/" title="Cadeia de Caracteres" class="md-nav__link">
+      Cadeia de Caracteres
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dicionariosstrings/resumos/" title="Resumo das funcionalidades" class="md-nav__link">
+      Resumo das funcionalidades
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Classes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Classes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/classes/" title="Classes" class="md-nav__link">
+      Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/exemplosclasses/" title="Exemplos" class="md-nav__link">
+      Exemplos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/metodosespeciais/" title="Métodos especiais" class="md-nav__link">
+      Métodos especiais
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../classes/aplicacoes/" title="Aplicações" class="md-nav__link">
+      Aplicações
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Programação orientada a objeto
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Programação orientada a objeto
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/poo/" title="Programação Orientada a Objeto" class="md-nav__link">
+      Programação Orientada a Objeto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/exemplosheranca/" title="Exemplos heranças" class="md-nav__link">
+      Exemplos heranças
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/derivadaclasses/" title="Classes para derivadas" class="md-nav__link">
+      Classes para derivadas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../poo/integralclasses/" title="Classes para integrais" class="md-nav__link">
+      Classes para integrais
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ja-usamos-varias-funcoes-em-python" title="Já usamos várias funções em Python" class="md-nav__link">
+    Já usamos várias funções em Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-sao-importantes" title="Funções são importantes" class="md-nav__link">
+    Funções são importantes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-em-python" title="Funções em Python" class="md-nav__link">
+    Funções em Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-devem-ser-chamadas" title="Funções devem ser chamadas" class="md-nav__link">
+    Funções devem ser chamadas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argumentos-de-funcoes" title="Argumentos de Funções" class="md-nav__link">
+    Argumentos de Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argumentos-dentro-da-funcao" title="Argumentos dentro da função" class="md-nav__link">
+    Argumentos dentro da função
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-e-variaveis-globais" title="Funções e variáveis globais" class="md-nav__link">
+    Funções e variáveis globais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variaveis-locais-e-globais-de-mesmo-nome" title="Variáveis locais e globais de mesmo nome" class="md-nav__link">
+    Variáveis locais e globais de mesmo nome
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modificar-variaveis-globais-na-funcao" title="Modificar variáveis globais na função" class="md-nav__link">
+    Modificar variáveis globais na função
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-podem-retornar-multiplos-valores" title="Funções podem retornar múltiplos valores" class="md-nav__link">
+    Funções podem retornar múltiplos valores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo" title="Exemplo" class="md-nav__link">
+    Exemplo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retornando-os-erros-da-funcao-lx-n" title="Retornando os erros da função $ L(x, n) $" class="md-nav__link">
+    Retornando os erros da função $ L(x, n) $
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-nao-precisam-retornar-objetos" title="Funções não precisam retornar objetos" class="md-nav__link">
+    Funções não precisam retornar objetos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-uma-funcao-sem-valor-de-retorno" title="Exemplo de uma função sem valor de retorno" class="md-nav__link">
+    Exemplo de uma função sem valor de retorno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agrumentos-palavra-chave" title="Agrumentos palavra-chave" class="md-nav__link">
+    Agrumentos palavra-chave
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-chamando-funcoes-com-palavra-chave" title="Exemplos chamando funções com palavra-chave" class="md-nav__link">
+    Exemplos chamando funções com palavra-chave
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcao-matematica-com-uma-variavel-e-parametros-adicionais" title="Função matemática com uma variável e parâmetros adicionais" class="md-nav__link">
+    Função matemática com uma variável e parâmetros adicionais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentando-uma-funcao-doc-strings" title="Documentando uma função Doc Strings" class="md-nav__link">
+    Documentando uma função Doc Strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convencao-de-entrada-e-saida-em-python" title="Convenção de entrada e saída em Python" class="md-nav__link">
+    Convenção de entrada e saída em Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-programa-principal-e-uma-serie-de-declaracoes-fora-de-funcoes" title="O programa principal é uma série de declarações fora de funções" class="md-nav__link">
+    O programa principal é uma série de declarações fora de funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-python-como-argumentos-de-funcoes-pythom" title="Funções Python como argumentos de funções Pythom" class="md-nav__link">
+    Funções Python como argumentos de funções Pythom
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicacao-da-funcao-dif2" title="Aplicação da função dif2" class="md-nav__link">
+    Aplicação da função dif2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erros-de-arredondamento-causados-por-valores-sem-sentido-na-tabela" title="Erros de arredondamento causados por valores sem sentido na tabela" class="md-nav__link">
+    Erros de arredondamento causados por valores sem sentido na tabela
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Funções</h1>
+                
+                <p>Se sim, faça isso, se não, faça aquilo.  </p>
+<p><img alt="Funções e ramificações" src="../imagens/funcoesramificacoes.png#center" /></p>
+<div class="admonition note">
+<p>Introduzindo dois conceitos fundamentais e extremamente úteis na
+programação: funções definidas pelo programador e ramificação do fluxo
+do programa, o último também conhecido como testes <code class="codehilite">if</code>.</p>
+</div>
+<h2 id="ja-usamos-varias-funcoes-em-python">Já usamos várias funções em Python</h2>
+<p>Funções matemáticas:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Outras funções:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">algumalista</span><span class="p">)</span>
+<span class="n">inteiros</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Funções utilizadas com a sintaxe "ponto" (chamadas métodos):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>        <span class="c1">## resultado: i=1</span>
+<span class="n">C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">C</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Mas, o que é uma função?</p>
+<p>Até então nos colocamos objetos nessas funções e recebemos outro objeto delas.</p>
+<p>Agora é hora de escrever nossas próprias funções!</p>
+<h2 id="funcoes-sao-importantes">Funções são importantes</h2>
+<p>Funções são uma das mais importantes ferramentas em programanção.</p>
+<ul>
+<li>Função = uma coleção de declarações que podemos executar onde e quando quisermos;</li>
+<li>Uma função pode receber objetos de entrada (os argumentos) e produzir objetos de saída (os resultados retornados);</li>
+<li>Funções ajudam a organizar programas, fazem deles mais fáceis de entender, curtos, reusáveis e fáceis de se extender.</li>
+</ul>
+<h2 id="funcoes-em-python">Funções em Python</h2>
+<p>Função em Python para implementar uma função matemática:</p>
+<p>
+<script type="math/tex; mode=display"> F(C)= \dfrac{9}{5}C+32 </script>
+</p>
+<p>pode ser implementada em Python como:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</td></tr></table>
+
+<p>Notas:</p>
+<ul>
+<li>Funções iniciam com <code class="codehilite">def</code>, seguido do nome da função e uma lista de argumentos (no caso <code class="codehilite">C</code>), esse é o cabeçalho da função;</li>
+<li>Dentro da função: declarações, essas são o corpo da função;</li>
+<li>Sempre que quisermos, dentro da função, podemos "parar a função" e retornar quantos valores/variáveis quisermos.</li>
+</ul>
+<h2 id="funcoes-devem-ser-chamadas">Funções devem ser chamadas</h2>
+<p>Uma função não faz nada até ser chamada.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A chamada <code class="codehilite">F(C)</code> produz (retorna) um objeto <code class="codehilite">float</code>, o que significa que <code class="codehilite">F(C)</code> é substituído por esse objeto de ponto flutuante. Podemos, então, fazer a chamada de <code class="codehilite">F(C)</code> em qualquer lugar onde um <code class="codehilite">float</code> pode ser utilizado.</p>
+</div>
+<h2 id="argumentos-de-funcoes">Argumentos de Funções</h2>
+<p>Funções podem ter quantos argumentos quisermos.</p>
+<p>Faça um função em Python da função matemática:</p>
+<p>
+<script type="math/tex; mode=display"> y(t) = v_0t-  \frac{1}{2}gt^2</script>
+</p>
+<h2 id="argumentos-dentro-da-funcao">Argumentos dentro da função</h2>
+<p>Os argumentos se tornam variáveis locais dentro da função.</p>
+<p><strong>Variáveis locais X Variáveis globais</strong></p>
+<p>Quando chamamos <code class="codehilite">yfunc(t, 3)</code>, todas essas declarações são de fato executadas:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>  <span class="c1">#aos argumentos são atribuídos valores assim como na atribuição padrão</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="k">return</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</td></tr></table>
+
+<p>Dentro da <code class="codehilite">yfunc</code>, <code class="codehilite">t</code>, <code class="codehilite">v0</code> e <code class="codehilite">g</code> são variáveis locais, não visíveis fora de <code class="codehilite">yfunc</code> e destruídas após o <code class="codehilite">return</code>.</p>
+<p>Fora de <code class="codehilite">yfunc</code> (no programa principal) <code class="codehilite">t</code>, <code class="codehilite">v0</code> e <code class="codehilite">y</code> são variáveis globais, visíveis em qualquer lugar.</p>
+<h2 id="funcoes-e-variaveis-globais">Funções e variáveis globais</h2>
+<p>Funções podem acessar variáveis globais.</p>
+<p>A função <code class="codehilite">yfunc(t, v0)</code> possui 2 argumentos. E se escrevessemos apenas com um, <code class="codehilite">t</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">yfunc</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">yfunc</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="k">global</span> <span class="n">name</span> <span class="s1">&#39;v0&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</td></tr></table>
+
+<p>Problema&gt; <code class="codehilite">v0</code> deve ser definido antes da chamada de <code class="codehilite">yfunc</code>!</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">yfunc</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v0</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">yfunc</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="mf">1.2342</span>
+</pre></div>
+</td></tr></table>
+
+<p>Nota: <code class="codehilite">v0</code> e <code class="codehilite">t</code> (no programa principal) são variáveis globais, enquanto que <code class="codehilite">t</code> dentro da função <code class="codehilite">yfunc</code> é uma variável local.</p>
+<h2 id="variaveis-locais-e-globais-de-mesmo-nome">Variáveis locais e globais de mesmo nome</h2>
+<p>Variáveis locais se sobrepõe às variáveis globais de mesmo nome.</p>
+<p>Teste o seguinte:</p>
+<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def%20yfunc%28t%29%3A%0A%20%20%20%20print%20'1.%20t%20local%20dentro%20de%20yfunc%3A',%20t%0A%20%20%20%20g%20%3D%209.81%0A%20%20%20%20t%20%3D%200.1%0A%20%20%20%20print%20'2.%20t%20local%20dentro%20de%20yfunc%3A',%20t%0A%20%20%20%20return%20v0*t%20-%200.5*g*t**2%0A%0At%20%3D%200.6%0Av0%20%3D%202%0Aprint%20yfunc%28t%29%0Aprint%20'1.%20t%20global%3A',%20t%0Aprint%20yfunc%280.3%29%0Aprint%20'2.%20t%20global%3A',%20t&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=2&rawInputLstJSON=%5B%5D&textReferences=false"> 
+</iframe>
+
+<div class="admonition question">
+<p class="admonition-title">Pergunta</p>
+<p>O que foi mostrado nos <code class="codehilite">print</code>?</p>
+</div>
+<h2 id="modificar-variaveis-globais-na-funcao">Modificar variáveis globais na função</h2>
+<p>Variáveis globais podem ser modificadas se declaradas como globais na função.</p>
+<p><strong>O que foi mostrado?</strong></p>
+<p>1. v0: 2
+4.0608
+2. v0: 9</p>
+<p><strong>O que aconteceria de comentássemos a linha <code class="codehilite">global v0</code>?</strong></p>
+<p>1. v0: 2
+4.0608
+2. v0: 2</p>
+<p><code class="codehilite">v0</code> em <code class="codehilite">yfunc</code> se torna uma variável local.</p>
+<h2 id="funcoes-podem-retornar-multiplos-valores">Funções podem retornar múltiplos valores</h2>
+<p>Digamos que queremos calcular  $  y(t)   $ e  $  y'(t)=v_0-gt   $:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">yfunc</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">-</span> <span class="n">g</span><span class="o">*</span><span class="n">t</span>
+    <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">dydt</span>
+
+<span class="c1">#chamada:</span>
+<span class="n">posicao</span><span class="p">,</span> <span class="n">velocidade</span> <span class="o">=</span> <span class="n">yfunc</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Separe os objetos a serem retornados por vírgulas e os atribua a variáveis também separadas por vírgulas. Na verdade, uma tupla é retornada:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x4</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="exemplo">Exemplo</h2>
+<p>Calcule uma função definida como uma somatória:</p>
+<p>
+<script type="math/tex; mode=display"> L(x,n) =  \sum_{i=1}^n {1 \over i} \left( {x \over 1+x} \right)^{i} </script>
+</p>
+<p>Essa função é uma aproximação de  $   \ln (1+x)   $ para  $  n   $ finito e  $  x \geq 1   $.</p>
+<p>Correspondente função em python para  $  L(x,n)   $:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">L</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1">#garantindo a divisão abaixo em ponto flutuante</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="n">i</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">print</span> <span class="n">L</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">L</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="retornando-os-erros-da-funcao-lx-n">Retornando os erros da função $ L(x, n) $</h2>
+<p>Podemos retornar mais:</p>
+<ol>
+<li>O primeiro termo negligenciado na soma;</li>
+<li>O erro ( $   \ln (1+x) - L(x,n)   $)</li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">L2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="n">i</span>
+    <span class="n">valor_soma</span> <span class="o">=</span> <span class="n">s</span>
+    <span class="n">prim_term_negl</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#truncado</span>
+    <span class="n">erro_exato</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">valor_soma</span>
+    <span class="k">return</span> <span class="n">valor_soma</span><span class="p">,</span> <span class="n">prim_term_negl</span><span class="p">,</span> <span class="n">erro_exato</span>
+
+<span class="c1">#chamada típica:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">;</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">valor</span><span class="p">,</span> <span class="n">erro_aproximado</span><span class="p">,</span> <span class="n">erro_exato</span> <span class="o">=</span> <span class="n">L2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="funcoes-nao-precisam-retornar-objetos">Funções não precisam retornar objetos</h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">algumafunc</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">obj</span>
+
+<span class="n">valor_retorno</span> <span class="o">=</span> <span class="n">algumafunc</span><span class="p">(</span><span class="mf">3.4</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Aqui <code class="codehilite">valor_retorno</code> se torna <code class="codehilite">None</code> porque não retornamos nada da função explicitamente, Python vai inserir <code class="codehilite">return None</code>.</p>
+<h2 id="exemplo-de-uma-funcao-sem-valor-de-retorno">Exemplo de uma função sem valor de retorno</h2>
+<p>Faça uma tabela de $ L(x, n) $ X $ ln(1+x) $</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">tabela</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">x=</span><span class="si">%g</span><span class="s1">, ln(1+x)=</span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]:</span>
+        <span class="n">valor</span><span class="p">,</span> <span class="n">prox</span><span class="p">,</span> <span class="n">erro</span> <span class="o">=</span> <span class="n">L2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s1">&#39;n=</span><span class="si">%-4d</span><span class="s1"> </span><span class="si">%-10g</span><span class="s1">  (próximo termo: </span><span class="si">%8.2e</span><span class="s1">  &#39;</span>\
+              <span class="s1">&#39;erro: </span><span class="si">%8.2e</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">valor</span><span class="p">,</span> <span class="n">prox</span><span class="p">,</span> <span class="n">erro</span><span class="p">)</span>
+
+<span class="c1">#chamada:</span>
+<span class="n">tabela</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Não há a necessidade de retornar nada aqui, o propósito é imprimir.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>x=10, ln(1+x)=2.3979
+n=1    0.909091    (próximo termo: 4.13e-01  erro: 1.49e+00)
+n=2    1.32231     (próximo termo: 2.50e-01  erro: 1.08e+00)
+n=10   2.17907     (próximo termo: 3.19e-02  erro: 2.19e-01)
+n=100  2.39789     (próximo termo: 6.53e-07  erro: 6.59e-06)
+n=500  2.3979      (próximo termo: 3.65e-24  erro: 6.22e-15)
+</pre></div>
+</td></tr></table>
+
+<h2 id="agrumentos-palavra-chave">Agrumentos palavra-chave</h2>
+<p>Os argumentos palavra-chave (keyword) são úteis para simplificar a chamada de funções e ajudar a documentar os argumentos.</p>
+<p>Esses argumentos são escritos na forma <code class="codehilite">nome = valor</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">algumafunc</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">pcarg1</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">pcarg2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">pcarg1</span><span class="p">,</span> <span class="n">pcarg2</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="exemplos-chamando-funcoes-com-palavra-chave">Exemplos chamando funções com palavra-chave</h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">algumafunc</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">pcarg1</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">pcarg2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span class="o">&gt;&gt;&gt;</span>     <span class="k">print</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">pcarg1</span><span class="p">,</span> <span class="n">pcarg2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">algumafunc</span><span class="p">(</span><span class="s1">&#39;Bom dia&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>   <span class="c1">#sem pcarg1 e pcarg2</span>
+<span class="n">Bom</span> <span class="n">dia</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="bp">True</span> <span class="mi">0</span>            <span class="c1">#valores padrões são usados</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">algumafunc</span><span class="p">(</span><span class="s1">&#39;Bom dia&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">pcarg1</span> <span class="o">=</span> <span class="s1">&#39;Oi&#39;</span><span class="p">)</span>
+<span class="n">Bom</span> <span class="n">dia</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="n">Oi</span> <span class="mi">0</span>              <span class="c1">#pcarg2 permanece com o valor padrão</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">algumafunc</span><span class="p">(</span><span class="s1">&#39;Bom dia&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">pcarg2</span> <span class="o">=</span> <span class="s1">&#39;Oi&#39;</span><span class="p">)</span>
+<span class="n">Bom</span> <span class="n">dia</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="bp">True</span> <span class="n">Oi</span>           <span class="c1">## pcarg1 permanece com o valor padrão</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">algumafunc</span><span class="p">(</span><span class="s1">&#39;Bom dia&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">pcarg2</span> <span class="o">=</span> <span class="s1">&#39;Oi&#39;</span><span class="p">,</span> <span class="n">pcarg1</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">Bom</span> <span class="n">dia</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="mi">6</span> <span class="n">Oi</span>              <span class="c1">#todos os argumentos especificados</span>
+</pre></div>
+</td></tr></table>
+
+<p>Se usarmos <code class="codehilite">nome = valor</code> para todos os argumentos na chamada da função, sua sequencia pode ser arbitrária:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">algumafunc</span><span class="p">(</span><span class="n">pcarg2</span> <span class="o">=</span> <span class="s1">&#39;Bom dia&#39;</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">=</span> <span class="s1">&#39;Oi&#39;</span><span class="p">,</span> <span class="n">pcarg1</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">Oi</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="mi">6</span> <span class="n">Bom</span> <span class="n">dia</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="funcao-matematica-com-uma-variavel-e-parametros-adicionais">Função matemática com uma variável e parâmetros adicionais</h2>
+<p>Como implementar uma função matemática de uma variável, mas com parâmetros adicionais?</p>
+<p>Considere a função de $ t $, com parâmetros $ A $, $ a $ e $  \omega $:</p>
+<p>
+<script type="math/tex; mode=display"> f(t; A,a,  \omega) = Ae^{-at} \sin ( \omega t) </script>
+</p>
+<p>Uma possível implementação seria uma função Python com a variável $ t $ como argumento posicional e $ A $, $ a $ e $  \omega $ como argumentos palavra-chave:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">#o mesmo que f(0.2, A=1, a=3)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">v4</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">omega</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">1.3</span><span class="p">)</span>
+<span class="n">v5</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">v6</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>   <span class="c1">#ilegal: palavra-chave antes do posicional</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="documentando-uma-funcao-doc-strings">Documentando uma função <em>Doc Strings</em></h2>
+<p><strong>Importante convenção do Python:</strong></p>
+<p>Documente o propósito da função, seus argumentos e seus valores de retorno em uma <em>doc string</em>, uma cadeia de caracteres entre triplas aspas escrita logo após o cabeçalho da função.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">C2F</span><span class="p">(</span><span class="n">C</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converte graus Celsius (C) para Fahrenheit.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
+
+<span class="k">def</span> <span class="nf">linha</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula os coeficientes a e b na expressão</span>
+<span class="sd">    matemática para uma linha reta y = a*x + b entre</span>
+<span class="sd">    dois pontos (x0, y0) e (x1, y1).</span>
+
+<span class="sd">    x0, y0: um ponto na linha (pontos flutuantes).</span>
+<span class="sd">    x1, y1: outro ponto na linha (pontos flutuantes).</span>
+<span class="sd">    retorno: a, b (pontos flutuantes) para a linha (y=a*x+b).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">x0</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="convencao-de-entrada-e-saida-em-python">Convenção de entrada e saída em Python</h2>
+<p>Entrada (<em>input</em>) são os argumentos da função, saída (<em>output</em>) são os valores retornados.</p>
+<ul>
+<li>Uma função pode ter três tipos de dados de entrada e saída:<ul>
+<li>dados de entrada especificados através de argumentos posicionais ou palavra-chave;</li>
+<li>dados de entrada/saída dados como argumentos posicionais/palavra-chave que serão modificados e retornados;</li>
+<li>dados de saída criados dentro da função.</li>
+</ul>
+</li>
+<li>Todos os dados de saída são retornados e todos os dados de entrada são argumentos.</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">algumafunc</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">,</span> <span class="n">io4</span><span class="p">,</span> <span class="n">io5</span><span class="p">,</span> <span class="n">i6</span> <span class="o">=</span> <span class="n">valor1</span><span class="p">,</span> <span class="n">io7</span> <span class="o">=</span> <span class="n">valor2</span><span class="p">):</span>
+    <span class="c1">#modifica io4, io5, io7; calcula o1, o2, o3</span>
+    <span class="k">return</span> <span class="n">o1</span><span class="p">,</span> <span class="n">o2</span><span class="p">,</span> <span class="n">o3</span><span class="p">,</span> <span class="n">io4</span><span class="p">,</span> <span class="n">io5</span><span class="p">,</span> <span class="n">io7</span>
+</pre></div>
+</td></tr></table>
+
+<p>Os argumentos da função são:</p>
+<ul>
+<li>
+<p>entrada pura:</p>
+<p>i1, i2, i3, i6</p>
+</li>
+<li>
+<p>entrada e saída:</p>
+<p>io4, io5, io7</p>
+</li>
+</ul>
+<h2 id="o-programa-principal-e-uma-serie-de-declaracoes-fora-de-funcoes">O programa principal é uma série de declarações fora de funções</h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>         <span class="c1">#no principal</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>                   <span class="c1">#no principal</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">e</span><span class="o">*</span><span class="n">s</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>                       <span class="c1">#no principal</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                    <span class="c1">#no principal</span>
+<span class="k">print</span> <span class="s1">&#39;f(</span><span class="si">%g</span><span class="s1">)=</span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>   <span class="c1">#no principal</span>
+</pre></div>
+</td></tr></table>
+
+<p>A execução inicia com a primeira declaração no programa principal e continua linha por linha, de cima abaixo.</p>
+<p>Declarações <code class="codehilite">def</code> definem uma função, mas as declarações dentro da função somente são executadas quando a função é chamada.</p>
+<h2 id="funcoes-python-como-argumentos-de-funcoes-pythom">Funções Python como argumentos de funções Pythom</h2>
+<p>Programas fazendo cálculos frequentes necessitam de funções como argumentos de outras funções, exemplo:</p>
+<ul>
+<li>Integração numérica:  $   \int_a^b f(x)dx   $</li>
+<li>Diferenciação numérica:  $  f'(x)   $</li>
+<li>Determinação de raízes numérica:  $  f(x)=0   $</li>
+</ul>
+<p>Todos esses casos precisam de  $  f   $ como uma função Python <code class="codehilite">f(x)</code>.</p>
+<p><strong>Exemplo: cálculo numérico de  $  f''(x)   $:</strong></p>
+<p>
+<script type="math/tex; mode=display"> f''(x)  \approx {f(x-h) - 2f(x) + f(x+h) \over h^2} </script>
+</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">dif2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-6</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+</pre></div>
+</td></tr></table>
+
+<p>Nenhuma dificuldade com $ f $ sendo uma função (bem mais complicado em outras linguagens).</p>
+<h2 id="aplicacao-da-funcao-dif2">Aplicação da função <code class="codehilite">dif2</code></h2>
+<div class="admonition warning">
+<p class="admonition-title">Atenção</p>
+<p>VEJA A SAÍDA COM ATENÇÃO!!!</p>
+</div>
+<p>Código:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1">#faz uma tabela de g&#39;&#39;(t) para 13 valores de h:</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;h=</span><span class="si">%.0e</span><span class="s1">: </span><span class="si">%.5f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">dif2</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+
+<p>Saída ( $  g''(1)=42   $):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>h=1e-01: 44.61504
+h=1e-02: 42.02521
+h=1e-03: 42.00025
+h=1e-04: 42.00000
+h=1e-05: 41.99999
+h=1e-06: 42.00074
+h=1e-07: 41.94423
+h=1e-08: 47.73959
+h=1e-09: -666.13381
+h=1e-10: 0.00000
+h=1e-11: 0.00000
+h=1e-12: -666133814.77509
+h=1e-13: 66613381477.50939
+</pre></div>
+</td></tr></table>
+
+<h2 id="erros-de-arredondamento-causados-por-valores-sem-sentido-na-tabela">Erros de arredondamento causados por valores sem sentido na tabela</h2>
+<ul>
+<li>Para  $  h &lt; 10^{-8}   $ os resultados estão totalmente errados!</li>
+<li>Esperaríamos melhores aproximações quando  $  h   $ se torna menor;</li>
+<li>Problema 1: para  $  h   $ pequenos subtraímos números de tamanho aproximado e isso gera os erros de arredondamento;</li>
+<li>Problema 2: para  $  h   $ pequenos os erros de arredondamento são multiplicados por um número grande;</li>
+<li>Solução: usar variáveis do tipo ponto flutuante com mais dígitos;</li>
+<li>O Python tem um tipo de ponto flutuante (lento) (<code class="codehilite">decimal.Decimal</code>) com um número arbitrário de dígitos;</li>
+<li>Usando 25 dígitos chegamos a resultados precisos para  $  h  \leq 10^{-13}   $;</li>
+<li>Mas, isso é realmente um problema? Raramente. Outras incertezas nos dados de entrada para um cálculo matemático fazem ter usualmente (por exemplo)  $  10^{-2} \leq h  \leq 10^{-6}   $</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">decimal</span>                  <span class="c1">#pontos flutuantes com número de dígitos arbitrários</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1">#usando 25 dígitos</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span>             <span class="c1">#forma curta de uma noto tipo de ponto flutuante</span>
+
+<span class="k">def</span> <span class="nf">dif2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-9</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>  <span class="n">h</span> <span class="o">=</span> <span class="n">D</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>  <span class="c1">#convertendo para alta precisão, precisa ser string</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;h=</span><span class="si">%.0e</span><span class="s1">: </span><span class="si">%.5f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">dif2</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+
+<p>Saída:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>h=1e-01: 44.61504
+h=1e-02: 42.02521
+h=1e-03: 42.00025
+h=1e-04: 42.00000
+h=1e-05: 42.00000
+h=1e-06: 42.00000
+h=1e-07: 42.00000
+h=1e-08: 42.00000
+h=1e-09: 42.00000
+h=1e-10: 42.00000
+h=1e-11: 42.00000
+h=1e-12: 42.00000
+h=1e-13: 20.00000
+h=1e-14: 0.00000
+</pre></div>
+</td></tr></table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../lacoslistas/tuplas/" title="Tuplas" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Tuplas
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../funcoeslambda/" title="Funções lambda" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Funções lambda
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+    
+  </body>
+</html>
