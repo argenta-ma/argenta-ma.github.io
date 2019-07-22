@@ -1,0 +1,250 @@
+<!--
+  This Basic theme serves as an example for how to create other
+  themes by demonstrating the features with minimal HTML and CSS.
+  Comments like this will be through the code to explain briefly
+  what each feature is and point you to the MkDocs documentation
+  to find out more.
+-->
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  <title>Início - Elementos Finitos Aplicados</title>
+
+  <!--
+    Just add a favicon.ico image to the docs.
+  -->
+     <link rel="shortcut icon" href="images/mef.ico">
+
+
+  <!--
+    You can include external assets of course, but be aware that it means the
+    documentation may not work well offline.
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+
+  <link rel="stylesheet" href="css/theme.css">
+
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+  
+
+  <!--
+    To include static assets from our theme, just add
+    . beforehand which will be the relative path to
+    the root of the documentation.
+  -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  <script src="js/theme.js"></script>
+  <script>var base_url = '.';</script>
+
+  
+  
+
+  <!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="js/mathjaxhelper.js"></script>
+  
+    <script src="search/main.js"></script>
+  
+
+  <!--
+    Include Google Analytics tracking code.
+
+    http://www.mkdocs.org/user-guide/configuration/#google_analytics
+  -->
+  
+
+</head>
+
+<body>
+
+    <div id="topo">
+        <img id="menu" src="images/menu.svg"  onclick="verEsconderMenu()"/>
+        <img id="logo" src="images/mef.svg" />
+        <h2 id="titulo_topo">Elementos Finitos Aplicados</h2>
+        <img id="pdf" src="images/baixar_pdf.svg" alt="Baixar o conteúdo em PDF"/>
+        <div role="search" class="busca">
+            <form action="search.html" method="get">
+                <input id="buscador" type="search" name="q" placeholder="Buscar..." />
+            </form>
+        </div>
+    </div>
+
+    <div id="navegacao">
+        <div id="navegacao_geral">
+            <div id="itens">
+                <ul class="arrow">
+                    
+                        <!--
+
+-->
+
+<li class="active">
+    <a href=".">Início</a>
+</li>
+
+                    
+                        <!--
+
+-->
+
+  <li>
+    Treliça Plana
+    <ul>
+        
+            <!--
+
+-->
+
+<li >
+    <a href="trelica_plana/introducao_tp/">Introdução</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="trelica_plana/teoria_tp/">Teoria</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="trelica_plana/aplicacao_tp/">Aplicação</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="trelica_plana/implementacao_tp/">Implementação</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                </ul>
+            </div>
+            <h4 id="titulo_conteudo">Conteúdo</h4>
+        </div>
+        <div id="navegacao_doc">
+            <div id="itens_doc">
+                <ul class="arrow">
+                    
+                      <li><a href="#metodo-dos-elementos-finitos">Método dos Elementos Finitos</a></li>
+                      
+                          <li style="margin-left: 10px;"><a href="#aplicado-a-engenharia-de-estruturas">Aplicado à Engenharia de Estruturas</a></li>
+                          
+                      
+                          <li style="margin-left: 10px;"><a href="#mas-afinal-o-que-e-o-metodo-dos-elementos-finitos">Mas afinal, o que é o Método dos Elementos Finitos?</a></li>
+                          
+                      
+                    
+                </ul>
+            </div>
+            <h4 id="titulo_conteudo_doc">Conteúdo do tópico</h4>
+        </div>
+    </div>
+
+    <div id="conteudo">
+
+        
+            <h1 id="metodo-dos-elementos-finitos">Método dos Elementos Finitos</h1>
+<h2 id="aplicado-a-engenharia-de-estruturas">Aplicado à Engenharia de Estruturas</h2>
+<p>Muito utilizado e difundido pela sua facilidade de implementação computacional, o Método dos Elementos Finitos, MEF, tem atraído muita atenção pela sua versatilidade e grande amplitude de aplicações.</p>
+<p>Este material didático tem como objetivo apresentar o MEF de uma forma bem simples, sem o rigor matemático e aplicado à problemas da engenharia civil. Serão abordados suas bases teóricas, procedimentos de programação aplicados e resolução de problemas com o uso de softwares. Essas três abordagens levam ao entendimento introdutório do método, sua implementação computacional e a verificação dos resultados implementados para problemas simples da engenharia civil em um software comercial, provando ao aluno que ele mesmo consegue resolver o problema desde que saiba o que é o método, quais são suas premissas teóricas e como escrever isso de forma que um computador possa entender.</p>
+<p><img alt="Ponte, análise modal" src="imagens/BigBridge.png" title="Modo de vibração de uma ponte estaiada. Retirado de: http://www.masterseries.com/blog/tag/bridge-dynamics/" /></p>
+<h2 id="mas-afinal-o-que-e-o-metodo-dos-elementos-finitos">Mas afinal, o que é o Método dos Elementos Finitos?</h2>
+<p>Você sabe o que é isso?</p>
+<p>$\varepsilon = \dfrac{du}{dx} = \dfrac{F}{AE} \tag{1} \label{eqDifBarra}$</p>
+<p>Se você respondeu "uma equação diferencial", você está certo! Se você respondeu, "a equação diferencial que rege a deformação de uma barra de área da seção transversal constante A, e material com rigidez E no regime elástico linear, axialmente solicitada por uma carga concentrada F", você está mais certo ainda! Se você não respondeu nada "volte 4 anos atrás no curso de engenharia civil e vá aprender mecânica dos materiais primeiro"!</p>
+<p><img alt="Barra axialmente solicitada" src="imagens/barraAxialF.svg" title="Barra axialmente solicitada por uma força F, com uma área A e material com rigidez elástica E." /></p>
+<p>A equação diferencial $\eqref{eqDifBarra}$ nos diz que a variação do deslocamento u, na direção de x, ou seja, a deformação $\varepsilon$ é igual a magnitude da força aplicada F, dividida pela multiplicação da sua área de seção transversal pela rigidez elástica do seu material. Obviamente, essa relação é apenas válida no trecho linear proporcional da resposta mecânica do material, onde é válida a lei de hooke.</p>
+<div class="admonition note">
+<p class="admonition-title">Lei de Hooke</p>
+<p>A Lei de Hooke é usada para calcular o módulo da força elástica que é exercida pelos corpos elásticos de acordo com o tamanho da sua deformação.</p>
+</div>
+<p>Ou seja, para calcular o deslocamento dessa barra basta resolver a equação diferencial $\eqref{eqDifBarra}$, o que é, de fato, muito simples:</p>
+<p>$ \dfrac{du}{dx} = \dfrac{F}{AE} \quad \rightarrow \quad {\displaystyle\int du} = {\displaystyle\int \dfrac{F}{AE} dx} \quad \rightarrow \quad u = \dfrac{Fx}{AE} + c \tag{2} \label{solucaoDaEqDifBar}$</p>
+<p>Sendo c a constante de integração que pode ser avaliada em função das condições de contorno do problema, que no caso do apoio engastado são em:</p>
+<p>$ x = 0 \rightarrow u = 0 $</p>
+<p>E, portanto, substituindo esses valores em \eqref{solucaoDaEqDifBar}:</p>
+<p>$ c = 0 $</p>
+<p>Resultando no deslocamento axial, u, da barra igual a:</p>
+<p>$ u = \dfrac{Fx}{AE} \tag{3} \label{deslTrel}$</p>
+<p>Essa foi simples, pois a equação diferencial \eqref{eqDifBarra} é ordinária de ordem 1 e sua solução analítica trivial. Certo, mas...</p>
+<p><strong>O que é o Método dos Elementos Finitos??</strong></p>
+<p>Vejamos então, e essa equação diferencial, você resolve?</p>
+<p>$ m \dfrac{d^2 u}{dt^2} + c \dfrac{d u}{dt} + k u = f(t) \tag{4} \label{eqDinam}$</p>
+<p>E essa?</p>
+<p>$ \dfrac{\dfrac{d^2v}{dx^2}}{\left[ 1 + \left( \dfrac{dv}{dx} \right)^2 \right]^{\frac{3}{2}}} = \dfrac{M(x)}{EI} \tag{5} \label{eqVigaNonLin} $</p>
+<p>E essa, então?</p>
+<p>$ \dfrac{\partial^4 w}{\partial x^4} + 2 \dfrac{\partial^4 w}{\partial x^2 \partial y^2} +  \dfrac{\partial^4 w}{\partial y^4} = \dfrac{12 q (1 - \nu^2)}{E h^3} \tag{6} \label{eqPlacFin}$</p>
+<p>A \eqref{eqDinam} é a equação do equilíbrio dinâmico de um simples sistema massa-mola-amortecedor, sendo m a massa, c o amortecimento, k a rigidez, u o deslocamento do sistema e $f(t)$ a força variando no tempo. A \eqref{eqVigaNonLin} é a equação de Euler-Bernoulli para vigas considerando a não linearidade geométrica, sendo v o deslocamento vertical da viga, M(x) o esforço de momento da viga função de x, E o módulo de elasticidade e I a inércia da seção transversal (segundo momento de área). A \eqref{eqPlacFin} é a equação do deslocamento vertical, w, de uma placa fina de espessura h, sem deformações axiais, submetida a um carregamento transversal vertical q e material com rigidez elástica E e coeficiente de poisson $\nu$.</p>
+<p>A \eqref{eqDinam} até se resolve de forma simples analiticamente, a \eqref{eqVigaNonLin} já nem tanto, mas ainda assim é possível já a \eqref{eqPlacFin}, dependendo das condições, não tem solução análitica (placa em L por exemplo).</p>
+<p><strong>E AGORA?!?!</strong></p>
+<p>É justamente para esses casos onde a solução analítica é muito complexa ou não existe que se aplicam os métodos de solução numéricos ou soluções discretas. O Método dos Elementos Finitos é um deles (podem ser aplicados nas simples também como forma de facilitar a implementação computacional, por exemplo).</p>
+<p>Então, o que é o Método dos Elementos Finitos?</p>
+<p><strong>O Método dos Elementos Finitos é um método numérico de solução discreta e aproximada de equações diferenciais!</strong></p>
+<p>Com essa definição em mente, vamos escrever um elemento de barra que consiga simular a equação diferencial \eqref{eqDifBarra} de acordo com os conceitos do Método dos Elementos Finitos.</p>
+        
+
+    </div>
+
+    <div id="base">
+            <div id="base_copyright">
+                <font size="1">Copyright &copy; 2011 Marco André Argenta (Usando <a href="https://www.mkdocs.org">MkDocs</a> - tema por MK)</font>
+            </div>
+          
+            <div id="base_ir">
+              
+                &#9737; Nada para voltar
+              
+            </div>
+            <div id="base_voltar">
+              
+                <a href="trelica_plana/introducao_tp/" title="Introdução"/>Introdução</a> &#8614;
+              
+            </div>
+          
+    </div>
+
+  <!--
+  MkDocs version      : 1.0.4
+  Docs Build Date UTC : 2019-07-22 21:44:25
+  -->
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!--
+  This Basic theme serves as an example for how to create other
+  themes by demonstrating the features with minimal HTML and CSS.
+  Comments like this will be through the code to explain briefly
+  what each feature is and point you to the MkDocs documentation
+  to find out more.
+-->
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  <title>Introdução - Elementos Finitos Aplicados</title>
+
+  <!--
+    Just add a favicon.ico image to the docs.
+  -->
+     <link rel="shortcut icon" href="../../images/mef.ico">
+
+
+  <!--
+    You can include external assets of course, but be aware that it means the
+    documentation may not work well offline.
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+
+  <link rel="stylesheet" href="../../css/theme.css">
+
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+  
+
+  <!--
+    To include static assets from our theme, just add
+    ../.. beforehand which will be the relative path to
+    the root of the documentation.
+  -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  <script src="../../js/theme.js"></script>
+  <script>var base_url = '../..';</script>
+
+  
+  
+
+  <!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="../../js/mathjaxhelper.js"></script>
+  
+    <script src="../../search/main.js"></script>
+  
+
+  <!--
+    Include Google Analytics tracking code.
+
+    http://www.mkdocs.org/user-guide/configuration/#google_analytics
+  -->
+  
+
+</head>
+
+<body>
+
+    <div id="topo">
+        <img id="menu" src="../../images/menu.svg"  onclick="verEsconderMenu()"/>
+        <img id="logo" src="../../images/mef.svg" />
+        <h2 id="titulo_topo">Elementos Finitos Aplicados</h2>
+        <img id="pdf" src="../../images/baixar_pdf.svg" alt="Baixar o conteúdo em PDF"/>
+        <div role="search" class="busca">
+            <form action="../../search.html" method="get">
+                <input id="buscador" type="search" name="q" placeholder="Buscar..." />
+            </form>
+        </div>
+    </div>
+
+    <div id="navegacao">
+        <div id="navegacao_geral">
+            <div id="itens">
+                <ul class="arrow">
+                    
+                        <!--
+
+-->
+
+<li >
+    <a href="../..">Início</a>
+</li>
+
+                    
+                        <!--
+
+-->
+
+  <li>
+    Treliça Plana
+    <ul>
+        
+            <!--
+
+-->
+
+<li class="active">
+    <a href="./">Introdução</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../teoria_tp/">Teoria</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../aplicacao_tp/">Aplicação</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../implementacao_tp/">Implementação</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                </ul>
+            </div>
+            <h4 id="titulo_conteudo">Conteúdo</h4>
+        </div>
+        <div id="navegacao_doc">
+            <div id="itens_doc">
+                <ul class="arrow">
+                    
+                      <li><a href="#trelica-plana">Treliça Plana</a></li>
+                      
+                          <li style="margin-left: 10px;"><a href="#idealizacao">Idealização</a></li>
+                          
+                      
+                          <li style="margin-left: 10px;"><a href="#simplificacao">Simplificação</a></li>
+                          
+                      
+                    
+                      <li><a href="#nivel-1">Nível 1</a></li>
+                      
+                          <li style="margin-left: 10px;"><a href="#nivel-2">Nível 2</a></li>
+                          
+                              <li style="margin-left: 20px;"><a href="#nivel-3">Nível 3</a></li>
+                              
+                                  <li style="margin-left: 30px;"><a href="#nivel-4">Nível 4</a></li>
+                              
+                          
+                      
+                    
+                </ul>
+            </div>
+            <h4 id="titulo_conteudo_doc">Conteúdo do tópico</h4>
+        </div>
+    </div>
+
+    <div id="conteudo">
+
+        
+            <h1 id="trelica-plana">Treliça Plana</h1>
+<h2 id="idealizacao">Idealização</h2>
+<p>O objeto estrutural da imagem a seguir é o seu objetivo, bem pelo menos parte da estrutura:</p>
+<p><img alt="Wills Creek Bollman Bridge" src="../imagens/WillsCreekBollmanBridge.jpg" title="Wills Creek Bollman Bridge, 1871. Retirado de: https://en.wikipedia.org/wiki/Wills_Creek_Bollman_Bridge" /></p>
+<p>A Wills Creek Bollman Bridge é uma ponte em treliça do tipo Warren, mas a pergunta é: como obter os esforços em seus elementos estruturais para conseguir dimensioná-los?</p>
+<p>Bom, você sendo um aluno do 4 ou 5 ano de engenharia civil sabe como fazer isso, pois a estrutura trata-se basicamente de duas treliças planas apoiadas sobe um apoio rotulado, não permite deslocamento vertical e horizontal (na direita da figura) e um apoio simples, não permite deslocamento vertical (na esquerda da figura), sendo, então, uma estrutura isostática.</p>
+<p>O primeiro passo é a idealização estrutural, ou seja, transformar uma estrutura física real em um modelo idealizado representativo dos efeitos que ocorrem, ou irão ocorrer, na estrutura real. Como se trata de uma treliça, podemos idealizar da seguinte forma:</p>
+<p><img alt="Idealização" src="../imagens/WarrenIdeal.svg" title="Idealização da Wills Creek Bollman Bridge." /></p>
+<p>Então, basta aplicar as cargas permanentes de peso próprio, do pavimento, as acidentais de uso e vento, e obter os esforços através do método das forças ou método das seções.</p>
+<p><img alt="Solução" src="../imagens/WarrenIdealSol.svg" title="Solução da ponte idealizada para uma carga distribuída no pavimento (5 kN nos nós próximos aos apoios e 10 kN nos três internos no pavimento)." /></p>
+<p>Resolvido! Demorou né!? E como calcular os deslocamentos?</p>
+<p><img alt="Deslocamentos" src="../imagens/WarrenIdealDesl.svg" title="Deslocamentos da ponte idealizada." /></p>
+<p>Então, e se pudessemos criar um programinha computacional para resolver essa treliça e calcular os deslocamentos, ou melhor, para resolver qualquer treliça plana?</p>
+<p>Mas, vamos por partes, primeiro vamos usar uma treliça mais simples, de forma a controlarmos melhor o processo de solução na mão, e é claro, vamos resolver usando o Método dos Elementos Finitos.</p>
+<h2 id="simplificacao">Simplificação</h2>
+<p>Essa será a nossa treliça simples:</p>
+<p><img alt="Treliça Simples" src="../imagens/Trelica3barras.svg" title="Treliça Simples com três barras." /></p>
+<p>São apenas três barras, com apoios na barra vertical e carga concentrada na extremidade oposta. Essa treliça possui barras de aço ($E = 200 GPa$) e alumínio ($E = 69 GPa$), as barras vertical e horizontal são de alumínio a inclinada de aço. Todas as barras são tubulares maciças com diâmetro de 113 mm. A carga F é de 10.000 N e o comprimento L de 1,0 m.</p>
+<h1 id="nivel-1">Nível 1</h1>
+<h2 id="nivel-2">Nível 2</h2>
+<h3 id="nivel-3">Nível 3</h3>
+<h4 id="nivel-4">Nível 4</h4>
+<p><strong>Vamos começar pela <a href="../teoria_tp">Teoria</a>!</strong></p>
+        
+
+    </div>
+
+    <div id="base">
+            <div id="base_copyright">
+                <font size="1">Copyright &copy; 2011 Marco André Argenta (Usando <a href="https://www.mkdocs.org">MkDocs</a> - tema por MK)</font>
+            </div>
+          
+            <div id="base_ir">
+              
+                &#8612;
+                <a href="../.." title="Início">Início</a>
+              
+            </div>
+            <div id="base_voltar">
+              
+                <a href="../teoria_tp/" title="Teoria"/>Teoria</a> &#8614;
+              
+            </div>
+          
+    </div>
+
+  <!--
+  MkDocs version      : 1.0.4
+  Docs Build Date UTC : 2019-07-22 21:44:25
+  -->
+
+</body>
+</html>

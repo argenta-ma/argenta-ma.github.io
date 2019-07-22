@@ -1,0 +1,838 @@
+<!--
+  This Basic theme serves as an example for how to create other
+  themes by demonstrating the features with minimal HTML and CSS.
+  Comments like this will be through the code to explain briefly
+  what each feature is and point you to the MkDocs documentation
+  to find out more.
+-->
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  <title>Teoria - Elementos Finitos Aplicados</title>
+
+  <!--
+    Just add a favicon.ico image to the docs.
+  -->
+     <link rel="shortcut icon" href="../../images/mef.ico">
+
+
+  <!--
+    You can include external assets of course, but be aware that it means the
+    documentation may not work well offline.
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+
+  <link rel="stylesheet" href="../../css/theme.css">
+
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+  
+
+  <!--
+    To include static assets from our theme, just add
+    ../.. beforehand which will be the relative path to
+    the root of the documentation.
+  -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  <script src="../../js/theme.js"></script>
+  <script>var base_url = '../..';</script>
+
+  
+  
+
+  <!--
+    extra_javascript contains paths to JavaScript files in the
+    users documentation directory or a list of JavaScript files
+    defined in their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_javascript
+  -->
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="../../js/mathjaxhelper.js"></script>
+  
+    <script src="../../search/main.js"></script>
+  
+
+  <!--
+    Include Google Analytics tracking code.
+
+    http://www.mkdocs.org/user-guide/configuration/#google_analytics
+  -->
+  
+
+</head>
+
+<body>
+
+    <div id="topo">
+        <img id="menu" src="../../images/menu.svg"  onclick="verEsconderMenu()"/>
+        <img id="logo" src="../../images/mef.svg" />
+        <h2 id="titulo_topo">Elementos Finitos Aplicados</h2>
+        <img id="pdf" src="../../images/baixar_pdf.svg" alt="Baixar o conteúdo em PDF"/>
+        <div role="search" class="busca">
+            <form action="../../search.html" method="get">
+                <input id="buscador" type="search" name="q" placeholder="Buscar..." />
+            </form>
+        </div>
+    </div>
+
+    <div id="navegacao">
+        <div id="navegacao_geral">
+            <div id="itens">
+                <ul class="arrow">
+                    
+                        <!--
+
+-->
+
+<li >
+    <a href="../..">Início</a>
+</li>
+
+                    
+                        <!--
+
+-->
+
+  <li>
+    Treliça Plana
+    <ul>
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../introducao_tp/">Introdução</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li class="active">
+    <a href="./">Teoria</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../aplicacao_tp/">Aplicação</a>
+</li>
+
+        
+            <!--
+
+-->
+
+<li >
+    <a href="../implementacao_tp/">Implementação</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                </ul>
+            </div>
+            <h4 id="titulo_conteudo">Conteúdo</h4>
+        </div>
+        <div id="navegacao_doc">
+            <div id="itens_doc">
+                <ul class="arrow">
+                    
+                      <li><a href="#elemento-finito-de-trelica">Elemento finito de treliça</a></li>
+                      
+                          <li style="margin-left: 10px;"><a href="#fundamentacao">Fundamentação</a></li>
+                          
+                              <li style="margin-left: 20px;"><a href="#deslocamentos">Deslocamentos</a></li>
+                              
+                          
+                              <li style="margin-left: 20px;"><a href="#funcoes-de-forma">Funções de forma</a></li>
+                              
+                          
+                              <li style="margin-left: 20px;"><a href="#graus-de-liberdade">Graus de liberdade</a></li>
+                              
+                          
+                      
+                          <li style="margin-left: 10px;"><a href="#resolucao">Resolução</a></li>
+                          
+                              <li style="margin-left: 20px;"><a href="#deformacoes">Deformações</a></li>
+                              
+                          
+                              <li style="margin-left: 20px;"><a href="#equilibrio">Equilíbrio</a></li>
+                              
+                          
+                              <li style="margin-left: 20px;"><a href="#matriz-de-rigidez-do-elemento-de-trelica">Matriz de rigidez do elemento de treliça</a></li>
+                              
+                          
+                              <li style="margin-left: 20px;"><a href="#matriz-de-rigidez-no-sistema-global">Matriz de rigidez no sistema global</a></li>
+                              
+                          
+                      
+                    
+                </ul>
+            </div>
+            <h4 id="titulo_conteudo_doc">Conteúdo do tópico</h4>
+        </div>
+    </div>
+
+    <div id="conteudo">
+
+        
+            <h1 id="elemento-finito-de-trelica">Elemento finito de treliça</h1>
+<h2 id="fundamentacao">Fundamentação</h2>
+<p>A ideia da idealização de uma estrutura em uma treliça é simples, supõe-se que em todas as barras apenas existam esforços axiais normais na sua direção longitudinal, que derivam de tensões uniformes nessa seção. Isso é verdade? Não! Principalmente próximo das ligações. Mas para determinadas estruturas essa idealização é representativa dos efeitos mecânicos reais em seus elementos e, portanto, válida para uma idealização. Essas estruturas chamamos de treliças.</p>
+<p><img alt="Barra de uma treliça" src="../imagens/barraTrelica.svg" title="Esquema de uma barra de treliça idealizada." /></p>
+<p>Essa barra real com um certo volume em uma geometria qualquer tridimensional pode ser representada em uma idealização unidimensional para calculo de seus efeitos. Isso porque as tensões são consideradas uniformes na barra e algumas simplificações são adotadas, como a desconsideração dos efeitos de Saint-Venant ocorrerem em uma pequena região e não interferirem de forma relevante no resposta mecânica total da barra da estrutura) e as deformações transversais são desprezadas (por serem muito pequenas). Então, a barra da treliça se torna:</p>
+<p><img alt="Barra de uma treliça unidimensional" src="../imagens/barraTrelicaUni.svg" title="Esquema de uma barra de treliça unidimensional idealizada." /></p>
+<div class="admonition note">
+<p class="admonition-title">Saint-Venant</p>
+<p>O Princípio de Saint-Venant estabelece que nas regiões localizadas próximo à aplicação de carga ou restrições, o nível de tensão na peça atinge valores elevados e difunde na medida em que se afasta dessas regiões,tendendo ao valor médio de tensão.</p>
+</div>
+<h3 id="deslocamentos">Deslocamentos</h3>
+<p>Daqui para frente, esquece a barra real da treliça, esquece a treliça real e nos focamos apenas na idealização unidimensional. Vimos na introdução (veja <a href="../../#mas-afinal-o-que-e-o-metodo-dos-elementos-finitos">aqui</a>) que analiticamente a deformação, ou a variação do deslocamento na direção longitudinal de uma barra unidimensional com material no regime elástico linear, é função da força aplicada dividida pela sua rigidez (AE) e que o deslocamento varia de forma linear na direção longitudinal com a posição na viga (r), ou seja:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    u(r) = \dfrac{f}{AE}r \label{deslTrel}
+\end{align}
+</script>
+</p>
+<p>Se fixarmos um referencial cartesiano $(r, u)$ no meio dessa barra, com $u$ sendo os deslocamentos na direção axial, podemos fazer um gráfico da variação desse deslocamento axial:</p>
+<p><img alt="Variação do deslocamento da barra de uma treliça unidimensional" src="../imagens/barraTrelicaVarDesl.svg" title="Variação do deslocamento da barra de treliça unidimensional idealizada, sendo máximo nos extremos." /></p>
+<p>De uma forma bem simples, a ideia básica do método dos elementos finitos aplicados à estruturas é transformar essa barra com seus deslocamentos contínuos em $r$ em um elemento discreto com deslocamentos definidos apenas nos seus extremos ou nós, sendo os deslocamentos dentro desse elemento calculados através de uma interpolação dos deslocamentos nos nós ou nodais utilizando as chamadas funções de forma.</p>
+<p>De outra forma, digamos que sabemos os valores dos deslocamentos nos nós desse elemento, sendo eles de valor qualquer $u_a$ e $u_b$ nos nós 1 e 2 respectivamente, e que, através deles, queremos calcular os deslocamentos em qualquer ponto desse elemento, entre os nós 1 e 2. Digamos ainda que esse elemento tem comprimento <em>l</em>. Voltando ao referencial $(r,s)$, temos:</p>
+<p><img alt="Deslocamentos nodais" src="../imagens/barraTrelicaGrausLib.svg" title="Deslocamentos nodais da barra de treliça unidimensional idealizada" /></p>
+<h3 id="funcoes-de-forma">Funções de forma</h3>
+<p>Sabendo que na idealização em barra de treliça unidimensional a variação dos deslocamentos é linear na barra, pode-se escrever a equação dessa variação linear em função de $u_a$ e $u_b$. Vamos pegar uma equação de uma reta genérica $s = A r + b$ e aplicar as seguintes condições para:</p>
+<p>
+<script type="math/tex; mode=display">
+r = -\dfrac{l}{2} \rightarrow u(r) = u_a \quad \text{e} \quad r = \dfrac{l}{2} \rightarrow u(r) = u_b
+</script>
+</p>
+<p>Portanto, substituindo essas condições na equação da reta genérica sendo $s = u(r)$:</p>
+<p>
+<script type="math/tex; mode=display">
+u_a = -A\dfrac{l}{2} + B \quad \text{e} \quad u_b = A \dfrac{l}{2} + B
+</script>
+<script type="math/tex; mode=display">
+B = u_a + A\dfrac{l}{2} \quad \rightarrow \quad u_b = A \dfrac{l}{2} + u_a + A\dfrac{l}{2}
+</script>
+<script type="math/tex; mode=display">
+\therefore A = \dfrac{u_b - u_a}{l} \quad \text{e} \quad B = u_a + \dfrac{u_b - u_a}{2}
+</script>
+</p>
+<p>E finalmente a equação da reta pode ser reescrita com os coeficientes $A$ e $B$ calculados:
+<script type="math/tex; mode=display">
+\begin{align}
+u(r) = \dfrac{u_b - u_a}{l}r + \dfrac{u_a + u_b}{2} \label{eqInterDeslTrelica}
+\end{align}
+</script>
+</p>
+<p>Ou seja, através da interpolação dos deslocamentos também foi possível determinar o deslocamento em qualquer ponto r do elemento. Quer ver? Digamos que $l = 1m$, portanto da equação \eqref{deslTrel} temos que $r$ varia de $-\frac{1}{2}$ até $\frac{1}{2}$, então os deslocamentos nos extremos são $-\frac{f}{2AE}$ e $\frac{f}{2AE}$, que seriam os valores de $u_a$ e $u_b$ respectivamente. Substitua esses valores na \eqref{eqInterDeslTrelica}, o que você achou? $u(r)$ com $l=1$!</p>
+<p>O problema agora é, quanto valem $u_a$ e $u_b$?</p>
+<p>Vamos isolar $u_a$ e $u_b$ na equação \eqref{eqInterDeslTrelica}:</p>
+<p>
+<script type="math/tex; mode=display">
+u(r) = \dfrac{u_b}{l}r - \dfrac{u_a}{l}r + \dfrac{u_a}{2} + \dfrac{u_b}{2}
+</script>
+<script type="math/tex; mode=display">
+\therefore u(r) = \left( \dfrac{1}{2} - \dfrac{r}{l} \right)u_a + \left( \dfrac{1}{2} + \dfrac{r}{l} \right)u_b
+</script>
+</p>
+<p>Que também pode ser escrita na forma matricial:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+u(r) = \left[
+\begin{array}{cc}
+    \dfrac{1}{2} - \dfrac{r}{l} & \dfrac{1}{2} + \dfrac{r}{l} \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_a \\
+    u_b
+\end{array} \right\rbrace \label{eqInterDeslTrelicaMat}
+\end{align}
+</script>
+</p>
+<p>A porção entre os colchetes da equação \eqref{eqInterDeslTrelicaMat} é chamada matrix das funções de forma (também conhecidas como funções de interpolação), denominada por $\textbf{N}$, e a porção entre chaves são os chamados deslocamentos nodais, denominados por $\textbf{u}$. Portanto, a equação \eqref{eqInterDeslTrelicaMat} condensada é escrita como:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+u(r) = \textbf{N} \textbf{u} \label{deslMEF}
+\end{align}
+</script>
+</p>
+<p>Essa equação de interpolação dos deslocamentos nodais em sua forma condensada é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda, obviamente, são as funções de forma na matriz $\textbf{N}$ e os deslocamentos nodais no vetor $\textbf{u}$. No nosso caso:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{N} = \left[
+\begin{array}{cc}
+    \dfrac{1}{2} - \dfrac{r}{l} & \dfrac{1}{2} + \dfrac{r}{l} \\
+\end{array} \right] = \left[
+\begin{array}{cc}
+    N_a & N_b \\
+\end{array} \right] \quad \text{e} \quad \textbf{u} = \left\lbrace \begin{array}{c}
+    u_a \\
+    u_b
+\end{array} \right\rbrace
+</script>
+</p>
+<h3 id="graus-de-liberdade">Graus de liberdade</h3>
+<p>Vamos ampliar um pouco a conceituação dentro das premissas do MEF introduzindo o conceito de <strong>grau de liberdade</strong>.</p>
+<p>Os deslocamentos $u_a$ e $u_b$, dentro do conceito do MEF, são chamados de <strong>graus de liberdade</strong>. Os graus de liberdade, no MEF, são as possíveis direções de deslocamentos, rotações, velocidades, acelerações, entre outros, que podem ser discretizados em um nó em função de um sistema de coordenadas referencial, aos quais estão associadas funções de forma que "distribuem" os seus efeitos dentro de um determinado elemento (ou no domínio de um elemento). Ou seja, o nosso elemento representativo de uma barra de treliça plana possui 2 graus de liberdade!</p>
+<p>Então, como determinar os valores de deslocamentos associados aos graus de liberdade $u_a$ e $u_b$?</p>
+<div class="admonition info">
+<p class="admonition-title">Comentário<p>Esqueceu o que estamos fazendo? Lembra do problema? A ponte Wills Creek Bollman? Da sua idealização? Da simplificação em uma treliça de três barras para melhor controle? Então, é para 1 das barras dessa treliça que estamos montando uma formulação baseada nos conceitos do MEF para depois contruir matemáticamente a treliça e resolvê-la.</p>
+</p>
+</div>
+<h2 id="resolucao">Resolução</h2>
+<h3 id="deformacoes">Deformações</h3>
+<p>Como definimos de uma forma genérica o deslocamento em nosso elemento de treliça, equação \eqref{deslMEF}, podemos escrever o campo de deformações relacionado a esse deslocamento axial $u(r)$. Sabendo que as deformações são as variações do deslocamento em uma direção, no nosso caso na axial, $r$, escrevemos substituindo a equação \eqref{deslMEF} no lugar de u(r):</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = \dfrac{du(r)}{dr} = \dfrac{d(\textbf{N} \textbf{u})}{dr} = \dfrac{d}{dr}\left(\left[
+\begin{array}{cc}
+    N_a & N_b \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_a \\
+    u_b
+\end{array} \right\rbrace \right)
+</script>
+<script type="math/tex; mode=display">
+\begin{align}
+\therefore \varepsilon = \left[\begin{array}{cc}
+    \dfrac{dN_a}{dr} & \dfrac{dN_b}{dr} \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_a \\
+    u_b
+\end{array} \right\rbrace \label{campDef}
+\end{align}
+</script>
+</p>
+<p>Pois, $u_a$ e $u_b$ são escalares e não variam em $r$. A matrix das derivadas das funções de forma na equação \eqref{campDef} é chamada de matriz $\textbf{B}$ em elementos finitos, e portanto, a equação \eqref{campDef} pode ser rescrita de uma forma condensada como:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\varepsilon = \textbf{B} \textbf{u} \label{campDefMEF}
+\end{align}
+</script>
+</p>
+<p>Da mesma forma que a equação \eqref{deslMEF} a equação \eqref{campDefMEF} também é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda é a matriz das derivadas das funções de interpolação, $\textbf{B}$ e os graus de liberdade (ou deslocamentos) $\textbf{u}$.</p>
+<p>Como no nosso caso:</p>
+<p>
+<script type="math/tex; mode=display">
+N_a = \dfrac{1}{2} - \dfrac{r}{l} \quad \text{e} \quad N_b = \dfrac{1}{2} + \dfrac{r}{l}
+</script>
+</p>
+<p>Portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{B} = \left[\begin{array}{cc}
+    \dfrac{dN_a}{dr} & \dfrac{dN_b}{dr} \\
+\end{array} \right] = \left[
+\begin{array}{cc}
+    \dfrac{d}{dr}\left(\dfrac{1}{2} - \dfrac{r}{l}\right) & \dfrac{d}{dr}\left(\dfrac{1}{2} + \dfrac{r}{l}\right) \\
+\end{array} \right] = \left[
+\begin{array}{cc}
+    - \dfrac{1}{l} & \dfrac{1}{l} \\
+\end{array} \right]
+</script>
+</p>
+<p>Olha que bacana essa, vamos colocar esse resultado na equação \eqref{campDefMEF} e fazer a multiplicação:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = \textbf{B} \textbf{u} = \left[
+\begin{array}{cc}
+    - \dfrac{1}{l} & \dfrac{1}{l} \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_a \\
+    u_b
+\end{array} \right\rbrace = \dfrac{u_b - u_a}{l} = \dfrac{\Delta l}{l}
+</script>
+</p>
+<div class="admonition info">
+<p class="admonition-title">Comentário<p>Lembra do conceito de <strong>deformação</strong> da mecânica dos materiais?! Variação do comprimento sobre o comprimento total. Muito bem! Estamos no caminho certo. Outra coisa, obseve que a deformação é um escalar (ou um tensor de ordem zero), o que vai facilitar mais para frente. Em outros elementos, como viga por exemplo, a deformação acaba sendo um tensor de ordem 1 (representado por um vetor) o que vai dificultar um pouco os cálculos, como veremos em vigas.</p>
+</p>
+</div>
+<h3 id="equilibrio">Equilíbrio</h3>
+<p>Agora precisamos colocar a nossa barra em equilíbrio, ou seja, todos os efeitos internos devem ser iguais aos efeitos externos, de outra forma, as tensões e deformações (internas) devem ser equivalentes às solicitações externas em seus efeitos, por exemplo trabalho, energia. Mas por que? Bem, estamos fazendo uma análise elástica linear estática considerando pequenas deformações, não queremos que nossa barra se movimente como um corpo rígido ou se deforme em excesso, nem que atuem sobre ela cargas que variam no tempo ou que perca energia através de algum processo dissipativo, além disso, desconsideramos os efeitos de amortecimento do material e da sua inércia, por se tratar de uma análise estática.</p>
+<p>O equilíbrio das quantidades internas e externas nessas condições pode ser escrito através do Princípio dos Trabalhos Virtuais. Esse princípio, na mecânica dos sólidos, estabelece que o trabalho das forças internas (tensões), $W_i$ deve ser igual ao trabalho das forças externas (no nosso caso f), $W_e$. O trabalho é uma medida de energia gerada uma força ao longo de um deslocamento. Por exemplo, para uma força de 2 kN percorrer a distância de 10 cm a energia necessária é de 200 J (Joules), para percorrer 50 cm, a energia vale 1000 J. Então:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+W_i = W_e \label{eqEner}
+\end{align}
+</script>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Princípio dos Trabalhos Virtuais<p>O princípio dos trabalhos virtuais estipula que o trabalho virtual das forças externas equivale ao trabalho virtual das forças internas. Neste contexto, a palavra virtual significa que as forças e os deslocamentos envolvidos podem não corresponder um ao outro, somente é necessário que as forças estejam estaticamente admissíveis e os deslocamentos cinematicamente admissíveis</p>
+</p>
+</div>
+<p>O trabalho das forças internas, $W_i$, ou seja, o trabalho das tensões é calculando multiplicando essas tensões pelas suas respectivas deformações. O detalhe é que a cada pedacinho da barra existem tensões e deformações que podem ser variáveis de ponto a ponto na barra.</p>
+<p><img alt="Barra de uma treliça Internos" src="../imagens/barraTrelicaInt.svg" title="Esquema dos esforços internos de uma barra de treliça idealizada." /></p>
+<p>O trabalho interno total é a soma das tensões multiplicadas pelas deformações em todo o volume (V) da barra da treliça, portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+W_i = {\displaystyle\int_V \sigma \varepsilon dV } \label{enerInt}
+\end{align}
+</script>
+</p>
+<p>O trabalho das forças externas é mais simples, como aplicamos apenas $f$ na direção longitudinal da barra, ainda não discretizada em MEF, e essa se deslocou $u(r)$, então:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+W_e = f u(r) \label{engExtF}
+\end{align}
+</script>
+</p>
+<p>Após a discretização em um elemento de treliça as cargas aplicadas ficam concentradas nos nós, portanto o trabalho externo pode ser substituido pelo trabalho dessas forças multiplicadas pelo respectivo deslocamento do nó, ou seja:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+W_e = \textbf{u}^T \textbf{f} \label{engExtFDisc}
+\end{align}
+</script>
+</p>
+<p>Que, como estamos trabalhando com treliça e somente aplicamos cargas nos extremos de cada barra, podemos escrever o vetor de cargas nodais equivalentes da seguinte forma:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f} = \left\lbrace \begin{array}{c}
+        f_a \\
+        f_b
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>Sendo $f_a$ a força no nó 1 e $f_b$ a força no nó 2.</p>
+<p><img alt="Barra de uma treliça unidimensional forças" src="../imagens/barraTrelicaUniFs.svg" title="Esquema das forças nodais de uma barra de treliça unidimensional idealizada." /></p>
+<p>O detalhe aqui é que tanto $\varepsilon$ quanto $u(r)$, que é o deslocamento em todos os pontos da barra, estão em equilíbrio, mas não sabemos quanto valem nem como mantém o sistema em equilíbrio. Para testar o equilíbrio desse sistema vamos perturbar ele, partindo de zero deslocamentos e perturbando com deslocamentos imaginários ou virtuais nos nós de $\delta u_a$ e $\delta u_b$. Visualize você puxando um pedaço de elástico e soltado é isso que pretendemos fazer matematicamente.</p>
+<p>Sendo assim, nossa deformação virtual, dada pela equação \eqref{campDef}, se escreve:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \delta \varepsilon &= \left[\begin{array}{cc}
+        \dfrac{dN_a}{dr} & \dfrac{dN_b}{dr} \\
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_a \\
+        \delta u_b
+    \end{array} \right\rbrace \notag \\
+    \delta \varepsilon &= \textbf{B} \delta \textbf{u}
+\end{align}
+</script>
+</p>
+<p>E o deslocamento virtual total $u(r)$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \delta u(r) &= \left[
+    \begin{array}{cc}
+        N_a & N_b \\
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_a \\
+        \delta u_b
+    \end{array} \right\rbrace \notag \\
+    \delta u(r) &= \textbf{N} \delta \textbf{u}
+\end{align}
+</script>
+</p>
+<p>Substituindo esses valores respectivamente nas equações \eqref{enerInt} e \eqref{engExtF} e fazendo o equilíbrio, equação \eqref{eqEner}, chegamos à:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    W_i &= W_e \notag \\
+    {\displaystyle\int_V \sigma \delta \varepsilon dV } &=  \textbf{u}^T \textbf{f} \notag \\
+    {\displaystyle\int_V \sigma \textbf{B} \delta \textbf{u} dV } &= \delta \textbf{u}^T \textbf{f} \label{eqParc}
+\end{align}
+</script>
+</p>
+<p>Como estamos trabalhando com nosso material utilizando apenas o seu limite elástico, ou seja, o valor das tensões e deformações não podem ser maiores que as limites para esse regime, $\sigma \leq \sigma_{lim}$ e $\varepsilon \leq \varepsilon_{lim}$.</p>
+<p><img alt="Relação Constitutiva Linear Proporcional" src="../imagens/RelConstitutiva.svg" title="Relação constitutiva linear proporcional do material, com rigidez elástica E." /></p>
+<p>Além disso, como as tensões são proporcionais às deformações, podemos escrever que:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\sigma = E \varepsilon \label{tensDef}
+\end{align}
+</script>
+</p>
+<p>Observe que no caso da barra de treliça, pelo fato das tensões e deformações serem constantes ao longo da barra, $\sigma$ e $\varepsilon$ são escalares (ou tensores de ordem zero). Aliás, $E$ também é um escalar (ou tensor de ordem zero) por estarmos trabalhando com a resposta mecânica do material em apenas uma direção.</p>
+<div class="admonition info">
+<p class="admonition-title">Comentário<p>Mas que tanto é esse negócio de tensor que fica aparecendo no texto?! Tensores são transformações lineares de quantidades mecânicas (outras também, mas no nosso caso são mecânicas), que podem ser representados matematicamente como escalares, tensores de ordem zero, vetores, tensores de ordem 1 e matrizes, tensores de ordem 2 e existem ainda tensores de ordem 3, 4 e superiores, que somente se representam através da notação indicial de Einstein.</p>
+</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Notação indicial de Einstein<p>A notação indicial é uma forma compacta de se representar e manipular sistemas de equações, combinações lineares e somatórios. Foi introduzida por Einstein para denotar grandezas em espaços de dimensão superior a 3.</p>
+</p>
+</div>
+<p>Dessa forma, substituindo o valor de $\sigma$ da equação \eqref{tensDef} na equação \eqref{eqParc}:</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V E \varepsilon \textbf{B} \delta \textbf{u} dV } = \delta \textbf{u}^T \textbf{f}
+</script>
+</p>
+<p>Como em nosso problemas estamos discretizando utilizando MEF, substituimos a deformação $\varepsilon$ pela equação \eqref{campDefMEF}:</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V \delta \textbf{u}^T \textbf{B}^T E \textbf{B} \textbf{u} dV } = \delta \textbf{u}^T \textbf{f}
+</script>
+</p>
+<div class="admonition info">
+<p class="admonition-title">Comentário<p>Como?! Então, os vetores $\delta \textbf{u}^T$ e a matriz $\textbf{B}^T$ são exatamente iguais à $\delta \textbf{u}$ e a matriz $\textbf{B}$, mas transpostos para que a multiplicação matricial seja possível. Assim, $\delta \textbf{u}$ é um vetor 2x1, assim como $\textbf{u}$, $\textbf{B}$ é matriz 1 r 2, para conseguirmos multiplicar essas quantidades precisamos posicioná-los na equação de forma que a multiplicação matricial seja possível. Uma das formas de se organizar na equação é a apresentada, veja como ficaria na equação acima: 1x2 * 2x1 * 1x1 * 1x2 * 2x1 = 1x1, perfeito! Certo, como você chama $\textbf{B}$ de matriz se $\textbf{B}$ tem as dimensões de um vetor? Apenas para acostumar com a notação pois para elementos mais complexos $\textbf{B}$ de fato será uma matriz, na verdade, um tensor de ordem 2.</p>
+</p>
+</div>
+<p>Como os deslocamentos $\delta \textbf{u}$ e $\textbf{u}$ não dependem do volume da barra, podemos retirá-los da integral.</p>
+<p>
+<script type="math/tex; mode=display">
+\delta \textbf{u}^T {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u} = \delta \textbf{u}^T \textbf{f}
+</script>
+</p>
+<p>E, como $\delta \textbf{u}$, os deslocamentos quaisquer que utilizamos para perturbar a barra, são os mesmos em ambos os lados da equação, chegamos ao equilíbrio da nossa barra.</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>Que, em MEF, chamamos de equilíbrio estático e escrevemos de forma condensada como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>Sendo:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} = {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV }
+</script>
+</p>
+<p>Sendo a integral no volume conhecida como matriz de rigidez do elemento $\textbf{k}$ e $\textbf{f}$ o vetor de forças nodais equivalentes.</p>
+<h3 id="matriz-de-rigidez-do-elemento-de-trelica">Matriz de rigidez do elemento de treliça</h3>
+<p>Podemos abrir a integral em uma integral na área e outra no comprimento. Como nada varia em $s$ ou $z$, a integral na área é a própria área da seção transversal.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    {\displaystyle\int_A \int_{-\frac{l}{2}}^{\frac{l}{2}} \textbf{B}^T E \textbf{B} dr dA } \ \textbf{u} &= \textbf{f} \notag \\
+    {\displaystyle\int_A dA \int_{-\frac{l}{2}}^{\frac{l}{2}} \textbf{B}^T E \textbf{B} dr  } \ \textbf{u} &= \textbf{f} \notag \\
+    A {\displaystyle\int_{-\frac{l}{2}}^{\frac{l}{2}} \textbf{B}^T E \textbf{B} dr } \ \textbf{u} &= \textbf{f}
+\end{align}
+</script>
+</p>
+<p>Substituindo os valores de $\textbf{B}$, realizando as multiplicações matriciais e resolvendo a integral, considerando que o módulo de elasticidade é constante no comprimento da barra:</p>
+<p>
+<script type="math/tex; mode=display">
+A {\displaystyle\int_{-\frac{l}{2}}^{\frac{l}{2}} \left[
+\begin{array}{c}
+    - \dfrac{1}{l} \\
+    \dfrac{1}{l}  
+\end{array} \right] E \left[
+\begin{array}{cc}
+    - \dfrac{1}{l} & \dfrac{1}{l}
+\end{array} \right] dr } \ \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+EA {\displaystyle\int_{-\frac{l}{2}}^{\frac{l}{2}} \left[
+\begin{array}{cc}
+    \dfrac{1}{l^2} & - \dfrac{1}{l^2}\\
+    - \dfrac{1}{l^2} & \dfrac{1}{l^2}
+\end{array} \right] dr } \ \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+EA \left[
+\begin{array}{cc}
+    \dfrac{r}{l^2} & - \dfrac{r}{l^2}\\
+    - \dfrac{r}{l^2} & \dfrac{r}{l^2}
+\end{array} \right]_{-\frac{l}{2}}^{\frac{l}{2}} \textbf{u} = \textbf{f} \ \rightarrow \ EA \left[
+\begin{array}{cc}
+    \dfrac{\frac{l}{2}}{l^2} - \dfrac{-\frac{l}{2}}{l^2} & - \left(\dfrac{\frac{l}{2}}{l^2} - \dfrac{-\frac{l}{2}}{l^2}\right)\\
+    - \left(\dfrac{\frac{l}{2}}{l^2} - \dfrac{-\frac{l}{2}}{l^2}\right) & \dfrac{\frac{l}{2}}{l^2} - \dfrac{-\frac{l}{2}}{l^2}
+\end{array} \right] \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+EA \left[
+\begin{array}{cc}
+    \dfrac{1}{l} & - \dfrac{1}{l}\\
+    - \dfrac{1}{l} & \dfrac{1}{l}
+\end{array} \right] \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>Por fim, de forma condensada:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{k} \textbf{u} = \textbf{f} \label{equilibroEstatico}
+\end{align}
+</script>
+</p>
+<p>Sendo:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} = \dfrac{EA}{l} \left[
+\begin{array}{cc}
+    1 & -1\\
+    -1 & 1
+\end{array} \right] \quad \quad \textbf{u} = \left\lbrace \begin{array}{c}
+        u_a \\
+        u_b
+    \end{array} \right\rbrace \quad \quad \textbf{f} = \left\lbrace \begin{array}{c}
+        f_a \\
+        f_b
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>O problema dessa matriz de rigidez é que ela está escrita somente para um elemento disposto na horizontal na direção do eixo r. E se o nosso elemento for inclinado? Como ficam os graus de liberdade? Existe uma componente em s?</p>
+<p><img alt="Graus de liberdade no local" src="../imagens/barraTrelicaGrausLibGlob.svg" title="Graus de liberdade no sistema local." /></p>
+<div class="admonition info">
+<p class="admonition-title">Comentário<p>A seta na imagem não significa força, é a direção do grau de liberdade a ou b!!! Seta preta, força, seta cinza grau de liberdade.</p>
+</p>
+</div>
+<p>A matriz de rigidez que calculamos foi determinada utilizando um sistema de coordenadas disposto no elemento, com origem em seu centro e orientação do eixo r no sentido longitudinal da barra. A esse sistema damos o nome de sistema <strong>local</strong> de coordenadas $(r,s)$.</p>
+<p>Quando vamos resolver uma estrutura precisamos de outro sistema de coordenadas que englobe todos os elementos dessa estrutura para que todos tenham o mesmo referencial, a esse sistema chamamos de <strong>global</strong> $(X, Y)$.</p>
+<p>Portanto, para obter a matriz de rigidez do elemento no sistema global de coordenadas para podemos resolver a estrutura da treliça completa, precisamos aplicar uma transformação de coordenadas e uma rotação, caso o elemento não seja horizontal.</p>
+<h3 id="matriz-de-rigidez-no-sistema-global">Matriz de rigidez no sistema global</h3>
+<p>Primeiro, precisamos escrever os graus de liberdade no sistema global e reposicionar as suas rigidezes na matriz de rigidez, pois no sistema local, o elemento possui apenas 1 graus de liberdade por nó, já no global, terá 2 pois cada nó poderá se mover dentro do plano definido por $(X,Y)$. Esses 2 graus de liberdade nada mais são que a decomposição do grau de liberdade nas coordenadas globais.</p>
+<p><img alt="Graus de liberdade no global" src="../imagens/barraTrelicaGrausLibGlobPos.svg" title="Graus de liberdade no sistema global." /></p>
+<div class="admonition info">
+<p class="admonition-title">Comentário<p>Note que na figura o comprimento do elemento é definido por L. Na simbologia deste material, L representa o comprimento do elemento no sistema global e <em>l</em> no sistema local. Mas, no caso do elemento de treliça e especificamente para a formulação apresentada nesta seção (treliça plana) L e <em>l</em> são o mesmo (L = <em>l</em>). Mais para diante, com elementos mais complexos teremos a necessidade de trabalhar com diferentes tamanhos de elementos no sistema local e depois compatibilizar com o sistema global.</p>
+</p>
+</div>
+<p>Observe que se aplicarmos uma força concentrada qualquer $f$ na direção do grau de liberdade a seu efeito nos graus de liberdade A e B em uma barra inclinada em $\theta$ graus em relação ao eixo global <em>X</em>, será respectivamente $f \ cos \ \theta$ e $f \ sen \ \theta$, ou seja, simplesmente a decomposição da força da direção r para a direção X. Isso vale para quaisquer efeitos na direção r no nó 1 ou 2 da barra.</p>
+<p>Sendo assim, podemos rescrever nosso vetores de deslocamentos do elemento $\textbf{u}$ e de forças nodais concentradas do elemento $\textbf{f}$ no sistema global utilizando uma matriz de decomposição $D$, definida com os senos e cossenos do ângulo da barra:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{u}_g &= \textbf{D} \ \textbf{u} \notag \\
+    \textbf{f}_g &= \textbf{D} \ \textbf{f} \notag
+\end{align}
+</script>
+</p>
+<p>Ou, de forma contrária, escrevendo os deslocamentos locais em função dos globais:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{u} &= \textbf{D}^T \ \textbf{u}_g \label{uug} \\
+    \textbf{f} &= \textbf{D}^T \ \textbf{f}_g \label{ffg}
+\end{align}
+</script>
+</p>
+<p>Com a matriz de decomposição $D$ sendo:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{D} = \left[ \begin{array}{cc}
+        cos \ \theta & 0 \\
+        sen \ \theta & 0 \\
+        0 & cos \ \theta \\
+        0 & sen \ \theta
+    \end{array} \right]
+\end{align}
+</script>
+</p>
+<p>Observe que os vetores de deslocamentos e forças nodais globais, $\textbf{u}_g$ e $\textbf{f}_g$, são de 4x1 representando os 2 graus de liberdade por nó do elemento no sistema global:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \textbf{u}_g &= \left[ \begin{array}{c}
+        u_A  \\
+        u_B \\
+        u_C  \\
+        u_D
+    \end{array} \right] \\
+    \textbf{f}_g &= \left[ \begin{array}{c}
+        f_A  \\
+        f_B \\
+        f_C  \\
+        f_D
+    \end{array} \right] = \left[ \begin{array}{cc}
+        cos \ \theta & 0 \\
+        sen \ \theta & 0 \\
+        0 & cos \ \theta \\
+        0 & sen \ \theta
+    \end{array} \right] \left[ \begin{array}{c}
+        f_a  \\
+        f_b
+    \end{array} \right] = \left[ \begin{array}{c}
+        f_a \ cos \ \theta  \\
+        f_a \ sen \ \theta \\
+        f_b \ cos \ \theta \\
+        f_b \ sen \ \theta
+    \end{array} \right] \label{forcasLdecom}
+\end{align}
+</script>
+</p>
+<p>Agora, precisamos corrigir a matriz de rigidez do elemento já que, com 2 graus de liberdade por nó, deverá ser de 4x4 e não somente de 2x2 como a determinada. Para tal, vamos partir da equação matricial de equilíbrio estático \eqref{equilibroEstatico} substituindo as quantidades locais pelas globais calculadas com a matriz de decomposição $\textbf{D}$ das equações \eqref{uug} e \eqref{ffg}:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{k} \textbf{u} &= \textbf{f} \notag \\
+\textbf{k} \textbf{D}^T \ \textbf{u}_g &= \textbf{D}^T \ \textbf{f}_g \notag
+\end{align}
+</script>
+</p>
+<p>Multiplicando ambos os lados por $\textbf{D}$:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{D} \textbf{k} \textbf{D}^T \ \textbf{u}_g = \textbf{D} \textbf{D}^T \ \textbf{f}_g
+</script>
+</p>
+<p>Ou de forma compacta:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_g \ \textbf{u}_g = \textbf{f}_g
+</script>
+</p>
+<p>Sendo:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{k}_g = \textbf{D} \textbf{k} \textbf{D}^T \label{rigidezGlobalDDt}
+\end{align}
+</script>
+</p>
+<p>Veja que a multiplicação de $\textbf{D}$, $\textbf{D}^T$ e $\textbf{f}_g$ resulta no próprio $\textbf{f}_g$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\textbf{D} \textbf{D}^T \ \textbf{f}_g &= \left[ \begin{array}{cc}
+    cos \ \theta & 0 \\
+    sen \ \theta & 0 \\
+    0 & cos \ \theta \\
+    0 & sen \ \theta
+\end{array} \right] \left[ \begin{array}{cccc}
+    cos \ \theta & sen \ \theta & 0 & 0\\
+    0 & 0 & cos \ \theta & sen \ \theta
+\end{array} \right] \left[ \begin{array}{c}
+    f_A  \\
+    f_B \\
+    f_C  \\
+    f_D
+\end{array} \right] \notag \\
+&= \left[ \begin{array}{cccc}
+    cos^2 \ \theta & cos \ \theta \ sen \ \theta & 0 & 0 \\
+    cos \ \theta \ sen \ \theta & sen^2 \ \theta & 0 & 0 \\
+    0 & 0 & cos^2 \ \theta & cos \ \theta \ sen \ \theta \\
+    0 & 0 & cos \ \theta \ sen \ \theta & sen^2 \ \theta
+\end{array} \right] \left[ \begin{array}{c}
+    f_A  \\
+    f_B \\
+    f_C  \\
+    f_D
+\end{array} \right] \notag \\
+&= \left[ \begin{array}{c}
+    f_A cos^2 \ \theta \ + f_B cos \ \theta \ sen \ \theta \\
+    f_A cos \ \theta \ sen \ \theta \ + f_B sen^2 \ \theta \\
+    f_C cos^2 \ \theta \ + f_D cos \ \theta \ sen \ \theta \\
+    f_C cos \ \theta \ sen \ \theta \ + f_D sen^2 \ \theta
+\end{array} \right] \label{ddt}
+\end{align}
+</script>
+</p>
+<p>Substituindo na equação \eqref{ddt} a equação \eqref{forcasLdecom}, que descreve a decomposição dos graus de liberdade locais nos globais do vetor de forças nodais equivalentes:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\left[ \begin{array}{c}
+    f_A cos^2 \ \theta \ + f_B cos \ \theta \ sen \ \theta \\
+    f_A cos \ \theta \ sen \ \theta \ + f_B sen^2 \ \theta \\
+    f_C cos^2 \ \theta \ + f_D cos \ \theta \ sen \ \theta \\
+    f_C cos \ \theta \ sen \ \theta \ + f_D sen^2 \ \theta
+\end{array} \right] &= \left[ \begin{array}{c}
+    f_a \ cos \ \theta \ cos^2 \ \theta \ + f_a \ sen^2 \ \theta \ cos \ \theta \\
+    f_a \ cos^2 \ \theta \ sen \ \theta \ + f_a \ sen \ \theta \ sen^2 \ \theta \\
+    f_b \ cos \ \theta \ cos^2 \ \theta \ + f_b \ sen^2 \ \theta \ cos \ \theta \\
+    f_b \ cos^2 \ \theta \ sen \ \theta \ + f_b \ sen \ \theta \ sen^2 \ \theta
+\end{array} \right] \notag \\
+&= \left[ \begin{array}{c}
+    f_a \ cos \ \theta \ ( cos^2 \ \theta \ + \ sen^2 \ \theta ) \\
+    f_a \ sin \ \theta \ ( cos^2 \ \theta \ + \ sen^2 \ \theta ) \\
+    f_b \ cos \ \theta \ ( cos^2 \ \theta \ + \ sen^2 \ \theta ) \\
+    f_b \ sin \ \theta \ ( cos^2 \ \theta \ + \ sen^2 \ \theta )
+\end{array} \right] \notag \\
+&= \left[ \begin{array}{c}
+    f_a \ cos \ \theta \ 1 \\
+    f_a \ sin \ \theta \ 1 \\
+    f_b \ cos \ \theta \ 1  \\
+    f_b \ sin \ \theta \ 1
+\end{array} \right] = \left[ \begin{array}{c}
+    f_A  \\
+    f_B \\
+    f_C  \\
+    f_D
+\end{array} \right] \notag
+\end{align}
+</script>
+</p>
+<div class="admonition info">
+<p class="admonition-title">Comentário<p>Esquisito isso... mas fechou direitinho e com lógica tanto física quanto matemática. Muitos livros de elementos finitos expandem a matriz do elemento no sistema local para uma matriz 4x4 com linhas e colunas com zeros onde seriam os graus de liberdade transversais e obtém a matriz de rigidez no sistema global com multiplicações pela matriz de rotação de vetores. A forma apresentada aqui é mais elegante e consistente.</p>
+</p>
+</div>
+<p>Por fim, nos resta calcular a matriz de rigidez no sistema glonal, equação \eqref{rigidezGlobalDDt}. Fazendo a multiplicação primeiro de $\textbf{D}$ por $\textbf{k}$ e depois do resultado $\textbf{D} \ \textbf{k}$ por $\textbf{D}^T$, chega-se a matriz de rigidez do elemento de treliça de dois nós no sistema global (X,Y) de coordenadas:</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \textbf{k}_g = \dfrac{EA}{l} \left[
+\begin{array}{cccc}
+    cos^2 \theta & cos \theta sen \theta & -cos^2 \theta & -cos \theta sen \theta\\
+    cos \theta sen \theta & sen^2 \theta & -cos \theta sen \theta & -sen^2 \theta \\
+    -cos^2 \theta & -cos \theta sen \theta & cos^2 \theta & cos \theta sen \theta\\
+    -cos \theta sen \theta & -sen^2 \theta & cos \theta sen \theta & sen^2 \theta \\
+\end{array} \right]
+</script>
+</p>
+<p>E agora?! Agora é hora de voltar a treliça de três barras e resolvê-la na mão na <a href="../aplicacao_tp">aplicação na mão</a></p>
+        
+
+    </div>
+
+    <div id="base">
+            <div id="base_copyright">
+                <font size="1">Copyright &copy; 2011 Marco André Argenta (Usando <a href="https://www.mkdocs.org">MkDocs</a> - tema por MK)</font>
+            </div>
+          
+            <div id="base_ir">
+              
+                &#8612;
+                <a href="../introducao_tp/" title="Introdução">Introdução</a>
+              
+            </div>
+            <div id="base_voltar">
+              
+                <a href="../aplicacao_tp/" title="Aplicação"/>Aplicação</a> &#8614;
+              
+            </div>
+          
+    </div>
+
+  <!--
+  MkDocs version      : 1.0.4
+  Docs Build Date UTC : 2019-07-22 21:44:25
+  -->
+
+</body>
+</html>
