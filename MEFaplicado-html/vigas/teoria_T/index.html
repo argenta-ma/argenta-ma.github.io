@@ -1,0 +1,1220 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Viga de Timoshenko - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif:300,400,400i,700|Source+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Serif","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#viga-de-timoshenko" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Elementos Finitos Aplicados
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Viga de Timoshenko
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/implementacao_tp/" title="Implementação" class="md-nav__link">
+      Implementação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-5">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+      Treliça com 3 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_v/" title="Teoria básica" class="md-nav__link">
+      Teoria básica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_2EB/" title="Euler-Bernoulli" class="md-nav__link">
+      Euler-Bernoulli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deslocamentos" title="Deslocamentos" class="md-nav__link">
+    Deslocamentos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elemento-mestre" title="Elemento Mestre" class="md-nav__link">
+    Elemento Mestre
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-de-forma" title="Funções de forma" class="md-nav__link">
+    Funções de forma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucao" title="Resolução" class="md-nav__link">
+    Resolução
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deformacoes" title="Deformações" class="md-nav__link">
+    Deformações
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equilibrio" title="Equilíbrio" class="md-nav__link">
+    Equilíbrio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-rigidez-do-elemento-de-viga-de-timoshenko" title="Matriz de rigidez do elemento de viga de Timoshenko" class="md-nav__link">
+    Matriz de rigidez do elemento de viga de Timoshenko
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="viga-de-timoshenko">Viga de Timoshenko</h1>
+<h3 id="deslocamentos">Deslocamentos</h3>
+<p>Com a consideração das deformações por cisalhamento precisamos de um modelo um pouco mais completo de viga. No caso vamos utilizar a teoria de viga de Timoshenko. Voltando a ideia básica de dois nós, os graus de liberdade na viga continuariam os mesmos porém, agora, a rotação não é mais escrita em função da variação dos deslocamentos da viga, conforme veremos adiante.</p>
+<p><img alt="Deslocamentos e rotações na viga" src="../imagens/DeslocamentoRotacaoViga.svg" title="Deslocamentos e rotações na viga." /></p>
+<p>Isso significa que os graus de liberdade de translação não estão mais acoplados com os de rotação, portanto, seus efeitos precisem ser avaliados separadamente. Essa nova idealização é um problema para as funções de forma. Lembra que precisamos de um polinômio de no mínimo grau 4 para as deflexões da viga? Pois é, como temos os dois graus de liberdade de translação desacoplados dos dois de rotação, precisamos escrever polinômios interpoladores para cada efeitos, em outras palavras, precisamos de funções de forma para interpolar os deslocamentos transversais e outras funções de forma para interpolar as rotações. Como temos somente dois graus de liberdade de cada o máximo polinômio que conseguiríamos escrever para interpolá-los seria de grau 1, ou seja uma reta, o que é muito aquém do que precisamos para conseguir escrever com uma precisão representativa.</p>
+<!-- Então, quantos graus de liberdade de translação e quantos de rotação precisaríamos para a viga com a teoria de Timoshenko para que conseguíssemos interpolar de forma representativas as deflexões, por exemplo? Pois é, são 5! Ou seja, precisamos de 5 nós na viga de Timoshenko para conseguir interpolar com a mesma ordem do analítico as deflexões na viga.
+
+![Deslocamentos e rotações na viga com 5 nós](imagens/DeslocamentoRotacaoViga5.svg "Deslocamentos e rotações na viga com 5 nós.") -->
+
+<p>Antes de encontrarmos as funções de forma, vou apresentar um conceito novo, onde consideramos um elemento chamado mestre que possui coordenadas unitárias em seus nós. Esse será o elemento onde efetuaremos a integração que resultará na matriz de rigidez, transformando o resultado para o nosso elemento na estrutura utilizando um Jacobiano definido para a transformação.</p>
+<!-- #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AQUI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<h3 id="elemento-mestre">Elemento Mestre</h3>
+<p>O elemento mestre é um elemento muito bem comportado no qual o procedimento de integração para o cálculo da matriz de rigidez é simples. Para vigas, ele é definido como possuindo comprimento 2 (pode ser feito de outras formas também), sendo as coordenadas dos nós em -1 e 1. Além disso, esse elemento existe em outro espaço cartesiano, diferente da viga, definido pelos eixos $s$ e $t$.</p>
+<p><img alt="Definições do elemento Mestre" src="../imagens/DeslocamentoRotacaoVigaMestre.svg" title="Definições do elemento Mestre." /></p>
+<p>A transformação de coordenadas entre o sistema xy e o sistema st pode ser feita em função da própria imposição do comprimento unitário na viga, ou seja:</p>
+<p>
+<script type="math/tex; mode=display">
+x = \dfrac{L}{2}s
+</script>
+</p>
+<p>Para cada 1 $s$ temos $L/2$ x. O que resulta no jacobiano de transformação (o Jacobiano define a variação de x em s).</p>
+<p>
+<script type="math/tex; mode=display">
+J = \dfrac{d x}{d s} = \dfrac{L}{2}
+</script>
+</p>
+<h3 id="funcoes-de-forma">Funções de forma</h3>
+<p>Diferente do caso da viga de Euler-Bernoulli, em função da rotação não ser mais somente escrita em função da variação dos deslocamentos, na viga de Timoshenko consideramos desacoplados os graus de liberdade de deslocamento e de rotação, ou seja, temos apenas 1 grau de liberdade independente por nó. Por isso, o polinômio que conseguimos descrever para interpolar os deslocamentos nos nós e as rotações acaba se resumindo a uma reta, pois temos apenas 2 graus de liberdade independentes por nó e a equação de uma reta, ou um polinômio de ordem 1, possui 2 coeficientes.</p>
+<p>Portanto, o campo de deslocamentos no domínio do elemento e o campo de rotações são interpolados na forma:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+w(s) &= N_1(s)u_1 + N_2(s)u_3 \\
+\theta(s) &= N_1(s)u_2 + N_2(s)u_4 \\
+\end{align}
+</script>
+</p>
+<p>Observe que as mesmas funções de interpolação são utilizadas para os deslocamentos e rotações e elas estão definidas no sistema de coordenadas st para o elemento mestre. São definidas para o elemento mestre justamente pelo fato de utilizarmos esse elemento para as integrações necessárias para a obtenção da matriz de rigidez.</p>
+<blockquote>
+<p>Obvio que as funções seriam as mesmas, afinal ambas resultariam em uma equação de reta, que considera uma variação linear dos deslocamentos e rotações no domínio do elemento mestre.</p>
+</blockquote>
+<p>Portanto, as funções de forma, que foram obtidas da mesma forma que foram as funções de forma do elemento de treliça, são:</p>
+<p>
+<script type="math/tex; mode=display">
+N_1(s) = \dfrac{1-s}{2} \qquad N_2(s) = \dfrac{1+s}{2}
+</script>
+</p>
+<p>As equações acima condensadas são escritas como:</p>
+<p>
+<script type="math/tex; mode=display">
+w(x) = \textbf{N} \textbf{u}_i \qquad \theta(x) = \textbf{N} \textbf{u}_p
+</script>
+</p>
+<p>Sendo $\textbf{u}_i$ o vetor de deslocamentos com os graus de liberdade ímpares e $\textbf{u}_p$ o vetor de deslocamentos com os graus de liberdade pares:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{u}_i = \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_3
+\end{array}\right\rbrace \qquad \textbf{u}_p = \left\lbrace \begin{array}{c}
+    u_2 \\
+    u_4
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Quaisquer dessas equações de interpolação dos deslocamentos nodais em sua forma condensada são válidas para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda, obviamente, são as funções de forma na matriz $\textbf{N}$ e os deslocamentos nodais no vetor $\textbf{u}$.</p>
+<h2 id="resolucao">Resolução</h2>
+<h3 id="deformacoes">Deformações</h3>
+<p>Os deslocamentos da seção transversal na viga $u(x,y)$ são função do deslocamento $w(x)$ da viga acrescidos de um deslocamento adicional causado pela rotação $\phi$ da seção transversal que representa a deformação por cisalhamento na seção. Observe que esses deslocamentos não são constantes e podem ser considerados com variação linear na seção transversal e que agora estamos tratando dos deslocamentos da viga e não do elemento mestre.</p>
+<p><img alt="Deformações na Viga" src="../imagens/DeformacaoVigaTimoshenko.svg" title="Deformações na Viga." /></p>
+<p>Ou seja, para cada posição $y$ na seção transversal, existe um correspondente valor de $u(x)$, que pode ser escrito como:</p>
+<p>
+<script type="math/tex; mode=display">
+u(x) = -y tan \theta
+</script>
+</p>
+<p>Como estamos trabalhando com pequenas deformações, e isso é muito importante, o valor da $tan \theta$ se aproxima do proprio valor de $\theta$. Além disso, esse ângulo de giro, $\theta$, nada mais é que a variação em $x$ da função $w(x)$ que descreve o deslocamento transversal da linha neutra da viga e, portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+u(x) = -y tan \theta = -y \theta
+</script>
+</p>
+<p>No entanto, como vamos levar em conta a deformação por cisalhamento $\theta$ agora é uma soma da rotação pela flexão mais a rotação pelo corte.</p>
+<p>
+<script type="math/tex; mode=display">
+\theta = \dfrac{dw}{dx} + \phi
+</script>
+</p>
+<p>Sabemos que a deformação, por definição, é a variação do deslocamento axial em relação ao comprimento indeformado do elemento da estrutura, associando isso ao disposto acima, chegamos a:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = \dfrac{d u}{d x} = \dfrac{d \left(-y \theta \right)}{d x} = -y \dfrac{d \theta}{dx}
+</script>
+</p>
+<p>Ainda não vamos substituir o valor de $\theta$ na equação acima pois nos estamos interpolando o valor de $\theta$ de forma independente de $u$, lembra:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+w(s) &= N_1(s)u_1 + N_2(s)u_3 \\
+\theta(s) &= N_1(s)u_2 + N_2(s)u_4 \\
+\end{align}
+</script>
+</p>
+<p>Portanto, ao aplicarmos as premissas de elementos finitos à nossa deformação $\varepsilon$ podemos reescrever as deformações diretamente utilizando as funções de forma para $\theta$ e os deslocamentos nodais.</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = -y \dfrac{d \theta(s)}{dx} = -y \dfrac{d \left[ N_1(s)u_2 + N_2(s)u_4 \right] }{dx} \textbf{u} = -y \dfrac{d}{dx} \left( \left[
+\begin{array}{cccc}
+    0 & N_1(s) & 0 & N_2(s)
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace \right)
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \varepsilon = y \left[ \begin{array}{cccc}
+    0 & -\dfrac{dN_1(s)}{dx} & 0 & -\dfrac{dN_2(s)}{dx} \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace
+</script>
+</p>
+<p>A matrix das derivadas segundas das funções de forma na equação é chamada de matriz $\textbf{B}$ em elementos finitos, e portanto, a equação pode ser rescrita de uma forma condensada como:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = \textbf{B} \textbf{u}
+</script>
+</p>
+<p>Da mesma forma a equação também é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda é a matriz das derivadas das funções de interpolação, $\textbf{B}$ e os graus de liberdade (ou deslocamentos) $\textbf{u}$.</p>
+<p>Como no nosso caso:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+N_1(s) &= \dfrac{1-s}{2} \\
+N_2(s) &= \dfrac{1+s}{2} \\
+\end{align*}
+</script>
+</p>
+<p>Portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{dN_1(s)}{dx} = ???
+</script>
+</p>
+<p>Opa!! $N_1(s)$ e $N_2(s)$ são função de $s$ e a derivada é em $x$... e agora?! Lembra da regra da cadeia? Então, como as funções de forma são escritas no sistema st e é necessário se calcular a derivada em relação a x, nós podemos utilizar o jacobiano e a regra da cadeia e fazer o seguinte:</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{dN_i(s)}{ds} = \dfrac{dN_i(s)}{dx}\dfrac{dx}{ds} = \dfrac{dN_i(s)}{dx} J = \dfrac{dN_i(s)}{dx} \dfrac{L}{2}
+</script>
+</p>
+<p>Ou então, utilizando o inverso do Jacobiano:</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{dN_i(s)}{dx} = \dfrac{dN_i(s)}{ds} \dfrac{2}{L}
+</script>
+</p>
+<p>Então:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\dfrac{dN_1(s)}{dx} = &= \dfrac{dN_1(s)}{ds} \dfrac{2}{L} = \dfrac{d \left( \dfrac{1-s}{2} \right)}{ds} \dfrac{2}{L} = -\dfrac{1}{L}\\
+\dfrac{dN_2(s)}{dx} = &= \dfrac{dN_2(s)}{ds} \dfrac{2}{L} = \dfrac{d \left( \dfrac{1+s}{2} \right)}{ds} \dfrac{2}{L} = \dfrac{1}{L}\\
+\end{align*}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{B} = y \left[
+\begin{array}{cccc}
+    0 & \dfrac{1}{L} & 0 & -\dfrac{1}{L} \\
+\end{array} \right]
+</script>
+</p>
+<p>Observe que as funções precisam ser contínuas em suas primeiras derivadas para que possam ser utilizadas no elemento de viga de Timoshenko.</p>
+<p>Mas não acabou aqui, e a deformação por cortante? Essa deformação é causada pela distorção angular $\gamma_{xy}$ que também precisa ser escrita em função dos deslocamentos nodais com as premissas de elementos finitos. Da teoria da elasticidade sabe-se que essa deformação angular é a variação do deslocamento na direção x em y somada a variação do deslocamento na direção y em x.</p>
+<p>
+<script type="math/tex; mode=display">
+\gamma_{xy} = \dfrac{du}{dy} + \dfrac{dw}{dx}
+</script>
+</p>
+<p>Lembrando que $u(x) = -y \theta$, temos:</p>
+<p>
+<script type="math/tex; mode=display">
+\gamma_{xy} = \dfrac{d ( -y \theta )}{dy} + \dfrac{dw}{dx} = -\theta + \dfrac{dw}{dx}
+</script>
+</p>
+<p>Como:</p>
+<p>
+<script type="math/tex; mode=display">
+\theta = \dfrac{dw}{dx} + \phi
+</script>
+</p>
+<p>Portanto concluimos que:</p>
+<p>
+<script type="math/tex; mode=display">
+\gamma_{xy} = -\phi
+</script>
+</p>
+<p>Justamente nossa definição inicial de que a deformação do cisalhamento ou nossa distorção angular é definida por $\phi$. Mas vamos manter a equação anterior de $\gamma_{xy}$ pois sabemos como discretizar $\theta$ e $\frac{dw}{dx}$ em elementos finitos, que, por sinal, são interpolados pelas funções de forma da seguinte maneira:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \dfrac{dw}{dx} &= \dfrac{d N_1(s)u_1 + N_2(s)u_3}{dx} = \dfrac{d N_1(s)}{dx}u_1 + \dfrac{d N_2(s)}{dx}u_3 \\
+    \theta &= N_1(s)u_2 + N_2(s)u_4
+\end{align}
+</script>
+</p>
+<p>Substituindo em $\gamma_{xy}$.</p>
+<p>
+<script type="math/tex; mode=display">
+\gamma_{xy} = -N_1(s)u_2 - N_2(s)u_4 + \dfrac{d N_1(s)}{dx}u_1 + \dfrac{d N_2(s)}{dx}u_3
+</script>
+</p>
+<p>Da mesma forma fazemos as derivadas das funções de forma do espaço st em x usando o Jacobiano e a regra da cadeia e, como são as mesmas, já sabemos exatamente o resultado. Em notação matricial:</p>
+<p>
+<script type="math/tex; mode=display">
+\gamma_{xy} = \left[
+\begin{array}{cccc}
+    \dfrac{d N_1(s)}{dx} & -N_1(s) & \dfrac{d N_2(s)}{dx} & N_2(s)\\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace = \left[\begin{array}{cccc}
+    -\dfrac{1}{L} & -\dfrac{1-s}{2} & \dfrac{1}{L} & -\dfrac{1+s}{2} \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_1 \\
+    u_2 \\
+    u_3 \\
+    u_4
+\end{array} \right\rbrace
+</script>
+</p>
+<p>A matriz das derivadas e das próprias funções de forma na equação é chamada para a deformação por cisalhamento de matriz $\textbf{B}_c$ em elementos finitos, e portanto, a equação pode ser rescrita de uma forma condensada como:</p>
+<p>
+<script type="math/tex; mode=display">
+\gamma_{xy} = \textbf{B}_c \textbf{u}
+</script>
+</p>
+<h3 id="equilibrio">Equilíbrio</h3>
+<p>Agora precisamos colocar a nossa viga em equilíbrio, ou seja, todos os efeitos internos devem ser iguais aos efeitos externos. As tensões e deformações (internas, normais e tangenciais) devem ser equivalentes às solicitações externas em seus efeitos, por exemplo trabalho, energia. Lembrando, estamos fazendo uma análise elástica linear estática considerando pequenas deformações, não queremos que nossa barra se movimente como um corpo rígido ou se deforme em excesso, nem que ajam sobre ela cargas que variam no tempo ou que perca energia através de algum processo dissipativo, além disso, desconsideramos os efeitos de amortecimento do material e da sua inércia, por se tratar de uma análise estática.</p>
+<p>O equilíbrio das quantidades internas e externas nessas condições pode ser escrito através do Princípio dos Trabalhos Virtuais. Esse princípio, na mecânica dos sólidos, estabelece que o trabalho das forças internas (tensões), $W_i$ deve ser igual ao trabalho das forças externas (no nosso caso f), $W_e$, então:</p>
+<p>
+<script type="math/tex; mode=display">
+W_i = W_e
+</script>
+</p>
+<p>O trabalho das forças internas, $W_i$, ou seja, o trabalho das tensões é calculando multiplicando essas tensões pelas suas respectivas deformações. No caso da viga de Timoshenko podemos escrever o trabalho das forças internas em duas parcelas, uma relativa ao trabalho das tensões e respectivas deformações normais, representativas do efeito da flexão, $W_f$, e outra relativa ao trabalho das tensões de cisalhamento e respectivas distorções angulares, relativa ao efeito do corte, $W_c$.</p>
+<p>
+<script type="math/tex; mode=display">
+W_i = W_f + W_c
+</script>
+</p>
+<p>O trabalho interno total é a soma das tensões multiplicadas pelas respectivas deformações em toda a barra da treliça, portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    W_f &= {\displaystyle\int_V \sigma \varepsilon dV } \\
+    W_c &= {\displaystyle\int_V \tau_{xy} \gamma_{xy} dV } \\
+    &\therefore W_i = {\displaystyle\int_V \sigma \varepsilon dV } + {\displaystyle\int_V \tau_{xy} \gamma_{xy} dV }
+\end{align}
+</script>
+</p>
+<p>O trabalho das forças externas continua sendo calculado pela força multiplicada pelo seu respectivo deslocamento, afinal as condições do carregamento externo são as mesmas, ou seja, como aplicamos uma carga distribuída $g$ em todo o comprimento da viga e essa carga fez com que a viga se deslocasse em $w(x)$ também em todo o seu comprimento, o trabalho externo total é a soma da contribuição de cada pedacinho de $g \times w$ na viga</p>
+<p>
+<script type="math/tex; mode=display">
+W_e = {\displaystyle\int_x g w(x) dx }
+</script>
+</p>
+<p>Sabemos que tanto $\varepsilon$ quanto $w(x)$ estão em equilíbrio, mas não o quanto valem nem como mantém o sistema em equilíbrio. Para testar o equilíbrio desse sistema vamos perturbar ele, partindo de zero deslocamentos e perturbando com deslocamentos imaginários ou virtuais nos nós de $\delta u_1$ e $\delta u_3$ e rotações virtuais de $\delta u_2$ e $\delta u_5$.</p>
+<p>Sendo assim, nossa deformação normal virtual se escreve:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \delta \varepsilon &= y \left[
+    \begin{array}{cccc}
+        0 & \dfrac{1}{L} & 0 & -\dfrac{1}{L} \\
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_1 \\
+        \delta u_2 \\
+        \delta u_3 \\
+        \delta u_4
+    \end{array} \right\rbrace \\
+    \delta \varepsilon &= \textbf{B} \delta \textbf{u}
+\end{align}
+</script>
+</p>
+<p>A distorção angular virtual:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \delta \gamma_{xy} &= \left[\begin{array}{cccc}
+    -\dfrac{1}{L} & -\dfrac{1-s}{2} & \dfrac{1}{L} & -\dfrac{1+s}{2} \\
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_1 \\
+        \delta u_2 \\
+        \delta u_3 \\
+        \delta u_4
+    \end{array} \right\rbrace \\
+    \delta \gamma_{xy} &= \textbf{B}_c \delta \textbf{u}
+\end{align}
+</script>
+</p>
+<p>E para o deslocamento virtual total $w(x)$ vamos manter, por enquanto, em uma forma genérica:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \delta w(x) &= \textbf{N} \delta \textbf{u}
+\end{align}
+</script>
+</p>
+<p>Substituindo esses valores respectivamente nas equações e fazendo o equilíbrio, chegamos à:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    W_i &= W_e \\
+    {\displaystyle\int_V \sigma \varepsilon dV } + {\displaystyle\int_V \tau_{xy} \gamma_{xy} dV } &= {\displaystyle\int_x g w(x) dx } \\
+    {\displaystyle\int_V \sigma \textbf{B} \delta \textbf{u} dV } + {\displaystyle\int_V \tau_{xy} \textbf{B}_c \delta \textbf{u} dV } &= {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }
+\end{align}
+</script>
+</p>
+<p>Como estamos trabalhando com nosso material utilizando apenas o seu limite elástico, ou seja, o valor das tensões e deformações não podem ser maiores que as limites para esse regime, $\sigma \leq \sigma_{lim}$ e $\varepsilon \leq \varepsilon_{lim}$.</p>
+<p><img alt="Relação Constitutiva Linear Proporcional" src="../imagens/RelConstitutiva.svg" title="Relação Constitutiva Linear Proporcional" />
+<small>Relação constitutiva linear proporcional do material, com rigidez elástica E.</small></p>
+<p>Além disso, como as tensões são proporcionais às deformações, podemos escrever para as tensões normais e tensões cisalhantes:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \sigma &= E \varepsilon \\
+    \tau_{xy} &= G \gamma_{xy}
+\end{align}
+</script>
+</p>
+<p>Observe que no caso da viga, mesmo com as deformações variando linearmente ao longo da seção transversal, $\sigma$, $\varepsilon$, $\tau_{xy}$ e $\gamma_{xy}$ são escalares (ou tensores de ordem zero), pois apenas existe a componente na direção axial da viga e sua respectiva componente na direção paralela a direção do carregamento e a seção transversal. Aliás, $E$ e $G$ também são escalares (ou tensores de ordem zero) por estarmos trabalhando com a resposta mecânica do material em apenas uma direção.</p>
+<blockquote>
+<p>Uma direção? Mas a normal e o cisalhamento não são ortogonais? São sim, mas o efeito do cisalhamento que estamos considerando foi definido como desacoplado da flexão e obtido com um ângulo $\phi$ adicional de giro na seção transversal. Além disso, os parâmetros do material que precisamos encontrar são o modulo de elasticidade e o coeficiente de poisson, pois:</p>
+<p>$G = \dfrac{E}{2(1 + \nu)} \qquad \text{e, no caso:} \qquad \nu = -\dfrac{\varepsilon_y}{\varepsilon_x}$</p>
+<p>Lembre-se, cisalhamento não existe! Somente aparece pois estamos escrevendo nossa resposta mecânica em função de um referencial fixo, no caso, cartesiano. Então, as tensões principais, que de fato existem fisicamente, são decompostas em parcelas normal e tangencial em cada ponto do material.</p>
+</blockquote>
+<p>Dessa forma, substituindo o valor de $\sigma$ e de $\tau_{xy}$:</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V E \varepsilon \textbf{B} \delta \textbf{u} dV } + {\displaystyle\int_V G \gamma_{xy} \textbf{B}_c \delta \textbf{u} dV } = {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }
+</script>
+</p>
+<p>Como em nosso problemas estamos discretizando utilizando MEF, substituimos as deformações $\varepsilon$ e $\gamma_{xy}$ pelas respectivas discretizações utilizando as funções de forma e os deslocamentos nodais:</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V \delta \textbf{u}^T \textbf{B}^T E \textbf{B} \textbf{u} dV } + {\displaystyle\int_V \delta \textbf{u}^T \textbf{B}_c^T G \textbf{B}_c \textbf{u} dV } = {\displaystyle\int_x g \textbf{N} \delta \textbf{u} dx }
+</script>
+</p>
+<blockquote>
+<p>Lembre-se que as transposições são feitas para continuar possível a multiplicação matricial!</p>
+</blockquote>
+<p>Como os deslocamentos $\delta \textbf{u}$ e $\textbf{u}$ não dependem do volume da viga, podemos retirá-los da integral.</p>
+<p>
+<script type="math/tex; mode=display">
+\delta \textbf{u}^T {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u}  + \delta \textbf{u}^T {\displaystyle\int_V \textbf{B}_c^T G \textbf{B}_c dV } \textbf{u} = \delta \textbf{u}^T g {\displaystyle\int_x \textbf{N}^T dx }
+</script>
+</p>
+<p>Ou ainda:</p>
+<p>
+<script type="math/tex; mode=display">
+\delta \textbf{u}^T \left[ {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } + {\displaystyle\int_V \textbf{B}_c^T G \textbf{B}_c dV } \right] \textbf{u} = \delta \textbf{u}^T g {\displaystyle\int_x \textbf{N}^T dx }
+</script>
+</p>
+<p>E, como $\delta \textbf{u}$ são os mesmos em ambos os lados da equação, chegamos ao equilíbrio da nossa viga.</p>
+<p>
+<script type="math/tex; mode=display">
+\left[ {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } + {\displaystyle\int_V \textbf{B}_c^T G \textbf{B}_c dV } \right] \textbf{u} = g {\displaystyle\int_x \textbf{N}^T dx }
+</script>
+</p>
+<p>Que, em MEF, chamamos de equilíbrio estático e escrevemos de forma condensada como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>Sendo as integrais no volume conhecidas como matriz de rigidez do elemento, $\textbf{k}$ e $\textbf{f}$ o vetor de forças nodais equivalentes. No caso da viga de Timoshenko nossa matriz de rigidez é composta de duas parcelas:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} = \textbf{k}_f + \textbf{k}_c
+</script>
+</p>
+<p>Uma relativa a rigidez a flexão e outra a rigidez ao cortante.</p>
+<h3 id="matriz-de-rigidez-do-elemento-de-viga-de-timoshenko">Matriz de rigidez do elemento de viga de Timoshenko</h3>
+<p>O vetor de forças nodais equivalentes construído com as funções de forma da viga de Timoshenko não consegue interpolar de forma eficiente o carregamento para a obteção das forças nodais que de fato equivalem a esse carregamento. Isso se deve ao fato da interpolação dos deslocamentos e das rotações ser desacoplada. Como a trabalho interno é definido pela força multiplicada pelo seu respectivo deslocamento, no caso da viga de Timoshenko, obteríamos apenas forças nodais nos graus de liberdade de translação.</p>
+<p>Matematicamente, como:</p>
+<p>
+<script type="math/tex; mode=display">
+w(s) = N_1(s)u_1 + N_2(s)u_3
+</script>
+</p>
+<p>Sendo as funções de forma:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+N_1(s) &= \dfrac{1-s}{2} \\
+N_2(s) &= \dfrac{1+s}{2}
+\end{align*}
+</script>
+</p>
+<p>E a transformação de coordenadas $s = \dfrac{2}{L}x$, $\textbf{N}$ resulta em:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{N} = \left [\begin{array}{cccc}
+    N_1 & 0 & N_2 & 0
+    \end{array} \right]
+</script>
+</p>
+<p>E ainda, como:</p>
+<p>
+<script type="math/tex; mode=display">
+W_e = {\displaystyle\int_x g w(x) dx }
+</script>
+</p>
+<p>Que resulta após a aplicação da discretização de MEF em:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f} = g {\displaystyle\int_x \textbf{N}^T dx } = g {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left [\begin{array}{c}
+    N_1 \\
+    0 \\
+    N_2 \\
+    0 \\
+    \end{array} \right] dx } = g {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left [\begin{array}{c}
+    \dfrac{1}{2} - \dfrac{x}{L} \\
+    0 \\
+    \dfrac{1}{2} + \dfrac{x}{L} \\
+    0
+    \end{array} \right] dx }
+</script>
+</p>
+<p>Sendo o $\textbf{N}$ na equação acima relativo a interpolação dos deslocamentos $w(x)$, fica claro observar que nesse caso a interpolação e a resolução da integral resultariam apenas em forças nodais equivalentes relativas aos graus de liberdade de deslocamento.</p>
+<p>Por isso vamos utilizar o vetor de forças nodais equivalentes definido para a carga distribuída utilizando as funções de forma de Hermite, da mesma forma que foi feito para a viga de Euler-Bernoulli, ou seja:</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{L}{2} \\
+    \dfrac{L^2}{12} \\
+    \dfrac{L}{2} \\
+    -\dfrac{L^2}{12}
+    \end{array} \right]
+</script>
+</p>
+<p>No caso da integral no volume, conhecida como matriz de rigidez do elemento, podemos abrir a integral em uma integral na área e outra no comprimento. No entanto, lembra que a matriz $\textbf{B}$ possui um $y$ multiplicando as derivadas segundas das funções de interpolação? Isso significa que as deformações são função tanto de $x$ quando de $y$ da seção transversal (não confunda o $y$ da seção com o $y$ do sistema de coordenadas). Isolando o $y$ de $\textbf{B}$, podemos escrever:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{B} = y \textbf{B}_x
+</script>
+</p>
+<p>E ao resolver a integral na área chegamos a um velho conhecido nosso, o segundo momento de área ou momento de inércia.</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } + {\displaystyle\int_A \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx dA }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \left[ {\displaystyle\int_A \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}^T E \textbf{B} dx dA } + {\displaystyle\int_A \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx dA } \right] \textbf{u} &= \textbf{f} \\
+    \left[ {\displaystyle\int_A y^2 dA \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx  } + {\displaystyle\int_A dA \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx }\right] \textbf{u} &= \textbf{f} \\
+    \left[ I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_x^T E \textbf{B}_x dx } + A {\displaystyle \int_{-\frac{L}{2}}^{\frac{L}{2}} \textbf{B}_c^T G \textbf{B}_c dx } \right] \textbf{u} &= \textbf{f}
+\end{align}
+</script>
+</p>
+<p>Chamando a primeira integral dentro dos colchetes de $\textbf{k}_f$ e a segunda de $\textbf{k}_c$ e substituindo os valores de $\textbf{B}_x$ e $\textbf{B}_c$, realizando as multiplicações matriciais e resolvendo a integral:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_f = I_z {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left[
+\begin{array}{c}
+    0 \\
+    \dfrac{1}{L} \\
+    0 \\
+    -\dfrac{1}{L}
+\end{array} \right] E \left[
+\begin{array}{cccc}
+    0 & \dfrac{1}{L} & 0 & -\dfrac{1}{L} \\
+\end{array} \right] dx }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_c = A {\displaystyle\int_{-\frac{L}{2}}^{\frac{L}{2}} \left[\begin{array}{c}
+    -\dfrac{1}{L} \\
+    -\dfrac{1-s}{2} \\
+     \dfrac{1}{L} \\
+    -\dfrac{1+s}{2}
+\end{array} \right] G \left[\begin{array}{cccc}
+    -\dfrac{1}{L} & -\dfrac{1-s}{2} & \dfrac{1}{L} & -\dfrac{1+s}{2} \\
+\end{array} \right] dx }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \textbf{k}_f = \dfrac{EI_z}{L} \left[
+\begin{array}{cccc}
+    0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & -1 \\
+    0 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 1 \\
+\end{array} \right]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \textbf{k}_c = \dfrac{AG}{L} \left[
+\begin{array}{cccc}
+    1 & \dfrac{L}{2} & -1 & \dfrac{L}{2} \\
+    \dfrac{L}{2} & \dfrac{L^2}{3} & -\dfrac{L}{2} & \dfrac{L^2}{6} \\
+    -1 & -\dfrac{L}{2} & 1 & -\dfrac{L}{2} \\
+    \dfrac{L}{2} & \dfrac{L^2}{6} & -\dfrac{L}{2} & \dfrac{L^2}{3} \\
+\end{array} \right]
+</script>
+</p>
+<p>E:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{u} = \left\lbrace \begin{array}{c}
+        u_1 \\
+        u_2 \\
+        u_3 \\
+        u_4
+    \end{array} \right\rbrace \quad \quad \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{L}{2} \\
+    \dfrac{L^2}{12} \\
+    \dfrac{L}{2} \\
+    -\dfrac{L^2}{12}
+    \end{array} \right]
+</script>
+</p>
+<p>E o equilíbrio sendo dado por:</p>
+<p>
+<script type="math/tex; mode=display">
+\left[\textbf{k}_f + \textbf{k}_c \right] \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>E agora?! Agora é hora de voltar à viga da ponte preta e resolvê-la na mão na <a href="../aplicacao_v">aplicação na mão</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../js/adicionais.js"></script>
+      
+    
+  </body>
+</html>

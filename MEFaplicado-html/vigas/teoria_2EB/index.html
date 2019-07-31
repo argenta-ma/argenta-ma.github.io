@@ -1,0 +1,1210 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Euler-Bernoulli - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif:300,400,400i,700|Source+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Serif","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#viga-de-euler-bernoulli" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Elementos Finitos Aplicados
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Euler-Bernoulli
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/implementacao_tp/" title="Implementação" class="md-nav__link">
+      Implementação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+    
+    <label class="md-nav__link" for="nav-2-5">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-5">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+      Treliça com 3 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_v/" title="Teoria básica" class="md-nav__link">
+      Teoria básica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Euler-Bernoulli
+      </label>
+    
+    <a href="./" title="Euler-Bernoulli" class="md-nav__link md-nav__link--active">
+      Euler-Bernoulli
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deflexoes" title="Deflexões" class="md-nav__link">
+    Deflexões
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-de-forma" title="Funções de forma" class="md-nav__link">
+    Funções de forma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucao" title="Resolução" class="md-nav__link">
+    Resolução
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deformacoes" title="Deformações" class="md-nav__link">
+    Deformações
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equilibrio" title="Equilíbrio" class="md-nav__link">
+    Equilíbrio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-rigidez-do-elemento-de-viga-de-euler-bernoulli" title="Matriz de rigidez do elemento de viga de Euler-Bernoulli" class="md-nav__link">
+    Matriz de rigidez do elemento de viga de Euler-Bernoulli
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deflexoes" title="Deflexões" class="md-nav__link">
+    Deflexões
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-de-forma" title="Funções de forma" class="md-nav__link">
+    Funções de forma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucao" title="Resolução" class="md-nav__link">
+    Resolução
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deformacoes" title="Deformações" class="md-nav__link">
+    Deformações
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equilibrio" title="Equilíbrio" class="md-nav__link">
+    Equilíbrio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-rigidez-do-elemento-de-viga-de-euler-bernoulli" title="Matriz de rigidez do elemento de viga de Euler-Bernoulli" class="md-nav__link">
+    Matriz de rigidez do elemento de viga de Euler-Bernoulli
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="viga-de-euler-bernoulli">Viga de Euler-Bernoulli</h1>
+<h3 id="deflexoes">Deflexões</h3>
+<p>Daqui para frente, esquece a viga real da ponte, esquece a ponte real e nos focamos apenas na idealização unidimensional. Da equação diferencial da viga de Euler-Bernoulli podemos chegar a conclusão de que as deflexões $w(r)$ são um polinômio de 4 grau e a rotação da seção transversal $dw/dr$ um polinômio de 3 grau. A ideia fundamental em elementos finitos é conseguirmos escrever esse campo de deflexões em função de deslocamentos nodais interpolados por funções de forma. Portanto, precisamos encontrar essas funções de forma. Observando o comportamento da seção transversal em um ponto, notamos que ela se desloca na direção do carregamento e também rotaciona em torno de um eixo perpendicular do plano XY, tal fato nos dá um dica sobre que tipo de grau de liberdade precisamos nos nós para representar esse efeito.</p>
+<p>De uma forma bem simples, a ideia básica do método dos elementos finitos aplicados à estruturas é transformar essa viga com suas deflexões e rotações contínuos em $r$ em um elemento discreto com deslocamentos e rotações definidos apenas nos seus extremos ou nós, sendo as deflexões dentro desse elemento calculadas através de uma interpolação, utilizando as chamadas funções de forma, dos deslocamentos nos nós ou nodais.</p>
+<p>De outra forma, digamos que se conheçam os deslocamentos e as rotações nos nós desse elemento, sendo eles de valor qualquer $u_a$ e $u_b$ no nós 1 e $u_c$ e $u_d$ no nó 2 respectivamente, e que, através deles, queremos calcular as deflexões em qualquer ponto desse elemento, entre os nós 1 e 2. Digamos ainda que esse elemento tem comprimento l.</p>
+<p><img alt="Deslocamentos e Rotações na Viga" src="../imagens/DeslocamentoRotacaoViga.svg" title="Deslocamentos e Rotações na Viga." /></p>
+<p>Observe que definimos 4 graus de liberdade no elemento, dois de deslocamentos e 2 de rotações.</p>
+<h3 id="funcoes-de-forma">Funções de forma</h3>
+<p>As funções de forma de cada grau de liberdade em cada nó podem ser encontradas partindo-se de um polinômio de grau 3 genérico e sua primeira derivada.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    w(r) &= A + B  r + C  r^2 + D  r^3 \label{polinomiode3}\\
+    \dfrac{dw(r)}{dr} &= 0 + B + 2  C  r + 3  D  r^2 \label{derivadapolinomio3}
+\end{align}
+</script>
+</p>
+<p>Sabemos que em cada nó esses dois polinômios devem ser iguais aos valores dos graus de liberdade respectivos, deslocamento ou rotação. Substituindo o valor de $r$ pela posição de cada nó e igualando os polinômios aos respectivos graus de liberdade, podemos escrever na forma matricial:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\left[
+\begin{array}{cccc}
+    1 & \dfrac{-l}{2} & \dfrac{l^2}{4} & \dfrac{-l^3}{8} \\
+    0 & 1 & \dfrac{-l}{2}   & \dfrac{l^2}{4}  \\
+    1 & \dfrac{l}{2} & \dfrac{l^2}{4} & \dfrac{l^3}{8} \\
+    0 & 1 & \dfrac{l}{2}   & \dfrac{l^2}{4} \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    A \\
+    B \\
+    C \\
+    D
+\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    u_a \\
+    u_b \\
+    u_c \\
+    u_d
+\end{array} \right\rbrace
+\end{align}
+</script>
+</p>
+<p>Os valores dos coeficientes A, B, C, D dos polinômios são encontrados resolvendo-se o sistema acima, que resulta em:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+\left\lbrace
+\begin{array}{c}
+    A \\
+    B \\
+    C \\
+    D
+\end{array} \right\rbrace = \left\lbrace
+\begin{array}{c}
+    l \dfrac{u_b}{8} - l \dfrac{u_d}{8} + \dfrac{u_a}{2} + \dfrac{u_c}{2} \\
+    -\dfrac{u_b}{4} - \dfrac{u_d}{4} - 3 \dfrac{u_a}{2 l} + 3 \dfrac{u_c}{2 l} \\
+    -\dfrac{u_b}{2 l} + \dfrac{u_d}{2 l} \\
+    \dfrac{u_b}{l^2} + \dfrac{u_d}{l^2} + 2 \dfrac{u_a}{l^3} - 2 \dfrac{u_c}{l^3}
+\end{array} \right\rbrace
+\end{align}
+</script>
+</p>
+<p>Substituindo esse valores encontrados dos coeficientes nos polinômios da equação \eqref{polinomiode3} encontramos o polinômio de grau 3 que interpola as deflexões da viga com 2 nós:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+w(r) = &l \dfrac{u2}{8} - l \dfrac{u4}{8} + \dfrac{u1}{2} - u2 \dfrac{r}{4} + \dfrac{u3}{2} - u4 \dfrac{r}{4} - 3 u1 \dfrac{r}{2 l} \notag \\
+&- u2 \dfrac{r^2}{2 l} + 3 u3 \dfrac{r}{2 l} + u4 \dfrac{r^2}{2 l} + u2 \dfrac{r^3}{l^2} + u4 \dfrac{r^3}{l^2} + 2 u1 \dfrac{r^3}{l^3} - 2 u3 \dfrac{r^3}{l^3}  \label{polinomiode3gls}
+\end{align}
+</script>
+</p>
+<p>Com essa equação \eqref{polinomiode3gls} é possível calcular a deflexão da viga em qualquer ponto no seu comprimento em função dos valores dos graus de liberdade. Portanto, para determinarmos as funções de forma para cada grau de liberdade basta isolar na equação \eqref{polinomiode3gls} cada deslocamento, ou seja:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+w(r) = & (\dfrac{1}{2} - 3 \dfrac{r}{2 l} + 2 \dfrac{r^3}{l^3} )u_a \\
+& (\dfrac{l}{8} - \dfrac{r}{4} - \dfrac{r^2}{2 l} + \dfrac{r^3}{l^2} )u_b \\
+& (\dfrac{1}{2} + 3 \dfrac{r}{2 l} - 2 \dfrac{r^3}{l^3})u_c \\
+& (- \dfrac{l}{8} - \dfrac{r}{4} + \dfrac{r^2}{2 l} + \dfrac{r^3}{l^2} )u_d \label{polinomiode3glso}
+\end{align*}
+</script>
+</p>
+<p>De forma mais explícita:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+N_a &= \dfrac{1}{2} - \dfrac{3}{2l}r + \dfrac{2}{l^3}r^3 \\
+N_b &= \dfrac{l}{8} - \dfrac{1}{4}r - \dfrac{1}{2l}r^2 + \dfrac{1}{l^2}r^3 \\
+N_c &= \dfrac{1}{2} + \dfrac{3}{2l}r - \dfrac{2}{l^3}r^3 \\
+N_d &= - \dfrac{l}{8} - \dfrac{1}{4}r + \dfrac{1}{2l}r^2 + \dfrac{1}{l^2}r^3
+\end{align}
+</script>
+</p>
+<p><img alt="Interpolação dos deslocamentos" src="../imagens/interpolacao2nosDeslocamentos.svg" title="Interpolação dos deslocamentos na viga." /></p>
+<p><img alt="Interpolação das rotações" src="../imagens/interpolacao2nosRotacoes.svg" title="Interpolação das rotações na viga." /></p>
+<p>Portanto, o campo de deflexões no domínio do elemento é interpolado pelas funções de forma em função dos valores dos deslocamentos nodais.</p>
+<p>
+<script type="math/tex; mode=display">
+w(r) = \left[
+\begin{array}{cccc}
+    N_a & N_b & N_c & N_d \\
+\end{array} \right] \left\lbrace \begin{array}{c}
+    u_a \\
+    u_b \\
+    u_c \\
+    u_d
+\end{array} \right\rbrace
+</script>
+</p>
+<p>A equação acima condensada é escrita como:</p>
+<p>
+<script type="math/tex; mode=display">
+w(r) = \textbf{N} \textbf{u}
+</script>
+</p>
+<p>Essa equação de interpolação dos deslocamentos nodais em sua forma condensada é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda, obviamente, são as funções de forma na matriz $\textbf{N}$ e os deslocamentos nodais no vetor $\textbf{u}$.</p>
+<div class="admonition info graus de liberdade">
+<p class="admonition-title">Info</p>
+<p>Vamos relembrar dentro das premissas do MEF do conceito de <strong>grau de liberdade</strong>. Os deslocamentos $u_a$, $u_c$ e $u_5$ e as rotações $u_b$, $u_d$ e $u_6$, dentro da conceituação do MEF, são chamados de <strong>graus de liberdade</strong>. Os graus de liberdade, no MEF, são as possíveis direções de deslocamentos, rotações, velocidades, acelerações, entre outros, que podem ser discretizados em um nó em função de um sistema de coordenadas referencial, aos quais estão associadas funções de forma que "distribuem" os seus efeitos dentro de um determinado elemento (ou no domínio de um elemento). Ou seja, o nosso elemento representativo de uma viga com 3 nós possui 6 graus de liberdade!</p>
+</div>
+<p>Então, como determinar os valores de deslocamentos associados aos graus de liberdade $u_a$ e $u_b$ e as rotações $u_b$ e $u_d$?</p>
+<h2 id="resolucao">Resolução</h2>
+<h3 id="deformacoes">Deformações</h3>
+<p>Os deslocamentos axiais da seção transversal na viga $u(r,s)$ são função da deflexão $w(r)$ da viga, na linha neutra, quando fletida e da posição na qual é medido na seção transversal $s$, considerando-se a linha neutra com deslocamentos zero. Observe que esses deslocamentos não são constantes e podem ser considerados com variação linear na seção transversal.</p>
+<p><img alt="Deformações na Viga" src="../imagens/DeformacaoViga.svg" title="Deformações na Viga." /></p>
+<p>Ou seja, para cada posição $s$ na seção transversal, existe um correspondente valor de $u(r)$, que pode ser escrito como:</p>
+<p>
+<script type="math/tex; mode=display">
+u(r) = -s tan \theta
+</script>
+</p>
+<p>Como estamos trabalhando com pequenas deformações, e isso é muito importante, o valor da $tan \theta$ se aproxima do proprio valor de $\theta$. Além disso, esse ângulo de giro, $\theta$, nada mais é que a variação em $r$ da função $w(r)$ que descreve a deflexão da linha neutra da viga e, portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+u(r) = -s tan \theta = -s \theta = -s \dfrac{dw}{dr}
+</script>
+</p>
+<div class="admonition tip">
+<p class="admonition-title">Atenção...</p>
+<p>De onde $tan \theta$ se aproxima do proprio valor de $\theta$?? Vamos ver: $\theta = 1 rad \ \therefore \ tan \theta = 1,557$, nem perto. Ok, que tal $\theta = 0,1 rad \ \therefore \ tan \theta = 0,10033$, melhor mas ainda tem diferença. Então $\theta = 0,01 rad \ \therefore \ tan \theta = 0,0100003$, melhor. Entendeu o quão pequeno? Detalhe $1^o = \pi/180 rad$, ou seja, $0,01 rad = 0,5729578^o$. Então quer dizer que se o meu giro da seção transversal foi maior que $0,01rad$, aproximadamente, está tudo errado!? Não, quer dizer que a formulação não se aplica por, no caso, $tan \theta \neq \theta$.</p>
+</div>
+<p>Sabemos que a deformação, por definição, é a variação do deslocamento axial em relação ao comprimento indeformado do elemento da estrutura, associando isso ao disposto acima, chegamos a:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = \dfrac{d u}{dr} = \dfrac{d \left(-s \dfrac{dw}{dr}\right)}{dr} = -s \dfrac{d^2w}{dr^2}
+</script>
+</p>
+<p>Como à deflexão da nossa viga $w(r)$ serão aplicados as premissas de elementos finitos, podemos reescrever as deformações utilizando as funções de forma e os deslocamentos nodais.</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = -s \dfrac{d^2w}{dr^2} = -s \dfrac{d^2 \textbf{N}}{dr^2} \textbf{u}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+-s \dfrac{d^2}{dr^2} \left( \left[
+\begin{array}{cccc}
+    N_a & N_b & N_c & N_d\\
+\end{array} \right] \left\lbrace
+\begin{array}{c}
+    u_a \\
+    u_b \\
+    u_c \\
+    u_d
+\end{array} \right\rbrace \right) = -s \left[
+\begin{array}{cccc}
+    \dfrac{d^2N_1}{dr^2} & \dfrac{d^2N_2}{dr^2} & \dfrac{d^2N_3}{dr^2} & \dfrac{d^2N_4}{dr^2}
+\end{array} \right] \left\lbrace
+\begin{array}{c}
+    u_a \\
+    u_b \\
+    u_c \\
+    u_d
+\end{array} \right\rbrace
+</script>
+</p>
+<p>A matriz das derivadas segundas das funções de forma na equação é chamada de matriz $\textbf{B}$ em elementos finitos, e portanto, a equação pode ser rescrita de uma forma condensada como:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon = \textbf{B} \textbf{u}
+</script>
+</p>
+<p>Da mesma forma a equação também é válida para qualquer elemento finito, seja o de treliça, de viga, de pórtico, de placa, de casca ou tridimensional, o que muda é a matriz das derivadas das funções de interpolação, $\textbf{B}$ e os graus de liberdade (ou deslocamentos) $\textbf{u}$.</p>
+<p>Como no nosso caso:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+N_a &= \dfrac{1}{2} - \dfrac{3}{2l}r + \dfrac{2}{l^3}r^3 \\
+N_b &= \dfrac{l}{8} - \dfrac{1}{4}r - \dfrac{1}{2l}r^2 + \dfrac{1}{l^2}r^3 \\
+N_c &= \dfrac{1}{2} + \dfrac{3}{2l}r - \dfrac{2}{l^3}r^3 \\
+N_d &= - \dfrac{l}{8} - \dfrac{1}{4}r + \dfrac{1}{2l}r^2 + \dfrac{1}{l^2}r^3
+\end{align*}
+</script>
+</p>
+<p>Portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    \dfrac{d^2N_1}{dr^2} &= - \dfrac{12}{l^3}r \\
+    \dfrac{d^2N_2}{dr^2} &= \dfrac{1}{l} - \dfrac{6}{l^2}r \\
+    \dfrac{d^2N_3}{dr^2} &= \dfrac{12}{l^3}r \\
+    \dfrac{d^2N_4}{dr^2} &= - \dfrac{1}{l} - \dfrac{6}{l^2}r
+\end{align*}
+</script>
+</p>
+<p>Então:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{B} = -s \left[
+\begin{array}{cccc}
+    - \dfrac{12}{l^3}r & \dfrac{1}{l} - \dfrac{6}{l^2}r & \dfrac{12}{l^3}r & - \dfrac{1}{l} - \dfrac{6}{l^2}r \\
+\end{array} \right]
+</script>
+</p>
+<p>Observe que as funções precisam ser contínuas em suas segundas derivadas para que possam ser utilizadas no elemento de viga, diferentemente do elemento de treliça onde apenas a primeira derivada precisava de continuidade.</p>
+<h3 id="equilibrio">Equilíbrio</h3>
+<p>Agora precisamos colocar a nossa viga em equilíbrio, ou seja, todos os efeitos internos devem ser iguais aos efeitos externos. As tensões e deformações (internas) devem ser equivalentes às solicitações externas em seus efeitos, por exemplo trabalho, energia. Estamos fazendo uma análise elástica linear estática considerando pequenas deformações, não queremos que nossa barra se movimente como um corpo rígido ou se deforme em excesso, nem que ajam sobre ela cargas que variam no tempo ou que perca energia através de algum processo dissipativo, além disso, desconsideramos os efeitos de amortecimento do material e da sua inércia, por se tratar de uma análise estática.</p>
+<p>O equilíbrio das quantidades internas e externas nessas condições pode ser escrito através do Princípio dos Trabalhos Virtuais. Esse princípio, na mecânica dos sólidos, estabelece que o trabalho das forças internas (tensões), $W_i$ deve ser igual ao trabalho das forças externas (no nosso caso f), $W_e$, então:</p>
+<p>
+<script type="math/tex; mode=display">
+W_i = W_e
+</script>
+</p>
+<p>O trabalho das forças internas, $W_i$, ou seja, o trabalho das tensões é calculando multiplicando essas tensões pelas suas respectivas deformações. O trabalho interno total é a soma das tensões multiplicadas pelas deformações em toda a barra da treliça, portanto:</p>
+<p>
+<script type="math/tex; mode=display">
+W_i = {\displaystyle\int_V \sigma \varepsilon dV }
+</script>
+</p>
+<p>O trabalho das forças externas agora é diferente, como aplicamos uma carga distribuída $g$ em todo o comprimento da viga e essa carga fez com que a viga defletisse em $w(r)$ também em todo o seu comprimento, o trabalho externo total é a soma da contribuição de cada pedacinho de $g \times w$ na viga</p>
+<p>
+<script type="math/tex; mode=display">
+W_e = {\displaystyle\int_r g w(r) dr }
+</script>
+</p>
+<p>O detalhe aqui é que tanto $\varepsilon$ quanto $w(r)$ estão em equilíbrio, mas não sabemos quanto valem nem como mantém o sistema em equilíbrio. Para testar o equilíbrio desse sistema vamos perturbar ele, partindo de zero deslocamentos e perturbando com deslocamentos imaginários ou virtuais nos nós de $\delta u_a$ e $\delta u_c$ e rotações virtuais de $\delta u_b$ e $\delta u_d$.</p>
+<p>Sendo assim, nossa deformação virtual se escreve:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \delta \varepsilon &= -s \left[\begin{array}{cccc}
+    \dfrac{d^2N_1}{dr^2} & \dfrac{d^2N_2}{dr^2} & \dfrac{d^2N_3}{dr^2} & \dfrac{d^2N_4}{dr^2} \\
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_a \\
+        \delta u_b \\
+        \delta u_c \\
+        \delta u_d
+    \end{array} \right\rbrace \\
+    \delta \varepsilon &= \textbf{B} \delta \textbf{u}
+\end{align}
+</script>
+</p>
+<p>E a deflexão virtual total $\delta w(r)$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \delta w(r) &= \left [\begin{array}{cccc}
+    N_a & N_b & N_c & N_d \\
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \delta u_a \\
+        \delta u_b \\
+        \delta u_c \\
+        \delta u_d
+    \end{array} \right\rbrace \\
+    \delta w(r) &= \textbf{N} \delta \textbf{u}
+\end{align}
+</script>
+</p>
+<p>Substituindo esses valores respectivamente nas equações e fazendo o equilíbrio, chegamos à:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    W_i &= W_e \\
+    {\displaystyle\int_V \sigma \delta \varepsilon dV } &= {\displaystyle\int_r g w(r) dr } \\
+    {\displaystyle\int_V \sigma \textbf{B} \delta \textbf{u} dV } &= {\displaystyle\int_r g \textbf{N} \delta \textbf{u} dr }
+\end{align}
+</script>
+</p>
+<p>Como estamos trabalhando com nosso material utilizando apenas o seu limite elástico, ou seja, o valor das tensões e deformações não podem ser maiores que as limites para esse regime, $\sigma \leq \sigma_{lim}$ e $\varepsilon \leq \varepsilon_{lim}$.</p>
+<p><img alt="Relação Constitutiva linear Proporcional" src="../imagens/RelConstitutiva.svg" title="Relação constitutiva linear proporcional do material, com rigidez elástica E." /></p>
+<p>Além disso, como as tensões são proporcionais às deformações, podemos escrever que:</p>
+<p>
+<script type="math/tex; mode=display">
+\sigma = E \varepsilon
+</script>
+</p>
+<p>Observe que no caso da viga, mesmo com as deformações variando linearmente ao longo da seção transversal, $\sigma$ e $\varepsilon$ são escalares (ou tensores de ordem zero), pois apenas existe a componente na direção axial da viga. Aliás, $E$ também é um escalar (ou tensores de ordem zero) por estarmos trabalhando com a resposta mecânica do material em apenas uma direção.</p>
+<p>Dessa forma, substituindo o valor de $\sigma$:</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V E \varepsilon \textbf{B} \delta \textbf{u} dV } = {\displaystyle\int_r g \textbf{N} \delta \textbf{u} dr }
+</script>
+</p>
+<p>Como em nosso problemas estamos discretizando utilizando MEF, substituimos a deformação $\varepsilon$ pela respectiva discretização utilizando as funções de forma e os deslocamentos nodais:</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V \delta \textbf{u}^T \textbf{B}^T E \textbf{B} \textbf{u} dV } = {\displaystyle\int_r g \textbf{N} \delta \textbf{u} dr }
+</script>
+</p>
+<p>Como os deslocamentos $\delta \textbf{u}$ e $\textbf{u}$ não dependem do volume da viga, podemos retirá-los da integral.</p>
+<p>
+<script type="math/tex; mode=display">
+\delta \textbf{u}^T {\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u} = \delta \textbf{u}^T g {\displaystyle\int_r \textbf{N}^T dr }
+</script>
+</p>
+<blockquote>
+<p>lembre-se de que os transpostos são adicionados para manter a multiplicação matricial quando $\delta \textbf{u}$ foi retirado da integral.</p>
+</blockquote>
+<p>E, como $\delta \textbf{u}$ são os mesmos em ambos os lados da equação, chegamos ao equilíbrio da nossa viga.</p>
+<p>
+<script type="math/tex; mode=display">
+{\displaystyle\int_V \textbf{B}^T E \textbf{B} dV } \textbf{u} = g {\displaystyle\int_r \textbf{N}^T dr }
+</script>
+</p>
+<p>Que, em MEF, chamamos de equilíbrio estático e escrevemos de forma condensada como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>Sendo a integral no volume conhecida como matriz de rigidez do elemento, $\textbf{k}$ e $\textbf{f}$ o vetor de forças nodais equivalentes.</p>
+<h3 id="matriz-de-rigidez-do-elemento-de-viga-de-euler-bernoulli">Matriz de rigidez do elemento de viga de Euler-Bernoulli</h3>
+<p>O vetor de forças nodais equivalentes também pode ser escrito como a força aplicada em cada nó. No caso da viga, como a carga é distribuída em todo o comprimento do elemento precisamos descobrir o quanto dessa carga vai para cada um dos graus de liberdade. Fazemos isso utilizando as funções de forma de acordo com:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f} = g {\displaystyle\int_r \textbf{N}^T dr }
+</script>
+</p>
+<p>Substituindo os valores de $\textbf{N}$ e integrando no comprimento da viga, ou seja de $-l/2$ até $l/2$:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f} = g {\displaystyle\int_{-\frac{l}{2}}^{\frac{l}{2}} \left [\begin{array}{c}
+    N_a \\
+    N_b \\
+    N_c \\
+    N_d \\
+    \end{array} \right] dr } = g {\displaystyle\int_{-\frac{l}{2}}^{\frac{l}{2}} \left [\begin{array}{c}
+    \dfrac{1}{2} - \dfrac{3}{2l}r + \dfrac{2}{l^3}r^3 \\
+    \dfrac{l}{8} - \dfrac{1}{4}r - \dfrac{1}{2l}r^2 + \dfrac{1}{l^2}r^3 \\
+    \dfrac{1}{2} + \dfrac{3}{2l}r - \dfrac{2}{l^3}r^3 \\
+    \dfrac{l}{8} - \dfrac{1}{4}r + \dfrac{1}{2l}r^2 + \dfrac{1}{l^2}r^3
+    \end{array} \right] dr }
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{l}{2} \\
+    \dfrac{l^2}{12} \\
+    \dfrac{l}{2} \\
+    -\dfrac{l^2}{12}
+    \end{array} \right]
+</script>
+</p>
+<div class="admonition warning">
+<p class="admonition-title">Carga g</p>
+<p>Lembre-se de que a carga $g$ está orientada na direção negativa do eixo $s$, que deverá coincidir com o eixo global $Y$ ou esse vetor de cargas nodais equivalentes não funcionará.</p>
+</div>
+<p>No caso da integral no volume, conhecida como matriz de rigidez do elemento, podemos abrir a integral em uma integral na área e outra no comprimento. No entanto, lembra que a matriz $\textbf{B}$ possui um $s$ multiplicando as derivadas segundas das funções de interpolação? Isso significa que as deformações são função tanto de $r$ quando de $s$ da seção transversal (não confunda o $s$ da seção com o $s$ do sistema de coordenadas). Isolando o $s$ de $\textbf{B}$, podemos escrever:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{B} = -s \textbf{B}_r
+</script>
+</p>
+<p>E ao resolver a integral na área chegamos a um velho conhecido nosso, o segundo momento de área ou momento de inércia.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    {\displaystyle\int_A \int_{-\frac{l}{2}}^{\frac{l}{2}} \textbf{B}^T E \textbf{B} dr dA } \textbf{u} &= \textbf{f} \\
+    -{\displaystyle\int_A s^2 dA \int_{-\frac{l}{2}}^{\frac{l}{2}} \textbf{B}_r^T E \textbf{B}_r dr  } \textbf{u} &= \textbf{f} \\
+    -I_z {\displaystyle\int_{-\frac{l}{2}}^{\frac{l}{2}} \textbf{B}_r^T E \textbf{B}_r dr }\textbf{u} &= \textbf{f}
+\end{align}
+</script>
+</p>
+<p>Substituindo os valores de $\textbf{B}_r$, realizando as multiplicações matriciais e resolvendo a integral:</p>
+<p>
+<script type="math/tex; mode=display">
+-I_z {\displaystyle\int_{-\frac{l}{2}}^{\frac{l}{2}} \left[ \begin{array}{c}
+    - \dfrac{12}{l^3}r \\
+    \dfrac{1}{l} - \dfrac{6}{l^2}r \\
+    \dfrac{12}{l^3}r \\
+    - \dfrac{1}{l} - \dfrac{6}{l^2}r
+\end{array} \right] E \left[
+\begin{array}{cccc}
+    - \dfrac{12}{l^3}r & \dfrac{1}{l} - \dfrac{6}{l^2}r & \dfrac{12}{l^3}r & - \dfrac{1}{l} - \dfrac{6}{l^2}r \\
+\end{array} \right] dr }\textbf{u} = \textbf{f}
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\therefore \dfrac{EI_z}{l} \left[
+\begin{array}{cccc}
+    \dfrac{12}{l^2} & \dfrac{6}{l} & -\dfrac{12}{l^2} & \dfrac{6}{l} \\
+    \dfrac{6}{l} & 4 & -\dfrac{6}{l} & 2 \\
+    -\dfrac{12}{l^2} & -\dfrac{6}{l} & \dfrac{12}{l^2} & -\dfrac{6}{l} \\
+    \dfrac{6}{l} & 2 & -\dfrac{6}{l} & 4 \\
+\end{array} \right] \textbf{u} = \textbf{f}
+</script>
+</p>
+<p>Sendo:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k} = \dfrac{EI_z}{l} \left[
+\begin{array}{cccc}
+    \dfrac{12}{l^2} & \dfrac{6}{l} & -\dfrac{12}{l^2} & \dfrac{6}{l} \\
+    \dfrac{6}{l} & 4 & -\dfrac{6}{l} & 2 \\
+    -\dfrac{12}{l^2} & -\dfrac{6}{l} & \dfrac{12}{l^2} & -\dfrac{6}{l} \\
+    \dfrac{6}{l} & 2 & -\dfrac{6}{l} & 4 \\
+\end{array} \right] \quad \quad \textbf{u} = \left\lbrace \begin{array}{c}
+        u_a \\
+        u_b \\
+        u_c \\
+        u_d
+    \end{array} \right\rbrace \quad \quad \textbf{f} = g \left[ \begin{array}{c}
+    \dfrac{l}{2} \\
+    \dfrac{l^2}{12} \\
+    \dfrac{l}{2} \\
+    -\dfrac{l^2}{12}
+    \end{array} \right]
+</script>
+</p>
+<p>O problema dessa matriz de rigidez é que ela está escrita para um elemento disposto na horizontal na direção do eixo r. E se o nosso elemento for inclinado? A resposta é simples, não se comportaria mais como uma viga. Portanto a matriz de rigidez no sistema local do elemento de viga coincide com a do sistema global da estrutura, pois sempre vamos considerar a viga disposta na horizontal para aplicar nossas definições visto que, em toda a formulação, tratamos apenas do efeito da flexão.</p>
+<p><img alt="Graus de liberdade da Viga" src="../imagens/GrausLiberdadeViga2N.svg" title="Graus de liberdade da Viga." /></p>
+<!-- Agora vamos complicar um pouco adicionando o efeito da deformação causada pelo cisalhamento com a [viga de Timoshenko](../teoria_T). -->
+
+<p>Agora vamos ver como resolver uma viga utilizando esse elemento.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../teoria_v/" title="Teoria básica" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Teoria básica
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../aplicacao_v/" title="Aplicação" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Aplicação
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../js/adicionais.js"></script>
+      
+    
+  </body>
+</html>

@@ -508,7 +508,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="174.26945"
+     inkscape:cx="87.840879"
      inkscape:cy="56.421617"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -522,10 +522,10 @@
      fit-margin-top="1"
      fit-margin-bottom="1"
      fit-margin-right="1"
-     inkscape:window-width="1680"
-     inkscape:window-height="988"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     inkscape:window-x="900"
+     inkscape:window-y="78"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -535,7 +535,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -567,7 +567,7 @@
          id="tspan9113"
          x="6.9160795"
          y="126.71992"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.2925005px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">f</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">f</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.8166666px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -594,7 +594,7 @@
          id="tspan9113-3"
          x="99.145172"
          y="127.31879"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.2925005px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">f</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">f</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 48.251513,121.69108 v 17.90706"
@@ -648,7 +648,7 @@
          id="tspan7875"
          x="53.286407"
          y="145.88852"
-         style="stroke-width:0.11119351px">σ</tspan></text>
+         style="stroke-width:0.11119351px;font-size:6.35px">σ</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.02183402;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker9163-1)"
        d="M 31.21178,150.45855 H 12.765478"
@@ -664,6 +664,6 @@
          id="tspan9113-5"
          x="6.9046135"
          y="146.61768"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.2925005px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">f</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">f</tspan></text>
   </g>
 </svg>

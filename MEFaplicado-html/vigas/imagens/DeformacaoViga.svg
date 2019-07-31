@@ -24,15 +24,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.90727747"
-     inkscape:cx="564.63644"
+     inkscape:cx="349.7077"
      inkscape:cy="103.58636"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="988"
+     inkscape:window-width="1440"
+     inkscape:window-height="850"
      inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-y="22"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
      fit-margin-top="1"
@@ -655,7 +655,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -684,7 +684,7 @@
          id="tspan9609-9"
          x="15.119432"
          y="75.624748"
-         style="stroke-width:0.42969063px">y</tspan></text>
+         style="stroke-width:0.42969063px">s</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.02089119px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.42969063px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -695,7 +695,7 @@
          id="tspan9609-2"
          x="119.73202"
          y="150.32996"
-         style="stroke-width:0.42969063px">x</tspan></text>
+         style="stroke-width:0.42969063px">r</tspan></text>
     <path
        style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:#020202;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
        d="m 32.599483,133.07619 h 69.698597 v 21.65193 H 32.599483 v -7.48359 l 3.353669,-2.36944 -6.379262,-1.42166 3.025593,-2.29654 z"
@@ -1122,7 +1122,7 @@
          id="tspan9609-2-6-8"
          x="195.21872"
          y="114.37659"
-         style="font-size:6.3499999px;stroke-width:0.42969063px">y</tspan></text>
+         style="font-size:6.3499999px;stroke-width:0.42969063px">s</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.02089119px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.42969063px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1133,6 +1133,6 @@
          id="tspan9609-2-6-9-8"
          x="153.97675"
          y="123.26877"
-         style="font-size:6.3499999px;stroke-width:0.42969063px">u(x)=0</tspan></text>
+         style="font-size:6.3499999px;stroke-width:0.42969063px">u(r)=0</tspan></text>
   </g>
 </svg>

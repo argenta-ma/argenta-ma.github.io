@@ -209,9 +209,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="282.50415"
-     inkscape:cy="71.124297"
+     inkscape:zoom="1.979899"
+     inkscape:cx="288.79361"
+     inkscape:cy="60.266963"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -224,10 +224,10 @@
      fit-margin-top="1"
      fit-margin-bottom="1"
      fit-margin-right="1"
-     inkscape:window-width="1680"
-     inkscape:window-height="988"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     inkscape:window-x="900"
+     inkscape:window-y="78"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -237,7 +237,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -328,7 +328,7 @@
          id="tspan9113"
          x="6.9160795"
          y="138.88069"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.2925005px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">F</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';stroke-width:0.12957032px">F</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#666666;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Sstart)"
        d="m 30.201456,140.44688 c 0,0 -5.252009,-2.50786 -5.545842,-5.94675 -0.293833,-3.43888 5.679478,-7.55036 5.679478,-7.55036"
@@ -356,7 +356,7 @@
          id="tspan9775"
          x="31.360594"
          y="127.41749"
-         style="stroke-width:0.10895278px">A</tspan></text>
+         style="stroke-width:0.10895278px;font-size:6.35px">A</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Mstart)"
        d="m 116.47825,119.38362 v 42.33333"
@@ -387,7 +387,7 @@
          id="tspan10067"
          x="129.20029"
          y="151.27536"
-         style="stroke-width:0.08228872px">E</tspan></text>
+         style="stroke-width:0.08228872px;font-size:6.35px">E</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.6, 0.6;stroke-dashoffset:0;stroke-opacity:1"
        d="m 116.47825,132.99076 h 19.46578 v 26.26935"
@@ -403,7 +403,7 @@
          id="tspan10073"
          x="164.45944"
          y="155.75031"
-         style="stroke-width:0.0932152px">ε</tspan></text>
+         style="stroke-width:0.0932152px;font-size:6.35px">ε</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.41642189px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.09672181px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -415,7 +415,7 @@
          id="tspan10077"
          x="108.68948"
          y="121.62103"
-         style="stroke-width:0.09672181px">σ</tspan></text>
+         style="stroke-width:0.09672181px;font-size:6.34999991px">σ</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 79.514075,155.77439 v 5.62665"
@@ -441,7 +441,7 @@
          id="tspan10365"
          x="69.052612"
          y="157.4323"
-         style="stroke-width:0.12180386px">x</tspan></text>
+         style="stroke-width:0.12180386px;font-size:6.35px">x</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.97626686px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.10671905px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -452,6 +452,6 @@
          id="tspan10369"
          x="55.333042"
          y="156.90344"
-         style="stroke-width:0.10671905px">u</tspan></text>
+         style="stroke-width:0.10671905px;font-size:6.35px">u</tspan></text>
   </g>
 </svg>

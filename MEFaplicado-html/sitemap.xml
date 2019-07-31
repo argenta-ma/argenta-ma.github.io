@@ -1,148 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/introducao_tp/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/teoria_tp/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/aplicacao_tp/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/aplicacoes/trelica3barras/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/aplicacoes/trelica11barras/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/aplicacoes/contraventamentos/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/aplicacoes/analisemodal/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_plana/aplicacoes/elastoplastica/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_espacial/introducao_te/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_espacial/teoria_te/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_espacial/aplicacao_te/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_espacial/aplicacoes/modulotorre/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_espacial/aplicacoes/ponterolante/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/trelica_espacial/aplicacoes/coberturatrelicada/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/vigas/introducao_v/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/vigas/teoria_v/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>/vigas/aplicacao_v/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/vigas/aplicacoes/viga_hiperestatica/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/vigas/aplicacoes/viga_bimetalica/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/vigas/aplicacoes/viga_plastica/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/vigas/aplicacoes/viga_modal/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/porticos/introducao_p/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/porticos/teoria_p/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/porticos/aplicacao_p/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/porticos/aplicacoes/portico_simples/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/porticos/aplicacoes/vinculacoes_vigapilar/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/porticos/aplicacoes/flambagem_pilar/</loc>
-     <lastmod>2018-08-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>/porticos/aplicacoes/edificios/</loc>
-     <lastmod>2018-08-08</lastmod>
+     <loc>None</loc>
+     <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
