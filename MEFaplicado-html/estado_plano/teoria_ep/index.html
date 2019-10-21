@@ -40,7 +40,7 @@
     
     
       
-        <title>Teoria do elemento de estado plano - Elementos Finitos Aplicados</title>
+        <title>Teoria dos elementos de estado plano - Elementos Finitos Aplicados</title>
       
     
     
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#teoria-do-elemento-de-estado-plano" tabindex="1" class="md-skip">
+      <a href="#teoria-dos-elementos-de-estado-plano" tabindex="1" class="md-skip">
         Ir para o conteúdo
       </a>
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Teoria do elemento de estado plano
+                Teoria dos elementos de estado plano
               
             </span>
           
@@ -655,9 +655,56 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basico" title="Basico..." class="md-nav__link">
-    Basico...
+  <a href="#fundamentacao" title="Fundamentação" class="md-nav__link">
+    Fundamentação
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado-plano-de-tensao" title="Estado plano de tensão" class="md-nav__link">
+    Estado plano de tensão
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estado-plano-de-deformacao" title="Estado plano de deformação" class="md-nav__link">
+    Estado plano de deformação
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elementos-do-estado-plano" title="Elementos do estado plano" class="md-nav__link">
+    Elementos do estado plano
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elemento-quadrilateral" title="Elemento quadrilateral" class="md-nav__link">
+    Elemento quadrilateral
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elementos-triangular" title="Elementos triangular" class="md-nav__link">
+    Elementos triangular
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -678,8 +725,257 @@
               
                 
                 
-                <h1 id="teoria-do-elemento-de-estado-plano">Teoria do elemento de estado plano</h1>
-<h2 id="basico">Basico...</h2>
+                <h1 id="teoria-dos-elementos-de-estado-plano">Teoria dos elementos de estado plano</h1>
+<h2 id="fundamentacao">Fundamentação</h2>
+<p>Uma estrutura ou peça estrutural somente pode ser analisada utilizado um estado plano se toda a sua geometria, todas as cargas aplicadas, todos os apoios e todos os quaisquer efeitos externos estiverem contidos em um mesmo plano. Caso contrário não se aplica a análise pelo estado plano.</p>
+<p>Nos vamos trabalhar com dois tipos de estados planos: o estado plano de tensões, caracterizado por todas as tensões com valores que podem ser diferentes de zero estarem dentro do plano idealizado da geometria e o estado plano de deformações, caracterizado por todas as deformações com valores que podem ser diferentes de zero estarem dentro do plano idealizado da geometria da estrutura ou peça estrutural. As demais componentes de tensão ou deformação para o estado plano de tensão e de deformação respectivamente, que estão fora do plano sempre terão valor igual a zero.</p>
+<p>Lembrando que a teoria aqui desenvolvida leva em conta algumas simplificações:</p>
+<ul>
+<li>o material deve estar com valores de tensão e/ou deformação dentro dos limites elasticos-lineares;</li>
+<li>as análises são sempre estáticas, ou seja, o carregamento é considerado como velocidade muito baixa e somente seu efeito após ser completamente aplicado é considerado;</li>
+<li>não são levados em conta nenhum efeitos de segunda ordem, portanto, os valores dos resultados sempre se referem a estrutura indeformada;</li>
+<li>a relação entre deformações e deslocamento é considerada linear, ou seja, o valor das deformações deve ser muito baixo.</li>
+</ul>
+<p>Resumindo, a análise é estática linear.</p>
+<h3 id="estado-plano-de-tensao">Estado plano de tensão</h3>
+<p>Conforme já apresentamos mais de uma vez, o estado plano é caracterizado por tensões que ocorrem somente dentro de um plano específico da estrutura ou peça estrutural, portanto, sendo, por exemplo, esse plano o plano r-s, a relação constitutiva do material no regime elástico-linear para esse estado plano é escrita entre deformações e tensões como:</p>
+<p>
+<script type="math/tex; mode=display">
+\boldsymbol{\varepsilon} = \textbf{C} \boldsymbol{\sigma}
+</script>
+</p>
+<p>Sendo $\textbf{C}$ a matriz de conformidade do material.</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    \varepsilon_r\\
+    \varepsilon_s \\
+    \varepsilon_t \\
+    \gamma_{rs}
+\end{array} \right\rbrace = \left[ \begin{array}{ccc}
+    \dfrac{1}{E} & -\nu \dfrac{1}{E} & 0 \\
+    -\nu \dfrac{1}{E} & \dfrac{1}{E} & 0 \\
+    -\nu \dfrac{1}{E} & -\nu \dfrac{1}{E} & 0 \\
+    0 & 0 & \dfrac{1 + \nu}{E}
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \sigma_r\\
+        \sigma_s \\
+        \tau_{rs}
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>Observe que a deformação $\varepsilon_{t}$ perpendicular ao plano r-s é determinada com as tensões $\sigma_r$ e $sigma_s$. Como em elementos finitos os deslocamentos são nosso primeiro resultado e as deformações são calculadas com esses deslocamentos e as derivadas das funções de interpolação, precisamos dessa relação constitutiva escrita de forma inversa, com as tensões sendo calculadas pelas deformações. Porém, a matriz não é quadrada, ou seja, não inverte. Porém, como a deformação fora do plano $\varepsilon_t$ é função das tensões em r e s ela poderá ser determinada posteriormente ao cálculo das tensões ou ainda calculada com as deformações em r e s. Assim, nossa relação constitutiva simplificada para o estado plano de tensões é:</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    \varepsilon_r\\
+    \varepsilon_s \\
+    \gamma_{rs}
+\end{array} \right\rbrace = \left[ \begin{array}{ccc}
+    \dfrac{1}{E} & -\nu \dfrac{1}{E} & 0 \\
+    -\nu \dfrac{1}{E} & \dfrac{1}{E} & 0 \\
+    0 & 0 & \dfrac{1 + \nu}{E}
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \sigma_r\\
+        \sigma_s \\
+        \tau_{rs}
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>Com:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon_t = -\nu \dfrac{1}{E} (\sigma_r + \sigma_s)
+</script>
+</p>
+<p>Ou:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon_t = \dfrac{-\nu}{1 + \nu} (\varepsilon_r + \varepsilon_s)
+</script>
+</p>
+<p>Com a relação constitutiva simplificada, podemos escrever sua forma inversa para determinar as tensões de acordo com as deformações:</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    \sigma_r\\
+    \sigma_s \\
+    \tau_{rs}
+\end{array} \right\rbrace = \left[ \begin{array}{ccc}
+    \dfrac{E}{1 - \nu^2} & \dfrac{E \nu}{1 - \nu^2} & 0 \\
+    \dfrac{E \nu}{1 - \nu^2} & \dfrac{E}{1 - \nu^2} & 0 \\
+    0 & 0 & \dfrac{E}{2(1 + \nu)}
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \varepsilon_r\\
+        \varepsilon_s \\
+        \gamma_{rs}
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>De forma condensada:</p>
+<p>
+<script type="math/tex; mode=display">
+\boldsymbol{\sigma} = \textbf{D}_t \boldsymbol{\varepsilon}
+</script>
+</p>
+<p>Sendo $\textbf{D}$ a matriz constitutiva simplificada do material no estado plano de tensão. Lembre que o módulo de elasticidade transversal G é:</p>
+<p>
+<script type="math/tex; mode=display">
+G = \dfrac{E}{2(1 + \nu)}
+</script>
+</p>
+<h3 id="estado-plano-de-deformacao">Estado plano de deformação</h3>
+<p>Já o estado plano de deformações é caracterizado, como já dito, por deformações que somente ocorrem no plano específico da estrutura, portanto, sendo esse plano o plano r-s, a relação constitutiva do material no regime elástico-linear para o estado plano de deformação é escrita entre tensões e deformações como:</p>
+<p>
+<script type="math/tex; mode=display">
+\boldsymbol{\sigma} = \textbf{D} \boldsymbol{\varepsilon}
+</script>
+</p>
+<p>Sendo $\textbf{D}$ a matriz constitutiva do material.</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    \sigma_r\\
+    \sigma_s \\
+    \sigma_t \\
+    \tau_{rs}
+\end{array} \right\rbrace = \dfrac{E}{(1 + \nu)(1 - 2 \nu)} \left[ \begin{array}{ccc}
+    1 - \nu & \nu & 0 \\
+    \nu & 1 - \nu & 0 \\
+    \nu & \nu & 0 \\
+    0 & 0 & \dfrac{1 - 2 \nu}{2}
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \varepsilon_r\\
+        \varepsilon_s \\
+        \gamma_{rs}
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>Note que a tensão fora do plano $\sigma_t$ é determinada em função das deformações no plano e portanto pode ser calculada a parte. Dessa forma também podemos escrever uma relação constitutiva simplificada quadrada para o estado plano de deformações como sendo:</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    \sigma_r\\
+    \sigma_s \\
+    \tau_{rs}
+\end{array} \right\rbrace = \dfrac{E}{(1 + \nu)(1 - 2 \nu)} \left[ \begin{array}{ccc}
+    1 - \nu & \nu & 0 \\
+    \nu & 1 - \nu & 0 \\
+    0 & 0 & \dfrac{1 - 2 \nu}{2}
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \varepsilon_r\\
+        \varepsilon_s \\
+        \gamma_{rs}
+    \end{array} \right\rbrace
+</script>
+</p>
+<p>De forma condensada:</p>
+<p>
+<script type="math/tex; mode=display">
+\boldsymbol{\sigma} = \textbf{D}_d \boldsymbol{\varepsilon}
+</script>
+</p>
+<p>Sendo $\textbf{D}_d$ a matriz constitutiva simplificada do material no estado plano de deformação. E a tensão fora do plano por ser determinada por:</p>
+<p>
+<script type="math/tex; mode=display">
+\sigma_t = \nu \varepsilon_r + \nu \varepsilon_s
+</script>
+</p>
+<p>Observe que a única similaridade entre as relações constitutivas do estado plano de tensão e deformação é o cálculo da tensão de cisalhamento, sendo essa sempre função da deformação angular no plano multiplicada pelo módulo de elasticidade transversal.</p>
+<h2 id="elementos-do-estado-plano">Elementos do estado plano</h2>
+<p>Nós vamos trabalhar com dois elementos para o estado plano, um quadrilateral e outro triangular, ambos bilineares e isoparamétricos com dois graus de liberdade de translação por nó e 4 nós por elemento para o elemento quadrilateral e 3 nós para o elemento triangular. Significa que vamos utilizar funções de interpolação bilineares (como se fossem lineares por direções r e s) e essas mesmas funções serão utilizadas para interpolar as coordenadas do elemento padrão para o elemento na estrutura.</p>
+<p>Aqui temos uma nova definição: formulação isoparamétrica e o elemento padrão. Na verdade já vinhamos utilizando um elemento padrão desde a treliça, que é o nosso elemento no sistema r-s. Ele sempre era horizontal, com o sistema local com origem no centro do elemento e com comprimento definido em $l$. A transformação dele em um elemento da estrutura era feita com a utilização do comprimento do elemento da estrutura e a matriz de decomposição ou rotação. No entanto, para o estado plano essa definição precisa ser melhorada e alguns conceitos precisam ser aplicados para conseguirmos montar um elemento padrão que consiga ser escrito para quaisquer elementos de estado plano da estrutura.</p>
+<p>A questão é um pouco mais complexa. Não iremos conseguir utilizar a mesma metodologia dos elementos padrões unidimensionais, pois o nosso elemento do estado plano pode estar distorcido na estrutura. Sendo assim, não funciona tratar simplesmente dos comprimentos e da rotação é preciso levar em conta os comprimentos diferentes e a distorção desse elemento. Outro problema é a dificuldade de integrar a matriz de rigidez do elemento quando ele está distorcido. Como você integraria em r e s os elementos abaixo em sua área?</p>
+<p><img alt="Elementos irregulares" src="../imagens/elementosIrregular.svg" title="Elementos irregulares, (a) 4 nós quadrilateral e (b) 3 nós triangular." /></p>
+<p>Complicado não? Os limites de integração seriam retas. E como você integraria em r e s o elemento abaixo em sua área?</p>
+<p><img alt="Elementos padrões" src="../imagens/elementosPadrao.svg" title="Elementos padrões, (a) 4 nós quadrilateral e (b) 3 nós triangular." /></p>
+<p>Bem simples, não acha? Os limites de integração em ambas as direções seriam de -1 a 1 para o quadrilateral e de 0 a equação da reta ($s = -r + 1$) e de 0 a 1. Esses serão nossos elementos padrões quadrilateral e triangular para o estado plano.</p>
+<p>Muito bem, mas e o tal de isoparamétrico? Essa definição envolve a questão de que nem todos os elementos da malha da estrutura irão possuir lado igual a 1 ou 2 e serem regulares como os padrões. A transformação do elemento padrão no elemento da malha da estrutura vai levar em conta a modificação dos comprimentos e uma possível distorção do elemento. Nos fazemos essa transformação de coordenadas e de forma utilizando o operador Jacobiano definido pela matriz Jacobiana, que no caso, referencia-se a uma transformação bidimensional.</p>
+<p>O valor absoluto do Jacobiano de uma transformação de um sistema de coordenadas é também utilizado para converter uma integral múltipla de um sistema para outro, ou seja, podemos calcular a integral complicada do elemento irregular aplicando o Jacobiano na integral simples do elemento padrão. No caso bidimensional mede o quanto a área do elemento padrão é distorcida na transformação. Sendo o elemento da estrutura definido no sistema x-y, a matriz Jacobiana de transformação do sistema r-s para o sistema x-y é:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J} = \left[ \begin{array}{cc}
+    \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial s} \\
+    \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial s}
+    \end{array} \right]
+</script>
+</p>
+<p>Certo, mas em elementos finitos, como isso funciona? Eu não tenho as coordenadas x-y do elemento irregular escritas como uma função de r-s. Para isso nos iremos utilizar as mesmas funções de forma utilizadas na interpolação dos deslocamentos para a transformação de coordenadas entre o r-s e o x-y. Os elementos que utilizam esse conceito são conhecidos por elementos isoparamétricos.</p>
+<p>Em elementos finitos nós iremos montar a matriz Jacobiana multiplicando as coordenadas do elemento da estrutura no sistema x-y pela derivada das funções de interpolação do elemento padrão no sistema r-s. E as derivadas das funções de interpolação no sistema x-y são obtidas pela multiplicação das derivadas das funções de interpolação no sistema r-s multiplicadas pelo inverso da matriz Jacobiana. Aplicando ao elemento quadrilateral de 4 nós, resulta:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J}_q = \left[ \begin{array}{cc}
+    \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial s} \\
+    \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial s}
+    \end{array} \right] = \left[ \begin{array}{cccc}
+        x_1 & x_2 & x_3 & x_4 \\
+        y_1 & y_2 & y_3 & y_4
+        \end{array} \right] \left[ \begin{array}{cc}
+            \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+            \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+            \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
+            \dfrac{\partial N_4}{\partial r} & \dfrac{\partial N_4}{\partial s}
+            \end{array} \right]
+</script>
+</p>
+<p>E:</p>
+<p>
+<script type="math/tex; mode=display">
+\left[ \begin{array}{cc}
+    \dfrac{\partial N_1}{\partial x} & \dfrac{\partial N_1}{\partial y} \\
+    \dfrac{\partial N_2}{\partial x} & \dfrac{\partial N_2}{\partial y} \\
+    \dfrac{\partial N_3}{\partial x} & \dfrac{\partial N_3}{\partial y} \\
+    \dfrac{\partial N_4}{\partial x} & \dfrac{\partial N_4}{\partial y}
+    \end{array} \right] = \left[ \begin{array}{cc}
+            \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+            \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+            \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
+            \dfrac{\partial N_4}{\partial r} & \dfrac{\partial N_4}{\partial s}
+            \end{array} \right] \textbf{J}^{-1}
+</script>
+</p>
+<p>Sendo $N_1$ a $N_4$ as funções de interpolação do elemento quadrilateral de 4 nós. Essas derivadas são essenciais para a montagem da matriz $\textbf{B}$. Aplicando ao elemento triangular de 3 nós, resulta:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J}_t = \left[ \begin{array}{cc}
+    \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial s} \\
+    \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial s}
+    \end{array} \right] = \left[ \begin{array}{cccc}
+        x_1 & x_2 & x_3 \\
+        y_1 & y_2 & y_3
+    \end{array} \right] \left[ \begin{array}{cc}
+            \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+            \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+            \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s}
+    \end{array} \right]
+</script>
+</p>
+<p>E:</p>
+<p>
+<script type="math/tex; mode=display">
+\left[ \begin{array}{cc}
+        \dfrac{\partial N_1}{\partial x} & \dfrac{\partial N_1}{\partial y} \\
+        \dfrac{\partial N_2}{\partial x} & \dfrac{\partial N_2}{\partial y} \\
+        \dfrac{\partial N_3}{\partial x} & \dfrac{\partial N_3}{\partial y}
+\end{array} \right] = \left[ \begin{array}{cc}
+            \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+            \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+            \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s}
+    \end{array} \right] \textbf{J}^{-1}
+</script>
+</p>
+<p>Sendo $N_1$ a $N_3$ as funções de interpolação do elemento triangular de 3 nós.</p>
+<p>Antes de calcularmos as matrizes de rigidez dos elementos quadrilaterais e triangulares precisamos comentar um pouco sobre a integração dos elementos padrão. Serão necessárias as integrais em r e s das 8 derivadas das funções de interpolação no sistema x-y, escritas na matriz $\textbf{B}$ que pré e pós-multiplica o tensor constitutivo do material. Essa integral pode se tornar um tando complicada para ser resolvida de forma analítica como vinhamos fazendo com os elementos unidimensionais e em alguns casos, inclusive, pode nem ter solução.</p>
+<p>Esse problema é contornado com a utilização da integração numérica e mais especificamente utilizaremos a quadratura de Gauss. Basicamente a quadratura de Gauss aproxima o valor de uma integral através de uma somatória ponderada de valores das funções a serem integradas em pontos específicos dentro do elemento conhecidos como pontos de Gauss multiplicadas por determinados pesos. Por exemplo, no caso de uma função de $f(x, y)$ para nosso elemento padrão quadrilateral, podemos escrever:</p>
+<p>
+<script type="math/tex; mode=display">
+\int_{-1}^1 \int_{-1}^1 f(x, y) dx dy \approx \sum_{i = 1}^{n_x} \sum_{j = 1}^{n_y} f(P_i, P_j) W_i W_j
+</script>
+</p>
+<p>Sendo $n_x$ o número de pontos de Gauss $P_i$ em x, $n_y$ o número de pontos de Gauss $P_j$ em y, $f(P_i, P_j)$ a função $f(x, y)$ avaliada nos pontos de Gauss $P_i, P_j$, em outras palavras com x substituído pelo valor x de $P_i$ e y substituído pelo valor y de $P_j$ e $W_i$ e $W_j$ os pesos respectivos dos pontos $P_i$ e $P_j$. Claro que no caso da integração das matrizes de rigidez dos elementos do estado plano, nos iremos substituir a função $f(x, y)$ pelo resultado da multiplicação $\textbf{B}^T \textbf{D} \textbf{B} h det(\textbf{J})$, sendo $det(\textbf{J})$ o determinante da matriz Jacobiana para levar em conta a distorção da área do elemento, h a espessura do elemento e $\textbf{D}$ a matriz constitutiva simplificada do estado plano de tensão ou deformação conforme o caso.</p>
+<p>Com essa introdução sobre estado plano e já sabendo como transformar o nosso elemento padrão para o elemento da malha da estrutura e resolver sua integração aproximada, podemos então calcular as matrizes de rigidez dos elementos quadrilaterais e triangulares.</p>
+<h3 id="elemento-quadrilateral">Elemento quadrilateral</h3>
+<h3 id="elementos-triangular">Elementos triangular</h3>
                 
                   
                 

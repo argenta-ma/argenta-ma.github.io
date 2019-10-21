@@ -659,12 +659,25 @@
     Idealização
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solucao-isostatica" title="Solução Isostática" class="md-nav__link">
-    Solução Isostática
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parede-sendo-icada" title="Parede sendo içada" class="md-nav__link">
+    Parede sendo içada
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barragem-com-secao-constante" title="Barragem com seção constante" class="md-nav__link">
+    Barragem com seção constante
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -693,12 +706,27 @@
                 
                 
                 <h1 id="estado-plano">Estado Plano</h1>
+<p>A partir de agora vamos deixar de lado a idealização estrutural com elementos unidimensionais e aumentar o elemento em uma dimensão. Os elementos de estado plano possuem duas dimensões, contidas em um plano obviamente, sendo que seus graus de liberdade, cargas aplicadas e condições de contorno devem estar dentro desse plano. Condições que por ventura ocorram fora do plano são idealizadas automaticamente na formulação do elemento. No estado plano de tensões, existe a deformação perpendicular ao plano e no estado plano de deformações exite a tensão perpendicular ao plano.</p>
 <h2 id="idealizacao">Idealização</h2>
-<p>Discover the <strong>basic</strong> principals</p>
-<h2 id="solucao-isostatica">Solução Isostática</h2>
-<p>texto...</p>
+<p>Muitas estruturas ou elementos estruturais podem ser analisados com o estado plano de tensões ou deformações, como por exemplo, pilares parede, paredes maciças ou vigas de grande altura e pequena espessura com carga centrada sem flexão podem ser modelados com elementos do estado plano de tensões e, outro exemplo, seções transversais de barragens podem ser modeladas com estado plano de deformações.</p>
+<div class="admonition info">
+<p class="admonition-title">Porque?</p>
+<p>Mas porque? No caso dos pilares parede a espessura é bem menor que as outras dimensões, as cargas e as condições de contorno estão dentro do mesmo plano do elemento que é definido geometricamente no plano médio da parede em relação a espessura (pode ser definido em outra posição também, como nas faces, isso é definido na integração), sendo a parede livre para se deslocar na direção perpendicular a esse plano, sendo essa direção, portanto, livre de tensões porém com deformações, definido assim um estado plano de tensões.
+Já no caso da seção da barragem, a direção perpendicular está restringida naturalmente pelo resto da barragem, criando nessa direção perpendicular ao plano tensões de confinamento e zero de deformação, definido assim um estado plano de deformações.</p>
+</div>
+<p>E que estrutura nos vamos discretizar com esses elementos do estado plano? Vamos trabalhar uma parede maciça sendo içada, avaliando seu comportamento com o estado plano de tensões e a seção transversal idealizada de uma barragem, avaliando seu comportamento com o estado plano de deformações.</p>
+<p><img alt="Parede sendo içada" src="../imagens/paredeIcada.jpg" title="Parede sendo içada." /></p>
+<p><img alt="Barragem simples" src="../imagens/simpleDam.jpg" title="Barragem simples com seção transversal constante." /></p>
+<h3 id="parede-sendo-icada">Parede sendo içada</h3>
+<p>A idealização estrutural da parede é simples, vamos colocar apoios engastados nas posições dos cabos e a única carga que incide é o peso próprio. O apoio é engastado pois, apesar do cabo poder girar os olhais chubados na parede para o içamento não permitem o giro, nem o deslocamento quaisquer direções. A parede possui uma altura de 3,2 m, um comprimento de 5,0 m e uma espessura de 20 cm, construída em concreto armado $\gamma_{ca}$ = 25 kN/m3 com os olhais para içamento posicionados de acordo com a idealização estrutura da figura. Observe que os apoios são assimétricos.</p>
+<p><img alt="Parede idealizada" src="../imagens/paredeIdealizada.svg" title="Idealização da parede e localização dos apoios." /></p>
+<h3 id="barragem-com-secao-constante">Barragem com seção constante</h3>
+<p>No caso da barragem, além do peso próprio também teremos cargas idealizadamente triangulares do reservatório a montante e do nível de água a jusante, considerando $\gamma_a$ = 1,0 kN/m3. A barragem possui 78 m de comprimento, 28 m de altura na montange, 4 m de altura na jusante, 32 m de espessura na base e 5 m de espessura no topo. Os apoios serão considerados rígidos engastados em todo o comprimento da base da barragem, de acordo com a imagem abaixo. A barragem é feita de concreto convencional $\gamma_c$ = 24 kN/m3.</p>
+<p><img alt="Barragem idealizada" src="../imagens/barragemIdealizada.svg" title="Idealização da barragem, localização dos apoios e cargas relativas a pressão da água." /></p>
 <h2 id="elementos-finitos">Elementos Finitos</h2>
-<p>...</p>
+<p>Com os modelos idealizados de nossas estruturas podemos aplicar o método dos elementos finitos para resolvê-las, mas e a malha, como vamos fazer? Agora já não é mais tão simples quanto dividir uma linha em partes, precisamos dividir uma área em pequenas áreas. E essas pequenas áreas, qual é a forma delas? Quadradas? Retangulares? Triangulares?</p>
+<p>Para nossa salvação existem algumas bibliotecas em python que vão gerar as malhas automaticamente para nós (por exemplo, o PyMesh), mas e o formato dos elementos? Nós vamos trabalhar com dois formados, um elemento retangular para a parede e um elemento triangular para a barragem. Não há motivo especial em nossa escolha, é apenas para ilustrar a utilização dos dois tipos de formato de elemento mais utilizado, embora elementos triangulares se adaptem melhor a geometrias mais irregulares.</p>
+<p>Então, vamos começar pela teoria por detrás dos elementos finitos de estado plano.</p>
                 
                   
                 

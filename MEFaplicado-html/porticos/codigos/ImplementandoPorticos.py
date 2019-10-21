@@ -7,8 +7,6 @@ Vetor de cargas equivalentes a distrubuída da placa OK!
 
 Carga de vento OK!!!
 
-ERRO NOS VETORES DE FORÇA NODAIS EQUIVALENTES!!!
-
 @author: markinho
 """
 
