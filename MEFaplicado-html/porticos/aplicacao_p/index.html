@@ -2410,7 +2410,7 @@ $$ -->
 <script type="math/tex; mode=display">
 \textbf{B}_V = -s \left[
 \begin{array}{cccc}
-    - \dfrac{12}{l^3}r & \dfrac{1}{l} - \dfrac{6}{l^2}r & \dfrac{12}{l^3}r & - \dfrac{1}{l} - \dfrac{6}{l^2}r \\
+    \dfrac{12}{l^3}r & -\dfrac{1}{l} + \dfrac{6}{l^2}r & -\dfrac{12}{l^3}r & \dfrac{1}{l} + \dfrac{6}{l^2}r \\
 \end{array} \right]
 </script>
 </p>
@@ -2420,19 +2420,19 @@ $$ -->
 \textbf{B} = \left[
 \begin{array}{cccccc}
     - \dfrac{1}{l} & 0 & 0 & \dfrac{1}{l} & 0 & 0 \\
-    0 & s \dfrac{12}{l^3}r & -s \dfrac{1}{l} + s \dfrac{6}{l^2}r & 0 & -s \dfrac{12}{l^3}r & s \dfrac{1}{l} + s \dfrac{6}{l^2}r
+    0 &  -\dfrac{12 r s}{l^3} & \dfrac{s}{l} - s \dfrac{6 r s}{l^2} & 0 & \dfrac{12 r s}{l^3} & -\dfrac{s}{l} - \dfrac{6 r s}{l^2}
 \end{array} \right]
 </script>
 </p>
 <p>Observe que as funções relativas aos efeitos de flexão são função de <em>r</em> e <em>s</em>. Assim, podemos calcular a deformação máxima em cada elemento.</p>
 <p>Sendo assim calculamos dois valores de deformação, um representativo do efeito axial e outro da deformação.</p>
-<p><strong>Elemento 1</strong>: $L_1 = 460$ cm.</p>
+<p><strong>Elemento 1</strong>: $L_1 = 470$ cm.</p>
 <p>
 <script type="math/tex; mode=display">
 \boldsymbol{\varepsilon}_1 = \left[
 \begin{array}{cccccc}
-    - \dfrac{1}{460} & 0 & 0 & \dfrac{1}{460} & 0 & 0 \\
-    0 & s \dfrac{12}{460^3}r & -s \dfrac{1}{460} + s \dfrac{6}{460^2}r & 0 & -s \dfrac{12}{460^3}r & s \dfrac{1}{460} + s \dfrac{6}{460^2}r
+    - \dfrac{1}{470} & 0 & 0 & \dfrac{1}{470} & 0 & 0 \\
+    0 &  -\dfrac{12 r s}{470^3} & \dfrac{s}{470} - s \dfrac{6 r s}{470^2} & 0 & \dfrac{12 r s}{470^3} & -\dfrac{s}{470} - \dfrac{6 r s}{470^2}
 \end{array} \right] \left\lbrace \begin{array}{c}
     0 \\
     0 \\
@@ -2451,13 +2451,13 @@ $$ -->
 \end{array} \right\rbrace
 </script>
 </p>
-<p><strong>Elemento 2</strong>: $L_2 = 920$ cm.</p>
+<p><strong>Elemento 2</strong>: $L_2 = 940$ cm.</p>
 <p>
 <script type="math/tex; mode=display">
 \boldsymbol{\varepsilon}_2 = \left[
 \begin{array}{cccccc}
-    - \dfrac{1}{920} & 0 & 0 & \dfrac{1}{920} & 0 & 0 \\
-    0 & s \dfrac{12}{920^3}r & -s \dfrac{1}{920} + s \dfrac{6}{920^2}r & 0 & -s \dfrac{12}{920^3}r & s \dfrac{1}{920} + s \dfrac{6}{920^2}r
+    - \dfrac{1}{940} & 0 & 0 & \dfrac{1}{940} & 0 & 0 \\
+    0 &  -\dfrac{12 r s}{940^3} & \dfrac{s}{940} - s \dfrac{6 r s}{940^2} & 0 & \dfrac{12 r s}{940^3} & -\dfrac{s}{940} - \dfrac{6 r s}{940^2}
 \end{array} \right] \left\lbrace \begin{array}{c}
     0,12568236 \\
     -0,00178911 \\
@@ -2472,17 +2472,17 @@ $$ -->
 <script type="math/tex; mode=display">
 \therefore \boldsymbol{\varepsilon}_2 = \left\lbrace \begin{array}{c}
     -2,04697.10^{-6} \\
-    -2,85055.10^{-9} r s + 1,64993.10^{-6} s
+    2,85055.10^{-9} r s - 1,64993.10^{-6} s
 \end{array} \right\rbrace
 </script>
 </p>
-<p><strong>Elemento 3</strong>: $L_3 = 460$ cm.</p>
+<p><strong>Elemento 3</strong>: $L_3 = 470$ cm.</p>
 <p>
 <script type="math/tex; mode=display">
 \boldsymbol{\varepsilon}_3 = \left[
 \begin{array}{cccccc}
-    - \dfrac{1}{460} & 0 & 0 & \dfrac{1}{460} & 0 & 0 \\
-    0 & s \dfrac{12}{460^3}r & -s \dfrac{1}{460} + s \dfrac{6}{460^2}r & 0 & -s \dfrac{12}{460^3}r & s \dfrac{1}{460} + s \dfrac{6}{460^2}r
+    - \dfrac{1}{470} & 0 & 0 & \dfrac{1}{470} & 0 & 0 \\
+    0 &  -\dfrac{12 r s}{470^3} & \dfrac{s}{470} - s \dfrac{6 r s}{470^2} & 0 & \dfrac{12 r s}{470^3} & -\dfrac{s}{470} - \dfrac{6 r s}{470^2}
 \end{array} \right] \left\lbrace \begin{array}{c}
     0 \\
     0 \\
@@ -2497,7 +2497,7 @@ $$ -->
 <script type="math/tex; mode=display">
 \therefore \boldsymbol{\varepsilon}_3 = \left\lbrace \begin{array}{c}
     -3,75616.10^{-6} \\
-    2,9667.10^{-8} r s + 1,2034.10^{-6} s
+    -2,9667.10^{-8} r s - 1,2034.10^{-6} s
 \end{array} \right\rbrace
 </script>
 </p>
@@ -2526,7 +2526,7 @@ $$ -->
 <script type="math/tex; mode=display">
 \boldsymbol{\sigma}_2 = E_2 \boldsymbol{\varepsilon}_2 = 20000 \left\lbrace \begin{array}{c}
     -2,04697.10^{-6} \\
-    -2,85055.10^{-9} r s + 1,64993.10^{-6} s
+    2,85055.10^{-9} r s - 1,64993.10^{-6} s
 \end{array} \right\rbrace
 </script>
 </p>
@@ -2534,7 +2534,7 @@ $$ -->
 <script type="math/tex; mode=display">
 \therefore \boldsymbol{\sigma}_2 = \left\lbrace \begin{array}{c}
     -0,04094 \\
-    -5,7011.10^{-5} r s + 0,032999 s
+    5,7011.10^{-5} r s - 0,032999 s
 \end{array} \right\rbrace
 </script>
 </p>
@@ -2543,7 +2543,7 @@ $$ -->
 <script type="math/tex; mode=display">
 \boldsymbol{\sigma}_3 = E_3 \boldsymbol{\varepsilon}_3 = 20000 \left\lbrace \begin{array}{c}
     -3,75616.10^{-6} \\
-    2,9667.10^{-8} r s + 1,2034.10^{-6} s
+    -2,9667.10^{-8} r s - 1,2034.10^{-6} s
 \end{array} \right\rbrace
 </script>
 </p>
@@ -2551,7 +2551,7 @@ $$ -->
 <script type="math/tex; mode=display">
 \therefore \boldsymbol{\sigma}_3 = \left\lbrace \begin{array}{c}
     -0,075132 \\
-    0,00059333 r s + 0,024068 s
+    -0,00059333 r s - 0,024068 s
 \end{array} \right\rbrace
 </script>
 </p>
@@ -2609,7 +2609,7 @@ M_1 &= 2,4275 r + 415,881
 <p>
 <script type="math/tex; mode=display">
 \begin{align*}
-M_2 &= 2 t_w \int_{-\frac{175}{2}}^{\frac{175}{2}} -5,7011.10^{-5} r s^2 + 0,032999 s^2 \ ds + 2b_f \int_{\frac{175}{2}}^{\frac{175}{2}+t_f} -5,7011.10^{-5} r s^2 + 0,032999 s^2 \ ds \\
+M_2 &= 2 t_w \int_{-\frac{175}{2}}^{\frac{175}{2}} 5,7011.10^{-5} r s^2 - 0,032999 s^2 \ ds + 2b_f \int_{\frac{175}{2}}^{\frac{175}{2}+t_f} 5,7011.10^{-5} r s^2 - 0,032999 s^2 \ ds \\
 M_2 &= 0,56547 r - 327,3001
 \end{align*}
 </script>
@@ -2618,7 +2618,7 @@ M_2 &= 0,56547 r - 327,3001
 <p>
 <script type="math/tex; mode=display">
 \begin{align*}
-M_3 &= 2 t_w \int_{-\frac{175}{2}}^{\frac{175}{2}} 0,00059333 r s^2 + 0,024068 s^2 \ ds + 2b_f \int_{\frac{175}{2}}^{\frac{175}{2}+t_f} 0,00059333 r s^2 + 0,024068 s^2 \ ds \\
+M_3 &= 2 t_w \int_{-\frac{175}{2}}^{\frac{175}{2}} -0,00059333 r s^2 - 0,024068 s^2 \ ds + 2b_f \int_{\frac{175}{2}}^{\frac{175}{2}+t_f} -0,00059333 r s^2 - 0,024068 s^2 \ ds \\
 M_3 &= -5,885 r - 238,721
 \end{align*}
 </script>

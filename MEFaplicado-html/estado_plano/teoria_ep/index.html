@@ -690,9 +690,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#transformacao-de-coordenadas-e-distorcao-do-elemento" title="Transformação de coordenadas e distorção do elemento" class="md-nav__link">
+    Transformação de coordenadas e distorção do elemento
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integracao-numerica" title="Integração numérica" class="md-nav__link">
+    Integração numérica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#elemento-quadrilateral" title="Elemento quadrilateral" class="md-nav__link">
     Elemento quadrilateral
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcoes-de-interpolacao" title="Funções de interpolação" class="md-nav__link">
+    Funções de interpolação
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -890,27 +917,50 @@ G = \dfrac{E}{2(1 + \nu)}
 <p>Complicado não? Os limites de integração seriam retas. E como você integraria em r e s o elemento abaixo em sua área?</p>
 <p><img alt="Elementos padrões" src="../imagens/elementosPadrao.svg" title="Elementos padrões, (a) 4 nós quadrilateral e (b) 3 nós triangular." /></p>
 <p>Bem simples, não acha? Os limites de integração em ambas as direções seriam de -1 a 1 para o quadrilateral e de 0 a equação da reta ($s = -r + 1$) e de 0 a 1. Esses serão nossos elementos padrões quadrilateral e triangular para o estado plano.</p>
-<p>Muito bem, mas e o tal de isoparamétrico? Essa definição envolve a questão de que nem todos os elementos da malha da estrutura irão possuir lado igual a 1 ou 2 e serem regulares como os padrões. A transformação do elemento padrão no elemento da malha da estrutura vai levar em conta a modificação dos comprimentos e uma possível distorção do elemento. Nos fazemos essa transformação de coordenadas e de forma utilizando o operador Jacobiano definido pela matriz Jacobiana, que no caso, referencia-se a uma transformação bidimensional.</p>
-<p>O valor absoluto do Jacobiano de uma transformação de um sistema de coordenadas é também utilizado para converter uma integral múltipla de um sistema para outro, ou seja, podemos calcular a integral complicada do elemento irregular aplicando o Jacobiano na integral simples do elemento padrão. No caso bidimensional mede o quanto a área do elemento padrão é distorcida na transformação. Sendo o elemento da estrutura definido no sistema x-y, a matriz Jacobiana de transformação do sistema r-s para o sistema x-y é:</p>
+<h3 id="transformacao-de-coordenadas-e-distorcao-do-elemento">Transformação de coordenadas e distorção do elemento</h3>
+<p>Muito bem, mas e o tal de isoparamétrico? Essa definição envolve a questão de que nem todos os elementos da malha da estrutura irão possuir lado igual a 1 ou 2 e serem regulares como os padrões. A transformação do elemento padrão no elemento da malha da estrutura vai levar em conta a modificação dos comprimentos e uma possível distorção do elemento. Fazemos essa transformação de coordenadas e de forma utilizando o operador Jacobiano definido pela matriz Jacobiana, reduzida para uma transformação bidimensional.</p>
+<p>O valor absoluto do Jacobiano de uma transformação de um sistema de coordenadas é também utilizado para converter uma integral múltipla de um sistema para outro, ou seja, podemos calcular a integral complicada do elemento irregular aplicando o Jacobiano na integral simples do elemento padrão. No caso bidimensional, também mede o quanto a área do elemento padrão é distorcida na transformação. Sendo o elemento da estrutura definido no sistema x-y, a matriz Jacobiana de transformação do sistema r-s para o sistema x-y é:</p>
 <p>
 <script type="math/tex; mode=display">
 \textbf{J} = \left[ \begin{array}{cc}
-    \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial s} \\
-    \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial s}
+    \dfrac{\partial x(r, s)}{\partial r} & \dfrac{\partial x(r, s)}{\partial s} \\
+    \dfrac{\partial y(r, s)}{\partial r} & \dfrac{\partial y(r, s)}{\partial s}
     \end{array} \right]
 </script>
 </p>
-<p>Certo, mas em elementos finitos, como isso funciona? Eu não tenho as coordenadas x-y do elemento irregular escritas como uma função de r-s. Para isso nos iremos utilizar as mesmas funções de forma utilizadas na interpolação dos deslocamentos para a transformação de coordenadas entre o r-s e o x-y. Os elementos que utilizam esse conceito são conhecidos por elementos isoparamétricos.</p>
-<p>Em elementos finitos nós iremos montar a matriz Jacobiana multiplicando as coordenadas do elemento da estrutura no sistema x-y pela derivada das funções de interpolação do elemento padrão no sistema r-s. E as derivadas das funções de interpolação no sistema x-y são obtidas pela multiplicação das derivadas das funções de interpolação no sistema r-s multiplicadas pelo inverso da matriz Jacobiana. Aplicando ao elemento quadrilateral de 4 nós, resulta:</p>
+<p>Certo, mas em elementos finitos, como isso funciona? Eu não tenho as coordenadas x-y do elemento irregular escritas como uma função de r-s. Para isso nos iremos utilizar as mesmas funções de forma utilizadas na interpolação dos deslocamentos para a transformação de coordenadas entre o r-s e o x-y aplicando o mesmo conceito de interpolação porém agora nas coordenadas dos nós ao invés dos deslocamentos, ou seja:</p>
 <p>
 <script type="math/tex; mode=display">
-\textbf{J}_q = \left[ \begin{array}{cc}
-    \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial s} \\
-    \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial s}
-    \end{array} \right] = \left[ \begin{array}{cccc}
-        x_1 & x_2 & x_3 & x_4 \\
-        y_1 & y_2 & y_3 & y_4
-        \end{array} \right] \left[ \begin{array}{cc}
+\begin{equation} \label{eq:xxe}
+\textbf{x} = \textbf{N} \textbf{x}_e
+\end{equation}
+</script>
+</p>
+<p>Sendo $\textbf{x}$ as coordenadas em x-y, $\textbf{x} = \lbrace x \ y \rbrace^T$, interpoladas pelas funções de interpolação do elemento padrão $\textbf{N}$ multiplicadas pelas coordenadas dos nós do elemento da estrutura $\textbf{x}_e$, com as coordenadas x na primeira coluna e as y na segunda coluna. Os elementos que utilizam esse conceito são conhecidos por elementos isoparamétricos.</p>
+<p>Essa interpolação das coordenadas serve para conseguirmos escrever as coordenadas dos elementos em x-y em função de r-s, $x \rightarrow x(r, s)$ e $y \rightarrow y(r, s)$, ou seja, cada ponto no sistema x-y equivale a um ponto específico no sistema r-s relacionados pela transformação entre os sistemas. Reescrevendo a equação $\ref{eq:xxe}$ expandindo $\textbf{N}$ e $\textbf{x}_e$, temos:</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    x(r, s) \\
+    y(r, s)
+\end{array} \right\rbrace = \left[ \begin{array}{cccc}
+    N1(r, s) & N2(r, s) & N3(r, s) & N4(r, s)
+    \end{array} \right] \left[ \begin{array}{cc}
+        x1 & y1 \\
+        x2 & y2 \\
+        x3 & y3 \\
+        x4 & y4
+        \end{array} \right]
+</script>
+</p>
+<p>Sendo $N_1(r, s) $ a $N_4(r, s) $ as funções de interpolação do elemento quadrilateral padrão de 4 nós como exemplo, que vamos chamar simplesmente de $N_1$, $N_2$, $N_3$ e $N_4$. No triangular teríamos apenas 3 parcelas na soma.</p>
+<p>Como sabemos que as coordenadas dos nós do elemento da estrutura $\textbf{x}_e$ são constantes as derivadas do Jacobiano se referem às derivadas das funções de interpolação, e portanto o Jacobiano do elemento quadrilateral de 4 nós, resulta:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J} = \left[ \begin{array}{cc}
+    \dfrac{\partial x(r, s)}{\partial r} & \dfrac{\partial x(r, s)}{\partial s} \\
+    \dfrac{\partial y(r, s)}{\partial r} & \dfrac{\partial y(r, s)}{\partial s}
+    \end{array} \right] = \textbf{x}_e^T \left[ \begin{array}{cc}
             \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
             \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
             \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
@@ -918,53 +968,49 @@ G = \dfrac{E}{2(1 + \nu)}
             \end{array} \right]
 </script>
 </p>
-<p>E:</p>
+<p>Além disso, podemos utilizar o Jacobiano para montar as derivadas das funções de interpolação no sistema x-y, utilizadas para montar a matriz $\textbf{B}$, obtidas em função das derivadas das funções de interpolação $i$ no r-s pela regra da cadeia. Sabendo que as funções de interpolação $N_i$ dependem de $x(r, s)$ e de $y(r, s)$ e que esses por sua vez dependem de r e s, temos pela regra da cadeia:</p>
 <p>
 <script type="math/tex; mode=display">
-\left[ \begin{array}{cc}
-    \dfrac{\partial N_1}{\partial x} & \dfrac{\partial N_1}{\partial y} \\
-    \dfrac{\partial N_2}{\partial x} & \dfrac{\partial N_2}{\partial y} \\
-    \dfrac{\partial N_3}{\partial x} & \dfrac{\partial N_3}{\partial y} \\
-    \dfrac{\partial N_4}{\partial x} & \dfrac{\partial N_4}{\partial y}
-    \end{array} \right] = \left[ \begin{array}{cc}
-            \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
-            \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
-            \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
-            \dfrac{\partial N_4}{\partial r} & \dfrac{\partial N_4}{\partial s}
-            \end{array} \right] \textbf{J}^{-1}
+\begin{align}
+\dfrac{\partial N_i}{\partial r} &= \dfrac{\partial N_i}{\partial x} \dfrac{\partial x}{\partial r} + \dfrac{\partial N_i}{\partial y} \dfrac{\partial y}{\partial r} \\
+\dfrac{\partial N_i}{\partial s} &= \dfrac{\partial N_i}{\partial x} \dfrac{\partial x}{\partial s} + \dfrac{\partial N_i}{\partial y} \dfrac{\partial y}{\partial s}
+\end{align}
 </script>
 </p>
-<p>Sendo $N_1$ a $N_4$ as funções de interpolação do elemento quadrilateral de 4 nós. Essas derivadas são essenciais para a montagem da matriz $\textbf{B}$. Aplicando ao elemento triangular de 3 nós, resulta:</p>
+<p>Ou, de forma matricial:</p>
 <p>
 <script type="math/tex; mode=display">
-\textbf{J}_t = \left[ \begin{array}{cc}
-    \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial s} \\
-    \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial s}
-    \end{array} \right] = \left[ \begin{array}{cccc}
-        x_1 & x_2 & x_3 \\
-        y_1 & y_2 & y_3
-    \end{array} \right] \left[ \begin{array}{cc}
-            \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
-            \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
-            \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s}
+\begin{align}
+\left[ \begin{array}{c}
+    \dfrac{\partial N_i}{\partial r} \\
+    \dfrac{\partial N_i}{\partial s}
+    \end{array} \right] &= \left[ \begin{array}{cc}
+        \dfrac{\partial x(r, s)}{\partial r} & \dfrac{\partial x(r, s)}{\partial s} \\
+        \dfrac{\partial y(r, s)}{\partial r} & \dfrac{\partial y(r, s)}{\partial s}
+        \end{array} \right] \left[ \begin{array}{c}
+            \dfrac{\partial N_i}{\partial x} \\
+            \dfrac{\partial N_i}{\partial y}
+            \end{array} \right] \\
+\left[ \begin{array}{c}
+    \dfrac{\partial N_i}{\partial r} \\
+    \dfrac{\partial N_i}{\partial s}
+    \end{array} \right] &= \textbf{J} \left[ \begin{array}{c}
+            \dfrac{\partial N_i}{\partial x} \\
+            \dfrac{\partial N_i}{\partial y}
+            \end{array} \right] \\
+\therefore \left[ \begin{array}{c}
+    \dfrac{\partial N_i}{\partial x} \\
+    \dfrac{\partial N_i}{\partial y}
+    \end{array} \right] &= \textbf{J}^{-1} \left[ \begin{array}{c}
+    \dfrac{\partial N_i}{\partial r} \\
+    \dfrac{\partial N_i}{\partial s}
     \end{array} \right]
+\end{align}
 </script>
 </p>
-<p>E:</p>
-<p>
-<script type="math/tex; mode=display">
-\left[ \begin{array}{cc}
-        \dfrac{\partial N_1}{\partial x} & \dfrac{\partial N_1}{\partial y} \\
-        \dfrac{\partial N_2}{\partial x} & \dfrac{\partial N_2}{\partial y} \\
-        \dfrac{\partial N_3}{\partial x} & \dfrac{\partial N_3}{\partial y}
-\end{array} \right] = \left[ \begin{array}{cc}
-            \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
-            \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
-            \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s}
-    \end{array} \right] \textbf{J}^{-1}
-</script>
-</p>
-<p>Sendo $N_1$ a $N_3$ as funções de interpolação do elemento triangular de 3 nós.</p>
+<p>Portanto, as derivadas das funções de interpolação no sistema x-y são obtidas pela multiplicação das derivadas das funções de interpolação no sistema r-s multiplicadas pelo inverso da matriz Jacobiana.</p>
+<p>No acaso do elemento triangular padrão as mesmas definições são válidas, apenas reduzindo-se a quantidade de nós de 4 para 3.</p>
+<h3 id="integracao-numerica">Integração numérica</h3>
 <p>Antes de calcularmos as matrizes de rigidez dos elementos quadrilaterais e triangulares precisamos comentar um pouco sobre a integração dos elementos padrão. Serão necessárias as integrais em r e s das 8 derivadas das funções de interpolação no sistema x-y, escritas na matriz $\textbf{B}$ que pré e pós-multiplica o tensor constitutivo do material. Essa integral pode se tornar um tando complicada para ser resolvida de forma analítica como vinhamos fazendo com os elementos unidimensionais e em alguns casos, inclusive, pode nem ter solução.</p>
 <p>Esse problema é contornado com a utilização da integração numérica e mais especificamente utilizaremos a quadratura de Gauss. Basicamente a quadratura de Gauss aproxima o valor de uma integral através de uma somatória ponderada de valores das funções a serem integradas em pontos específicos dentro do elemento conhecidos como pontos de Gauss multiplicadas por determinados pesos. Por exemplo, no caso de uma função de $f(x, y)$ para nosso elemento padrão quadrilateral, podemos escrever:</p>
 <p>
@@ -972,9 +1018,60 @@ G = \dfrac{E}{2(1 + \nu)}
 \int_{-1}^1 \int_{-1}^1 f(x, y) dx dy \approx \sum_{i = 1}^{n_x} \sum_{j = 1}^{n_y} f(P_i, P_j) W_i W_j
 </script>
 </p>
-<p>Sendo $n_x$ o número de pontos de Gauss $P_i$ em x, $n_y$ o número de pontos de Gauss $P_j$ em y, $f(P_i, P_j)$ a função $f(x, y)$ avaliada nos pontos de Gauss $P_i, P_j$, em outras palavras com x substituído pelo valor x de $P_i$ e y substituído pelo valor y de $P_j$ e $W_i$ e $W_j$ os pesos respectivos dos pontos $P_i$ e $P_j$. Claro que no caso da integração das matrizes de rigidez dos elementos do estado plano, nos iremos substituir a função $f(x, y)$ pelo resultado da multiplicação $\textbf{B}^T \textbf{D} \textbf{B} h det(\textbf{J})$, sendo $det(\textbf{J})$ o determinante da matriz Jacobiana para levar em conta a distorção da área do elemento, h a espessura do elemento e $\textbf{D}$ a matriz constitutiva simplificada do estado plano de tensão ou deformação conforme o caso.</p>
+<p>Sendo $n_x$ o número de pontos de Gauss $P_i$ em x, $n_y$ o número de pontos de Gauss $P_j$ em y, $f(P_i, P_j)$ a função $f(x, y)$ avaliada nos pontos de Gauss $P_i, P_j$, em outras palavras com x substituído pelo valor x de $P_i$ e y substituído pelo valor y de $P_j$ e $W_i$ e $W_j$ os pesos respectivos dos pontos $P_i$ e $P_j$. Claro que no caso da integração das matrizes de rigidez dos elementos do estado plano, nos iremos substituir a função $f(x, y)$ pelo resultado da multiplicação $\textbf{B}^T \textbf{D} \textbf{B} h det(\textbf{J})$, sendo $det(\textbf{J})$ o determinante da matriz Jacobiana para levar em conta a distorção da área do elemento, h a espessura do elemento e $\textbf{D}$ a matriz constitutiva simplificada do estado plano de tensão ou deformação conforme o caso, conforme veremos com mais detalhes adiante.</p>
 <p>Com essa introdução sobre estado plano e já sabendo como transformar o nosso elemento padrão para o elemento da malha da estrutura e resolver sua integração aproximada, podemos então calcular as matrizes de rigidez dos elementos quadrilaterais e triangulares.</p>
 <h3 id="elemento-quadrilateral">Elemento quadrilateral</h3>
+<p>O elemento quadrilateral padrão que usaremos é o isoparamétrico bilinear de 4 nós com 2 unidades de comprimento nos lados.</p>
+<h4 id="funcoes-de-interpolacao">Funções de interpolação</h4>
+<p>As funções de interpolação utilizadas serão as bilineares Lagrangenas (derivadas por poliônimos de Lagrange), afinal temos 4 nós por elemento a a mesma interpolação será utilizada por ambos os graus de liberdade do nó. A interpolação dos deslocamentos no domínio segue a escolha dos polinômios de acordo com a quantidade de nós do elemento, no nosso caso n = 4, com o auxílio do triângulo de Pascal para polinômios.</p>
+<p><img alt="Triângulo de Pascal" src="../imagens/polinomioTrianguloPascal.png" title="Triângulo de Pascal para polinômios." /></p>
+<p>Assim podemos escrever o campo de interpolação dos deslocamentos u na direção de r e deslocamentos v na direção de s do elemento do estado plano como:</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    u(r, s)\\
+    v(r, s)
+\end{array} \right\rbrace = \dfrac{E}{(1 + \nu)(1 - 2 \nu)} \left[ \begin{array}{c}
+    1 u_1 +
+    \nu & 1 - \nu & 0 \\
+    0 & 0 & \dfrac{1 - 2 \nu}{2}
+    \end{array} \right]
+</script>
+</p>
+<p>A integração numérica pela quadratura de Gauss é feita utilizando dois pontos de Gauss por direção, pois com essa quantidade é possível integrar de modo exato um polinômio de até grau 3, conforme os "x" na figura.</p>
+<p><img alt="Elemento padrão quadrilateral" src="../imagens/elemento4Padrao.svg" title="Elemento padrão quadrilateral e localização dos pontos de Gauss." /></p>
+<p>As coordenadas e os pesos desses pontos para o elemento padrão em específico trabalhado aqui são mostrados na tabela abaixo:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Ponto de Gauss, Pi</th>
+<th align="center">Coordenadas r, s</th>
+<th align="center">Peso, Wi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">$\dfrac{1}{\sqrt{3}}$, $\dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">$-\dfrac{1}{\sqrt{3}}$, $\dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">$P_3$</td>
+<td align="center">$-\dfrac{1}{\sqrt{3}}$, $-\dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">$P_4$</td>
+<td align="center">$\dfrac{1}{\sqrt{3}}$, $-\dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
 <h3 id="elementos-triangular">Elementos triangular</h3>
                 
                   
