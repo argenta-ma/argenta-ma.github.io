@@ -1,0 +1,1570 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Aplicação na mão - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif:300,400,400i,700|Source+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Serif","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#aplicacao-na-mao" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Elementos Finitos Aplicados
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Aplicação na mão
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+      Treliça com 3 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/teoria_v/" title="Teoria básica" class="md-nav__link">
+      Teoria básica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/teoria_2EB/" title="Euler-Bernoulli" class="md-nav__link">
+      Euler-Bernoulli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Pórticos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Pórticos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/introducao_p/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/teoria_p/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacao_p/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/portico_simples/" title="Pórtico Simples" class="md-nav__link">
+      Pórtico Simples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/vinculacoes_vigapilar/" title="Vinculações Viga-Pilar" class="md-nav__link">
+      Vinculações Viga-Pilar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/flambagem_pilar/" title="Flambagem de Pilares" class="md-nav__link">
+      Flambagem de Pilares
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/edificios/" title="Edifícios" class="md-nav__link">
+      Edifícios
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Estado plano
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Estado plano
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introducao_ep/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_ep/" title="Fundamentação" class="md-nav__link">
+      Fundamentação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_ep_quad/" title="Elemento quadrilateral" class="md-nav__link">
+      Elemento quadrilateral
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_ep_tri/" title="Elemento triangular" class="md-nav__link">
+      Elemento triangular
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geracao-da-malha-de-elementos" class="md-nav__link">
+    Geração da malha de elementos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensor-constitutivo-do-material" class="md-nav__link">
+    Tensor constitutivo do material
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-das-matrizes-de-rigidez-globais-dos-elementos" class="md-nav__link">
+    Determinação das matrizes de rigidez globais dos elementos
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avaliacao-das-derivadas-das-funcoes-de-interpolacao-nos-pontos-de-gauss" class="md-nav__link">
+    Avaliação das derivadas das funções de interpolação nos pontos de Gauss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-dos-jacobianos" class="md-nav__link">
+    Determinação dos Jacobianos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-das-matrizes-das-derivadas-das-funcoes-de-interpolacao-nos-elementos-na-estrutura" class="md-nav__link">
+    Determinação das matrizes das derivadas das funções de interpolação nos elementos na estrutura
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculo-da-matriz-de-rigidez-dos-elementos" class="md-nav__link">
+    Cálculo da matriz de rigidez dos elementos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-de-rigidez-da-estrutura" class="md-nav__link">
+    Determinação da matriz de rigidez da estrutura
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-do-vetor-de-forcas-nodais-equivalentes-da-estruturas" class="md-nav__link">
+    Determinação do vetor de forças nodais equivalentes da estruturas
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="aplicacao-na-mao">Aplicação na mão</h1>
+<p>Com a fundamentação sobre o estado pleno e as definições teóricas sobre os elementos do estado plano, vamos aplicar esse conhecimento na solução da estrutura da parede içada para a obtenção das tensões causadas na parede em função de seu peso próprio. A parede que vamos analisar, conforme já vimos, possui uma altura de 8,5 m, um comprimento de 1,5 m e uma espessura de 20 cm, construída em concreto armado $\gamma_{ca}$ = 25 kN/m3 com os olhais para içamento posicionados de acordo com a idealização estrutura da figura.</p>
+<p><img alt="Parede idealizada" src="../imagens/paredeIdealizada.svg" title="Idealização da parede e localização dos apoios." /></p>
+<p>A parede foi moldada em concreto armado classe C35 ($f_{ck} = 35$ MPa de resistência característica) com granito de agragado graúdo ($\alpha_e = 1$) e portanto possui o módulo de elasticidade inicial, de acordo com a NBR-6118 - Projeto de estruturas de concreto, para concretos entre C35 e C50 de:</p>
+<p>
+<script type="math/tex; mode=display">
+E = \alpha_e 5600 \sqrt{f_{ck}} = 5600 \sqrt{35} = 33130,0468 \ \text{MPa}
+</script>
+</p>
+<p>O coeficiente de Poisson será adotado como o padrão da literatura de 0,20.</p>
+<h2 id="geracao-da-malha-de-elementos">Geração da malha de elementos</h2>
+<p>Essa malha nada mais é que a divisão do domínio da estrutura em pequenos subdomínios que determinamos de elementos. A questão é como fazer essa malha. A estrutura da parede será discretizada em elementos quadrilaterais, portanto, precisamos dividir o domínio em pequenos quadrados, representativos de elementos finitos quadrilaterais.</p>
+<p>Mas, o que esse procedimento de malha deve nos retornar de informação? Basicamente nós precisamos descobrir as coordenadas dos nós de todos os elementos da malha, a incidência de cada elemento, ou seja, quais nós fazem parte de qual elemento e e claro, para que isso funcione de forma lógica, definir uma numeração para os nós que possa ser utilizada para a aplicação dos conceitos de montagem da matriz de rigidez da estrutura e do vetor de forças nodais equivalentes.</p>
+<p>Poderíamos fazer isso definindo uma posição para a origem do sistema x-y da estrutura, que poderia, por exemplo, ser o canto inferior direito da parede, estabelecer um tamanho e forma de elemento, por exemplo, retangular de lado 150 cm na direção x e 170 cm na direção y, e calcular as coordenadas relativas a divisão do domínio da parede utilizando essas elementos em x e y para a obtenção das coordenadas nodais. Após, definiríamos uma numeração coerente para os nós como, por exemplo, iniciando em 1 na origem e correndo primeiro em x e depois em y a numeração até o último nó no canto superior direito da parede, calcularíamos a matriz dos graus de liberdade da estrutura em função dessa numeração dos nós e então escreveríamos uma matriz de incidência para cada elemento.</p>
+<p>A figura a seguir mostra a malha de elementos finitos gerada com a numeração dos nós e elementos, assim como dos graus de liberdade ao lado. Os números dos elementos estão dentro de quadrados, dos nós em círculos e dos graus de liberdade em cinza.</p>
+<p><img alt="Malha de elementos da parede" src="../imagens/malhaParede.svg" title="Malha de elementos da parede." /></p>
+<p>Nossa malha resultou em 5 elementos de 4 nós cada, com 12 nós na estrutura e 24 graus de liberdade. Assim, podemos escrever nossa matriz GL com os graus de liberdade da estrutura para direções x e y.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{GL} = \begin{array}{cc}
+    X \hspace{10pt} Y \hspace{20pt} & \\
+    \left[ \begin{array}{cc}
+        1 & 3 \\
+        3 & 4 \\
+        5 & 6 \\
+        7 & 8 \\
+        9 & 10 \\
+        11 & 12 \\
+        13 & 14 \\
+        15 & 16 \\
+        17 & 18 \\
+        19 & 20 \\
+        21 & 22 \\
+        23 & 24
+    \end{array} \right] \begin{array}{c}
+    \text{nó 1} \\
+    \text{nó 2} \\
+    \text{nó 3} \\
+    \text{nó 4} \\
+    \text{nó 5} \\
+    \text{nó 6} \\
+    \text{nó 7} \\
+    \text{nó 8} \\
+    \text{nó 9} \\
+    \text{nó 10} \\
+    \text{nó 11} \\
+    \text{nó 12}
+\end{array}
+\end{array}
+</script>
+</p>
+<p>Observe que numeramos os graus de liberdade restringidos por último para facilitar na hora de determinar a matriz de rigidez para o cálculo dos deslocamentos e reações de apoio.</p>
+<p><img alt="Malha de elementos da parede isolados" src="../imagens/malhaParedeExplodida.svg" title="Malha de elementos da parede isolados." /></p>
+<p>Isolando cada elemento da estrutura podemos escrever a relação de cada nó da estrutura com cada elemento e determinar a matriz de incidência dos elementos. Comumente na literatura a numeração de elementos bidimensionais é feita no sentido anti-horário iniciando em qualquer nó. Nos devemos seguir a mesma ordem que foi definida nos nós do elemento padrão para a obtenção das funções de interpolação do elemento quadrilateral. Além disso, observe que no sistema local nosso elemento é quadrado e terá lado de comprimento constante igual a 2. Portanto, a matriz de incidência dos elementos $IE$ fica:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{IE} = \begin{array}{cc}
+    \text{nó 1} \hspace{3pt} \text{nó 2} \hspace{3pt} \text{nó 3} \hspace{3pt} \text{nó 4} \hspace{40pt} & \\
+    \left[ \begin{array}{cc}
+        4 & 3 & 1 & 2 \\
+        6 & 5 & 3 & 4 \\
+        8 & 7 & 5 & 6 \\
+        10 & 9 & 7 & 8 \\
+        12 & 11 & 9 & 10
+    \end{array} \right] \begin{array}{c}
+    \text{elemento 1} \\
+    \text{elemento 2} \\
+    \text{elemento 3} \\
+    \text{elemento 4} \\
+    \text{elemento 5}
+\end{array}
+\end{array}
+</script>
+</p>
+<p>Diferente das análises com elementos unidimensionais, aqui as coordenadas dos nós são fundamentais para a determinação da matriz de rigidez dos elementos, já que influenciam diretamente no cálculo do Jacobiano. Portanto, vamos definir desde já a matriz com as coordenadas dos nós.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{NO} = \begin{array}{cc}
+    \text{X} \hspace{20pt} \text{Y} \hspace{20pt} & \\
+    \left[ \begin{array}{cc}
+        0 & 0 \\
+        150 & 0 \\
+        0 & 170 \\
+        150 & 170 \\
+        0 & 340 \\
+        150 & 340 \\
+        0 & 510 \\
+        150 & 510 \\
+        0 & 680 \\
+        150 & 680 \\
+        0 & 850 \\
+        150 & 850
+    \end{array} \right] \begin{array}{c}
+    \text{nó 1} \\
+    \text{nó 2} \\
+    \text{nó 3} \\
+    \text{nó 4} \\
+    \text{nó 5} \\
+    \text{nó 6} \\
+    \text{nó 7} \\
+    \text{nó 8} \\
+    \text{nó 9} \\
+    \text{nó 10} \\
+    \text{nó 11} \\
+    \text{nó 12}
+\end{array}
+\end{array}
+</script>
+</p>
+<h2 id="tensor-constitutivo-do-material">Tensor constitutivo do material</h2>
+<p>Antes de iniciar o cálculo das matrizes de rigidez dos elementos, vamos definir o tensor constitutivo do material. Como a parede é relativamente fina e poderá se deformar livremente na direção perpendicular ao plano, devemos trabalhar com o estado plano de tensões usando o tensor constitutivo simplificado.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\boldsymbol{\sigma} &= \textbf{D}_t \boldsymbol{\varepsilon} \\
+\therefore \left\lbrace \begin{array}{c}
+    \sigma_x\\
+    \sigma_y \\
+    \tau_{xy}
+\end{array} \right\rbrace &= \left[ \begin{array}{ccc}
+    \dfrac{E}{1 - \nu^2} & \dfrac{E \nu}{1 - \nu^2} & 0 \\
+    \dfrac{E \nu}{1 - \nu^2} & \dfrac{E}{1 - \nu^2} & 0 \\
+    0 & 0 & \dfrac{E}{2(1 + \nu)}
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        \varepsilon_x\\
+        \varepsilon_y \\
+        \gamma_{xy}
+    \end{array} \right\rbrace
+\end{align*}
+</script>
+</p>
+<p>e:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon_z = \dfrac{-\nu}{1 + \nu} (\varepsilon_x + \varepsilon_y)
+</script>
+Portanto, o tensor constitutivo do material é:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{D} = \left[ \begin{array}{ccc}
+    \dfrac{E}{1 - \nu^2} & \dfrac{E \nu}{1 - \nu^2} & 0 \\
+    \dfrac{E \nu}{1 - \nu^2} & \dfrac{E}{1 - \nu^2} & 0 \\
+    0 & 0 & \dfrac{E}{2(1 + \nu)}
+    \end{array} \right] = \left[ \begin{array}{ccc}
+    34510,465 &  6902,0931 &     0        \\
+     6902,0931 & 34510,4654 &     0        \\
+        0         &     0         & 13804,1862
+        \end{array} \right]
+</script>
+</p>
+<p>Com:</p>
+<p>
+<script type="math/tex; mode=display">
+\varepsilon_z = -0,1667 (\varepsilon_x + \varepsilon_y)
+</script>
+</p>
+<h2 id="determinacao-das-matrizes-de-rigidez-globais-dos-elementos">Determinação das matrizes de rigidez globais dos elementos</h2>
+<p>Lembra da teoria que desenvolvemos para a formulação do elemento quadrilateral? Então, chegamos a definição que para calcular a matriz de rigidez do elemento bilinear de 4 nós, precisamos do seguinte procedimento:</p>
+<ol>
+<li>Calcular as derivadas das funções de interpolação no r-s substituindo cada coordenada r e cada coordenada s pelas respectivas coordenadas de no ponto de Gauss;</li>
+<li>Determinar o Jacobiano em função das coordenadas do elemento da estrutura e das derivadas das funções de interpolação nos pontos de Gauss;</li>
+<li>Calcular as derivadas das funções de interpolação no x-y, função do inverso do Jacobiano e das derivadas das funções de interpolação nos pontos de Gauss;</li>
+<li>Distribuir as derivadas das funções de interpolação no x-y calculadas, na matriz $\textbf{B}$;</li>
+<li>Calcular a parcela relativa ao ponto de Gauss em questão multiplicando pelo respectivo peso, espessura da parede e determinante do Jacobiano para a correção da área.</li>
+</ol>
+<p>Repetir todo o procedimento de 1 a 6 para cada ponto de Gauss para a obtenção de $\textbf{k}_e$:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_e \approx t \sum_{i = 1}^{4} \sum_{j = 1}^{4} \textbf{B}(P_i, P_j)^T \textbf{D} \textbf{B}(P_i, P_j) W_i W_j det(\textbf{J})
+</script>
+</p>
+<h3 id="avaliacao-das-derivadas-das-funcoes-de-interpolacao-nos-pontos-de-gauss">Avaliação das derivadas das funções de interpolação nos pontos de Gauss</h3>
+<p>Primeiro precisamos calcular o valor das derivadas das funções de interpolação em cada ponto de Gauss. As derivadas das funções de interpolação para o elemento bilinear padrão de 4 nós em r e em são.</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{\partial \textbf{N}}{\partial \textbf{r}} = \left[ \begin{array}{cc}
+    \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+    \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+    \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
+    \dfrac{\partial N_4}{\partial r} & \dfrac{\partial N_4}{\partial s}
+    \end{array} \right] = \left[ \begin{array}{cc}
+        \dfrac{1}{4} (1 + s) & \dfrac{1}{4} (1 + r) \\
+        -\dfrac{1}{4} (1 + s) & \dfrac{1}{4} (1 - r) \\
+        -\dfrac{1}{4} (1 - s) & -\dfrac{1}{4} (1 - r) \\
+        \dfrac{1}{4} (1 - s) & -\dfrac{1}{4} (1 + r)
+        \end{array} \right]
+</script>
+</p>
+<p>Sendo $P_i$ relativo as coordenadas r dos pontos de Gauss e $P_j$ as coordenadas s. Nós precisamos avaliar essas funções de interpolação em cada ponto de Gauss, ou seja, todas elas serão avaliadas para cada ponto de Gauss. Os valores para cada função de interpolação em cada ponto de Gauss são mostrados abaixo:</p>
+<p><strong>Ponto 1 de Gauss: r = $\dfrac{1}{\sqrt{3}}$, s = $\dfrac{1}{\sqrt{3}}$</strong></p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{\partial \textbf{N}}{\partial \textbf{r}_{P_1}} = \left[ \begin{array}{cc}
+    0,39433757 &  0,39433757 \\
+    -0,39433757 &  0,10566243 \\
+    -0,10566243 & -0,10566243 \\
+    0,10566243 & -0,39433757
+    \end{array} \right]
+</script>
+</p>
+<p><strong>Ponto 2 de Gauss: r = $-\dfrac{1}{\sqrt{3}}$, s = $\dfrac{1}{\sqrt{3}}$</strong></p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{\partial \textbf{N}}{\partial \textbf{r}_{P_2}} = \left[ \begin{array}{cc}
+    0,39433757 &  0,10566243 \\
+    -0,39433757 &  0,39433757 \\
+    -0,10566243 & -0,39433757 \\
+    0,10566243 & -0,10566243
+    \end{array} \right]
+</script>
+</p>
+<p><strong>Ponto 3 de Gauss: r = $-\dfrac{1}{\sqrt{3}}$, s = $-\dfrac{1}{\sqrt{3}}$</strong></p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{\partial \textbf{N}}{\partial \textbf{r}_{P_3}} = \left[ \begin{array}{cc}
+    0,10566243 &  0,10566243 \\
+    -0,10566243 &  0,39433757 \\
+    -0,39433757 & -0,39433757 \\
+    0,39433757 & -0,10566243
+    \end{array} \right]
+</script>
+</p>
+<p><strong>Ponto 4 de Gauss: r = $\dfrac{1}{\sqrt{3}}$, s = $-\dfrac{1}{\sqrt{3}}$</strong></p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{\partial \textbf{N}}{\partial \textbf{r}_{P_4}} = \left[ \begin{array}{cc}
+    0,10566243 &  0,10566243 \\
+    -0,10566243 &  0,39433757 \\
+    -0,39433757 & -0,39433757 \\
+    0,39433757 & -0,10566243
+    \end{array} \right]
+</script>
+</p>
+<p>Esses valores acima são constantes para toda a malha, já que foram determinados pelas funções de interpolação do elemento padrão nos pontos de Gauss do elemento padrão e servem para todos elementos da estrutura.</p>
+<p>Como em cada ponto de Gauss temos valores diferentes para as derivadas das funções de interpolação, teremos Jacobianos diferentes de acordo com o ponto de Gauss sendo avaliado.</p>
+<h3 id="determinacao-dos-jacobianos">Determinação dos Jacobianos</h3>
+<p>O Jacobiano é calculado multiplicando-se as coordenadas dos elementos na estrutura pelas derivadas das funções de interpolação do elemento padrão no sistema r-s avaliadas em cada ponto de Gauss.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\textbf{J} = \textbf{x}_e \dfrac{\partial \textbf{N}}{\partial \textbf{r}} = \left[ \begin{array}{cccc}
+    x_1 & x_2 & x_3 & x_4 \\
+    y_1 & y_2 & y_3 & y_4
+    \end{array} \right] \left[ \begin{array}{cc}
+        \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+        \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+        \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
+        \dfrac{\partial N_4}{\partial r} & \dfrac{\partial N_4}{\partial s}
+        \end{array} \right]
+\end{equation}
+</script>
+</p>
+<p>Lembrando que a ordem das coordenadas deve seguir a ordem definida nas funções de interpolação que é a mesma ordem que escrevemos na matriz de incidência dos elementos. Portanto, podemos usar essa matriz para escrever a matriz das coordenadas dos nós dos elementos $\textbf{x}_e$. Então, para cada elemento $e$, temos:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{x}_e = \left[ \begin{array}{cccc}
+    \textbf{NO}_{\textbf{IE}_{e, 1}, 1} & \textbf{NO}_{\textbf{IE}_{e, 2}, 1} & \textbf{NO}_{\textbf{IE}_{e, 3}, 1} & \textbf{NO}_{\textbf{IE}_{e, 4}, 1} \\
+    \textbf{NO}_{\textbf{IE}_{e, 1}, 2} & \textbf{NO}_{\textbf{IE}_{e, 2}, 2} & \textbf{NO}_{\textbf{IE}_{e, 3}, 2} & \textbf{NO}_{\textbf{IE}_{e, 4}, 2}
+    \end{array} \right]
+</script>
+</p>
+<p>Observe que na matriz acima $\textbf{IE}_{e, 1}$, por exemplo, é o primeiro índice de $\textbf{NO}$, assim como os demais. Então, vamos calcular os Jacobianos começando pelo elemento 1 para todos os pontos de Gauss. Como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{x}_1 = \left[ \begin{array}{cccc}
+    150 & 0 & 0 & 150 \\
+    170 & 170 & 0 & 0
+    \end{array} \right]
+</script>
+</p>
+<p>Então, multiplicando a matriz com as coordenadas dos nós do elemento 1 acima com cada matriz das derivadas das funções de interpolação avaliada em cada ponto de Gauss, temos os Jacobianos para cada ponto de Gauss $P_i$ para o elemento 1:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J}_{1_{P_1}} = \left[ \begin{array}{cc}
+    75 & 0 \\
+    0 & 85
+    \end{array} \right] \quad \textbf{J}_{1_{P_2}} = \left[ \begin{array}{cc}
+        75 & 0 \\
+        0 & 85
+        \end{array} \right] \quad \textbf{J}_{1_{P_3}} = \left[ \begin{array}{cc}
+            75 & 0 \\
+            0 & 85
+            \end{array} \right] \quad \textbf{J}_{1_{P_4}} = \left[ \begin{array}{cc}
+                75 & 0 \\
+                0 & 85
+                \end{array} \right]
+</script>
+</p>
+<p>Mas são todos iguais?! Exatamente, mas porque? Lembra o que o Jacobiano determina o mapeamento entre dois sistemas de coordenadas, portanto, como era de se esperar quaisquer pontos do elemento 1 serão mapeados da mesma forma entre os sistemas r-s e x-y, já que o elemento na estrutura é duplamente simétrico, com arestas paralelas aos eixos x-y assim como o elemento padrão para os eixos r-s que também é duplamente simétrico. Além disso, o Jacobiano também faz uma relação da distorção dos elementos entre os sistemas de coordenadas, tanto que podemos corrigir a área do elemento distorcido com o determinante do Jacobiano.</p>
+<p>Vamos pensar um pouquinho: se o Jacobiano fornece uma mapeamento entre dois sistemas de coordenadas em função da distorção do elemento no sistema x-y aliado ao fato de todos os elementos da estrutura possuírem o mesmo tamanho, mesma forma e mesma distorção relativa ao elemento padrão, retangular de 150cm x 170cm, então o Jacobiano é igual para todos? Isso mesmo! Abaixo o Jacobiano para o primeiro ponto de Gauss para todos os 5 elementos.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J}_{1_{P_1}} = \left[ \begin{array}{cc}
+    75 & 0 \\
+    0 & 85
+    \end{array} \right] \quad \textbf{J}_{2_{P_1}} = \left[ \begin{array}{cc}
+        75 & 0 \\
+        0 & 85
+        \end{array} \right] \quad \textbf{J}_{3_{P_1}} = \left[ \begin{array}{cc}
+            75 & 0 \\
+            0 & 85
+            \end{array} \right] \quad \textbf{J}_{4_{P_1}} = \left[ \begin{array}{cc}
+                75 & 0 \\
+                0 & 85
+                \end{array} \right] \quad \textbf{J}_{5_{P_1}} = \left[ \begin{array}{cc}
+                    75 & 0 \\
+                    0 & 85
+                    \end{array} \right]
+</script>
+</p>
+<p>No caso específico da estrutura da parede com a malha proposta nesta aplicação o Jacobiano é igual. Se os elementos na estrutura não possuírem o mesmo tamanho, forma e distorção os Jacobianos seriam diferentes entre os elementos e também seriam diferentes nos pontos de Gauss, visto que cada posição de cada ponto de Gauss pode precisar de um mapeamento diferente.</p>
+<p>Sendo assim, em nossa aplicação o Jacobiano é único para todos os elementos e sua inversa vale:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J}^{-1} = \left[ \begin{array}{cc}
+    0,01333333 & 0 \\
+    0 & 0,01176471
+    \end{array} \right]
+</script>
+</p>
+<h3 id="determinacao-das-matrizes-das-derivadas-das-funcoes-de-interpolacao-nos-elementos-na-estrutura">Determinação das matrizes das derivadas das funções de interpolação nos elementos na estrutura</h3>
+<p>Conforme observamos, sendo nosso Jacobiano constante para todos os elementos e as derivadas das funções de interpolação no r-s iguais para todos os elementos em cada ponto de Gauss, podemos concluir que a matriz das derivadas das funções de interpolação nos elementos na estrutura, no sistema x-y, é igual para todos os elementos em cada ponto de Gauss para esta apĺicação.</p>
+<p>Multiplicando a inversa do Jacobiano pelas derivadas das funções de interpolação no r-s avaliadas em cada ponto de Gauss, determinamos as derivadas das funções de interpolação no sistema x-y para cada ponto de Gauss.</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{\partial \textbf{N}}{\partial \textbf{x}_{P_1}} = \left[ \begin{array}{cc}
+    0,00525783 &  0,00463927 \\
+    -0,00525783 &  0,00124309 \\
+    -0,00140883 & -0,00124309 \\
+    0,00140883 & -0,00463927
+    \end{array} \right] \quad \dfrac{\partial \textbf{N}}{\partial \textbf{x}_{P_2}} = \left[ \begin{array}{cc}
+        0,00525783 &  0,00124309 \\
+        -0,00525783 &  0,00463927 \\
+        -0,00140883 & -0,00463927 \\
+        0,00140883 & -0,00124309
+        \end{array} \right]
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\dfrac{\partial \textbf{N}}{\partial \textbf{x}_{P_3}} = \left[ \begin{array}{cc}
+            0,00140883 &  0,00124309 \\
+            -0,00140883 &  0,00463927 \\
+            -0,00525783 & -0,00463927 \\
+            0,00525783 & -0,00124309
+            \end{array} \right] \quad \dfrac{\partial \textbf{N}}{\partial \textbf{x}_{P_4}} = \left[ \begin{array}{cc}
+                0,00140883 &  0,00124309 \\
+             -0,00140883 &  0,00463927 \\
+             -0,00525783 & -0,00463927 \\
+              0,00525783 & -0,00124309
+                \end{array} \right] \quad
+</script>
+</p>
+<p>Distribuindo os valores obtidos para derivadas das funções de interpolação no sistema x-y corretamente para determinar as deformações na estrutura, obtemos a matriz $\textbf{B}$ para cada ponto de Gauss.</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\textbf{B}_{P_1} &= \left[ \begin{array}{cccccccc}
+     0,00525783 &  0,         & -0,00525783 &  0,         & -0,00140883 &          0,         &  0,00140883 &  0,         \\
+     0,         &  0,00463927 &  0,         &  0,00124309 &  0,         &         -0,00124309 &  0,         & -0,00463927 \\
+     0,00463927 &  0,00525783 &  0,00124309 & -0,00525783 & -0,00124309 &         -0,00140883 & -0,00463927 &  0,00140883
+\end{array} \right] \\
+\textbf{B}_{P_2} &= \left[ \begin{array}{cccccccc}
+    0,00525783 &  0,         & -0,00525783 &  0,         & -0,00140883 &          0,         &  0,00140883 &  0,         \\
+     0,         &  0,00124309 &  0,         &  0,00463927 &  0,         &         -0,00463927 &  0,         & -0,00124309 \\
+     0,00124309 &  0,00525783 &  0,00463927 & -0,00525783 & -0,00463927 &         -0,00140883 & -0,00124309 &  0,00140883
+\end{array} \right] \\
+\textbf{B}_{P_3} &= \left[ \begin{array}{cccccccc}
+    0,00140883 &  0,         & -0,00140883 &  0,         & -0,00525783 &          0,         &  0,00525783 &  0,         \\
+     0,         &  0,00124309 &  0,         &  0,00463927 &  0,         &         -0,00463927 &  0,         & -0,00124309 \\
+     0,00124309 &  0,00140883 &  0,00463927 & -0,00140883 & -0,00463927 &         -0,00525783 & -0,00124309 &  0,00525783
+\end{array} \right] \\
+\textbf{B}_{P_4} &= \left[ \begin{array}{cccccccc}
+    0,00140883 &  0,         & -0,00140883 &  0,         & -0,00525783 &          0,         &  0,00525783 &  0,         \\
+     0,         &  0,00124309 &  0,         &  0,00463927 &  0,         &         -0,00463927 &  0,         & -0,00124309 \\
+     0,00124309 &  0,00140883 &  0,00463927 & -0,00140883 & -0,00463927 &         -0,00525783 & -0,00124309 &  0,00525783
+\end{array} \right]
+\end{align*}
+</script>
+</p>
+<h3 id="calculo-da-matriz-de-rigidez-dos-elementos">Cálculo da matriz de rigidez dos elementos</h3>
+<p>Conforme já aprendemos, a matriz de rigidez dos elementos aproximada pela integração numérica, usando a quadratura de Gauss, é calculada com a equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation}
+\textbf{k}_e \approx t \sum_{i = 1}^{4} \textbf{B}_{P_i}^T \textbf{D} \textbf{B}_{P_i} W_i W_i det(\textbf{J}) \label{eq:ke}
+\end{equation}
+</script>
+</p>
+<p>Observe que foi suprimido um dos somatórios pois já obtemos a matriz $\textbf{B}$ avaliada nas coordenadas r e s dos pontos de Gauss, então esse somatório significa correr nessas matrizes. Bem, já temos as matrizes $\textbf{B}$ avaliadas em cada ponto de Gauss, já conhecemos seus respectivos pesos $W_i$ ou $W_j$, o tensor constitutivo do material já foi definido e calculado, conhecemos o valor da espessura $t=20$ cm e sabemos que o determinante do Jacobiano, igual para todos os elementos, vale:</p>
+<p>
+<script type="math/tex; mode=display">
+det(\textbf{J}) = 1066,607987
+</script>
+</p>
+<p>E como todos os elementos possuem os parâmetros e variáveis iguais para o cálculo da matriz de rigidez, chegamos a conclusão que a matriz de rigidez de todos os elementos é a mesma. Portanto, somente precisamos fazer o somatório da equação $\ref{eq:ke}$ para obter a matriz de rigidez dos elementos.</p>
+<p><img alt="Matriz de rigidez dos elementos" src="../imagens/equacoesGrandes/rigidezElementos.svg" title="Matriz de rigidez dos elementos." /></p>
+<!-- $$
+\textbf{k}_e \approx \left[ \begin{array}{cccccccc}
+    341946,83380174 &  103531,39625    & -220145,19115468 &         -34510,46541667 & -170973,41690087 & -103531,39625    &          49171,77425381 &   34510,46541667 \\
+    103531,39625    &  307301,03322658 &   34510,46541667 &          -2796,92660893 & -103531,39625    & -153650,51661329 &         -34510,46541667 & -150853,59000436 \\
+    -220145,19115468 &   34510,46541667 &  341946,83380174 &        -103531,39625    &   49171,77425381 &  -34510,46541667 &        -170973,41690087 &  103531,39625    \\
+    -34510,46541667 &   -2796,92660893 & -103531,39625    &         307301,03322658 &   34510,46541667 & -150853,59000436 &         103531,39625    & -153650,51661329 \\
+    -170973,41690087 & -103531,39625    &   49171,77425381 &          34510,46541667 &  341946,83380174 &  103531,39625    &        -220145,19115468 &  -34510,46541667 \\
+    -103531,39625    & -153650,51661329 &  -34510,46541667 &        -150853,59000436 &  103531,39625    &  307301,03322658 &          34510,46541667 &   -2796,92660893 \\
+     49171,77425381 &  -34510,46541667 & -170973,41690087 &         103531,39625    & -220145,19115468 &   34510,46541667 &         341946,83380174 & -103531,39625    \\
+     34510,46541667 & -150853,59000436 &  103531,39625    &        -153650,51661329 &  -34510,46541667 &   -2796,92660893 &        -103531,39625    &  307301,03322658
+\end{array} \right]
+$$ -->
+
+<h2 id="determinacao-da-matriz-de-rigidez-da-estrutura">Determinação da matriz de rigidez da estrutura</h2>
+<p>Conhecemos já duas estratégias para a montagem da matriz de rigidez da estrutura: o indexador e o coletor. O indexador é bem simples de entender e fácil de implementar, mas somente monta a matriz de rigidez completa, já o coletor é um tanto mais complexo, porém monta somente as matrizes que precisamos e fornece uma visualização geral dos acoplamentos entre elementos na estrutura.</p>
+<p>O coletor para o elemento bilinear de 4 nós se escreve como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C}_{b,\textbf{GL}_{(\textbf{IE}_{b,i}),j}} = 2i + (j - 2) \qquad \text{para} \quad i = 1,2,3,4 \quad j = 1,2 \quad b = 1,...,t_{el}
+</script>
+</p>
+<p>Lembrando que $i$ é relativo aos nós do elemento, $j$ a cada grau de liberdade do nó e $b$ o número do elemento com um total de $t_{el}$</p>
+<div class="admonition warning">
+<p class="admonition-title">Coletor</p>
+<p>Lembre-se que, se for usar o coletor e se basear na derivação feita em pórticos, que a porção $i^2 + (j - 1)$ somente se aplica ao elemento de pórtico, para o elementos bilinear de 4 nós seria $2i + (j - 2)$ e para outros elementos outra relação entre $i$ e $j$.</p>
+</div>
+<p>O indexador para o elemento bilinear de 4 nós se escreve como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{ID}_b = \left\lbrace \begin{array}{c}
+    GL_{IE_{b,1},1} \\
+    GL_{IE_{b,1},2} \\
+    GL_{IE_{b,2},1} \\
+    GL_{IE_{b,2},2} \\
+    GL_{IE_{b,3},1} \\
+    GL_{IE_{b,3},2} \\
+    GL_{IE_{b,4},1} \\
+    GL_{IE_{b,4},2}
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Aplicando a equação chegamos ao seguinte coletor (com os valores zero suprimidos) para a parede içada:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{C} = \begin{array}{cc}
+\hspace{10pt} 1 \hspace{9.5pt} 2 \hspace{9.5pt} 3 \hspace{9.5pt} 4 \hspace{9.5pt} 5 \hspace{9.5pt} 6 \hspace{9.5pt} 7 \hspace{9.5pt} 8 \hspace{9.5pt} 9 \hspace{6pt} 10 \hspace{5.3pt} 11 \hspace{5.3pt} 12 \hspace{5.3pt}13 \hspace{5.3pt}14 \hspace{5.3pt}15 \hspace{5.3pt}16 \hspace{5.3pt}17 \hspace{5.3pt}18 \hspace{5.3pt}19 \hspace{5.3pt}20 \hspace{5.3pt}21 \hspace{5.3pt}22 \hspace{5.3pt}23 \hspace{5.3pt}24 \hspace{5.3pt}  & \\
+\left[ \begin{array}{cccccccccccccccccccccccc}
+    5 & 6 & 7 & 8 & 3 & 4 & 1 & 2 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+     &  &  &  & 5 & 6 & 7 & 8 & 3 & 4 & 1 & 2 &  &  &  &  &  &  &  &  &  &  &  & \\
+     &  &  &  &  &  &  &  & 5 & 6 & 7 & 8 & 3 & 4 & 1 & 2 &  &  &  &  &  &  &  & \\
+     &  &  &  &  &  &  &  &  &  &  &  & 5 & 6 & 7 & 8 & 3 & 4 & 1 & 2 &  &  &  & \\
+     &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 5 & 6 & 7 & 8 & 3 & 4 & 1 & 2
+\end{array} \right] & \begin{array}{c}
+                            1\\
+                            2\\  
+                            3\\
+                            4\\
+                            5
+                         \end{array}\\
+\end{array}
+</script>
+</p>
+<p>Aplicando o indexador para todos os elementos, chegamos aos seguintes índices de indexação para cada elemento:</p>
+<p>
+<script type="math/tex; mode=display">
+ID_1 = \left\lbrace \begin{array}{c}
+    7 \\
+    8 \\
+    5 \\
+    6 \\
+    1 \\
+    2 \\
+    3 \\
+    4
+    \end{array} \right\rbrace \quad
+ID_2 = \left\lbrace \begin{array}{c}
+    11 \\
+    12\\
+    9\\
+    10 \\
+    5 \\
+    6 \\
+    7 \\
+    8
+\end{array} \right\rbrace \quad
+ID_3 = \left\lbrace \begin{array}{c}
+    15 \\
+    16 \\
+    13 \\
+    14 \\
+    9 \\
+    10 \\
+    11 \\
+    12
+\end{array} \right\rbrace \quad
+ID_4 = \left\lbrace \begin{array}{c}
+    19 \\
+    20 \\
+    17 \\
+    18 \\
+    13 \\
+    14 \\
+    15 \\
+    16
+\end{array} \right\rbrace \quad
+ID_5 = \left\lbrace \begin{array}{c}
+    23 \\
+    24 \\
+    21 \\
+    22 \\
+    17 \\
+    18 \\
+    19 \\
+    20
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Agora fica a sua escolha para montar a matriz de rigidez da estrutura. Caso opte por usar o coletor, a montagem da matriz para o cálculo dos deslocamentos é feita com a equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_{U(i,j)} = \sum_{b=1}^n \left[ \textbf{k}b_{g(\textbf{C}_{b,i},\textbf{C}_{b,j})} \right] \psi_b \begin{cases}
+\psi_b = 1 \ \text{se} \ \textbf{C}_{b,i} \neq 0 \ \text{e} \ \textbf{C}_{b,j} \neq 0 \\
+\psi_b = 0 \ \text{se} \ \textbf{C}_{b,i} = 0 \ \text{ou} \ \textbf{C}_{b,j} = 0
+\end{cases}
+</script>
+</p>
+<p>Lembrando que na parte $\textbf{k}b$, $b$ se refere ao número do elemento e o índice $g$ significa apenas global, ou seja, da estrutura. A montagem da matriz de rigidez da estrutura para o cálculo das reações de apoio é feita com a equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{K}_{R(i,j)} = \sum_{b=1}^n \textbf{k}b_{g(\textbf{C}_{b,i+4},\textbf{C}_{b,j})} \psi_b \begin{cases}
+\psi_b = 1 \ \text{se} \ \textbf{C}_{b,i+4} \neq 0 \ \text{e} \ \textbf{C}_{b,j} \neq 0 \\
+\psi_b = 0 \ \text{se} \ \textbf{C}_{b,i+4} = 0 \ \text{ou} \ \textbf{C}_{b,j} = 0
+\end{cases}
+</script>
+</p>
+<p>Lembrando que o 4 na equação acima se refere a quantidade de graus de liberdade restringidos.</p>
+<p>A matriz de rigidez completa da estrutura resulta em:</p>
+<!-- $$
+\textbf{K} = \left[ \begin{array}{cccccccccccccccccccccccc}
+    341946,83 & 103531,40 & -220145,19 & -34510,47 & 49171,77 & 34510,47 & -170973,42 & -103531,40 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    103531,40 & 307301,03 & 34510,47 & -2796,93 & -34510,47 & -150853,59 & -103531,40 & -153650,52 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    -220145,19 & 34510,47 & 341946,83 & -103531,40 & -170973,42 & 103531,40 & 49171,77 & -34510,47 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    -34510,47 & -2796,93 & -103531,40 & 307301,03 & 103531,40 & -153650,52 & 34510,47 & -150853,59 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & -0 & -440290,38 & -0 & 49171,77 & 34510,47 & -170973,42 & -103531,40 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    34510,47 & -150853,59 & 103531,40 & -153650,52 & -0 & 614602,07 & -0 & -5593,85 & -34510,47 & -150853,59 & -103531,40 & -153650,52 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    -170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & -0 & 683893,67 & 0 & -170973,42 & 103531,40 & 49171,77 & -34510,47 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    -103531,40 & -153650,52 & -34510,47 & -150853,59 & -0 & -5593,85 & 0 & 614602,07 & 103531,40 & -153650,52 & 34510,47 & -150853,59 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & 0 & -440290,38 & 0 & 49171,77 & 34510,47 & -170973,42 & -103531,40 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 34510,47 & -150853,59 & 103531,40 & -153650,52 & 0 & 614602,07 & 0 & -5593,85 & -34510,47 & -150853,59 & -103531,40 & -153650,52 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & -170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & 0 & 683893,67 & -0 & -170973,42 & 103531,40 & 49171,77 & -34510,47 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & -103531,40 & -153650,52 & -34510,47 & -150853,59 & 0 & -5593,85 & -0 & 614602,07 & 103531,40 & -153650,52 & 34510,47 & -150853,59 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & -0 & -440290,38 & 0 & 49171,77 & 34510,47 & -170973,42 & -103531,40 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 34510,47 & -150853,59 & 103531,40 & -153650,52 & -0 & 614602,07 & 0 & -5593,85 & -34510,47 & -150853,59 & -103531,40 & -153650,52 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & 0 & 683893,67 & 0 & -170973,42 & 103531,40 & 49171,77 & -34510,47 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -103531,40 & -153650,52 & -34510,47 & -150853,59 & 0 & -5593,85 & 0 & 614602,07 & 103531,40 & -153650,52 & 34510,47 & -150853,59 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & 0 & -440290,38 & -0 & 49171,77 & 34510,47 & -170973,42 & -103531,40 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 34510,47 & -150853,59 & 103531,40 & -153650,52 & 0 & 614602,07 & -0 & -5593,85 & -34510,47 & -150853,59 & -103531,40 & -153650,52 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & -0 & 683893,67 & -0 & -170973,42 & 103531,40 & 49171,77 & -34510,47 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -103531,40 & -153650,52 & -34510,47 & -150853,59 & -0 & -5593,85 & -0 & 614602,07 & 103531,40 & -153650,52 & 34510,47 & -150853,59 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 49171,77 & -34510,47 & -170973,42 & 103531,40 & 341946,83 & -103531,40 & -220145,19 & 34510,47 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 34510,47 & -150853,59 & 103531,40 & -153650,52 & -103531,40 & 307301,03 & -34510,47 & -2796,93 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -170973,42 & -103531,40 & 49171,77 & 34510,47 & -220145,19 & -34510,47 & 341946,83 & 103531,40 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -103531,40 & -153650,52 & -34510,47 & -150853,59 & 34510,47 & -2796,93 & 103531,40 & 307301,03
+\end{array} \right]
+$$ -->
+
+<p><img alt="Matriz de rigidez da estrutura" src="../imagens/equacoesGrandes/matrizRigidez.svg" title="Matriz de rigidez da estrutura." /></p>
+<p>A matriz para o cálculo dos deslocamentos é:</p>
+<!-- $$
+\textbf{K}_{U} = \left[ \begin{array}{cccccccccccccccccccc}
+341946,83 & 103531,40 & -220145,19 & -34510,47 & 49171,77 & 34510,47 & -170973,42 & -103531,40 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+103531,40 & 307301,03 & 34510,47 & -2796,93 & -34510,47 & -150853,59 & -103531,40 & -153650,52 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-220145,19 & 34510,47 & 341946,83 & -103531,40 & -170973,42 & 103531,40 & 49171,77 & -34510,47 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-34510,47 & -2796,93 & -103531,40 & 307301,03 & 103531,40 & -153650,52 & 34510,47 & -150853,59 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & -0 & -440290,38 & -0 & 49171,77 & 34510,47 & -170973,42 & -103531,40 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+34510,47 & -150853,59 & 103531,40 & -153650,52 & -0 & 614602,07 & -0 & -5593,85 & -34510,47 & -150853,59 & -103531,40 & -153650,52 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & -0 & 683893,67 & 0 & -170973,42 & 103531,40 & 49171,77 & -34510,47 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-103531,40 & -153650,52 & -34510,47 & -150853,59 & -0 & -5593,85 & 0 & 614602,07 & 103531,40 & -153650,52 & 34510,47 & -150853,59 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & 0 & -440290,38 & 0 & 49171,77 & 34510,47 & -170973,42 & -103531,40 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 34510,47 & -150853,59 & 103531,40 & -153650,52 & 0 & 614602,07 & 0 & -5593,85 & -34510,47 & -150853,59 & -103531,40 & -153650,52 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & -170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & 0 & 683893,67 & -0 & -170973,42 & 103531,40 & 49171,77 & -34510,47 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & -103531,40 & -153650,52 & -34510,47 & -150853,59 & 0 & -5593,85 & -0 & 614602,07 & 103531,40 & -153650,52 & 34510,47 & -150853,59 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & -0 & -440290,38 & 0 & 49171,77 & 34510,47 & -170973,42 & -103531,40 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 34510,47 & -150853,59 & 103531,40 & -153650,52 & -0 & 614602,07 & 0 & -5593,85 & -34510,47 & -150853,59 & -103531,40 & -153650,52 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & 0 & 683893,67 & 0 & -170973,42 & 103531,40 & 49171,77 & -34510,47 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -103531,40 & -153650,52 & -34510,47 & -150853,59 & 0 & -5593,85 & 0 & 614602,07 & 103531,40 & -153650,52 & 34510,47 & -150853,59 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 49171,77 & -34510,47 & -170973,42 & 103531,40 & 683893,67 & 0 & -440290,38 & -0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 34510,47 & -150853,59 & 103531,40 & -153650,52 & 0 & 614602,07 & -0 & -5593,85 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -170973,42 & -103531,40 & 49171,77 & 34510,47 & -440290,38 & -0 & 683893,67 & -0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -103531,40 & -153650,52 & -34510,47 & -150853,59 & -0 & -5593,85 & -0 & 614602,07 \\
+\end{array} \right]
+$$ -->
+
+<p><img alt="Matriz de rigidez para o cálculo dos deslocamentos" src="../imagens/equacoesGrandes/matrizRigidezDeslocamentos.svg" title="Matriz de rigidez o cálculo dos deslocamentos." /></p>
+<p>E, a matriz para o cálculo das reações de apoio é:</p>
+<!-- $$
+\textbf{K}_{R} = \left[ \begin{array}{cccccccccccccccccccc}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 49171,774 & -34510,465 & -170973,417 & 103531,396 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 34510,465 & -150853,590 & 103531,396 & -153650,517 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -170973,417 & -103531,396 & 49171,774 & 34510,465 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -103531,396 & -153650,517 & -34510,465 & -150853,590 \\
+\end{array} \right]
+$$ -->
+
+<p><img alt="Matriz de rigidez para o cálculo das reações de aopio" src="../imagens/equacoesGrandes/matrizRigidezReacoes.svg" title="Matriz de rigidez o cálculo das reações de aopio." /></p>
+<div class="admonition info">
+<p class="admonition-title">Não vejo...</p>
+<p>As matrizes acima são imagens, clique com o botão direito e abra em nova aba ou janela para visualizar melhor.</p>
+</div>
+<h2 id="determinacao-do-vetor-de-forcas-nodais-equivalentes-da-estruturas">Determinação do vetor de forças nodais equivalentes da estruturas</h2>
+<p>A única força que atua em nossa placa içada é seu peso próprio. Nós vamos considerar que a placa está parada e que o guindaste não está se movimentando, portanto, o peso próprio pode ser considerado como uma carga estática.</p>
+<p>Conforme apresentado na teoria, as forças nodais equivalentes a carga de corpo são obtidas aproximadamente com a equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f}_c \approx t \sum_{i = 1}^{4} \sum_{j = 1}^{4} \textbf{N}(P_i, P_j)^T \boldsymbol{\gamma} W_i W_j det(\textbf{J})
+</script>
+</p>
+<p>Sendo que $\boldsymbol{\gamma}$ são os pesos específicos (força por volume) definidos para as direções x e y.</p>
+<p>
+<script type="math/tex; mode=display">
+\boldsymbol{\gamma} = \left\lbrace \begin{array}{c}
+    \gamma_x \\
+    \gamma_y
+\end{array} \right\rbrace
+</script>
+</p>
+<p>O determinante do Jacobiano, a espessura da parede, o peso específico do concreto armado, que no caso somente atua na direção y, ou seja $\gamma_x = 0$ e $\gamma_y = -0,000025$ kN/cm3, e os pesos dos pontos de Gauss nós já conhecemos. Falta apenas avaliar as funções de forma em cada ponto de Gauss, de todos os elementos, para determinar os vetores de força nodal equivalente.</p>
+<p>As funções de interpolação para o elemento bilinear de 4 nós são:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+N_1 &= \dfrac{1}{4} (1 + r)(1 + s) \\
+N_2 &= \dfrac{1}{4} (1 - r)(1 + s) \\
+N_3 &= \dfrac{1}{4} (1 - r)(1 - s) \\
+N_4 &= \dfrac{1}{4} (1 + r)(1 - s)
+\end{align*}
+</script>
+</p>
+<p>Como a avaliação dessas funções ocorre no elemento padrão no sistema r-s, os valores são iguais para todos os elementos da estrutura. Portanto, para cada ponto de Gauss a matriz $\textbf{N}$ resulta em:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\textbf{N}_{P_1} &= \left[ \begin{array}{cccccccc}
+    0,622 & 0 & 0,1667 & 0 & 0,0447 & 0 & 0,1667 & 0 \\
+    0 & 0,622 & 0 & 0,1667 & 0 & 0,0447 & 0 & 0,1667 \\
+\end{array} \right] \\
+\textbf{N}_{P_2} &= \left[ \begin{array}{cccccccc}
+    0,1667 & 0 & 0,622 & 0 & 0,1667 & 0 & 0,0447 & 0 \\
+    0 & 0,1667 & 0 & 0,622 & 0 & 0,1667 & 0 & 0,0447 \\
+\end{array} \right] \\
+\textbf{N}_{P_3} &= \left[ \begin{array}{cccccccc}
+    0,0447 & 0 & 0,1667 & 0 & 0,622 & 0 & 0,1667 & 0 \\
+    0 & 0,0447 & 0 & 0,1667 & 0 & 0,622 & 0 & 0,1667 \\
+\end{array} \right] \\
+\textbf{N}_{P_4} &= \left[ \begin{array}{cccccccc}
+    0,1667 & 0 & 0,0447 & 0 & 0,1667 & 0 & 0,622 & 0 \\
+    0 & 0,1667 & 0 & 0,0447 & 0 & 0,1667 & 0 & 0,622 \\
+\end{array} \right]
+\end{align*}
+</script>
+</p>
+<p>Com as matrizes das funções de forma já avaliadas nos pontos de Gauss, podemos substituir o duplo somatório nas coordenadas dos pontos de Gauss por um somatório das matrizes das funções de forma avaliadas nos pontos de Gauss. então, o vetor de forças nodais equivalentes resulta em:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f}_c \approx t \sum_{i = 1}^{4} \textbf{N}_i^T \boldsymbol{\gamma} W_i W_i det(\textbf{J})
+</script>
+</p>
+<p>Neste caso é simples pois os pontos de Gauss tem o mesmo peso por direção. Caso os pesos fossem diferentes o somatório deverá ser feito considerando os pesos diferentes por direção.</p>
+<p>!!!!!!!!!!!!!!!!!! SE SOMAR VAI DAR O PESO PRÓPRIO COMPLETO EM CADA GRAU DE LIBERDADE!!! DEVERIA SER DIVIDIDO POR 4!!!!!!!!!!!!!!!!!!!!!!!!</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../js/adicionais.js"></script>
+      
+    
+  </body>
+</html>

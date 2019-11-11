@@ -1,0 +1,1317 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Elemento quadrilateral - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif:300,400,400i,700|Source+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Serif","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/estilos.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#elemento-quadrilateral" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Elementos Finitos Aplicados
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Elemento quadrilateral
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+      Treliça com 3 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/teoria_v/" title="Teoria básica" class="md-nav__link">
+      Teoria básica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/teoria_2EB/" title="Euler-Bernoulli" class="md-nav__link">
+      Euler-Bernoulli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../vigas/aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Pórticos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Pórticos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/introducao_p/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/teoria_p/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacao_p/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/portico_simples/" title="Pórtico Simples" class="md-nav__link">
+      Pórtico Simples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/vinculacoes_vigapilar/" title="Vinculações Viga-Pilar" class="md-nav__link">
+      Vinculações Viga-Pilar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/flambagem_pilar/" title="Flambagem de Pilares" class="md-nav__link">
+      Flambagem de Pilares
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../porticos/aplicacoes/edificios/" title="Edifícios" class="md-nav__link">
+      Edifícios
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Estado plano
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Estado plano
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introducao_ep/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" checked>
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_ep/" title="Fundamentação" class="md-nav__link">
+      Fundamentação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Elemento quadrilateral
+      </label>
+    
+    <a href="./" title="Elemento quadrilateral" class="md-nav__link md-nav__link--active">
+      Elemento quadrilateral
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-de-interpolacao" class="md-nav__link">
+    Funções de interpolação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deformacoes" class="md-nav__link">
+    Deformações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-de-rigidez-do-elemento" class="md-nav__link">
+    Determinação da matriz de rigidez do elemento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-do-vetor-de-forcas-nodais-equivalentes" class="md-nav__link">
+    Determinação do vetor de forças nodais equivalentes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carga-de-corpo" class="md-nav__link">
+    Carga de corpo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carga-distribuida" class="md-nav__link">
+    Carga distribuída
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../teoria_ep_tri/" title="Elemento triangular" class="md-nav__link">
+      Elemento triangular
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes-de-interpolacao" class="md-nav__link">
+    Funções de interpolação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deformacoes" class="md-nav__link">
+    Deformações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-da-matriz-de-rigidez-do-elemento" class="md-nav__link">
+    Determinação da matriz de rigidez do elemento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinacao-do-vetor-de-forcas-nodais-equivalentes" class="md-nav__link">
+    Determinação do vetor de forças nodais equivalentes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carga-de-corpo" class="md-nav__link">
+    Carga de corpo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#carga-distribuida" class="md-nav__link">
+    Carga distribuída
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="elemento-quadrilateral">Elemento quadrilateral</h1>
+<p>O elemento quadrilateral padrão que usaremos é o isoparamétrico bilinear de 4 nós com 2 unidades de comprimento nos lados.</p>
+<p><img alt="Elemento quadrilateral" src="../imagens/elementosIrregularQuad.svg" title="Elemento quadrilateral." /></p>
+<h2 id="funcoes-de-interpolacao">Funções de interpolação</h2>
+<p>As funções de interpolação utilizadas serão as bilineares Lagrangenas (derivadas por poliônimos de Lagrange), afinal temos 4 nós por elemento. A interpolação dos deslocamentos no domínio segue a escolha dos polinômios de acordo com a quantidade de nós do elemento, no nosso caso n = 4, com o auxílio do triângulo de Pascal para polinômios.</p>
+<p><img alt="Triângulo de Pascal" src="../imagens/trianguloPascalPolinomio.svg" title="Triângulo de Pascal para polinômios." /></p>
+<p>Assim podemos escrever a interpolação do campo de deslocamentos u na direção de r e deslocamentos v na direção de s do elemento do estado plano como:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+    u(r, s) &= A + Br + Crs + Ds \label{eq:campoDeslocamentosU}\\
+    v(r, s) &= A + Br + Crs + Ds \label{eq:campoDeslocamentosV}
+\end{align}
+</script>
+</p>
+<p>Observe que os mesmos coeficientes serão utilizados por ambas as direções, pois iremos utilizar as mesmas funções de interpolação para ambos os graus de liberdade do nó.</p>
+<p>Sabemos que no elemento padrão, para cada nó, o valor desses polinômios deve ser o valor do respectivo grau de liberdade. Substituindo r e s pelas coordenadas de cada nó do elemento padrão e igualando aos graus de liberdade (vamos fazer somente para o campo dos deslocamentos u pois o campo v vai utilizar as mesmas funções de interpolação):</p>
+<p>
+<script type="math/tex; mode=display">
+\left[ \begin{array}{cccc}
+    1 &  1 &  1 &  1 \\
+    1 & -1 &  1 & -1 \\
+    1 & -1 & -1 &  1 \\
+    1 &  1 & -1 & -1
+        \end{array} \right] \left\lbrace \begin{array}{c}
+            A \\
+            B \\
+            C \\
+            D
+        \end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+            u_a \\
+            u_b \\
+            u_c \\
+            u_d
+        \end{array} \right\rbrace
+</script>
+</p>
+<p>Note que cada linha representa um nó do elemento padrão com suas coordenadas substituídas no polinômio de interpolação. Os valores dos coeficientes A, B, C, D dos polinômios são encontrados resolvendo-se o sistema acima, que resultam em:</p>
+<p>
+<script type="math/tex; mode=display">
+\left\lbrace \begin{array}{c}
+    A \\
+    B \\
+    C \\
+    D
+\end{array} \right\rbrace = \left\lbrace \begin{array}{c}
+    \dfrac{u_a}{4} + \dfrac{u_b}{4} + \dfrac{u_c}{4} + \dfrac{u_d}{4} \\
+    -\dfrac{u_a}{4} - \dfrac{u_b}{4} - \dfrac{u_c}{4} + \dfrac{u_d}{4} \\
+     \dfrac{u_a}{4} + \dfrac{u_b}{4} - \dfrac{u_c}{4} - \dfrac{u_d}{4} \\
+    -\dfrac{u_a}{4} - \dfrac{u_b}{4} + \dfrac{u_c}{4} - \dfrac{u_d}{4}
+        \end{array} \right\rbrace
+</script>
+</p>
+<p>Substituindo os valores desses coeficientes nas equações $\ref{eq:campoDeslocamentosU}$ e $\ref{eq:campoDeslocamentosV}$:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    u(r, s) = & rs\dfrac{u_a}{4} - rs\dfrac{u_b}{4} + rs\dfrac{u_c}{4} - rs\dfrac{u_d}{4} + r\dfrac{u_a}{4} - r\dfrac{u_b}{4} - r\dfrac{u_c}{4} + r\dfrac{u_d}{4} \\
+         &+ s\dfrac{u_a}{4} + s\dfrac{u_b}{4} - s\dfrac{u_c}{4} - s\dfrac{u_d}{4} + \dfrac{u_a}{4} + \dfrac{u_b}{4} + \dfrac{u_c}{4} + \dfrac{u_d}{4}\\
+    v(r, s) = & rs\dfrac{u_a}{4} - rs\dfrac{u_b}{4} + rs\dfrac{u_c}{4} - rs\dfrac{u_d}{4} + r\dfrac{u_a}{4} - r\dfrac{u_b}{4} - r\dfrac{u_c}{4} + r\dfrac{u_d}{4} \\
+         &+ s\dfrac{u_a}{4} + s\dfrac{u_b}{4} - s\dfrac{u_c}{4} - s\dfrac{u_d}{4} + \dfrac{u_a}{4} + \dfrac{u_b}{4} + \dfrac{u_c}{4} + \dfrac{u_d}{4}
+\end{align*}
+</script>
+</p>
+<p>Isolando o deslocamento de cada grau de liberdade na equação acima:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    u(r, s) = &\dfrac{1}{4} (rs + r + s + 1) u_a \\
+                    & \dfrac{1}{4} (-rs - r + s + 1) u_b \\
+                    & \dfrac{1}{4} (rs - r - s + 1) u_c \\
+                    & \dfrac{1}{4} (-rs + r - s + 1) u_d \\
+    v(r, s) = &\dfrac{1}{4} (rs + r + s + 1) v_a \\
+                    & \dfrac{1}{4} (-rs - r + s + 1) v_b \\
+                    & \dfrac{1}{4} (rs - r - s + 1) v_c \\
+                    & \dfrac{1}{4} (-rs + r - s + 1) v_d
+\end{align*}
+</script>
+</p>
+<p>Ou, na forma matricial:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation} \label{eq:desInterpolados}
+\left\lbrace \begin{array}{c}
+    u(r, s) \\
+    v(r, s)
+\end{array} \right\rbrace = \left[ \begin{array}{cccccccc}
+    N_1 & 0 & N_2 & 0 & N_3 & 0 & N_4 & 0 \\
+    0 & N_1 & 0 & N_2 & 0 & N_3 & 0 & N_4
+    \end{array} \right] \left\lbrace \begin{array}{c}
+        u_a \\
+        v_a \\
+        u_b \\
+        v_b \\
+        u_c \\
+        v_c \\
+        u_d \\
+        v_d
+    \end{array} \right\rbrace
+\end{equation}
+</script>
+</p>
+<p>Ou:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation} \label{eq:desInterpoladosCond}
+\textbf{u}(r, s) = \textbf{N}(r, s) \textbf{u}_{e}^{rs}
+\end{equation}
+</script>
+</p>
+<p>E portanto, as funções de forma para o elemento bilinear de 4 nós são:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align*}
+N_1 &= \dfrac{1}{4} (1 + r)(1 + s) \\
+N_2 &= \dfrac{1}{4} (1 - r)(1 + s) \\
+N_3 &= \dfrac{1}{4} (1 - r)(1 - s) \\
+N_4 &= \dfrac{1}{4} (1 + r)(1 - s)
+\end{align*}
+</script>
+</p>
+<p><img alt="Funções de forma do elemento bilinear" src="../imagens/funcoesForma4nos.jpg" title="Funções de forma do elemento bilinear, (a) N&lt;sub&gt;1&lt;/sub&gt;, (b) N&lt;sub&gt;2&lt;/sub&gt;, (c) N&lt;sub&gt;3&lt;/sub&gt; e (d) N&lt;sub&gt;4&lt;/sub&gt;." /></p>
+<h2 id="deformacoes">Deformações</h2>
+<p>Certo, mas as nossas funções de interpolação não são função de x-y, são função de r-s. Verdade, mas para o cálculo das deformações precisamos das derivadas das funções de interpolação em x-y apenas e isso sabemos como fazer, utilizando o Jacobiano conforme visto na fundamentação. O Jacobiano para o elemento quadrilateral de 4 nós é:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation} \label{eq:jacobiano}
+\textbf{J} = \textbf{x}_e \dfrac{\partial \textbf{N}}{\partial \textbf{r}} = \left[ \begin{array}{cccc}
+    x_1 & x_2 & x_3 & x_4 \\
+    y_1 & y_2 & y_3 & y_4
+    \end{array} \right] \left[ \begin{array}{cc}
+        \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+        \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+        \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
+        \dfrac{\partial N_4}{\partial r} & \dfrac{\partial N_4}{\partial s}
+        \end{array} \right]
+\end{equation}
+</script>
+</p>
+<p>Sendo $x_1$, $y_1$ ... $x_4$, $y_4$ as coordenadas dos nos do elemento na estrutura. Após a obtenção da inversa do Jacobiano, calculamos as derivadas das funções de interpolação em x-y da seguinte forma:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation} \label{eq:derivadasNxy}
+\left[ \begin{array}{cc}
+    \dfrac{\partial N_1}{\partial x} & \dfrac{\partial N_1}{\partial y} \\
+    \dfrac{\partial N_2}{\partial x} & \dfrac{\partial N_2}{\partial y} \\
+    \dfrac{\partial N_3}{\partial x} & \dfrac{\partial N_3}{\partial y} \\
+    \dfrac{\partial N_4}{\partial x} & \dfrac{\partial N_4}{\partial y}
+    \end{array} \right] = \left[ \begin{array}{cc}
+    \dfrac{\partial N_1}{\partial r} & \dfrac{\partial N_1}{\partial s} \\
+    \dfrac{\partial N_2}{\partial r} & \dfrac{\partial N_2}{\partial s} \\
+    \dfrac{\partial N_3}{\partial r} & \dfrac{\partial N_3}{\partial s} \\
+    \dfrac{\partial N_4}{\partial r} & \dfrac{\partial N_4}{\partial s}
+    \end{array} \right] \textbf{J}^{-1}
+\end{equation}
+</script>
+</p>
+<p>A matriz $\textbf{B}$ não será diretamente calculada, mas sim montada com os resultados acima de acordo com o operador diferencial $\boldsymbol{\partial}$ para a determinação correta das deformações. A matriz é preenchida com as corretas derivadas das funções de interpolação em x-y e resulta em:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation} \label{eq:B}
+\textbf{B} = \left[ \begin{array}{cccccccc}
+    \dfrac{\partial N_1}{\partial x} &   0 & \dfrac{\partial N_2}{\partial x} &   0 & \dfrac{\partial N_3}{\partial x} &   0 & \dfrac{\partial N_4}{\partial x} &   0 \\
+      0 & \dfrac{\partial N_1}{\partial y} &   0 & \dfrac{\partial N_2}{\partial y} &   0 & \dfrac{\partial N_3}{\partial y} &   0 & \dfrac{\partial N_4}{\partial y} \\
+    \dfrac{\partial N_1}{\partial y} & \dfrac{\partial N_1}{\partial x} & \dfrac{\partial N_2}{\partial y} & \dfrac{\partial N_2}{\partial x} & \dfrac{\partial N_3}{\partial y} & \dfrac{\partial N_3}{\partial x} & \dfrac{\partial N_4}{\partial y} & \dfrac{\partial N_4}{\partial x}
+\end{array} \right]
+\end{equation}
+</script>
+</p>
+<h2 id="determinacao-da-matriz-de-rigidez-do-elemento">Determinação da matriz de rigidez do elemento</h2>
+<p>Conforme derivado na fundamentação, a matriz de rigidez do elemento é obtida pela equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{k}_e = \iiint_V  \textbf{B}^T \textbf{D} \textbf{B} dV
+</script>
+</p>
+<p>Com $\textbf{D}$ o tensor constitutivo do estado plano de tensões ou deformações conforme aplicável e será resolvida pela quadratura de Gauss.</p>
+<p>A integração numérica pela quadratura de Gauss é feita utilizando dois pontos de Gauss por direção para o elemento quadrilateral de 4 nós, pois com essa quantidade é possível integrar de modo exato um polinômio de até grau 3, o suficiente para o grau de nossas funções de interpolação.</p>
+<p><img alt="Elemento padrão quadrilateral" src="../imagens/elemento4Padrao.svg" title="Elemento padrão quadrilateral e localização dos pontos de Gauss." /></p>
+<p>As coordenadas e os pesos desses pontos para o elemento padrão em específico da imagem são mostrados na tabela abaixo:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Ponto de Gauss, $P_i$</th>
+<th align="center">Coordenadas de cada ponto de Gauss r, s</th>
+<th align="center">Peso, $W_i$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$P_1$</td>
+<td align="center">$ \dfrac{1}{\sqrt{3}}$, $ \dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">$P_2$</td>
+<td align="center">$-\dfrac{1}{\sqrt{3}}$, $ \dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">$P_3$</td>
+<td align="center">$-\dfrac{1}{\sqrt{3}}$, $-\dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">$P_4$</td>
+<td align="center">$ \dfrac{1}{\sqrt{3}}$, $-\dfrac{1}{\sqrt{3}}$</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Observe que precisamos resolver uma integral tripla para calcular a matriz de rigidez. Neste caso nos iremos manter a espessura constante em todo o elemento. Sendo assim, a integral na direção z é a própria espessura.</p>
+<div class="admonition info">
+<p class="admonition-title">Poderia ser simplificadamente variável</p>
+<p>Na verdade, como vamos utilizar a quadratura de Gauss para integração, essa espessura poderia ser variável em cada ponto de Gauss sem modificar a integração numérica, sendo que cada parcela da somatória em cada ponto de Gauss deverá ser multiplicada pela respectiva espessura.</p>
+</div>
+<p>Portanto, com a espessura constante $t$, podemos rescrever as integrais da matriz de rigidez e do vetor de forças nodais equivalentes como:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{equation}
+    \textbf{k}_e = t \iint_A  \textbf{B}^T \textbf{D} \textbf{B} dA
+\end{equation}
+</script>
+</p>
+<p>Agora precisamos escrever essas integrais na forma de um somatório nos pontos de Gauss das derivadas das funções de interpolação avaliadas nesses pontos de Gauss multiplicadas pelos respectivos pesos. Só não podemos esquecer de multiplicar também delo determinante do Jacobiano para corrigir a distorção da área, já que estamos integrando no elemento padrão. Portanto, aplicando o conceito da integral numérica da quadratura de Gauss na integral da matriz de rigidez, temos que:</p>
+<p>
+<script type="math/tex; mode=display">
+\begin{align}
+t \iint_A  \textbf{B}^T \textbf{D} \textbf{B} dA &\approx t \sum_{i = 1}^{4} \sum_{j = 1}^{4} \textbf{B}(P_i, P_j)^T \textbf{D} \textbf{B}(P_i, P_j) W_i W_j det(\textbf{J}) \\
+\therefore \textbf{k}_e &\approx t \sum_{i = 1}^{4} \sum_{j = 1}^{4} \textbf{B}(P_i, P_j)^T \textbf{D} \textbf{B}(P_i, P_j) W_i W_j det(\textbf{J}) \label{eq:calculoke}
+\end{align}
+</script>
+</p>
+<p>O procedimento para a obtenção da matriz de rigidez do elemento do estado plano para cada ponto de Gauss:</p>
+<ol>
+<li>Calcular as derivadas das funções de interpolação no r-s substituindo cada coordenada r e cada coordenada s pelas respectivas coordenadas de no ponto de Gauss;</li>
+<li>Determinar o Jacobiano com a equação $\ref{eq:jacobiano}$ em função das coordenadas do elemento da estrutura e das derivadas das funções de interpolação nos pontos de Gauss;</li>
+<li>Calcular as derivadas das funções de interpolação no x-y usando a equação $\ref{eq:derivadasNxy}$, função do inverso do Jacobiano e das derivadas das funções de interpolação nos pontos de Gauss;</li>
+<li>Distribuir as derivadas das funções de interpolação no x-y calculadas, na matriz $\textbf{B}$ de acordo com a equação $\ref{eq:B}$;</li>
+<li>Determinar o tensor constitutivo $\textbf{D}$ para o estado plano de tensão ou deformação, o que se aplicar;</li>
+<li>Calcular a parcela relativa ao ponto de Gauss em questão de acordo o somatório da equação $\ref{eq:calculoke}$.</li>
+</ol>
+<p>Repetir todo o procedimento de 1 a 6 para cada ponto de Gauss para a obtenção de $\textbf{k}_e$.</p>
+<h2 id="determinacao-do-vetor-de-forcas-nodais-equivalentes">Determinação do vetor de forças nodais equivalentes</h2>
+<p>O vetor de forças nodais equivalentes foi derivado também na fundamentação e é calculado pela equação:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f}_e = t \iint_A \textbf{N}^T \boldsymbol{\gamma} dA + t \int_l \ \textbf{N}_l^T \textbf{g} dl + \textbf{f}
+</script>
+</p>
+<p>Observe que também na carga distribuída estamos considerando a integral em z constante.</p>
+<p>A integração do vetor de cargas nodais equivalentes segue o mesmo princípio, porém vamos fazer em separado as cargas de corpo e as distribuídas para tratar especificamente cada integração.</p>
+<h3 id="carga-de-corpo">Carga de corpo</h3>
+<p>Em relação a carga nodal equivalente de corpo, relativa ao peso próprio, transformamos a integral em somatória da mesma forma que fizemos na matriz de rigidez do elemento, ou seja:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f}_c = t \iint_A \textbf{N}^T \boldsymbol{\gamma} dA \approx t \sum_{i = 1}^{4} \sum_{j = 1}^{4} \textbf{N}(P_i, P_j)^T \boldsymbol{\gamma} W_i W_j det(\textbf{J})
+</script>
+</p>
+<p>Lembrando de usar o determinante do Jacobiano para corrigir a área do elemento e lembrando que $\boldsymbol{\gamma}$ são os pesos específicos (força por volume) definidos para as direções x e y.</p>
+<p>
+<script type="math/tex; mode=display">
+\boldsymbol{\gamma} = \left\lbrace \begin{array}{c}
+    \gamma_x \\
+    \gamma_y
+\end{array} \right\rbrace
+</script>
+</p>
+<p>É de certa forma óbvio não ter valores de peso específico na direção x, afinal a gravidade é vertical para baixo. Porém, essa consideração também pode ser utilizada para cargas inerciais causadas por velocidades angulares constantes, aplicadas em uma análise simples, para um instante específico do movimento.</p>
+<h3 id="carga-distribuida">Carga distribuída</h3>
+<p>A carga distribuída também será integrada com a quadratura de Gauss. Porém, existe a necessidade de avaliar as funções de interpolação sobre a aresta do elemento que está carregada.</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f}_d = t \int_l \ \textbf{N}_l^T \textbf{g} dl \approx t \sum_{i = 1}^{4} \textbf{N}_l(P_i)^T \textbf{g} W_i det(\textbf{J}_l)
+</script>
+</p>
+<p>As funções de interpolação precisam ser avaliadas nas coordenadas r-s respectivas ao local de aplicação da carga distribuída no elemento da estrutura em x-y, independente de sua distorção na estrutura já que as arestas sempre permanecerão retilíneas. Por exemplo, se a carga estiver aplicada na aresta superior do elemento da estrutura a integral será em r ($l \equiv r$ e as coordenadas dos pontos de Gauss utilizadas são as em r) e $s = 1$. Se estiver aplicada na aresta da esquerda do elemento da estrutura, por exemplo, a integral será em s ($l \equiv s$ e as coordenadas dos pontos de Gauss utilizadas são as em s) e $r = -1$.</p>
+<p>O Jacobiano de transformação da aresta para corrigir o seu comprimento $\textbf{J}_l$ é bem mais simples, sem a necessidade de usar o mesmo Jacobiano da matriz de rigidez. Sabemos que no sistema r-s todas as arestas do elemento tem o tamanho de 2 e que esse tamanho será transformado para um comprimento $L_a$ da aresta do elemento da estrutura. Então, a transformação do r-s para o x-y da aresta é (usando a direção r e x como exemplo):</p>
+<p>
+<script type="math/tex; mode=display">
+2 r = L_a x \quad \therefore r = \dfrac{L_a}{2} x
+</script>
+</p>
+<p>E, sua "matriz" Jacobiana:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{J}_l = \left[ \begin{array}{cccccccc}
+    \dfrac{\partial r}{\partial x}
+\end{array} \right] = \left[ \begin{array}{cccccccc}
+    \dfrac{L_a}{2}
+\end{array} \right] \equiv \dfrac{L_a}{2}
+</script>
+</p>
+<p>Portanto, basta calcular o comprimento da aresta do elemento da estrutura que se está aplicando o carregamento, função dos nós inicial ($x_i$, $y_i$) e final ($x_i$, $y_i$) da aresta do elemento da estrutura,</p>
+<p>
+<script type="math/tex; mode=display">
+L_a = \sqrt{(x_f - x_i)^2 + (y_f - y_i)^2}
+</script>
+</p>
+<p>e podemos rescrever o vetor de força nodal equivalente como:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{f}_d \approx t \sum_{i = 1}^{4} \textbf{N}_l(P_i)^T \textbf{g} W_i \dfrac{L_a}{2}
+</script>
+</p>
+<p>A rotação da aresta do elemento da estrutura relativa ao elemento padrão é irrelevante, pois os valores da carga distribuída $\textbf{g}$ já estão definidos em x-y:</p>
+<p>
+<script type="math/tex; mode=display">
+\textbf{g} = \left\lbrace \begin{array}{c}
+    g_x \\
+    g_y
+\end{array} \right\rbrace
+</script>
+</p>
+<p>Além disso, os elementos do estado plano somente se distorcem nunca rotacionam e os graus de liberdade do elemento padrão e do elemento da estrutura sempre tem a mesma direção. Portanto, somente precisamos do comprimento dessa aresta corrigido para calcular o vetor de forças nodais equivalentes das cargas distribuídas em uma aresta do elemento aplicadas nas direções x, $g_x$ e y, $g_y$.</p>
+<p>Assim completamos a teoria do elemento quadrilateral, agora vamos ao triangular com deformações constantes.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../teoria_ep/" title="Fundamentação" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Anterior
+                </span>
+                Fundamentação
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../teoria_ep_tri/" title="Elemento triangular" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Próximo
+                </span>
+                Elemento triangular
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../js/adicionais.js"></script>
+      
+    
+  </body>
+</html>

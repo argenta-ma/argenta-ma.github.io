@@ -27,3 +27,7 @@ p {
     -webkit-transform: none;
     transform: none;
 }
+
+.md-typeset__table {
+   min-width: 100%;
+}
