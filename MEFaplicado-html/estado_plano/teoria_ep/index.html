@@ -831,6 +831,54 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      Aplicação
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        Aplicação
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacao_ep_quad/" title="Parede içada" class="md-nav__link">
+      Parede içada
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aplicacao_ep_tri/" title="Barragem" class="md-nav__link">
+      Barragem
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1219,11 +1267,11 @@ G = \dfrac{E}{2(1 + \nu)}
     \dfrac{\partial u(x, y)}{\partial x} & 0 \\
     0 & \dfrac{\partial v(x, y)}{\partial y} \\
     \dfrac{\partial u(x, y)}{\partial y} & \dfrac{\partial v(x, y)}{\partial x}
-    \end{array} \right] &= \left[ \begin{array}{cc}
+    \end{array} \right] &= \left| \begin{array}{cc}
         \dfrac{\partial }{\partial x} & 0 \\
         0 & \dfrac{\partial }{\partial y} \\
         \dfrac{\partial }{\partial y} & \dfrac{\partial }{\partial x}
-        \end{array} \right] \left\lbrace \begin{array}{c}
+        \end{array} \right| \left\lbrace \begin{array}{c}
             u(x, y) \\
             v(x, y)
         \end{array} \right\rbrace \\
@@ -1231,7 +1279,7 @@ G = \dfrac{E}{2(1 + \nu)}
 \end{align*}
 </script>
 </p>
-<p>Sendo $\boldsymbol{\partial}$ o operador diferencial. Substituindo na equação acima os valores de u(x, y) e v(x, y) de acordo com a interpolação por elementos finitos, na qual o campo de deslocamentos no interior do elemento é definido pelas funções de interpolação em x-y multiplicadas pelos deslocamentos nodais nos graus de liberdade do elemento da estrutura:</p>
+<p>Sendo $\boldsymbol{\partial}$ o operador diferencial. Observe que não é uma multiplicação matricial entre o operador diferencial e os deslocamentos. De forma simplificada, o operador diferencial apenas distribui as diferenciais pelos deslocamentos para formar as deformações. Substituindo na equação acima os valores de u(x, y) e v(x, y) de acordo com a interpolação por elementos finitos, na qual o campo de deslocamentos no interior do elemento é definido pelas funções de interpolação em x-y multiplicadas pelos deslocamentos nodais nos graus de liberdade do elemento da estrutura:</p>
 <p>
 <script type="math/tex; mode=display">
 \begin{align}

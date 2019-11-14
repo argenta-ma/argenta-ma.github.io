@@ -1,0 +1,1435 @@
+
+
+
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Uma introdução ao método dos elementos finitos">
+      
+      
+      
+        <meta name="author" content="Marco André Argenta">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
+      
+        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
+      
+        <meta name="lang:search.language" content="pt">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
+      
+        <meta name="lang:search.result.one" content="1 resultado encontrado">
+      
+        <meta name="lang:search.result.other" content="# resultados encontrados">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../imagens/mef.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Concentração de tensões ao redor de orifícios - Elementos Finitos Aplicados</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif:300,400,400i,700|Source+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Serif","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/estilos.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#concentracao-de-tensoes-ao-redor-de-orificios" tabindex="1" class="md-skip">
+        Ir para o conteúdo
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
+          
+            <img src="../../../imagens/mef.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Elementos Finitos Aplicados
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Concentração de tensões ao redor de orifícios
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Digite para iniciar a busca
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+      
+        <img src="../../../imagens/mef.svg" width="48" height="48">
+      
+    </a>
+    Elementos Finitos Aplicados
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Início" class="md-nav__link">
+      Início
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Treliça Plana
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Treliça Plana
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/introducao_tp/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/teoria_tp/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/aplicacao_tp/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/aplicacoes/trelica3barras/" title="Treliça com 3 barras" class="md-nav__link">
+      Treliça com 3 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/aplicacoes/trelica11barras/" title="Treliça com 11 barras" class="md-nav__link">
+      Treliça com 11 barras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/aplicacoes/contraventamentos/" title="Contraventamentos" class="md-nav__link">
+      Contraventamentos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/aplicacoes/analisemodal/" title="Análise Modal" class="md-nav__link">
+      Análise Modal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../trelica_plana/aplicacoes/elastoplastica/" title="Barra elasto-plástica" class="md-nav__link">
+      Barra elasto-plástica
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Vigas
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Vigas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/introducao_v/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/teoria_v/" title="Teoria básica" class="md-nav__link">
+      Teoria básica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/teoria_2EB/" title="Euler-Bernoulli" class="md-nav__link">
+      Euler-Bernoulli
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacao_v/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_hiperestatica/" title="Viga Hiperestática" class="md-nav__link">
+      Viga Hiperestática
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_bimetalica/" title="Viga bimetálica" class="md-nav__link">
+      Viga bimetálica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_plastica/" title="Análise Elasto-plástica Vigas" class="md-nav__link">
+      Análise Elasto-plástica Vigas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../vigas/aplicacoes/viga_modal/" title="Análise Modal Vigas" class="md-nav__link">
+      Análise Modal Vigas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Pórticos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Pórticos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../porticos/introducao_p/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../porticos/teoria_p/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../porticos/aplicacao_p/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Utilizações
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../porticos/aplicacoes/portico_simples/" title="Pórtico Simples" class="md-nav__link">
+      Pórtico Simples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../porticos/aplicacoes/vinculacoes_vigapilar/" title="Vinculações Viga-Pilar" class="md-nav__link">
+      Vinculações Viga-Pilar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../porticos/aplicacoes/flambagem_pilar/" title="Flambagem de Pilares" class="md-nav__link">
+      Flambagem de Pilares
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../porticos/aplicacoes/edificios/" title="Edifícios" class="md-nav__link">
+      Edifícios
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Estado plano
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Estado plano
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introducao_ep/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../teoria_ep/" title="Fundamentação" class="md-nav__link">
+      Fundamentação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../teoria_ep_quad/" title="Elemento quadrilateral" class="md-nav__link">
+      Elemento quadrilateral
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../teoria_ep_tri/" title="Elemento triangular" class="md-nav__link">
+      Elemento triangular
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      Aplicação
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        Aplicação
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../aplicacao_ep_quad/" title="Parede içada" class="md-nav__link">
+      Parede içada
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../aplicacao_ep_tri/" title="Barragem" class="md-nav__link">
+      Barragem
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Índice</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#placa-submetida-a-um-regime-uniforme-de-tensoes" class="md-nav__link">
+    Placa submetida a um regime uniforme de tensões
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placa-submetida-ao-caso-do-furo-em-elipse" class="md-nav__link">
+    Placa submetida ao caso do furo em elipse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="concentracao-de-tensoes-ao-redor-de-orificios">Concentração de tensões ao redor de orifícios</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Quando um corpo elástico que está submetido a um regime de tensões
+possuir em sua geometria um ponto de irregularidade ou uma mudança
+brusca, como, por exemplo, um orifício ou um entalhe, aparecerá em sua
+vizinhança uma variação localizada do regime de tensões. Os níveis das
+tensões de pico podem ser diversas vezes maiores do que a tensão nominal
+que ocorreria no corpo caso não houvesse esta irregularidade. A este
+aumento das tensões causado pela irregularidade da geometria denomina-se
+concentração de tensões. Podem-se citar algumas referências clássicas de
+tal assunto é discutido:</p>
+<ul>
+<li>
+<p>Peterson, R. E. Stress Concentration Factors in Design, John Wiley &amp;
+    Sons, Inc. New York, 1953;</p>
+</li>
+<li>
+<p>Savin, G. N. Stress Concentration Around Holes, Pergamon Press, New
+    York, 1961;</p>
+</li>
+</ul>
+<p>Conta-se hoje com uma ferramenta de otimização da forma para minimizar
+estes picos de tensões. O uso desta ferramenta não é o objetivo deste
+curso introdutório.</p>
+<p><img alt="A furação" src="../imagens_concentracao/image2.png" title="Esquema de furação para a análise." /></p>
+<p>É importante se discutir também a estimativa da precisão das soluções
+aproximadas obtidas numericamente via MEF. Na utilização de cada
+elemento na Biblioteca de Elementos resulta extremamente importante
+conhecer o grau de precisão alcançada pela solução, em problemas com
+resultado conhecido, realizando-se também um estudo da convergência,
+utilizando-se diversas malhas e subdivisões. Visando a discussão destes
+dois assuntos propostos, inicia-se o estudo pela análise de uma placa
+esbelta, quadrada, submetida a um regime de tensões uniformes em uma das
+direções. A seguir, simular-se-á uma pequena fissura central
+perpendicular à direção das tensões uniformes, percebendo-se assim a
+perturbação que ocorre. O estudo da evolução das fissuras pode ser
+realizado com o auxílio da Mecânica da Fratura, não sendo o seu uso,
+objetivo de um curso introdutório. Na sequência estudam-se diversas
+formas de orifícios, analisando-se em especial a perturbação introduzida
+no regime de tensões da placa, ou seja, a concentração de tensões em
+torno dos diversos orifícios. Por se conhecer a solução exata de algumas
+destas soluções, pode-se discutir a convergência das soluções para o
+estudo de diversas malhas e elementos. A figura 1 mostra um esquema de
+diversas placas a serem analisadas.</p>
+<h3 id="placa-submetida-a-um-regime-uniforme-de-tensoes">Placa submetida a um regime uniforme de tensões</h3>
+<p>Se a solução exata é um campo de tensões uniforme, a solução obtida por
+Elementos Finitos coincidirá com a solução exata, qualquer que seja a
+malha. No caso da placa esquematizada na figura 1 (a), ou seja, uma
+placa fina quadrada e de espessura constante, composta por um material
+cujo Módulo de Elasticidade E = 3E10 Pa, Coeficiente de Poisson ν = 0.3,
+submetida a um carregamento uniforme em um dos bordos, porém sem
+considerar a fissura na região central, a solução é um regime uniforme
+de tensões.</p>
+<p>$$
+<script type="math/tex; mode=display">\begin{align*}
+σ_x &= 2000 Pa \\
+σ_y &= 0 \\
+τ_{xy} &= 0
+\end{align*}</script>
+</p>
+<h3 id="placa-submetida-ao-caso-do-furo-em-elipse">Placa submetida ao caso do furo em elipse</h3>
+<p><img alt="Furo em elipse" src="../imagens_concentracao/image3.png" title="Placa com furo em elipse" /></p>
+<p>Ao se introduzir uma pequena fissura ou furo na placa, como descrita no
+item anterior, uma grande perturbação aparecerá no campo de tensões e na
+região próxima a fissura ou furo aparecerá uma concentração de tensões.
+Visando avaliá-la, gera-se um modelo de elementos finitos, que devido à
+consideração de simetria, poderá conter apenas um quarto da placa,
+conforme o esquema apresentado na figura 2, desde que se apliquem as
+condições cinemáticas de contorno apropriadas nesta simulação.</p>
+<ol>
+<li>PROPRIEDADES GEOMÉTRICAS E DO MATERIAL</li>
+</ol>
+<p>Modelo bidimensional utilizando o estado plano de tensões</p>
+<p>Módulo de Elasticidade longitudinal ou de Young: Ex = 3E10 Pa.</p>
+<p>Coeficiente de Poisson = 0.3</p>
+<p>Espessura: 0.5 m</p>
+<ol>
+<li>CARGA</li>
+</ol>
+<p>Pressão P = -2000 Pa</p>
+<ol>
+<li><strong>RESOLUÇÃO</strong></li>
+</ol>
+<p>O procedimento de resolução pode ser demonstrado no seguinte fluxograma
+(a ordem pode eventualmente ser quebrada em pontos específicos por
+conveniência):</p>
+<ol>
+<li>
+<p>INÍCIO DA ANÁLISE</p>
+</li>
+<li>
+<p>Se você ainda não iniciou o programa <strong>Abaqus/CAE</strong>, <strong>digite</strong>
+    <em>cmd</em> no <strong>Menu Iniciar</strong> para abrir o <strong>Prompt de Comando</strong> e nele
+    <strong>digite</strong> <em>abq6122se cae</em> para executar o Abaqus.</p>
+</li>
+<li>
+<p>Em <strong>Create Model Database</strong> na caixa <strong>Start Session</strong> que aparece,
+    <strong>selecione</strong> <strong>With Standard/Explicit Model</strong>.</p>
+<ol>
+<li>PRÉ-PROCESSAMENTO</li>
+</ol>
+</li>
+<li>
+<p>No menu <strong>Model</strong> à esquerda, <strong>clique</strong> com o botão direito em
+    <strong>Model-1</strong> e <strong>selecione</strong> <strong>Rename</strong>.
+    <strong>Digite</strong> Concentraçãodetensões.</p>
+</li>
+<li>
+<p>No menu <strong>Model</strong> à esquerda, <strong>dê</strong> duplo clique em <strong>Parts</strong>, no
+    campo <strong>Name</strong> <strong>digite</strong> <em>PlacaFina</em>, e <strong>selecione</strong> as opções:
+    <strong>2D, Deformable, Shell, Planar</strong>. Em <strong>approximate size</strong>
+    <strong>digite</strong> <em>20</em>. <strong>Clique</strong> em <strong>Continue</strong>...</p>
+</li>
+</ol>
+<p><img alt="" src="../imagens_concentracao/image4.png" /></p>
+<ul>
+<li><strong>Clique</strong> em <strong>Create Lines: Rectangle (4 lines)</strong> na caixa de
+    ferramentas e <strong>insira</strong> as seguintes coordenadas 0,0 – 6,6<em>.</em> Em
+    seguida, <strong>desative</strong> a função <strong>Create Lines: Rectangle (4 lines)</strong>
+    e <strong>clique</strong> em <strong>Done</strong>.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image5.png" /></p>
+<ul>
+<li>No menu <strong>Model</strong> à esquerda, <strong>dê</strong> duplo clique em <strong>Materials.</strong>
+    Na janela <strong>Edit Material Renomeie</strong> o material para
+    MaterialdaPlaca, <strong>selecione Mechanical&gt;Elasticity&gt;Elastic</strong> e
+    <strong>digite</strong> 3E10 em <strong>Young’s Modulus</strong> e 0.3 em <strong>Poisson’s Ratio.
+    Clique</strong> em <strong>OK.</strong></li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image6.png" /></p>
+<ul>
+<li>No menu <strong>Model</strong> à esquerda, <strong>dê</strong> duplo clique em <strong>Sections.</strong>
+    No campo <strong>Name:</strong> <strong>digite</strong> <em>SeçãoPlaca,</em> em <strong>Category</strong>
+    <strong>selecione</strong> <strong>Solid</strong>, e em <strong>Type</strong> <strong>selecione</strong>
+    <strong>Homogeneous</strong>. <strong>Clique</strong> em <strong>Continue...</strong> Na janela <strong>Edit
+    Section</strong>, <strong>Marque</strong> <strong>Plane Stress/strain thickness</strong>: e
+    <strong>digite</strong> 0.5. <strong>Certifique-se</strong> que <strong>MaterialdaPlaca</strong> está
+    selecionado em <strong>Material</strong>: e <strong>clique</strong> em <strong>OK.</strong></li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image7.png" /></p>
+<ul>
+<li>No menu <strong>Model</strong> à esquerda, <strong>abra Parts&gt;PlacaFina</strong> e <strong>dê</strong>
+    duplo clique em <strong>Section Assignments. Selecione</strong> a placa e
+    <strong>clique</strong> em <strong>Done.</strong> <strong>Selecione</strong> <em>SeçãoPlaca</em> e <strong>clique</strong> em
+    <strong>OK.</strong></li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image8.png" /></p>
+<ul>
+<li>No menu <strong>Model</strong> à esquerda, <strong>abra Assembly,</strong> <strong>dê</strong> duplo clique
+    em <strong>Instances</strong> e <strong>clique</strong> em <strong>OK</strong> na janela
+    <strong>Create Instance.</strong></li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image9.png" /></p>
+<ul>
+<li>No menu <strong>model</strong> à esquerda, <strong>dê</strong> duplo clique em <strong>Steps</strong>.
+    <strong>Digite</strong> Carregamento no campo <strong>Name:</strong> e <strong>Clique</strong> em
+    <strong>Continue</strong>... Então <strong>clique</strong> <strong>OK</strong> na nova janela que se abre.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image10.png" /></p>
+<ul>
+<li>No menu <strong>model</strong> à esquerda, <strong>dê</strong> duplo clique em <strong>Loads</strong>. Na
+    janela <strong>Create Load</strong>, no campo <strong>Name</strong> <strong>digite</strong> <em>CargaP</em>,
+    <strong>troque</strong> o <strong>Step</strong> para <em>Carregamento<strong>,<strong><em> em </em>*Types for
+    Selected Step selecione</strong> </strong>Pressure<strong> e </strong>clique<strong> em
+    </strong>Continue</em>*....</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image11.png" /></p>
+<ul>
+<li><strong>Selecione</strong> a aresta direita da placa e <strong>clique</strong> em <strong>Done</strong>. Na
+    janela <strong>Edit</strong> <strong>Load</strong>, <strong>digite</strong> -2000 no campo <strong>Magnitude</strong>: e
+    <strong>clique</strong> em <strong>OK.</strong></li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image12.png" /></p>
+<ul>
+<li>
+<p>Foi criada a placa usada na resolução dos itens a, b, c e d como um
+    caso geral. Agora é preciso criar os concentradores de tensão.
+    <strong>Comece</strong> pelo caso a, da fissura.</p>
+</li>
+<li>
+<p>Na barra de contexto, em <strong>Module</strong>, <strong>selecione</strong> <strong>Part</strong>. Na
+    caixa de ferramentas, <strong>clique</strong> e <strong>segure</strong> o botão esquerdo em
+    <strong>Partition Edge: Specify Parameter by Location</strong>, e <strong>escolha</strong> a
+    opção <strong>Partition Edge:</strong> <strong>Enter Parameter</strong>. <strong>Selecione</strong> a
+    aresta esquerda e <strong>clique</strong> em <strong>Done.</strong> <strong>Digite</strong> 0.083333 e
+    <strong>clique</strong> em <strong>Create Partition</strong>.</p>
+</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image13.png" /></p>
+<ul>
+<li>No menu <strong>model</strong> à esquerda, <strong>dê</strong> duplo clique em <strong>BCs</strong>. Na
+    janela <strong>Create</strong> <strong>Boundary</strong> <strong>Condition</strong>, <strong>altere</strong> o campo
+    <strong>Name</strong> para <em>ApoiodeSimetria1</em>, <strong>Step</strong> para <strong>Initial</strong> e
+    <strong>Types</strong> <strong>for</strong> <strong>Selected</strong> <strong>Step</strong> para <strong>Symetry/
+    antisymmetry/Encastre</strong>. <strong>Clique</strong> em <strong>Continue</strong>... <strong>Selecione</strong>
+    a maior parte da aresta esquerda da placa e <strong>clique</strong> em <strong>Done</strong>.
+    <strong>Marque</strong> <strong>XSYMM(U1 = UR2 = UR3 = 0)</strong> na janela <strong>Edit Boundary
+    Condition</strong> e <strong>clique</strong> em <strong>OK.</strong></li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image14.png" /></p>
+<ul>
+<li><strong>Repita</strong> o procedimento para criar o <em>ApoiodeSimetria2,</em>
+    selecionando a aresta de baixo e selecionando em <strong>Edit Boundary
+    Condition</strong> <strong>YSYMM(U2 = UR1 = UR3 = 0).</strong></li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image15.png" /></p>
+<ul>
+<li>Na barra de contexto, em <strong>Module</strong>, <strong>selecione</strong> <strong>Mesh</strong>, e em
+    <strong>Object</strong>, <strong>selecione</strong> <strong>Part</strong>. Na barra do menu principal,
+    <strong>clique</strong> em <strong>Mesh&gt;Element Type</strong> e <strong>selecione</strong> a placa.
+    <strong>Clique</strong> em <strong>Done</strong>, abrirá a janela <strong>Element</strong> <strong>Type</strong>. Em
+    <strong>Family</strong>, <strong>selecione</strong> <strong>Plane Stress</strong>, em <strong>Geometric</strong>
+    <strong>Order</strong>, <strong>selecione</strong> <strong>Quadratic</strong> e <strong>desmarque</strong> a opção
+    <strong>Reduced Integration</strong> <strong>Clique</strong> em <strong>OK</strong>.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image16.png" /></p>
+<ul>
+<li>Na barra do menu principal, <strong>clique</strong> em <strong>Seed&gt;Part</strong> e
+    <strong>clique</strong> em <strong>OK</strong>. <strong>Clique</strong> em <strong>Done</strong>.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image17.png" /></p>
+<ul>
+<li>Na barra do menu principal, <strong>clique</strong> em <strong>Mesh</strong>&gt;<strong>Part</strong>.
+    Aparecerá a pergunta “OK to mesh the part?”, <strong>clique</strong> <strong>Yes</strong>.
+    <strong>Perceba</strong> que a placa fica na cor azul.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image18.png" /></p>
+<ul>
+<li>No menu <strong>model</strong> à esquerda<strong>, dê</strong> duplo clique em <strong>Remeshing
+    Rules</strong> e <strong>clique</strong> em <strong>Done.</strong> Na janela que se abre,
+    <strong>mantenha</strong> as configurações padrão e <strong>clique</strong> em <strong>OK</strong>.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image19.png" /></p>
+<ul>
+<li><strong>Adaptive remeshing</strong> pode melhorar a qualidade das simulações
+    refinando a malha de acordo com a necessidade de cada região da peça
+    em análise. Funciona através de iterações sucessivas, até que um
+    determinado critério seja atendido ou o numero máximo de iterações
+    seja alcançado.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image20.png" /></p>
+<ul>
+<li>Ao manter a Regra de redefinição da malha em sua opção Padrão
+    <strong>(Default sizing methods and parameters)</strong> o programa
+    automaticamente seleciona o método melhor aplicado a redução do
+    indicador de erro.</li>
+</ul>
+<p><strong>CRITÉRIO</strong>             <strong>VARIÁVEL INDICADORA DE ERRO</strong>   <strong>DEFAULT SIZING METHOD</strong></p>
+<hr />
+<p>ELEMENT ENERGY DENSITY   ENDENERI                          UNIFORM ERROR DISTRIBUTION</p>
+<ul>
+<li><strong>1.Uniform error distribution sizing method</strong> X 2.<strong>Minimum/maximum
+    control sizing method</strong> (exemplificado pela análise de distribuições
+    de tensões numa placa com furo circular)</li>
+</ul>
+<p><strong>1.</strong> <img alt="" src="../imagens_concentracao/image21.png" /></p>
+<p><strong>2.</strong>
+<img alt="" src="../imagens_concentracao/image22.png" /></p>
+<ol>
+<li>
+<p>PROCESSAMENTO</p>
+</li>
+<li>
+<p>No menu <strong>model</strong> à esquerda, <strong>dê</strong> duplo clique em <strong>Adaptivity
+    Processes</strong> e <strong>clique</strong> em <strong>OK</strong>.</p>
+</li>
+<li>
+<p><strong>Abra</strong> <strong>Adaptivity Processes</strong> e <strong>clique</strong> com o botão direito
+    em <strong>Adaptivity-1</strong> e <strong>clique</strong> em <strong>Submit</strong> . Na janela que se
+    abre, <strong>clique</strong> em <strong>OK</strong> e <strong>aguarde</strong>.</p>
+</li>
+</ol>
+<p><img alt="" src="../imagens_concentracao/image23.png" /></p>
+<ol>
+<li>
+<p>PÓS-PROCESSAMENTO</p>
+</li>
+<li>
+<p>No menu <strong>model</strong> à esquerda, <strong>clique</strong> com o botão direito em
+    <strong>Jobs(3)&gt;Adaptivity-1–iter3(Completed)&gt;Results</strong>. A tela de
+    análise de dados se abrirá. Na caixa de ferramentas, <strong>clique</strong> em
+    <strong>Plot Contours on Deformed Shape.</strong></p>
+</li>
+<li>
+<p>Na barra de ferramentas no canto superior à direita, <strong>selecione</strong>
+    <strong>S&gt;Max. In-Plane Principal</strong>. Na barra de menus principal,
+    <strong>clique</strong> em <strong>Viewport&gt;Viewport Annotation Options</strong>.... Na
+    janela aberta, <strong>selecione</strong> a aba <strong>Legend</strong>. <strong>Clique</strong> em <strong>Set</strong>
+    <strong>Font</strong>. Na nova janela, <strong>altere</strong> <strong>Size</strong> para <em>14</em>. <strong>Clique</strong>
+    <strong>OK</strong> nas duas janelas abertas.</p>
+</li>
+</ol>
+<p><img alt="" src="../imagens_concentracao/image24.png" /></p>
+<ul>
+<li>Na barra de menu principal, <strong>clique</strong> em <strong>Report&gt;Field</strong>
+    <strong>Output</strong>. Na janela <strong>Report Field Output</strong>, <strong>clique</strong> em <strong>S:
+    Stress Components &gt; Max. In-Plane Principal, S11, S22, S12</strong> e
+    <strong>clique</strong> em <strong>OK</strong>. A mensagem aparecerá: “The field output
+    report was appended to file “abaqus.rpt”.” O arquivo
+    <strong>abaqus.rpt</strong> pode ser encontrado em C:\Users\”Nome
+    do Usuário”\abaqus.rpt. O arquivo exibirá as tensões máximas
+    no plano.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image25.png" /></p>
+<ul>
+<li>
+<p>Para o caso da fissura foi obtido: S.Max. In-Plane = 11.2054E+03 no
+    elemento 102, ponto de integração 7. (ponta da fissura)</p>
+</li>
+<li>
+<p>Na barra do menu principal, <strong>clique</strong> em <strong>Report Field Output</strong>.
+    Na janela <strong>Report Field Output</strong>, <strong>desmarque</strong> <strong>Stress
+    Components</strong> e no campo <strong>Position</strong> <strong>selecione</strong> <strong>Whole
+    Element</strong>. Então <strong>marque</strong> <strong>ENDEN: Element energy density</strong> e
+    <strong>ENDENERI: Element energy density error indicator</strong> e <strong>clique</strong>
+    <strong>OK.</strong></p>
+</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image26.png" /></p>
+<blockquote>
+<p><img alt="" src="../imagens_concentracao/image27.png" /></p>
+</blockquote>
+<ul>
+<li>
+<p>Na barra do menu principal, <strong>clique</strong> em <strong>File&gt;Save</strong>
+    <strong>As</strong>.... <strong>Dê</strong> um nome ao arquivo e <strong>clique</strong> em <strong>OK</strong> (É
+    possível também salvar o arquivo com os resultados já calculados -
+    <strong>job-1.odb</strong>).</p>
+<ol>
+<li>DEMAIS CASOS:</li>
+</ol>
+</li>
+<li>
+<p>Para a resolução dos outros itens, você pode utilizar da ferramenta
+    de corte na parte seguindo os mesmos passos desse guia até aplicação
+    da Carga:</p>
+</li>
+<li>
+<p>Na barra de contexto, em <strong>Module</strong>, <strong>selecione</strong> <strong>Part.</strong> Na
+    caixa de ferramentas, <strong>clique</strong> em <strong>Create Cut: Extrude</strong>. O modo
+    sketch abrirá<strong>.</strong></p>
+</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image28.png" /></p>
+<ul>
+<li>Na caixa de ferramentas <strong>utilize</strong> a ferramenta <strong>Create Lines:
+    Connected</strong> para criar o caso do losango, a ferramenta <strong>Create
+    Circle: Center and Perimeter</strong> para o caso do furo circular, ou a
+    ferramenta <strong>Create Ellipse:</strong> <strong>Center and Perimeter</strong> para criar o
+    furo em forma de elipse. <strong>Clique</strong> em <strong>Done</strong> ao final da edição.</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image29.png" /></p>
+<ul>
+<li><strong>Repita</strong> os procedimentos do caso A, para resolver os demais
+    casos, colocando apoios de simetria e criando a malha. Exemplo:</li>
+</ul>
+<p><img alt="" src="../imagens_concentracao/image30.png" /></p>
+<ol>
+<li>RESULTADOS NA PONTA DA FISSURA:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>CASO            A</th>
+<th>FISSURA</th>
+<th></th>
+<th>S.          MAX IN-PLANE</th>
+<th>S11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAXIMO</td>
+<td>11.2054E+03</td>
+<td>9.9092E+03</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ELEMENTO</td>
+<td>102*</td>
+<td>100*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PONTO           DE INTEGRAÇÃO</td>
+<td>7*</td>
+<td>3*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CASO            B</td>
+<td>CIRCULO</td>
+<td></td>
+<td>S.          MAX IN-PLANE</td>
+<td>S11</td>
+</tr>
+<tr>
+<td>MAXIMO</td>
+<td>6.0157E+03</td>
+<td>6.01539E+03</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ELEMENTO</td>
+<td>112*</td>
+<td>112*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PONTO           DE INTEGRAÇÃO</td>
+<td>3*</td>
+<td>3*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CASO            C</td>
+<td>ELIPSE</td>
+<td></td>
+<td>S.          MAX IN-PLANE</td>
+<td>S11</td>
+</tr>
+<tr>
+<td>MAXIMO</td>
+<td>4.00291E+03</td>
+<td>4.00244E+03</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ELEMENTO</td>
+<td>57*</td>
+<td>57*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PONTO           DE INTEGRAÇÃO</td>
+<td>7*</td>
+<td>7*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CASO            D</td>
+<td>LOSANGO</td>
+<td></td>
+<td>S.          MAX IN-PLANE</td>
+<td>S11</td>
+</tr>
+<tr>
+<td>MAXIMO</td>
+<td>14.5545E+03</td>
+<td>13.0893E+03</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ELEMENTO</td>
+<td>103*</td>
+<td>103*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PONTO           DE INTEGRAÇÃO</td>
+<td>7*</td>
+<td>7*</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>*Elementos e pontos de integração que fazem referência à ponta da
+fissura ou furo, onde há concentração de tensões em cada caso.</p>
+<ol>
+<li>ERRO:</li>
+</ol>
+<p>ERRO</p>
+<hr />
+<p>CASO A
+  CASO B
+  CASO C
+  CASO D</p>
+<ul>
+<li>
+<p>Variáveis de estimativa de erro representam o erro na solução e têm
+    a unidade da mesma.</p>
+</li>
+<li>
+<p>Estimativas de erro são aproximações e <strong>não</strong> representam uma
+    estimativa precisa e conservadora do erro da solução. A qualidade do
+    indicador de erro pode ser muito ruim no caso de uma malha
+    grosseira, entretanto ela vai melhorando à medida que a malha
+    é refinada.</p>
+</li>
+<li>
+<p>O Abaqus/CAE fornece variáveis indicadoras de erros locais para a
+    malha gerada</p>
+</li>
+</ul>
+<p><strong>CRITÉRIO</strong>             <strong>VARIÁVEL INDICADORA DE ERRO</strong>   <strong>VARIAVEL DA SOLUÇÃO BASE</strong></p>
+<hr />
+<p>ELEMENT ENERGY DENSITY   ENDENERI                          ENDEN</p>
+<ul>
+<li>
+<p>Os Algoritmos de solução do abaqus usados na mudança da malha
+    (Adaptive remeshing) consideram o valor do indicador de erro e a
+    solução base simultaneamente.</p>
+</li>
+<li>
+<p>A estimativa do erro ultrapassando aproximadamente 10% da solução
+    base representa: Alta probabilidade do valor da solução ser
+    imprecisa e inapropriada na região, a malha pode ser muito grosseira
+    para a análise ou talvez exista singularidade de tensão no elemento.</p>
+</li>
+<li>
+<p><strong>ERRO <script type="math/tex; mode=display">%</script> = (ENDENERI/ENDEN)*100</strong></p>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2011 Marco André Argenta
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.pt.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../../js/adicionais.js"></script>
+      
+    
+  </body>
+</html>
