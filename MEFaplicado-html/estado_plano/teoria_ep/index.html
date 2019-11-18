@@ -1316,14 +1316,14 @@ U = \iiint_V \left( \dfrac{1}{2} \varepsilon_x \sigma_x + \dfrac{1}{2} \varepsil
 <p>Substituindo $\boldsymbol{\sigma} = \textbf{D} \boldsymbol{\varepsilon}$, sendo $\textbf{D}$ o tensor constitutivo genérico que pode ser o do estado plano de tensão ou de deformação:</p>
 <p>
 <script type="math/tex; mode=display">
-U = \iiint_V \boldsymbol{\varepsilon}^T \textbf{D} \boldsymbol{\varepsilon} dV
+U = \dfrac{1}{2} \iiint_V \boldsymbol{\varepsilon}^T \textbf{D} \boldsymbol{\varepsilon} dV
 </script>
 </p>
 <p>Substituindo as deformações pelas derivadas das funções de interpolação multiplicadas pelos deslocamentos nodais, conforme equação $\ref{eq:defBue}$, chegamos a energia de deformação interna formulada para elementos finitos:</p>
 <p>
 <script type="math/tex; mode=display">
 \begin{equation} \label{eq:U}
-U = \iiint_V \textbf{u}_e^T \textbf{B}^T \textbf{D} \textbf{B} \textbf{u}_e dV = \textbf{u}_e^T \iiint_V  \textbf{B}^T \textbf{D} \textbf{B} dV \textbf{u}_e
+U = \dfrac{1}{2} \iiint_V \textbf{u}_e^T \textbf{B}^T \textbf{D} \textbf{B} \textbf{u}_e dV = \dfrac{1}{2} \textbf{u}_e^T \iiint_V  \textbf{B}^T \textbf{D} \textbf{B} dV \textbf{u}_e
 \end{equation}
 </script>
 </p>
@@ -1354,7 +1354,7 @@ U = \iiint_V \textbf{u}_e^T \textbf{B}^T \textbf{D} \textbf{B} \textbf{u}_e dV =
 <p>Substituindo as equações $\ref{eq:U}$, $\ref{eq:Wc}$, $\ref{eq:Wd}$ e $\ref{eq:Wf}$ na equação $\ref{eq:Pi}$ obtemos a energia potencial total do sistema.</p>
 <p>
 <script type="math/tex; mode=display">
-\Pi = \textbf{u}_e^T \iiint_V  \textbf{B}^T \textbf{D} \textbf{B} dV \textbf{u}_e - \textbf{u}_e^T \iiint_V \textbf{N}^T \boldsymbol{\gamma} dV - \textbf{u}_e^T \iint_l \textbf{N}_l^T \textbf{g} dl - \textbf{u}_e^T \textbf{f}
+\Pi = \dfrac{1}{2} \textbf{u}_e^T \iiint_V  \textbf{B}^T \textbf{D} \textbf{B} dV \textbf{u}_e - \textbf{u}_e^T \iiint_V \textbf{N}^T \boldsymbol{\gamma} dV - \textbf{u}_e^T \iint_l \textbf{N}_l^T \textbf{g} dl - \textbf{u}_e^T \textbf{f}
 </script>
 </p>
 <p>O mínimo da energia potencial total do sistema, para o nosso caso com as simplificações adotadas no início, é obtido com sua primeira variação no campo dos deslocamentos igualada a zero, ou seja:</p>

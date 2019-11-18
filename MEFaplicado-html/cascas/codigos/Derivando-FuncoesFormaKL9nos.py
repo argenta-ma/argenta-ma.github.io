@@ -3,159 +3,258 @@
 """
 Created on Fri May 10 14:46:37 2019
 
-ValueError: Matrix det == 0; not invertible.
+Na plotagem: PORQUE N2, N3, N6, N11, N15 e N23 NEGATIVOS???
 
-NÃO FUNCIONA!!!! IMPLEMENTAR O MITC9!!!
+
+
+O elemento padrão:
+
+    2 -- 5 -- 1
+    |         |
+    6    9    8
+    |         |
+    3 -- 7 -- 4
 
 @author: markinho
 """
 
 import sympy as sp
 import numpy as np
-#import dNdx9nosKL
-#import matplotlib.pyplot as plt
-#import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from mpl_toolkits.mplot3d import axes3d, Axes3D
 #import meshio
 
 #elemento padrão
-r1, s1, r2, s2, r3, s3, r4, s4, r5, s5, r6, s6, r7, s7, r8, s8, r9, s9 = sp.symbols('r1, s1, r2, s2, r3, s3, r4, s4, r5, s5, r6, s6, r7, s7, r8, s8, r9, s9')
-##coordenadas dos nós
-#r1 = 1
-#s1 = 1
-#
-#r2 = -1
-#s2 = 1
-#
-#r3 = -1
-#s3 = -1
-#
-#r4 = 1
-#s4 = -1
-#
-#r5 = 0
-#s5 = 1
-#
-#r6 = -1
-#s6 = 0
-#
-#r7 = 0
-#s7 = -1
-#
-#r8 = 1
-#s8 = 0
-#
-#r9 = 0
-#s9 = 0
+r1 = 1
+s1 = 1
 
-#u1, u2, u3, u4, u5, u6, u7, u8, u9 = sp.symbols('u1, u2, u3, u4, u5, u6, u7, u8, u9')
-w1, w2, w3, w4, w5, w6, w7, w8, w9 = sp.symbols('w1, w2, w3, w4, w5, w6, w7, w8, w9')
-rr1, rr2, rr3, rr4, rr5, rr6, rr7, rr8, rr9 = sp.symbols('rr1, rr2, rr3, rr4, rr5, rr6, rr7, rr8, rr9')
-rs1, rs2, rs3, rs4, rs5, rs6, rs7, rs8, rs9 = sp.symbols('rs1, rs2, rs3, rs4, rs5, rs6, rs7, rs8, rs9')
+r2 = -1
+s2 = 1
 
-##estado plano de tensões
-#Mat_CoefEP = sp.Matrix([[1, r1, s1, r1*s1, r1**2, r1**2*s1, r1**2*s1**2, r1*s1**2, s1**2],  #no1
-#                        [1, r2, s2, r2*s2, r2**2, r2**2*s2, r2**2*s2**2, r2*s2**2, s2**2],  #no2
-#                        [1, r3, s3, r3*s3, r3**2, r3**2*s3, r3**2*s3**2, r3*s3**2, s3**2],  #no3
-#                        [1, r4, s4, r4*s4, r4**2, r4**2*s4, r4**2*s4**2, r4*s4**2, s4**2],  #no4
-#                        [1, r5, s5, r5*s5, r5**2, r5**2*s5, r5**2*s5**2, r5*s5**2, s5**2],  #no5
-#                        [1, r6, s6, r6*s6, r6**2, r6**2*s6, r6**2*s6**2, r6*s6**2, s6**2],  #no6
-#                        [1, r7, s7, r7*s7, r7**2, r7**2*s7, r7**2*s7**2, r7*s7**2, s7**2],  #no7
-#                        [1, r8, s8, r8*s8, r8**2, r8**2*s8, r8**2*s8**2, r8*s8**2, s8**2],  #no8
-#                        [1, r9, s9, r9*s9, r9**2, r9**2*s9, r9**2*s9**2, r9*s9**2, s9**2]]) #no9
+r3 = -1
+s3 = -1
 
-#placa plana
-Mat_CoefP = sp.Matrix([[1, r1, s1, r1*s1, r1**2, r1**2*s1, r1**2*s1**2, r1*s1**2, s1**2,   r1**3,   r1**3*s1,   r1**3*s1**2,   r1**3*s1**3,   r1**2*s1**3,   r1*s1**3,   s1**3,    r1**4,   r1**4*s1,   r1**4*s1**2,   r1**4*s1**3,   r1**4*s1**4,   r1**3*s1**4,   r1**2*s1**4,    r1*s1**4,    s1**4,   r1**5,   s1**5],  #no1
-                       [0,  0,  1,    r1,     0,    r1**2,  r1**2*2*s1,  r1*2*s1,  2*s1,       0,      r1**3,    r1**3*2*s1, r1**3*3*s1**2, r1**2*3*s1**2, r1*3*s1**2, 3*s1**2,        0,      r1**4,    r1**4*2*s1, r1**4*3*s1**2, r1**4*4*s1**3, r1**3*4*s1**3, r1**2*4*s1**3,  r1*4*s1**3,  4*s1**3,       0, 5*s1**4],  #no1Rs
-                       [0,  1,  0,    s1,  2*r1,  2*r1*s1,  2*r1*s1**2,    s1**2,     0, 3*r1**2, 3*r1**2*s1, 3*r1**2*s1**2, 3*r1**2*s1**3,    2*r1*s1**3,      s1**3,       0,  4*r1**3, 4*r1**3*s1, 4*r1**3*s1**2, 4*r1**3*s1**3, 4*r1**3*s1**4, 3*r1**2*s1**4,    2*r1*s1**4,       s1**4,        0, 5*r1**4,       0],  #no1Rr                       
-                       [1, r2, s2, r2*s2, r2**2, r2**2*s2, r2**2*s2**2, r2*s2**2, s2**2,   r2**3,   r2**3*s2,   r2**3*s2**2,   r2**3*s2**3,   r2**2*s2**3,   r2*s2**3,   s2**3,    r2**4,   r2**4*s2,   r2**4*s2**2,   r2**4*s2**3,   r2**4*s2**4,   r2**3*s2**4,   r2**2*s2**4,    r2*s2**4,    s2**4,   r2**5,   s2**5],  #no2                       
-                       [0,  0,  1,    r2,     0,    r2**2,  r2**2*2*s2,  r2*2*s2,  2*s2,       0,      r2**3,    r2**3*2*s2, r2**3*3*s2**2, r2**2*3*s2**2, r2*3*s2**2, 3*s2**2,        0,      r2**4,    r2**4*2*s2, r2**4*3*s2**2, r2**4*4*s2**3, r2**3*4*s2**3, r2**2*4*s2**3,  r2*4*s2**3,  4*s2**3,       0, 5*s2**4],  #no2Rs                       
-                       [0,  1,  0,    s2,  2*r2,  2*r2*s2,  2*r2*s2**2,    s2**2,     0, 3*r2**2, 3*r2**2*s2, 3*r2**2*s2**2, 3*r2**2*s2**3,    2*r2*s2**3,      s2**3,       0,  4*r2**3, 4*r2**3*s2, 4*r2**3*s2**2, 4*r2**3*s2**3, 4*r2**3*s2**4, 3*r2**2*s2**4,    2*r2*s2**4,       s2**4,        0, 5*r2**4,       0],  #no2Rr
-                       [1, r3, s3, r3*s3, r3**2, r3**2*s3, r3**2*s3**2, r3*s3**2, s3**2,   r3**3,   r3**3*s3,   r3**3*s3**2,   r3**3*s3**3,   r3**2*s3**3,   r3*s3**3,   s3**3,    r3**4,   r3**4*s3,   r3**4*s3**2,   r3**4*s3**3,   r3**4*s3**4,   r3**3*s3**4,   r3**2*s3**4,    r3*s3**4,    s3**4,   r3**5,   s3**5],  #no3
-                       [0,  0,  1,    r3,     0,    r3**2,  r3**2*2*s3,  r3*2*s3,  2*s3,       0,      r3**3,    r3**3*2*s3, r3**3*3*s3**2, r3**2*3*s3**2, r3*3*s3**2, 3*s3**2,        0,      r3**4,    r3**4*2*s3, r3**4*3*s3**2, r3**4*4*s3**3, r3**3*4*s3**3, r3**2*4*s3**3,  r3*4*s3**3,  4*s3**3,       0, 5*s3**4],  #no3Rs                       
-                       [0,  1,  0,    s3,  2*r3,  2*r3*s3,  2*r3*s3**2,    s3**2,     0, 3*r3**2, 3*r3**2*s3, 3*r3**2*s3**2, 3*r3**2*s3**3,    2*r3*s3**3,      s3**3,       0,  4*r3**3, 4*r3**3*s3, 4*r3**3*s3**2, 4*r3**3*s3**3, 4*r3**3*s3**4, 3*r3**2*s3**4,    2*r3*s3**4,       s3**4,        0, 5*r3**4,       0],  #no3Rr                       
-                       [1, r4, s4, r4*s4, r4**2, r4**2*s4, r4**2*s4**2, r4*s4**2, s4**2,   r4**3,   r4**3*s4,   r4**3*s4**2,   r4**3*s4**3,   r4**2*s4**3,   r4*s4**3,   s4**3,    r4**4,   r4**4*s4,   r4**4*s4**2,   r4**4*s4**3,   r4**4*s4**4,   r4**3*s4**4,   r4**2*s4**4,    r4*s4**4,    s4**4,   r4**5,   s4**5],  #no4
-                       [0,  0,  1,    r4,     0,    r4**2,  r4**2*2*s4,  r4*2*s4,  2*s4,       0,      r4**3,    r4**3*2*s4, r4**3*3*s4**2, r4**2*3*s4**2, r4*3*s4**2, 3*s4**2,        0,      r4**4,    r4**4*2*s4, r4**4*3*s4**2, r4**4*4*s4**3, r4**3*4*s4**3, r4**2*4*s4**3,  r4*4*s4**3,  4*s4**3,       0, 5*s4**4],  #no4Rs                       
-                       [0,  1,  0,    s4,  2*r4,  2*r4*s4,  2*r4*s4**2,    s4**2,     0, 3*r4**2, 3*r4**2*s4, 3*r4**2*s4**2, 3*r4**2*s4**3,    2*r4*s4**3,      s4**3,       0,  4*r4**3, 4*r4**3*s4, 4*r4**3*s4**2, 4*r4**3*s4**3, 4*r4**3*s4**4, 3*r4**2*s4**4,    2*r4*s4**4,       s4**4,        0, 5*r4**4,       0],  #no4Rr                       
-                       [1, r5, s5, r5*s5, r5**2, r5**2*s5, r5**2*s5**2, r5*s5**2, s5**2,   r5**3,   r5**3*s5,   r5**3*s5**2,   r5**3*s5**3,   r5**2*s5**3,   r5*s5**3,   s5**3,    r5**4,   r5**4*s5,   r5**4*s5**2,   r5**4*s5**3,   r5**4*s5**4,   r5**3*s5**4,   r5**2*s5**4,    r5*s5**4,    s5**4,   r5**5,   s5**5],  #no5
-                       [0,  0,  1,    r5,     0,    r5**2,  r5**2*2*s5,  r5*2*s5,  2*s5,       0,      r5**3,    r5**3*2*s5, r5**3*3*s5**2, r5**2*3*s5**2, r5*3*s5**2, 3*s5**2,        0,      r5**4,    r5**4*2*s5, r5**4*3*s5**2, r5**4*4*s5**3, r5**3*4*s5**3, r5**2*4*s5**3,  r5*4*s5**3,  4*s5**3,       0, 5*s5**4],  #no5Rs                       
-                       [0,  1,  0,    s5,  2*r5,  2*r5*s5,  2*r5*s5**2,    s5**2,     0, 3*r5**2, 3*r5**2*s5, 3*r5**2*s5**2, 3*r5**2*s5**3,    2*r5*s5**3,      s5**3,       0,  4*r5**3, 4*r5**3*s5, 4*r5**3*s5**2, 4*r5**3*s5**3, 4*r5**3*s5**4, 3*r5**2*s5**4,    2*r5*s5**4,       s5**4,        0, 5*r5**4,       0],  #no5Rr                       
-                       [1, r6, s6, r6*s6, r6**2, r6**2*s6, r6**2*s6**2, r6*s6**2, s6**2,   r6**3,   r6**3*s6,   r6**3*s6**2,   r6**3*s6**3,   r6**2*s6**3,   r6*s6**3,   s6**3,    r6**4,   r6**4*s6,   r6**4*s6**2,   r6**4*s6**3,   r6**4*s6**4,   r6**3*s6**4,   r6**2*s6**4,    r6*s6**4,    s6**4,   r6**5,   s6**5],  #no6
-                       [0,  0,  1,    r6,     0,    r6**2,  r6**2*2*s6,  r6*2*s6,  2*s6,       0,      r6**3,    r6**3*2*s6, r6**3*3*s6**2, r6**2*3*s6**2, r6*3*s6**2, 3*s6**2,        0,      r6**4,    r6**4*2*s6, r6**4*3*s6**2, r6**4*4*s6**3, r6**3*4*s6**3, r6**2*4*s6**3,  r6*4*s6**3,  4*s6**3,       0, 5*s6**4],  #no6Rs                       
-                       [0,  1,  0,    s6,  2*r6,  2*r6*s6,  2*r6*s6**2,    s6**2,     0, 3*r6**2, 3*r6**2*s6, 3*r6**2*s6**2, 3*r6**2*s6**3,    2*r6*s6**3,      s6**3,       0,  4*r6**3, 4*r6**3*s6, 4*r6**3*s6**2, 4*r6**3*s6**3, 4*r6**3*s6**4, 3*r6**2*s6**4,    2*r6*s6**4,       s6**4,        0, 5*r6**4,       0],  #no6Rr                       
-                       [1, r7, s7, r7*s7, r7**2, r7**2*s7, r7**2*s7**2, r7*s7**2, s7**2,   r7**3,   r7**3*s7,   r7**3*s7**2,   r7**3*s7**3,   r7**2*s7**3,   r7*s7**3,   s7**3,    r7**4,   r7**4*s7,   r7**4*s7**2,   r7**4*s7**3,   r7**4*s7**4,   r7**3*s7**4,   r7**2*s7**4,    r7*s7**4,    s7**4,   r7**5,   s7**5],  #no7
-                       [0,  0,  1,    r7,     0,    r7**2,  r7**2*2*s7,  r7*2*s7,  2*s7,       0,      r7**3,    r7**3*2*s7, r7**3*3*s7**2, r7**2*3*s7**2, r7*3*s7**2, 3*s7**2,        0,      r7**4,    r7**4*2*s7, r7**4*3*s7**2, r7**4*4*s7**3, r7**3*4*s7**3, r7**2*4*s7**3,  r7*4*s7**3,  4*s7**3,       0, 5*s7**4],  #no7Rs                       
-                       [0,  1,  0,    s7,  2*r7,  2*r7*s7,  2*r7*s7**2,    s7**2,     0, 3*r7**2, 3*r7**2*s7, 3*r7**2*s7**2, 3*r7**2*s7**3,    2*r7*s7**3,      s7**3,       0,  4*r7**3, 4*r7**3*s7, 4*r7**3*s7**2, 4*r7**3*s7**3, 4*r7**3*s7**4, 3*r7**2*s7**4,    2*r7*s7**4,       s7**4,        0, 5*r7**4,       0],  #no7Rr                       
-                       [1, r8, s8, r8*s8, r8**2, r8**2*s8, r8**2*s8**2, r8*s8**2, s8**2,   r8**3,   r8**3*s8,   r8**3*s8**2,   r8**3*s8**3,   r8**2*s8**3,   r8*s8**3,   s8**3,    r8**4,   r8**4*s8,   r8**4*s8**2,   r8**4*s8**3,   r8**4*s8**4,   r8**3*s8**4,   r8**2*s8**4,    r8*s8**4,    s8**4,   r8**5,   s8**5],  #no8
-                       [0,  0,  1,    r8,     0,    r8**2,  r8**2*2*s8,  r8*2*s8,  2*s8,       0,      r8**3,    r8**3*2*s8, r8**3*3*s8**2, r8**2*3*s8**2, r8*3*s8**2, 3*s8**2,        0,      r8**4,    r8**4*2*s8, r8**4*3*s8**2, r8**4*4*s8**3, r8**3*4*s8**3, r8**2*4*s8**3,  r8*4*s8**3,  4*s8**3,       0, 5*s8**4],  #no8Rs                       
-                       [0,  1,  0,    s8,  2*r8,  2*r8*s8,  2*r8*s8**2,    s8**2,     0, 3*r8**2, 3*r8**2*s8, 3*r8**2*s8**2, 3*r8**2*s8**3,    2*r8*s8**3,      s8**3,       0,  4*r8**3, 4*r8**3*s8, 4*r8**3*s8**2, 4*r8**3*s8**3, 4*r8**3*s8**4, 3*r8**2*s8**4,    2*r8*s8**4,       s8**4,        0, 5*r8**4,       0],  #no8Rr                       
-                       [1, r9, s9, r9*s9, r9**2, r9**2*s9, r9**2*s9**2, r9*s9**2, s9**2,   r9**3,   r9**3*s9,   r9**3*s9**2,   r9**3*s9**3,   r9**2*s9**3,   r9*s9**3,   s9**3,    r9**4,   r9**4*s9,   r9**4*s9**2,   r9**4*s9**3,   r9**4*s9**4,   r9**3*s9**4,   r9**2*s9**4,    r9*s9**4,    s9**4,   r9**5,   s9**5],  #no9
-                       [0,  0,  1,    r9,     0,    r9**2,  r9**2*2*s9,  r9*2*s9,  2*s9,       0,      r9**3,    r9**3*2*s9, r9**3*3*s9**2, r9**2*3*s9**2, r9*3*s9**2, 3*s9**2,        0,      r9**4,    r9**4*2*s9, r9**4*3*s9**2, r9**4*4*s9**3, r9**3*4*s9**3, r9**2*4*s9**3,  r9*4*s9**3,  4*s9**3,       0, 5*s9**4],  #no9Rs
-                       [0,  1,  0,    s9,  2*r9,  2*r9*s9,  2*r9*s9**2,    s9**2,     0, 3*r9**2, 3*r9**2*s9, 3*r9**2*s9**2, 3*r9**2*s9**3,    2*r9*s9**3,      s9**3,       0,  4*r9**3, 4*r9**3*s9, 4*r9**3*s9**2, 4*r9**3*s9**3, 4*r9**3*s9**4, 3*r9**2*s9**4,    2*r9*s9**4,       s9**4,        0, 5*r9**4,       0]]) #no9Rr
-                       
+r4 = 1
+s4 = -1
 
-#teste = np.array(Mat_CoefP, dtype=float)
+r5 = 0
+s5 = 1
 
-#U = sp.Matrix([u1, u2, u3, u4, u5, u6, u7, u8, u9])
-WR = sp.Matrix([w1, rr1, rs1, w2, rr2, rs2, w3, rr3, rs3, w4, rr4, rs4, w5, rr5, rs5, w6, rr6, rs6, w7, rr7, rs7, w8, rr8, rs8, w9, rr9, rs9])
+r6 = -1
+s6 = 0
 
-#CoefsEP = Mat_CoefEP.inv() * U
-CoefsP = Mat_CoefP.inv() * WR
+r7 = 0
+s7 = -1
 
-#Aep, Bep, Cep, Dep, Eep, Fep, Gep, Hep, Iep = CoefsEP[0], CoefsEP[1], CoefsEP[2], CoefsEP[3], CoefsEP[4], CoefsEP[5], CoefsEP[6], CoefsEP[7], CoefsEP[8]
-Ap, Bp, Cp, Dp, Ep, Fp, Gp, Hp, Ip, Jp, Kp, Lp, Mp, Np, Op, Pp, Qp, Rp, Sp, Tp, Up, Vp, Xp, Wp, Yp, Zp, AAp = CoefsP[0], CoefsP[1], CoefsP[2], CoefsP[3], CoefsP[4], CoefsP[5], CoefsP[6], CoefsP[7], CoefsP[8], CoefsP[9], CoefsP[10], CoefsP[11], CoefsP[12], CoefsP[13], CoefsP[14], CoefsP[15], CoefsP[16], CoefsP[17], CoefsP[18], CoefsP[19], CoefsP[20],CoefsP[21], CoefsP[22], CoefsP[23], CoefsP[24], CoefsP[25], CoefsP[26]
+r8 = 1
+s8 = 0
+
+r9 = 0
+s9 = 0
+
+u1 = sp.Symbol('u1')
+u2 = sp.Symbol('u2')
+u3 = sp.Symbol('u3')
+u4 = sp.Symbol('u4')
+u5 = sp.Symbol('u5')
+u6 = sp.Symbol('u6')
+u7 = sp.Symbol('u7')
+u8 = sp.Symbol('u8')
+u9 = sp.Symbol('u9')
+u10 = sp.Symbol('u10')
+u11 = sp.Symbol('u11')
+u12 = sp.Symbol('u12')
+u13 = sp.Symbol('u13')
+u14 = sp.Symbol('u14')
+u15 = sp.Symbol('u15')
+u16 = sp.Symbol('u16')
+u17 = sp.Symbol('u17')
+u18 = sp.Symbol('u18')
+u19 = sp.Symbol('u19')
+u20 = sp.Symbol('u20')
+u21 = sp.Symbol('u21')
+u22 = sp.Symbol('u22')
+u23 = sp.Symbol('u23')
+u24 = sp.Symbol('u24')
+u25 = sp.Symbol('u25')
+u26 = sp.Symbol('u26')
+u27 = sp.Symbol('u27')
+
+
+###polinomio maluco incompleto para montagem da matriz dos coeficientes
+#x = sp.Symbol('x')
+#y = sp.Symbol('y')
+#pmi = sp.Matrix([1, x, x*y, y, x**2, x**2*y, x**2*y**2, x*y**2, y**2, x**3, x**3*y, x**3*y**2, x**2*y**3, x*y**3, y**3, x**4, x**4*y, x**4*y**2, x**2*y**4, x*y**4, y**4, x**5, x**5*y, x**5*y**2, x**2*y**5, x*y**5, y**5])
+#pmi = pmi.T
+#dpmidx = sp.diff(pmi, x)
+#dpmidy = sp.diff(pmi, y)
+#
+#r1,s1, r2, s2, r3, s3, r4, s4, r5, s5, r6, s6, r7, s7, r8, s8, r9, s9 = sp.symbols('r1,s1, r2, s2, r3, s3, r4, s4, r5, s5, r6, s6, r7, s7, r8, s8, r9, s9')
+#
+#pmiN1 = pmi.subs({x: r1, y: s1})
+#dpmidxN1 = sp.diff(pmiN1, r1)
+#dpmidyN1= sp.diff(pmiN1, s1)
+#
+#pmiN2 = pmi.subs({x: r2, y: s2})
+#dpmidxN2 = sp.diff(pmiN2, r2)
+#dpmidyN2= sp.diff(pmiN2, s2)
+#
+#pmiN3 = pmi.subs({x: r3, y: s3})
+#dpmidxN3 = sp.diff(pmiN3, r3)
+#dpmidyN3= sp.diff(pmiN3, s3)
+#
+#pmiN4 = pmi.subs({x: r4, y: s4})
+#dpmidxN4 = sp.diff(pmiN4, r4)
+#dpmidyN4= sp.diff(pmiN4, s4)
+#
+#pmiN5 = pmi.subs({x: r5, y: s5})
+#dpmidxN5 = sp.diff(pmiN5, r5)
+#dpmidyN5= sp.diff(pmiN5, s5)
+#
+#pmiN6 = pmi.subs({x: r6, y: s6})
+#dpmidxN6 = sp.diff(pmiN6, r6)
+#dpmidyN6= sp.diff(pmiN6, s6)
+#
+#pmiN7 = pmi.subs({x: r7, y: s7})
+#dpmidxN7 = sp.diff(pmiN7, r7)
+#dpmidyN7= sp.diff(pmiN7, s7)
+#
+#pmiN8 = pmi.subs({x: r8, y: s8})
+#dpmidxN8 = sp.diff(pmiN8, r8)
+#dpmidyN8= sp.diff(pmiN8, s8)
+#
+#pmiN9 = pmi.subs({x: r9, y: s9})
+#dpmidxN9 = sp.diff(pmiN9, r9)
+#dpmidyN9= sp.diff(pmiN9, s9)
+#
+#Mat_Coef = sp.Matrix([pmiN1,     #no1
+#                      dpmidxN1,  #no2
+#                      dpmidyN1,  #no3
+#                      pmiN2,     #no4
+#                      dpmidxN2,  #no5
+#                      dpmidyN2,  #no6
+#                      pmiN3,     #no7
+#                      dpmidxN3,  #no8
+#                      dpmidyN3,  #no9
+#                      pmiN4,     #no10
+#                      dpmidxN4,  #no11
+#                      dpmidyN4,  #no12
+#                      pmiN5,     #no13
+#                      dpmidxN5,  #no14
+#                      dpmidyN5,  #no15
+#                      pmiN6,     #no16
+#                      dpmidxN6,  #no17
+#                      dpmidyN6,  #no18
+#                      pmiN7,     #no19
+#                      dpmidxN7,  #no20
+#                      dpmidyN7,  #no21
+#                      pmiN8,     #no22
+#                      dpmidxN8,  #no23
+#                      dpmidyN8,  #no24
+#                      pmiN9,     #no25
+#                      dpmidxN9,  #no26
+#                      dpmidyN9])  #no27
+
+Mat_Coef = sp.Matrix([[1, r1, r1*s1, s1, r1**2, r1**2*s1, r1**2*s1**2, r1*s1**2, s1**2,   r1**3,   r1**3*s1,   r1**3*s1**2,   r1**2*s1**3,   r1*s1**3,   s1**3,   r1**4,   r1**4*s1,   r1**4*s1**2,   r1**2*s1**4,   r1*s1**4,   s1**4,   r1**5,   r1**5*s1,   r1**5*s1**2,   r1**2*s1**5,   r1*s1**5,   s1**5],
+                        [0,  1,    s1,  0,  2*r1,  2*r1*s1,  2*r1*s1**2,    s1**2,     0, 3*r1**2, 3*r1**2*s1, 3*r1**2*s1**2,    2*r1*s1**3,      s1**3,       0, 4*r1**3, 4*r1**3*s1, 4*r1**3*s1**2,    2*r1*s1**4,      s1**4,       0, 5*r1**4, 5*r1**4*s1, 5*r1**4*s1**2,    2*r1*s1**5,      s1**5,       0],
+                        [0,  0,    r1,  1,     0,    r1**2,  2*r1**2*s1,  2*r1*s1,  2*s1,       0,      r1**3,    2*r1**3*s1, 3*r1**2*s1**2, 3*r1*s1**2, 3*s1**2,       0,      r1**4,    2*r1**4*s1, 4*r1**2*s1**3, 4*r1*s1**3, 4*s1**3,       0,      r1**5,    2*r1**5*s1, 5*r1**2*s1**4, 5*r1*s1**4, 5*s1**4],
+                        [1, r2, r2*s2, s2, r2**2, r2**2*s2, r2**2*s2**2, r2*s2**2, s2**2,   r2**3,   r2**3*s2,   r2**3*s2**2,   r2**2*s2**3,   r2*s2**3,   s2**3,   r2**4,   r2**4*s2,   r2**4*s2**2,   r2**2*s2**4,   r2*s2**4,   s2**4,   r2**5,   r2**5*s2,   r2**5*s2**2,   r2**2*s2**5,   r2*s2**5,   s2**5],
+                        [0,  1,    s2,  0,  2*r2,  2*r2*s2,  2*r2*s2**2,    s2**2,     0, 3*r2**2, 3*r2**2*s2, 3*r2**2*s2**2,    2*r2*s2**3,      s2**3,       0, 4*r2**3, 4*r2**3*s2, 4*r2**3*s2**2,    2*r2*s2**4,      s2**4,       0, 5*r2**4, 5*r2**4*s2, 5*r2**4*s2**2,    2*r2*s2**5,      s2**5,       0],
+                        [0,  0,    r2,  1,     0,    r2**2,  2*r2**2*s2,  2*r2*s2,  2*s2,       0,      r2**3,    2*r2**3*s2, 3*r2**2*s2**2, 3*r2*s2**2, 3*s2**2,       0,      r2**4,    2*r2**4*s2, 4*r2**2*s2**3, 4*r2*s2**3, 4*s2**3,       0,      r2**5,    2*r2**5*s2, 5*r2**2*s2**4, 5*r2*s2**4, 5*s2**4],
+                        [1, r3, r3*s3, s3, r3**2, r3**2*s3, r3**2*s3**2, r3*s3**2, s3**2,   r3**3,   r3**3*s3,   r3**3*s3**2,   r3**2*s3**3,   r3*s3**3,   s3**3,   r3**4,   r3**4*s3,   r3**4*s3**2,   r3**2*s3**4,   r3*s3**4,   s3**4,   r3**5,   r3**5*s3,   r3**5*s3**2,   r3**2*s3**5,   r3*s3**5,   s3**5],
+                        [0,  1,    s3,  0,  2*r3,  2*r3*s3,  2*r3*s3**2,    s3**2,     0, 3*r3**2, 3*r3**2*s3, 3*r3**2*s3**2,    2*r3*s3**3,      s3**3,       0, 4*r3**3, 4*r3**3*s3, 4*r3**3*s3**2,    2*r3*s3**4,      s3**4,       0, 5*r3**4, 5*r3**4*s3, 5*r3**4*s3**2,    2*r3*s3**5,      s3**5,       0],
+                        [0,  0,    r3,  1,     0,    r3**2,  2*r3**2*s3,  2*r3*s3,  2*s3,       0,      r3**3,    2*r3**3*s3, 3*r3**2*s3**2, 3*r3*s3**2, 3*s3**2,       0,      r3**4,    2*r3**4*s3, 4*r3**2*s3**3, 4*r3*s3**3, 4*s3**3,       0,      r3**5,    2*r3**5*s3, 5*r3**2*s3**4, 5*r3*s3**4, 5*s3**4],
+                        [1, r4, r4*s4, s4, r4**2, r4**2*s4, r4**2*s4**2, r4*s4**2, s4**2,   r4**3,   r4**3*s4,   r4**3*s4**2,   r4**2*s4**3,   r4*s4**3,   s4**3,   r4**4,   r4**4*s4,   r4**4*s4**2,   r4**2*s4**4,   r4*s4**4,   s4**4,   r4**5,   r4**5*s4,   r4**5*s4**2,   r4**2*s4**5,   r4*s4**5,   s4**5],
+                        [0,  1,    s4,  0,  2*r4,  2*r4*s4,  2*r4*s4**2,    s4**2,     0, 3*r4**2, 3*r4**2*s4, 3*r4**2*s4**2,    2*r4*s4**3,      s4**3,       0, 4*r4**3, 4*r4**3*s4, 4*r4**3*s4**2,    2*r4*s4**4,      s4**4,       0, 5*r4**4, 5*r4**4*s4, 5*r4**4*s4**2,    2*r4*s4**5,      s4**5,       0],
+                        [0,  0,    r4,  1,     0,    r4**2,  2*r4**2*s4,  2*r4*s4,  2*s4,       0,      r4**3,    2*r4**3*s4, 3*r4**2*s4**2, 3*r4*s4**2, 3*s4**2,       0,      r4**4,    2*r4**4*s4, 4*r4**2*s4**3, 4*r4*s4**3, 4*s4**3,       0,      r4**5,    2*r4**5*s4, 5*r4**2*s4**4, 5*r4*s4**4, 5*s4**4],
+                        [1, r5, r5*s5, s5, r5**2, r5**2*s5, r5**2*s5**2, r5*s5**2, s5**2,   r5**3,   r5**3*s5,   r5**3*s5**2,   r5**2*s5**3,   r5*s5**3,   s5**3,   r5**4,   r5**4*s5,   r5**4*s5**2,   r5**2*s5**4,   r5*s5**4,   s5**4,   r5**5,   r5**5*s5,   r5**5*s5**2,   r5**2*s5**5,   r5*s5**5,   s5**5],
+                        [0,  1,    s5,  0,  2*r5,  2*r5*s5,  2*r5*s5**2,    s5**2,     0, 3*r5**2, 3*r5**2*s5, 3*r5**2*s5**2,    2*r5*s5**3,      s5**3,       0, 4*r5**3, 4*r5**3*s5, 4*r5**3*s5**2,    2*r5*s5**4,      s5**4,       0, 5*r5**4, 5*r5**4*s5, 5*r5**4*s5**2,    2*r5*s5**5,      s5**5,       0],
+                        [0,  0,    r5,  1,     0,    r5**2,  2*r5**2*s5,  2*r5*s5,  2*s5,       0,      r5**3,    2*r5**3*s5, 3*r5**2*s5**2, 3*r5*s5**2, 3*s5**2,       0,      r5**4,    2*r5**4*s5, 4*r5**2*s5**3, 4*r5*s5**3, 4*s5**3,       0,      r5**5,    2*r5**5*s5, 5*r5**2*s5**4, 5*r5*s5**4, 5*s5**4],
+                        [1, r6, r6*s6, s6, r6**2, r6**2*s6, r6**2*s6**2, r6*s6**2, s6**2,   r6**3,   r6**3*s6,   r6**3*s6**2,   r6**2*s6**3,   r6*s6**3,   s6**3,   r6**4,   r6**4*s6,   r6**4*s6**2,   r6**2*s6**4,   r6*s6**4,   s6**4,   r6**5,   r6**5*s6,   r6**5*s6**2,   r6**2*s6**5,   r6*s6**5,   s6**5],
+                        [0,  1,    s6,  0,  2*r6,  2*r6*s6,  2*r6*s6**2,    s6**2,     0, 3*r6**2, 3*r6**2*s6, 3*r6**2*s6**2,    2*r6*s6**3,      s6**3,       0, 4*r6**3, 4*r6**3*s6, 4*r6**3*s6**2,    2*r6*s6**4,      s6**4,       0, 5*r6**4, 5*r6**4*s6, 5*r6**4*s6**2,    2*r6*s6**5,      s6**5,       0],
+                        [0,  0,    r6,  1,     0,    r6**2,  2*r6**2*s6,  2*r6*s6,  2*s6,       0,      r6**3,    2*r6**3*s6, 3*r6**2*s6**2, 3*r6*s6**2, 3*s6**2,       0,      r6**4,    2*r6**4*s6, 4*r6**2*s6**3, 4*r6*s6**3, 4*s6**3,       0,      r6**5,    2*r6**5*s6, 5*r6**2*s6**4, 5*r6*s6**4, 5*s6**4],
+                        [1, r7, r7*s7, s7, r7**2, r7**2*s7, r7**2*s7**2, r7*s7**2, s7**2,   r7**3,   r7**3*s7,   r7**3*s7**2,   r7**2*s7**3,   r7*s7**3,   s7**3,   r7**4,   r7**4*s7,   r7**4*s7**2,   r7**2*s7**4,   r7*s7**4,   s7**4,   r7**5,   r7**5*s7,   r7**5*s7**2,   r7**2*s7**5,   r7*s7**5,   s7**5],
+                        [0,  1,    s7,  0,  2*r7,  2*r7*s7,  2*r7*s7**2,    s7**2,     0, 3*r7**2, 3*r7**2*s7, 3*r7**2*s7**2,    2*r7*s7**3,      s7**3,       0, 4*r7**3, 4*r7**3*s7, 4*r7**3*s7**2,    2*r7*s7**4,      s7**4,       0, 5*r7**4, 5*r7**4*s7, 5*r7**4*s7**2,    2*r7*s7**5,      s7**5,       0],
+                        [0,  0,    r7,  1,     0,    r7**2,  2*r7**2*s7,  2*r7*s7,  2*s7,       0,      r7**3,    2*r7**3*s7, 3*r7**2*s7**2, 3*r7*s7**2, 3*s7**2,       0,      r7**4,    2*r7**4*s7, 4*r7**2*s7**3, 4*r7*s7**3, 4*s7**3,       0,      r7**5,    2*r7**5*s7, 5*r7**2*s7**4, 5*r7*s7**4, 5*s7**4],
+                        [1, r8, r8*s8, s8, r8**2, r8**2*s8, r8**2*s8**2, r8*s8**2, s8**2,   r8**3,   r8**3*s8,   r8**3*s8**2,   r8**2*s8**3,   r8*s8**3,   s8**3,   r8**4,   r8**4*s8,   r8**4*s8**2,   r8**2*s8**4,   r8*s8**4,   s8**4,   r8**5,   r8**5*s8,   r8**5*s8**2,   r8**2*s8**5,   r8*s8**5,   s8**5],
+                        [0,  1,    s8,  0,  2*r8,  2*r8*s8,  2*r8*s8**2,    s8**2,     0, 3*r8**2, 3*r8**2*s8, 3*r8**2*s8**2,    2*r8*s8**3,      s8**3,       0, 4*r8**3, 4*r8**3*s8, 4*r8**3*s8**2,    2*r8*s8**4,      s8**4,       0, 5*r8**4, 5*r8**4*s8, 5*r8**4*s8**2,    2*r8*s8**5,      s8**5,       0],
+                        [0,  0,    r8,  1,     0,    r8**2,  2*r8**2*s8,  2*r8*s8,  2*s8,       0,      r8**3,    2*r8**3*s8, 3*r8**2*s8**2, 3*r8*s8**2, 3*s8**2,       0,      r8**4,    2*r8**4*s8, 4*r8**2*s8**3, 4*r8*s8**3, 4*s8**3,       0,      r8**5,    2*r8**5*s8, 5*r8**2*s8**4, 5*r8*s8**4, 5*s8**4],
+                        [1, r9, r9*s9, s9, r9**2, r9**2*s9, r9**2*s9**2, r9*s9**2, s9**2,   r9**3,   r9**3*s9,   r9**3*s9**2,   r9**2*s9**3,   r9*s9**3,   s9**3,   r9**4,   r9**4*s9,   r9**4*s9**2,   r9**2*s9**4,   r9*s9**4,   s9**4,   r9**5,   r9**5*s9,   r9**5*s9**2,   r9**2*s9**5,   r9*s9**5,   s9**5],
+                        [0,  1,    s9,  0,  2*r9,  2*r9*s9,  2*r9*s9**2,    s9**2,     0, 3*r9**2, 3*r9**2*s9, 3*r9**2*s9**2,    2*r9*s9**3,      s9**3,       0, 4*r9**3, 4*r9**3*s9, 4*r9**3*s9**2,    2*r9*s9**4,      s9**4,       0, 5*r9**4, 5*r9**4*s9, 5*r9**4*s9**2,    2*r9*s9**5,      s9**5,       0],
+                        [0,  0,    r9,  1,     0,    r9**2,  2*r9**2*s9,  2*r9*s9,  2*s9,       0,      r9**3,    2*r9**3*s9, 3*r9**2*s9**2, 3*r9*s9**2, 3*s9**2,       0,      r9**4,    2*r9**4*s9, 4*r9**2*s9**3, 4*r9*s9**3, 4*s9**3,       0,      r9**5,    2*r9**5*s9, 5*r9**2*s9**4, 5*r9*s9**4, 5*s9**4]])
+
+ue = sp.Matrix([u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20, u21, u22, u23, u24, u25, u26, u27])
+
+Coefs = Mat_Coef.inv() * ue
+
+A = Coefs[0]
+B = Coefs[1]
+C = Coefs[2]
+D = Coefs[3]
+E = Coefs[4]
+F = Coefs[5]
+G = Coefs[6]
+H = Coefs[7]
+I = Coefs[8]
+J = Coefs[9]
+K = Coefs[10]
+L = Coefs[11]
+M = Coefs[12]
+N = Coefs[13]
+O = Coefs[14]
+P = Coefs[15]
+Q = Coefs[16]
+R = Coefs[17]
+S = Coefs[18]
+T = Coefs[19]
+U = Coefs[20]
+W = Coefs[21]
+X = Coefs[22]
+Y = Coefs[23]
+Z = Coefs[24]
+A1 = Coefs[25]
+A2 = Coefs[26]
 
 r = sp.Symbol('r')
 s = sp.Symbol('s')
 
-#estado plano
-#NsEP = sp.expand(Aep + Bep*r + Cep*s + Dep*r*s + Eep*r**2 + Fep*r**2*s + Gep*r**2*s**2 + Hep*r*s**2 + Iep*s**2)
+Ns = sp.expand(A + B*r + C*r*s + D*s + E*r**2 + F*r**2*s + G*r**2*s**2 + H*r*s**2 + I*s**2 + J*r**3 + K*r**3*s + L*r**3*s**2 + M*r**2*s**3 + N*r*s**3 + O*s**3 + P*r**4 + Q*r**4*s + R*r**4*s**2 + S*r**2*s**4 + T*r*s**4 + U*s**4 + W*r**5 + X*r**5*s + Y*r**5*s**2 + Z*r**2*s**5 + A1*r*s**5 + A2*s**5)
 
-#N1EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u1)]).subs(u1, 1)
-#N2EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u2)]).subs(u2, 1)
-#N3EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u3)]).subs(u3, 1)
-#N4EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u4)]).subs(u4, 1)
-#N5EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u5)]).subs(u5, 1)
-#N6EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u6)]).subs(u6, 1)
-#N7EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u7)]).subs(u7, 1)
-#N8EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u8)]).subs(u8, 1)
-#N9EP = sp.Add(*[argi for argi in NsEP.args if argi.has(u9)]).subs(u9, 1)
-#
-#NEP = sp.Matrix([N1EP, N2EP, N3EP, N4EP, N5EP, N6EP, N7EP, N8EP, N9EP])
+N1 = sp.Add(*[argi for argi in Ns.args if argi.has(u1)]).subs(u1, 1)
+N2 = sp.Add(*[argi for argi in Ns.args if argi.has(u2)]).subs(u2, 1)
+N3 = sp.Add(*[argi for argi in Ns.args if argi.has(u3)]).subs(u3, 1)
+N4 = sp.Add(*[argi for argi in Ns.args if argi.has(u4)]).subs(u4, 1)
+N5 = sp.Add(*[argi for argi in Ns.args if argi.has(u5)]).subs(u5, 1)
+N6 = sp.Add(*[argi for argi in Ns.args if argi.has(u6)]).subs(u6, 1)
+N7 = sp.Add(*[argi for argi in Ns.args if argi.has(u7)]).subs(u7, 1)
+N8 = sp.Add(*[argi for argi in Ns.args if argi.has(u8)]).subs(u8, 1)
+N9 = sp.Add(*[argi for argi in Ns.args if argi.has(u9)]).subs(u9, 1)
+N10 = sp.Add(*[argi for argi in Ns.args if argi.has(u10)]).subs(u10, 1)
+N11 = sp.Add(*[argi for argi in Ns.args if argi.has(u11)]).subs(u11, 1)
+N12 = sp.Add(*[argi for argi in Ns.args if argi.has(u12)]).subs(u12, 1)
+N13 = sp.Add(*[argi for argi in Ns.args if argi.has(u13)]).subs(u13, 1)
+N14 = sp.Add(*[argi for argi in Ns.args if argi.has(u14)]).subs(u14, 1)
+N15 = sp.Add(*[argi for argi in Ns.args if argi.has(u15)]).subs(u15, 1)
+N16 = sp.Add(*[argi for argi in Ns.args if argi.has(u16)]).subs(u16, 1)
+N17 = sp.Add(*[argi for argi in Ns.args if argi.has(u17)]).subs(u17, 1)
+N18 = sp.Add(*[argi for argi in Ns.args if argi.has(u18)]).subs(u18, 1)
+N19 = sp.Add(*[argi for argi in Ns.args if argi.has(u19)]).subs(u19, 1)
+N20 = sp.Add(*[argi for argi in Ns.args if argi.has(u20)]).subs(u20, 1)
+N21 = sp.Add(*[argi for argi in Ns.args if argi.has(u21)]).subs(u21, 1)
+N22 = sp.Add(*[argi for argi in Ns.args if argi.has(u22)]).subs(u22, 1)
+N23 = sp.Add(*[argi for argi in Ns.args if argi.has(u23)]).subs(u23, 1)
+N24 = sp.Add(*[argi for argi in Ns.args if argi.has(u24)]).subs(u24, 1)
+N25 = sp.Add(*[argi for argi in Ns.args if argi.has(u25)]).subs(u25, 1)
+N26 = sp.Add(*[argi for argi in Ns.args if argi.has(u26)]).subs(u26, 1)
+N27 = sp.Add(*[argi for argi in Ns.args if argi.has(u27)]).subs(u27, 1)
 
-#placa
-NsP = sp.expand(Ap + Bp*r1 + Cp*s1 + Dp*r1*s1 + Ep*r1**2 + Fp*r1**2*s1 + Gp*r1**2*s1**2 + Hp*r1*s1**2 + Ip*s1**2 + Jp*r1**3 + Kp*r1**3*s1 + Lp*r1**3*s1**2 + Mp*r1**3*s1**3 + Np*r1**2*s1**3 + Op*r1*s1**3 + Pp*s1**3 +  Qp*r1**4 + Rp*r1**4*s1 + Sp*r1**4*s1**2 + Tp*r1**4*s1**3 + Up*r1**4*s1**4 + Vp*r1**3*s1**4 + Xp*r1**2*s1**4 +  Wp*r1*s1**4 +  Yp*s1**4 + Zp*r1**5 + AAp*s1**5)
 
-N1p = sp.Add(*[argi for argi in NsP.args if argi.has( w1)]).subs( w1, 1)
-N2p = sp.Add(*[argi for argi in NsP.args if argi.has(rr1)]).subs(rr1, 1)
-N3p = sp.Add(*[argi for argi in NsP.args if argi.has(rs1)]).subs(rs1, 1)
-N4p = sp.Add(*[argi for argi in NsP.args if argi.has( w2)]).subs( w2, 1)
-N5p = sp.Add(*[argi for argi in NsP.args if argi.has(rr2)]).subs(rr2, 1)
-N6p = sp.Add(*[argi for argi in NsP.args if argi.has(rs2)]).subs(rs2, 1)
-N7p = sp.Add(*[argi for argi in NsP.args if argi.has( w3)]).subs( w3, 1)
-N8p = sp.Add(*[argi for argi in NsP.args if argi.has(rr3)]).subs(rr3, 1)
-N9p = sp.Add(*[argi for argi in NsP.args if argi.has(rs3)]).subs(rs3, 1)
-N10p = sp.Add(*[argi for argi in NsP.args if argi.has( w4)]).subs( w4, 1)
-N11p = sp.Add(*[argi for argi in NsP.args if argi.has(rr4)]).subs(rr4, 1)
-N12p = sp.Add(*[argi for argi in NsP.args if argi.has(rs4)]).subs(rs4, 1)
-N13p = sp.Add(*[argi for argi in NsP.args if argi.has( w5)]).subs( w5, 1)
-N14p = sp.Add(*[argi for argi in NsP.args if argi.has(rr5)]).subs(rr5, 1)
-N15p = sp.Add(*[argi for argi in NsP.args if argi.has(rs5)]).subs(rs5, 1)
-N16p = sp.Add(*[argi for argi in NsP.args if argi.has( w6)]).subs( w6, 1)
-N17p = sp.Add(*[argi for argi in NsP.args if argi.has(rr6)]).subs(rr6, 1)
-N18p = sp.Add(*[argi for argi in NsP.args if argi.has(rs6)]).subs(rs6, 1)
-N19p = sp.Add(*[argi for argi in NsP.args if argi.has( w7)]).subs( w7, 1)
-N20p = sp.Add(*[argi for argi in NsP.args if argi.has(rr7)]).subs(rr7, 1)
-N21p = sp.Add(*[argi for argi in NsP.args if argi.has(rs7)]).subs(rs7, 1)
-N22p = sp.Add(*[argi for argi in NsP.args if argi.has( w8)]).subs( w8, 1)
-N23p = sp.Add(*[argi for argi in NsP.args if argi.has(rr8)]).subs(rr8, 1)
-N24p = sp.Add(*[argi for argi in NsP.args if argi.has(rs8)]).subs(rs8, 1)
-N25p = sp.Add(*[argi for argi in NsP.args if argi.has( w9)]).subs( w9, 1)
-N26p = sp.Add(*[argi for argi in NsP.args if argi.has(rr9)]).subs(rr9, 1)
-N27p = sp.Add(*[argi for argi in NsP.args if argi.has(rs9)]).subs(rs9, 1)
+N = sp.Matrix([N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, N13, N14, N15, N16, N17, N18, N19, N20, N21, N22, N23, N24, N25, N26, N27])
+##Na plotagem: PORQUE N2, N3, N6, N11, N15 e N23 NEGATIVOS??? corrigindo abaixo
+Nc = sp.Matrix([N1, -N2, -N3, N4, N5, -N6, N7, N8, N9, N10, -N11, N12, N13, N14, -N15, N16, N17, N18, N19, N20, N21, N22, -N23, N24, N25, N26, N27]).T
 
-NP = sp.Matrix([N1p, N2p, N3p, N4p, N5p, N6p, N7p, N8p, N9p, N10p, N11p, N12p, N13p, N14p, N15p, N16p, N17p, N18p, N19p, N20p, N21p, N22p, N23p, N24p, N25p, N26p, N27p])
-
-##grafico das funcoes de forma no plotly -------------------------------------------------------------------
+##plotagem com o matplotlib -------------------------------------------------------------------------------
 #nN1 = sp.utilities.lambdify([r, s], N1, "numpy")
 #nN2 = sp.utilities.lambdify([r, s], N2, "numpy")
 #nN3 = sp.utilities.lambdify([r, s], N3, "numpy")
@@ -165,41 +264,214 @@ NP = sp.Matrix([N1p, N2p, N3p, N4p, N5p, N6p, N7p, N8p, N9p, N10p, N11p, N12p, N
 #nN7 = sp.utilities.lambdify([r, s], N7, "numpy")
 #nN8 = sp.utilities.lambdify([r, s], N8, "numpy")
 #nN9 = sp.utilities.lambdify([r, s], N9, "numpy")
+#nN10 = sp.utilities.lambdify([r, s], N10, "numpy")
+#nN11 = sp.utilities.lambdify([r, s], N11, "numpy")
+#nN12 = sp.utilities.lambdify([r, s], N12, "numpy")
+#nN13 = sp.utilities.lambdify([r, s], N13, "numpy")
+#nN14 = sp.utilities.lambdify([r, s], N14, "numpy")
+#nN15 = sp.utilities.lambdify([r, s], N15, "numpy")
+#nN16 = sp.utilities.lambdify([r, s], N16, "numpy")
+#nN17 = sp.utilities.lambdify([r, s], N17, "numpy")
+#nN18 = sp.utilities.lambdify([r, s], N18, "numpy")
+#nN19 = sp.utilities.lambdify([r, s], N19, "numpy")
+#nN20 = sp.utilities.lambdify([r, s], N20, "numpy")
+#nN21 = sp.utilities.lambdify([r, s], N21, "numpy")
+#nN22 = sp.utilities.lambdify([r, s], N22, "numpy")
+#nN23 = sp.utilities.lambdify([r, s], N23, "numpy")
+#nN24 = sp.utilities.lambdify([r, s], N24, "numpy")
+#nN25 = sp.utilities.lambdify([r, s], N25, "numpy")
+#nN26 = sp.utilities.lambdify([r, s], N26, "numpy")
+#nN27 = sp.utilities.lambdify([r, s], N27, "numpy")
 #
 #rl = np.linspace(-1., 1., 100)
 #sl = np.linspace(-1., 1., 100)
 #
 #rm, sm = np.meshgrid(rl, sl)
 #
-#dados1 = plty.graph_objs.Surface(z=list(nN1(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados2 = plty.graph_objs.Surface(z=list(nN2(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados3 = plty.graph_objs.Surface(z=list(nN3(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados4 = plty.graph_objs.Surface(z=list(nN4(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados5 = plty.graph_objs.Surface(z=list(nN5(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados6 = plty.graph_objs.Surface(z=list(nN6(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados7 = plty.graph_objs.Surface(z=list(nN7(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados8 = plty.graph_objs.Surface(z=list(nN8(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
-#dados9 = plty.graph_objs.Surface(z=list(nN9(rm, sm)), x=list(rm), y=list(sm), colorscale='Jet')
+##para o nó 1, 2, 3 e 4
+#fig = plt.figure()
+##ax = Axes3D(fig)
 #
-#fig = plty.subplots.make_subplots(rows=3, cols=3,
-#    specs=[[{'type': 'surface'}, {'type': 'surface'}, {'type': 'surface'}],
-#           [{'type': 'surface'}, {'type': 'surface'}, {'type': 'surface'}],
-#           [{'type': 'surface'}, {'type': 'surface'}, {'type': 'surface'}]])
+#ax = fig.add_subplot(4, 3, 1, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN1(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 2, projection='3d')
+#surf = ax.plot_surface(rm, sm, -nN2(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 3, projection='3d')
+#surf = ax.plot_surface(rm, sm, -nN3(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
 #
-#fig.add_trace(dados1, row=1, col=1)
-#fig.add_trace(dados2, row=1, col=2)
-#fig.add_trace(dados3, row=1, col=3)
-#fig.add_trace(dados4, row=2, col=1)
-#fig.add_trace(dados5, row=2, col=2)
-#fig.add_trace(dados6, row=2, col=3)
-#fig.add_trace(dados7, row=3, col=1)
-#fig.add_trace(dados8, row=3, col=2)
-#fig.add_trace(dados9, row=3, col=3)
+#ax = fig.add_subplot(4, 3, 4, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN4(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 5, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN5(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 6, projection='3d')
+#surf = ax.plot_surface(rm, sm, -nN6(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
 #
-#fig.update_layout(title="Funções de forma do elemento quadrático" , autosize=True)#, width=900, height=700)
+#ax = fig.add_subplot(4, 3, 7, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN7(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 8, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN8(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 9, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN9(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
 #
-#fig.write_html('funcoesForma9nos.html')
+#ax = fig.add_subplot(4, 3, 10, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN10(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 11, projection='3d')
+#surf = ax.plot_surface(rm, sm, -nN11(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(4, 3, 12, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN12(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#
+#plt.show()
+#
+##para o nó 5, 6, 7, 8 e 9
+#fig = plt.figure()
+##ax = Axes3D(fig)
+#
+#ax = fig.add_subplot(5, 3, 1, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN13(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 2, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN14(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 3, projection='3d')
+#surf = ax.plot_surface(rm, sm, -nN15(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#
+#ax = fig.add_subplot(5, 3, 4, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN16(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 5, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN17(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 6, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN18(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#
+#ax = fig.add_subplot(5, 3, 7, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN19(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 8, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN20(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 9, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN21(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#
+#ax = fig.add_subplot(5, 3, 10, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN22(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 11, projection='3d')
+#surf = ax.plot_surface(rm, sm, -nN23(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 12, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN24(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#
+#ax = fig.add_subplot(5, 3, 13, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN25(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 14, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN26(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#ax = fig.add_subplot(5, 3, 15, projection='3d')
+#surf = ax.plot_surface(rm, sm, nN27(rm, sm), cmap=cm.jet, linewidth=0, antialiased=False)
+#fig.colorbar(surf, shrink=0.7)
+#
+#plt.show()
+#
 ##-------------------------------------------------------------------------------------------------------------
+
+#resolvendo o equilíbrio minimizando o funcional de energia potencial total
+
+z = sp.Symbol('z')
+t = sp.Symbol('t')
+Ee = sp.Symbol('Ee')
+nu = sp.Symbol('nu')
+
+I3 = sp.Identity(3)
+
+w = (Nc * ue)[0]
+
+epsilon = sp.Matrix([ [sp.diff(w, r, r)],
+                      [sp.diff(w, s, s)],
+                      [2*sp.diff(w, r, s)]])
+
+epsilonN = sp.Matrix([ sp.diff(Nc, r, r),
+                      sp.diff(Nc, s, s),
+                      2*sp.diff(Nc, r, s)])
+
+De = sp.Matrix([[1, nu, 0], [nu, 1, 0], [0, 0, (1 - nu)/2]])
+Ep = 1/12 * Ee * t**3/(1 - nu**2)
+
+integrando = epsilonN.T * D * epsilonN
+
+PI = sp.integrate( sp.integrate(integrando, r), s)
+PI = ue.T * PI * ue
+ku1 = sp.diff(sp.expand(PI[0,0]), u1)
+
+
+k1_1 = sp.Add(*[argi for argi in ku1.args if argi.has(u1)]).subs(u1, 1)
+k1_2 = sp.Add(*[argi for argi in ku1.args if argi.has(u2)]).subs(u2, 1)
+k1_3 = sp.Add(*[argi for argi in ku1.args if argi.has(u3)]).subs(u3, 1)
+k1_4 = sp.Add(*[argi for argi in ku1.args if argi.has(u4)]).subs(u4, 1)
+k1_5 = sp.Add(*[argi for argi in ku1.args if argi.has(u5)]).subs(u5, 1)
+k1_6 = sp.Add(*[argi for argi in ku1.args if argi.has(u6)]).subs(u6, 1)
+k1_7 = sp.Add(*[argi for argi in ku1.args if argi.has(u7)]).subs(u7, 1)
+k1_8 = sp.Add(*[argi for argi in ku1.args if argi.has(u8)]).subs(u8, 1)
+k1_9 = sp.Add(*[argi for argi in ku1.args if argi.has(u9)]).subs(u9, 1)
+k1_10 = sp.Add(*[argi for argi in ku1.args if argi.has(u10)]).subs(u10, 1)
+k1_11 = sp.Add(*[argi for argi in ku1.args if argi.has(u11)]).subs(u11, 1)
+k1_12 = sp.Add(*[argi for argi in ku1.args if argi.has(u12)]).subs(u12, 1)
+k1_13 = sp.Add(*[argi for argi in ku1.args if argi.has(u13)]).subs(u13, 1)
+k1_14 = sp.Add(*[argi for argi in ku1.args if argi.has(u14)]).subs(u14, 1)
+k1_15 = sp.Add(*[argi for argi in ku1.args if argi.has(u15)]).subs(u15, 1)
+k1_16 = sp.Add(*[argi for argi in ku1.args if argi.has(u16)]).subs(u16, 1)
+k1_17 = sp.Add(*[argi for argi in ku1.args if argi.has(u17)]).subs(u17, 1)
+k1_18 = sp.Add(*[argi for argi in ku1.args if argi.has(u18)]).subs(u18, 1)
+k1_19 = sp.Add(*[argi for argi in ku1.args if argi.has(u19)]).subs(u19, 1)
+k1_20 = sp.Add(*[argi for argi in ku1.args if argi.has(u20)]).subs(u20, 1)
+k1_21 = sp.Add(*[argi for argi in ku1.args if argi.has(u21)]).subs(u21, 1)
+k1_22 = sp.Add(*[argi for argi in ku1.args if argi.has(u22)]).subs(u22, 1)
+k1_23 = sp.Add(*[argi for argi in ku1.args if argi.has(u23)]).subs(u23, 1)
+k1_24 = sp.Add(*[argi for argi in ku1.args if argi.has(u24)]).subs(u24, 1)
+k1_25 = sp.Add(*[argi for argi in ku1.args if argi.has(u25)]).subs(u25, 1)
+k1_26 = sp.Add(*[argi for argi in ku1.args if argi.has(u26)]).subs(u26, 1)
+k1_27 = sp.Add(*[argi for argi in ku1.args if argi.has(u27)]).subs(u27, 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##primeira derivada em r
 #dN1r = sp.diff(N1, r)#.subs({r: r1, s: s1})
@@ -416,155 +688,155 @@ NP = sp.Matrix([N1p, N2p, N3p, N4p, N5p, N6p, N7p, N8p, N9p, N10p, N11p, N12p, N
 #        # cell_data=cell_data,
 #        # field_data=field_data
 #        )
-
-
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AQUI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###############!!!!!!!!!!!!!!!!!!!!! AQUI!!!!!!!!!!!!!!!!!
-
-
-
-##para treliça
-
-##cálculo da matriz de rigidez
-#Bp = sp.Matrix([ddN1, ddN2, ddN3, ddN4])
-#Bmulp = Bp * Bp.T
-#
-#E = sp.Symbol('E')
-#I = sp.Symbol('I')
-#
-#Kep = E*I*sp.integrate( Bmulp, (x, x1, x3) )
-#
-#A = sp.Symbol('A')
-#
-#Bt = sp.Matrix([dL1, dL2])
-#Bmult = Bt * Bt.T
-#
-#Ket = E*A*sp.integrate( Bmult, (x, x1, x3) )
-#
-#Ke = sp.zeros(6, 6)
-#
-#Ke[1:3,1:3] = Kep[0:2,0:2]
-#Ke[1:3,4:] = Kep[0:2,2:4]
-#
-#Ke[4:,1:3] = Kep[2:4,0:2]
-#Ke[4:,4:] = Kep[2:4,2:4]
-#
-#Ke[0,0] = Ket[0,0]
-#Ke[0,3] = Ket[0,1]
-#
-#Ke[3,0] = Ket[1,0]
-#Ke[3,3] = Ket[1,1]
-#
-##matriz de rotação
-#c = sp.Symbol('c')
-#s = sp.Symbol('s')
-#
-#rot = sp.Matrix([ [c, -s, 0], [s, c, 0], [0, 0, 1] ])
-#
-#R = sp.zeros(6,6)
-#R[:3,:3] = rot[:,:]
-#R[3:,3:] = rot[:,:]
-#
-#Keg = R * Ke
-#KeG = Keg * R.T
 #
 #
-##deslocamentos no elemento
-#N_EL = sp.Matrix([[L1],
-#                  [N1],
-#                  [N2],
-#                  [L2],
-#                  [N3],
-#                  [N4]])
+##!!!!!!!!!!!!!!!!!!!!!!!!!!!!! AQUI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #
-##para cálculo das deformações e tensões
-#dN_ES = sp.Matrix([[dL1],
-#                  [dN1],
-#                  [dN2],
-#                  [dL2],
-#                  [dN3],
-#                  [dN4]])
-##para o cálculo do momento
-#dN_M = sp.Matrix([[ddN1],
-#                  [ddN2],
-#                  [ddN3],
-#                  [ddN4]])
-##para o cálculo do cortante
-#dN_C = sp.Matrix([[dddN1],
-#                  [dddN2],
-#                  [dddN3],
-#                  [dddN4]])
-##para cálculo da normal
-#dN_N = sp.Matrix([[dL1],
-#                  [dL2]])
 #
-##vetor de deformações genérico
-#ug0, ug1, ug2, ug3, ug4, ug5 = sp.symbols('ug0 ug1 ug2 ug3 ug4 ug5')
-#Ug = sp.Matrix([ug0, ug1, ug2, ug3, ug4, ug5])
-#UgM = sp.Matrix([ug1, ug2, ug4, ug5])
-#UgN = sp.Matrix([ug0, ug3])
 #
-#deslocamentos = N_EL.transpose() * Ug
-#deformacoes = dN_ES.transpose() * Ug
-#tensoes = E * deformacoes
-#momento = dN_M.transpose() * UgM
-#cortante = dN_C.transpose() * UgM
-#normal = dN_N.transpose() * UgN
 #
-##cargas distribuída constante
-#gx = sp.Symbol('gx')
-#gy = sp.Symbol('gy')
 #
-#g_axial = c*gx + s*gy
-#g_transv = -s*gx + c*gy
 #
-#n1 = g_axial*sp.integrate(L1, (x, x1, x3))
-#n2 = g_axial*sp.integrate(L2, (x, x1, x3))
 #
-#f1 = g_transv*sp.integrate(N1, (x, x1, x3))
-#f2 = g_transv*sp.integrate(N2, (x, x1, x3))
-#f4 = g_transv*sp.integrate(N3, (x, x1, x3))
-#f5 = g_transv*sp.integrate(N4, (x, x1, x3))
 #
-#F = sp.Matrix([n1, f1, f2, n2, f4, f5])
-#Fg = R * F
 #
-###verificando com viga simplesmente apoiada com 1 elemento
-##Kvs = Ke[2:7,2:7]
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+################!!!!!!!!!!!!!!!!!!!!! AQUI!!!!!!!!!!!!!!!!!
+#
+#
+#
+###para treliça
+#
+###cálculo da matriz de rigidez
+##Bp = sp.Matrix([ddN1, ddN2, ddN3, ddN4])
+##Bmulp = Bp * Bp.T
 ##
-##F.row_del(0)
-##F.row_del(0)
-##F.row_del(-1)
-##F.row_del(-1)
+##E = sp.Symbol('E')
+##I = sp.Symbol('I')
 ##
-##U = Kvs.inv()*F
-#
-##verificando com viga em balanço com carga na extremidade
-#F = np.zeros(6)
-#F[4] = -10.
-#
-#Kvb = Ke[3:,3:]
-#Fvb = F[3:, np.newaxis]
-#
-#U = Kvb.inv() * Fvb
-#U1 = U[1].subs(L, 4).subs(E, 200. * 1e6).subs(I, 1000. * 0.01**4)
-#U2 = U[2].subs(L, 4).subs(E, 200. * 1e6).subs(I, 1000. * 0.01**4)
+##Kep = E*I*sp.integrate( Bmulp, (x, x1, x3) )
+##
+##A = sp.Symbol('A')
+##
+##Bt = sp.Matrix([dL1, dL2])
+##Bmult = Bt * Bt.T
+##
+##Ket = E*A*sp.integrate( Bmult, (x, x1, x3) )
+##
+##Ke = sp.zeros(6, 6)
+##
+##Ke[1:3,1:3] = Kep[0:2,0:2]
+##Ke[1:3,4:] = Kep[0:2,2:4]
+##
+##Ke[4:,1:3] = Kep[2:4,0:2]
+##Ke[4:,4:] = Kep[2:4,2:4]
+##
+##Ke[0,0] = Ket[0,0]
+##Ke[0,3] = Ket[0,1]
+##
+##Ke[3,0] = Ket[1,0]
+##Ke[3,3] = Ket[1,1]
+##
+###matriz de rotação
+##c = sp.Symbol('c')
+##s = sp.Symbol('s')
+##
+##rot = sp.Matrix([ [c, -s, 0], [s, c, 0], [0, 0, 1] ])
+##
+##R = sp.zeros(6,6)
+##R[:3,:3] = rot[:,:]
+##R[3:,3:] = rot[:,:]
+##
+##Keg = R * Ke
+##KeG = Keg * R.T
+##
+##
+###deslocamentos no elemento
+##N_EL = sp.Matrix([[L1],
+##                  [N1],
+##                  [N2],
+##                  [L2],
+##                  [N3],
+##                  [N4]])
+##
+###para cálculo das deformações e tensões
+##dN_ES = sp.Matrix([[dL1],
+##                  [dN1],
+##                  [dN2],
+##                  [dL2],
+##                  [dN3],
+##                  [dN4]])
+###para o cálculo do momento
+##dN_M = sp.Matrix([[ddN1],
+##                  [ddN2],
+##                  [ddN3],
+##                  [ddN4]])
+###para o cálculo do cortante
+##dN_C = sp.Matrix([[dddN1],
+##                  [dddN2],
+##                  [dddN3],
+##                  [dddN4]])
+###para cálculo da normal
+##dN_N = sp.Matrix([[dL1],
+##                  [dL2]])
+##
+###vetor de deformações genérico
+##ug0, ug1, ug2, ug3, ug4, ug5 = sp.symbols('ug0 ug1 ug2 ug3 ug4 ug5')
+##Ug = sp.Matrix([ug0, ug1, ug2, ug3, ug4, ug5])
+##UgM = sp.Matrix([ug1, ug2, ug4, ug5])
+##UgN = sp.Matrix([ug0, ug3])
+##
+##deslocamentos = N_EL.transpose() * Ug
+##deformacoes = dN_ES.transpose() * Ug
+##tensoes = E * deformacoes
+##momento = dN_M.transpose() * UgM
+##cortante = dN_C.transpose() * UgM
+##normal = dN_N.transpose() * UgN
+##
+###cargas distribuída constante
+##gx = sp.Symbol('gx')
+##gy = sp.Symbol('gy')
+##
+##g_axial = c*gx + s*gy
+##g_transv = -s*gx + c*gy
+##
+##n1 = g_axial*sp.integrate(L1, (x, x1, x3))
+##n2 = g_axial*sp.integrate(L2, (x, x1, x3))
+##
+##f1 = g_transv*sp.integrate(N1, (x, x1, x3))
+##f2 = g_transv*sp.integrate(N2, (x, x1, x3))
+##f4 = g_transv*sp.integrate(N3, (x, x1, x3))
+##f5 = g_transv*sp.integrate(N4, (x, x1, x3))
+##
+##F = sp.Matrix([n1, f1, f2, n2, f4, f5])
+##Fg = R * F
+##
+####verificando com viga simplesmente apoiada com 1 elemento
+###Kvs = Ke[2:7,2:7]
+###
+###F.row_del(0)
+###F.row_del(0)
+###F.row_del(-1)
+###F.row_del(-1)
+###
+###U = Kvs.inv()*F
+##
+###verificando com viga em balanço com carga na extremidade
+##F = np.zeros(6)
+##F[4] = -10.
+##
+##Kvb = Ke[3:,3:]
+##Fvb = F[3:, np.newaxis]
+##
+##U = Kvb.inv() * Fvb
+##U1 = U[1].subs(L, 4).subs(E, 200. * 1e6).subs(I, 1000. * 0.01**4)
+##U2 = U[2].subs(L, 4).subs(E, 200. * 1e6).subs(I, 1000. * 0.01**4)
