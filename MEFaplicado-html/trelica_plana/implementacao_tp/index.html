@@ -1,14 +1,12 @@
 
 
 
-
 <!doctype html>
 <html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Uma introdução ao método dos elementos finitos">
       
@@ -16,27 +14,8 @@
       
         <meta name="author" content="Marco André Argenta">
       
-      
-        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
-      
-        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
-      
-        <meta name="lang:search.language" content="pt">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
-      
-        <meta name="lang:search.result.one" content="1 resultado encontrado">
-      
-        <meta name="lang:search.result.other" content="# resultados encontrados">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../imagens/mef.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.0">
     
     
       
@@ -44,9 +23,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.b5d04df8.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9ab2c1f8.min.css">
       
       
         
@@ -55,16 +34,13 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif:300,400,400i,700|Source+Code+Pro&display=fallback">
-        <style>body,input{font-family:"Serif","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Serif:300,400,400i,700%7CSource+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Serif",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/estilos.css">
@@ -75,71 +51,75 @@
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#introducao" tabindex="1" class="md-skip">
-        Ir para o conteúdo
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introducao" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo">
-          
-            <img src="../../imagens/mef.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Elementos Finitos Aplicados
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Implementacao tp
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-header-nav__button md-logo" aria-label="Elementos Finitos Aplicados">
+      
+  <img src="../../imagens/mef.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Elementos Finitos Aplicados
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Implementacao tp
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Digite para iniciar a busca
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -147,31 +127,31 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Elementos Finitos Aplicados" class="md-nav__button md-logo" aria-label="Elementos Finitos Aplicados">
       
-        <img src="../../imagens/mef.svg" width="48" height="48">
-      
+  <img src="../../imagens/mef.svg" alt="logo">
+
     </a>
     Elementos Finitos Aplicados
   </label>
@@ -197,13 +177,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Treliça Plana
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Treliça Plana" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Treliça Plana
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -252,13 +238,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
     <label class="md-nav__link" for="nav-2-4">
       Utilizações
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Utilizações" data-md-level="2">
       <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Utilizações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -341,13 +333,151 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      Vigas
+      Treliça Espacial
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Treliça Espacial" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Treliça Espacial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_espacial/introducao_te/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_espacial/teoria_te/" title="Teoria" class="md-nav__link">
+      Teoria
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_espacial/aplicacao_te/" title="Aplicação" class="md-nav__link">
+      Aplicação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Utilizações
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Utilizações" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Utilizações
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_espacial/aplicacoes/modulotorre/" title="Módulo de uma torre" class="md-nav__link">
+      Módulo de uma torre
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_espacial/aplicacoes/ponterolante/" title="Ponte rolante" class="md-nav__link">
+      Ponte rolante
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../trelica_espacial/aplicacoes/coberturatrelicada/" title="Cobertura treliçada" class="md-nav__link">
+      Cobertura treliçada
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Vigas
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Vigas" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Vigas
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -372,13 +502,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-4-2">
       Teoria
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+    <nav class="md-nav" aria-label="Teoria" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Teoria
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -432,13 +568,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-4-4">
       Utilizações
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+    <nav class="md-nav" aria-label="Utilizações" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Utilizações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -509,13 +651,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Pórticos
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+    <nav class="md-nav" aria-label="Pórticos" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Pórticos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -564,13 +712,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-4-4">
+    <label class="md-nav__link" for="nav-5-4">
       Utilizações
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-4">
+    <nav class="md-nav" aria-label="Utilizações" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Utilizações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -641,13 +795,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       Estado plano
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+    <nav class="md-nav" aria-label="Estado plano" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Estado plano
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -672,13 +832,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
     
-    <label class="md-nav__link" for="nav-5-2">
+    <label class="md-nav__link" for="nav-6-2">
       Teoria
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
+    <nav class="md-nav" aria-label="Teoria" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Teoria
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -732,13 +898,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
     
-    <label class="md-nav__link" for="nav-5-3">
+    <label class="md-nav__link" for="nav-6-3">
       Aplicação
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
+    <nav class="md-nav" aria-label="Aplicação" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
         Aplicação
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -789,11 +961,16 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -815,7 +992,7 @@
     Funções
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Funções">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -858,10 +1035,6 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -875,14 +1048,17 @@
               
                 
                 
+                  
+                
+                
                   <h1>Implementacao tp</h1>
                 
                 <h2 id="introducao">Introdução</h2>
 <p>Antes de se programar, necessariamente, deve-se primeiro pensar no algoritmo que será implementado. Um algoritmo pode ser definido como uma sequência bem definida de ações não ambíguas que deve ser executada em um intervalo de tempo finito e com um quantidade de esforço finita. Fica claro, então, que um algoritmo independente de seu ambiente implementação, uma vez que a sequência a ser executada é a mesma. Dessa forma, definir-se-á o algoritmo pela forma de um fluxograma, com <em>snippets</em> de código para cada parte do algoritmo. A linguagem utilizada aqui será a <strong>Python</strong>, pela sua facilidade de utilização e disponibilidade de bibliotecas.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="kn">as</span> <span class="nn">sp</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-</pre></div>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
 </td></tr></table>
 
 <p>depois</p>
@@ -890,12 +1066,12 @@
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">L</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">u1</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">)</span>
 <span class="n">u2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;u2&#39;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 
 <h2 id="o-algoritmo">O Algoritmo</h2>
@@ -921,24 +1097,24 @@
 14
 15
 16
-17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">def</span> <span class="nv">rotation_matrix</span><span class="ss">(</span><span class="nv">theta</span><span class="ss">)</span>:
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">rotation_matrix</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
 
-    <span class="s2">&quot;&quot;&quot;</span><span class="s">Rotation Matrix.</span>
-       <span class="nv">Outputs</span>, <span class="nv">in</span> <span class="nv">matricial</span> <span class="nv">form</span>, <span class="nv">the</span> <span class="nv">coordinates</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">line</span>
-       <span class="nv">segment</span> <span class="nv">defined</span> <span class="nv">by</span> <span class="nv">X</span> <span class="nv">and</span> <span class="nv">Y</span> <span class="nv">coordinates</span>. <span class="nv">The</span> <span class="nv">input</span> <span class="nv">is</span>
-       <span class="nv">made</span> <span class="nv">in</span> <span class="nv">degrees</span>, <span class="nv">measured</span> <span class="nv">counter</span><span class="o">-</span><span class="nv">clockwise</span> <span class="nv">from</span> <span class="nv">the</span>
-       <span class="nv">positive</span> <span class="nv">X</span> <span class="nv">axis</span>.<span class="s2">&quot;&quot;&quot;</span>
+    <span class="ss">&quot;&quot;&quot;Rotation Matrix.</span>
+<span class="ss">       Outputs, in matricial form, the coordinates for a line</span>
+<span class="ss">       segment defined by X and Y coordinates. The input is</span>
+<span class="ss">       made in degrees, measured counter-clockwise from the</span>
+<span class="ss">       positive X axis.&quot;&quot;&quot;</span>
 
-    <span class="nv">theta</span> <span class="o">=</span> <span class="nv">mt</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">theta</span><span class="ss">)</span>
-    <span class="nv">c</span> <span class="o">=</span> <span class="nv">mt</span>.<span class="nv">cos</span><span class="ss">(</span><span class="nv">theta</span><span class="ss">)</span>
-    <span class="nv">s</span> <span class="o">=</span> <span class="nv">mt</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">theta</span><span class="ss">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">mt</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">c</span> <span class="o">=</span> <span class="n">mt</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">mt</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
-    <span class="nv">rotmat</span> <span class="o">=</span> <span class="nv">np</span>.<span class="nv">matrix</span><span class="ss">(</span>[[<span class="nv">c</span>, <span class="o">-</span><span class="nv">s</span>, <span class="mi">0</span>., <span class="mi">0</span>.],
-                        [<span class="nv">s</span>, <span class="nv">c</span>, <span class="mi">0</span>., <span class="mi">0</span>.],
-                        [ <span class="mi">0</span>., <span class="mi">0</span>., <span class="nv">c</span>, <span class="o">-</span><span class="nv">s</span>],
-                        [<span class="mi">0</span>., <span class="mi">0</span>., <span class="nv">s</span>, <span class="nv">c</span>]]<span class="ss">)</span>
-    <span class="k">return</span> <span class="nv">rotmat</span>
-</pre></div>
+    <span class="n">rotmat</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matrix</span><span class="p">([[</span><span class="k">c</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.],</span>
+                        <span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="k">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.],</span>
+                        <span class="p">[</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="k">c</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="n">s</span><span class="p">,</span> <span class="k">c</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">rotmat</span>
+</code></pre></div>
 </td></tr></table>
 
 <h3 id="matriz-de-rigidez-local">Matriz de Rigidez Local</h3>
@@ -961,26 +1137,26 @@
 16
 17
 18
-19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">def</span> <span class="nv">local_stiffness_matrix</span><span class="ss">(</span><span class="nv">Young_Modulus</span><span class="o">=</span><span class="mi">1</span>., <span class="nv">Length</span><span class="o">=</span><span class="mi">1</span>.,
-                       <span class="nv">Area</span><span class="o">=</span><span class="mi">1</span>., <span class="nv">Rot_Ang</span><span class="o">=</span><span class="mi">0</span>.<span class="mi">0</span><span class="ss">)</span>:
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">local_stiffness_matrix</span><span class="p">(</span><span class="n">Young_Modulus</span><span class="o">=</span><span class="mi">1</span><span class="p">.,</span> <span class="k">Length</span><span class="o">=</span><span class="mi">1</span><span class="p">.,</span>
+                       <span class="n">Area</span><span class="o">=</span><span class="mi">1</span><span class="p">.,</span> <span class="n">Rot_Ang</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">):</span>
 
-    <span class="s2">&quot;&quot;&quot;</span><span class="s">Local Stiffness Matrix Constructor (in Global Coordinates).</span>
-       <span class="nv">Outputs</span>, <span class="nv">in</span> <span class="nv">matricial</span> <span class="nv">form</span>, <span class="nv">the</span> <span class="nv">local</span> <span class="nv">stiffness</span> <span class="nv">matrix</span> <span class="k">for</span>
-       <span class="nv">a</span> <span class="nv">given</span> <span class="nv">truss</span> <span class="nv">element</span>. <span class="nv">The</span> <span class="s2">&quot;&quot;&quot;</span>
+    <span class="ss">&quot;&quot;&quot;Local Stiffness Matrix Constructor (in Global Coordinates).</span>
+<span class="ss">       Outputs, in matricial form, the local stiffness matrix for</span>
+<span class="ss">       a given truss element. The &quot;&quot;&quot;</span>
 
-    <span class="nv">rotmat</span> <span class="o">=</span> <span class="nv">rotation_matrix</span><span class="ss">(</span><span class="nv">Rot_Ang</span><span class="ss">)</span>
-    <span class="nv">rotmat_trans</span> <span class="o">=</span> <span class="nv">rotmat</span>.<span class="nv">transpose</span><span class="ss">()</span>
+    <span class="n">rotmat</span> <span class="o">=</span> <span class="n">rotation_matrix</span><span class="p">(</span><span class="n">Rot_Ang</span><span class="p">)</span>
+    <span class="n">rotmat_trans</span> <span class="o">=</span> <span class="n">rotmat</span><span class="p">.</span><span class="n">transpose</span><span class="p">()</span>
 
-    <span class="nv">k_matrix</span> <span class="o">=</span> <span class="nv">np</span>.<span class="nv">matrix</span><span class="ss">(</span>[[<span class="mi">1</span>., <span class="mi">0</span>., <span class="o">-</span><span class="mi">1</span>., <span class="mi">0</span>.],
-                         [<span class="mi">0</span>., <span class="mi">0</span>., <span class="mi">0</span>., <span class="mi">0</span>.],
-                         [<span class="o">-</span><span class="mi">1</span>., <span class="mi">0</span>., <span class="mi">1</span>., <span class="mi">0</span>.],
-                         [<span class="mi">0</span>., <span class="mi">0</span>., <span class="mi">0</span>., <span class="mi">0</span>.]]<span class="ss">)</span>
+    <span class="n">k_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="o">-</span><span class="mi">1</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.],</span>
+                         <span class="p">[</span><span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.],</span>
+                         <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">1</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.],</span>
+                         <span class="p">[</span><span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.,</span> <span class="mi">0</span><span class="p">.]])</span>
 
 
-    <span class="nv">local_stiff</span> <span class="o">=</span> <span class="nv">rotmat</span><span class="o">*</span><span class="ss">(</span><span class="nv">Young_Modulus</span><span class="o">*</span><span class="nv">Area</span><span class="o">/</span><span class="nv">Length</span><span class="ss">)</span><span class="o">*</span><span class="nv">k_matrix</span><span class="o">*</span><span class="nv">rotmat_trans</span>
+    <span class="n">local_stiff</span> <span class="o">=</span> <span class="n">rotmat</span><span class="o">*</span><span class="p">(</span><span class="n">Young_Modulus</span><span class="o">*</span><span class="n">Area</span><span class="o">/</span><span class="k">Length</span><span class="p">)</span><span class="o">*</span><span class="n">k_matrix</span><span class="o">*</span><span class="n">rotmat_trans</span>
 
-    <span class="k">return</span> <span class="nv">local_stiff</span>
-</pre></div>
+    <span class="k">return</span> <span class="n">local_stiff</span>
+</code></pre></div>
 </td></tr></table>
 
 <h3 id="matriz-de-ridigez-global">Matriz de Ridigez Global</h3>
@@ -1029,52 +1205,52 @@
 42
 43
 44
-45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">def</span> <span class="nv">global_stiffness_matrix</span><span class="ss">()</span>:
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">global_stiffness_matrix</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
 
-    <span class="s2">&quot;&quot;&quot;</span><span class="s">Global Stiffness Matrix.</span>
-       <span class="nv">Outputs</span>, <span class="nv">in</span> <span class="nv">matricial</span> <span class="nv">form</span>, <span class="nv">the</span> <span class="nv">global</span> <span class="nv">stiffness</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">truss</span>
-       <span class="nv">being</span> <span class="nv">analysed</span>. <span class="nv">The</span> <span class="nv">global</span> <span class="nv">nodes</span> <span class="nv">assingment</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">local</span> <span class="nv">nodes</span>
-       <span class="nv">contained</span> <span class="nv">in</span> <span class="nv">each</span> <span class="nv">element</span> <span class="nv">has</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">made</span> <span class="nv">manually</span>.<span class="s2">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;Global Stiffness Matrix.</span>
+<span class="ss">       Outputs, in matricial form, the global stiffness for the truss</span>
+<span class="ss">       being analysed. The global nodes assingment to the local nodes</span>
+<span class="ss">       contained in each element has to be made manually.&quot;&quot;&quot;</span><span class="w"></span>
 
-    #<span class="nv">Elements</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">problem</span>:
-    <span class="nv">element1</span> <span class="o">=</span> <span class="nv">local_stiffness_matrix</span><span class="ss">(</span><span class="nv">Young_Modulus</span><span class="o">=</span><span class="mi">200000</span>.,
-                                      <span class="nv">Length</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="nv">mt</span>.<span class="nv">sqrt</span><span class="ss">(</span><span class="mi">2</span>.<span class="ss">)</span>,
-                                      <span class="nv">Area</span><span class="o">=</span><span class="mi">10030</span>.<span class="mi">05</span>,
-                                      <span class="nv">Rot_Ang</span><span class="o">=</span><span class="mi">135</span>.<span class="mi">0</span><span class="ss">)</span>
+<span class="w">    </span><span class="n">#Elements</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nl">problem</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">element1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_stiffness_matrix</span><span class="p">(</span><span class="n">Young_Modulus</span><span class="o">=</span><span class="mf">200000.</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Length</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="n">mt</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">),</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Area</span><span class="o">=</span><span class="mf">10030.05</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Rot_Ang</span><span class="o">=</span><span class="mf">135.0</span><span class="p">)</span><span class="w"></span>
 
-    <span class="nv">element2</span> <span class="o">=</span> <span class="nv">local_stiffness_matrix</span><span class="ss">(</span><span class="nv">Young_Modulus</span><span class="o">=</span><span class="mi">69000</span>.,
-                                      <span class="nv">Length</span><span class="o">=</span><span class="mi">1000</span>.,
-                                      <span class="nv">Area</span><span class="o">=</span><span class="mi">10030</span>.<span class="mi">05</span>,
-                                      <span class="nv">Rot_Ang</span><span class="o">=</span><span class="mi">90</span>.<span class="mi">0</span><span class="ss">)</span>
+<span class="w">    </span><span class="n">element2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_stiffness_matrix</span><span class="p">(</span><span class="n">Young_Modulus</span><span class="o">=</span><span class="mf">69000.</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Length</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Area</span><span class="o">=</span><span class="mf">10030.05</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Rot_Ang</span><span class="o">=</span><span class="mf">90.0</span><span class="p">)</span><span class="w"></span>
 
-    <span class="nv">element3</span> <span class="o">=</span> <span class="nv">local_stiffness_matrix</span><span class="ss">(</span><span class="nv">Young_Modulus</span><span class="o">=</span><span class="mi">69000</span>.,
-                                      <span class="nv">Length</span><span class="o">=</span><span class="mi">1000</span>.,
-                                      <span class="nv">Area</span><span class="o">=</span><span class="mi">10030</span>.<span class="mi">05</span>,
-                                      <span class="nv">Rot_Ang</span><span class="o">=</span><span class="mi">0</span>.<span class="ss">)</span>
+<span class="w">    </span><span class="n">element3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">local_stiffness_matrix</span><span class="p">(</span><span class="n">Young_Modulus</span><span class="o">=</span><span class="mf">69000.</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Length</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Area</span><span class="o">=</span><span class="mf">10030.05</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="n">Rot_Ang</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span><span class="w"></span>
 
-    #<span class="nv">Creating</span> <span class="nv">a</span> <span class="nv">blank</span> <span class="nv">Global</span> <span class="nv">Stiffness</span> <span class="nv">Matrix</span>                               
-    <span class="nv">global_stiff</span> <span class="o">=</span> <span class="nv">np</span>.<span class="nv">matrix</span><span class="ss">(</span><span class="nv">np</span>.<span class="nv">zeros</span><span class="ss">(</span>[<span class="mi">6</span>,<span class="mi">6</span>], <span class="nv">dtype</span> <span class="o">=</span> <span class="nv">float</span><span class="ss">))</span>
+<span class="w">    </span><span class="n">#Creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="k">Global</span><span class="w"> </span><span class="n">Stiffness</span><span class="w"> </span><span class="n">Matrix</span><span class="w">                               </span>
+<span class="w">    </span><span class="n">global_stiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="o">[</span><span class="n">6,6</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">dtype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">float</span><span class="p">))</span><span class="w"></span>
 
-    #<span class="nv">Broadcasting</span> <span class="nv">element</span> <span class="mi">1</span> <span class="nv">into</span> <span class="nv">Global</span> <span class="nv">Stiffness</span> <span class="nv">Matrix</span>:
-    <span class="nv">broadcast1</span> <span class="o">=</span> [<span class="mi">0</span>, <span class="mi">1</span>, <span class="mi">3</span>, <span class="mi">2</span>]
-    <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">4</span><span class="ss">)</span>:
-       <span class="k">for</span> <span class="nv">j</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">4</span><span class="ss">)</span>:
-            <span class="nv">global_stiff</span>[<span class="nv">broadcast1</span>[<span class="nv">i</span>],<span class="nv">broadcast1</span>[<span class="nv">j</span>]] <span class="o">+=</span> <span class="nv">element1</span>[<span class="nv">i</span>,<span class="nv">j</span>]
+<span class="w">    </span><span class="n">#Broadcasting</span><span class="w"> </span><span class="k">element</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">Global</span><span class="w"> </span><span class="n">Stiffness</span><span class="w"> </span><span class="nl">Matrix</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">broadcast1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">0, 1, 3, 2</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">global_stiff</span><span class="o">[</span><span class="n">broadcast1[i</span><span class="o">]</span><span class="p">,</span><span class="n">broadcast1</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">element1</span><span class="o">[</span><span class="n">i,j</span><span class="o">]</span><span class="w"></span>
 
-    #<span class="nv">Broadcasting</span> <span class="nv">element</span> <span class="mi">2</span> <span class="nv">into</span> <span class="nv">Global</span> <span class="nv">Stiffness</span> <span class="nv">Matrix</span>:
-    <span class="nv">broadcast2</span> <span class="o">=</span> [<span class="mi">4</span>, <span class="mi">5</span>, <span class="mi">3</span>, <span class="mi">2</span>]
-    <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">4</span><span class="ss">)</span>:
-       <span class="k">for</span> <span class="nv">j</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">4</span><span class="ss">)</span>:
-            <span class="nv">global_stiff</span>[<span class="nv">broadcast2</span>[<span class="nv">i</span>],<span class="nv">broadcast2</span>[<span class="nv">j</span>]] <span class="o">+=</span> <span class="nv">element2</span>[<span class="nv">i</span>,<span class="nv">j</span>]
+<span class="w">    </span><span class="n">#Broadcasting</span><span class="w"> </span><span class="k">element</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">Global</span><span class="w"> </span><span class="n">Stiffness</span><span class="w"> </span><span class="nl">Matrix</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">broadcast2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">4, 5, 3, 2</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">global_stiff</span><span class="o">[</span><span class="n">broadcast2[i</span><span class="o">]</span><span class="p">,</span><span class="n">broadcast2</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">element2</span><span class="o">[</span><span class="n">i,j</span><span class="o">]</span><span class="w"></span>
 
-    #<span class="nv">Broadcasting</span> <span class="nv">element</span> <span class="mi">3</span> <span class="nv">into</span> <span class="nv">Global</span> <span class="nv">Stiffness</span> <span class="nv">Matrix</span>:
-    <span class="nv">broadcast3</span> <span class="o">=</span> [<span class="mi">4</span>, <span class="mi">5</span>, <span class="mi">0</span>, <span class="mi">1</span>]
-    <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">4</span><span class="ss">)</span>:
-       <span class="k">for</span> <span class="nv">j</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">4</span><span class="ss">)</span>:
-            <span class="nv">global_stiff</span>[<span class="nv">broadcast3</span>[<span class="nv">i</span>],<span class="nv">broadcast3</span>[<span class="nv">j</span>]] <span class="o">+=</span> <span class="nv">element3</span>[<span class="nv">i</span>,<span class="nv">j</span>]
+<span class="w">    </span><span class="n">#Broadcasting</span><span class="w"> </span><span class="k">element</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">Global</span><span class="w"> </span><span class="n">Stiffness</span><span class="w"> </span><span class="nl">Matrix</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">broadcast3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">4, 5, 0, 1</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">       </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">global_stiff</span><span class="o">[</span><span class="n">broadcast3[i</span><span class="o">]</span><span class="p">,</span><span class="n">broadcast3</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">element3</span><span class="o">[</span><span class="n">i,j</span><span class="o">]</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nv">global_stiff</span>
-</pre></div>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">global_stiff</span><span class="w"></span>
+</code></pre></div>
 </td></tr></table>
 
 <h3 id="solucionador-de-deslocamentos">"Solucionador" de Deslocamentos</h3>
@@ -1087,16 +1263,16 @@
 6
 7
 8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">def</span> <span class="nv">displacements_solver</span><span class="ss">(</span><span class="nv">g_matrix</span>, <span class="nv">f</span><span class="ss">)</span>:
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">displacements_solver</span><span class="p">(</span><span class="n">g_matrix</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
 
-    <span class="s2">&quot;&quot;&quot;</span><span class="s">Displacements Solver.</span>
-      <span class="nv">Outputs</span> <span class="nv">an</span> <span class="nv">array</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">unknown</span> <span class="nv">displacements</span> <span class="k">for</span> <span class="nv">the</span>
-      <span class="nv">problem</span>. <span class="nv">The</span> <span class="nv">input</span> <span class="nv">is</span> <span class="nv">made</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">prescribed</span> <span class="nv">forces</span> <span class="nv">and</span>
-      <span class="nv">the</span> <span class="nv">Global</span> <span class="nv">Stiffness</span> <span class="nv">Matrix</span>.<span class="s2">&quot;&quot;&quot;</span>
+    <span class="ss">&quot;&quot;&quot;Displacements Solver.</span>
+<span class="ss">      Outputs an array with the unknown displacements for the</span>
+<span class="ss">      problem. The input is made with the prescribed forces and</span>
+<span class="ss">      the Global Stiffness Matrix.&quot;&quot;&quot;</span>
 
-    <span class="nv">displacements</span> <span class="o">=</span> <span class="nv">np</span>.<span class="nv">linalg</span>.<span class="nv">solve</span><span class="ss">(</span><span class="nv">g_matrix</span>[<span class="mi">0</span>:<span class="mi">3</span>, <span class="mi">0</span>:<span class="mi">3</span>], <span class="nv">f</span><span class="ss">)</span>
-    <span class="k">return</span> <span class="nv">displacements</span><span class="ss">)</span>
-</pre></div>
+    <span class="n">displacements</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">g_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">displacements</span><span class="p">)</span>
+</code></pre></div>
 </td></tr></table>
 
 <h3 id="solucionador-de-forcas">"Solucionador" de Forças</h3>
@@ -1114,26 +1290,24 @@
 11
 12
 13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nv">def</span> <span class="nv">forces_solver</span><span class="ss">(</span><span class="nv">g_matrix</span>, <span class="nv">u</span><span class="ss">)</span>:
-    <span class="s2">&quot;&quot;&quot;</span><span class="s">Displacements Solver.</span>
-      <span class="nv">Outputs</span> <span class="nv">an</span> <span class="nv">array</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">unknown</span> <span class="nv">reaction</span> <span class="nv">forces</span> <span class="k">for</span> <span class="nv">the</span>
-      <span class="nv">problem</span>. <span class="nv">The</span> <span class="nv">input</span> <span class="nv">is</span> <span class="nv">made</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">displacements</span> <span class="nv">found</span> <span class="nv">in</span> <span class="nv">the</span>
-      <span class="nv">Displacements</span> <span class="nv">Solver</span> <span class="nv">function</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">Global</span> <span class="nv">Stiffness</span> <span class="nv">Matrix</span>.<span class="s2">&quot;&quot;&quot;</span>
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">forces_solver</span><span class="p">(</span><span class="n">g_matrix</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;Displacements Solver.</span>
+<span class="ss">      Outputs an array with the unknown reaction forces for the</span>
+<span class="ss">      problem. The input is made with the displacements found in the</span>
+<span class="ss">      Displacements Solver function and the Global Stiffness Matrix.&quot;&quot;&quot;</span><span class="w"></span>
 
-    <span class="nv">forces</span> <span class="o">=</span> [<span class="mi">0</span>, <span class="mi">0</span>, <span class="mi">0</span>]
-    <span class="nv">cut_matrix</span> <span class="o">=</span> <span class="nv">global_matrix</span>[<span class="mi">3</span>:,:<span class="mi">3</span>]
+<span class="w">    </span><span class="n">forces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">0, 0, 0</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">cut_matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">global_matrix</span><span class="o">[</span><span class="n">3:,:3</span><span class="o">]</span><span class="w"></span>
 
-    <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">3</span><span class="ss">)</span>:
-        <span class="k">for</span> <span class="nv">j</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">0</span>,<span class="mi">3</span><span class="ss">)</span>:
-            <span class="nv">forces</span>[<span class="nv">i</span>] <span class="o">+=</span> <span class="nv">cut_matrix</span>[<span class="nv">i</span>,<span class="nv">j</span>]<span class="o">*</span><span class="nv">u</span>[<span class="nv">j</span>]
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">forces</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">cut_matrix</span><span class="o">[</span><span class="n">i,j</span><span class="o">]*</span><span class="n">u</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="nv">forces</span>
-</pre></div>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">forces</span><span class="w"></span>
+</code></pre></div>
 </td></tr></table>
 
 <p>Agora, com as funções apresentadas acima tente resolver o problema da treliça via código.</p>
-                
-                  
                 
               
               
@@ -1157,11 +1331,10 @@
             Copyright &copy; 2011 Marco André Argenta
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -1170,24 +1343,18 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../assets/javascripts/vendor.92ffa368.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

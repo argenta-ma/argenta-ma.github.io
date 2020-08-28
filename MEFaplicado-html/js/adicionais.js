@@ -13,7 +13,7 @@ window.onload = function() {
       // conteudo.style = "color:gray; text-align: center; font-size: 10pt;";
       conteudo.classList.add("legendas");
       imagens[figura].classList.add("figuras");
-      console.log(imagens[figura].classList);
+      // console.log(imagens[figura].classList);
       imagens[figura].parentNode.insertBefore(conteudo, imagens[figura].nextSibling);
     }
   }
