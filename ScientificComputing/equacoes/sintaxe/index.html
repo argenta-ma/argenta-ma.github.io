@@ -1,14 +1,10 @@
 
-
-
-
 <!doctype html>
 <html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Uma introdução à computação científica usando python 2.7">
       
@@ -16,27 +12,8 @@
       
         <meta name="author" content="Marco André Argenta">
       
-      
-        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
-      
-        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
-      
-        <meta name="lang:search.language" content="pt">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
-      
-        <meta name="lang:search.result.one" content="1 resultado encontrado">
-      
-        <meta name="lang:search.result.other" content="# resultados encontrados">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../imagens/terminal.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
     
     
       
@@ -44,27 +21,26 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bc7e593a.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab28b872.min.css">
         
-        <meta name="theme-color" content="#f9a825">
+          
+          
+          <meta name="theme-color" content="#ffec3d">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
-        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CSource+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/estilos.css">
@@ -77,69 +53,79 @@
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="yellow" data-md-color-accent="yellow">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="yellow" data-md-color-accent="yellow">
+      
+  
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#um-programa-consiste-em-declaracoes" tabindex="1" class="md-skip">
-        Ir para o conteúdo
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo">
-          
-            <img src="../../imagens/terminal.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Computação Científica
-            </span>
-            <span class="md-header-nav__topic">
-              Sintaxe e erros
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+        <a href="#um-programa-consiste-em-declaracoes" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo" aria-label="Computação Científica">
+      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Computação Científica
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Sintaxe e erros
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Digite para iniciar a busca
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -147,31 +133,31 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Computação Científica" class="md-nav__button md-logo">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Computação Científica" class="md-nav__button md-logo" aria-label="Computação Científica">
       
-        <img src="../../imagens/terminal.svg" width="48" height="48">
-      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
     </a>
     Computação Científica
   </label>
@@ -184,7 +170,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Início" class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       Início
     </a>
   </li>
@@ -199,13 +185,15 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Equações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Equações" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
         Equações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -217,7 +205,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../equacoes/" title="Programando Equações" class="md-nav__link">
+    <a href="../equacoes/" class="md-nav__link">
       Programando Equações
     </a>
   </li>
@@ -229,7 +217,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../regras/" title="Regras de programação" class="md-nav__link">
+    <a href="../regras/" class="md-nav__link">
       Regras de programação
     </a>
   </li>
@@ -244,165 +232,165 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Sintaxe e erros
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Sintaxe e erros" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Sintaxe e erros
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#declaracoes-de-atribuicao" title="Declarações de Atribuição" class="md-nav__link">
+  <a href="#declaracoes-de-atribuicao" class="md-nav__link">
     Declarações de Atribuição
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sintaxe-do-codigo" title="Sintaxe do código" class="md-nav__link">
+  <a href="#sintaxe-do-codigo" class="md-nav__link">
     Sintaxe do código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#espacos-em-branco" title="Espaços em branco" class="md-nav__link">
+  <a href="#espacos-em-branco" class="md-nav__link">
     Espaços em branco
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entrada-e-saida" title="Entrada e Saída" class="md-nav__link">
+  <a href="#entrada-e-saida" class="md-nav__link">
     Entrada e Saída
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sistema-operacional" title="Sistema Operacional" class="md-nav__link">
+  <a href="#sistema-operacional" class="md-nav__link">
     Sistema Operacional
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#avaliando-uma-equacao-para-conversao-de-temperatura" title="Avaliando uma equação para conversão de temperatura" class="md-nav__link">
+  <a href="#avaliando-uma-equacao-para-conversao-de-temperatura" class="md-nav__link">
     Avaliando uma equação para conversão de temperatura
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resposta-certa" title="Resposta certa" class="md-nav__link">
+  <a href="#resposta-certa" class="md-nav__link">
     Resposta certa
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#erro-na-resposta" title="Erro na resposta" class="md-nav__link">
+  <a href="#erro-na-resposta" class="md-nav__link">
     Erro na resposta
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tudo-no-python-e-um-objeto" title="Tudo no Python é um objeto" class="md-nav__link">
+  <a href="#tudo-no-python-e-um-objeto" class="md-nav__link">
     Tudo no Python é um objeto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#expressoes-aritmeticas" title="Expressões Aritméticas" class="md-nav__link">
+  <a href="#expressoes-aritmeticas" class="md-nav__link">
     Expressões Aritméticas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#funcoes-matematicas-padroes" title="Funções Matemáticas Padrões" class="md-nav__link">
+  <a href="#funcoes-matematicas-padroes" class="md-nav__link">
     Funções Matemáticas Padrões
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#erros-de-arredondamento" title="Erros de arredondamento" class="md-nav__link">
+  <a href="#erros-de-arredondamento" class="md-nav__link">
     Erros de arredondamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#funcoes-matematicas-padroes-e-possiveis-erros" title="Funções Matemáticas Padrões e possíveis erros" class="md-nav__link">
+  <a href="#funcoes-matematicas-padroes-e-possiveis-erros" class="md-nav__link">
     Funções Matemáticas Padrões e possíveis erros
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-interativo" title="Python interativo" class="md-nav__link">
+  <a href="#python-interativo" class="md-nav__link">
     Python interativo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#numeros-complexos" title="Números Complexos" class="md-nav__link">
+  <a href="#numeros-complexos" class="md-nav__link">
     Números Complexos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calculo-algebrico" title="Cálculo algébrico" class="md-nav__link">
+  <a href="#calculo-algebrico" class="md-nav__link">
     Cálculo algébrico
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sumario-de-programando-equacoes" title="Sumário de Programando Equações" class="md-nav__link">
+  <a href="#sumario-de-programando-equacoes" class="md-nav__link">
     Sumário de Programando Equações
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#programar-e-desafiador" title="Programar é desafiador!" class="md-nav__link">
+  <a href="#programar-e-desafiador" class="md-nav__link">
     Programar é desafiador!
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tarefa" title="Tarefa" class="md-nav__link">
+  <a href="#tarefa" class="md-nav__link">
     Tarefa
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -423,13 +411,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Laços e listas
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Laços e listas" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
         Laços e listas
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -441,7 +431,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacoslistas/" title="Laços simples" class="md-nav__link">
+    <a href="../../lacoslistas/lacoslistas/" class="md-nav__link">
       Laços simples
     </a>
   </li>
@@ -453,7 +443,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/condicionais/" title="Condicionais" class="md-nav__link">
+    <a href="../../lacoslistas/condicionais/" class="md-nav__link">
       Condicionais
     </a>
   </li>
@@ -465,7 +455,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listas/" title="Listas" class="md-nav__link">
+    <a href="../../lacoslistas/listas/" class="md-nav__link">
       Listas
     </a>
   </li>
@@ -477,7 +467,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacosavancados/" title="Laços avançados" class="md-nav__link">
+    <a href="../../lacoslistas/lacosavancados/" class="md-nav__link">
       Laços avançados
     </a>
   </li>
@@ -489,7 +479,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listasavancadas/" title="Listas avançadas" class="md-nav__link">
+    <a href="../../lacoslistas/listasavancadas/" class="md-nav__link">
       Listas avançadas
     </a>
   </li>
@@ -501,7 +491,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/tuplas/" title="Tuplas" class="md-nav__link">
+    <a href="../../lacoslistas/tuplas/" class="md-nav__link">
       Tuplas
     </a>
   </li>
@@ -519,13 +509,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Funções e ramificações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Funções e ramificações" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
         Funções e ramificações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -537,7 +529,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesramificacoes/" title="Funções" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesramificacoes/" class="md-nav__link">
       Funções
     </a>
   </li>
@@ -549,7 +541,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoeslambda/" title="Funções lambda" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoeslambda/" class="md-nav__link">
       Funções lambda
     </a>
   </li>
@@ -561,7 +553,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/ramificacoes/" title="Ramificações" class="md-nav__link">
+    <a href="../../funcoesramificacoes/ramificacoes/" class="md-nav__link">
       Ramificações
     </a>
   </li>
@@ -573,7 +565,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesteste/" title="Funçoes de teste" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesteste/" class="md-nav__link">
       Funçoes de teste
     </a>
   </li>
@@ -591,13 +583,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Entrada de dados e erros
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Entrada de dados e erros" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
         Entrada de dados e erros
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -609,7 +603,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/entradaerros/" title="Entrada de dados" class="md-nav__link">
+    <a href="../../entradaerros/entradaerros/" class="md-nav__link">
       Entrada de dados
     </a>
   </li>
@@ -621,7 +615,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/argumentoslinhacomando/" title="Argumentos linha comando" class="md-nav__link">
+    <a href="../../entradaerros/argumentoslinhacomando/" class="md-nav__link">
       Argumentos linha comando
     </a>
   </li>
@@ -633,7 +627,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/eval/" title="Função eval" class="md-nav__link">
+    <a href="../../entradaerros/eval/" class="md-nav__link">
       Função eval
     </a>
   </li>
@@ -645,7 +639,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/exec/" title="Função exec" class="md-nav__link">
+    <a href="../../entradaerros/exec/" class="md-nav__link">
       Função exec
     </a>
   </li>
@@ -657,7 +651,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/interfacesgraficas/" title="Interfaces gráficas" class="md-nav__link">
+    <a href="../../entradaerros/interfacesgraficas/" class="md-nav__link">
       Interfaces gráficas
     </a>
   </li>
@@ -669,7 +663,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/arquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../entradaerros/arquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -681,7 +675,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/erros/" title="Erros" class="md-nav__link">
+    <a href="../../entradaerros/erros/" class="md-nav__link">
       Erros
     </a>
   </li>
@@ -693,7 +687,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/modulos/" title="Módulos" class="md-nav__link">
+    <a href="../../entradaerros/modulos/" class="md-nav__link">
       Módulos
     </a>
   </li>
@@ -711,13 +705,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Arranjos e gráficos
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Arranjos e gráficos" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
         Arranjos e gráficos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -729,7 +725,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/arranjosgraficos/" title="Arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/arranjosgraficos/" class="md-nav__link">
       Arranjos
     </a>
   </li>
@@ -741,7 +737,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/graficos/" title="Gráficos" class="md-nav__link">
+    <a href="../../arranjosgraficos/graficos/" class="md-nav__link">
       Gráficos
     </a>
   </li>
@@ -753,7 +749,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/aprofundandoarranjos/" title="Aprofundando em arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/aprofundandoarranjos/" class="md-nav__link">
       Aprofundando em arranjos
     </a>
   </li>
@@ -771,13 +767,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Dicionários e cadeias de caracteres
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Dicionários e cadeias de caracteres" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
         Dicionários e cadeias de caracteres
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -789,7 +787,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dicionariosstrings/" title="Dicionários" class="md-nav__link">
+    <a href="../../dicionariosstrings/dicionariosstrings/" class="md-nav__link">
       Dicionários
     </a>
   </li>
@@ -801,7 +799,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dadosarquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../dicionariosstrings/dadosarquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -813,7 +811,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/cadeiacaracteres/" title="Cadeia de Caracteres" class="md-nav__link">
+    <a href="../../dicionariosstrings/cadeiacaracteres/" class="md-nav__link">
       Cadeia de Caracteres
     </a>
   </li>
@@ -825,7 +823,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/resumos/" title="Resumo das funcionalidades" class="md-nav__link">
+    <a href="../../dicionariosstrings/resumos/" class="md-nav__link">
       Resumo das funcionalidades
     </a>
   </li>
@@ -843,13 +841,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Classes
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Classes" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
         Classes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -861,7 +861,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/classes/" title="Classes" class="md-nav__link">
+    <a href="../../classes/classes/" class="md-nav__link">
       Classes
     </a>
   </li>
@@ -873,7 +873,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/exemplosclasses/" title="Exemplos" class="md-nav__link">
+    <a href="../../classes/exemplosclasses/" class="md-nav__link">
       Exemplos
     </a>
   </li>
@@ -885,7 +885,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/metodosespeciais/" title="Métodos especiais" class="md-nav__link">
+    <a href="../../classes/metodosespeciais/" class="md-nav__link">
       Métodos especiais
     </a>
   </li>
@@ -897,7 +897,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/aplicacoes/" title="Aplicações" class="md-nav__link">
+    <a href="../../classes/aplicacoes/" class="md-nav__link">
       Aplicações
     </a>
   </li>
@@ -915,13 +915,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Programação orientada a objeto
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Programação orientada a objeto" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
         Programação orientada a objeto
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -933,7 +935,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/poo/" title="Programação Orientada a Objeto" class="md-nav__link">
+    <a href="../../poo/poo/" class="md-nav__link">
       Programação Orientada a Objeto
     </a>
   </li>
@@ -945,7 +947,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/exemplosheranca/" title="Exemplos heranças" class="md-nav__link">
+    <a href="../../poo/exemplosheranca/" class="md-nav__link">
       Exemplos heranças
     </a>
   </li>
@@ -957,7 +959,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/derivadaclasses/" title="Classes para derivadas" class="md-nav__link">
+    <a href="../../poo/derivadaclasses/" class="md-nav__link">
       Classes para derivadas
     </a>
   </li>
@@ -969,7 +971,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/integralclasses/" title="Classes para integrais" class="md-nav__link">
+    <a href="../../poo/integralclasses/" class="md-nav__link">
       Classes para integrais
     </a>
   </li>
@@ -991,151 +993,150 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#declaracoes-de-atribuicao" title="Declarações de Atribuição" class="md-nav__link">
+  <a href="#declaracoes-de-atribuicao" class="md-nav__link">
     Declarações de Atribuição
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sintaxe-do-codigo" title="Sintaxe do código" class="md-nav__link">
+  <a href="#sintaxe-do-codigo" class="md-nav__link">
     Sintaxe do código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#espacos-em-branco" title="Espaços em branco" class="md-nav__link">
+  <a href="#espacos-em-branco" class="md-nav__link">
     Espaços em branco
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entrada-e-saida" title="Entrada e Saída" class="md-nav__link">
+  <a href="#entrada-e-saida" class="md-nav__link">
     Entrada e Saída
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sistema-operacional" title="Sistema Operacional" class="md-nav__link">
+  <a href="#sistema-operacional" class="md-nav__link">
     Sistema Operacional
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#avaliando-uma-equacao-para-conversao-de-temperatura" title="Avaliando uma equação para conversão de temperatura" class="md-nav__link">
+  <a href="#avaliando-uma-equacao-para-conversao-de-temperatura" class="md-nav__link">
     Avaliando uma equação para conversão de temperatura
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resposta-certa" title="Resposta certa" class="md-nav__link">
+  <a href="#resposta-certa" class="md-nav__link">
     Resposta certa
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#erro-na-resposta" title="Erro na resposta" class="md-nav__link">
+  <a href="#erro-na-resposta" class="md-nav__link">
     Erro na resposta
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tudo-no-python-e-um-objeto" title="Tudo no Python é um objeto" class="md-nav__link">
+  <a href="#tudo-no-python-e-um-objeto" class="md-nav__link">
     Tudo no Python é um objeto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#expressoes-aritmeticas" title="Expressões Aritméticas" class="md-nav__link">
+  <a href="#expressoes-aritmeticas" class="md-nav__link">
     Expressões Aritméticas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#funcoes-matematicas-padroes" title="Funções Matemáticas Padrões" class="md-nav__link">
+  <a href="#funcoes-matematicas-padroes" class="md-nav__link">
     Funções Matemáticas Padrões
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#erros-de-arredondamento" title="Erros de arredondamento" class="md-nav__link">
+  <a href="#erros-de-arredondamento" class="md-nav__link">
     Erros de arredondamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#funcoes-matematicas-padroes-e-possiveis-erros" title="Funções Matemáticas Padrões e possíveis erros" class="md-nav__link">
+  <a href="#funcoes-matematicas-padroes-e-possiveis-erros" class="md-nav__link">
     Funções Matemáticas Padrões e possíveis erros
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-interativo" title="Python interativo" class="md-nav__link">
+  <a href="#python-interativo" class="md-nav__link">
     Python interativo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#numeros-complexos" title="Números Complexos" class="md-nav__link">
+  <a href="#numeros-complexos" class="md-nav__link">
     Números Complexos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calculo-algebrico" title="Cálculo algébrico" class="md-nav__link">
+  <a href="#calculo-algebrico" class="md-nav__link">
     Cálculo algébrico
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sumario-de-programando-equacoes" title="Sumário de Programando Equações" class="md-nav__link">
+  <a href="#sumario-de-programando-equacoes" class="md-nav__link">
     Sumário de Programando Equações
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#programar-e-desafiador" title="Programar é desafiador!" class="md-nav__link">
+  <a href="#programar-e-desafiador" class="md-nav__link">
     Programar é desafiador!
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tarefa" title="Tarefa" class="md-nav__link">
+  <a href="#tarefa" class="md-nav__link">
     Tarefa
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1151,45 +1152,29 @@
                 
                 
                 <h1 id="um-programa-consiste-em-declaracoes">Um programa consiste em declarações</h1>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># 1a declaração (declaração de atribuição)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># 1a declaração (declaração de atribuição)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>      <span class="c1"># 2a declaração (declaração de atribuição)</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># 3a declaração (declaração de atribuição)</span>
-<span class="k">print</span> <span class="n">c</span>    <span class="c1"># 4a declaração (declaração de impressão)</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">c</span>    <span class="c1"># 4a declaração (declaração de impressão)</span>
+</code></pre></div>
 <p>Regra padrão:<br />
 uma declaração por linha, mas múltiplas declarações por linha são permitidas através do uso do ponto-vírgula entre as declarações:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>  <span class="k">print</span> <span class="n">c</span>
-</pre></div>
-</td></tr></table>
-
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>  <span class="nb">print</span> <span class="n">c</span>
+</code></pre></div>
 <h2 id="declaracoes-de-atribuicao">Declarações de Atribuição</h2>
 <p>Declarações de atribuição avaliam o lado direito do símbolo de atribuição "=" e atribuem o resultado à variável do lado esquerdo:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">mvar</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight"><pre><span></span><code><span class="n">mvar</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">mvar</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">mvar</span>   <span class="c1"># = 30    </span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="sintaxe-do-codigo">Sintaxe do código</h2>
 <p>Programas devem conter uma sintaxe correta, isto é, um correto uso das regras "gramaticais" da linguagem de programação em uso, e sem erros de impressão!</p>
 <p><strong>Esse é um programa com dois erros de sintaxe:</strong></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">mvar</span> <span class="o">=</span> <span class="mf">5.2</span>
-    <span class="k">print</span> <span class="n">mvar</span>
+<div class="highlight"><pre><span></span><code><span class="n">mvar</span> <span class="o">=</span> <span class="mf">5.2</span>
+    <span class="nb">print</span> <span class="n">mvar</span>
 <span class="n">prinnt</span> <span class="n">Mvar</span>
    <span class="o">^</span>
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Somente o primeiro erro encontrado é relatado e o programa para (corrija o erro e continue para o p?oximo...).</p>
 <blockquote>
 <p><em>Programming demands significantly higher standard of accuracy. Things don't simply have to make sense to another human being, they must make sense to a computer.</em> Donald Knuth, computer scientist, 1938-</p>
@@ -1199,46 +1184,29 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 <p>Espaços em branco (blank, whitespaces) podem ser utilizados para uma melhor formatação do texto do código.</p>
 <p>Espaços em branco podem ou não ser importantes em programas Python.</p>
 <p>Essas declarações são equivalentes (espaços em branco aqui não importam):</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">v0</span><span class="o">=</span><span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="n">v0</span><span class="o">=</span><span class="mi">3</span>
 <span class="n">v0</span>  <span class="o">=</span>  <span class="mi">3</span>
 <span class="n">v0</span><span class="o">=</span>   <span class="mi">3</span>
 <span class="n">v0</span> <span class="o">=</span> <span class="mi">3</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Aqui os espaço em branco são importantes:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">contador</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="n">contador</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">contador</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span>
     <span class="n">contador</span> <span class="o">=</span> <span class="n">contador</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># correto (4 espaços em branco no inicio ou um &quot;tab&quot;, indentação)</span>
 
 <span class="k">while</span> <span class="n">contador</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span>
 <span class="n">contador</span> <span class="o">=</span> <span class="n">contador</span> <span class="o">+</span> <span class="mi">1</span>       <span class="c1"># sintaxe inválida</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="entrada-e-saida">Entrada e Saída</h2>
 <p>O programa recebe dados de entrada e calcula os dados de saída de acordo com o código escrito.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">v0</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span><span class="p">;</span>  <span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
+<div class="highlight"><pre><span></span><code><span class="n">v0</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span><span class="p">;</span>  <span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
 <span class="n">posicao</span> <span class="o">=</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">t</span>
 <span class="n">velocidade</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">-</span> <span class="n">g</span><span class="o">*</span><span class="n">t</span>
-<span class="k">print</span> <span class="s1">&#39;posição:&#39;</span><span class="p">,</span> <span class="n">posicao</span><span class="p">,</span> <span class="s1">&#39;velocidade:&#39;</span><span class="p">,</span> <span class="n">velocidade</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="s1">&#39;posição:&#39;</span><span class="p">,</span> <span class="n">posicao</span><span class="p">,</span> <span class="s1">&#39;velocidade:&#39;</span><span class="p">,</span> <span class="n">velocidade</span>
+</code></pre></div>
 <ul>
-<li>Entrada: <code class="codehilite">v0</code>, <code class="codehilite">g</code>, e <code class="codehilite">t</code></li>
-<li>Saída: <code class="codehilite">posicao</code> e <code class="codehilite">velocidade</code></li>
+<li>Entrada: <code>v0</code>, <code>g</code>, e <code>t</code></li>
+<li>Saída: <code>posicao</code> e <code>velocidade</code></li>
 </ul>
 <h2 id="sistema-operacional">Sistema Operacional</h2>
 <p>Um sistema operacional (OS) é um conjunto de programas que gerenciam os recursos de hardware e software em um computador.</p>
@@ -1248,8 +1216,8 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 <li>Macintosh (old Mac OS, Mac OS X)</li>
 <li>Mac OS X $  \approx  $ Unix $  \approx  $ Linux $  \neq  $ Windows</li>
 <li>Os comandos tipicos do OS são bem similares:<ul>
-<li>Linux/Unix: <code class="codehilite">mkdir nome-da-pasta; cd nome-da-pasta; ls</code></li>
-<li>Windows: <code class="codehilite">mkdir nome-da-pasta; cd nome-da-pasta; dir</code></li>
+<li>Linux/Unix: <code>mkdir nome-da-pasta; cd nome-da-pasta; ls</code></li>
+<li>Windows: <code>mkdir nome-da-pasta; cd nome-da-pasta; dir</code></li>
 </ul>
 </li>
 <li>Python suporta programação cross-plataforma, ou seja, um programa é independente de qual OS utilizamos para programar ou rodar o programa.</li>
@@ -1259,26 +1227,19 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 <p>
 <script type="math/tex; mode=display"> F = \frac{9}{5}C + 32 </script>
 </p>
-<p>Programa, em um editor de texto e salve como <code class="codehilite">c2f.py</code>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="mi">21</span>
+<p>Programa, em um editor de texto e salve como <code>c2f.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">C</span> <span class="o">=</span> <span class="mi">21</span>
 <span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
-<span class="k">print</span> <span class="n">F</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">F</span>
+</code></pre></div>
 <p>Execução e resultado:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Terminal&gt; python c2f.py
+<div class="highlight"><pre><span></span><code>Terminal&gt; python c2f.py
 <span class="m">53</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="resposta-certa">Resposta certa</h2>
 <p>Sempre deve-se checar se um novo programa calculou a resposta certa.</p>
 <p>Por exemplo, usando uma calculadora:</p>
-<p><code class="codehilite">9/5 vezes 21 mais 32 é 69.8, e não 53!!</code></p>
+<p><code>9/5 vezes 21 mais 32 é 69.8, e não 53!!</code></p>
 <h2 id="erro-na-resposta">Erro na resposta</h2>
 <p>O erro na resposta foi causado (não intencionalmente) por divisão de inteiros.</p>
 <ul>
@@ -1287,37 +1248,22 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 <li>Exemplos: $  1/5=0  $, $  2/5=0  $, $  7/5=1  $, $  12/5=2  $;</li>
 <li>Na matemática, 9/5 é um número real (1.8) - isso é chamado divisão de ponto flutuante em Python e é a divisão que queremos;</li>
 <li>Um dos operandos ($  a  $ ou $  b  $) em $  a/b  $ deve ser um número real (ponto flutuante ou "float") para resultar na divisão com ponto flutuante;</li>
-<li>Um float em Python possui um ponto (ou decimais): <code class="codehilite">9.0</code> ou <code class="codehilite">9.</code> é float;</li>
-<li>Nenhum ponto implica em inteiro: <code class="codehilite">9</code> é um inteiro;</li>
-<li><code class="codehilite">9.0/5</code> resulta <code class="codehilite">1.8</code>, <code class="codehilite">9/5.</code> resulta <code class="codehilite">1.8</code>, <code class="codehilite">9/5</code> resulta <code class="codehilite">1</code>;</li>
+<li>Um float em Python possui um ponto (ou decimais): <code>9.0</code> ou <code>9.</code> é float;</li>
+<li>Nenhum ponto implica em inteiro: <code>9</code> é um inteiro;</li>
+<li><code>9.0/5</code> resulta <code>1.8</code>, <code>9/5.</code> resulta <code>1.8</code>, <code>9/5</code> resulta <code>1</code>;</li>
 </ul>
 <p>Corrija o programa de temperatura.</p>
 <h2 id="tudo-no-python-e-um-objeto">Tudo no Python é um objeto</h2>
 <p>Variáveis se referem à objetos:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># a refere-se a um objeto inteiro (int)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># a refere-se a um objeto inteiro (int)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">9</span>       <span class="c1"># b refere-se a um objeto inteiro (int)</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mf">9.0</span>     <span class="c1"># c refere-se a um objeto número real (float)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">/</span><span class="n">a</span>     <span class="c1"># d refere-se a uma int/int =&gt; objeto int</span>
 <span class="n">e</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="n">a</span>     <span class="c1"># e refere-se a uma float/int =&gt; objeto float</span>
 <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;b/a=</span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># s é um objeto string/texto (str)</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Podemos fazer conversões entre objetos:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># a é int</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># a é int</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>       <span class="c1"># b é float 3.0</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mf">3.9</span><span class="c1"># c é float</span>
 <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>         <span class="c1"># d é int 3</span>
@@ -1326,39 +1272,30 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 <span class="n">d</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>         <span class="c1"># d é str &#39;3.9&#39;</span>
 <span class="n">e</span> <span class="o">=</span> <span class="s1">&#39;-4.2&#39;</span>         <span class="c1"># e é str</span>
 <span class="n">f</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>       <span class="c1"># f é float -4.2</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="expressoes-aritmeticas">Expressões Aritméticas</h2>
 <p>Expressões aritméticas são avaliadas como você aprendeu na matemática:</p>
 <ul>
-<li>Exemplo: $  \dfrac{5}{9} + 2\dfrac{a^4}{2}  $, no Python é escrita como <code class="codehilite">5/9 + 2*a**4/2</code></li>
+<li>Exemplo: $  \dfrac{5}{9} + 2\dfrac{a^4}{2}  $, no Python é escrita como <code>5/9 + 2*a**4/2</code></li>
 <li>As mesmas regras da matemática: procedimento termo à termo* a partir da esquerda, no mesmo termo potências são calculadas primeiro, depois multiplicação e divisão, por fim adições/subtrações:</li>
-<li><code class="codehilite">r1 = 5/9</code> (=0)</li>
-<li><code class="codehilite">r2 = a**4</code></li>
-<li><code class="codehilite">r3 = 2*r2</code></li>
-<li><code class="codehilite">r4 = r3/2</code></li>
-<li><code class="codehilite">r5 = r1 + r4</code></li>
+<li><code>r1 = 5/9</code> (=0)</li>
+<li><code>r2 = a**4</code></li>
+<li><code>r3 = 2*r2</code></li>
+<li><code>r4 = r3/2</code></li>
+<li><code>r5 = r1 + r4</code></li>
 <li>Use parenteses para sobrescrever essas regras padrões, ou use parenteses para explicitamente dizer como as regras funcionam:<br />
-<code class="codehilite">(5/9) + (2*(a**4))/2</code></li>
+<code>(5/9) + (2*(a**4))/2</code></li>
 </ul>
 <p>* Um termo é definido ou separado por adição ou subtrações.</p>
 <h2 id="funcoes-matematicas-padroes">Funções Matemáticas Padrões</h2>
-<p>Algumas funções matemáticas podem ser encontradas no módulo <code class="codehilite">math</code> do python</p>
+<p>Algumas funções matemáticas podem ser encontradas no módulo <code>math</code> do python</p>
 <ul>
 <li>E se precisarmos calcular $\sin x$, $\cos x$, $\ln x$, etc. em um programa?</li>
-<li>Tais funções estão disponíveis no módulo <code class="codehilite">math</code> do python;</li>
+<li>Tais funções estão disponíveis no módulo <code>math</code> do python;</li>
 <li>Um monte de funcionalidades úteis estão disponíveis em módulos do próprio Python e em módulos de terceiros;</li>
 <li>Para funcionar, devemos importar esses módulos para nosso programa.</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="c1"># ou</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
@@ -1366,38 +1303,27 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 <span class="c1"># ou</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>   <span class="c1"># import tudo de math</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
-<p>Mais um exemplo do uso de funções matemáticas com o <code class="codehilite">math</code>:</p>
+</code></pre></div>
+<p>Mais um exemplo do uso de funções matemáticas com o <code>math</code>:</p>
 <p>Calcule</p>
 <p>
 <script type="math/tex; mode=display"> Q = \sin x \cos x + 4 \ln x </script>
 </p>
 <p>para $x=1,2$</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mf">1.2</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">Q</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">Q</span>
+</code></pre></div>
 <h2 id="erros-de-arredondamento">Erros de arredondamento</h2>
 <p>Computadores possuem uma aritmética inexata por causa dos erros de arredondamento e ponto flutuante.</p>
 <p>Vamos calcular $1/49 \times 49$ e $1/51 \times 51$:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">49.0</span><span class="o">*</span><span class="mi">49</span>
+<div class="highlight"><pre><span></span><code><span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">49.0</span><span class="o">*</span><span class="mi">49</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">51.0</span><span class="o">*</span><span class="mi">51</span>
-<span class="k">print</span> <span class="s1">&#39;</span><span class="si">%.16f</span><span class="s1"> </span><span class="si">%.16f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="s1">&#39;</span><span class="si">%.16f</span><span class="s1"> </span><span class="si">%.16f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+</code></pre></div>
 <p>A saída com os 16 decimais é retornada como:</p>
-<p><code class="codehilite">0.9999999999999999 1.0000000000000000</code></p>
+<p><code>0.9999999999999999 1.0000000000000000</code></p>
 <ul>
 <li>A maioria dos números reais possui uma representação inexata em um computador (ex. 16 dígitos);</li>
 <li>Nem 1/49 ou 1/51 está representado exatamente, sendo o erro normalmente na ordem de $ 10^{-16} $;</li>
@@ -1405,49 +1331,34 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 <li>Lição aprendida: Os números reais em computadores e os resultados da cálculos matemáticos são apenas aproximações!</li>
 </ul>
 <h2 id="funcoes-matematicas-padroes-e-possiveis-erros">Funções Matemáticas Padrões e possíveis erros</h2>
-<p>Mais um exemplo do uso de funções matemáticas com o <code class="codehilite">math</code>:</p>
+<p>Mais um exemplo do uso de funções matemáticas com o <code>math</code>:</p>
 <p>A função $\sinh x$ é definida como:</p>
 <p>
 <script type="math/tex; mode=display">\sinh (x) = \frac{1}{2}\left(e^{x} - e^{-x}\right) </script>
 </p>
 <p>Podemos avaliar essa função de três formas:</p>
 <ul>
-<li><code class="codehilite">math.sinh</code></li>
-<li>combinação de duas <code class="codehilite">math.exp</code></li>
-<li>combinação de duas potências de <code class="codehilite">math.e</code></li>
+<li><code>math.sinh</code></li>
+<li>combinação de duas <code>math.exp</code></li>
+<li>combinação de duas potências de <code>math.e</code></li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sinh</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">pi</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sinh</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">pi</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span>
 <span class="n">r1</span> <span class="o">=</span> <span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">r2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
 <span class="n">r3</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">e</span><span class="o">**</span><span class="n">x</span> <span class="o">-</span> <span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span> <span class="s1">&#39;</span><span class="si">%.16f</span><span class="s1"> </span><span class="si">%.16f</span><span class="s1"> </span><span class="si">%.16f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">,</span><span class="n">r3</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
-<p>Saída: <code class="codehilite">267.7448940410164369 267.7448940410164369 267.7448940410163232</code>??</p>
+<span class="nb">print</span> <span class="s1">&#39;</span><span class="si">%.16f</span><span class="s1"> </span><span class="si">%.16f</span><span class="s1"> </span><span class="si">%.16f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">,</span><span class="n">r3</span><span class="p">)</span>
+</code></pre></div>
+<p>Saída: <code>267.7448940410164369 267.7448940410164369 267.7448940410163232</code>??</p>
 <h2 id="python-interativo">Python interativo</h2>
 <p>Python pode ser utilizado interativamente como uma calculadora e para testar declarações.</p>
 <ul>
-<li>Até agora nós executamos cálculos em <code class="codehilite">programas</code> Python;</li>
-<li>Python também pode ser utilizado interativamente, utilizando o chamado <code class="codehilite">shell</code>;</li>
-<li>Digite <code class="codehilite">python</code>, ou <code class="codehilite">ipython</code>, ou <code class="codehilite">idle</code> no terminal (CMD no windows);</li>
-<li>Um <code class="codehilite">shell</code> Python é aberto onde você pode escrever declarações e realizar operações em Python.</li>
+<li>Até agora nós executamos cálculos em <code>programas</code> Python;</li>
+<li>Python também pode ser utilizado interativamente, utilizando o chamado <code>shell</code>;</li>
+<li>Digite <code>python</code>, ou <code>ipython</code>, ou <code>idle</code> no terminal (CMD no windows);</li>
+<li>Um <code>shell</code> Python é aberto onde você pode escrever declarações e realizar operações em Python.</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Terminal&gt; python
+<div class="highlight"><pre><span></span><code>Terminal&gt; python
 ...
 &gt;&gt;&gt; <span class="nv">C</span> <span class="o">=</span> <span class="m">41</span>
 &gt;&gt;&gt; <span class="nv">F</span> <span class="o">=</span> <span class="o">(</span><span class="m">9</span>.0/5<span class="o">)</span>*C + <span class="m">32</span>
@@ -1456,26 +1367,12 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 &gt;&gt;&gt; print F
 <span class="m">105</span>.8
 &gt;&gt;&gt; 
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Comandos anteriores podem ser chamados novamente e editados com a seta para cima ou para baixo do teclado.</p>
 <h2 id="numeros-complexos">Números Complexos</h2>
 <p>Python possui suporte total para cálculos com números complexos.</p>
-<p>$2 + 3i$ na matemática é escrito como <code class="codehilite">2 + 3j</code> em Python.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> -2
+<p>$2 + 3i$ na matemática é escrito como <code>2 + 3j</code> em Python.</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; <span class="nv">a</span> <span class="o">=</span> -2
 &gt;&gt;&gt; <span class="nv">b</span> <span class="o">=</span> <span class="m">0</span>.5
 &gt;&gt;&gt; <span class="nv">s</span> <span class="o">=</span> complex<span class="o">(</span>a, b<span class="o">)</span>  <span class="c1"># monte um complexo das variáveis</span>
 &gt;&gt;&gt; s
@@ -1488,26 +1385,14 @@ uma declaração por linha, mas múltiplas declarações por linha são permitid
 -2.0
 &gt;&gt;&gt; s.imag
 <span class="m">0</span>.5
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="calculo-algebrico">Cálculo algébrico</h2>
-<p>Python também pode realizar operações algébricas, através do módulo <code class="codehilite">sympy</code>.</p>
+<p>Python também pode realizar operações algébricas, através do módulo <code>sympy</code>.</p>
 <ul>
 <li>Computação numérica: computação com números;</li>
 <li>Computação simbólica: operações algébricas com variáveis.</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&gt;&gt;&gt; from sympy import *
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; from sympy import *
 &gt;&gt;&gt; t, v0, <span class="nv">g</span> <span class="o">=</span> symbols<span class="o">(</span><span class="s1">&#39;t v0 g&#39;</span><span class="o">)</span>
 &gt;&gt;&gt; <span class="nv">y</span> <span class="o">=</span> v0*t - Rational<span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>*g*t**2
 &gt;&gt;&gt; <span class="nv">dydt</span> <span class="o">=</span> diff<span class="o">(</span>y, t<span class="o">)</span> <span class="c1"># 1a derivada</span>
@@ -1518,24 +1403,13 @@ aceleração: -g
 &gt;&gt;&gt; <span class="nv">y2</span> <span class="o">=</span> integrate<span class="o">(</span>dydt, t<span class="o">)</span>
 &gt;&gt;&gt; y2
 -g*t**2/2 + t*v0
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <div class="admonition error">
 <p class="admonition-title">Erro na importação</p>
-<p>Foi gerado um erro de importação? Você não tem o módulo <code class="codehilite">sympy</code> instalado!</p>
+<p>Foi gerado um erro de importação? Você não tem o módulo <code>sympy</code> instalado!</p>
 </div>
 <p>O SymPy pode realizar uma série de operações tradicionais da matemática.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&gt;&gt;&gt; <span class="nv">y</span> <span class="o">=</span> v0*t - Rational<span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>*g*t**2
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; <span class="nv">y</span> <span class="o">=</span> v0*t - Rational<span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>*g*t**2
 &gt;&gt;&gt; <span class="nv">roots</span> <span class="o">=</span> solve<span class="o">(</span>y, t<span class="o">)</span>    <span class="c1"># resolve y=0 para t</span>
 &gt;&gt;&gt; roots
 <span class="o">[</span><span class="m">0</span>, <span class="m">2</span>*v0/g<span class="o">]</span>
@@ -1545,18 +1419,16 @@ aceleração: -g
 cos<span class="o">(</span>x + y<span class="o">)</span>
 &gt;&gt;&gt; expand<span class="o">(</span>sin<span class="o">(</span>x+y<span class="o">)</span>, <span class="nv">trig</span><span class="o">=</span>True<span class="o">)</span>  <span class="c1"># na forma trigonométrica</span>
 sin<span class="o">(</span>x<span class="o">)</span>*cos<span class="o">(</span>y<span class="o">)</span> + sin<span class="o">(</span>y<span class="o">)</span>*cos<span class="o">(</span>x<span class="o">)</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="sumario-de-programando-equacoes">Sumário de Programando Equações</h2>
 <ul>
 <li>Programas deve ser precisos!</li>
 <li>Variáveis são nomes de objetos;</li>
-<li>Conhecemos diferentes tipos de objetos: <code class="codehilite">int</code>, <code class="codehilite">float</code>, <code class="codehilite">str</code>;</li>
+<li>Conhecemos diferentes tipos de objetos: <code>int</code>, <code>float</code>, <code>str</code>;</li>
 <li>Escolha nomes de variáveis próximos aos símbolos matemáticos do problema sendo resolvido;</li>
 <li>Operações aritméticas em Python: termo a termo (+/-) da esquerda para a direita, potências antes * e / - como na matemática! Use parênteses se ficar na dúvida;</li>
 <li>Cuidado com divisões por inteiros!</li>
-<li>Use o <code class="codehilite">printf</code> para controlar melhor as saídas;</li>
+<li>Use o <code>printf</code> para controlar melhor as saídas;</li>
 <li>Termos importantes: objeto, variáveis, algoritmos, declarações, atribuições, implementação, verificação, depuração.</li>
 </ul>
 <h2 id="programar-e-desafiador">Programar é desafiador!</h2>
@@ -1565,15 +1437,15 @@ sin<span class="o">(</span>x<span class="o">)</span>*cos<span class="o">(</span>
 <p>You think you know when you can learn, are more sure when you can write, even more when you can teach, but certain when you can program Within a computer, natural language is unnatural To understand a program you must become both the   machine and the program <em>Alan Perlis, computer scientist, 1922-1990</em>.</p>
 </div>
 <h2 id="tarefa">Tarefa</h2>
-<p>Jogamos uma bola com velocidade inicial $v_0$, com um ângulo $\theta$ com a horizontal, a partir do ponto $(x = 0, y = y_0)$.</p>
+<p>Jogamos uma bola com velocidade inicial $v_0$, com um ângulo $\theta$ com a horizontal, a partir do ponto $(x = 3, y = y_0)$.</p>
 <p>A trajetória da bola é uma parábola (negligenciando a resistência do ar):</p>
 <p>
-<script type="math/tex; mode=display"> y = x \tan\theta - \frac{1}{2v_0}\frac{gx^2}{\cos^2 \theta} + y_0 </script>
+<script type="math/tex; mode=display"> y = x \tan\theta - \frac{1}{2v_0^2}\frac{gx^2}{\cos^2 \theta} + y_0 </script>
 </p>
 <p>Tarefas para o programa:</p>
 <ul>
 <li>inicie os dados de entrada ($  v_0  $, $  g  $, $  \theta  $, $  y_0  $)</li>
-<li>importe o módulo <code class="codehilite">math</code></li>
+<li>importe o módulo <code>math</code></li>
 <li>calcule $  y  $</li>
 </ul>
 <p>Dados $  x  $, $  y  $ e $  y_0  $ em m, $  g = 9,81 \hbox {m/s}^2  $, $  v_0  $ em km/h e $  \theta  $ em graus - o que requer a conversão de $  v_0  $ para m/s e $  \theta  $ para radianos</p>
@@ -1585,8 +1457,6 @@ sin<span class="o">(</span>x<span class="o">)</span>*cos<span class="o">(</span>
 </li>
 </ol>
 </div>
-                
-                  
                 
               
               
@@ -1603,34 +1473,34 @@ sin<span class="o">(</span>x<span class="o">)</span>*cos<span class="o">(</span>
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../regras/" title="Regras de programação" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../regras/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
                 Regras de programação
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../../lacoslistas/lacoslistas/" title="Laços simples" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../../lacoslistas/lacoslistas/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
                 Laços simples
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1645,11 +1515,10 @@ sin<span class="o">(</span>x<span class="o">)</span>*cos<span class="o">(</span>
             Copyright &copy; 2011 Marco André Argenta
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -1658,24 +1527,18 @@ sin<span class="o">(</span>x<span class="o">)</span>*cos<span class="o">(</span>
       
     </div>
     
-      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      <script src="../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

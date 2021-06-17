@@ -1,14 +1,10 @@
 
-
-
-
 <!doctype html>
 <html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Uma introdução à computação científica usando python 2.7">
       
@@ -16,27 +12,8 @@
       
         <meta name="author" content="Marco André Argenta">
       
-      
-        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
-      
-        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
-      
-        <meta name="lang:search.language" content="pt">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
-      
-        <meta name="lang:search.result.one" content="1 resultado encontrado">
-      
-        <meta name="lang:search.result.other" content="# resultados encontrados">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../imagens/terminal.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
     
     
       
@@ -44,27 +21,26 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bc7e593a.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab28b872.min.css">
         
-        <meta name="theme-color" content="#f9a825">
+          
+          
+          <meta name="theme-color" content="#ffec3d">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
-        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CSource+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/estilos.css">
@@ -77,69 +53,79 @@
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="yellow" data-md-color-accent="yellow">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="yellow" data-md-color-accent="yellow">
+      
+  
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#relembrando-a-classe-para-a-derivacao-numerica" tabindex="1" class="md-skip">
-        Ir para o conteúdo
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo">
-          
-            <img src="../../imagens/terminal.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Computação Científica
-            </span>
-            <span class="md-header-nav__topic">
-              Classes para derivadas
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+        <a href="#relembrando-a-classe-para-a-derivacao-numerica" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo" aria-label="Computação Científica">
+      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Computação Científica
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Classes para derivadas
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Digite para iniciar a busca
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -147,31 +133,31 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Computação Científica" class="md-nav__button md-logo">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Computação Científica" class="md-nav__button md-logo" aria-label="Computação Científica">
       
-        <img src="../../imagens/terminal.svg" width="48" height="48">
-      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
     </a>
     Computação Científica
   </label>
@@ -184,7 +170,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Início" class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       Início
     </a>
   </li>
@@ -197,13 +183,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Equações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Equações" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
         Equações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -215,7 +203,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/equacoes/" title="Programando Equações" class="md-nav__link">
+    <a href="../../equacoes/equacoes/" class="md-nav__link">
       Programando Equações
     </a>
   </li>
@@ -227,7 +215,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/regras/" title="Regras de programação" class="md-nav__link">
+    <a href="../../equacoes/regras/" class="md-nav__link">
       Regras de programação
     </a>
   </li>
@@ -239,7 +227,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/sintaxe/" title="Sintaxe e erros" class="md-nav__link">
+    <a href="../../equacoes/sintaxe/" class="md-nav__link">
       Sintaxe e erros
     </a>
   </li>
@@ -257,13 +245,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Laços e listas
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Laços e listas" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
         Laços e listas
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -275,7 +265,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacoslistas/" title="Laços simples" class="md-nav__link">
+    <a href="../../lacoslistas/lacoslistas/" class="md-nav__link">
       Laços simples
     </a>
   </li>
@@ -287,7 +277,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/condicionais/" title="Condicionais" class="md-nav__link">
+    <a href="../../lacoslistas/condicionais/" class="md-nav__link">
       Condicionais
     </a>
   </li>
@@ -299,7 +289,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listas/" title="Listas" class="md-nav__link">
+    <a href="../../lacoslistas/listas/" class="md-nav__link">
       Listas
     </a>
   </li>
@@ -311,7 +301,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacosavancados/" title="Laços avançados" class="md-nav__link">
+    <a href="../../lacoslistas/lacosavancados/" class="md-nav__link">
       Laços avançados
     </a>
   </li>
@@ -323,7 +313,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listasavancadas/" title="Listas avançadas" class="md-nav__link">
+    <a href="../../lacoslistas/listasavancadas/" class="md-nav__link">
       Listas avançadas
     </a>
   </li>
@@ -335,7 +325,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/tuplas/" title="Tuplas" class="md-nav__link">
+    <a href="../../lacoslistas/tuplas/" class="md-nav__link">
       Tuplas
     </a>
   </li>
@@ -353,13 +343,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Funções e ramificações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Funções e ramificações" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
         Funções e ramificações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -371,7 +363,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesramificacoes/" title="Funções" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesramificacoes/" class="md-nav__link">
       Funções
     </a>
   </li>
@@ -383,7 +375,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoeslambda/" title="Funções lambda" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoeslambda/" class="md-nav__link">
       Funções lambda
     </a>
   </li>
@@ -395,7 +387,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/ramificacoes/" title="Ramificações" class="md-nav__link">
+    <a href="../../funcoesramificacoes/ramificacoes/" class="md-nav__link">
       Ramificações
     </a>
   </li>
@@ -407,7 +399,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesteste/" title="Funçoes de teste" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesteste/" class="md-nav__link">
       Funçoes de teste
     </a>
   </li>
@@ -425,13 +417,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Entrada de dados e erros
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Entrada de dados e erros" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
         Entrada de dados e erros
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -443,7 +437,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/entradaerros/" title="Entrada de dados" class="md-nav__link">
+    <a href="../../entradaerros/entradaerros/" class="md-nav__link">
       Entrada de dados
     </a>
   </li>
@@ -455,7 +449,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/argumentoslinhacomando/" title="Argumentos linha comando" class="md-nav__link">
+    <a href="../../entradaerros/argumentoslinhacomando/" class="md-nav__link">
       Argumentos linha comando
     </a>
   </li>
@@ -467,7 +461,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/eval/" title="Função eval" class="md-nav__link">
+    <a href="../../entradaerros/eval/" class="md-nav__link">
       Função eval
     </a>
   </li>
@@ -479,7 +473,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/exec/" title="Função exec" class="md-nav__link">
+    <a href="../../entradaerros/exec/" class="md-nav__link">
       Função exec
     </a>
   </li>
@@ -491,7 +485,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/interfacesgraficas/" title="Interfaces gráficas" class="md-nav__link">
+    <a href="../../entradaerros/interfacesgraficas/" class="md-nav__link">
       Interfaces gráficas
     </a>
   </li>
@@ -503,7 +497,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/arquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../entradaerros/arquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -515,7 +509,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/erros/" title="Erros" class="md-nav__link">
+    <a href="../../entradaerros/erros/" class="md-nav__link">
       Erros
     </a>
   </li>
@@ -527,7 +521,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/modulos/" title="Módulos" class="md-nav__link">
+    <a href="../../entradaerros/modulos/" class="md-nav__link">
       Módulos
     </a>
   </li>
@@ -545,13 +539,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Arranjos e gráficos
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Arranjos e gráficos" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
         Arranjos e gráficos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -563,7 +559,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/arranjosgraficos/" title="Arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/arranjosgraficos/" class="md-nav__link">
       Arranjos
     </a>
   </li>
@@ -575,7 +571,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/graficos/" title="Gráficos" class="md-nav__link">
+    <a href="../../arranjosgraficos/graficos/" class="md-nav__link">
       Gráficos
     </a>
   </li>
@@ -587,7 +583,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/aprofundandoarranjos/" title="Aprofundando em arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/aprofundandoarranjos/" class="md-nav__link">
       Aprofundando em arranjos
     </a>
   </li>
@@ -605,13 +601,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Dicionários e cadeias de caracteres
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Dicionários e cadeias de caracteres" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
         Dicionários e cadeias de caracteres
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -623,7 +621,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dicionariosstrings/" title="Dicionários" class="md-nav__link">
+    <a href="../../dicionariosstrings/dicionariosstrings/" class="md-nav__link">
       Dicionários
     </a>
   </li>
@@ -635,7 +633,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dadosarquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../dicionariosstrings/dadosarquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -647,7 +645,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/cadeiacaracteres/" title="Cadeia de Caracteres" class="md-nav__link">
+    <a href="../../dicionariosstrings/cadeiacaracteres/" class="md-nav__link">
       Cadeia de Caracteres
     </a>
   </li>
@@ -659,7 +657,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/resumos/" title="Resumo das funcionalidades" class="md-nav__link">
+    <a href="../../dicionariosstrings/resumos/" class="md-nav__link">
       Resumo das funcionalidades
     </a>
   </li>
@@ -677,13 +675,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Classes
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Classes" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
         Classes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -695,7 +695,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/classes/" title="Classes" class="md-nav__link">
+    <a href="../../classes/classes/" class="md-nav__link">
       Classes
     </a>
   </li>
@@ -707,7 +707,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/exemplosclasses/" title="Exemplos" class="md-nav__link">
+    <a href="../../classes/exemplosclasses/" class="md-nav__link">
       Exemplos
     </a>
   </li>
@@ -719,7 +719,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/metodosespeciais/" title="Métodos especiais" class="md-nav__link">
+    <a href="../../classes/metodosespeciais/" class="md-nav__link">
       Métodos especiais
     </a>
   </li>
@@ -731,7 +731,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/aplicacoes/" title="Aplicações" class="md-nav__link">
+    <a href="../../classes/aplicacoes/" class="md-nav__link">
       Aplicações
     </a>
   </li>
@@ -751,13 +751,15 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
     
     <label class="md-nav__link" for="nav-9">
       Programação orientada a objeto
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Programação orientada a objeto" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
         Programação orientada a objeto
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -769,7 +771,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../poo/" title="Programação Orientada a Objeto" class="md-nav__link">
+    <a href="../poo/" class="md-nav__link">
       Programação Orientada a Objeto
     </a>
   </li>
@@ -781,7 +783,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../exemplosheranca/" title="Exemplos heranças" class="md-nav__link">
+    <a href="../exemplosheranca/" class="md-nav__link">
       Exemplos heranças
     </a>
   </li>
@@ -796,91 +798,95 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Classes para derivadas
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Classes para derivadas" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Classes para derivadas
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relembrando-a-classe-para-a-derivacao-numerica" title="Relembrando a classe para a derivação numérica" class="md-nav__link">
+  <a href="#relembrando-a-classe-para-a-derivacao-numerica" class="md-nav__link">
     Relembrando a classe para a derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#existem-diversas-formulas-para-a-derivacao-numerica" title="Existem diversas fórmulas para a derivação numérica" class="md-nav__link">
+  <a href="#existem-diversas-formulas-para-a-derivacao-numerica" class="md-nav__link">
     Existem diversas fórmulas para a derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#como-podemos-escrever-um-modulo-que-oferece-todas-essas-formulas" title="Como podemos escrever um módulo que oferece todas essas fórmulas?" class="md-nav__link">
+  <a href="#como-podemos-escrever-um-modulo-que-oferece-todas-essas-formulas" class="md-nav__link">
     Como podemos escrever um módulo que oferece todas essas fórmulas?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#qual-e-o-problema-com-esse-tipo-de-codigo" title="Qual é o problema com esse tipo de código?" class="md-nav__link">
+  <a href="#qual-e-o-problema-com-esse-tipo-de-codigo" class="md-nav__link">
     Qual é o problema com esse tipo de código?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#classe-hierarquica-para-derivacao-numerica" title="Classe hierárquica para derivação numérica" class="md-nav__link">
+  <a href="#classe-hierarquica-para-derivacao-numerica" class="md-nav__link">
     Classe hierárquica para derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#uso-das-classes-de-derivacao" title="Uso das classes de derivação" class="md-nav__link">
+  <a href="#uso-das-classes-de-derivacao" class="md-nav__link">
     Uso das classes de derivação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercicio-2-avaliando-o-fluxo-do-programa" title="Exercício 2: avaliando o fluxo do programa" class="md-nav__link">
+  <a href="#exercicio-2-avaliando-o-fluxo-do-programa" class="md-nav__link">
     Exercício 2: avaliando o fluxo do programa
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#um-programa-flexivel-para-a-derivacao-numerica" title="Um programa flexível para a derivação numérica" class="md-nav__link">
+  <a href="#um-programa-flexivel-para-a-derivacao-numerica" class="md-nav__link">
     Um programa flexível para a derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#investigando-erros-numericos-por-aproximacoes" title="Investigando erros numéricos por aproximações" class="md-nav__link">
+  <a href="#investigando-erros-numericos-por-aproximacoes" class="md-nav__link">
     Investigando erros numéricos por aproximações
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Investigando erros numéricos por aproximações">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementacao" title="Implementação" class="md-nav__link">
+  <a href="#implementacao" class="md-nav__link">
     Implementação
   </a>
   
@@ -890,10 +896,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -908,7 +910,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../integralclasses/" title="Classes para integrais" class="md-nav__link">
+    <a href="../integralclasses/" class="md-nav__link">
       Classes para integrais
     </a>
   </li>
@@ -930,79 +932,82 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#relembrando-a-classe-para-a-derivacao-numerica" title="Relembrando a classe para a derivação numérica" class="md-nav__link">
+  <a href="#relembrando-a-classe-para-a-derivacao-numerica" class="md-nav__link">
     Relembrando a classe para a derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#existem-diversas-formulas-para-a-derivacao-numerica" title="Existem diversas fórmulas para a derivação numérica" class="md-nav__link">
+  <a href="#existem-diversas-formulas-para-a-derivacao-numerica" class="md-nav__link">
     Existem diversas fórmulas para a derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#como-podemos-escrever-um-modulo-que-oferece-todas-essas-formulas" title="Como podemos escrever um módulo que oferece todas essas fórmulas?" class="md-nav__link">
+  <a href="#como-podemos-escrever-um-modulo-que-oferece-todas-essas-formulas" class="md-nav__link">
     Como podemos escrever um módulo que oferece todas essas fórmulas?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#qual-e-o-problema-com-esse-tipo-de-codigo" title="Qual é o problema com esse tipo de código?" class="md-nav__link">
+  <a href="#qual-e-o-problema-com-esse-tipo-de-codigo" class="md-nav__link">
     Qual é o problema com esse tipo de código?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#classe-hierarquica-para-derivacao-numerica" title="Classe hierárquica para derivação numérica" class="md-nav__link">
+  <a href="#classe-hierarquica-para-derivacao-numerica" class="md-nav__link">
     Classe hierárquica para derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#uso-das-classes-de-derivacao" title="Uso das classes de derivação" class="md-nav__link">
+  <a href="#uso-das-classes-de-derivacao" class="md-nav__link">
     Uso das classes de derivação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercicio-2-avaliando-o-fluxo-do-programa" title="Exercício 2: avaliando o fluxo do programa" class="md-nav__link">
+  <a href="#exercicio-2-avaliando-o-fluxo-do-programa" class="md-nav__link">
     Exercício 2: avaliando o fluxo do programa
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#um-programa-flexivel-para-a-derivacao-numerica" title="Um programa flexível para a derivação numérica" class="md-nav__link">
+  <a href="#um-programa-flexivel-para-a-derivacao-numerica" class="md-nav__link">
     Um programa flexível para a derivação numérica
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#investigando-erros-numericos-por-aproximacoes" title="Investigando erros numéricos por aproximações" class="md-nav__link">
+  <a href="#investigando-erros-numericos-por-aproximacoes" class="md-nav__link">
     Investigando erros numéricos por aproximações
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Investigando erros numéricos por aproximações">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementacao" title="Implementação" class="md-nav__link">
+  <a href="#implementacao" class="md-nav__link">
     Implementação
   </a>
   
@@ -1012,10 +1017,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1036,21 +1037,7 @@
 <p>
 <script type="math/tex; mode=display"> f'(x) \approx {f(x+h)-f(x) \over h} </script>
 </p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Derivada</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Derivada</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
@@ -1064,10 +1051,8 @@
 
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">tanh</span>
 <span class="n">dfdx</span> <span class="o">=</span> <span class="n">Derivada</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">dfdx</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">dfdx</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="existem-diversas-formulas-para-a-derivacao-numerica">Existem diversas fórmulas para a derivação numérica</h2>
 <p>
 <script type="math/tex; mode=display">  
@@ -1085,27 +1070,7 @@ f'(x) &=  \frac{1}{h} \left( - \frac{1}{6}f(x+2h) + f(x+h) -  \frac{1}{2}f(x) - 
 </p>
 <h2 id="como-podemos-escrever-um-modulo-que-oferece-todas-essas-formulas">Como podemos escrever um módulo que oferece todas essas fórmulas?</h2>
 <p>É fácil:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Frente1</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Frente1</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
@@ -1126,99 +1091,57 @@ f'(x) &=  \frac{1}{h} \left( - \frac{1}{6}f(x+2h) + f(x+h) -  \frac{1}{2}f(x) - 
 <span class="k">class</span> <span class="nc">Central2</span><span class="p">:</span>
     <span class="c1">## mesmo contrutor</span>
     <span class="c1">## coloque as fórmulas relevantes em __call__</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="qual-e-o-problema-com-esse-tipo-de-codigo">Qual é o problema com esse tipo de código?</h2>
 <p>Todos os construtores são iguais então muito código é duplicado.</p>
 <ul>
 <li>Ideia geral: colocar o código em comum em uma superclasse;</li>
-<li>Herdar o construtor da superclasse fazendo subclasses para as diferentes fórmulas de derivação utilizando o <code class="codehilite">__call__</code></li>
+<li>Herdar o construtor da superclasse fazendo subclasses para as diferentes fórmulas de derivação utilizando o <code>__call__</code></li>
 </ul>
 <h2 id="classe-hierarquica-para-derivacao-numerica">Classe hierárquica para derivação numérica</h2>
 <p><strong>Superclasse</strong></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">derivada</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">derivada</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-5</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p><strong>Subclasse para a equação de derivação de primeira ordem para frente</strong></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">frente1</span><span class="p">(</span><span class="n">derivada</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">frente1</span><span class="p">(</span><span class="n">derivada</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">f</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">h</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p><strong>Subclasse para a equação de derivação de quarta ordem central</strong></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">central4</span><span class="p">(</span><span class="n">derivada</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">central4</span><span class="p">(</span><span class="n">derivada</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">f</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
         <span class="k">return</span> <span class="p">(</span><span class="mf">4.</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span>   <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span>  <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> \
                <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="uso-das-classes-de-derivacao">Uso das classes de derivação</h2>
 <p>Exemplo: sendo $ f(x) = sen(x) $, calcule $ f'(x) $ para $ x = \pi $, usando a derivação central de ordem 4.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">derivada</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">derivada</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">meucos</span> <span class="o">=</span> <span class="n">central4</span><span class="p">(</span><span class="n">sin</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="c1"># calcule sin&#39;(pi):</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">meucos</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
 <span class="o">-</span><span class="mf">1.000000082740371</span>
-</pre></div>
-</td></tr></table>
-
-<p><code class="codehilite">central4(sin)</code> chama o construtor herdado na superclasse, enquanto <code class="codehilite">meucos(pi)</code> chama <code class="codehilite">__call__</code> na subclasse <code class="codehilite">central4</code></p>
+</code></pre></div>
+<p><code>central4(sin)</code> chama o construtor herdado na superclasse, enquanto <code>meucos(pi)</code> chama <code>__call__</code> na subclasse <code>central4</code></p>
 <h2 id="exercicio-2-avaliando-o-fluxo-do-programa">Exercício 2: avaliando o fluxo do programa</h2>
 <iframe width="950" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=class+Line%3A%0A++++def+__init__%28self%2C+c0%2C+c1%29%3A%0A++++++++self.c0%2C+self.c1+%3D+c0%2C+c1%0A%0A++++def+__call__%28self%2C+x%29%3A%0A++++++++return+self.c0+%2B+self.c1%2Ax%0A%0A++++def+table%28self%2C+L%2C+R%2C+n%29%3A%0A++++++++%22%22%22Return+a+table+with+n+points+for+L+%3C%3D+x+%3C%3D+R.%22%22%22%0A++++++++s+%3D+%27%27%0A++++++++for+x+in+linspace%28L%2C+R%2C+n%29%3A%0A++++++++++++y+%3D+self%28x%29%0A++++++++++++s+%2B%3D+%27%2512g+%2512g%5Cn%27+%25+%28x%2C+y%29%0A++++++++return+s%0A%0Aclass+Parabola%28Line%29%3A%0A++++def+__init__%28self%2C+c0%2C+c1%2C+c2%29%3A%0A++++++++Line.__init__%28self%2C+c0%2C+c1%29++%23+Line+stores+c0%2C+c1%0A++++++++self.c2+%3D+c2%0A%0A++++def+__call__%28self%2C+x%29%3A%0A++++++++return+Line.__call__%28self%2C+x%29+%2B+self.c2%2Ax%2A%2A2%0A%0Ap+%3D+Parabola%281%2C+-2%2C+2%29%0Aprint+p%282.5%29&curInstr=0&py=2&cumulative=false">
 </iframe>
 
 <h2 id="um-programa-flexivel-para-a-derivacao-numerica">Um programa flexível para a derivação numérica</h2>
 <p>Suponha que nós queremos derivar equações da linha de comando:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Terminal&gt; python df.py &#39;exp(sin(x))&#39; Central 2 3.1
+<div class="highlight"><pre><span></span><code>Terminal&gt; python df.py &#39;exp(sin(x))&#39; Central 2 3.1
 -1.04155573055
 
 Terminal&gt; python df.py &#39;f(x)&#39; difftype difforder x
 f&#39;(x)
-</pre></div>
-</td></tr></table>
-
-<p>Usando o <code class="codehilite">eval</code> e a classe hierárquica <code class="codehilite">derivada</code> este programa principal pode ser feito em poucas linhas (muitas linhas em C# e Java):</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+</code></pre></div>
+<p>Usando o <code>eval</code> e a classe hierárquica <code>derivada</code> este programa principal pode ser feito em poucas linhas (muitas linhas em C# e Java):</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">derivada</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">scitools.StringFunction</span> <span class="kn">import</span> <span class="n">StringFunction</span>
@@ -1229,67 +1152,34 @@ f&#39;(x)
 <span class="n">nome_classe</span> <span class="o">=</span> <span class="n">derivada_tipo</span> <span class="o">+</span> <span class="n">derivada_ordem</span>
 <span class="n">df</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">nome_classe</span> <span class="o">+</span> <span class="s1">&#39;(f)&#39;</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-<span class="k">print</span> <span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="investigando-erros-numericos-por-aproximacoes">Investigando erros numéricos por aproximações</h2>
 <ul>
 <li>Podemos investigar, empiricamente, a precisão de nossa família de 6 equações de derivação numérica;</li>
 <li>Função de teste: $ f(x) = exp(-10x) $;</li>
 <li>Queremos o resultado na seguinte forma:</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>   h         Frente1        Central2        Central4
+<div class="highlight"><pre><span></span><code>   h         Frente1        Central2        Central4
 6.25E-02 -2.56418286E+00  6.63876231E-01 -5.32825724E-02
 3.12E-02 -1.41170013E+00  1.63556996E-01 -3.21608292E-03
 1.56E-02 -7.42100948E-01  4.07398036E-02 -1.99260429E-04
 7.81E-03 -3.80648092E-01  1.01756309E-02 -1.24266603E-05
 3.91E-03 -1.92794011E-01  2.54332554E-03 -7.76243120E-07
 1.95E-03 -9.70235594E-02  6.35795004E-04 -4.85085874E-08
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Observações:</p>
 <ul>
 <li>Reduzindo à metade $h$ de linha a linha o erro se reduz por um fator de 2, 4 e 16, isto é, os erros se reduzem em $h$, $h^2$ e $h^4$;</li>
-<li><code class="codehilite">central4</code> tem uma precisão muito superior se comparada com <code class="codehilite">frente1</code>.</li>
+<li><code>central4</code> tem uma precisão muito superior se comparada com <code>frente1</code>.</li>
 </ul>
 <h3 id="implementacao">Implementação</h3>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">derivada2</span><span class="p">(</span><span class="n">derivada</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-5</span><span class="p">,</span> <span class="n">dfdx_exact</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">derivada2</span><span class="p">(</span><span class="n">derivada</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1E-5</span><span class="p">,</span> <span class="n">dfdx_exact</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">derivada</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">exact</span> <span class="o">=</span> <span class="n">dfdx_exact</span>
     <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">df_numerical</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="n">df_exact</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exact</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">df_exact</span> <span class="o">-</span> <span class="n">df_numerical</span>
@@ -1308,57 +1198,26 @@ f&#39;(x)
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">f</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
         <span class="k">return</span> <span class="p">(</span><span class="mf">4.</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p><strong> Uso </strong></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">derivada2</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">derivada2</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
 
 <span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">df1dx</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">tabela</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h_values</span><span class="p">,</span> <span class="n">metodos</span><span class="p">,</span> <span class="n">dfdx</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">tabela</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h_values</span><span class="p">,</span> <span class="n">metodos</span><span class="p">,</span> <span class="n">dfdx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># imprimir o cabeçalho (h e os nomes das classes para os métodos)</span>
-    <span class="k">print</span> <span class="err">’</span>    <span class="n">h</span>    <span class="err">’</span><span class="p">,</span>
+    <span class="nb">print</span> <span class="err">’</span>    <span class="n">h</span>    <span class="err">’</span><span class="p">,</span>
     <span class="k">for</span> <span class="n">metodo</span> <span class="ow">in</span> <span class="n">metodos</span><span class="p">:</span>
-        <span class="k">print</span> <span class="err">’</span><span class="o">%-</span><span class="mi">15</span><span class="n">s</span><span class="err">’</span> <span class="o">%</span> <span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-    <span class="k">print</span> <span class="c1"># nova linha</span>
+        <span class="nb">print</span> <span class="err">’</span><span class="o">%-</span><span class="mi">15</span><span class="n">s</span><span class="err">’</span> <span class="o">%</span> <span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+    <span class="nb">print</span> <span class="c1"># nova linha</span>
     <span class="c1"># imprimir a tabela</span>
     <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">h_values</span><span class="p">:</span>
-        <span class="k">print</span> <span class="err">’</span><span class="o">%</span><span class="mf">10.2</span><span class="n">E</span><span class="err">’</span> <span class="o">%</span> <span class="n">h</span><span class="p">,</span>
+        <span class="nb">print</span> <span class="err">’</span><span class="o">%</span><span class="mf">10.2</span><span class="n">E</span><span class="err">’</span> <span class="o">%</span> <span class="n">h</span><span class="p">,</span>
     <span class="k">for</span> <span class="n">metodo</span> <span class="ow">in</span> <span class="n">metodos</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">dfdx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dfdx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># escrever o erro</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">metodo</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">dfdx</span><span class="p">)</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1366,15 +1225,12 @@ f&#39;(x)
         <span class="c1"># escrever o valor</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">metodo</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">d</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">print</span> <span class="err">’</span><span class="o">%</span><span class="mf">15.8</span><span class="n">E</span><span class="err">’</span> <span class="o">%</span> <span class="n">output</span><span class="p">,</span>
-    <span class="k">print</span> <span class="c1"># nova linha</span>
+        <span class="nb">print</span> <span class="err">’</span><span class="o">%</span><span class="mf">15.8</span><span class="n">E</span><span class="err">’</span> <span class="o">%</span> <span class="n">output</span><span class="p">,</span>
+    <span class="nb">print</span> <span class="c1"># nova linha</span>
 
 
 <span class="n">tabela</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span> <span class="p">[</span><span class="n">frente1</span><span class="p">,</span> <span class="n">central2</span><span class="p">,</span> <span class="n">central4</span><span class="p">],</span> <span class="n">df1dx</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-                
-                  
+</code></pre></div>
                 
               
               
@@ -1391,34 +1247,34 @@ f&#39;(x)
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../exemplosheranca/" title="Exemplos heranças" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../exemplosheranca/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
                 Exemplos heranças
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../integralclasses/" title="Classes para integrais" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../integralclasses/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
                 Classes para integrais
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1433,11 +1289,10 @@ f&#39;(x)
             Copyright &copy; 2011 Marco André Argenta
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -1446,24 +1301,18 @@ f&#39;(x)
       
     </div>
     
-      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      <script src="../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

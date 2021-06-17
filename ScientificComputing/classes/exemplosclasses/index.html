@@ -1,14 +1,10 @@
 
-
-
-
 <!doctype html>
 <html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Uma introdução à computação científica usando python 2.7">
       
@@ -16,27 +12,8 @@
       
         <meta name="author" content="Marco André Argenta">
       
-      
-        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
-      
-        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
-      
-        <meta name="lang:search.language" content="pt">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
-      
-        <meta name="lang:search.result.one" content="1 resultado encontrado">
-      
-        <meta name="lang:search.result.other" content="# resultados encontrados">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../imagens/terminal.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
     
     
       
@@ -44,27 +21,26 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bc7e593a.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab28b872.min.css">
         
-        <meta name="theme-color" content="#f9a825">
+          
+          
+          <meta name="theme-color" content="#ffec3d">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
-        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CSource+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/estilos.css">
@@ -77,69 +53,79 @@
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="yellow" data-md-color-accent="yellow">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="yellow" data-md-color-accent="yellow">
+      
+  
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#um-outro-exemplo-de-classe-conta-no-banco" tabindex="1" class="md-skip">
-        Ir para o conteúdo
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo">
-          
-            <img src="../../imagens/terminal.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Computação Científica
-            </span>
-            <span class="md-header-nav__topic">
-              Exemplos
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+        <a href="#um-outro-exemplo-de-classe-conta-no-banco" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo" aria-label="Computação Científica">
+      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Computação Científica
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Exemplos
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Digite para iniciar a busca
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -147,31 +133,31 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Computação Científica" class="md-nav__button md-logo">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Computação Científica" class="md-nav__button md-logo" aria-label="Computação Científica">
       
-        <img src="../../imagens/terminal.svg" width="48" height="48">
-      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
     </a>
     Computação Científica
   </label>
@@ -184,7 +170,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Início" class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       Início
     </a>
   </li>
@@ -197,13 +183,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Equações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Equações" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
         Equações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -215,7 +203,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/equacoes/" title="Programando Equações" class="md-nav__link">
+    <a href="../../equacoes/equacoes/" class="md-nav__link">
       Programando Equações
     </a>
   </li>
@@ -227,7 +215,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/regras/" title="Regras de programação" class="md-nav__link">
+    <a href="../../equacoes/regras/" class="md-nav__link">
       Regras de programação
     </a>
   </li>
@@ -239,7 +227,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/sintaxe/" title="Sintaxe e erros" class="md-nav__link">
+    <a href="../../equacoes/sintaxe/" class="md-nav__link">
       Sintaxe e erros
     </a>
   </li>
@@ -257,13 +245,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Laços e listas
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Laços e listas" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
         Laços e listas
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -275,7 +265,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacoslistas/" title="Laços simples" class="md-nav__link">
+    <a href="../../lacoslistas/lacoslistas/" class="md-nav__link">
       Laços simples
     </a>
   </li>
@@ -287,7 +277,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/condicionais/" title="Condicionais" class="md-nav__link">
+    <a href="../../lacoslistas/condicionais/" class="md-nav__link">
       Condicionais
     </a>
   </li>
@@ -299,7 +289,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listas/" title="Listas" class="md-nav__link">
+    <a href="../../lacoslistas/listas/" class="md-nav__link">
       Listas
     </a>
   </li>
@@ -311,7 +301,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacosavancados/" title="Laços avançados" class="md-nav__link">
+    <a href="../../lacoslistas/lacosavancados/" class="md-nav__link">
       Laços avançados
     </a>
   </li>
@@ -323,7 +313,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listasavancadas/" title="Listas avançadas" class="md-nav__link">
+    <a href="../../lacoslistas/listasavancadas/" class="md-nav__link">
       Listas avançadas
     </a>
   </li>
@@ -335,7 +325,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/tuplas/" title="Tuplas" class="md-nav__link">
+    <a href="../../lacoslistas/tuplas/" class="md-nav__link">
       Tuplas
     </a>
   </li>
@@ -353,13 +343,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Funções e ramificações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Funções e ramificações" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
         Funções e ramificações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -371,7 +363,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesramificacoes/" title="Funções" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesramificacoes/" class="md-nav__link">
       Funções
     </a>
   </li>
@@ -383,7 +375,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoeslambda/" title="Funções lambda" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoeslambda/" class="md-nav__link">
       Funções lambda
     </a>
   </li>
@@ -395,7 +387,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/ramificacoes/" title="Ramificações" class="md-nav__link">
+    <a href="../../funcoesramificacoes/ramificacoes/" class="md-nav__link">
       Ramificações
     </a>
   </li>
@@ -407,7 +399,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesteste/" title="Funçoes de teste" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesteste/" class="md-nav__link">
       Funçoes de teste
     </a>
   </li>
@@ -425,13 +417,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Entrada de dados e erros
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Entrada de dados e erros" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
         Entrada de dados e erros
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -443,7 +437,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/entradaerros/" title="Entrada de dados" class="md-nav__link">
+    <a href="../../entradaerros/entradaerros/" class="md-nav__link">
       Entrada de dados
     </a>
   </li>
@@ -455,7 +449,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/argumentoslinhacomando/" title="Argumentos linha comando" class="md-nav__link">
+    <a href="../../entradaerros/argumentoslinhacomando/" class="md-nav__link">
       Argumentos linha comando
     </a>
   </li>
@@ -467,7 +461,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/eval/" title="Função eval" class="md-nav__link">
+    <a href="../../entradaerros/eval/" class="md-nav__link">
       Função eval
     </a>
   </li>
@@ -479,7 +473,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/exec/" title="Função exec" class="md-nav__link">
+    <a href="../../entradaerros/exec/" class="md-nav__link">
       Função exec
     </a>
   </li>
@@ -491,7 +485,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/interfacesgraficas/" title="Interfaces gráficas" class="md-nav__link">
+    <a href="../../entradaerros/interfacesgraficas/" class="md-nav__link">
       Interfaces gráficas
     </a>
   </li>
@@ -503,7 +497,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/arquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../entradaerros/arquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -515,7 +509,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/erros/" title="Erros" class="md-nav__link">
+    <a href="../../entradaerros/erros/" class="md-nav__link">
       Erros
     </a>
   </li>
@@ -527,7 +521,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/modulos/" title="Módulos" class="md-nav__link">
+    <a href="../../entradaerros/modulos/" class="md-nav__link">
       Módulos
     </a>
   </li>
@@ -545,13 +539,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Arranjos e gráficos
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Arranjos e gráficos" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
         Arranjos e gráficos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -563,7 +559,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/arranjosgraficos/" title="Arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/arranjosgraficos/" class="md-nav__link">
       Arranjos
     </a>
   </li>
@@ -575,7 +571,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/graficos/" title="Gráficos" class="md-nav__link">
+    <a href="../../arranjosgraficos/graficos/" class="md-nav__link">
       Gráficos
     </a>
   </li>
@@ -587,7 +583,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/aprofundandoarranjos/" title="Aprofundando em arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/aprofundandoarranjos/" class="md-nav__link">
       Aprofundando em arranjos
     </a>
   </li>
@@ -605,13 +601,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Dicionários e cadeias de caracteres
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Dicionários e cadeias de caracteres" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
         Dicionários e cadeias de caracteres
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -623,7 +621,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dicionariosstrings/" title="Dicionários" class="md-nav__link">
+    <a href="../../dicionariosstrings/dicionariosstrings/" class="md-nav__link">
       Dicionários
     </a>
   </li>
@@ -635,7 +633,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dadosarquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../dicionariosstrings/dadosarquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -647,7 +645,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/cadeiacaracteres/" title="Cadeia de Caracteres" class="md-nav__link">
+    <a href="../../dicionariosstrings/cadeiacaracteres/" class="md-nav__link">
       Cadeia de Caracteres
     </a>
   </li>
@@ -659,7 +657,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/resumos/" title="Resumo das funcionalidades" class="md-nav__link">
+    <a href="../../dicionariosstrings/resumos/" class="md-nav__link">
       Resumo das funcionalidades
     </a>
   </li>
@@ -679,13 +677,15 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
     
     <label class="md-nav__link" for="nav-8">
       Classes
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Classes" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
         Classes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -697,7 +697,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../classes/" title="Classes" class="md-nav__link">
+    <a href="../classes/" class="md-nav__link">
       Classes
     </a>
   </li>
@@ -712,56 +712,56 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Exemplos
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Exemplos" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Exemplos
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#um-outro-exemplo-de-classe-conta-no-banco" title="Um outro exemplo de Classe: conta no banco" class="md-nav__link">
+  <a href="#um-outro-exemplo-de-classe-conta-no-banco" class="md-nav__link">
     Um outro exemplo de Classe: conta no banco
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-o-caractere-_-para-evitar-o-mau-uso" title="Use o caractere _ para evitar o mau uso" class="md-nav__link">
+  <a href="#use-o-caractere-_-para-evitar-o-mau-uso" class="md-nav__link">
     Use o caractere _ para evitar o mau uso
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#um-outro-exemplo-contatos" title="Um outro exemplo: contatos" class="md-nav__link">
+  <a href="#um-outro-exemplo-contatos" class="md-nav__link">
     Um outro exemplo: contatos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mais-um-exemplo-uma-classe-para-um-circulo" title="Mais um exemplo: uma classe para um círculo" class="md-nav__link">
+  <a href="#mais-um-exemplo-uma-classe-para-um-circulo" class="md-nav__link">
     Mais um exemplo: uma classe para um círculo
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -776,7 +776,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../metodosespeciais/" title="Métodos especiais" class="md-nav__link">
+    <a href="../metodosespeciais/" class="md-nav__link">
       Métodos especiais
     </a>
   </li>
@@ -788,7 +788,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aplicacoes/" title="Aplicações" class="md-nav__link">
+    <a href="../aplicacoes/" class="md-nav__link">
       Aplicações
     </a>
   </li>
@@ -806,13 +806,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Programação orientada a objeto
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Programação orientada a objeto" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
         Programação orientada a objeto
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -824,7 +826,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/poo/" title="Programação Orientada a Objeto" class="md-nav__link">
+    <a href="../../poo/poo/" class="md-nav__link">
       Programação Orientada a Objeto
     </a>
   </li>
@@ -836,7 +838,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/exemplosheranca/" title="Exemplos heranças" class="md-nav__link">
+    <a href="../../poo/exemplosheranca/" class="md-nav__link">
       Exemplos heranças
     </a>
   </li>
@@ -848,7 +850,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/derivadaclasses/" title="Classes para derivadas" class="md-nav__link">
+    <a href="../../poo/derivadaclasses/" class="md-nav__link">
       Classes para derivadas
     </a>
   </li>
@@ -860,7 +862,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/integralclasses/" title="Classes para integrais" class="md-nav__link">
+    <a href="../../poo/integralclasses/" class="md-nav__link">
       Classes para integrais
     </a>
   </li>
@@ -882,44 +884,43 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#um-outro-exemplo-de-classe-conta-no-banco" title="Um outro exemplo de Classe: conta no banco" class="md-nav__link">
+  <a href="#um-outro-exemplo-de-classe-conta-no-banco" class="md-nav__link">
     Um outro exemplo de Classe: conta no banco
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-o-caractere-_-para-evitar-o-mau-uso" title="Use o caractere _ para evitar o mau uso" class="md-nav__link">
+  <a href="#use-o-caractere-_-para-evitar-o-mau-uso" class="md-nav__link">
     Use o caractere _ para evitar o mau uso
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#um-outro-exemplo-contatos" title="Um outro exemplo: contatos" class="md-nav__link">
+  <a href="#um-outro-exemplo-contatos" class="md-nav__link">
     Um outro exemplo: contatos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mais-um-exemplo-uma-classe-para-um-circulo" title="Mais um exemplo: uma classe para um círculo" class="md-nav__link">
+  <a href="#mais-um-exemplo-uma-classe-para-um-circulo" class="md-nav__link">
     Mais um exemplo: uma classe para um círculo
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -941,22 +942,7 @@
 <li>Atributos: nome, número da conta, saldo;</li>
 <li>Métodos: depósito, saque, saída formatada.</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ContaBanco</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ContaBanco</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">numero_conta</span><span class="p">,</span> <span class="n">deposito_inicial</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">no</span> <span class="o">=</span> <span class="n">numero_conta</span>
@@ -971,74 +957,37 @@
     <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, saldo: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> \
             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">no</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="p">)</span>
-        <span class="k">print</span> <span class="n">s</span>
-</pre></div>
-</td></tr></table>
-
+        <span class="nb">print</span> <span class="n">s</span>
+</code></pre></div>
 <p>Exemplo de uso:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">ContaBanco</span><span class="p">(</span><span class="s1">&#39;Joaquim Porto&#39;</span><span class="p">,</span> <span class="s1">&#39;19371554951&#39;</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">ContaBanco</span><span class="p">(</span><span class="s1">&#39;Joaquim Porto&#39;</span><span class="p">,</span> <span class="s1">&#39;19371554951&#39;</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">ContaBanco</span><span class="p">(</span><span class="s1">&#39;Manuel Carvalho&#39;</span><span class="p">,</span>  <span class="s1">&#39;19371564761&#39;</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">deposito</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">saque</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a2</span><span class="o">.</span><span class="n">saque</span><span class="p">(</span><span class="mi">10500</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">saque</span><span class="p">(</span><span class="mi">3500</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s2">&quot;a1&#39;s saldo:&quot;</span><span class="p">,</span> <span class="n">a1</span><span class="o">.</span><span class="n">saldo</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span> <span class="s2">&quot;a1&#39;s saldo:&quot;</span><span class="p">,</span> <span class="n">a1</span><span class="o">.</span><span class="n">saldo</span>
 <span class="n">a1</span><span class="s1">&#39;s saldo: 13500</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">Joaquim</span> <span class="n">Porto</span><span class="p">,</span> <span class="mi">19371554951</span><span class="p">,</span> <span class="n">saldo</span><span class="p">:</span> <span class="mi">13500</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a2</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="n">Manuel</span> <span class="n">Carvalho</span><span class="p">,</span> <span class="mi">19371564761</span><span class="p">,</span> <span class="n">saldo</span><span class="p">:</span> <span class="mi">9500</span>
-</pre></div>
-</td></tr></table>
-
-<h2 id="use-o-caractere-_-para-evitar-o-mau-uso">Use o caractere <code class="codehilite">_</code> para evitar o mau uso</h2>
+</code></pre></div>
+<h2 id="use-o-caractere-_-para-evitar-o-mau-uso">Use o caractere <code>_</code> para evitar o mau uso</h2>
 <p>Possível, mas não intencionado ao uso:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="s1">&#39;Qualquer Outro Nome&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="s1">&#39;Qualquer Outro Nome&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">saldo</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">no</span> <span class="o">=</span> <span class="s1">&#39;19371564768&#39;</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>As afirmações para o uso correto:</p>
 <ul>
 <li>Os atributos não devem ser modificados!</li>
-<li>O atributo <code class="codehilite">saldo</code> pode ser visualizado.</li>
-<li>Modificação do <code class="codehilite">saldo</code> é feita através de <code class="codehilite">saque</code> ou <code class="codehilite">deposito</code>.</li>
+<li>O atributo <code>saldo</code> pode ser visualizado.</li>
+<li>Modificação do <code>saldo</code> é feita através de <code>saque</code> ou <code>deposito</code>.</li>
 </ul>
 <p>Remédio:</p>
-<p>Atributos ou métodos não intencionados ao uso fora da classe podem ser marcados como protegidos através do prefixo <code class="codehilite">_</code> antes de seu nome (ex.: <code class="codehilite">_nome</code>). Isso é apenas uma convenção, não existe forma técnica de evitar que atributos e métodos seja acessados.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ContaBancoM</span><span class="p">:</span>
+<p>Atributos ou métodos não intencionados ao uso fora da classe podem ser marcados como protegidos através do prefixo <code>_</code> antes de seu nome (ex.: <code>_nome</code>). Isso é apenas uma convenção, não existe forma técnica de evitar que atributos e métodos seja acessados.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ContaBancoM</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">numero_conta</span><span class="p">,</span> <span class="n">deposito_inicial</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_nome</span> <span class="o">=</span> <span class="n">nome</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_no</span> <span class="o">=</span> <span class="n">numero_conta</span>
@@ -1056,29 +1005,18 @@
     <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, saldo: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> \
             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nome</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_no</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_saldo</span><span class="p">)</span>
-        <span class="k">print</span> <span class="n">s</span>
-</pre></div>
-</td></tr></table>
-
+        <span class="nb">print</span> <span class="n">s</span>
+</code></pre></div>
 <p>Uso:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a1</span> <span class="o">=</span> <span class="n">ContaBancoM</span><span class="p">(</span><span class="s1">&#39;Maria Albertina&#39;</span><span class="p">,</span> <span class="s1">&#39;19371554951&#39;</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a1</span> <span class="o">=</span> <span class="n">ContaBancoM</span><span class="p">(</span><span class="s1">&#39;Maria Albertina&#39;</span><span class="p">,</span> <span class="s1">&#39;19371554951&#39;</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
 <span class="n">a1</span><span class="o">.</span><span class="n">saque</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">a1</span><span class="o">.</span><span class="n">_saldo</span>     <span class="c1">## funciona, mas quebra a convenção!</span>
+<span class="nb">print</span> <span class="n">a1</span><span class="o">.</span><span class="n">_saldo</span>     <span class="c1">## funciona, mas quebra a convenção!</span>
 
-<span class="k">print</span> <span class="n">a1</span><span class="o">.</span><span class="n">ver_saldo</span><span class="p">()</span> <span class="c1">## forma correta de ver o saldo</span>
+<span class="nb">print</span> <span class="n">a1</span><span class="o">.</span><span class="n">ver_saldo</span><span class="p">()</span> <span class="c1">## forma correta de ver o saldo</span>
 
 <span class="n">a1</span><span class="o">.</span><span class="n">_no</span> <span class="o">=</span> <span class="s1">&#39;19371554955&#39;</span> <span class="c1">## isso é &quot;crime&quot;!</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="um-outro-exemplo-contatos">Um outro exemplo: contatos</h2>
 <ul>
 <li>Contatos contém uma lista de dados de pessoas;</li>
@@ -1095,30 +1033,10 @@
 </li>
 </ul>
 <p>Código básico:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Pessoa</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Pessoa</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span>
-                 <span class="n">num_celular</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">num_comercial</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">num_residencial</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+                 <span class="n">num_celular</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">num_comercial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">num_residencial</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">celular</span> <span class="o">=</span> <span class="n">num_celular</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comercial</span> <span class="o">=</span> <span class="n">num_comercial</span>
@@ -1136,47 +1054,24 @@
 
     <span class="k">def</span> <span class="nf">ad_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endereco</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">endereco</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Adicionando ao código um método de saída para mostrar os dados de uma pessoa:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Pessoa</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Pessoa</span><span class="p">:</span>
     <span class="o">...</span>
     <span class="k">def</span> <span class="nf">saida</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">celular</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">celular</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;Telefone celular:   </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">celular</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">comercial</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">comercial</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;Telefone Comercial:   </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">comercial</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">residencial</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">residencial</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;Telefone Redidencial:  </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">residencial</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39;Endereço de e-mail:  </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span>
-        <span class="k">print</span> <span class="n">s</span>
-</pre></div>
-</td></tr></table>
-
+        <span class="nb">print</span> <span class="n">s</span>
+</code></pre></div>
 <p>Uso:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="s1">&#39;Hans Petter Langtangen&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;hpl@simula.no&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="s1">&#39;Hans Petter Langtangen&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;hpl@simula.no&#39;</span><span class="p">)</span>
 <span class="n">p1</span><span class="o">.</span><span class="n">ad_num_comercial</span><span class="p">(</span><span class="s1">&#39;67828283&#39;</span><span class="p">),</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="s1">&#39;Marco André Argenta&#39;</span><span class="p">,</span> <span class="n">num_comercial</span><span class="o">=</span><span class="s1">&#39;33616447&#39;</span><span class="p">)</span>
 <span class="n">p2</span><span class="o">.</span><span class="n">ad_email</span><span class="p">(</span><span class="s1">&#39;marco.argenta@ufpr.br&#39;</span><span class="p">)</span>
@@ -1184,25 +1079,15 @@
 <span class="n">contatos</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Langtangen&#39;</span><span class="p">:</span> <span class="n">p1</span><span class="p">,</span> <span class="s1">&#39;Argenta&#39;</span><span class="p">:</span> <span class="n">p2</span><span class="p">}</span>   <span class="c1">## bem melhor!</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">contatos</span><span class="p">:</span>
     <span class="n">contatos</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">saida</span><span class="p">()</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="mais-um-exemplo-uma-classe-para-um-circulo">Mais um exemplo: uma classe para um círculo</h2>
 <ul>
 <li>Um círculo é definido pelo seu ponto central $x_0$, $y_0$ e seu raio $R$;</li>
 <li>Esses dados podem ser atributos em uma classe;</li>
-<li>Possíveis métodos na classe: <code class="codehilite">area</code>, <code class="codehilite">circunferencia</code>;</li>
+<li>Possíveis métodos na classe: <code>area</code>, <code>circunferencia</code>;</li>
 <li>O construtor inicializa $x_0$, $y_0$ e $R$.</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Circulo</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Circulo</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">R</span>
 
@@ -1211,27 +1096,18 @@
 
     <span class="k">def</span> <span class="nf">circunferencia</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Uso:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circulo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;Um círculo com raio </span><span class="si">%g</span><span class="s1"> e centro em (</span><span class="si">%g</span><span class="s1">, </span><span class="si">%g</span><span class="s1">) tem área </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> \
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Circulo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span> <span class="s1">&#39;Um círculo com raio </span><span class="si">%g</span><span class="s1"> e centro em (</span><span class="si">%g</span><span class="s1">, </span><span class="si">%g</span><span class="s1">) tem área </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> \
 <span class="o">...</span>       <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">x0</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">y0</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
-<span class="n">Um</span> <span class="n">c</span><span class="err">í</span><span class="n">rculo</span> <span class="n">com</span> <span class="n">raio</span> <span class="mi">5</span> <span class="n">e</span> <span class="n">centro</span> <span class="n">em</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">tem</span> <span class="err">á</span><span class="n">rea</span> <span class="mf">78.5398</span>
-</pre></div>
-</td></tr></table>
-
-<p>Para melhorar o código, podemos adicionar uma função teste para a classe <code class="codehilite">circulo</code>:</p>
+<span class="n">Um</span> <span class="n">círculo</span> <span class="n">com</span> <span class="n">raio</span> <span class="mi">5</span> <span class="n">e</span> <span class="n">centro</span> <span class="n">em</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">tem</span> <span class="n">área</span> <span class="mf">78.5398</span>
+</code></pre></div>
+<p>Para melhorar o código, podemos adicionar uma função teste para a classe <code>circulo</code>:</p>
 <div class="admonition warning">
 <p class="admonition-title">Aviso</p>
-<p>Não esqueça do <code class="codehilite"><span class="kn">import</span> <span class="nn">math</span></code> no início do código!</p>
+<p>Não esqueça do <code>import math</code> no início do código!</p>
 </div>
-                
-                  
                 
               
               
@@ -1248,34 +1124,34 @@
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../classes/" title="Classes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../classes/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
                 Classes
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../metodosespeciais/" title="Métodos especiais" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../metodosespeciais/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
                 Métodos especiais
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1290,11 +1166,10 @@
             Copyright &copy; 2011 Marco André Argenta
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -1303,24 +1178,18 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      <script src="../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

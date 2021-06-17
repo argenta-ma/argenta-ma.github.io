@@ -1,14 +1,10 @@
 
-
-
-
 <!doctype html>
 <html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Uma introdução à computação científica usando python 2.7">
       
@@ -16,27 +12,8 @@
       
         <meta name="author" content="Marco André Argenta">
       
-      
-        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
-      
-        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
-      
-        <meta name="lang:search.language" content="pt">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
-      
-        <meta name="lang:search.result.one" content="1 resultado encontrado">
-      
-        <meta name="lang:search.result.other" content="# resultados encontrados">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../imagens/terminal.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
     
     
       
@@ -44,27 +21,26 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bc7e593a.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab28b872.min.css">
         
-        <meta name="theme-color" content="#f9a825">
+          
+          
+          <meta name="theme-color" content="#ffec3d">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
-        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CSource+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/estilos.css">
@@ -77,69 +53,79 @@
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="yellow" data-md-color-accent="yellow">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="yellow" data-md-color-accent="yellow">
+      
+  
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#regras-e-erros" tabindex="1" class="md-skip">
-        Ir para o conteúdo
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo">
-          
-            <img src="../../imagens/terminal.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Computação Científica
-            </span>
-            <span class="md-header-nav__topic">
-              Regras de programação
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+        <a href="#regras-e-erros" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo" aria-label="Computação Científica">
+      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Computação Científica
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Regras de programação
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Digite para iniciar a busca
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -147,31 +133,31 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Computação Científica" class="md-nav__button md-logo">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Computação Científica" class="md-nav__button md-logo" aria-label="Computação Científica">
       
-        <img src="../../imagens/terminal.svg" width="48" height="48">
-      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
     </a>
     Computação Científica
   </label>
@@ -184,7 +170,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Início" class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       Início
     </a>
   </li>
@@ -199,13 +185,15 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Equações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Equações" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
         Equações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -217,7 +205,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../equacoes/" title="Programando Equações" class="md-nav__link">
+    <a href="../equacoes/" class="md-nav__link">
       Programando Equações
     </a>
   </li>
@@ -232,74 +220,74 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Regras de programação
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Regras de programação" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Regras de programação
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#variaveis" title="Variáveis" class="md-nav__link">
+  <a href="#variaveis" class="md-nav__link">
     Variáveis
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#palavras-reservadas" title="Palavras Reservadas" class="md-nav__link">
+  <a href="#palavras-reservadas" class="md-nav__link">
     Palavras Reservadas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comentarios" title="Comentários" class="md-nav__link">
+  <a href="#comentarios" class="md-nav__link">
     Comentários
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caracteres-e-acentuacao" title="Caracteres e acentuação" class="md-nav__link">
+  <a href="#caracteres-e-acentuacao" class="md-nav__link">
     Caracteres e acentuação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#formatacao-da-saida" title="Formatação da saída" class="md-nav__link">
+  <a href="#formatacao-da-saida" class="md-nav__link">
     Formatação da saída
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#termos-em-computacao-cientifica" title="Termos em Computação Científica" class="md-nav__link">
+  <a href="#termos-em-computacao-cientifica" class="md-nav__link">
     Termos em Computação Científica
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -314,7 +302,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../sintaxe/" title="Sintaxe e erros" class="md-nav__link">
+    <a href="../sintaxe/" class="md-nav__link">
       Sintaxe e erros
     </a>
   </li>
@@ -332,13 +320,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Laços e listas
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Laços e listas" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
         Laços e listas
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -350,7 +340,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacoslistas/" title="Laços simples" class="md-nav__link">
+    <a href="../../lacoslistas/lacoslistas/" class="md-nav__link">
       Laços simples
     </a>
   </li>
@@ -362,7 +352,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/condicionais/" title="Condicionais" class="md-nav__link">
+    <a href="../../lacoslistas/condicionais/" class="md-nav__link">
       Condicionais
     </a>
   </li>
@@ -374,7 +364,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listas/" title="Listas" class="md-nav__link">
+    <a href="../../lacoslistas/listas/" class="md-nav__link">
       Listas
     </a>
   </li>
@@ -386,7 +376,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/lacosavancados/" title="Laços avançados" class="md-nav__link">
+    <a href="../../lacoslistas/lacosavancados/" class="md-nav__link">
       Laços avançados
     </a>
   </li>
@@ -398,7 +388,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/listasavancadas/" title="Listas avançadas" class="md-nav__link">
+    <a href="../../lacoslistas/listasavancadas/" class="md-nav__link">
       Listas avançadas
     </a>
   </li>
@@ -410,7 +400,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../lacoslistas/tuplas/" title="Tuplas" class="md-nav__link">
+    <a href="../../lacoslistas/tuplas/" class="md-nav__link">
       Tuplas
     </a>
   </li>
@@ -428,13 +418,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Funções e ramificações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Funções e ramificações" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
         Funções e ramificações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -446,7 +438,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesramificacoes/" title="Funções" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesramificacoes/" class="md-nav__link">
       Funções
     </a>
   </li>
@@ -458,7 +450,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoeslambda/" title="Funções lambda" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoeslambda/" class="md-nav__link">
       Funções lambda
     </a>
   </li>
@@ -470,7 +462,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/ramificacoes/" title="Ramificações" class="md-nav__link">
+    <a href="../../funcoesramificacoes/ramificacoes/" class="md-nav__link">
       Ramificações
     </a>
   </li>
@@ -482,7 +474,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesteste/" title="Funçoes de teste" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesteste/" class="md-nav__link">
       Funçoes de teste
     </a>
   </li>
@@ -500,13 +492,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Entrada de dados e erros
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Entrada de dados e erros" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
         Entrada de dados e erros
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -518,7 +512,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/entradaerros/" title="Entrada de dados" class="md-nav__link">
+    <a href="../../entradaerros/entradaerros/" class="md-nav__link">
       Entrada de dados
     </a>
   </li>
@@ -530,7 +524,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/argumentoslinhacomando/" title="Argumentos linha comando" class="md-nav__link">
+    <a href="../../entradaerros/argumentoslinhacomando/" class="md-nav__link">
       Argumentos linha comando
     </a>
   </li>
@@ -542,7 +536,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/eval/" title="Função eval" class="md-nav__link">
+    <a href="../../entradaerros/eval/" class="md-nav__link">
       Função eval
     </a>
   </li>
@@ -554,7 +548,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/exec/" title="Função exec" class="md-nav__link">
+    <a href="../../entradaerros/exec/" class="md-nav__link">
       Função exec
     </a>
   </li>
@@ -566,7 +560,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/interfacesgraficas/" title="Interfaces gráficas" class="md-nav__link">
+    <a href="../../entradaerros/interfacesgraficas/" class="md-nav__link">
       Interfaces gráficas
     </a>
   </li>
@@ -578,7 +572,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/arquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../entradaerros/arquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -590,7 +584,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/erros/" title="Erros" class="md-nav__link">
+    <a href="../../entradaerros/erros/" class="md-nav__link">
       Erros
     </a>
   </li>
@@ -602,7 +596,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/modulos/" title="Módulos" class="md-nav__link">
+    <a href="../../entradaerros/modulos/" class="md-nav__link">
       Módulos
     </a>
   </li>
@@ -620,13 +614,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Arranjos e gráficos
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Arranjos e gráficos" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
         Arranjos e gráficos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -638,7 +634,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/arranjosgraficos/" title="Arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/arranjosgraficos/" class="md-nav__link">
       Arranjos
     </a>
   </li>
@@ -650,7 +646,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/graficos/" title="Gráficos" class="md-nav__link">
+    <a href="../../arranjosgraficos/graficos/" class="md-nav__link">
       Gráficos
     </a>
   </li>
@@ -662,7 +658,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/aprofundandoarranjos/" title="Aprofundando em arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/aprofundandoarranjos/" class="md-nav__link">
       Aprofundando em arranjos
     </a>
   </li>
@@ -680,13 +676,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Dicionários e cadeias de caracteres
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Dicionários e cadeias de caracteres" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
         Dicionários e cadeias de caracteres
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -698,7 +696,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dicionariosstrings/" title="Dicionários" class="md-nav__link">
+    <a href="../../dicionariosstrings/dicionariosstrings/" class="md-nav__link">
       Dicionários
     </a>
   </li>
@@ -710,7 +708,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dadosarquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../dicionariosstrings/dadosarquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -722,7 +720,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/cadeiacaracteres/" title="Cadeia de Caracteres" class="md-nav__link">
+    <a href="../../dicionariosstrings/cadeiacaracteres/" class="md-nav__link">
       Cadeia de Caracteres
     </a>
   </li>
@@ -734,7 +732,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/resumos/" title="Resumo das funcionalidades" class="md-nav__link">
+    <a href="../../dicionariosstrings/resumos/" class="md-nav__link">
       Resumo das funcionalidades
     </a>
   </li>
@@ -752,13 +750,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Classes
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Classes" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
         Classes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -770,7 +770,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/classes/" title="Classes" class="md-nav__link">
+    <a href="../../classes/classes/" class="md-nav__link">
       Classes
     </a>
   </li>
@@ -782,7 +782,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/exemplosclasses/" title="Exemplos" class="md-nav__link">
+    <a href="../../classes/exemplosclasses/" class="md-nav__link">
       Exemplos
     </a>
   </li>
@@ -794,7 +794,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/metodosespeciais/" title="Métodos especiais" class="md-nav__link">
+    <a href="../../classes/metodosespeciais/" class="md-nav__link">
       Métodos especiais
     </a>
   </li>
@@ -806,7 +806,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/aplicacoes/" title="Aplicações" class="md-nav__link">
+    <a href="../../classes/aplicacoes/" class="md-nav__link">
       Aplicações
     </a>
   </li>
@@ -824,13 +824,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Programação orientada a objeto
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Programação orientada a objeto" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
         Programação orientada a objeto
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -842,7 +844,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/poo/" title="Programação Orientada a Objeto" class="md-nav__link">
+    <a href="../../poo/poo/" class="md-nav__link">
       Programação Orientada a Objeto
     </a>
   </li>
@@ -854,7 +856,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/exemplosheranca/" title="Exemplos heranças" class="md-nav__link">
+    <a href="../../poo/exemplosheranca/" class="md-nav__link">
       Exemplos heranças
     </a>
   </li>
@@ -866,7 +868,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/derivadaclasses/" title="Classes para derivadas" class="md-nav__link">
+    <a href="../../poo/derivadaclasses/" class="md-nav__link">
       Classes para derivadas
     </a>
   </li>
@@ -878,7 +880,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/integralclasses/" title="Classes para integrais" class="md-nav__link">
+    <a href="../../poo/integralclasses/" class="md-nav__link">
       Classes para integrais
     </a>
   </li>
@@ -900,60 +902,59 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#variaveis" title="Variáveis" class="md-nav__link">
+  <a href="#variaveis" class="md-nav__link">
     Variáveis
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#palavras-reservadas" title="Palavras Reservadas" class="md-nav__link">
+  <a href="#palavras-reservadas" class="md-nav__link">
     Palavras Reservadas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comentarios" title="Comentários" class="md-nav__link">
+  <a href="#comentarios" class="md-nav__link">
     Comentários
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caracteres-e-acentuacao" title="Caracteres e acentuação" class="md-nav__link">
+  <a href="#caracteres-e-acentuacao" class="md-nav__link">
     Caracteres e acentuação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#formatacao-da-saida" title="Formatação da saída" class="md-nav__link">
+  <a href="#formatacao-da-saida" class="md-nav__link">
     Formatação da saída
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#termos-em-computacao-cientifica" title="Termos em Computação Científica" class="md-nav__link">
+  <a href="#termos-em-computacao-cientifica" class="md-nav__link">
     Termos em Computação Científica
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -971,17 +972,14 @@
                 <h1 id="regras-e-erros">Regras e Erros</h1>
 <p>Os computadores são muito exigentes quanto às regras gramaticais e erros de digitação.</p>
 <p>Olhe para:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">print</span> <span class="mi">5</span><span class="o">*</span><span class="mf">0.6</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="mf">0.6</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span> <span class="mi">5</span><span class="o">*</span><span class="mf">0.6</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="mf">9.81</span><span class="o">*</span><span class="mf">0.6</span><span class="o">**</span><span class="mi">2</span>
 <span class="n">write</span> <span class="mi">5</span><span class="o">*</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span> <span class="o">-</span> <span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="mi">9</span><span class="p">,</span><span class="mi">81</span><span class="o">*</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">^</span><span class="mi">2</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Você consideraria essas duas linhas iguais?</p>
 <ul>
 <li>Humanos dirão <em>sim</em>, computadores <em>não</em>;</li>
 <li>A segunda linha não tem sentido dentro de um programa Python;</li>
-<li><code class="codehilite">write</code> não é uma palavra reservada em Python, a vírgula tem outro
+<li><code>write</code> não é uma palavra reservada em Python, a vírgula tem outro
     sentido diferente do matemático e o acento circunflexo não é
     exponenciação;</li>
 <li>Precisamos ser extremamente precisos quando vamos escrever programas
@@ -1010,18 +1008,12 @@ Na matemática nós estamos acostumados às variáveis, ou seja:</p>
 </p>
 <p>Nós podemos usar variáveis em um programa também, e isso torna o
 programa mais fácil de ser lido e entendido:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">v0</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight"><pre><span></span><code><span class="n">v0</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
 <span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
-<span class="k">print</span> <span class="n">y</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">y</span>
+</code></pre></div>
 <p>Esse programa abrange várias linhas de texto e usa variáveis, mesmo
 assim o programa executa os mesmos cálculos e dá a mesma saída que o
 programa anterior.</p>
@@ -1029,27 +1021,20 @@ programa anterior.</p>
 <ul>
 <li>Na matemática nós normalmente usamos uma letra para a variável;</li>
 <li>O nome da variável em um programa pode conter letras de a-z ou A-Z,
-    símbolo de sublinhado \"<code class="codehilite">_</code>\" e dígitos de 0-9, mas não pode iniciar
+    símbolo de sublinhado \"<code>_</code>\" e dígitos de 0-9, mas não pode iniciar
     com um dígito;</li>
 <li>Não se utilizam caracteres especiais em nomes de variáveis, como ã,
     é, $, &amp;, etc;</li>
-<li>Os nomes das variáveis são \"case-sensitive\" (ou seja, <code class="codehilite">a</code> é
-    diferente de <code class="codehilite">A</code>).</li>
+<li>Os nomes das variáveis são \"case-sensitive\" (ou seja, <code>a</code> é
+    diferente de <code>A</code>).</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">velocidade_inicial</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight"><pre><span></span><code><span class="n">velocidade_inicial</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">acel_gravidade</span> <span class="o">=</span> <span class="mf">9.81</span>
 <span class="n">TEMPO</span> <span class="o">=</span> <span class="mf">0.6</span>
 <span class="n">PosicaoVerticalDaBola</span> <span class="o">=</span> <span class="n">velocidade_inicial</span><span class="o">*</span><span class="n">TEMPO</span> <span class="o">-</span> \ 
                          <span class="mf">0.5</span><span class="o">*</span><span class="n">acel_gravidade</span><span class="o">*</span><span class="n">TEMPO</span><span class="o">**</span><span class="mi">2</span>
-<span class="k">print</span> <span class="n">PosicaoVerticalDaBola</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">PosicaoVerticalDaBola</span>
+</code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Dica</p>
 <p>Bons nomes para variáveis tornam um programa fácil de entender!</p>
@@ -1059,42 +1044,30 @@ programa anterior.</p>
 Certas palavras possuem um significado especial em Python e não podem
 ser usadas como nome de variáveis.</p>
 <p>São elas:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ow">and</span><span class="p">,</span> <span class="k">as</span><span class="p">,</span> <span class="k">assert</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="n">class</span><span class="p">,</span> <span class="k">continue</span><span class="p">,</span> <span class="n">def</span><span class="p">,</span> <span class="k">del</span><span class="p">,</span> <span class="k">elif</span><span class="p">,</span> <span class="k">else</span><span class="p">,</span>  
-<span class="k">except</span><span class="p">,</span> <span class="k">exec</span><span class="p">,</span> <span class="k">finally</span><span class="p">,</span> <span class="k">for</span><span class="p">,</span> <span class="n">from</span><span class="p">,</span> <span class="k">global</span><span class="p">,</span> <span class="k">if</span><span class="p">,</span> <span class="n">import</span><span class="p">,</span> <span class="ow">in</span><span class="p">,</span> <span class="ow">is</span><span class="p">,</span>  
-<span class="k">lambda</span><span class="p">,</span> <span class="ow">not</span><span class="p">,</span> <span class="ow">or</span><span class="p">,</span> <span class="k">pass</span><span class="p">,</span> <span class="k">print</span><span class="p">,</span> <span class="k">raise</span><span class="p">,</span> <span class="k">return</span><span class="p">,</span> <span class="k">try</span><span class="p">,</span> <span class="k">with</span><span class="p">,</span> <span class="k">while</span><span class="p">,</span> <span class="k">yield</span><span class="o">.</span>
-</pre></div>
-</td></tr></table>
-
+<div class="highlight"><pre><span></span><code><span class="ow">and</span><span class="p">,</span> <span class="k">as</span><span class="p">,</span> <span class="k">assert</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="n">class</span><span class="p">,</span> <span class="k">continue</span><span class="p">,</span> <span class="n">def</span><span class="p">,</span> <span class="k">del</span><span class="p">,</span> <span class="k">elif</span><span class="p">,</span> <span class="k">else</span><span class="p">,</span>  
+<span class="k">except</span><span class="p">,</span> <span class="n">exec</span><span class="p">,</span> <span class="k">finally</span><span class="p">,</span> <span class="k">for</span><span class="p">,</span> <span class="n">from</span><span class="p">,</span> <span class="k">global</span><span class="p">,</span> <span class="k">if</span><span class="p">,</span> <span class="n">import</span><span class="p">,</span> <span class="ow">in</span><span class="p">,</span> <span class="ow">is</span><span class="p">,</span>  
+<span class="k">lambda</span><span class="p">,</span> <span class="ow">not</span><span class="p">,</span> <span class="ow">or</span><span class="p">,</span> <span class="k">pass</span><span class="p">,</span> <span class="nb">print</span><span class="p">,</span> <span class="k">raise</span><span class="p">,</span> <span class="k">return</span><span class="p">,</span> <span class="k">try</span><span class="p">,</span> <span class="k">with</span><span class="p">,</span> <span class="k">while</span><span class="p">,</span> <span class="k">yield</span><span class="o">.</span>
+</code></pre></div>
 <h2 id="comentarios">Comentários</h2>
 <p>Comentários são uma forma útil de se explicar um programa.</p>
 <p><strong>Programa com comentários:</strong></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># programa para calcular a altura de uma bola</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># programa para calcular a altura de uma bola</span>
 <span class="c1"># em movimento vertical</span>
 <span class="n">v0</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1"># velocidade inicial</span>
 <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># aceleração da gravidade</span>
 <span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>   <span class="c1"># tempo</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># posição vertical</span>
-<span class="k">print</span> <span class="n">y</span>
-</pre></div>
-</td></tr></table>
-
+<span class="nb">print</span> <span class="n">y</span>
+</code></pre></div>
 <p><strong>Notas:</strong></p>
 <ul>
-<li>Tudo após o símbolo <code class="codehilite">#</code> em uma linha é um comentário e é ignorado
+<li>Tudo após o símbolo <code>#</code> em uma linha é um comentário e é ignorado
     pelo Python;</li>
 <li>Comentários são utilizados para explicar o que as instruções do
     código significam, o que as variáveis significam, como o programador
     raciocinou quando escrever o programa, etc.</li>
 <li>Comentários ruins não dizem nada a mais que o código:\
-    <code class="codehilite">a = 5  # definir a como 5</code></li>
+    <code>a = 5  # definir a como 5</code></li>
 </ul>
 <p>Porém, os comentários não são sempre ignorados, como veremos mais adiante.</p>
 <h2 id="caracteres-e-acentuacao">Caracteres e acentuação</h2>
@@ -1105,31 +1078,22 @@ normalmente todo o programa, inclusive os comentários são escritos em
 inglês!</p>
 <p>Algumas vezes mesmo caracteres especiais colocados em textos ou
 comentários podem gerar um erro no programa:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">verdade</span> <span class="o">=</span> <span class="s1">&#39;Não é não!&#39;</span>  <span class="c1"># ã e é são permitidos em uma string?</span>
-<span class="k">print</span> <span class="n">verdade</span>
-</pre></div>
-</td></tr></table>
-
+<div class="highlight"><pre><span></span><code><span class="n">verdade</span> <span class="o">=</span> <span class="s1">&#39;Não é não!&#39;</span>  <span class="c1"># ã e é são permitidos em uma string?</span>
+<span class="nb">print</span> <span class="n">verdade</span>
+</code></pre></div>
 <p>Pode gerar o erro:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Non</span><span class="o">-</span><span class="n">ASCII</span> <span class="n">character</span> <span class="o">...</span>
-</pre></div>
-</td></tr></table>
-
+<div class="highlight"><pre><span></span><code><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">Non</span><span class="o">-</span><span class="n">ASCII</span> <span class="n">character</span> <span class="o">...</span>
+</code></pre></div>
 <p>A solução para esse tipo de erro e acrescentar na primeira linha do seu
 programa a codificação na qual você está escrevendo o código, para Linux
 e Mac:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-</pre></div>
-</td></tr></table>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
+</code></pre></div>
 <p>E para windows:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1"># -*- coding: cp-1252 -*-</span>
-</pre></div>
-</td></tr></table>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: cp-1252 -*-</span>
+</code></pre></div>
 <h2 id="formatacao-da-saida">Formatação da saída</h2>
-<p>O comando <code class="codehilite">printf</code> nós dá grande flexibilidade formantando texto com
+<p>O comando <code>printf</code> nós dá grande flexibilidade formantando texto com
 números.</p>
 <p>O resultado de cálculos normalmente contém números com algum
 significado, por exemplo:</p>
@@ -1138,32 +1102,17 @@ significado, por exemplo:</p>
 </blockquote>
 <p>É interessante controlar a formatação dos números como: 
 quantidade de decimais, estilo (0,6 ou 6e-01), entre outros.</p>
-<p>O comando interno do Python (ou palavra reservada) <code class="codehilite">printf</code> é útil para
+<p>O comando interno do Python (ou palavra reservada) <code>printf</code> é útil para
 esse propósito:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">1.2342</span>
-<span class="k">print</span> <span class="s1">&#39;Em t=</span><span class="si">%g</span><span class="s1"> s, y é </span><span class="si">%.2f</span><span class="s1"> m.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
-<p>O comando <code class="codehilite">printf</code> possui "espaços" onde as variáveis listadas ao
+<span class="nb">print</span> <span class="s1">&#39;Em t=</span><span class="si">%g</span><span class="s1"> s, y é </span><span class="si">%.2f</span><span class="s1"> m.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+<p>O comando <code>printf</code> possui "espaços" onde as variáveis listadas ao
 final são acrescentadas ao texto formatado:<br />
-<code class="codehilite"><span class="nf">%g</span></code> $ \leftarrow $ <code class="codehilite">t</code>, <code class="codehilite"><span class="c">%.2f</span></code> $ \leftarrow $ <code class="codehilite">y</code></p>
+<code>%g</code> $ \leftarrow $ <code>t</code>, <code>%.2f</code> $ \leftarrow $ <code>y</code></p>
 <p>Exemplos de diferentes formatações com o printf:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">g</span>         <span class="c1">#formato mais compacto de um número real</span>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">g</span>         <span class="c1">#formato mais compacto de um número real</span>
 <span class="o">%</span><span class="n">f</span>         <span class="c1">#notação decimal (-34.674)</span>
 <span class="o">%</span><span class="mf">10.3</span><span class="n">f</span>     <span class="c1">#notação decimal com 3 decimais e 10 dígitos inteiros</span>
 <span class="o">%.</span><span class="mi">3</span><span class="n">f</span>       <span class="c1">#notação decimal com 3 decimais e mínimo tamanho</span>
@@ -1175,40 +1124,25 @@ final são acrescentadas ao texto formatado:<br />
 <span class="o">%</span><span class="n">s</span>         <span class="c1">#string (texto)</span>
 <span class="o">%-</span><span class="mi">20</span><span class="n">s</span>      <span class="c1">#string, com 20 caracteres, alinhado à esquerda</span>
 <span class="o">%%</span>         <span class="c1">#símbolo de porcentagem %</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Se for necessária uma saída mais completa, textos (strings) com triplas aspas (""" ou ''') podem ser
 utilizados para saídas em múltiplas linhas que, ainda, podem ser
-combinadas com uma formatação do comando <code class="codehilite">printf</code>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">v0</span> <span class="o">=</span> <span class="mi">5</span>
+combinadas com uma formatação do comando <code>printf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">v0</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
 <span class="n">t</span> <span class="o">=</span> <span class="mf">0.6</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="k">print</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="nb">print</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">Em t=</span><span class="si">%f</span><span class="s2"> s, uma bola com</span>
 <span class="s2">velocidade inicial v0=</span><span class="si">%.3E</span><span class="s2"> m/s</span>
 <span class="s2">está posicionada na altura de </span><span class="si">%.2f</span><span class="s2"> m.</span>
 <span class="s2">&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Salve como um arquivo do python (ex. saida_formatada.py) e rode o
 programa:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Terminal&gt; python saida_formatada.py
-</pre></div>
-</td></tr></table>
-
+<div class="highlight"><pre><span></span><code>Terminal&gt; python saida_formatada.py
+</code></pre></div>
 <h2 id="termos-em-computacao-cientifica">Termos em Computação Científica</h2>
 <p>Alguns termos comumente usados em computação científica:</p>
 <ul>
@@ -1223,8 +1157,6 @@ programa:</p>
 </ul>
 <p>O significado de alguns termos em computação científica é geralmente
 diferente do significado do "dicionário".</p>
-                
-                  
                 
               
               
@@ -1241,34 +1173,34 @@ diferente do significado do "dicionário".</p>
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../equacoes/" title="Programando Equações" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../equacoes/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
                 Programando Equações
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../sintaxe/" title="Sintaxe e erros" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../sintaxe/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
                 Sintaxe e erros
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1283,11 +1215,10 @@ diferente do significado do "dicionário".</p>
             Copyright &copy; 2011 Marco André Argenta
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -1296,24 +1227,18 @@ diferente do significado do "dicionário".</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      <script src="../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       

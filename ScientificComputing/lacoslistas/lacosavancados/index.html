@@ -1,14 +1,10 @@
 
-
-
-
 <!doctype html>
 <html lang="pt" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Uma introdução à computação científica usando python 2.7">
       
@@ -16,27 +12,8 @@
       
         <meta name="author" content="Marco André Argenta">
       
-      
-        <meta name="lang:clipboard.copy" content="Copiar para área de transferência">
-      
-        <meta name="lang:clipboard.copied" content="Copiado para área de transferência">
-      
-        <meta name="lang:search.language" content="pt">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="Nenhum resultado encontrado">
-      
-        <meta name="lang:search.result.one" content="1 resultado encontrado">
-      
-        <meta name="lang:search.result.other" content="# resultados encontrados">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../imagens/terminal.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
     
     
       
@@ -44,27 +21,26 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.750b69bd.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bc7e593a.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab28b872.min.css">
         
-        <meta name="theme-color" content="#f9a825">
+          
+          
+          <meta name="theme-color" content="#ffec3d">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Source+Code+Pro">
-        <style>body,input{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CSource+Code+Pro&display=fallback">
+        <style>body,input{font-family:"Open Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Source Code Pro",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/estilos.css">
@@ -77,69 +53,79 @@
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="yellow" data-md-color-accent="yellow">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="yellow" data-md-color-accent="yellow">
+      
+  
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#lacos-avancados" tabindex="1" class="md-skip">
-        Ir para o conteúdo
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo">
-          
-            <img src="../../imagens/terminal.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Computação Científica
-            </span>
-            <span class="md-header-nav__topic">
-              Laços avançados
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+        <a href="#lacos-avancados" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Computação Científica" class="md-header-nav__button md-logo" aria-label="Computação Científica">
+      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Computação Científica
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Laços avançados
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Digite para iniciar a busca
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -147,31 +133,31 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Computação Científica" class="md-nav__button md-logo">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Computação Científica" class="md-nav__button md-logo" aria-label="Computação Científica">
       
-        <img src="../../imagens/terminal.svg" width="48" height="48">
-      
+  <img src="../../imagens/terminal.svg" alt="logo">
+
     </a>
     Computação Científica
   </label>
@@ -184,7 +170,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Início" class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       Início
     </a>
   </li>
@@ -197,13 +183,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Equações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Equações" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
         Equações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -215,7 +203,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/equacoes/" title="Programando Equações" class="md-nav__link">
+    <a href="../../equacoes/equacoes/" class="md-nav__link">
       Programando Equações
     </a>
   </li>
@@ -227,7 +215,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/regras/" title="Regras de programação" class="md-nav__link">
+    <a href="../../equacoes/regras/" class="md-nav__link">
       Regras de programação
     </a>
   </li>
@@ -239,7 +227,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../equacoes/sintaxe/" title="Sintaxe e erros" class="md-nav__link">
+    <a href="../../equacoes/sintaxe/" class="md-nav__link">
       Sintaxe e erros
     </a>
   </li>
@@ -259,13 +247,15 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Laços e listas
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Laços e listas" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
         Laços e listas
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -277,7 +267,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../lacoslistas/" title="Laços simples" class="md-nav__link">
+    <a href="../lacoslistas/" class="md-nav__link">
       Laços simples
     </a>
   </li>
@@ -289,7 +279,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../condicionais/" title="Condicionais" class="md-nav__link">
+    <a href="../condicionais/" class="md-nav__link">
       Condicionais
     </a>
   </li>
@@ -301,7 +291,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../listas/" title="Listas" class="md-nav__link">
+    <a href="../listas/" class="md-nav__link">
       Listas
     </a>
   </li>
@@ -316,81 +306,81 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Laços avançados
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Laços avançados" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Laços avançados
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#laco-for-sobre-elementos-em-uma-lista" title="Laço for sobre elementos em uma lista" class="md-nav__link">
+  <a href="#laco-for-sobre-elementos-em-uma-lista" class="md-nav__link">
     Laço for sobre elementos em uma lista
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#simulando-um-laco-for-na-mao" title="Simulando um laço for na mão" class="md-nav__link">
+  <a href="#simulando-um-laco-for-na-mao" class="md-nav__link">
     Simulando um laço for na mão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fazendo-uma-tabela-com-um-laco-for" title="Fazendo uma tabela com um laço for" class="md-nav__link">
+  <a href="#fazendo-uma-tabela-com-um-laco-for" class="md-nav__link">
     Fazendo uma tabela com um laço for
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#transformando-for-em-um-while" title="Transformando for em um while" class="md-nav__link">
+  <a href="#transformando-for-em-um-while" class="md-nav__link">
     Transformando for em um while
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versao-em-while-do-laco-para-fazer-uma-tabela" title="Versão em while do laço para fazer uma tabela" class="md-nav__link">
+  <a href="#versao-em-while-do-laco-para-fazer-uma-tabela" class="md-nav__link">
     Versão em while do laço para fazer uma tabela
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#implemente-uma-somatoria-usando-laco" title="Implemente uma somatória usando laço" class="md-nav__link">
+  <a href="#implemente-uma-somatoria-usando-laco" class="md-nav__link">
     Implemente uma somatória usando laço
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#armazenando-colunas-de-tabelas-como-listas" title="Armazenando colunas de tabelas como listas" class="md-nav__link">
+  <a href="#armazenando-colunas-de-tabelas-como-listas" class="md-nav__link">
     Armazenando colunas de tabelas como listas
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -405,7 +395,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../listasavancadas/" title="Listas avançadas" class="md-nav__link">
+    <a href="../listasavancadas/" class="md-nav__link">
       Listas avançadas
     </a>
   </li>
@@ -417,7 +407,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tuplas/" title="Tuplas" class="md-nav__link">
+    <a href="../tuplas/" class="md-nav__link">
       Tuplas
     </a>
   </li>
@@ -435,13 +425,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Funções e ramificações
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Funções e ramificações" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
         Funções e ramificações
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -453,7 +445,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesramificacoes/" title="Funções" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesramificacoes/" class="md-nav__link">
       Funções
     </a>
   </li>
@@ -465,7 +457,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoeslambda/" title="Funções lambda" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoeslambda/" class="md-nav__link">
       Funções lambda
     </a>
   </li>
@@ -477,7 +469,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/ramificacoes/" title="Ramificações" class="md-nav__link">
+    <a href="../../funcoesramificacoes/ramificacoes/" class="md-nav__link">
       Ramificações
     </a>
   </li>
@@ -489,7 +481,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../funcoesramificacoes/funcoesteste/" title="Funçoes de teste" class="md-nav__link">
+    <a href="../../funcoesramificacoes/funcoesteste/" class="md-nav__link">
       Funçoes de teste
     </a>
   </li>
@@ -507,13 +499,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Entrada de dados e erros
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Entrada de dados e erros" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
         Entrada de dados e erros
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -525,7 +519,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/entradaerros/" title="Entrada de dados" class="md-nav__link">
+    <a href="../../entradaerros/entradaerros/" class="md-nav__link">
       Entrada de dados
     </a>
   </li>
@@ -537,7 +531,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/argumentoslinhacomando/" title="Argumentos linha comando" class="md-nav__link">
+    <a href="../../entradaerros/argumentoslinhacomando/" class="md-nav__link">
       Argumentos linha comando
     </a>
   </li>
@@ -549,7 +543,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/eval/" title="Função eval" class="md-nav__link">
+    <a href="../../entradaerros/eval/" class="md-nav__link">
       Função eval
     </a>
   </li>
@@ -561,7 +555,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/exec/" title="Função exec" class="md-nav__link">
+    <a href="../../entradaerros/exec/" class="md-nav__link">
       Função exec
     </a>
   </li>
@@ -573,7 +567,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/interfacesgraficas/" title="Interfaces gráficas" class="md-nav__link">
+    <a href="../../entradaerros/interfacesgraficas/" class="md-nav__link">
       Interfaces gráficas
     </a>
   </li>
@@ -585,7 +579,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/arquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../entradaerros/arquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -597,7 +591,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/erros/" title="Erros" class="md-nav__link">
+    <a href="../../entradaerros/erros/" class="md-nav__link">
       Erros
     </a>
   </li>
@@ -609,7 +603,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../entradaerros/modulos/" title="Módulos" class="md-nav__link">
+    <a href="../../entradaerros/modulos/" class="md-nav__link">
       Módulos
     </a>
   </li>
@@ -627,13 +621,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       Arranjos e gráficos
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Arranjos e gráficos" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
         Arranjos e gráficos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -645,7 +641,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/arranjosgraficos/" title="Arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/arranjosgraficos/" class="md-nav__link">
       Arranjos
     </a>
   </li>
@@ -657,7 +653,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/graficos/" title="Gráficos" class="md-nav__link">
+    <a href="../../arranjosgraficos/graficos/" class="md-nav__link">
       Gráficos
     </a>
   </li>
@@ -669,7 +665,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../arranjosgraficos/aprofundandoarranjos/" title="Aprofundando em arranjos" class="md-nav__link">
+    <a href="../../arranjosgraficos/aprofundandoarranjos/" class="md-nav__link">
       Aprofundando em arranjos
     </a>
   </li>
@@ -687,13 +683,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Dicionários e cadeias de caracteres
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Dicionários e cadeias de caracteres" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
         Dicionários e cadeias de caracteres
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -705,7 +703,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dicionariosstrings/" title="Dicionários" class="md-nav__link">
+    <a href="../../dicionariosstrings/dicionariosstrings/" class="md-nav__link">
       Dicionários
     </a>
   </li>
@@ -717,7 +715,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/dadosarquivos/" title="Dados de arquivos" class="md-nav__link">
+    <a href="../../dicionariosstrings/dadosarquivos/" class="md-nav__link">
       Dados de arquivos
     </a>
   </li>
@@ -729,7 +727,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/cadeiacaracteres/" title="Cadeia de Caracteres" class="md-nav__link">
+    <a href="../../dicionariosstrings/cadeiacaracteres/" class="md-nav__link">
       Cadeia de Caracteres
     </a>
   </li>
@@ -741,7 +739,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dicionariosstrings/resumos/" title="Resumo das funcionalidades" class="md-nav__link">
+    <a href="../../dicionariosstrings/resumos/" class="md-nav__link">
       Resumo das funcionalidades
     </a>
   </li>
@@ -759,13 +757,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Classes
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Classes" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
         Classes
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -777,7 +777,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/classes/" title="Classes" class="md-nav__link">
+    <a href="../../classes/classes/" class="md-nav__link">
       Classes
     </a>
   </li>
@@ -789,7 +789,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/exemplosclasses/" title="Exemplos" class="md-nav__link">
+    <a href="../../classes/exemplosclasses/" class="md-nav__link">
       Exemplos
     </a>
   </li>
@@ -801,7 +801,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/metodosespeciais/" title="Métodos especiais" class="md-nav__link">
+    <a href="../../classes/metodosespeciais/" class="md-nav__link">
       Métodos especiais
     </a>
   </li>
@@ -813,7 +813,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../classes/aplicacoes/" title="Aplicações" class="md-nav__link">
+    <a href="../../classes/aplicacoes/" class="md-nav__link">
       Aplicações
     </a>
   </li>
@@ -831,13 +831,15 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Programação orientada a objeto
+      <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Programação orientada a objeto" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
         Programação orientada a objeto
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -849,7 +851,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/poo/" title="Programação Orientada a Objeto" class="md-nav__link">
+    <a href="../../poo/poo/" class="md-nav__link">
       Programação Orientada a Objeto
     </a>
   </li>
@@ -861,7 +863,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/exemplosheranca/" title="Exemplos heranças" class="md-nav__link">
+    <a href="../../poo/exemplosheranca/" class="md-nav__link">
       Exemplos heranças
     </a>
   </li>
@@ -873,7 +875,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/derivadaclasses/" title="Classes para derivadas" class="md-nav__link">
+    <a href="../../poo/derivadaclasses/" class="md-nav__link">
       Classes para derivadas
     </a>
   </li>
@@ -885,7 +887,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../poo/integralclasses/" title="Classes para integrais" class="md-nav__link">
+    <a href="../../poo/integralclasses/" class="md-nav__link">
       Classes para integrais
     </a>
   </li>
@@ -907,67 +909,66 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Índice</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#laco-for-sobre-elementos-em-uma-lista" title="Laço for sobre elementos em uma lista" class="md-nav__link">
+  <a href="#laco-for-sobre-elementos-em-uma-lista" class="md-nav__link">
     Laço for sobre elementos em uma lista
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#simulando-um-laco-for-na-mao" title="Simulando um laço for na mão" class="md-nav__link">
+  <a href="#simulando-um-laco-for-na-mao" class="md-nav__link">
     Simulando um laço for na mão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fazendo-uma-tabela-com-um-laco-for" title="Fazendo uma tabela com um laço for" class="md-nav__link">
+  <a href="#fazendo-uma-tabela-com-um-laco-for" class="md-nav__link">
     Fazendo uma tabela com um laço for
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#transformando-for-em-um-while" title="Transformando for em um while" class="md-nav__link">
+  <a href="#transformando-for-em-um-while" class="md-nav__link">
     Transformando for em um while
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versao-em-while-do-laco-para-fazer-uma-tabela" title="Versão em while do laço para fazer uma tabela" class="md-nav__link">
+  <a href="#versao-em-while-do-laco-para-fazer-uma-tabela" class="md-nav__link">
     Versão em while do laço para fazer uma tabela
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#implemente-uma-somatoria-usando-laco" title="Implemente uma somatória usando laço" class="md-nav__link">
+  <a href="#implemente-uma-somatoria-usando-laco" class="md-nav__link">
     Implemente uma somatória usando laço
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#armazenando-colunas-de-tabelas-como-listas" title="Armazenando colunas de tabelas como listas" class="md-nav__link">
+  <a href="#armazenando-colunas-de-tabelas-como-listas" class="md-nav__link">
     Armazenando colunas de tabelas como listas
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -983,55 +984,35 @@
                 
                 
                 <h1 id="lacos-avancados">Laços avançados</h1>
-<h2 id="laco-for-sobre-elementos-em-uma-lista">Laço <code class="codehilite">for</code> sobre elementos em uma lista</h2>
-<p>Podemos usar o laço <code class="codehilite">for</code> para correr sobre os elementos de uma lista:</p>
-<p>Assim como os laços <code class="codehilite">while</code>, as declarações no laço devem ser indentadas!</p>
-<h2 id="simulando-um-laco-for-na-mao">Simulando um laço <code class="codehilite">for</code> na mão</h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">graus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<h2 id="laco-for-sobre-elementos-em-uma-lista">Laço <code>for</code> sobre elementos em uma lista</h2>
+<p>Podemos usar o laço <code>for</code> para correr sobre os elementos de uma lista:</p>
+<p>Assim como os laços <code>while</code>, as declarações no laço devem ser indentadas!</p>
+<h2 id="simulando-um-laco-for-na-mao">Simulando um laço <code>for</code> na mão</h2>
+<div class="highlight"><pre><span></span><code><span class="n">graus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">graus</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">C</span>
-<span class="k">print</span> <span class="s1">&#39;A lista de graus tem&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">degrees</span><span class="p">),</span> <span class="s1">&#39;elementos&#39;</span>
-</pre></div>
-</td></tr></table>
-
+    <span class="nb">print</span> <span class="n">C</span>
+<span class="nb">print</span> <span class="s1">&#39;A lista de graus tem&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">degrees</span><span class="p">),</span> <span class="s1">&#39;elementos&#39;</span>
+</code></pre></div>
 <p>Simulando na mão:</p>
 <ul>
-<li>Primeiro passo: <code class="codehilite">C</code> é 0</li>
-<li>Segundo passo: <code class="codehilite">C</code> é 10 ...e assim por diante...</li>
-<li>Terceiro passo: <code class="codehilite">C</code> é 20 ...e assim por diante...</li>
-<li>Quinto passo: <code class="codehilite">C</code> é 100, agora o laço terminou e o fluxo do programa pula para a primeira declaração com a mesma indentação da linha <code class="codehilite">for C in graus</code>.</li>
+<li>Primeiro passo: <code>C</code> é 0</li>
+<li>Segundo passo: <code>C</code> é 10 ...e assim por diante...</li>
+<li>Terceiro passo: <code>C</code> é 20 ...e assim por diante...</li>
+<li>Quinto passo: <code>C</code> é 100, agora o laço terminou e o fluxo do programa pula para a primeira declaração com a mesma indentação da linha <code>for C in graus</code>.</li>
 </ul>
-<h2 id="fazendo-uma-tabela-com-um-laco-for">Fazendo uma tabela com um laço <code class="codehilite">for</code></h2>
+<h2 id="fazendo-uma-tabela-com-um-laco-for">Fazendo uma tabela com um laço <code>for</code></h2>
 <p>Tabela de graus Celsius e Fahrenheit:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">grausC</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">grausC</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span>
              <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="n">grausC</span><span class="p">:</span>
     <span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span> <span class="n">C</span><span class="p">,</span> <span class="n">F</span>
-</pre></div>
-</td></tr></table>
-
-<p>Nota: <code class="codehilite">print C, F</code> retorna uma saída feia. Use a sintaxe do printf para deixar a formatação em duas colunas:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">print</span> <span class="s1">&#39;</span><span class="si">%5d</span><span class="s1"> </span><span class="si">%5.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
-</pre></div>
-</td></tr></table>
-
+    <span class="nb">print</span> <span class="n">C</span><span class="p">,</span> <span class="n">F</span>
+</code></pre></div>
+<p>Nota: <code>print C, F</code> retorna uma saída feia. Use a sintaxe do printf para deixar a formatação em duas colunas:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span> <span class="s1">&#39;</span><span class="si">%5d</span><span class="s1"> </span><span class="si">%5.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+</code></pre></div>
 <p>Saída:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="o">-</span><span class="mi">20</span>  <span class="o">-</span><span class="mf">4.0</span>
+<div class="highlight"><pre><span></span><code><span class="o">-</span><span class="mi">20</span>  <span class="o">-</span><span class="mf">4.0</span>
 <span class="o">-</span><span class="mi">15</span>   <span class="mf">5.0</span>
 <span class="o">-</span><span class="mi">10</span>  <span class="mf">14.0</span>
  <span class="o">-</span><span class="mi">5</span>  <span class="mf">23.0</span>
@@ -1039,57 +1020,37 @@
   <span class="o">......</span>
  <span class="mi">35</span>  <span class="mf">95.0</span>
  <span class="mi">40</span> <span class="mf">104.0</span>
-</pre></div>
-</td></tr></table>
-
-<h2 id="transformando-for-em-um-while">Transformando <code class="codehilite">for</code> em um <code class="codehilite">while</code></h2>
-<p>O laço <code class="codehilite">for</code>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+</code></pre></div>
+<h2 id="transformando-for-em-um-while">Transformando <code>for</code> em um <code>while</code></h2>
+<p>O laço <code>for</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
     <span class="c1">## processa elemento</span>
-</pre></div>
-</td></tr></table>
-
-<p>pode sempre ser transformado em um correspondente laço <code class="codehilite">while</code>:</p>
+</code></pre></div>
+<p>pode sempre ser transformado em um correspondente laço <code>while</code>:</p>
 <div class="admonition bug">
 <p class="admonition-title">O recíproco nem sempre é verdadeiro</p>
-<p>Mas nem todo laço <code class="codehilite">while</code> pode ser expressado como um laço <code class="codehilite">for</code>!</p>
+<p>Mas nem todo laço <code>while</code> pode ser expressado como um laço <code>for</code>!</p>
 </div>
-<h2 id="versao-em-while-do-laco-para-fazer-uma-tabela">Versão em <code class="codehilite">while</code> do laço para fazer uma tabela</h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Cgraus</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>
+<h2 id="versao-em-while-do-laco-para-fazer-uma-tabela">Versão em <code>while</code> do laço para fazer uma tabela</h2>
+<div class="highlight"><pre><span></span><code><span class="n">Cgraus</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>
             <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="n">indice</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">indice</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">Cgraus</span><span class="p">):</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">Cgraus</span><span class="p">[</span><span class="n">indice</span><span class="p">]</span>
     <span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="mf">9.0</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%5d</span><span class="s1"> </span><span class="si">%5.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="s1">&#39;</span><span class="si">%5d</span><span class="s1"> </span><span class="si">%5.1f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
     <span class="n">indice</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <h2 id="implemente-uma-somatoria-usando-laco">Implemente uma somatória usando laço</h2>
 <p>
 <script type="math/tex; mode=display"> S =  \sum\_{i=1}^N i^2 </script>
 </p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">14</span>
+<div class="highlight"><pre><span></span><code><span class="n">N</span> <span class="o">=</span> <span class="mi">14</span>
 
 <span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">S</span> <span class="o">+=</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>
-</pre></div>
-</td></tr></table>
-
+</code></pre></div>
 <p>Ou (menos comum):</p>
 <div class="admonition tip">
 <p class="admonition-title">Lembrete</p>
@@ -1097,12 +1058,9 @@
 </div>
 <h2 id="armazenando-colunas-de-tabelas-como-listas">Armazenando colunas de tabelas como listas</h2>
 <p>Vamos colocar todos os valores de Fahrenheit também em uma lista:</p>
-<p><code class="codehilite">print Fgraus</code> resulta em:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">[</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="mf">41.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">59.0</span><span class="p">,</span> <span class="mf">68.0</span><span class="p">,</span> <span class="mf">77.0</span><span class="p">,</span> <span class="mf">86.0</span><span class="p">,</span> <span class="mf">95.0</span><span class="p">,</span> <span class="mf">104.0</span><span class="p">]</span>
-</pre></div>
-</td></tr></table>
-                
-                  
+<p><code>print Fgraus</code> resulta em:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="mf">41.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">59.0</span><span class="p">,</span> <span class="mf">68.0</span><span class="p">,</span> <span class="mf">77.0</span><span class="p">,</span> <span class="mf">86.0</span><span class="p">,</span> <span class="mf">95.0</span><span class="p">,</span> <span class="mf">104.0</span><span class="p">]</span>
+</code></pre></div>
                 
               
               
@@ -1119,34 +1077,34 @@
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../listas/" title="Listas" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../listas/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
                 Listas
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../listasavancadas/" title="Listas avançadas" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../listasavancadas/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
                 Listas avançadas
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1161,11 +1119,10 @@
             Copyright &copy; 2011 Marco André Argenta
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -1174,24 +1131,18 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.39abc4af.js"></script>
+      <script src="../../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Buscar", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-        
-        
-          
-          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-              
-                <script src="../../assets/javascripts/lunr/lunr.pt.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
       
