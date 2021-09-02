@@ -1104,6 +1104,21 @@
 <span class="n">Um</span> <span class="n">círculo</span> <span class="n">com</span> <span class="n">raio</span> <span class="mi">5</span> <span class="n">e</span> <span class="n">centro</span> <span class="n">em</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">tem</span> <span class="n">área</span> <span class="mf">78.5398</span>
 </code></pre></div>
 <p>Para melhorar o código, podemos adicionar uma função teste para a classe <code>circulo</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_Circulo</span><span class="p">():</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="mf">2.5</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Circulo</span><span class="p">(</span><span class="mf">7.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.1</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+
+    <span class="n">area_esperada</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">area_calculada</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+    <span class="n">dif</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">area_esperada</span> <span class="o">-</span> <span class="n">area_calculada</span><span class="p">)</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="mf">1E-14</span>
+    <span class="k">assert</span> <span class="n">dif</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">,</span> <span class="s1">&#39;Problema no método Circulo.area, dif=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dif</span>
+
+    <span class="n">circunferencia_esperada</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">R</span>
+    <span class="n">circunferencia_calculada</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">circunferencia</span><span class="p">()</span>
+    <span class="n">dif</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">circunferencia_esperada</span> <span class="o">-</span> <span class="n">circunferencia_calculada</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">dif</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">,</span> <span class="s1">&#39;Problema no método Circulo.circunferencia, dif=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dif</span>
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Aviso</p>
 <p>Não esqueça do <code>import math</code> no início do código!</p>

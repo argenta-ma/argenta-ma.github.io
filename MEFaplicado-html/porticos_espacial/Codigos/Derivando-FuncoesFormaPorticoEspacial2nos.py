@@ -106,7 +106,7 @@ def funcoes_viga(var):
 
 
 #Funções de forma para os graus de liberdade de treliça e torção
-i = sp.Symbol('i')
+i = sp.Symbol('x')
 Nt, Bt = funcoes_trelica(i)
 
 #funções de forma para os graus de liberdade de viga em ambos os planos ij e ik

@@ -19,18 +19,34 @@ import matplotlib.pyplot as plt
 import meshio
 
 #### DADOS DE ENTRADA ------------------------------------------------------------------------
-nos = np.array([ [0, 0, 2], [0, 3, 2], [4, 3, 2], [4, 0, 2], 
-                [0, 0, 0], [0, 3, 0], [4, 3, 0], [4, 0, 0] ], dtype=float)
+nos = np.array([ [0, 0, 2], 
+                 [0, 3, 2], 
+                 [4, 3, 2], 
+                 [4, 0, 2], 
+                 [0, 0, 0], 
+                 [0, 3, 0], 
+                 [4, 3, 0], 
+                 [4, 0, 0] ], dtype=float)
+
 #o nó adicional é o nó utilizado para a orientação do eixo local y dos elementos
-IE = np.array([ [0, 1, 2], [1, 2, 0], [3, 2, 1], [1, 5, 0], [2, 6, 3], [4, 5, 7], [5, 6, 4], [7, 6, 4] ], dtype=int)
+#                i  f  a    #i - nó inicial, f - nó final, a - nó adicional para orientação do eixo local y da seção transversal
+IE = np.array([ [0, 1, 2], 
+                [1, 2, 0], 
+                [3, 2, 1], 
+                [1, 5, 0], 
+                [2, 6, 3], 
+                [4, 5, 7], 
+                [5, 6, 4], 
+                [7, 6, 4] ], dtype=int)
 
 #nos com restrição
 nosR = np.array([0, 3, 4, 7])
+
 #graus de liberdade restringidos em cada nó: 1 = restringido; 0 = livre
-nosR_GL = np.array([[1, 1, 1],
-                    [1, 1, 1],
-                    [1, 1, 1],
-                    [1, 1, 1]])
+nosR_GL = np.array([[1, 1, 1, 1, 1, 1],
+                    [1, 1, 1, 1, 1, 1],
+                    [1, 1, 1, 1, 1, 1],
+                    [1, 1, 1, 1, 1, 1]])
 
 #secao retangular
 b = 0.1 #m
@@ -52,8 +68,8 @@ Ix = np.ones(IE.shape[0])*h*b**3*(1./3. - 0.21+b/h*(1 - b**4/(12*h**4))) #m4 ine
 #distribuidas[0, 0] = 3. #kN/m
 #distribuidas[2, 1] = -5. #kN/m
 
-#carregamentos concentrados nos nós
-concentradas = np.zeros((nos.shape[0], 3))
+#carregamentos concentrados nos nós da estrutura: numero nó, carga x, carga y, carga z, momento x, momento y, momento z
+concentradas = np.zeros((nos.shape[0], 6))
 concentradas[1, 0] = 10. #kN
 concentradas[2, 2] = -10. #kN
 concentradas[5, 1] = -10. #kN
@@ -159,36 +175,36 @@ for e in range(IE.shape[0]):
     Ke.append(rigidez_portico(El[e], Gl[e], Ar[e], Ix[e], Iy[e], Iz[e], cosdirL[e]))
 Ke = np.array(Ke)
 
-##graus de liberdade da estrutura totais, GL
-#GL = nos.shape[0]*3 #3 número de graus de liberdade por nó
-#
-##indexação do elemento
-#ID = []
-#for e in range(IE.shape[0]):
-#    ID.append( np.repeat(IE[e]*3, 3) + np.tile(np.array([0, 1, 2]), 2) )
-#ID = np.array(ID)
-#
-##montagem da matriz de rigidez da estrutura
-#K = np.zeros((GL, GL))
-#for i in range(6):
-#    for j in range(6):
-#        for e in range(IE.shape[0]):
-#            K[ ID[e, i], ID[e, j] ] += Ke[e, i, j]
-#
-#
-##graus de liberdade restringidos
-#GL_R = []
-#for n in nosR:
-#    GL_R.append( np.repeat(n*3, 3) + np.array([0, 1, 2]) )
-#GL_R = np.extract( nosR_GL.flatten(), np.array(GL_R).flatten() )
-#
-##graus de liberdade livres
-#DOF = np.delete(np.arange(0, nos.shape[0]*3), GL_R)
-#
-##separação das matrizes de rigidez
-#Ku = np.delete(np.delete(K, GL_R, axis=0), GL_R, axis=1)
-#Kr = np.delete(np.delete(K, DOF, axis=0), GL_R, axis=1)
-#
+#graus de liberdade da estrutura totais, GL
+GL = nos.shape[0]*6 #6 número de graus de liberdade por nó
+
+#indexação do elemento
+ID = []
+for e in range(IE.shape[0]):
+    ID.append( np.repeat(IE[e][:-1]*6, 6) + np.tile(np.array([0, 1, 2, 3, 4, 5]), 2) )
+ID = np.array(ID)
+
+#montagem da matriz de rigidez da estrutura
+K = np.zeros((GL, GL))
+for i in range(12):
+    for j in range(12):
+        for e in range(IE.shape[0]):
+            K[ ID[e, i], ID[e, j] ] += Ke[e, i, j]
+
+
+#graus de liberdade restringidos
+GL_R = []
+for n in nosR:
+    GL_R.append( np.repeat(n*6, 6) + np.array([0, 1, 2, 3, 4, 5]) )
+GL_R = np.array(GL_R).flatten()
+
+#graus de liberdade livres
+DOF = np.delete(np.arange(0, nos.shape[0]*6), GL_R)
+
+#separação das matrizes de rigidez
+Ku = np.delete(np.delete(K, GL_R, axis=0), GL_R, axis=1)
+Kr = np.delete(np.delete(K, DOF, axis=0), GL_R, axis=1)
+
 ##cargas distribuídas constantes no sistema global
 #def cdg(scL, forcas, alpha):
 #    '''
@@ -226,33 +242,49 @@ Ke = np.array(Ke)
 #    F = cdg(scL[e], forcas[e], alphas[e])
 #    for i in range(6):
 #        Feq[ ID[e][i] ] += F[i]
-#
-#FU = np.delete(Feq, GL_R, axis=0)
-#FR = np.delete(Feq, DOF, axis=0)
-#
-##determinação dos deslocamentos
-#Un = np.linalg.solve(Ku, FU)
-#R = np.dot(Kr, Un) - FR
-#
-#U = np.zeros(GL)
-#U[DOF] = Un
-#
-#Uxyr = U.reshape((nos.shape[0],3))
-#
-##reescrevendo os deslocamentos no sistema local do elemento
-#u = np.zeros((IE.shape[0], 6))
-#
-#for e in range(IE.shape[0]):
-#    s = scL[e, 0]
-#    c = scL[e, 1]
-#    rotacao = np.array([[ c, s, 0,  0, 0, 0], 
-#                        [-s, c, 0,  0, 0, 0], 
-#                        [ 0, 0, 1,  0, 0, 0],
-#                        [ 0 ,0 ,0 , c, s, 0],
-#                        [ 0, 0, 0, -s, c, 0],
-#                        [ 0, 0, 0,  0, 0, 1]])
-#    u[e] = np.matmul( U[ ID[e] ], rotacao)
-#
+
+#usando somente as cargas concentradas nos nós (dá certo pois foram colocadas na mesma sequencia dos graus de liberdade)
+F = concentradas.flatten()
+
+FU = np.delete(F, GL_R, axis=0)
+FR = np.delete(F, DOF, axis=0)
+
+#determinação dos deslocamentos
+Un = np.linalg.solve(Ku, FU)
+R = np.dot(Kr, Un) - FR
+
+U = np.zeros(GL)
+U[DOF] = Un
+
+Uxyr = U.reshape((nos.shape[0],6))
+
+#reescrevendo os deslocamentos no sistema local do elemento
+u = np.zeros((IE.shape[0], 12))
+
+for e in range(IE.shape[0]):
+    lx = cosdirL[e, 0]
+    ly = cosdirL[e, 1]
+    lz = cosdirL[e, 2]
+    mx = cosdirL[e, 3]
+    my = cosdirL[e, 4]
+    mz = cosdirL[e, 5]
+    nx = cosdirL[e, 6]
+    ny = cosdirL[e, 7]
+    nz = cosdirL[e, 8]
+    rotacao = np.array([[ lx, mx, nx,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+                        [ ly, my, ny,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+                        [ lz, mz, nz,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+                        [  0,  0,  0, lx, mx, nx,  0,  0,  0,  0,  0,  0],
+                        [  0,  0,  0, ly, my, ny,  0,  0,  0,  0,  0,  0],
+                        [  0,  0,  0, lz, mz, nz,  0,  0,  0,  0,  0,  0],
+                        [  0,  0,  0,  0,  0,  0, lx, mx, nx,  0,  0,  0],
+                        [  0,  0,  0,  0,  0,  0, ly, my, ny,  0,  0,  0],
+                        [  0,  0,  0,  0,  0,  0, lz, mz, nz,  0,  0,  0],
+                        [  0,  0,  0,  0,  0,  0,  0,  0,  0, lx, mx, nx],
+                        [  0,  0,  0,  0,  0,  0,  0,  0,  0, ly, my, ny],
+                        [  0,  0,  0,  0,  0,  0,  0,  0,  0, lz, mz, nz]])
+    u[e] = np.matmul( U[ ID[e] ], rotacao)
+
 ##calculo das deformações, tensões, momento, corte e normal em cada elemento no eixo local ------------------------------------------------------------
 #def esP(ue, l, E, A, h, I, pontos=100):
 #    r = np.linspace(-l/2, l/2, pontos)
