@@ -12,5 +12,7 @@ Add, commit, and push your changes:
 ~$git commit -m "Initial commit"
 ~$git push -u origin master
 
+!!! Gerar o token no site do github primeiro para as atualizações (apenas repo funciona).
+
 Se der problema no envio ou para atualizar o local
 ~$git pull --rebase origin master
