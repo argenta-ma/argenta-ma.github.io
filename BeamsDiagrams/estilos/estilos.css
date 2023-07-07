@@ -1,0 +1,284 @@
+@font-face {
+    font-family: 'mathitalic';
+    src: url('math-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    font-family: serif;
+    background-color: white;
+    overflow: hidden;
+}
+
+foreignObject { 
+    overflow: visible; 
+}
+
+.hide-menu
+{
+    opacity:0;
+    clear: both;
+    background-color:#e6e6e6;
+    position: fixed;
+    top:0;
+    right:0;
+    z-index: 1;
+    width: 0px;
+    height: 100vh;
+    min-height: 100vh;
+    -webkit-transition: all .3s ease .15s;
+    -moz-transition: all .3s ease .15s;
+    -o-transition: all .3s ease .15s;
+    -ms-transition: all .3s ease .15s;
+    transition: all .3s ease .15s;
+}
+
+.show-menu      
+{
+    opacity:1;
+    width: 300px;
+}
+ 
+.principal {
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    position: fixed;
+    margin: 0;
+    background-color: #f2f2f2;
+    overflow: auto;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    top: 0;
+    left: 0;
+    height: 27px;
+    width: 100vw;
+    position: static;
+    background-color: #0047b3;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 5px 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #008ae6;
+    color: white;
+}
+
+.titulos {
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.infos {
+    display: inline-flex;
+    /*border: 3px solid #cccc00;*/
+}
+
+.figura {
+    padding: 10px;
+    /*border: 3px solid #cc33ff;*/
+}
+
+.infoFigura {
+    padding: 10px;
+    /*border: 3px solid #cc33ff;*/
+}
+
+.dados {
+    padding: 10px;
+    /*border: 3px solid #cc33ff;*/
+}
+
+
+.controles {
+    position: relative;
+    padding: 10px;
+    margin: 0;
+    border: 1px dotted black;
+}
+
+.equacoes {
+    position: relative;
+    padding: 10px;
+    margin: 0;
+    /*border: 3px solid #ff8c1a;*/
+}
+
+.apoios {
+    fill: lightgray;
+    stroke: black;
+    stroke-width: 1;
+}
+.apoios:hover {
+    fill: darkgray;
+    stroke: darkgray;
+}
+.reacao {
+    fill: black;
+    stroke: black;
+    stroke-width: 2;
+}
+.reacaoMomento {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.viga {
+    fill: black;
+}
+.viga:hover {
+    fill: #666666;
+}
+
+.cargaDistribuida {
+    fill: black;
+    stroke: black;
+    stroke-width: 1;
+}
+.cargaDistribuidaFundo {
+    fill: white;
+    stroke: white;
+}
+.cargaDistribuidaFundo:hover {
+    fill: #e6e6e6;
+}
+
+.cargaConcentrada {
+    fill: black;
+    stroke: black;
+    stroke-width: 2;
+}
+.cargaConcentrada:hover {
+    fill: #a6a6a6;
+    stroke: #a6a6a6;
+}
+
+.momentoConcentrado {
+    fill: black;
+    stroke: black;
+    stroke-width: 2;
+}
+.momentoConcentrado:hover {
+    fill: #a6a6a6;
+    stroke: #a6a6a6;
+}
+
+.cota {
+    stroke-width: 1;
+    stroke: black;
+}
+
+.identificador {
+    fill: none;
+    stroke-width: 1;
+    stroke: black;
+}
+
+.flechas {
+    stroke: black;
+}
+.graficoflechas {
+    stroke: black;
+    stroke-width: 1;
+    fill: #ff3300;
+    opacity: 0.7;
+}
+.graficoflechas:hover {
+    opacity: 1.0;
+}
+.textoflechas {
+    stroke: none;
+    fill: #ff3300;
+    opacity: 0.8;
+    font-family: 'monospace';
+}
+.graficoflechas:hover .textoflechas,
+.graficoflechas:hover ~ .textoflechas{
+    fill:black;
+    opacity: 1.0;
+}
+
+.momento {
+    stroke-width: 1;
+    stroke: black;
+}
+.graficomomento {
+    stroke: black;
+    stroke-width: 1;
+    fill: #33cc33;
+    opacity: 0.7;
+}
+.graficomomento:hover {
+    opacity: 1.0;
+}
+.textomomento {
+    stroke: none;
+    fill: #33cc33;
+    opacity: 0.8;
+    font-family: 'monospace';
+}
+.graficomomento:hover .textomomento,
+.graficomomento:hover ~ .textomomento{
+    fill:black;
+    opacity: 1.0;
+}
+
+.corte {
+    stroke-width: 1;
+    stroke: black;
+}
+.graficocorte {
+    stroke: black;
+    stroke-width: 1;
+    fill: #0099ff;
+    opacity: 0.7;
+}
+.graficocorte:hover {
+    opacity: 1.0;
+}
+.textocorte {
+    stroke: none;
+    fill: #0099ff;
+    opacity: 0.8;
+    font-family: 'monospace';
+}
+.graficocorte:hover .textocorte,
+.graficocorte:hover ~ .textocorte{
+    fill:black;
+    opacity: 1.0;
+}
+.textoEquacoes {
+    stroke: none;
+    fill: black;
+    font-family: 'mathitalic';
+    font-size: 24px;
+}
+.textoEquacoesSub{
+    stroke: none;
+    fill: black;
+    font-family: 'mathitalic';
+    font-size: 20px;
+    baseline-shift: -20%;
+}

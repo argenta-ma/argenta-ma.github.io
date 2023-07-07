@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VB5-fv</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="estilos/estilos.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<link href="estilos/codigo.css" rel="stylesheet" type="text/css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+<div class="principal"><div class="topnav">
+<a href="index.html">Início</a><a class="active" href="#">VB5-fv</a><a href="http://www.estruturas.ufpr.br/" target="_blank">estruturas.ufpr</a><a class="menu-button" id="menu-button"  href="#">Ver outras vigas ☰</a>
+</div>
+<div class="titulos">
+<h1>VB5-fv</h1><p>Viga vão-balanço com carga concentrada no vão</p></div>
+<div id="hide-menu" class="hide-menu"><iframe src="menu.html" frameborder="0" style="overflow:auto;height:100%;width:100%;" height="100%" width="100%""></iframe></div><div class="infos"><div class="figura"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="945px" viewBox="0 0 500 945">
+<line x1="50.0" y1="50" x2="50.0" y2="895" stroke="#999999" stroke-width="1" stroke-dasharray="5,5,1,5"/>
+<line x1="150.0" y1="50" x2="150.0" y2="895" stroke="#999999" stroke-width="1" stroke-dasharray="5,5,1,5"/>
+<line x1="350.0" y1="50" x2="350.0" y2="895" stroke="#999999" stroke-width="1" stroke-dasharray="5,5,1,5"/>
+<line x1="450.0" y1="50" x2="450.0" y2="895" stroke="#999999" stroke-width="1" stroke-dasharray="5,5,1,5"/>
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="130.0" y="102" width="1" height="1">F</text>
+<line x1="150.0" y1="147" x2="150.0" y2="107" />
+<polygon points="150.0,139 155.0,134 150.0,147 145.0,134 150.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+<text class="textoEquacoes" x="55.0" y="200" width="1" height="1"><tspan x="55.0" y="200">R<tspan class="textoEquacoesSub">1</tspan></tspan></text><line x1="50.0" y1="175" x2="50.0" y2="200" class="reacao"/>
+<polygon points="50.0,175 47.0,180  53.0,180 50.0,175" class="reacao"/>
+
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+<text class="textoEquacoes" x="355.0" y="200" width="1" height="1"><tspan x="355.0" y="200">R<tspan class="textoEquacoesSub">2</tspan></tspan></text><line x1="350.0" y1="175" x2="350.0" y2="200" class="reacao"/>
+<polygon points="350.0,175 347.0,180  353.0,180 350.0,175" class="reacao"/>
+
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="225" width="1" height="1">a</text>
+<line x1="50" y1="230" x2="150" y2="230" />
+<line x1="55" y1="225" x2="45" y2="235" />
+<line x1="155" y1="225" x2="145" y2="235" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="400.0" y="225" width="1" height="1">b</text>
+<line x1="350" y1="230" x2="450" y2="230" />
+<line x1="355" y1="225" x2="345" y2="235" />
+<line x1="455" y1="225" x2="445" y2="235" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="250.0" y="270" width="1" height="1">L</text>
+<line x1="50" y1="275" x2="450" y2="275" />
+<line x1="55" y1="270" x2="45" y2="280" />
+<line x1="455" y1="270" x2="445" y2="280" />
+<title>Cota</title></g>
+
+<g  class="identificador"><line x1="50" y1="50" x2="150" y2="50" />
+<line x1="50" y1="55" x2="50" y2="45" />
+<line x1="150" y1="55" x2="150" y2="45" />
+<circle cx="100.0" cy="50" r="15" style="fill:white;"/>
+<text class="textoEquacoes" x="90.0" y="57" width="1" height="1">A</text>
+<polyline points="58,47 50,50 58,53" />
+<polyline points="142,47 150,50 142,53" />
+<line x1="50" y1="70" x2="70" y2="70" />
+<line x1="50" y1="75" x2="50" y2="65" />
+<text class="textoEquacoes" x="75" y="77" width="1" height="1">x</text>
+<polyline points="62,67 70,70 62,73" />
+<title>Identificador</title></g>
+
+<g  class="identificador"><line x1="150" y1="50" x2="350" y2="50" />
+<line x1="150" y1="55" x2="150" y2="45" />
+<line x1="350" y1="55" x2="350" y2="45" />
+<circle cx="250.0" cy="50" r="15" style="fill:white;"/>
+<text class="textoEquacoes" x="240.0" y="57" width="1" height="1">B</text>
+<polyline points="158,47 150,50 158,53" />
+<polyline points="342,47 350,50 342,53" />
+<title>Identificador</title></g>
+
+<g  class="identificador"><line x1="350" y1="50" x2="450" y2="50" />
+<line x1="350" y1="55" x2="350" y2="45" />
+<line x1="450" y1="55" x2="450" y2="45" />
+<circle cx="400.0" cy="50" r="15" style="fill:white;"/>
+<text class="textoEquacoes" x="390.0" y="57" width="1" height="1">C</text>
+<polyline points="358,47 350,50 358,53" />
+<polyline points="442,47 450,50 442,53" />
+<title>Identificador</title></g>
+
+<g><polygon points="50.0,385 50.0,385.0 55.3,391.0812573366375 60.5,397.02882483370286 65.8,403.05138907004044 71.1,409.01199947828354 76.3,414.78022694665447 81.6,420.5614973262032 86.8,426.11125603234643 92.1,431.6284074605452 97.4,436.9825224990218 102.6,442.0562149471762 107.9,447.0255641059084 113.2,451.7731837746185 118.4,456.19146993608973 123.7,460.433676796661 128.9,464.3172035998435 134.2,467.97574018520936 139.5,471.3049432633364 144.7,474.2363375505413 150.0,476.8612234250685 150.0,476.8612234250685 155.1,479.0263466805791 160.3,480.87191861223425 165.4,482.3425068475284 170.5,483.48050084778924 175.6,484.2956827964002 180.8,484.8076170601278 185.9,485.0 191.0,484.90217816616666 196.2,484.507630103039 201.3,483.8424416329725 206.4,482.90987348376154 211.5,481.71970783878965 216.7,480.25238033128994 221.8,478.5731055171514 226.9,476.66231902960743 232.1,474.484152862919 237.2,472.13968957871396 242.3,469.589800443459 247.4,466.84752836833184 252.6,463.8607017086214 257.7,460.7597495761054 262.8,457.48923959827835 267.9,454.062214686318 273.1,450.41998173992437 278.2,446.70601278205294 283.3,442.86487544019826 288.5,438.8248337028825 293.6,434.74892395982783 298.7,430.57519238293986 303.8,426.30689970001305 309.0,421.8723098995696 314.1,417.44750228250945 319.2,412.95748010956044 324.4,408.3239859136559 329.5,403.7328811790792 334.6,399.10590843876355 339.7,394.4495891482979 344.9,389.6824051128212 350.0,385.0 350.0,385.0 355.3,380.1317334028955 360.5,375.3547671840355 365.8,370.486500586931 371.1,365.61823398982654 376.3,360.8412677709665 381.6,355.97300117386203 386.8,351.19603495500195 392.1,346.32776835789747 397.4,341.459501760793 402.6,336.68253554193296 407.9,331.8142689448285 413.2,326.94274161992956 418.4,322.16577540106954 423.7,317.29750880396506 428.9,312.520542585105 434.2,307.6522759880005 439.5,302.784009390896 444.7,298.007043172036 450.0,293.1387765749315 450.0,385" class="graficoflechas"/><line x1="50.0" y1="385" x2="450.0" y2="385" class="flechas"/>
+<text x="55.0" y="380" class="textoflechas">flechas</text>
+<title>Flechas da viga</title></g>
+
+<g><polygon points="50.0,590 50.0,590.0 55.3,595.2999868375016 60.5,600.4999986875001 65.8,605.7999855250018 71.1,611.1000098624987 76.3,616.299984212502 81.6,621.600008549999 86.8,626.7999829000022 92.1,632.1000072374991 97.4,637.3999940750008 102.6,642.6000059249992 107.9,647.8999927625009 113.2,653.1999796000025 118.4,658.399991450001 123.7,663.6999782875027 128.9,668.8999901375013 134.2,674.1999769750029 139.5,679.5000013124999 144.7,684.699975662503 150.0,690.0 150.0,690.0 155.1,687.45000031875 160.3,684.849975643753 165.4,682.299975962503 170.5,679.749976281253 175.6,677.199976600003 180.8,674.5999894250014 185.9,672.0499897437513 191.0,669.4999900625013 196.2,666.9000028874997 201.3,664.3500032062495 206.4,661.8000035249995 211.5,659.2500038437495 216.7,656.6499791687526 221.8,654.0999794875025 226.9,651.5499798062525 232.1,648.9499926312509 237.2,646.3999929500009 242.3,643.8499932687508 247.4,641.2999935875008 252.6,638.7000064124992 257.7,636.1500067312492 262.8,633.6000070499991 267.9,631.0500073687491 273.1,628.4499826937522 278.2,625.8999830125022 283.3,623.3499833312521 288.5,620.7499961562505 293.6,618.1999964750005 298.7,615.6499967937505 303.8,613.0999971125003 309.0,610.5000099374988 314.1,607.9500102562487 319.2,605.4000105749986 324.4,602.7999859000017 329.5,600.2499862187517 334.6,597.6999865375017 339.7,595.1499868562516 344.9,592.54999968125 350.0,590.0 350.0,590.0 355.3,590.0 360.5,590.0 365.8,590.0 371.1,590.0 376.3,590.0 381.6,590.0 386.8,590.0 392.1,590.0 397.4,590.0 402.6,590.0 407.9,590.0 413.2,590.0 418.4,590.0 423.7,590.0 428.9,590.0 434.2,590.0 439.5,590.0 444.7,590.0 450.0,590.0 450.0,590" class="graficomomento"/><line x1="50.0" y1="590" x2="450.0" y2="590" class="momento" class="momento"/>
+<text x="55.0" y="585" class="textomomento">momento fletor</text>
+<title>Momento fletor da viga</title></g>
+
+<g><polygon points="50.0,795 50.0,695.0 55.3,695.0 60.5,695.0 65.8,695.0 71.1,695.0 76.3,695.0 81.6,695.0 86.8,695.0 92.1,695.0 97.4,695.0 102.6,695.0 107.9,695.0 113.2,695.0 118.4,695.0 123.7,695.0 128.9,695.0 134.2,695.0 139.5,695.0 144.7,695.0 150.0,695.0 150.0,845.0 155.1,845.0 160.3,845.0 165.4,845.0 170.5,845.0 175.6,845.0 180.8,845.0 185.9,845.0 191.0,845.0 196.2,845.0 201.3,845.0 206.4,845.0 211.5,845.0 216.7,845.0 221.8,845.0 226.9,845.0 232.1,845.0 237.2,845.0 242.3,845.0 247.4,845.0 252.6,845.0 257.7,845.0 262.8,845.0 267.9,845.0 273.1,845.0 278.2,845.0 283.3,845.0 288.5,845.0 293.6,845.0 298.7,845.0 303.8,845.0 309.0,845.0 314.1,845.0 319.2,845.0 324.4,845.0 329.5,845.0 334.6,845.0 339.7,845.0 344.9,845.0 350.0,845.0 350.0,795.0 355.3,795.0 360.5,795.0 365.8,795.0 371.1,795.0 376.3,795.0 381.6,795.0 386.8,795.0 392.1,795.0 397.4,795.0 402.6,795.0 407.9,795.0 413.2,795.0 418.4,795.0 423.7,795.0 428.9,795.0 434.2,795.0 439.5,795.0 444.7,795.0 450.0,795.0 450.0,795" class="graficocorte"/><line x1="50.0" y1="795" x2="450.0" y2="795" class="momento" class="corte"/>
+<text x="55.0" y="790" class="textocorte">esforço cortante</text>
+<title>Esforço cortante da viga</title></g>
+
+</svg><div class="infoFigura" style="width:475px;"><p>Informações sobre a figura e as equações:</p>
+<ul><li>As equações são definidas por tramos (tramo A, B...) e válidas somente no tramo indicado no índice (por exemplo, \(M_A\) é a equação do momento fletor somente para o tramo A);</li><li>Os valores de \(x\) começam em zero no início da viga à esquerda e vão até o valor do comprimento total da viga, no final da viga à direita, portanto, para usar uma equação de um segundo tramo, pode exemplo tramo B, deve-se calcular os valores de \(x\) para esse tramo (por exemplo, se o tramo anterior ao B é o primeiro tramo da viga e tem comprimento de 2,5 metros, o valor de x inicial do tramo B para ser utilizado nas equações é 2,5 metros. No primeiro tramo, \(x\) começa em zero);</li><li>Os gráficos de flechas, momentos e cortes estão com valores de escala constante e apenas representam o traçado do diagrama;</li><li>As reações de apoio indicadas na figura estão sempre no sentido positivo da reação. Caso alguma reação tenha o sentido negativo será definido pelo sinal da equação;</li></ul>
+<p>Legenda:</p>
+<ul style="list-style-type: none;">
+<li>\(E\) - módulo de elasticidade do material da viga;</li>
+<li>\(F\) - carga concentrada;</li>
+<li>\(I\) - inércia da seção transversal da viga (em torno no eixo que sai da tela);</li>
+<li>\(L\) - comprimento total da viga;</li>
+<li>\(a\) - comprimento do tramo A;</li>
+<li>\(b\) - comprimento do tramo B;</li>
+<li>\(x\) - posição em uma parte qualquer de um tramo da viga;</li>
+</ul>
+</div></div><div class="dados"><div class="controles"><h3>Equações</h3><h4>Flechas</h4><p>\(\delta_A = \dfrac{F x \left(2 L^{2} a - 3 L a^{2} - 4 L a b - L x^{2} + a^{3} + 3 a^{2} b + 2 a b^{2} + a x^{2} + b x^{2}\right)}{6 E I \left(- L + b\right)}\)</p><p>\(\delta_B = \dfrac{F a \left(- 2 L^{2} x + L a^{2} + 4 L b x + 3 L x^{2} - a^{2} b - a^{2} x - 2 b^{2} x - 3 b x^{2} - x^{3}\right)}{6 E I \left(L - b\right)}\)</p><p>\(\delta_C = \dfrac{F a \left(- L^{3} + 3 L^{2} b + L^{2} x + L a^{2} - 3 L b^{2} - 2 L b x - a^{2} b - a^{2} x + b^{3} + b^{2} x\right)}{6 E I \left(L - b\right)}\)</p><h4>Momentos fletores</h4><p>\(M_A = \dfrac{F x \left(- L + a + b\right)}{- L + b}\)</p><p>\(M_B = \dfrac{F a \left(L - b - x\right)}{L - b}\)</p><p>\(M_C = 0\)</p><h4>Esforços cortantes</h4><p>\(V_A = \dfrac{F \left(- L + a + b\right)}{- L + b}\)</p><p>\(V_B = \dfrac{F a}{- L + b}\)</p><p>\(V_C = 0\)</p><h4>Reações de apoio</h4><p>\(R_1 = \dfrac{F \left(- L + a + b\right)}{- L + b}\)</p><p>\(R_2 = \dfrac{F a}{L - b}\)</p></div><div class="equacoes"><h3>Equações em python</h3><h4>Flechas</h4><pre><code data-language="python">deltaA = F*x*(2*L**2*a - 3*L*a**2 - 4*L*a*b - L*x**2 + a**3 + 3*a**2*b + 2*a*b**2 + a*x**2 + b*x**2)/(6*E*I*(-L + b))
+deltaB = F*a*(-2*L**2*x + L*a**2 + 4*L*b*x + 3*L*x**2 - a**2*b - a**2*x - 2*b**2*x - 3*b*x**2 - x**3)/(6*E*I*(L - b))
+deltaC = F*a*(-L**3 + 3*L**2*b + L**2*x + L*a**2 - 3*L*b**2 - 2*L*b*x - a**2*b - a**2*x + b**3 + b**2*x)/(6*E*I*(L - b))
+</code></pre><h4>Momentos fletores</h4><pre><code data-language="python">MA = F*x*(-L + a + b)/(-L + b)
+MB = F*a*(L - b - x)/(L - b)
+MC = 0
+</code></pre><h4>Esforços cortantes</h4><pre><code data-language="python">VA = F*(-L + a + b)/(-L + b)
+VB = F*a/(-L + b)
+VC = 0
+</code></pre><h4>Reações de apoio</h4><pre><code data-language="python">R1 = F*(-L + a + b)/(-L + b)
+R2 = F*a/(L - b)
+</code></pre></div></div></div></div>
+<script type="text/javascript">
+var teste = document.getElementById("testarr");
+
+</script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script src="js/rainbow-custom.min.js"></script>
+<script type="text/javascript">
+$('#menu-button').click(function(e){ e.stopPropagation(); $('#hide-menu').toggleClass('show-menu'); }); $('#hide-menu').click(function(e){ e.stopPropagation(); }); $('body,html').click(function(e){ $('#hide-menu').removeClass('show-menu'); });
+</script>
+
+</body>
+</html>

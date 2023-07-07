@@ -1,0 +1,2724 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diagramas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="estilos/inicio.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+<div class="principal"><div class="topnav">
+<a class="active" href="#">Início</a><a href="http://www.estruturas.ufpr.br/" target="_blank">estruturas.ufpr</a>
+</div>
+<div class="conteudo"><h1>Diagramas de flechas, momentos fletores e esforços cortantes em vigas</h1>
+<p class="explicacao">Nesta publicação online encontram-se diversas vigas com apoios simples, rotulado ou engastado em diversas configurações, com cargas distribuídas uniforme, triangular, trapezoidal, concentrada e momento concentrado também em diversas configurações, com um ou mais tramos, com código de identificação e sua descrição. Cada código é um link para a página da respectiva viga com os traçados das flechas, momentos fletores e esforços cortantes, as equações de todos os tramos para as flechas, momentos fletores e esforços cortantes, conforme apoios e carregamento na viga, e equações das reações de apoio. Além disso, as equações também são apresentadas na sintaxe do <a href="https://www.python.org/" target="_blank" class="linksTexto">python</a> para facilitar o uso (basta copiar e colar na sua IDE preferida de desenvolvimento em python, recomenda-se o Spyder distribuído com o <a href="https://www.anaconda.com/products/individual" target="_blank" class="linksTexto">Anaconda</a>).</p><p class="explicacao">Acesse a viga de seu interesse clicando nos códigos das vigas abaixo. As vigas estão divididas por tipo de apoios. Dentro da página de cada viga você pode acessar outras vigas clicando no menu superior em "Ver outras vigas" e clicando na viga escolhida no meu lateral que irá aparecer.</p>
+<p class="ficha">Material desenvolvido e publicado pelo prof. Dr. Marco André Argenta.<br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este trabalho está licenciado com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" class="linksTexto">Creative Commons - Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional</a>.</p>
+<h2>BIAPOIADAS</h2>
+<div class="grid-container">
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA1-w.html" class="links"><h3>BA1-w</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga uniformemente distribuída em todo o vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="300.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="350.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="117" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="117" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="117" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="117" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="117" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="117" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="117" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="117" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="117" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA2-td.html" class="links"><h3>BA2-td</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga triangular distribuída em todo o vão com máximo na direita</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="325.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,147 350.0,107 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="147" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="135.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107.0" class="cargaDistribuida"/>
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA3-te.html" class="links"><h3>BA3-te</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga triangular distribuída em todo o vão com máximo na esquerda</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,107 350.0,147 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="107" x2="350.0" y2="147" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="50.0" y1="147" x2="50.0" y2="107.0" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="135.0" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA4-tm.html" class="links"><h3>BA4-tm</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga triangular distribuída em todo o vão com máximo meio do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="175.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,147 200.0,107 200.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="147" x2="200.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="147" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="107.0" class="cargaDistribuida"/>
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g><text class="textoEquacoes" x="205.0" y="99" width="1" height="1">w</text>
+<polygon points="200.0,107 350.0,147 350.0,147 200.0,147" class="cargaDistribuidaFundo"/>
+<line x1="200.0" y1="107" x2="350.0" y2="147" class="cargaDistribuida" />
+<line x1="200.0" y1="147" x2="200.0" y2="107" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="107.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="131.0" class="cargaDistribuida"/>
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="150" height="5" class="viga"><title>A viga</title></rect>
+<rect x="200" y="147.5" rx="2" ry="2" width="150" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="125.0" y="180" width="1" height="1">L/2</text>
+<line x1="50" y1="185" x2="200" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="205" y1="180" x2="195" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="275.0" y="180" width="1" height="1">L/2</text>
+<line x1="200" y1="185" x2="350" y2="185" />
+<line x1="205" y1="180" x2="195" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA5-pe.html" class="links"><h3>BA5-pe</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga uniforme distribuída na parte esquerda do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="100.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="150.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="75.0" y1="147" x2="75.0" y2="107" class="cargaDistribuida"/>
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<line x1="125.0" y1="147" x2="125.0" y2="107" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="75.0,142 78.0,139 75.0,147 72.0,139 75.0,142" class="cargaDistribuida" />
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA6-pv.html" class="links"><h3>BA6-pv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga uniforme distribuída em parte do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="105.0" y="99" width="1" height="1">w</text>
+<rect x="100.0" y="107" width="75.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="100.0" y1="107" x2="175.0" y2="107" class="cargaDistribuida" />
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<line x1="125.0" y1="147" x2="125.0" y2="107" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="107" class="cargaDistribuida"/>
+<line x1="175.0" y1="147" x2="175.0" y2="107" class="cargaDistribuida"/>
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<polygon points="175.0,142 178.0,139 175.0,147 172.0,139 175.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="100" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="175" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="75.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="100" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="137.5" y="180" width="1" height="1">b</text>
+<line x1="100" y1="185" x2="175" y2="185" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<line x1="180" y1="180" x2="170" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA7-ev.html" class="links"><h3>BA7-ev</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga uniforme distribuída nos extremos do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="175.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="225.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="79.16666666666667" y1="147" x2="79.16666666666667" y2="107" class="cargaDistribuida"/>
+<line x1="108.33333333333334" y1="147" x2="108.33333333333334" y2="107" class="cargaDistribuida"/>
+<line x1="137.5" y1="147" x2="137.5" y2="107" class="cargaDistribuida"/>
+<line x1="166.66666666666669" y1="147" x2="166.66666666666669" y2="107" class="cargaDistribuida"/>
+<line x1="195.83333333333334" y1="147" x2="195.83333333333334" y2="107" class="cargaDistribuida"/>
+<line x1="225.0" y1="147" x2="225.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="79.16666666666667,142 82.16666666666667,139 79.16666666666667,147 76.16666666666667,139 79.16666666666667,142" class="cargaDistribuida" />
+<polygon points="108.33333333333334,142 111.33333333333334,139 108.33333333333334,147 105.33333333333334,139 108.33333333333334,142" class="cargaDistribuida" />
+<polygon points="137.5,142 140.5,139 137.5,147 134.5,139 137.5,142" class="cargaDistribuida" />
+<polygon points="166.66666666666669,142 169.66666666666669,139 166.66666666666669,147 163.66666666666669,139 166.66666666666669,142" class="cargaDistribuida" />
+<polygon points="195.83333333333334,142 198.83333333333334,139 195.83333333333334,147 192.83333333333334,139 195.83333333333334,142" class="cargaDistribuida" />
+<polygon points="225.0,142 228.0,139 225.0,147 222.0,139 225.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g><text class="textoEquacoes" x="280.0" y="99" width="1" height="1">w</text>
+<rect x="275.0" y="107" width="75.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="275.0" y1="107" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="275.0" y1="147" x2="275.0" y2="107" class="cargaDistribuida"/>
+<line x1="300.0" y1="147" x2="300.0" y2="107" class="cargaDistribuida"/>
+<line x1="325.0" y1="147" x2="325.0" y2="107" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida"/>
+<polygon points="275.0,142 278.0,139 275.0,147 272.0,139 275.0,142" class="cargaDistribuida" />
+<polygon points="300.0,142 303.0,139 300.0,147 297.0,139 300.0,142" class="cargaDistribuida" />
+<polygon points="325.0,142 328.0,139 325.0,147 322.0,139 325.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="225" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="137.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="225" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="230" y1="180" x2="220" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA8-fa.html" class="links"><h3>BA8-fa</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com carga concentrada no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="130.0" y="102" width="1" height="1">F</text>
+<line x1="150.0" y1="147" x2="150.0" y2="107" />
+<polygon points="150.0,139 155.0,134 150.0,147 145.0,134 150.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA9-ff.html" class="links"><h3>BA9-ff</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com duas cargas concentradas no vão assimétricas</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="105.0" y="102" width="1" height="1">F</text>
+<line x1="125.0" y1="147" x2="125.0" y2="107" />
+<polygon points="125.0,139 130.0,134 125.0,147 120.0,134 125.0,139" />
+<title>Carga concentrada</title></g>
+
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="280.0" y="102" width="1" height="1">F</text>
+<line x1="300.0" y1="147" x2="300.0" y2="107" />
+<polygon points="300.0,139 305.0,134 300.0,147 295.0,134 300.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="125" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="300" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="87.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="125" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="325.0" y="180" width="1" height="1">b</text>
+<line x1="300" y1="185" x2="350" y2="185" />
+<line x1="305" y1="180" x2="295" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA10-m.html" class="links"><h3>BA10-m</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com momento concentrado no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="115.0" y="117.5" width="1" height="1">M</text>
+<path d="M 150.0, 167.5 C 120.0, 167.5 120.0, 127.5 150.0, 127.5" style="fill:none;"/><polygon points="150.0,127.5 145.0,122.5 158.0,127.5 145.0,132.5 150.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BA11-mo.html" class="links"><h3>BA11-mo</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biapoiada com momentos concentrados no vão assímetricos</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="65.0" y="117.5" width="1" height="1">M</text>
+<path d="M 100.0, 167.5 C 70.0, 167.5 70.0, 127.5 100.0, 127.5" style="fill:none;"/><polygon points="100.0,127.5 95.0,122.5 108.0,127.5 95.0,132.5 100.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="240.0" y="117.5" width="1" height="1">M</text>
+<path d="M 275.0, 167.5 C 245.0, 167.5 245.0, 127.5 275.0, 127.5" style="fill:none;"/><polygon points="275.0,127.5 270.0,122.5 283.0,127.5 270.0,132.5 275.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="100" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="75.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="100" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+</div>
+<h2>EM BALANÇO</h2>
+<div class="grid-container">
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL1-w.html" class="links"><h3>BL1-w</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com carga uniformemente distribuída em todo o vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="300.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="350.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="117" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="117" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="117" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="117" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="117" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="117" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="117" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="117" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="117" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL2-td.html" class="links"><h3>BL2-td</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com carga triangular distribuída em todo o vão com máximo na direita</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="325.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,147 350.0,107 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="147" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="135.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107.0" class="cargaDistribuida"/>
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL3-te.html" class="links"><h3>BL3-te</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com carga triangular distribuída em todo o vão com máximo na esquerda</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,107 350.0,147 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="107" x2="350.0" y2="147" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="50.0" y1="147" x2="50.0" y2="107.0" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="135.0" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL4-pe.html" class="links"><h3>BL4-pe</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com carga uniforme distribuída na parte esquerda do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="100.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="150.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="75.0" y1="147" x2="75.0" y2="107" class="cargaDistribuida"/>
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<line x1="125.0" y1="147" x2="125.0" y2="107" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="75.0,142 78.0,139 75.0,147 72.0,139 75.0,142" class="cargaDistribuida" />
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL5-pv.html" class="links"><h3>BL5-pv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com carga uniforme distribuída em parte do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="130.0" y="99" width="1" height="1">w</text>
+<rect x="125.0" y="107" width="50.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="125.0" y1="107" x2="175.0" y2="107" class="cargaDistribuida" />
+<line x1="125.0" y1="147" x2="125.0" y2="107" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="107" class="cargaDistribuida"/>
+<line x1="175.0" y1="147" x2="175.0" y2="107" class="cargaDistribuida"/>
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<polygon points="175.0,142 178.0,139 175.0,147 172.0,139 175.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="125" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="175" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="87.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="125" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">b</text>
+<line x1="125" y1="185" x2="175" y2="185" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<line x1="180" y1="180" x2="170" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL6-ev.html" class="links"><h3>BL6-ev</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com carga uniforme distribuída nos extremos do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="50.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="100.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="75.0" y1="147" x2="75.0" y2="107" class="cargaDistribuida"/>
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="75.0,142 78.0,139 75.0,147 72.0,139 75.0,142" class="cargaDistribuida" />
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g><text class="textoEquacoes" x="280.0" y="99" width="1" height="1">w</text>
+<rect x="275.0" y="107" width="75.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="275.0" y1="107" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="275.0" y1="147" x2="275.0" y2="107" class="cargaDistribuida"/>
+<line x1="300.0" y1="147" x2="300.0" y2="107" class="cargaDistribuida"/>
+<line x1="325.0" y1="147" x2="325.0" y2="107" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida"/>
+<polygon points="275.0,142 278.0,139 275.0,147 272.0,139 275.0,142" class="cargaDistribuida" />
+<polygon points="300.0,142 303.0,139 300.0,147 297.0,139 300.0,142" class="cargaDistribuida" />
+<polygon points="325.0,142 328.0,139 325.0,147 322.0,139 325.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="100" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="75.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="100" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL7-fa.html" class="links"><h3>BL7-fa</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com carga concentrada no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="130.0" y="102" width="1" height="1">F</text>
+<line x1="150.0" y1="147" x2="150.0" y2="107" />
+<polygon points="150.0,139 155.0,134 150.0,147 145.0,134 150.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BL8-m.html" class="links"><h3>BL8-m</h3></a></td><td class="celulasTabelaVigasDescricao">Viga em balanço com momento concentrado no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="115.0" y="117.5" width="1" height="1">M</text>
+<path d="M 150.0, 167.5 C 120.0, 167.5 120.0, 127.5 150.0, 127.5" style="fill:none;"/><polygon points="150.0,127.5 145.0,122.5 158.0,127.5 145.0,132.5 150.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+</div>
+<h2>BIENGASTADAS</h2>
+<div class="grid-container">
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE1-w.html" class="links"><h3>BE1-w</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga uniformemente distribuída em todo o vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="300.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="350.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="117" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="117" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="117" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="117" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="117" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="117" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="117" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="117" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="117" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE2-td.html" class="links"><h3>BE2-td</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga triangular distribuída em todo o vão com máximo na direita</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="325.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,147 350.0,107 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="147" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="135.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107.0" class="cargaDistribuida"/>
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE3-te.html" class="links"><h3>BE3-te</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga triangular distribuída em todo o vão com máximo na esquerda</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,107 350.0,147 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="107" x2="350.0" y2="147" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="50.0" y1="147" x2="50.0" y2="107.0" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="135.0" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE4-tm.html" class="links"><h3>BE4-tm</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga triangular distribuída em todo o vão com máximo meio do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="175.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,147 200.0,107 200.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="147" x2="200.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="147" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="107.0" class="cargaDistribuida"/>
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g><text class="textoEquacoes" x="205.0" y="99" width="1" height="1">w</text>
+<polygon points="200.0,107 350.0,147 350.0,147 200.0,147" class="cargaDistribuidaFundo"/>
+<line x1="200.0" y1="107" x2="350.0" y2="147" class="cargaDistribuida" />
+<line x1="200.0" y1="147" x2="200.0" y2="107" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="107.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="131.0" class="cargaDistribuida"/>
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="150" height="5" class="viga"><title>A viga</title></rect>
+<rect x="200" y="147.5" rx="2" ry="2" width="150" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="125.0" y="180" width="1" height="1">L/2</text>
+<line x1="50" y1="185" x2="200" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="205" y1="180" x2="195" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="275.0" y="180" width="1" height="1">L/2</text>
+<line x1="200" y1="185" x2="350" y2="185" />
+<line x1="205" y1="180" x2="195" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE5-pe.html" class="links"><h3>BE5-pe</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga uniforme distribuída na parte esquerda do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="100.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="150.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="75.0" y1="147" x2="75.0" y2="107" class="cargaDistribuida"/>
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<line x1="125.0" y1="147" x2="125.0" y2="107" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="75.0,142 78.0,139 75.0,147 72.0,139 75.0,142" class="cargaDistribuida" />
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE6-pv.html" class="links"><h3>BE6-pv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga uniforme distribuída em parte do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="130.0" y="99" width="1" height="1">w</text>
+<rect x="125.0" y="107" width="50.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="125.0" y1="107" x2="175.0" y2="107" class="cargaDistribuida" />
+<line x1="125.0" y1="147" x2="125.0" y2="107" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="107" class="cargaDistribuida"/>
+<line x1="175.0" y1="147" x2="175.0" y2="107" class="cargaDistribuida"/>
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<polygon points="175.0,142 178.0,139 175.0,147 172.0,139 175.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="125" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="175" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="87.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="125" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">b</text>
+<line x1="125" y1="185" x2="175" y2="185" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<line x1="180" y1="180" x2="170" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE7-ev.html" class="links"><h3>BE7-ev</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga uniforme distribuída nos extremos do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="50.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="100.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="75.0" y1="147" x2="75.0" y2="107" class="cargaDistribuida"/>
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="75.0,142 78.0,139 75.0,147 72.0,139 75.0,142" class="cargaDistribuida" />
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g><text class="textoEquacoes" x="280.0" y="99" width="1" height="1">w</text>
+<rect x="275.0" y="107" width="75.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="275.0" y1="107" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="275.0" y1="147" x2="275.0" y2="107" class="cargaDistribuida"/>
+<line x1="300.0" y1="147" x2="300.0" y2="107" class="cargaDistribuida"/>
+<line x1="325.0" y1="147" x2="325.0" y2="107" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida"/>
+<polygon points="275.0,142 278.0,139 275.0,147 272.0,139 275.0,142" class="cargaDistribuida" />
+<polygon points="300.0,142 303.0,139 300.0,147 297.0,139 300.0,142" class="cargaDistribuida" />
+<polygon points="325.0,142 328.0,139 325.0,147 322.0,139 325.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="100" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="75.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="100" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE8-fa.html" class="links"><h3>BE8-fa</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com carga concentrada no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="130.0" y="102" width="1" height="1">F</text>
+<line x1="150.0" y1="147" x2="150.0" y2="107" />
+<polygon points="150.0,139 155.0,134 150.0,147 145.0,134 150.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE9-ff.html" class="links"><h3>BE9-ff</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com duas cargas concentradas no vão assimétricas</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="205.0" y="102" width="1" height="1">F</text>
+<line x1="225.0" y1="147" x2="225.0" y2="107" />
+<polygon points="225.0,139 230.0,134 225.0,147 220.0,134 225.0,139" />
+<title>Carga concentrada</title></g>
+
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="255.0" y="102" width="1" height="1">F</text>
+<line x1="275.0" y1="147" x2="275.0" y2="107" />
+<polygon points="275.0,139 280.0,134 275.0,147 270.0,134 275.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="225" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="137.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="225" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="230" y1="180" x2="220" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE10-m.html" class="links"><h3>BE10-m</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com momento concentrado no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="115.0" y="117.5" width="1" height="1">M</text>
+<path d="M 150.0, 167.5 C 120.0, 167.5 120.0, 127.5 150.0, 127.5" style="fill:none;"/><polygon points="150.0,127.5 145.0,122.5 158.0,127.5 145.0,132.5 150.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="BE11-mo.html" class="links"><h3>BE11-mo</h3></a></td><td class="celulasTabelaVigasDescricao">Viga biengastada com momentos concentrados no vão assímetricos</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="65.0" y="117.5" width="1" height="1">M</text>
+<path d="M 100.0, 167.5 C 70.0, 167.5 70.0, 127.5 100.0, 127.5" style="fill:none;"/><polygon points="100.0,127.5 95.0,122.5 108.0,127.5 95.0,132.5 100.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="240.0" y="117.5" width="1" height="1">M</text>
+<path d="M 275.0, 167.5 C 245.0, 167.5 245.0, 127.5 275.0, 127.5" style="fill:none;"/><polygon points="275.0,127.5 270.0,122.5 283.0,127.5 270.0,132.5 275.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios"><rect x="47.0" y="135.0" width="3" height="30.0" /><line x1="47.0" y1="135.0" x2="41.0" y2="140.0" />
+<line x1="47.0" y1="139.28571428571428" x2="41.0" y2="144.28571428571428" />
+<line x1="47.0" y1="143.57142857142858" x2="41.0" y2="148.57142857142858" />
+<line x1="47.0" y1="147.85714285714286" x2="41.0" y2="152.85714285714286" />
+<line x1="47.0" y1="152.14285714285714" x2="41.0" y2="157.14285714285714" />
+<line x1="47.0" y1="156.42857142857142" x2="41.0" y2="161.42857142857142" />
+<line x1="47.0" y1="160.71428571428572" x2="41.0" y2="165.71428571428572" />
+<line x1="47.0" y1="165.0" x2="41.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="100" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="75.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="100" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+</div>
+<h2>APOIO-ENGASTE</h2>
+<div class="grid-container">
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE1-w.html" class="links"><h3>AE1-w</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga uniformemente distribuída em todo o vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="300.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="350.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="117" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="117" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="117" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="117" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="117" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="117" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="117" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="117" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="117" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE2-td.html" class="links"><h3>AE2-td</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga triangular distribuída em todo o vão com máximo na direita</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="325.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,147 350.0,107 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="147" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="135.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107.0" class="cargaDistribuida"/>
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE3-te.html" class="links"><h3>AE3-te</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga triangular distribuída em todo o vão com máximo na esquerda</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,107 350.0,147 350.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="107" x2="350.0" y2="147" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="50.0" y1="147" x2="50.0" y2="107.0" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="111.0" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="119.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="127.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="135.0" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">L</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE4-tm.html" class="links"><h3>AE4-tm</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga triangular distribuída em todo o vão com máximo meio do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="175.0" y="99" width="1" height="1">w</text>
+<polygon points="50.0,147 200.0,107 200.0,147 50.0,147" class="cargaDistribuidaFundo"/>
+<line x1="50.0" y1="147" x2="200.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="147" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="131.0" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="107.0" class="cargaDistribuida"/>
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g><text class="textoEquacoes" x="205.0" y="99" width="1" height="1">w</text>
+<polygon points="200.0,107 350.0,147 350.0,147 200.0,147" class="cargaDistribuidaFundo"/>
+<line x1="200.0" y1="107" x2="350.0" y2="147" class="cargaDistribuida" />
+<line x1="200.0" y1="147" x2="200.0" y2="107" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="107.0" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="115.0" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="123.0" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="131.0" class="cargaDistribuida"/>
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<title>Carga distribuída triangular</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="150" height="5" class="viga"><title>A viga</title></rect>
+<rect x="200" y="147.5" rx="2" ry="2" width="150" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="125.0" y="180" width="1" height="1">L/2</text>
+<line x1="50" y1="185" x2="200" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="205" y1="180" x2="195" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="275.0" y="180" width="1" height="1">L/2</text>
+<line x1="200" y1="185" x2="350" y2="185" />
+<line x1="205" y1="180" x2="195" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE5-pe.html" class="links"><h3>AE5-pe</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga uniforme distribuída na parte esquerda do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="100.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="150.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="75.0" y1="147" x2="75.0" y2="107" class="cargaDistribuida"/>
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<line x1="125.0" y1="147" x2="125.0" y2="107" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="75.0,142 78.0,139 75.0,147 72.0,139 75.0,142" class="cargaDistribuida" />
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE6-pv.html" class="links"><h3>AE6-pv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga uniforme distribuída em parte do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="230.0" y="99" width="1" height="1">w</text>
+<rect x="225.0" y="107" width="50.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="225.0" y1="107" x2="275.0" y2="107" class="cargaDistribuida" />
+<line x1="225.0" y1="147" x2="225.0" y2="107" class="cargaDistribuida"/>
+<line x1="250.0" y1="147" x2="250.0" y2="107" class="cargaDistribuida"/>
+<line x1="275.0" y1="147" x2="275.0" y2="107" class="cargaDistribuida"/>
+<polygon points="225.0,142 228.0,139 225.0,147 222.0,139 225.0,142" class="cargaDistribuida" />
+<polygon points="250.0,142 253.0,139 250.0,147 247.0,139 250.0,142" class="cargaDistribuida" />
+<polygon points="275.0,142 278.0,139 275.0,147 272.0,139 275.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="225" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="137.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="225" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="230" y1="180" x2="220" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="250.0" y="180" width="1" height="1">b</text>
+<line x1="225" y1="185" x2="275" y2="185" />
+<line x1="230" y1="180" x2="220" y2="190" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE7-ev.html" class="links"><h3>AE7-ev</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga uniforme distribuída nos extremos do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g><text class="textoEquacoes" x="55.0" y="99" width="1" height="1">w</text>
+<rect x="50.0" y="107" width="175.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="107" x2="225.0" y2="107" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="107" class="cargaDistribuida"/>
+<line x1="79.16666666666667" y1="147" x2="79.16666666666667" y2="107" class="cargaDistribuida"/>
+<line x1="108.33333333333334" y1="147" x2="108.33333333333334" y2="107" class="cargaDistribuida"/>
+<line x1="137.5" y1="147" x2="137.5" y2="107" class="cargaDistribuida"/>
+<line x1="166.66666666666669" y1="147" x2="166.66666666666669" y2="107" class="cargaDistribuida"/>
+<line x1="195.83333333333334" y1="147" x2="195.83333333333334" y2="107" class="cargaDistribuida"/>
+<line x1="225.0" y1="147" x2="225.0" y2="107" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="79.16666666666667,142 82.16666666666667,139 79.16666666666667,147 76.16666666666667,139 79.16666666666667,142" class="cargaDistribuida" />
+<polygon points="108.33333333333334,142 111.33333333333334,139 108.33333333333334,147 105.33333333333334,139 108.33333333333334,142" class="cargaDistribuida" />
+<polygon points="137.5,142 140.5,139 137.5,147 134.5,139 137.5,142" class="cargaDistribuida" />
+<polygon points="166.66666666666669,142 169.66666666666669,139 166.66666666666669,147 163.66666666666669,139 166.66666666666669,142" class="cargaDistribuida" />
+<polygon points="195.83333333333334,142 198.83333333333334,139 195.83333333333334,147 192.83333333333334,139 195.83333333333334,142" class="cargaDistribuida" />
+<polygon points="225.0,142 228.0,139 225.0,147 222.0,139 225.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g><text class="textoEquacoes" x="305.0" y="99" width="1" height="1">w</text>
+<rect x="300.0" y="107" width="50.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="300.0" y1="107" x2="350.0" y2="107" class="cargaDistribuida" />
+<line x1="300.0" y1="147" x2="300.0" y2="107" class="cargaDistribuida"/>
+<line x1="325.0" y1="147" x2="325.0" y2="107" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="107" class="cargaDistribuida"/>
+<polygon points="300.0,142 303.0,139 300.0,147 297.0,139 300.0,142" class="cargaDistribuida" />
+<polygon points="325.0,142 328.0,139 325.0,147 322.0,139 325.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="225" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="300" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="137.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="225" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="230" y1="180" x2="220" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="325.0" y="180" width="1" height="1">b</text>
+<line x1="300" y1="185" x2="350" y2="185" />
+<line x1="305" y1="180" x2="295" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE8-fa.html" class="links"><h3>AE8-fa</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com carga concentrada no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="130.0" y="102" width="1" height="1">F</text>
+<line x1="150.0" y1="147" x2="150.0" y2="107" />
+<polygon points="150.0,139 155.0,134 150.0,147 145.0,134 150.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE9-ff.html" class="links"><h3>AE9-ff</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com duas cargas concentradas no vão assimétricas</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="80.0" y="102" width="1" height="1">F</text>
+<line x1="100.0" y1="147" x2="100.0" y2="107" />
+<polygon points="100.0,139 105.0,134 100.0,147 95.0,134 100.0,139" />
+<title>Carga concentrada</title></g>
+
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="255.0" y="102" width="1" height="1">F</text>
+<line x1="275.0" y1="147" x2="275.0" y2="107" />
+<polygon points="275.0,139 280.0,134 275.0,147 270.0,134 275.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="100" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="75.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="100" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE10-m.html" class="links"><h3>AE10-m</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com momento concentrado no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="115.0" y="117.5" width="1" height="1">M</text>
+<path d="M 150.0, 167.5 C 120.0, 167.5 120.0, 127.5 150.0, 127.5" style="fill:none;"/><polygon points="150.0,127.5 145.0,122.5 158.0,127.5 145.0,132.5 150.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="AE11-mo.html" class="links"><h3>AE11-mo</h3></a></td><td class="celulasTabelaVigasDescricao">Viga apoio-engaste com momentos concentrados no vão assímetricos</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="400px" height="150px" viewBox="0 100 400 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="190.0" y="117.5" width="1" height="1">M</text>
+<path d="M 225.0, 167.5 C 195.0, 167.5 195.0, 127.5 225.0, 127.5" style="fill:none;"/><polygon points="225.0,127.5 220.0,122.5 233.0,127.5 220.0,132.5 225.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="240.0" y="117.5" width="1" height="1">M</text>
+<path d="M 275.0, 167.5 C 245.0, 167.5 245.0, 127.5 275.0, 127.5" style="fill:none;"/><polygon points="275.0,127.5 270.0,122.5 283.0,127.5 270.0,132.5 275.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios"><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="170" x2="64.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><rect x="350.0" y="135.0" width="3" height="30.0" /><line x1="353.0" y1="135.0" x2="359.0" y2="140.0" />
+<line x1="353.0" y1="139.28571428571428" x2="359.0" y2="144.28571428571428" />
+<line x1="353.0" y1="143.57142857142858" x2="359.0" y2="148.57142857142858" />
+<line x1="353.0" y1="147.85714285714286" x2="359.0" y2="152.85714285714286" />
+<line x1="353.0" y1="152.14285714285714" x2="359.0" y2="157.14285714285714" />
+<line x1="353.0" y1="156.42857142857142" x2="359.0" y2="161.42857142857142" />
+<line x1="353.0" y1="160.71428571428572" x2="359.0" y2="165.71428571428572" />
+<line x1="353.0" y1="165.0" x2="359.0" y2="170.0" />
+<title>Apoio engastado</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="225" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="137.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="225" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="230" y1="180" x2="220" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">b</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+</div>
+<h2>VÃO-BALANÇO</h2>
+<div class="grid-container">
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB1-w.html" class="links"><h3>VB1-w</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com carga uniformemente distribuída em toda a viga</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="300.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="350.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="117" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="117" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="117" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="117" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="117" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="117" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="117" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="117" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="117" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g><text class="textoEquacoes" x="355.0" y="109" width="1" height="1">w</text>
+<rect x="350.0" y="117" width="100.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="350.0" y1="117" x2="450.0" y2="117" class="cargaDistribuida" />
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<line x1="375.0" y1="147" x2="375.0" y2="117" class="cargaDistribuida"/>
+<line x1="400.0" y1="147" x2="400.0" y2="117" class="cargaDistribuida"/>
+<line x1="425.0" y1="147" x2="425.0" y2="117" class="cargaDistribuida"/>
+<line x1="450.0" y1="147" x2="450.0" y2="117" class="cargaDistribuida"/>
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<polygon points="375.0,142 378.0,139 375.0,147 372.0,139 375.0,142" class="cargaDistribuida" />
+<polygon points="400.0,142 403.0,139 400.0,147 397.0,139 400.0,142" class="cargaDistribuida" />
+<polygon points="425.0,142 428.0,139 425.0,147 422.0,139 425.0,142" class="cargaDistribuida" />
+<polygon points="450.0,142 453.0,139 450.0,147 447.0,139 450.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB2-wv.html" class="links"><h3>VB2-wv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com carga uniformemente distribuída no vão da viga</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="300.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="350.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="80.0" y1="147" x2="80.0" y2="117" class="cargaDistribuida"/>
+<line x1="110.0" y1="147" x2="110.0" y2="117" class="cargaDistribuida"/>
+<line x1="140.0" y1="147" x2="140.0" y2="117" class="cargaDistribuida"/>
+<line x1="170.0" y1="147" x2="170.0" y2="117" class="cargaDistribuida"/>
+<line x1="200.0" y1="147" x2="200.0" y2="117" class="cargaDistribuida"/>
+<line x1="230.0" y1="147" x2="230.0" y2="117" class="cargaDistribuida"/>
+<line x1="260.0" y1="147" x2="260.0" y2="117" class="cargaDistribuida"/>
+<line x1="290.0" y1="147" x2="290.0" y2="117" class="cargaDistribuida"/>
+<line x1="320.0" y1="147" x2="320.0" y2="117" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="80.0,142 83.0,139 80.0,147 77.0,139 80.0,142" class="cargaDistribuida" />
+<polygon points="110.0,142 113.0,139 110.0,147 107.0,139 110.0,142" class="cargaDistribuida" />
+<polygon points="140.0,142 143.0,139 140.0,147 137.0,139 140.0,142" class="cargaDistribuida" />
+<polygon points="170.0,142 173.0,139 170.0,147 167.0,139 170.0,142" class="cargaDistribuida" />
+<polygon points="200.0,142 203.0,139 200.0,147 197.0,139 200.0,142" class="cargaDistribuida" />
+<polygon points="230.0,142 233.0,139 230.0,147 227.0,139 230.0,142" class="cargaDistribuida" />
+<polygon points="260.0,142 263.0,139 260.0,147 257.0,139 260.0,142" class="cargaDistribuida" />
+<polygon points="290.0,142 293.0,139 290.0,147 287.0,139 290.0,142" class="cargaDistribuida" />
+<polygon points="320.0,142 323.0,139 320.0,147 317.0,139 320.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB3-wb.html" class="links"><h3>VB3-wb</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com carga uniformemente distribuída no balanço da viga</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="355.0" y="109" width="1" height="1">w</text>
+<rect x="350.0" y="117" width="100.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="350.0" y1="117" x2="450.0" y2="117" class="cargaDistribuida" />
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<line x1="375.0" y1="147" x2="375.0" y2="117" class="cargaDistribuida"/>
+<line x1="400.0" y1="147" x2="400.0" y2="117" class="cargaDistribuida"/>
+<line x1="425.0" y1="147" x2="425.0" y2="117" class="cargaDistribuida"/>
+<line x1="450.0" y1="147" x2="450.0" y2="117" class="cargaDistribuida"/>
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<polygon points="375.0,142 378.0,139 375.0,147 372.0,139 375.0,142" class="cargaDistribuida" />
+<polygon points="400.0,142 403.0,139 400.0,147 397.0,139 400.0,142" class="cargaDistribuida" />
+<polygon points="425.0,142 428.0,139 425.0,147 422.0,139 425.0,142" class="cargaDistribuida" />
+<polygon points="450.0,142 453.0,139 450.0,147 447.0,139 450.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB4-pv.html" class="links"><h3>VB4-pv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com carga uniforme distribuída em parte do vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="105.0" y="99" width="1" height="1">w</text>
+<rect x="100.0" y="107" width="175.0" height="40" class="cargaDistribuidaFundo" />
+<line x1="100.0" y1="107" x2="275.0" y2="107" class="cargaDistribuida" />
+<line x1="100.0" y1="147" x2="100.0" y2="107" class="cargaDistribuida"/>
+<line x1="129.16666666666666" y1="147" x2="129.16666666666666" y2="107" class="cargaDistribuida"/>
+<line x1="158.33333333333334" y1="147" x2="158.33333333333334" y2="107" class="cargaDistribuida"/>
+<line x1="187.5" y1="147" x2="187.5" y2="107" class="cargaDistribuida"/>
+<line x1="216.66666666666669" y1="147" x2="216.66666666666669" y2="107" class="cargaDistribuida"/>
+<line x1="245.83333333333334" y1="147" x2="245.83333333333334" y2="107" class="cargaDistribuida"/>
+<line x1="275.0" y1="147" x2="275.0" y2="107" class="cargaDistribuida"/>
+<polygon points="100.0,142 103.0,139 100.0,147 97.0,139 100.0,142" class="cargaDistribuida" />
+<polygon points="129.16666666666666,142 132.16666666666666,139 129.16666666666666,147 126.16666666666666,139 129.16666666666666,142" class="cargaDistribuida" />
+<polygon points="158.33333333333334,142 161.33333333333334,139 158.33333333333334,147 155.33333333333334,139 158.33333333333334,142" class="cargaDistribuida" />
+<polygon points="187.5,142 190.5,139 187.5,147 184.5,139 187.5,142" class="cargaDistribuida" />
+<polygon points="216.66666666666669,142 219.66666666666669,139 216.66666666666669,147 213.66666666666669,139 216.66666666666669,142" class="cargaDistribuida" />
+<polygon points="245.83333333333334,142 248.83333333333334,139 245.83333333333334,147 242.83333333333334,139 245.83333333333334,142" class="cargaDistribuida" />
+<polygon points="275.0,142 278.0,139 275.0,147 272.0,139 275.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="100" y="147.5" rx="2" ry="2" width="175" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="75.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="100" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="187.5" y="180" width="1" height="1">b</text>
+<line x1="100" y1="185" x2="275" y2="185" />
+<line x1="105" y1="180" x2="95" y2="190" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">c</text>
+<line x1="275" y1="185" x2="350" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB5-fv.html" class="links"><h3>VB5-fv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com carga concentrada no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="130.0" y="102" width="1" height="1">F</text>
+<line x1="150.0" y1="147" x2="150.0" y2="107" />
+<polygon points="150.0,139 155.0,134 150.0,147 145.0,134 150.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="400.0" y="180" width="1" height="1">b</text>
+<line x1="350" y1="185" x2="450" y2="185" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<line x1="455" y1="180" x2="445" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB6-fb.html" class="links"><h3>VB6-fb</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com carga concentrada no balanço</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="385.0" y="102" width="1" height="1">F</text>
+<line x1="405.0" y1="147" x2="405.0" y2="107" />
+<polygon points="405.0,139 410.0,134 405.0,147 400.0,134 405.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="55" height="5" class="viga"><title>A viga</title></rect>
+<rect x="405" y="147.5" rx="2" ry="2" width="45" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="377.5" y="180" width="1" height="1">b</text>
+<line x1="350" y1="185" x2="405" y2="185" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<line x1="410" y1="180" x2="400" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB7-m.html" class="links"><h3>VB7-m</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com momento concentrado no vão</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="115.0" y="117.5" width="1" height="1">M</text>
+<path d="M 150.0, 167.5 C 120.0, 167.5 120.0, 127.5 150.0, 127.5" style="fill:none;"/><polygon points="150.0,127.5 145.0,122.5 158.0,127.5 145.0,132.5 150.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="150" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="100.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="150" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="155" y1="180" x2="145" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="400.0" y="180" width="1" height="1">b</text>
+<line x1="350" y1="185" x2="450" y2="185" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<line x1="455" y1="180" x2="445" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="VB8-ma.html" class="links"><h3>VB8-ma</h3></a></td><td class="celulasTabelaVigasDescricao">Viga vão-balanço com momento concentrado no apoio</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="360.0" y="117.5" width="1" height="1">M</text>
+<path d="M 395.0, 167.5 C 365.0, 167.5 365.0, 127.5 395.0, 127.5" style="fill:none;"/><polygon points="395.0,127.5 390.0,122.5 403.0,127.5 390.0,132.5 395.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="350.0,150 360.0,165 340.0,165" />
+<line x1="336.0" y1="165" x2="364.0" y2="165" />
+<line x1="336.0" y1="170" x2="364.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="300" height="5" class="viga"><title>A viga</title></rect>
+<rect x="350" y="147.5" rx="2" ry="2" width="45" height="5" class="viga"><title>A viga</title></rect>
+<rect x="395" y="147.5" rx="2" ry="2" width="55" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="200.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="350" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="372.5" y="180" width="1" height="1">b</text>
+<line x1="350" y1="185" x2="395" y2="185" />
+<line x1="355" y1="180" x2="345" y2="190" />
+<line x1="400" y1="180" x2="390" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+</div>
+<h2>DUPLO-VÃO</h2>
+<div class="grid-container">
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV1-w.html" class="links"><h3>DV1-w</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com carga uniformemente distribuída em toda a viga</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="200.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="250.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="78.57142857142857" y1="147" x2="78.57142857142857" y2="117" class="cargaDistribuida"/>
+<line x1="107.14285714285714" y1="147" x2="107.14285714285714" y2="117" class="cargaDistribuida"/>
+<line x1="135.71428571428572" y1="147" x2="135.71428571428572" y2="117" class="cargaDistribuida"/>
+<line x1="164.28571428571428" y1="147" x2="164.28571428571428" y2="117" class="cargaDistribuida"/>
+<line x1="192.85714285714286" y1="147" x2="192.85714285714286" y2="117" class="cargaDistribuida"/>
+<line x1="221.42857142857144" y1="147" x2="221.42857142857144" y2="117" class="cargaDistribuida"/>
+<line x1="250.0" y1="147" x2="250.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="78.57142857142857,142 81.57142857142857,139 78.57142857142857,147 75.57142857142857,139 78.57142857142857,142" class="cargaDistribuida" />
+<polygon points="107.14285714285714,142 110.14285714285714,139 107.14285714285714,147 104.14285714285714,139 107.14285714285714,142" class="cargaDistribuida" />
+<polygon points="135.71428571428572,142 138.71428571428572,139 135.71428571428572,147 132.71428571428572,139 135.71428571428572,142" class="cargaDistribuida" />
+<polygon points="164.28571428571428,142 167.28571428571428,139 164.28571428571428,147 161.28571428571428,139 164.28571428571428,142" class="cargaDistribuida" />
+<polygon points="192.85714285714286,142 195.85714285714286,139 192.85714285714286,147 189.85714285714286,139 192.85714285714286,142" class="cargaDistribuida" />
+<polygon points="221.42857142857144,142 224.42857142857144,139 221.42857142857144,147 218.42857142857144,139 221.42857142857144,142" class="cargaDistribuida" />
+<polygon points="250.0,142 253.0,139 250.0,147 247.0,139 250.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g><text class="textoEquacoes" x="255.0" y="109" width="1" height="1">w</text>
+<rect x="250.0" y="117" width="200.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="250.0" y1="117" x2="450.0" y2="117" class="cargaDistribuida" />
+<line x1="250.0" y1="147" x2="250.0" y2="117" class="cargaDistribuida"/>
+<line x1="278.57142857142856" y1="147" x2="278.57142857142856" y2="117" class="cargaDistribuida"/>
+<line x1="307.14285714285717" y1="147" x2="307.14285714285717" y2="117" class="cargaDistribuida"/>
+<line x1="335.7142857142857" y1="147" x2="335.7142857142857" y2="117" class="cargaDistribuida"/>
+<line x1="364.2857142857143" y1="147" x2="364.2857142857143" y2="117" class="cargaDistribuida"/>
+<line x1="392.8571428571429" y1="147" x2="392.8571428571429" y2="117" class="cargaDistribuida"/>
+<line x1="421.42857142857144" y1="147" x2="421.42857142857144" y2="117" class="cargaDistribuida"/>
+<line x1="450.0" y1="147" x2="450.0" y2="117" class="cargaDistribuida"/>
+<polygon points="250.0,142 253.0,139 250.0,147 247.0,139 250.0,142" class="cargaDistribuida" />
+<polygon points="278.57142857142856,142 281.57142857142856,139 278.57142857142856,147 275.57142857142856,139 278.57142857142856,142" class="cargaDistribuida" />
+<polygon points="307.14285714285717,142 310.14285714285717,139 307.14285714285717,147 304.14285714285717,139 307.14285714285717,142" class="cargaDistribuida" />
+<polygon points="335.7142857142857,142 338.7142857142857,139 335.7142857142857,147 332.7142857142857,139 335.7142857142857,142" class="cargaDistribuida" />
+<polygon points="364.2857142857143,142 367.2857142857143,139 364.2857142857143,147 361.2857142857143,139 364.2857142857143,142" class="cargaDistribuida" />
+<polygon points="392.8571428571429,142 395.8571428571429,139 392.8571428571429,147 389.8571428571429,139 392.8571428571429,142" class="cargaDistribuida" />
+<polygon points="421.42857142857144,142 424.42857142857144,139 421.42857142857144,147 418.42857142857144,139 421.42857142857144,142" class="cargaDistribuida" />
+<polygon points="450.0,142 453.0,139 450.0,147 447.0,139 450.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="250" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV2-we.html" class="links"><h3>DV2-we</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com carga uniformemente distribuída no vão da esquerda</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="55.0" y="109" width="1" height="1">w</text>
+<rect x="50.0" y="117" width="200.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="50.0" y1="117" x2="250.0" y2="117" class="cargaDistribuida" />
+<line x1="50.0" y1="147" x2="50.0" y2="117" class="cargaDistribuida"/>
+<line x1="78.57142857142857" y1="147" x2="78.57142857142857" y2="117" class="cargaDistribuida"/>
+<line x1="107.14285714285714" y1="147" x2="107.14285714285714" y2="117" class="cargaDistribuida"/>
+<line x1="135.71428571428572" y1="147" x2="135.71428571428572" y2="117" class="cargaDistribuida"/>
+<line x1="164.28571428571428" y1="147" x2="164.28571428571428" y2="117" class="cargaDistribuida"/>
+<line x1="192.85714285714286" y1="147" x2="192.85714285714286" y2="117" class="cargaDistribuida"/>
+<line x1="221.42857142857144" y1="147" x2="221.42857142857144" y2="117" class="cargaDistribuida"/>
+<line x1="250.0" y1="147" x2="250.0" y2="117" class="cargaDistribuida"/>
+<polygon points="50.0,142 53.0,139 50.0,147 47.0,139 50.0,142" class="cargaDistribuida" />
+<polygon points="78.57142857142857,142 81.57142857142857,139 78.57142857142857,147 75.57142857142857,139 78.57142857142857,142" class="cargaDistribuida" />
+<polygon points="107.14285714285714,142 110.14285714285714,139 107.14285714285714,147 104.14285714285714,139 107.14285714285714,142" class="cargaDistribuida" />
+<polygon points="135.71428571428572,142 138.71428571428572,139 135.71428571428572,147 132.71428571428572,139 135.71428571428572,142" class="cargaDistribuida" />
+<polygon points="164.28571428571428,142 167.28571428571428,139 164.28571428571428,147 161.28571428571428,139 164.28571428571428,142" class="cargaDistribuida" />
+<polygon points="192.85714285714286,142 195.85714285714286,139 192.85714285714286,147 189.85714285714286,139 192.85714285714286,142" class="cargaDistribuida" />
+<polygon points="221.42857142857144,142 224.42857142857144,139 221.42857142857144,147 218.42857142857144,139 221.42857142857144,142" class="cargaDistribuida" />
+<polygon points="250.0,142 253.0,139 250.0,147 247.0,139 250.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="250" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV3-wd.html" class="links"><h3>DV3-wd</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com carga uniformemente distribuída no vão da direita</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="255.0" y="109" width="1" height="1">w</text>
+<rect x="250.0" y="117" width="200.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="250.0" y1="117" x2="450.0" y2="117" class="cargaDistribuida" />
+<line x1="250.0" y1="147" x2="250.0" y2="117" class="cargaDistribuida"/>
+<line x1="278.57142857142856" y1="147" x2="278.57142857142856" y2="117" class="cargaDistribuida"/>
+<line x1="307.14285714285717" y1="147" x2="307.14285714285717" y2="117" class="cargaDistribuida"/>
+<line x1="335.7142857142857" y1="147" x2="335.7142857142857" y2="117" class="cargaDistribuida"/>
+<line x1="364.2857142857143" y1="147" x2="364.2857142857143" y2="117" class="cargaDistribuida"/>
+<line x1="392.8571428571429" y1="147" x2="392.8571428571429" y2="117" class="cargaDistribuida"/>
+<line x1="421.42857142857144" y1="147" x2="421.42857142857144" y2="117" class="cargaDistribuida"/>
+<line x1="450.0" y1="147" x2="450.0" y2="117" class="cargaDistribuida"/>
+<polygon points="250.0,142 253.0,139 250.0,147 247.0,139 250.0,142" class="cargaDistribuida" />
+<polygon points="278.57142857142856,142 281.57142857142856,139 278.57142857142856,147 275.57142857142856,139 278.57142857142856,142" class="cargaDistribuida" />
+<polygon points="307.14285714285717,142 310.14285714285717,139 307.14285714285717,147 304.14285714285717,139 307.14285714285717,142" class="cargaDistribuida" />
+<polygon points="335.7142857142857,142 338.7142857142857,139 335.7142857142857,147 332.7142857142857,139 335.7142857142857,142" class="cargaDistribuida" />
+<polygon points="364.2857142857143,142 367.2857142857143,139 364.2857142857143,147 361.2857142857143,139 364.2857142857143,142" class="cargaDistribuida" />
+<polygon points="392.8571428571429,142 395.8571428571429,139 392.8571428571429,147 389.8571428571429,139 392.8571428571429,142" class="cargaDistribuida" />
+<polygon points="421.42857142857144,142 424.42857142857144,139 421.42857142857144,147 418.42857142857144,139 421.42857142857144,142" class="cargaDistribuida" />
+<polygon points="450.0,142 453.0,139 450.0,147 447.0,139 450.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="250" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV4-wv.html" class="links"><h3>DV4-wv</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com carga uniformemente distribuída em parte do vão esquerdo da viga</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="525px" height="150px" viewBox="0 100 525 100">
+<g><text class="textoEquacoes" x="130.0" y="109" width="1" height="1">w</text>
+<rect x="125.0" y="117" width="50.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="125.0" y1="117" x2="175.0" y2="117" class="cargaDistribuida" />
+<line x1="125.0" y1="147" x2="125.0" y2="117" class="cargaDistribuida"/>
+<line x1="150.0" y1="147" x2="150.0" y2="117" class="cargaDistribuida"/>
+<line x1="175.0" y1="147" x2="175.0" y2="117" class="cargaDistribuida"/>
+<polygon points="125.0,142 128.0,139 125.0,147 122.0,139 125.0,142" class="cargaDistribuida" />
+<polygon points="150.0,142 153.0,139 150.0,147 147.0,139 150.0,142" class="cargaDistribuida" />
+<polygon points="175.0,142 178.0,139 175.0,147 172.0,139 175.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="275.0,150 285.0,165 265.0,165" />
+<line x1="261.0" y1="165" x2="289.0" y2="165" />
+<line x1="261.0" y1="170" x2="289.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="475.0,150 485.0,165 465.0,165" />
+<line x1="461.0" y1="165" x2="489.0" y2="165" />
+<line x1="461.0" y1="170" x2="489.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="125" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="175" y="147.5" rx="2" ry="2" width="100" height="5" class="viga"><title>A viga</title></rect>
+<rect x="275" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="87.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="125" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">b</text>
+<line x1="125" y1="185" x2="175" y2="185" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<line x1="180" y1="180" x2="170" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="375.0" y="180" width="1" height="1">c</text>
+<line x1="275" y1="185" x2="475" y2="185" />
+<line x1="280" y1="180" x2="270" y2="190" />
+<line x1="480" y1="180" x2="470" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV5-wd.html" class="links"><h3>DV5-wd</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com carga uniformemente distribuída em parte do vão direito da viga</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g><text class="textoEquacoes" x="330.0" y="109" width="1" height="1">w</text>
+<rect x="325.0" y="117" width="50.0" height="30" class="cargaDistribuidaFundo" />
+<line x1="325.0" y1="117" x2="375.0" y2="117" class="cargaDistribuida" />
+<line x1="325.0" y1="147" x2="325.0" y2="117" class="cargaDistribuida"/>
+<line x1="350.0" y1="147" x2="350.0" y2="117" class="cargaDistribuida"/>
+<line x1="375.0" y1="147" x2="375.0" y2="117" class="cargaDistribuida"/>
+<polygon points="325.0,142 328.0,139 325.0,147 322.0,139 325.0,142" class="cargaDistribuida" />
+<polygon points="350.0,142 353.0,139 350.0,147 347.0,139 350.0,142" class="cargaDistribuida" />
+<polygon points="375.0,142 378.0,139 375.0,147 372.0,139 375.0,142" class="cargaDistribuida" />
+<title>Carga distribuída uniforme</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="325" y="147.5" rx="2" ry="2" width="50" height="5" class="viga"><title>A viga</title></rect>
+<rect x="375" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="250" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="287.5" y="180" width="1" height="1">b</text>
+<line x1="250" y1="185" x2="325" y2="185" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<line x1="330" y1="180" x2="320" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="350.0" y="180" width="1" height="1">c</text>
+<line x1="325" y1="185" x2="375" y2="185" />
+<line x1="330" y1="180" x2="320" y2="190" />
+<line x1="380" y1="180" x2="370" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV6-fe.html" class="links"><h3>DV6-fe</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com carga concentrada no vão da esquerda</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="105.0" y="102" width="1" height="1">F</text>
+<line x1="125.0" y1="147" x2="125.0" y2="107" />
+<polygon points="125.0,139 130.0,134 125.0,147 120.0,134 125.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="125" y="147.5" rx="2" ry="2" width="125" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="87.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="125" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="350.0" y="180" width="1" height="1">b</text>
+<line x1="250" y1="185" x2="450" y2="185" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<line x1="455" y1="180" x2="445" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV7-fe.html" class="links"><h3>DV7-fe</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com carga concentrada no vão da direita</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="cargaConcentrada"><text class="textoEquacoes" x="355.0" y="102" width="1" height="1">F</text>
+<line x1="375.0" y1="147" x2="375.0" y2="107" />
+<polygon points="375.0,139 380.0,134 375.0,147 370.0,134 375.0,139" />
+<title>Carga concentrada</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="125" height="5" class="viga"><title>A viga</title></rect>
+<rect x="375" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="250" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="412.5" y="180" width="1" height="1">b</text>
+<line x1="375" y1="185" x2="450" y2="185" />
+<line x1="380" y1="180" x2="370" y2="190" />
+<line x1="455" y1="180" x2="445" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV8-me.html" class="links"><h3>DV8-me</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com momento concentrado no vão da esquerda</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="140.0" y="117.5" width="1" height="1">M</text>
+<path d="M 175.0, 167.5 C 145.0, 167.5 145.0, 127.5 175.0, 127.5" style="fill:none;"/><polygon points="175.0,127.5 170.0,122.5 183.0,127.5 170.0,132.5 175.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="125" height="5" class="viga"><title>A viga</title></rect>
+<rect x="175" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="112.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="175" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="180" y1="180" x2="170" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="350.0" y="180" width="1" height="1">b</text>
+<line x1="250" y1="185" x2="450" y2="185" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<line x1="455" y1="180" x2="445" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV9-me.html" class="links"><h3>DV9-me</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com momento concentrado no vão da direita</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="290.0" y="117.5" width="1" height="1">M</text>
+<path d="M 325.0, 167.5 C 295.0, 167.5 295.0, 127.5 325.0, 127.5" style="fill:none;"/><polygon points="325.0,127.5 320.0,122.5 333.0,127.5 320.0,132.5 325.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="200" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="325" y="147.5" rx="2" ry="2" width="125" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="150.0" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="250" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="387.5" y="180" width="1" height="1">b</text>
+<line x1="325" y1="185" x2="450" y2="185" />
+<line x1="330" y1="180" x2="320" y2="190" />
+<line x1="455" y1="180" x2="445" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+<div class="grid-item"><table class="tabelaVigas"><thead><tr><td class="celulasTabelaVigasLink" rowspan="2"><a href="DV10-mm.html" class="links"><h3>DV10-mm</h3></a></td><td class="celulasTabelaVigasDescricao">Viga duplo-vão com momento concentrado em ambos os vãos</td></tr><tr><td class="celulasTabelaVigasImagem"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="500px" height="150px" viewBox="0 100 500 100">
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="90.0" y="117.5" width="1" height="1">M</text>
+<path d="M 125.0, 167.5 C 95.0, 167.5 95.0, 127.5 125.0, 127.5" style="fill:none;"/><polygon points="125.0,127.5 120.0,122.5 133.0,127.5 120.0,132.5 125.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g  class="momentoConcentrado"><text class="textoEquacoes" x="340.0" y="117.5" width="1" height="1">M</text>
+<path d="M 375.0, 167.5 C 345.0, 167.5 345.0, 127.5 375.0, 127.5" style="fill:none;"/><polygon points="375.0,127.5 370.0,122.5 383.0,127.5 370.0,132.5 375.0,127.5" />
+<title>Momento concentrado</title></g>
+
+<g class="apoios" ><polygon points="50.0,150 60.0,165 40.0,165" />
+<line x1="36.0" y1="165" x2="64.0" y2="165" />
+<line x1="36.0" y1="165" x2="30.0" y2="170" />
+<line x1="41.6" y1="165" x2="35.6" y2="170" />
+<line x1="47.2" y1="165" x2="41.2" y2="170" />
+<line x1="52.8" y1="165" x2="46.8" y2="170" />
+<line x1="58.4" y1="165" x2="52.4" y2="170" />
+<line x1="64.0" y1="165" x2="58.0" y2="170" />
+<title>Apoio rotulado</title></g>
+
+<g class="apoios"><polygon points="250.0,150 260.0,165 240.0,165" />
+<line x1="236.0" y1="165" x2="264.0" y2="165" />
+<line x1="236.0" y1="170" x2="264.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<g class="apoios"><polygon points="450.0,150 460.0,165 440.0,165" />
+<line x1="436.0" y1="165" x2="464.0" y2="165" />
+<line x1="436.0" y1="170" x2="464.0" y2="170" />
+<title>Apoio simples</title></g>
+
+<rect x="50" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<rect x="125" y="147.5" rx="2" ry="2" width="125" height="5" class="viga"><title>A viga</title></rect>
+<rect x="250" y="147.5" rx="2" ry="2" width="125" height="5" class="viga"><title>A viga</title></rect>
+<rect x="375" y="147.5" rx="2" ry="2" width="75" height="5" class="viga"><title>A viga</title></rect>
+<g  class="cota"><text class="textoEquacoes" x="87.5" y="180" width="1" height="1">a</text>
+<line x1="50" y1="185" x2="125" y2="185" />
+<line x1="55" y1="180" x2="45" y2="190" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="187.5" y="180" width="1" height="1">b</text>
+<line x1="125" y1="185" x2="250" y2="185" />
+<line x1="130" y1="180" x2="120" y2="190" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<title>Cota</title></g>
+
+<g  class="cota"><text class="textoEquacoes" x="312.5" y="180" width="1" height="1">c</text>
+<line x1="250" y1="185" x2="375" y2="185" />
+<line x1="255" y1="180" x2="245" y2="190" />
+<line x1="380" y1="180" x2="370" y2="190" />
+<title>Cota</title></g>
+
+</svg></td></tr></thead></table></div>
+</div>
+</div>
+<p class="explicacao" style="text-align:center;">* Estas vigas foram geradas automaticamente por uma implementação em python do método dos elementos finitos para vigas.</p>
+<p class="explicacao" style="text-align:center;">Copyright ® 2021 - Prof. Dr. Marco André Argenta</p>
+</div>
+</body>
+</html>

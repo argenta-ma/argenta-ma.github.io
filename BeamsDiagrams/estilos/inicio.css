@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'mathitalic';
+    src: url('math-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    font-family: serif;
+    background-color: white;
+    overflow: hidden;
+}
+
+foreignObject { 
+    overflow: visible; 
+}
+
+.principal {
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    position: fixed;
+    margin: 0;
+    background-color: white;
+    overflow: auto;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100vw;
+    position: static;
+    background-color: #0047b3;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 5px 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #008ae6;
+    color: white;
+}
+
+.conteudo {
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.explicacao {
+    margin-left: auto;
+    margin-right: auto;
+    width:70%;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.grid-container {
+    display: grid;
+    width: 80%;
+    grid-template-columns: auto auto;
+    margin: auto;
+}
+.grid-item {
+    background-color: rgba(230, 230, 230, 0.3);
+    border-bottom: 1px solid rgba(53,86,129, 0.3);
+    padding: 10px;
+    text-align: left;
+}
+
+.tabelaVigas {
+    /*background-color:rgba(250, 250, 250, 0.1);*/
+    border-collapse:collapse;
+    width:100%;
+    height: 100%;
+}
+.celulasTabelaVigasLink{
+    vertical-align:top;
+    text-align:left;
+    width: 120px;
+}
+.celulasTabelaVigasDescricao {
+    vertical-align:top;
+    text-align:left;
+}
+.celulasTabelaVigasImagem {
+    height: 130px;
+    text-align:center;
+}
+
+svg {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    margin: 1em 0 0.5em 0;
+    font-weight: 600;
+    position: relative;
+    font-size: 36px;
+    line-height: 40px;
+    padding: 15px 15px 15px 15px;
+    color: #355681;
+    box-shadow: inset 0 0 0 1px rgb(53 86 129 / 40%), inset 0 0 5px rgb(53 86 129 / 50%), inset -285px 0 35px white;
+    border-radius: 0 10px 0 10px;
+    text-align:center;
+}
+
+h2 {
+    margin: 1em 0 0.5em 0;
+    font-weight: 600;
+    position: relative;
+    font-size: 22px;
+    line-height: 40px;
+    color: #355681;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(53,86,129, 0.3);
+}
+
+.ficha {
+    border: 1px solid rgba(53,86,129, 0.3);
+    margin-left: auto;
+    margin-right: auto;
+    width:40%;
+    text-align: center;
+    text-justify: inter-word;
+    padding: 20px;
+}
+
+.links:link, .links:visited {
+    background-color: #0047b3;
+    color: white;
+    padding: 0px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.links:hover, .links:active {
+    background-color: #ddd;
+    color: black;
+}
+
+.linksTexto:link {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.linksTexto:visited {
+    text-decoration: none;
+}
+
+.linksTexto:hover {
+    text-decoration: underline;
+
+}
+
+.linksTexto:active {
+    text-decoration: underline;
+}
+
+.apoios {
+    fill: lightgray;
+    stroke: black;
+    stroke-width: 1;
+}
+
+.reacao {
+    fill: black;
+    stroke: black;
+    stroke-width: 2;
+}
+.reacaoMomento {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.viga {
+    fill: black;
+}
+
+.cota {
+    stroke-width: 1;
+    stroke: black;
+}
+.cargaDistribuida {
+    fill: black;
+    stroke: black;
+    stroke-width: 1;
+}
+.cargaDistribuidaFundo {
+    fill: white;
+    stroke: white;
+}
+
+
+.cargaConcentrada {
+    fill: black;
+    stroke: black;
+    stroke-width: 2;
+}
+
+.momentoConcentrado {
+    fill: black;
+    stroke: black;
+    stroke-width: 2;
+}
+.momentoConcentrado:hover {
+    fill: #a6a6a6;
+    stroke: #a6a6a6;
+}
+
+.textoEquacoes {
+    stroke: none;
+    fill: black;
+    font-family: 'mathitalic';
+    font-size: 24px;
+}
+.textoEquacoesSub{
+    stroke: none;
+    fill: black;
+    font-family: 'mathitalic';
+    font-size: 20px;
+    baseline-shift: -20%;
+}
